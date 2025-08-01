@@ -248,6 +248,7 @@ defmodule AWS.Glue do
   ## Example:
       
       s3_catalog_target() :: %{
+        "AutoDataQuality" => auto_data_quality(),
         "Database" => String.t(),
         "Inputs" => list(String.t()),
         "Name" => String.t(),
@@ -1700,6 +1701,7 @@ defmodule AWS.Glue do
         "ConnectionType" => list(any()),
         "Database" => String.t(),
         "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()),
         "RedshiftTmpDir" => String.t(),
         "Table" => String.t()
       }
@@ -1894,12 +1896,14 @@ defmodule AWS.Glue do
         "CatalogKafkaSource" => catalog_kafka_source(),
         "CatalogHudiSource" => catalog_hudi_source(),
         "S3HudiDirectTarget" => s3_hudi_direct_target(),
+        "Route" => route(),
         "ConnectorDataTarget" => connector_data_target(),
         "DynamoDBCatalogSource" => dynamo_db_catalog_source(),
         "RelationalCatalogSource" => relational_catalog_source(),
         "SparkConnectorSource" => spark_connector_source(),
         "FillMissingValues" => fill_missing_values(),
         "DropNullFields" => drop_null_fields(),
+        "S3CatalogIcebergSource" => s3_catalog_iceberg_source(),
         "Union" => union(),
         "Recipe" => recipe(),
         "AthenaConnectorSource" => athena_connector_source(),
@@ -1921,6 +1925,7 @@ defmodule AWS.Glue do
         "DynamicTransform" => dynamic_transform(),
         "S3DirectTarget" => s3_direct_target(),
         "S3DeltaDirectTarget" => s3_delta_direct_target(),
+        "CatalogIcebergSource" => catalog_iceberg_source(),
         "Filter" => filter(),
         "Aggregate" => aggregate(),
         "DirectKafkaSource" => direct_kafka_source(),
@@ -1938,12 +1943,14 @@ defmodule AWS.Glue do
         "RedshiftSource" => redshift_source(),
         "CatalogSource" => catalog_source(),
         "JDBCConnectorTarget" => j_db_c_connector_target(),
+        "DynamoDBELTConnectorSource" => dynamo_db_e_l_t_connector_source(),
         "AmazonRedshiftSource" => amazon_redshift_source(),
         "Join" => join(),
         "S3DeltaSource" => s3_delta_source(),
         "SelectFromCollection" => select_from_collection(),
         "S3JsonSource" => s3_json_source(),
         "SparkSQL" => spark_s_q_l(),
+        "S3IcebergCatalogTarget" => s3_iceberg_catalog_target(),
         "MySQLCatalogTarget" => my_s_q_l_catalog_target(),
         "JDBCConnectorSource" => j_db_c_connector_source(),
         "S3HudiSource" => s3_hudi_source(),
@@ -2853,11 +2860,13 @@ defmodule AWS.Glue do
   ## Example:
       
       s3_direct_target() :: %{
+        "AutoDataQuality" => auto_data_quality(),
         "Compression" => String.t(),
         "Format" => list(any()),
         "Inputs" => list(String.t()),
         "Name" => String.t(),
         "NumberTargetPartitions" => String.t(),
+        "OutputSchemas" => list(glue_schema()),
         "PartitionKeys" => list(list(String.t())()),
         "Path" => String.t(),
         "SchemaChangePolicy" => direct_schema_change_policy()
@@ -3253,9 +3262,11 @@ defmodule AWS.Glue do
       
       s3_hudi_catalog_target() :: %{
         "AdditionalOptions" => map(),
+        "AutoDataQuality" => auto_data_quality(),
         "Database" => String.t(),
         "Inputs" => list(String.t()),
         "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()),
         "PartitionKeys" => list(list(String.t())()),
         "SchemaChangePolicy" => catalog_schema_change_policy(),
         "Table" => String.t()
@@ -4993,11 +5004,13 @@ defmodule AWS.Glue do
       
       s3_iceberg_direct_target() :: %{
         "AdditionalOptions" => map(),
+        "AutoDataQuality" => auto_data_quality(),
         "Compression" => list(any()),
         "Format" => list(any()),
         "Inputs" => list(String.t()),
         "Name" => String.t(),
         "NumberTargetPartitions" => String.t(),
+        "OutputSchemas" => list(glue_schema()),
         "PartitionKeys" => list(list(String.t())()),
         "Path" => String.t(),
         "SchemaChangePolicy" => direct_schema_change_policy()
@@ -5177,6 +5190,7 @@ defmodule AWS.Glue do
         "DescribeShardInterval" => float(),
         "EmitConsumerLagMetrics" => String.t(),
         "EndpointUrl" => String.t(),
+        "FanoutConsumerARN" => String.t(),
         "IdleTimeBetweenReadsInMs" => float(),
         "MaxFetchRecordsPerShard" => float(),
         "MaxFetchTimeInMs" => float(),
@@ -5673,6 +5687,21 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      s3_catalog_iceberg_source() :: %{
+        "AdditionalIcebergOptions" => map(),
+        "Database" => String.t(),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()),
+        "Table" => String.t()
+      }
+      
+  """
+  @type s3_catalog_iceberg_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_connection_type_response() :: %{
         "AthenaConnectionProperties" => map(),
         "AuthenticationConfiguration" => auth_configuration(),
@@ -5709,6 +5738,7 @@ defmodule AWS.Glue do
       
       s3_delta_direct_target() :: %{
         "AdditionalOptions" => map(),
+        "AutoDataQuality" => auto_data_quality(),
         "Compression" => list(any()),
         "Format" => list(any()),
         "Inputs" => list(String.t()),
@@ -6163,6 +6193,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      dynamo_db_e_l_t_connector_source() :: %{
+        "ConnectionOptions" => d_db_e_l_t_connection_options(),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema())
+      }
+      
+  """
+  @type dynamo_db_e_l_t_connector_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stop_crawler_schedule_response() :: %{}
       
   """
@@ -6449,9 +6492,12 @@ defmodule AWS.Glue do
   ## Example:
       
       s3_hyper_direct_target() :: %{
+        "AutoDataQuality" => auto_data_quality(),
         "Compression" => list(any()),
+        "Format" => list(any()),
         "Inputs" => list(String.t()),
         "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()),
         "PartitionKeys" => list(list(String.t())()),
         "Path" => String.t(),
         "SchemaChangePolicy" => direct_schema_change_policy()
@@ -6531,6 +6577,23 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      d_db_e_l_t_connection_options() :: %{
+        "DynamodbExport" => list(any()),
+        "DynamodbS3Bucket" => String.t(),
+        "DynamodbS3BucketOwner" => String.t(),
+        "DynamodbS3Prefix" => String.t(),
+        "DynamodbStsRoleArn" => String.t(),
+        "DynamodbTableArn" => String.t(),
+        "DynamodbUnnestDDBJson" => boolean()
+      }
+      
+  """
+  @type d_db_e_l_t_connection_options() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       recipe() :: %{
         "Inputs" => list(String.t()),
         "Name" => String.t(),
@@ -6564,6 +6627,19 @@ defmodule AWS.Glue do
       
   """
   @type get_blueprint_runs_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      route() :: %{
+        "GroupFiltersList" => list(group_filters()),
+        "Inputs" => list(String.t()),
+        "Name" => String.t()
+      }
+      
+  """
+  @type route() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6709,6 +6785,7 @@ defmodule AWS.Glue do
   ## Example:
       
       glue_studio_schema_column() :: %{
+        "GlueStudioType" => String.t(),
         "Name" => String.t(),
         "Type" => String.t()
       }
@@ -6775,6 +6852,21 @@ defmodule AWS.Glue do
       
   """
   @type get_tags_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      catalog_iceberg_source() :: %{
+        "AdditionalIcebergOptions" => map(),
+        "Database" => String.t(),
+        "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()),
+        "Table" => String.t()
+      }
+      
+  """
+  @type catalog_iceberg_source() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6892,6 +6984,7 @@ defmodule AWS.Glue do
   ## Example:
       
       s3_glue_parquet_target() :: %{
+        "AutoDataQuality" => auto_data_quality(),
         "Compression" => list(any()),
         "Inputs" => list(String.t()),
         "Name" => String.t(),
@@ -7652,6 +7745,24 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      s3_iceberg_catalog_target() :: %{
+        "AdditionalOptions" => map(),
+        "AutoDataQuality" => auto_data_quality(),
+        "Database" => String.t(),
+        "Inputs" => list(String.t()),
+        "Name" => String.t(),
+        "PartitionKeys" => list(list(String.t())()),
+        "SchemaChangePolicy" => catalog_schema_change_policy(),
+        "Table" => String.t()
+      }
+      
+  """
+  @type s3_iceberg_catalog_target() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       batch_update_partition_request() :: %{
         optional("CatalogId") => String.t(),
         required("DatabaseName") => String.t(),
@@ -7880,6 +7991,19 @@ defmodule AWS.Glue do
       
   """
   @type delete_column_statistics_for_partition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      group_filters() :: %{
+        "Filters" => list(filter_expression()),
+        "GroupName" => String.t(),
+        "LogicalOperator" => list(any())
+      }
+      
+  """
+  @type group_filters() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8659,9 +8783,11 @@ defmodule AWS.Glue do
       
       s3_delta_catalog_target() :: %{
         "AdditionalOptions" => map(),
+        "AutoDataQuality" => auto_data_quality(),
         "Database" => String.t(),
         "Inputs" => list(String.t()),
         "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()),
         "PartitionKeys" => list(list(String.t())()),
         "SchemaChangePolicy" => catalog_schema_change_policy(),
         "Table" => String.t()
@@ -9621,12 +9747,19 @@ defmodule AWS.Glue do
   ## Example:
       
       p_i_idetection() :: %{
+        "DetectionParameters" => String.t(),
+        "DetectionSensitivity" => String.t(),
         "EntityTypesToDetect" => list(String.t()),
         "Inputs" => list(String.t()),
         "MaskValue" => String.t(),
+        "MatchPattern" => String.t(),
         "Name" => String.t(),
+        "NumLeftCharsToExclude" => integer(),
+        "NumRightCharsToExclude" => integer(),
         "OutputColumnName" => String.t(),
         "PiiType" => list(any()),
+        "RedactChar" => String.t(),
+        "RedactText" => String.t(),
         "SampleFraction" => float(),
         "ThresholdFraction" => float()
       }
@@ -9949,6 +10082,8 @@ defmodule AWS.Glue do
       catalog_source() :: %{
         "Database" => String.t(),
         "Name" => String.t(),
+        "OutputSchemas" => list(glue_schema()),
+        "PartitionPredicate" => String.t(),
         "Table" => String.t()
       }
       
@@ -10610,8 +10745,10 @@ defmodule AWS.Glue do
   ## Example:
       
       dynamo_db_catalog_source() :: %{
+        "AdditionalOptions" => d_db_e_l_t_catalog_additional_options(),
         "Database" => String.t(),
         "Name" => String.t(),
+        "PitrEnabled" => boolean(),
         "Table" => String.t()
       }
       
@@ -10748,6 +10885,7 @@ defmodule AWS.Glue do
       
       s3_hudi_direct_target() :: %{
         "AdditionalOptions" => map(),
+        "AutoDataQuality" => auto_data_quality(),
         "Compression" => list(any()),
         "Format" => list(any()),
         "Inputs" => list(String.t()),
@@ -11404,6 +11542,18 @@ defmodule AWS.Glue do
       
   """
   @type data_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      d_db_e_l_t_catalog_additional_options() :: %{
+        "DynamodbExport" => String.t(),
+        "DynamodbUnnestDDBJson" => boolean()
+      }
+      
+  """
+  @type d_db_e_l_t_catalog_additional_options() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -12192,6 +12342,18 @@ defmodule AWS.Glue do
       
   """
   @type confusion_matrix() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      auto_data_quality() :: %{
+        "EvaluationContext" => String.t(),
+        "IsEnabled" => boolean()
+      }
+      
+  """
+  @type auto_data_quality() :: %{String.t() => any()}
 
   @typedoc """
 

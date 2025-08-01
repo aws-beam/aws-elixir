@@ -122,7 +122,8 @@ defmodule AWS.EntityResolution do
       resolution_techniques() :: %{
         "providerProperties" => provider_properties(),
         "resolutionType" => list(any()),
-        "ruleBasedProperties" => rule_based_properties()
+        "ruleBasedProperties" => rule_based_properties(),
+        "ruleConditionProperties" => rule_condition_properties()
       }
 
   """
@@ -702,6 +703,17 @@ defmodule AWS.EntityResolution do
 
   ## Example:
 
+      rule_condition_properties() :: %{
+        "rules" => list(rule_condition())
+      }
+
+  """
+  @type rule_condition_properties() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       id_mapping_job_metrics() :: %{
         "inputRecords" => [integer()],
         "recordsNotProcessed" => [integer()],
@@ -1179,6 +1191,18 @@ defmodule AWS.EntityResolution do
 
   """
   @type delete_policy_statement_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_condition() :: %{
+        "condition" => [String.t()],
+        "ruleName" => [String.t()]
+      }
+
+  """
+  @type rule_condition() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1965,7 +1989,7 @@ defmodule AWS.EntityResolution do
   processing job to be run.
 
   Each `IdMappingWorkflow` must have a unique workflow name. To modify an existing
-  workflow, use the `UpdateIdMappingWorkflow` API.
+  workflow, use the UpdateIdMappingWorkflow API.
   """
   @spec create_id_mapping_workflow(map(), create_id_mapping_workflow_input(), list()) ::
           {:ok, create_id_mapping_workflow_output(), any()}
@@ -1998,7 +2022,7 @@ defmodule AWS.EntityResolution do
   explaining their dataset and how to use it.
 
   Each ID namespace must have a unique name. To modify an existing ID namespace,
-  use the `UpdateIdNamespace` API.
+  use the UpdateIdNamespace API.
   """
   @spec create_id_namespace(map(), create_id_namespace_input(), list()) ::
           {:ok, create_id_namespace_output(), any()}
@@ -2027,12 +2051,14 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Creates a `MatchingWorkflow` object which stores the configuration of the data
-  processing job to be run.
+  Creates a matching workflow that defines the configuration for a data processing
+  job.
 
-  It is important to note that there should not be a pre-existing
-  `MatchingWorkflow` with the same name. To modify an existing workflow, utilize
-  the `UpdateMatchingWorkflow` API.
+  The workflow name must be unique. To modify an existing workflow, use
+  `UpdateMatchingWorkflow`.
+
+  For workflows where `resolutionType` is ML_MATCHING, incremental processing is
+  not supported.
   """
   @spec create_matching_workflow(map(), create_matching_workflow_input(), list()) ::
           {:ok, create_matching_workflow_output(), any()}
@@ -2951,7 +2977,7 @@ defmodule AWS.EntityResolution do
   @doc """
   Updates an existing `IdMappingWorkflow`.
 
-  This method is identical to `CreateIdMappingWorkflow`, except it uses an HTTP
+  This method is identical to CreateIdMappingWorkflow, except it uses an HTTP
   `PUT` request instead of a `POST` request, and the `IdMappingWorkflow` must
   already exist for the method to succeed.
   """
@@ -3011,11 +3037,12 @@ defmodule AWS.EntityResolution do
   end
 
   @doc """
-  Updates an existing `MatchingWorkflow`.
+  Updates an existing matching workflow.
 
-  This method is identical to `CreateMatchingWorkflow`, except it uses an HTTP
-  `PUT` request instead of a `POST` request, and the `MatchingWorkflow` must
-  already exist for the method to succeed.
+  The workflow must already exist for this operation to succeed.
+
+  For workflows where `resolutionType` is ML_MATCHING, incremental processing is
+  not supported.
   """
   @spec update_matching_workflow(map(), String.t(), update_matching_workflow_input(), list()) ::
           {:ok, update_matching_workflow_output(), any()}

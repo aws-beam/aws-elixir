@@ -258,6 +258,19 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      update_session_logger_request() :: %{
+        optional("displayName") => String.t(),
+        optional("eventFilter") => list(),
+        optional("logConfiguration") => log_configuration()
+      }
+
+  """
+  @type update_session_logger_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_identity_provider_response() :: %{
         "identityProvider" => identity_provider()
       }
@@ -417,6 +430,17 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      get_session_logger_response() :: %{
+        "sessionLogger" => session_logger()
+      }
+
+  """
+  @type get_session_logger_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_identity_provider_response() :: %{
         "identityProviderArn" => String.t()
       }
@@ -542,6 +566,27 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type expire_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_session_logger_request() :: %{}
+
+  """
+  @type delete_session_logger_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_session_loggers_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_session_loggers_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -788,6 +833,17 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      associate_session_logger_request() :: %{
+        required("sessionLoggerArn") => String.t()
+      }
+
+  """
+  @type associate_session_logger_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_portals_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -795,6 +851,21 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type list_portals_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_log_configuration() :: %{
+        "bucket" => String.t(),
+        "bucketOwner" => String.t(),
+        "folderStructure" => list(any()),
+        "keyPrefix" => String.t(),
+        "logFileFormat" => list(any())
+      }
+
+  """
+  @type s3_log_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -857,6 +928,23 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      create_session_logger_request() :: %{
+        optional("additionalEncryptionContext") => map(),
+        optional("clientToken") => String.t(),
+        optional("customerManagedKey") => String.t(),
+        optional("displayName") => String.t(),
+        optional("tags") => list(tag()),
+        required("eventFilter") => list(),
+        required("logConfiguration") => log_configuration()
+      }
+
+  """
+  @type create_session_logger_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_trust_store_request() :: %{
         optional("clientToken") => String.t(),
         optional("tags") => list(tag()),
@@ -903,6 +991,18 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type associate_network_settings_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_session_loggers_response() :: %{
+        "nextToken" => String.t(),
+        "sessionLoggers" => list(session_logger_summary())
+      }
+
+  """
+  @type list_session_loggers_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1116,12 +1216,33 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      delete_session_logger_response() :: %{}
+
+  """
+  @type delete_session_logger_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       browser_settings_summary() :: %{
         "browserSettingsArn" => String.t()
       }
 
   """
   @type browser_settings_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_session_logger_response() :: %{
+        "portalArn" => String.t(),
+        "sessionLoggerArn" => String.t()
+      }
+
+  """
+  @type associate_session_logger_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1201,6 +1322,15 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type identity_provider_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_session_logger_request() :: %{}
+
+  """
+  @type disassociate_session_logger_request() :: %{}
 
   @typedoc """
 
@@ -1524,6 +1654,17 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      update_session_logger_response() :: %{
+        "sessionLogger" => session_logger()
+      }
+
+  """
+  @type update_session_logger_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_identity_provider_response() :: %{}
 
   """
@@ -1810,6 +1951,7 @@ defmodule AWS.WorkSpacesWeb do
         "portalEndpoint" => String.t(),
         "portalStatus" => String.t(),
         "rendererType" => String.t(),
+        "sessionLoggerArn" => String.t(),
         "trustStoreArn" => String.t(),
         "userAccessLoggingSettingsArn" => String.t(),
         "userSettingsArn" => String.t()
@@ -1817,6 +1959,24 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type portal_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_logger() :: %{
+        "additionalEncryptionContext" => map(),
+        "associatedPortalArns" => list(String.t()),
+        "creationDate" => non_neg_integer(),
+        "customerManagedKey" => String.t(),
+        "displayName" => String.t(),
+        "eventFilter" => list(),
+        "logConfiguration" => log_configuration(),
+        "sessionLoggerArn" => String.t()
+      }
+
+  """
+  @type session_logger() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1878,6 +2038,20 @@ defmodule AWS.WorkSpacesWeb do
 
   ## Example:
 
+      session_logger_summary() :: %{
+        "creationDate" => non_neg_integer(),
+        "displayName" => String.t(),
+        "logConfiguration" => log_configuration(),
+        "sessionLoggerArn" => String.t()
+      }
+
+  """
+  @type session_logger_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       custom_pattern() :: %{
         "keywordRegex" => String.t(),
         "patternDescription" => String.t(),
@@ -1914,6 +2088,35 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type update_identity_provider_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_logger_request() :: %{}
+
+  """
+  @type get_session_logger_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_session_logger_response() :: %{}
+
+  """
+  @type disassociate_session_logger_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      log_configuration() :: %{
+        "s3" => s3_log_configuration()
+      }
+
+  """
+  @type log_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2088,6 +2291,7 @@ defmodule AWS.WorkSpacesWeb do
         "portalEndpoint" => String.t(),
         "portalStatus" => String.t(),
         "rendererType" => String.t(),
+        "sessionLoggerArn" => String.t(),
         "statusReason" => String.t(),
         "trustStoreArn" => String.t(),
         "userAccessLoggingSettingsArn" => String.t(),
@@ -2096,6 +2300,17 @@ defmodule AWS.WorkSpacesWeb do
 
   """
   @type portal() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_session_logger_response() :: %{
+        "sessionLoggerArn" => String.t()
+      }
+
+  """
+  @type create_session_logger_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2154,6 +2369,14 @@ defmodule AWS.WorkSpacesWeb do
           | conflict_exception()
 
   @type associate_network_settings_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
+  @type associate_session_logger_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2237,6 +2460,14 @@ defmodule AWS.WorkSpacesWeb do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_session_logger_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type create_trust_store_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2303,6 +2534,13 @@ defmodule AWS.WorkSpacesWeb do
           | internal_server_exception()
           | conflict_exception()
 
+  @type delete_session_logger_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
   @type delete_trust_store_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2355,6 +2593,13 @@ defmodule AWS.WorkSpacesWeb do
           | internal_server_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type disassociate_session_logger_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type disassociate_trust_store_errors() ::
           throttling_exception()
@@ -2443,6 +2688,13 @@ defmodule AWS.WorkSpacesWeb do
           | internal_server_exception()
           | resource_not_found_exception()
 
+  @type get_session_logger_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
   @type get_trust_store_errors() ::
           throttling_exception()
           | validation_exception()
@@ -2502,6 +2754,12 @@ defmodule AWS.WorkSpacesWeb do
           | internal_server_exception()
 
   @type list_portals_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+
+  @type list_session_loggers_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -2604,6 +2862,13 @@ defmodule AWS.WorkSpacesWeb do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
+
+  @type update_session_logger_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
 
   @type update_trust_store_errors() ::
           throttling_exception()
@@ -2781,6 +3046,40 @@ defmodule AWS.WorkSpacesWeb do
     {query_params, input} =
       [
         {"networkSettingsArn", "networkSettingsArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associates a session logger with a portal.
+  """
+  @spec associate_session_logger(map(), String.t(), associate_session_logger_request(), list()) ::
+          {:ok, associate_session_logger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_session_logger_errors()}
+  def associate_session_logger(%Client{} = client, portal_arn, input, options \\ []) do
+    url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/sessionLogger"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"sessionLoggerArn", "sessionLoggerArn"}
       ]
       |> Request.build_params(input)
 
@@ -3094,6 +3393,35 @@ defmodule AWS.WorkSpacesWeb do
   end
 
   @doc """
+  Creates a session logger.
+  """
+  @spec create_session_logger(map(), create_session_logger_request(), list()) ::
+          {:ok, create_session_logger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_session_logger_errors()}
+  def create_session_logger(%Client{} = client, input, options \\ []) do
+    url_path = "/sessionLoggers"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a trust store that can be associated with a web portal.
 
   A trust store contains
@@ -3387,6 +3715,35 @@ defmodule AWS.WorkSpacesWeb do
   end
 
   @doc """
+  Deletes a session logger resource.
+  """
+  @spec delete_session_logger(map(), String.t(), delete_session_logger_request(), list()) ::
+          {:ok, delete_session_logger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_session_logger_errors()}
+  def delete_session_logger(%Client{} = client, session_logger_arn, input, options \\ []) do
+    url_path = "/sessionLoggers/#{AWS.Util.encode_multi_segment_uri(session_logger_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the trust store.
   """
   @spec delete_trust_store(map(), String.t(), delete_trust_store_request(), list()) ::
@@ -3602,6 +3959,40 @@ defmodule AWS.WorkSpacesWeb do
           | {:error, disassociate_network_settings_errors()}
   def disassociate_network_settings(%Client{} = client, portal_arn, input, options \\ []) do
     url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/networkSettings"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Disassociates a session logger from a portal.
+  """
+  @spec disassociate_session_logger(
+          map(),
+          String.t(),
+          disassociate_session_logger_request(),
+          list()
+        ) ::
+          {:ok, disassociate_session_logger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_session_logger_errors()}
+  def disassociate_session_logger(%Client{} = client, portal_arn, input, options \\ []) do
+    url_path = "/portals/#{AWS.Util.encode_multi_segment_uri(portal_arn)}/sessionLogger"
     headers = []
     custom_headers = []
     query_params = []
@@ -3909,6 +4300,24 @@ defmodule AWS.WorkSpacesWeb do
   end
 
   @doc """
+  Gets details about a specific session logger resource.
+  """
+  @spec get_session_logger(map(), String.t(), list()) ::
+          {:ok, get_session_logger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_session_logger_errors()}
+  def get_session_logger(%Client{} = client, session_logger_arn, options \\ []) do
+    url_path = "/sessionLoggers/#{AWS.Util.encode_multi_segment_uri(session_logger_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets the trust store.
   """
   @spec get_trust_store(map(), String.t(), list()) ::
@@ -4189,6 +4598,43 @@ defmodule AWS.WorkSpacesWeb do
           | {:error, list_portals_errors()}
   def list_portals(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/portals"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists all available session logger resources.
+  """
+  @spec list_session_loggers(map(), String.t() | nil, String.t() | nil, list()) ::
+          {:ok, list_session_loggers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_session_loggers_errors()}
+  def list_session_loggers(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/sessionLoggers"
     headers = []
     query_params = []
 
@@ -4694,6 +5140,35 @@ defmodule AWS.WorkSpacesWeb do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the details of a session logger.
+  """
+  @spec update_session_logger(map(), String.t(), update_session_logger_request(), list()) ::
+          {:ok, update_session_logger_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_session_logger_errors()}
+  def update_session_logger(%Client{} = client, session_logger_arn, input, options \\ []) do
+    url_path = "/sessionLoggers/#{AWS.Util.encode_multi_segment_uri(session_logger_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

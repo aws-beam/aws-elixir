@@ -3550,6 +3550,7 @@ defmodule AWS.EC2 do
       
       terminate_instances_request() :: %{
         optional("DryRun") => boolean(),
+        optional("Force") => boolean(),
         optional("SkipOsShutdown") => boolean(),
         required("InstanceIds") => list(String.t())
       }

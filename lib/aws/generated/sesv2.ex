@@ -106,6 +106,18 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      tenant_resource() :: %{
+        "ResourceArn" => String.t(),
+        "ResourceType" => list(any())
+      }
+
+  """
+  @type tenant_resource() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       dashboard_options() :: %{
         "EngagementMetrics" => list(any())
       }
@@ -234,6 +246,17 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      update_reputation_entity_policy_request() :: %{
+        required("ReputationEntityPolicy") => String.t()
+      }
+
+  """
+  @type update_reputation_entity_policy_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_account_sending_attributes_request() :: %{
         optional("SendingEnabled") => boolean()
       }
@@ -258,6 +281,22 @@ defmodule AWS.SESv2 do
 
   """
   @type get_account_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_tenant_response() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "SendingStatus" => list(any()),
+        "Tags" => list(tag()),
+        "TenantArn" => String.t(),
+        "TenantId" => String.t(),
+        "TenantName" => String.t()
+      }
+
+  """
+  @type create_tenant_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -370,6 +409,15 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      delete_tenant_resource_association_response() :: %{}
+
+  """
+  @type delete_tenant_resource_association_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_email_identity_policy_request() :: %{
         required("Policy") => String.t()
       }
@@ -402,6 +450,19 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      list_reputation_entities_request() :: %{
+        optional("Filter") => map(),
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer()
+      }
+
+  """
+  @type list_reputation_entities_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_email_identity_feedback_attributes_request() :: %{
         optional("EmailForwardingEnabled") => boolean()
       }
@@ -420,6 +481,18 @@ defmodule AWS.SESv2 do
 
   """
   @type isp_placement() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tenants_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer()
+      }
+
+  """
+  @type list_tenants_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -609,6 +682,17 @@ defmodule AWS.SESv2 do
 
   """
   @type route_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_tenant_request() :: %{
+        required("TenantName") => String.t()
+      }
+
+  """
+  @type delete_tenant_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -835,6 +919,20 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      resource_tenant_metadata() :: %{
+        "AssociatedTimestamp" => non_neg_integer(),
+        "ResourceArn" => String.t(),
+        "TenantId" => String.t(),
+        "TenantName" => String.t()
+      }
+
+  """
+  @type resource_tenant_metadata() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       email_content() :: %{
         "Raw" => raw_message(),
         "Simple" => message(),
@@ -897,6 +995,20 @@ defmodule AWS.SESv2 do
 
   """
   @type put_account_vdm_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tenant_info() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "TenantArn" => String.t(),
+        "TenantId" => String.t(),
+        "TenantName" => String.t()
+      }
+
+  """
+  @type tenant_info() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1074,6 +1186,17 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      get_tenant_response() :: %{
+        "Tenant" => tenant()
+      }
+
+  """
+  @type get_tenant_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       send_email_response() :: %{
         "MessageId" => String.t()
       }
@@ -1222,6 +1345,23 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      reputation_entity() :: %{
+        "AwsSesManagedStatus" => status_record(),
+        "CustomerManagedStatus" => status_record(),
+        "ReputationEntityReference" => String.t(),
+        "ReputationEntityType" => list(any()),
+        "ReputationImpact" => list(any()),
+        "ReputationManagementPolicy" => String.t(),
+        "SendingStatusAggregate" => list(any())
+      }
+
+  """
+  @type reputation_entity() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       dedicated_ip() :: %{
         "Ip" => String.t(),
         "PoolName" => String.t(),
@@ -1307,6 +1447,22 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      tenant() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "SendingStatus" => list(any()),
+        "Tags" => list(tag()),
+        "TenantArn" => String.t(),
+        "TenantId" => String.t(),
+        "TenantName" => String.t()
+      }
+
+  """
+  @type tenant() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_configuration_set_response() :: %{}
 
   """
@@ -1344,6 +1500,30 @@ defmodule AWS.SESv2 do
 
   """
   @type put_deliverability_dashboard_option_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_tenants_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer(),
+        required("ResourceArn") => String.t()
+      }
+
+  """
+  @type list_resource_tenants_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_reputation_entity_response() :: %{
+        "ReputationEntity" => reputation_entity()
+      }
+
+  """
+  @type get_reputation_entity_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1504,6 +1684,18 @@ defmodule AWS.SESv2 do
 
   """
   @type tag() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_tenants_response() :: %{
+        "NextToken" => String.t(),
+        "ResourceTenants" => list(resource_tenant_metadata())
+      }
+
+  """
+  @type list_resource_tenants_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1751,6 +1943,15 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      update_reputation_entity_policy_response() :: %{}
+
+  """
+  @type update_reputation_entity_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       account_details() :: %{
         "AdditionalContactEmailAddresses" => list(String.t()),
         "ContactLanguage" => list(any()),
@@ -1960,6 +2161,20 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      list_tenant_resources_request() :: %{
+        optional("Filter") => map(),
+        optional("NextToken") => String.t(),
+        optional("PageSize") => integer(),
+        required("TenantName") => String.t()
+      }
+
+  """
+  @type list_tenant_resources_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_domain_deliverability_campaign_response() :: %{
         "DomainDeliverabilityCampaign" => domain_deliverability_campaign()
       }
@@ -2100,6 +2315,18 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      delete_tenant_resource_association_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("TenantName") => String.t()
+      }
+
+  """
+  @type delete_tenant_resource_association_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_configuration_set_sending_options_response() :: %{}
 
   """
@@ -2222,6 +2449,7 @@ defmodule AWS.SESv2 do
         optional("FromEmailAddress") => String.t(),
         optional("FromEmailAddressIdentityArn") => String.t(),
         optional("ReplyToAddresses") => list(String.t()),
+        optional("TenantName") => String.t(),
         required("BulkEmailEntries") => list(bulk_email_entry()),
         required("DefaultContent") => bulk_email_content()
       }
@@ -2330,6 +2558,15 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      update_reputation_entity_customer_managed_status_response() :: %{}
+
+  """
+  @type update_reputation_entity_customer_managed_status_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_dedicated_ip_response() :: %{
         "DedicatedIp" => dedicated_ip()
       }
@@ -2348,6 +2585,30 @@ defmodule AWS.SESv2 do
 
   """
   @type put_email_identity_dkim_signing_attributes_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tenant_resources_response() :: %{
+        "NextToken" => String.t(),
+        "TenantResources" => list(tenant_resource())
+      }
+
+  """
+  @type list_tenant_resources_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tenants_response() :: %{
+        "NextToken" => String.t(),
+        "Tenants" => list(tenant_info())
+      }
+
+  """
+  @type list_tenants_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2399,6 +2660,17 @@ defmodule AWS.SESv2 do
 
   """
   @type put_dedicated_ip_pool_scaling_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_reputation_entity_customer_managed_status_request() :: %{
+        required("SendingStatus") => list(any())
+      }
+
+  """
+  @type update_reputation_entity_customer_managed_status_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2475,6 +2747,18 @@ defmodule AWS.SESv2 do
 
   """
   @type put_configuration_set_delivery_options_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_reputation_entities_response() :: %{
+        "NextToken" => String.t(),
+        "ReputationEntities" => list(reputation_entity())
+      }
+
+  """
+  @type list_reputation_entities_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2614,6 +2898,19 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      status_record() :: %{
+        "Cause" => String.t(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Status" => list(any())
+      }
+
+  """
+  @type status_record() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_response() :: %{}
 
   """
@@ -2634,6 +2931,15 @@ defmodule AWS.SESv2 do
 
   """
   @type import_job_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_reputation_entity_request() :: %{}
+
+  """
+  @type get_reputation_entity_request() :: %{}
 
   @typedoc """
 
@@ -2662,6 +2968,15 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      delete_tenant_response() :: %{}
+
+  """
+  @type delete_tenant_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_email_identity_policy_request() :: %{}
 
   """
@@ -2677,6 +2992,15 @@ defmodule AWS.SESv2 do
 
   """
   @type concurrent_modification_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_tenant_resource_association_response() :: %{}
+
+  """
+  @type create_tenant_resource_association_response() :: %{}
 
   @typedoc """
 
@@ -2734,6 +3058,18 @@ defmodule AWS.SESv2 do
 
   """
   @type cancel_export_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_tenant_resource_association_request() :: %{
+        required("ResourceArn") => String.t(),
+        required("TenantName") => String.t()
+      }
+
+  """
+  @type create_tenant_resource_association_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3003,6 +3339,17 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      get_tenant_request() :: %{
+        required("TenantName") => String.t()
+      }
+
+  """
+  @type get_tenant_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       bad_request_exception() :: %{
         "message" => String.t()
       }
@@ -3145,6 +3492,7 @@ defmodule AWS.SESv2 do
         optional("FromEmailAddressIdentityArn") => String.t(),
         optional("ListManagementOptions") => list_management_options(),
         optional("ReplyToAddresses") => list(String.t()),
+        optional("TenantName") => String.t(),
         required("Content") => email_content()
       }
 
@@ -3283,6 +3631,18 @@ defmodule AWS.SESv2 do
 
   """
   @type list_recommendations_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_tenant_request() :: %{
+        optional("Tags") => list(tag()),
+        required("TenantName") => String.t()
+      }
+
+  """
+  @type create_tenant_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3726,6 +4086,18 @@ defmodule AWS.SESv2 do
           | too_many_requests_exception()
           | already_exists_exception()
 
+  @type create_tenant_errors() ::
+          bad_request_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
+          | already_exists_exception()
+
+  @type create_tenant_resource_association_errors() ::
+          bad_request_exception()
+          | not_found_exception()
+          | too_many_requests_exception()
+          | already_exists_exception()
+
   @type delete_configuration_set_errors() ::
           bad_request_exception()
           | concurrent_modification_exception()
@@ -3772,6 +4144,12 @@ defmodule AWS.SESv2 do
           | too_many_requests_exception()
 
   @type delete_suppressed_destination_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type delete_tenant_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type delete_tenant_resource_association_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
 
   @type get_account_errors() :: bad_request_exception() | too_many_requests_exception()
@@ -3836,7 +4214,13 @@ defmodule AWS.SESv2 do
   @type get_multi_region_endpoint_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
 
+  @type get_reputation_entity_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
   @type get_suppressed_destination_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type get_tenant_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
 
   @type list_configuration_sets_errors() ::
@@ -3873,11 +4257,22 @@ defmodule AWS.SESv2 do
   @type list_recommendations_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
 
+  @type list_reputation_entities_errors() ::
+          bad_request_exception() | too_many_requests_exception()
+
+  @type list_resource_tenants_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
   @type list_suppressed_destinations_errors() ::
           bad_request_exception() | invalid_next_token_exception() | too_many_requests_exception()
 
   @type list_tags_for_resource_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type list_tenant_resources_errors() ::
+          bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type list_tenants_errors() :: bad_request_exception() | too_many_requests_exception()
 
   @type put_account_dedicated_ip_warmup_attributes_errors() ::
           bad_request_exception() | too_many_requests_exception()
@@ -4019,6 +4414,12 @@ defmodule AWS.SESv2 do
 
   @type update_email_template_errors() ::
           bad_request_exception() | not_found_exception() | too_many_requests_exception()
+
+  @type update_reputation_entity_customer_managed_status_errors() ::
+          bad_request_exception() | conflict_exception() | too_many_requests_exception()
+
+  @type update_reputation_entity_policy_errors() ::
+          bad_request_exception() | conflict_exception() | too_many_requests_exception()
 
   def metadata do
     %{
@@ -4627,6 +5028,86 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
+  Create a tenant.
+
+  *Tenants* are logical containers that group related SES resources together.
+  Each tenant can have its own set of resources like email identities,
+  configuration sets,
+  and templates, along with reputation metrics and sending status. This helps
+  isolate and manage
+  email sending for different customers or business units within your Amazon SES
+  API v2 account.
+  """
+  @spec create_tenant(map(), create_tenant_request(), list()) ::
+          {:ok, create_tenant_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_tenant_errors()}
+  def create_tenant(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/tenants"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associate a resource with a tenant.
+
+  *Resources* can be email identities, configuration sets, or email templates.
+  When you associate a resource with a tenant, you can use that resource when
+  sending emails
+  on behalf of that tenant.
+
+  A single resource can be associated with multiple tenants, allowing for resource
+  sharing
+  across different tenants while maintaining isolation in email sending
+  operations.
+  """
+  @spec create_tenant_resource_association(
+          map(),
+          create_tenant_resource_association_request(),
+          list()
+        ) ::
+          {:ok, create_tenant_resource_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_tenant_resource_association_errors()}
+  def create_tenant_resource_association(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/tenants/resources"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Delete an existing configuration set.
 
   *Configuration sets* are groups of rules that you can apply to the
@@ -5033,6 +5514,77 @@ defmodule AWS.SESv2 do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Delete an existing tenant.
+
+  When you delete a tenant, its associations with resources
+  are removed, but the resources themselves are not deleted.
+  """
+  @spec delete_tenant(map(), delete_tenant_request(), list()) ::
+          {:ok, delete_tenant_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_tenant_errors()}
+  def delete_tenant(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/tenants/delete"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Delete an association between a tenant and a resource.
+
+  When you delete a tenant-resource association, the resource itself is not
+  deleted,
+  only its association with the specific tenant is removed. After removal, the
+  resource
+  will no longer be available for use with that tenant's email sending operations.
+  """
+  @spec delete_tenant_resource_association(
+          map(),
+          delete_tenant_resource_association_request(),
+          list()
+        ) ::
+          {:ok, delete_tenant_resource_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_tenant_resource_association_errors()}
+  def delete_tenant_resource_association(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/tenants/resources/delete"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -5576,6 +6128,41 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
+  Retrieve information about a specific reputation entity, including its
+  reputation
+  management policy, customer-managed status, Amazon Web Services Amazon
+  SES-managed status, and aggregate
+  sending status.
+
+  *Reputation entities* represent resources in your Amazon SES account that have
+  reputation
+  tracking and management capabilities. The reputation impact reflects the highest
+  impact reputation finding for the entity. Reputation findings can be retrieved
+  using the `ListRecommendations` operation.
+  """
+  @spec get_reputation_entity(map(), String.t(), String.t(), list()) ::
+          {:ok, get_reputation_entity_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_reputation_entity_errors()}
+  def get_reputation_entity(
+        %Client{} = client,
+        reputation_entity_reference,
+        reputation_entity_type,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/email/reputation/entities/#{AWS.Util.encode_uri(reputation_entity_type)}/#{AWS.Util.encode_uri(reputation_entity_reference)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves information about a specific email address that's on the suppression
   list
   for your account.
@@ -5593,6 +6180,36 @@ defmodule AWS.SESv2 do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Get information about a specific tenant, including the tenant's name, ID, ARN,
+  creation timestamp, tags, and sending status.
+  """
+  @spec get_tenant(map(), get_tenant_request(), list()) ::
+          {:ok, get_tenant_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_tenant_errors()}
+  def get_tenant(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/tenants/get"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6119,6 +6736,77 @@ defmodule AWS.SESv2 do
   end
 
   @doc """
+  List reputation entities in your Amazon SES account in the current Amazon Web
+  Services Region.
+
+  You can filter the results by entity type, reputation impact, sending status,
+  or entity reference prefix.
+
+  *Reputation entities* represent resources in your account that have reputation
+  tracking and management capabilities. Use this operation to get an overview of
+  all entities and their current reputation status.
+  """
+  @spec list_reputation_entities(map(), list_reputation_entities_request(), list()) ::
+          {:ok, list_reputation_entities_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_reputation_entities_errors()}
+  def list_reputation_entities(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/reputation/entities"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  List all tenants associated with a specific resource.
+
+  This operation returns a list of tenants that are associated with the specified
+  resource. This is useful for understanding which tenants are currently using a
+  particular
+  resource such as an email identity, configuration set, or email template.
+  """
+  @spec list_resource_tenants(map(), list_resource_tenants_request(), list()) ::
+          {:ok, list_resource_tenants_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_resource_tenants_errors()}
+  def list_resource_tenants(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/resources/tenants/list"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Retrieves a list of email addresses that are on the suppression list for your
   account.
   """
@@ -6220,6 +6908,74 @@ defmodule AWS.SESv2 do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List all resources associated with a specific tenant.
+
+  This operation returns a list of resources (email identities, configuration
+  sets,
+  or email templates) that are associated with the specified tenant. You can
+  optionally
+  filter the results by resource type.
+  """
+  @spec list_tenant_resources(map(), list_tenant_resources_request(), list()) ::
+          {:ok, list_tenant_resources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_tenant_resources_errors()}
+  def list_tenant_resources(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/tenants/resources/list"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  List all tenants associated with your account in the current Amazon Web Services
+  Region.
+
+  This operation returns basic information about each tenant,
+  such as tenant name, ID, ARN, and creation timestamp.
+  """
+  @spec list_tenants(map(), list_tenants_request(), list()) ::
+          {:ok, list_tenants_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_tenants_errors()}
+  def list_tenants(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/tenants/list"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7575,6 +8331,117 @@ defmodule AWS.SESv2 do
           | {:error, update_email_template_errors()}
   def update_email_template(%Client{} = client, template_name, input, options \\ []) do
     url_path = "/v2/email/templates/#{AWS.Util.encode_uri(template_name)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Update the customer-managed sending status for a reputation entity.
+
+  This allows
+  you to enable, disable, or reinstate sending for the entity.
+
+  The customer-managed status works in conjunction with the Amazon Web Services
+  Amazon SES-managed status
+  to determine the overall sending capability. When you update the
+  customer-managed status,
+  the Amazon Web Services Amazon SES-managed status remains unchanged. If Amazon
+  Web Services Amazon SES has disabled the entity,
+  it will not be allowed to send regardless of the customer-managed status
+  setting. When you
+  reinstate an entity through the customer-managed status, it can continue sending
+  only if
+  the Amazon Web Services Amazon SES-managed status also permits sending, even if
+  there are active reputation
+  findings, until the findings are resolved or new violations occur.
+  """
+  @spec update_reputation_entity_customer_managed_status(
+          map(),
+          String.t(),
+          String.t(),
+          update_reputation_entity_customer_managed_status_request(),
+          list()
+        ) ::
+          {:ok, update_reputation_entity_customer_managed_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_reputation_entity_customer_managed_status_errors()}
+  def update_reputation_entity_customer_managed_status(
+        %Client{} = client,
+        reputation_entity_reference,
+        reputation_entity_type,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/email/reputation/entities/#{AWS.Util.encode_uri(reputation_entity_type)}/#{AWS.Util.encode_uri(reputation_entity_reference)}/customer-managed-status"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Update the reputation management policy for a reputation entity.
+
+  The policy
+  determines how the entity responds to reputation findings, such as automatically
+  pausing sending when certain thresholds are exceeded.
+
+  Reputation management policies are Amazon Web Services Amazon SES-managed
+  (predefined policies).
+  You can select from none, standard, and strict policies.
+  """
+  @spec update_reputation_entity_policy(
+          map(),
+          String.t(),
+          String.t(),
+          update_reputation_entity_policy_request(),
+          list()
+        ) ::
+          {:ok, update_reputation_entity_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_reputation_entity_policy_errors()}
+  def update_reputation_entity_policy(
+        %Client{} = client,
+        reputation_entity_reference,
+        reputation_entity_type,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/email/reputation/entities/#{AWS.Util.encode_uri(reputation_entity_type)}/#{AWS.Util.encode_uri(reputation_entity_reference)}/policy"
+
     headers = []
     custom_headers = []
     query_params = []

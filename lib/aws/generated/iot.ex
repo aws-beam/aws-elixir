@@ -4854,6 +4854,19 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      configuration_details() :: %{
+        "configurationStatus" => list(any()),
+        "errorCode" => String.t(),
+        "errorMessage" => String.t()
+      }
+
+  """
+  @type configuration_details() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_dynamic_thing_group_request() :: %{
         optional("indexName") => String.t(),
         optional("queryVersion") => String.t(),
@@ -4898,6 +4911,19 @@ defmodule AWS.IoT do
 
   """
   @type update_ca_certificate_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_encryption_configuration_request() :: %{
+        optional("kmsAccessRoleArn") => String.t(),
+        optional("kmsKeyArn") => String.t(),
+        required("encryptionType") => list(any())
+      }
+
+  """
+  @type update_encryption_configuration_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -5173,6 +5199,21 @@ defmodule AWS.IoT do
 
   """
   @type update_package_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_encryption_configuration_response() :: %{
+        "configurationDetails" => configuration_details(),
+        "encryptionType" => list(any()),
+        "kmsAccessRoleArn" => String.t(),
+        "kmsKeyArn" => String.t(),
+        "lastModifiedDate" => non_neg_integer()
+      }
+
+  """
+  @type describe_encryption_configuration_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6396,6 +6437,15 @@ defmodule AWS.IoT do
 
   """
   @type topic_rule_destination_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_encryption_configuration_request() :: %{}
+
+  """
+  @type describe_encryption_configuration_request() :: %{}
 
   @typedoc """
 
@@ -9326,6 +9376,15 @@ defmodule AWS.IoT do
 
   ## Example:
 
+      update_encryption_configuration_response() :: %{}
+
+  """
+  @type update_encryption_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       audit_check_details() :: %{
         "checkCompliant" => boolean(),
         "checkRunStatus" => list(any()),
@@ -10125,6 +10184,7 @@ defmodule AWS.IoT do
           | internal_exception()
           | service_unavailable_exception()
           | invalid_request_exception()
+          | unauthorized_exception()
 
   @type create_topic_rule_destination_errors() ::
           resource_already_exists_exception()
@@ -10132,6 +10192,7 @@ defmodule AWS.IoT do
           | internal_exception()
           | service_unavailable_exception()
           | invalid_request_exception()
+          | unauthorized_exception()
 
   @type delete_account_audit_configuration_errors() ::
           throttling_exception()
@@ -10481,6 +10542,13 @@ defmodule AWS.IoT do
           | service_unavailable_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | unauthorized_exception()
+          | internal_failure_exception()
+
+  @type describe_encryption_configuration_errors() ::
+          throttling_exception()
+          | service_unavailable_exception()
+          | invalid_request_exception()
           | unauthorized_exception()
           | internal_failure_exception()
 
@@ -11181,7 +11249,10 @@ defmodule AWS.IoT do
           | unauthorized_exception()
 
   @type list_topic_rules_errors() ::
-          internal_exception() | service_unavailable_exception() | invalid_request_exception()
+          internal_exception()
+          | service_unavailable_exception()
+          | invalid_request_exception()
+          | unauthorized_exception()
 
   @type list_v2_logging_levels_errors() ::
           internal_exception()
@@ -11464,6 +11535,13 @@ defmodule AWS.IoT do
           | invalid_request_exception()
           | resource_not_found_exception()
           | version_conflict_exception()
+          | internal_failure_exception()
+
+  @type update_encryption_configuration_errors() ::
+          throttling_exception()
+          | service_unavailable_exception()
+          | invalid_request_exception()
+          | unauthorized_exception()
           | internal_failure_exception()
 
   @type update_event_configurations_errors() ::
@@ -15413,6 +15491,30 @@ defmodule AWS.IoT do
           | {:error, describe_domain_configuration_errors()}
   def describe_domain_configuration(%Client{} = client, domain_configuration_name, options \\ []) do
     url_path = "/domainConfigurations/#{AWS.Util.encode_uri(domain_configuration_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the encryption configuration for resources and data of your Amazon Web
+  Services account in
+  Amazon Web Services IoT Core.
+
+  For more information, see [Key management in IoT](https://docs.aws.amazon.com/iot/latest/developerguide/key-management.html)
+  from
+  the *Amazon Web Services IoT Core Developer Guide*.
+  """
+  @spec describe_encryption_configuration(map(), list()) ::
+          {:ok, describe_encryption_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_encryption_configuration_errors()}
+  def describe_encryption_configuration(%Client{} = client, options \\ []) do
+    url_path = "/encryption-configuration"
     headers = []
     query_params = []
 
@@ -21454,16 +21556,41 @@ defmodule AWS.IoT do
 
   You can cancel the transfer until it is acknowledged by the recipient.
 
-  No notification is sent to the transfer destination's account. It is up to the
+  No notification is sent to the transfer destination's account. It's up to the
   caller
   to notify the transfer target.
 
-  The certificate being transferred must not be in the ACTIVE state. You can use
+  The certificate being transferred must not be in the `ACTIVE` state. You can use
   the
   `UpdateCertificate` action to deactivate it.
 
   The certificate must not have any policies attached to it. You can use the
   `DetachPolicy` action to detach them.
+
+  **Customer managed key behavior:** When you use a customer managed key to secure
+  your data and then transfer
+  the key to a customer in a different account using the `TransferCertificate`
+  operation, the certificates will no longer be protected by their
+  customer managed key configuration. During the transfer process, certificates
+  are encrypted using IoT owned keys.
+
+  While a certificate is in the **PENDING_TRANSFER** state, it's always protected
+  by IoT owned keys, regardless of the customer managed key configuration of
+  either the source or destination account.
+
+  Once the transfer is completed through `AcceptCertificateTransfer`,
+  `RejectCertificateTransfer`, or
+  `CancelCertificateTransfer`, the certificate will be protected by the customer
+  managed key configuration of the account that owns
+  the certificate after the transfer operation:
+
+    *
+  If the transfer is accepted: The certificate is protected by the destination
+  account's customer managed key configuration.
+
+    *
+  If the transfer is rejected or cancelled: The certificate is protected by the
+  source account's customer managed key configuration.
   """
   @spec transfer_certificate(map(), String.t(), transfer_certificate_request(), list()) ::
           {:ok, transfer_certificate_response(), any()}
@@ -21965,6 +22092,44 @@ defmodule AWS.IoT do
           | {:error, update_dynamic_thing_group_errors()}
   def update_dynamic_thing_group(%Client{} = client, thing_group_name, input, options \\ []) do
     url_path = "/dynamic-thing-groups/#{AWS.Util.encode_uri(thing_group_name)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the encryption configuration.
+
+  By default, all Amazon Web Services IoT Core data at rest is
+  encrypted using Amazon Web Services owned keys. Amazon Web Services IoT Core
+  also supports symmetric customer managed keys
+  from Amazon Web Services Key Management Service (KMS). With customer managed
+  keys, you create, own, and
+  manage the KMS keys in your Amazon Web Services account. For more information,
+  see [Data encryption](https://docs.aws.amazon.com/iot/latest/developerguide/data-encryption.html)
+  in the *Amazon Web Services IoT Core Developer Guide*.
+  """
+  @spec update_encryption_configuration(map(), update_encryption_configuration_request(), list()) ::
+          {:ok, update_encryption_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_encryption_configuration_errors()}
+  def update_encryption_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/encryption-configuration"
     headers = []
     custom_headers = []
     query_params = []

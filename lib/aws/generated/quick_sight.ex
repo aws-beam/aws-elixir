@@ -10268,6 +10268,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      impala_parameters() :: %{
+        "Database" => String.t(),
+        "Host" => String.t(),
+        "Port" => integer(),
+        "SqlEndpointPath" => String.t()
+      }
+
+  """
+  @type impala_parameters() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       gauge_chart_field_wells() :: %{
         "TargetValues" => list(measure_field()),
         "Values" => list(measure_field())

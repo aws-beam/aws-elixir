@@ -1509,6 +1509,7 @@ defmodule AWS.S3Control do
         optional("BucketAccountId") => String.t(),
         optional("PublicAccessBlockConfiguration") => public_access_block_configuration(),
         optional("Scope") => scope(),
+        optional("Tags") => list(tag()),
         optional("VpcConfiguration") => vpc_configuration(),
         required("AccountId") => String.t(),
         required("Bucket") => String.t()

@@ -64,6 +64,7 @@ defmodule AWS.CustomerProfiles do
         "BusinessName" => String.t(),
         "BusinessPhoneNumber" => String.t(),
         "EmailAddress" => String.t(),
+        "EngagementPreferences" => engagement_preferences(),
         "FirstName" => String.t(),
         "FoundByItems" => list(found_by_key_value()),
         "Gender" => list(any()),
@@ -78,6 +79,7 @@ defmodule AWS.CustomerProfiles do
         "PersonalEmailAddress" => String.t(),
         "PhoneNumber" => String.t(),
         "ProfileId" => String.t(),
+        "ProfileType" => list(any()),
         "ShippingAddress" => address()
       }
 
@@ -813,6 +815,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      profile_type_dimension() :: %{
+        "DimensionType" => list(any()),
+        "Values" => list(list(any())())
+      }
+
+  """
+  @type profile_type_dimension() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_similar_profiles_response() :: %{
         "ConfidenceScore" => float(),
         "MatchId" => String.t(),
@@ -1420,6 +1434,7 @@ defmodule AWS.CustomerProfiles do
         optional("BusinessName") => String.t(),
         optional("BusinessPhoneNumber") => String.t(),
         optional("EmailAddress") => String.t(),
+        optional("EngagementPreferences") => engagement_preferences(),
         optional("FirstName") => String.t(),
         optional("Gender") => list(any()),
         optional("GenderString") => String.t(),
@@ -1432,6 +1447,7 @@ defmodule AWS.CustomerProfiles do
         optional("PartyTypeString") => String.t(),
         optional("PersonalEmailAddress") => String.t(),
         optional("PhoneNumber") => String.t(),
+        optional("ProfileType") => list(any()),
         optional("ShippingAddress") => address()
       }
 
@@ -1603,6 +1619,7 @@ defmodule AWS.CustomerProfiles do
         optional("BusinessName") => String.t(),
         optional("BusinessPhoneNumber") => String.t(),
         optional("EmailAddress") => String.t(),
+        optional("EngagementPreferences") => engagement_preferences(),
         optional("FirstName") => String.t(),
         optional("Gender") => list(any()),
         optional("GenderString") => String.t(),
@@ -1615,6 +1632,7 @@ defmodule AWS.CustomerProfiles do
         optional("PartyTypeString") => String.t(),
         optional("PersonalEmailAddress") => String.t(),
         optional("PhoneNumber") => String.t(),
+        optional("ProfileType") => list(any()),
         optional("ShippingAddress") => update_address(),
         required("ProfileId") => String.t()
       }
@@ -1636,6 +1654,18 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type get_calculated_attribute_for_profile_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      engagement_preferences() :: %{
+        "Email" => list(contact_preference()),
+        "Phone" => list(contact_preference())
+      }
+
+  """
+  @type engagement_preferences() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2296,6 +2326,7 @@ defmodule AWS.CustomerProfiles do
         "BusinessName" => String.t(),
         "BusinessPhoneNumber" => String.t(),
         "EmailAddress" => String.t(),
+        "EngagementPreferences" => String.t(),
         "FirstName" => String.t(),
         "Gender" => String.t(),
         "HomePhoneNumber" => String.t(),
@@ -2306,6 +2337,7 @@ defmodule AWS.CustomerProfiles do
         "PartyType" => String.t(),
         "PersonalEmailAddress" => String.t(),
         "PhoneNumber" => String.t(),
+        "ProfileType" => String.t(),
         "ShippingAddress" => String.t()
       }
 
@@ -2842,6 +2874,20 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type get_segment_membership_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_preference() :: %{
+        "ContactType" => list(any()),
+        "KeyName" => String.t(),
+        "KeyValue" => String.t(),
+        "ProfileId" => String.t()
+      }
+
+  """
+  @type contact_preference() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3554,6 +3600,7 @@ defmodule AWS.CustomerProfiles do
         "PartyTypeString" => profile_dimension(),
         "PersonalEmailAddress" => profile_dimension(),
         "PhoneNumber" => profile_dimension(),
+        "ProfileType" => profile_type_dimension(),
         "ShippingAddress" => address_dimension()
       }
 

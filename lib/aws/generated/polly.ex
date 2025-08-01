@@ -22,51 +22,51 @@ defmodule AWS.Polly do
       synthesize_speech_input() :: %{
         optional("Engine") => list(any()),
         optional("LanguageCode") => list(any()),
-        optional("LexiconNames") => list(String.t() | Atom.t()),
-        optional("SampleRate") => String.t() | Atom.t(),
+        optional("LexiconNames") => list(String.t() | atom()),
+        optional("SampleRate") => String.t() | atom(),
         optional("SpeechMarkTypes") => list(list(any())()),
         optional("TextType") => list(any()),
         required("OutputFormat") => list(any()),
-        required("Text") => String.t() | Atom.t(),
+        required("Text") => String.t() | atom(),
         required("VoiceId") => list(any())
       }
 
   """
-  @type synthesize_speech_input() :: %{String.t() | Atom.t() => any()}
+  @type synthesize_speech_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_lexicon_input() :: %{
-        required("Content") => String.t() | Atom.t()
+        required("Content") => String.t() | atom()
       }
 
   """
-  @type put_lexicon_input() :: %{String.t() | Atom.t() => any()}
+  @type put_lexicon_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_voices_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Voices" => list(voice())
       }
 
   """
-  @type describe_voices_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_voices_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       max_lexicons_number_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type max_lexicons_number_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type max_lexicons_number_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -77,40 +77,40 @@ defmodule AWS.Polly do
       }
 
   """
-  @type start_speech_synthesis_task_output() :: %{String.t() | Atom.t() => any()}
+  @type start_speech_synthesis_task_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_s3_key_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_s3_key_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_s3_key_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lexicon_size_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type lexicon_size_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type lexicon_size_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_failure_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_failure_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -118,11 +118,11 @@ defmodule AWS.Polly do
 
       list_lexicons_output() :: %{
         "Lexicons" => list(lexicon_description()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_lexicons_output() :: %{String.t() | Atom.t() => any()}
+  @type list_lexicons_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -141,11 +141,11 @@ defmodule AWS.Polly do
         optional("Engine") => list(any()),
         optional("IncludeAdditionalLanguageCodes") => boolean(),
         optional("LanguageCode") => list(any()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_voices_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_voices_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -153,57 +153,57 @@ defmodule AWS.Polly do
 
       list_speech_synthesis_tasks_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Status") => list(any())
       }
 
   """
-  @type list_speech_synthesis_tasks_input() :: %{String.t() | Atom.t() => any()}
+  @type list_speech_synthesis_tasks_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_speech_synthesis_tasks_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "SynthesisTasks" => list(synthesis_task())
       }
 
   """
-  @type list_speech_synthesis_tasks_output() :: %{String.t() | Atom.t() => any()}
+  @type list_speech_synthesis_tasks_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lexicon_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type lexicon_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type lexicon_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ssml_marks_not_supported_for_text_type_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type ssml_marks_not_supported_for_text_type_exception() :: %{String.t() | Atom.t() => any()}
+  @type ssml_marks_not_supported_for_text_type_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       engine_not_supported_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type engine_not_supported_exception() :: %{String.t() | Atom.t() => any()}
+  @type engine_not_supported_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -215,29 +215,29 @@ defmodule AWS.Polly do
       }
 
   """
-  @type get_lexicon_output() :: %{String.t() | Atom.t() => any()}
+  @type get_lexicon_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_ssml_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_ssml_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_ssml_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unsupported_pls_alphabet_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type unsupported_pls_alphabet_exception() :: %{String.t() | Atom.t() => any()}
+  @type unsupported_pls_alphabet_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -257,13 +257,13 @@ defmodule AWS.Polly do
         "Gender" => list(any()),
         "Id" => list(any()),
         "LanguageCode" => list(any()),
-        "LanguageName" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "LanguageName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "SupportedEngines" => list(list(any())())
       }
 
   """
-  @type voice() :: %{String.t() | Atom.t() => any()}
+  @type voice() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -274,45 +274,45 @@ defmodule AWS.Polly do
       }
 
   """
-  @type get_speech_synthesis_task_output() :: %{String.t() | Atom.t() => any()}
+  @type get_speech_synthesis_task_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_s3_bucket_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_s3_bucket_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_s3_bucket_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lexicon_attributes() :: %{
-        "Alphabet" => String.t() | Atom.t(),
+        "Alphabet" => String.t() | atom(),
         "LanguageCode" => list(any()),
         "LastModified" => non_neg_integer(),
         "LexemesCount" => integer(),
-        "LexiconArn" => String.t() | Atom.t(),
+        "LexiconArn" => String.t() | atom(),
         "Size" => integer()
       }
 
   """
-  @type lexicon_attributes() :: %{String.t() | Atom.t() => any()}
+  @type lexicon_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_next_token_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -322,88 +322,88 @@ defmodule AWS.Polly do
         "CreationTime" => non_neg_integer(),
         "Engine" => list(any()),
         "LanguageCode" => list(any()),
-        "LexiconNames" => list(String.t() | Atom.t()),
+        "LexiconNames" => list(String.t() | atom()),
         "OutputFormat" => list(any()),
-        "OutputUri" => String.t() | Atom.t(),
+        "OutputUri" => String.t() | atom(),
         "RequestCharacters" => integer(),
-        "SampleRate" => String.t() | Atom.t(),
-        "SnsTopicArn" => String.t() | Atom.t(),
+        "SampleRate" => String.t() | atom(),
+        "SnsTopicArn" => String.t() | atom(),
         "SpeechMarkTypes" => list(list(any())()),
-        "TaskId" => String.t() | Atom.t(),
+        "TaskId" => String.t() | atom(),
         "TaskStatus" => list(any()),
-        "TaskStatusReason" => String.t() | Atom.t(),
+        "TaskStatusReason" => String.t() | atom(),
         "TextType" => list(any()),
         "VoiceId" => list(any())
       }
 
   """
-  @type synthesis_task() :: %{String.t() | Atom.t() => any()}
+  @type synthesis_task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       max_lexeme_length_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type max_lexeme_length_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type max_lexeme_length_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       language_not_supported_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type language_not_supported_exception() :: %{String.t() | Atom.t() => any()}
+  @type language_not_supported_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_lexicons_input() :: %{
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_lexicons_input() :: %{String.t() | Atom.t() => any()}
+  @type list_lexicons_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_task_id_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_task_id_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_task_id_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_lexicon_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_lexicon_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_lexicon_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_sns_topic_arn_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_sns_topic_arn_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_sns_topic_arn_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -411,11 +411,11 @@ defmodule AWS.Polly do
 
       lexicon_description() :: %{
         "Attributes" => lexicon_attributes(),
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type lexicon_description() :: %{String.t() | Atom.t() => any()}
+  @type lexicon_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -431,34 +431,34 @@ defmodule AWS.Polly do
   ## Example:
 
       lexicon() :: %{
-        "Content" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Content" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type lexicon() :: %{String.t() | Atom.t() => any()}
+  @type lexicon() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_sample_rate_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_sample_rate_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_sample_rate_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unsupported_pls_language_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type unsupported_pls_language_exception() :: %{String.t() | Atom.t() => any()}
+  @type unsupported_pls_language_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -466,12 +466,12 @@ defmodule AWS.Polly do
 
       synthesize_speech_output() :: %{
         "AudioStream" => binary(),
-        "ContentType" => String.t() | Atom.t(),
+        "ContentType" => String.t() | atom(),
         "RequestCharacters" => integer()
       }
 
   """
-  @type synthesize_speech_output() :: %{String.t() | Atom.t() => any()}
+  @type synthesize_speech_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -480,42 +480,42 @@ defmodule AWS.Polly do
       start_speech_synthesis_task_input() :: %{
         optional("Engine") => list(any()),
         optional("LanguageCode") => list(any()),
-        optional("LexiconNames") => list(String.t() | Atom.t()),
-        optional("OutputS3KeyPrefix") => String.t() | Atom.t(),
-        optional("SampleRate") => String.t() | Atom.t(),
-        optional("SnsTopicArn") => String.t() | Atom.t(),
+        optional("LexiconNames") => list(String.t() | atom()),
+        optional("OutputS3KeyPrefix") => String.t() | atom(),
+        optional("SampleRate") => String.t() | atom(),
+        optional("SnsTopicArn") => String.t() | atom(),
         optional("SpeechMarkTypes") => list(list(any())()),
         optional("TextType") => list(any()),
         required("OutputFormat") => list(any()),
-        required("OutputS3BucketName") => String.t() | Atom.t(),
-        required("Text") => String.t() | Atom.t(),
+        required("OutputS3BucketName") => String.t() | atom(),
+        required("Text") => String.t() | atom(),
         required("VoiceId") => list(any())
       }
 
   """
-  @type start_speech_synthesis_task_input() :: %{String.t() | Atom.t() => any()}
+  @type start_speech_synthesis_task_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       marks_not_supported_for_format_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type marks_not_supported_for_format_exception() :: %{String.t() | Atom.t() => any()}
+  @type marks_not_supported_for_format_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       synthesis_task_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type synthesis_task_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type synthesis_task_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -531,11 +531,11 @@ defmodule AWS.Polly do
   ## Example:
 
       text_length_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type text_length_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type text_length_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -622,7 +622,7 @@ defmodule AWS.Polly do
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
-  @spec delete_lexicon(map(), String.t() | Atom.t(), delete_lexicon_input(), list()) ::
+  @spec delete_lexicon(map(), String.t() | atom(), delete_lexicon_input(), list()) ::
           {:ok, delete_lexicon_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -674,10 +674,10 @@ defmodule AWS.Polly do
   """
   @spec describe_voices(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_voices_output(), any()}
@@ -735,7 +735,7 @@ defmodule AWS.Polly do
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
-  @spec get_lexicon(map(), String.t() | Atom.t(), list()) ::
+  @spec get_lexicon(map(), String.t() | atom(), list()) ::
           {:ok, get_lexicon_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -757,7 +757,7 @@ defmodule AWS.Polly do
   including the status of the task, and a link to the S3 bucket containing
   the output of the task.
   """
-  @spec get_speech_synthesis_task(map(), String.t() | Atom.t(), list()) ::
+  @spec get_speech_synthesis_task(map(), String.t() | atom(), list()) ::
           {:ok, get_speech_synthesis_task_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -778,7 +778,7 @@ defmodule AWS.Polly do
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
-  @spec list_lexicons(map(), String.t() | Atom.t() | nil, list()) ::
+  @spec list_lexicons(map(), String.t() | atom() | nil, list()) ::
           {:ok, list_lexicons_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -809,9 +809,9 @@ defmodule AWS.Polly do
   """
   @spec list_speech_synthesis_tasks(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_speech_synthesis_tasks_output(), any()}
@@ -866,7 +866,7 @@ defmodule AWS.Polly do
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
-  @spec put_lexicon(map(), String.t() | Atom.t(), put_lexicon_input(), list()) ::
+  @spec put_lexicon(map(), String.t() | atom(), put_lexicon_input(), list()) ::
           {:ok, put_lexicon_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

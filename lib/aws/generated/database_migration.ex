@@ -30,14 +30,14 @@ defmodule AWS.DatabaseMigration do
       
       redshift_settings() :: %{
         "AcceptAnyDate" => boolean(),
-        "AfterConnectScript" => String.t() | Atom.t(),
-        "BucketFolder" => String.t() | Atom.t(),
-        "BucketName" => String.t() | Atom.t(),
+        "AfterConnectScript" => String.t() | atom(),
+        "BucketFolder" => String.t() | atom(),
+        "BucketName" => String.t() | atom(),
         "CaseSensitiveNames" => boolean(),
         "CompUpdate" => boolean(),
         "ConnectionTimeout" => integer(),
-        "DatabaseName" => String.t() | Atom.t(),
-        "DateFormat" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | atom(),
+        "DateFormat" => String.t() | atom(),
         "EmptyAsNull" => boolean(),
         "EncryptionMode" => list(any()),
         "ExplicitIds" => boolean(),
@@ -45,25 +45,25 @@ defmodule AWS.DatabaseMigration do
         "LoadTimeout" => integer(),
         "MapBooleanAsBoolean" => boolean(),
         "MaxFileSize" => integer(),
-        "Password" => String.t() | Atom.t(),
+        "Password" => String.t() | atom(),
         "Port" => integer(),
         "RemoveQuotes" => boolean(),
-        "ReplaceChars" => String.t() | Atom.t(),
-        "ReplaceInvalidChars" => String.t() | Atom.t(),
-        "SecretsManagerAccessRoleArn" => String.t() | Atom.t(),
-        "SecretsManagerSecretId" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t(),
-        "ServerSideEncryptionKmsKeyId" => String.t() | Atom.t(),
-        "ServiceAccessRoleArn" => String.t() | Atom.t(),
-        "TimeFormat" => String.t() | Atom.t(),
+        "ReplaceChars" => String.t() | atom(),
+        "ReplaceInvalidChars" => String.t() | atom(),
+        "SecretsManagerAccessRoleArn" => String.t() | atom(),
+        "SecretsManagerSecretId" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
+        "ServerSideEncryptionKmsKeyId" => String.t() | atom(),
+        "ServiceAccessRoleArn" => String.t() | atom(),
+        "TimeFormat" => String.t() | atom(),
         "TrimBlanks" => boolean(),
         "TruncateColumns" => boolean(),
-        "Username" => String.t() | Atom.t(),
+        "Username" => String.t() | atom(),
         "WriteBufferSize" => integer()
       }
       
   """
-  @type redshift_settings() :: %{String.t() | Atom.t() => any()}
+  @type redshift_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,22 +71,22 @@ defmodule AWS.DatabaseMigration do
       
       collector_response() :: %{
         "CollectorHealthCheck" => collector_health_check(),
-        "CollectorName" => String.t() | Atom.t(),
-        "CollectorReferencedId" => String.t() | Atom.t(),
-        "CollectorVersion" => String.t() | Atom.t(),
-        "CreatedDate" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "CollectorName" => String.t() | atom(),
+        "CollectorReferencedId" => String.t() | atom(),
+        "CollectorVersion" => String.t() | atom(),
+        "CreatedDate" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "InventoryData" => inventory_data(),
-        "LastDataReceived" => String.t() | Atom.t(),
-        "ModifiedDate" => String.t() | Atom.t(),
-        "RegisteredDate" => String.t() | Atom.t(),
-        "S3BucketName" => String.t() | Atom.t(),
-        "ServiceAccessRoleArn" => String.t() | Atom.t(),
+        "LastDataReceived" => String.t() | atom(),
+        "ModifiedDate" => String.t() | atom(),
+        "RegisteredDate" => String.t() | atom(),
+        "S3BucketName" => String.t() | atom(),
+        "ServiceAccessRoleArn" => String.t() | atom(),
         "VersionStatus" => list(any())
       }
       
   """
-  @type collector_response() :: %{String.t() | Atom.t() => any()}
+  @type collector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -96,23 +96,23 @@ defmodule AWS.DatabaseMigration do
         "CodeLineCount" => float(),
         "CodeSize" => float(),
         "NumberOfObjects" => float(),
-        "ObjectType" => String.t() | Atom.t(),
-        "SchemaId" => String.t() | Atom.t()
+        "ObjectType" => String.t() | atom(),
+        "SchemaId" => String.t() | atom()
       }
       
   """
-  @type fleet_advisor_schema_object_response() :: %{String.t() | Atom.t() => any()}
+  @type fleet_advisor_schema_object_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_fault() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -121,11 +121,11 @@ defmodule AWS.DatabaseMigration do
       describe_fleet_advisor_databases_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_fleet_advisor_databases_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_fleet_advisor_databases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -133,13 +133,13 @@ defmodule AWS.DatabaseMigration do
       
       describe_table_statistics_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        required("ReplicationTaskArn") => String.t() | Atom.t()
+        required("ReplicationTaskArn") => String.t() | atom()
       }
       
   """
-  @type describe_table_statistics_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_table_statistics_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -154,128 +154,128 @@ defmodule AWS.DatabaseMigration do
         "MessageFormat" => list(any()),
         "NoHexPrefix" => boolean(),
         "PartitionIncludeSchemaTable" => boolean(),
-        "ServiceAccessRoleArn" => String.t() | Atom.t(),
-        "StreamArn" => String.t() | Atom.t(),
+        "ServiceAccessRoleArn" => String.t() | atom(),
+        "StreamArn" => String.t() | atom(),
         "UseLargeIntegerValue" => boolean()
       }
       
   """
-  @type kinesis_settings() :: %{String.t() | Atom.t() => any()}
+  @type kinesis_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_resource_state_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_resource_state_fault() :: %{String.t() | Atom.t() => any()}
+  @type invalid_resource_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_provider() :: %{
-        "DataProviderArn" => String.t() | Atom.t(),
+        "DataProviderArn" => String.t() | atom(),
         "DataProviderCreationTime" => non_neg_integer(),
-        "DataProviderName" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "Engine" => String.t() | Atom.t(),
+        "DataProviderName" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
         "Settings" => list(),
         "Virtual" => boolean()
       }
       
   """
-  @type data_provider() :: %{String.t() | Atom.t() => any()}
+  @type data_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_data_provider_message() :: %{
-        required("DataProviderIdentifier") => String.t() | Atom.t()
+        required("DataProviderIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_data_provider_message() :: %{String.t() | Atom.t() => any()}
+  @type delete_data_provider_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       pending_maintenance_action() :: %{
-        "Action" => String.t() | Atom.t(),
+        "Action" => String.t() | atom(),
         "AutoAppliedAfterDate" => non_neg_integer(),
         "CurrentApplyDate" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "ForcedApplyDate" => non_neg_integer(),
-        "OptInStatus" => String.t() | Atom.t()
+        "OptInStatus" => String.t() | atom()
       }
       
   """
-  @type pending_maintenance_action() :: %{String.t() | Atom.t() => any()}
+  @type pending_maintenance_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       account_quota() :: %{
-        "AccountQuotaName" => String.t() | Atom.t(),
+        "AccountQuotaName" => String.t() | atom(),
         "Max" => float(),
         "Used" => float()
       }
       
   """
-  @type account_quota() :: %{String.t() | Atom.t() => any()}
+  @type account_quota() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       apply_pending_maintenance_action_message() :: %{
-        required("ApplyAction") => String.t() | Atom.t(),
-        required("OptInType") => String.t() | Atom.t(),
-        required("ReplicationInstanceArn") => String.t() | Atom.t()
+        required("ApplyAction") => String.t() | atom(),
+        required("OptInType") => String.t() | atom(),
+        required("ReplicationInstanceArn") => String.t() | atom()
       }
       
   """
-  @type apply_pending_maintenance_action_message() :: %{String.t() | Atom.t() => any()}
+  @type apply_pending_maintenance_action_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       upgrade_dependency_failure_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type upgrade_dependency_failure_fault() :: %{String.t() | Atom.t() => any()}
+  @type upgrade_dependency_failure_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_already_in_use() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subnet_already_in_use() :: %{String.t() | Atom.t() => any()}
+  @type subnet_already_in_use() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_engine_versions_message() :: %{
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_engine_versions_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_engine_versions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -283,58 +283,58 @@ defmodule AWS.DatabaseMigration do
       
       describe_endpoints_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_endpoints_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_endpoints_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       oracle_data_provider_settings() :: %{
-        "AsmServer" => String.t() | Atom.t(),
-        "CertificateArn" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "AsmServer" => String.t() | atom(),
+        "CertificateArn" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
         "Port" => integer(),
-        "S3AccessRoleArn" => String.t() | Atom.t(),
-        "S3Path" => String.t() | Atom.t(),
-        "SecretsManagerOracleAsmAccessRoleArn" => String.t() | Atom.t(),
-        "SecretsManagerOracleAsmSecretId" => String.t() | Atom.t(),
-        "SecretsManagerSecurityDbEncryptionAccessRoleArn" => String.t() | Atom.t(),
-        "SecretsManagerSecurityDbEncryptionSecretId" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t(),
+        "S3AccessRoleArn" => String.t() | atom(),
+        "S3Path" => String.t() | atom(),
+        "SecretsManagerOracleAsmAccessRoleArn" => String.t() | atom(),
+        "SecretsManagerOracleAsmSecretId" => String.t() | atom(),
+        "SecretsManagerSecurityDbEncryptionAccessRoleArn" => String.t() | atom(),
+        "SecretsManagerSecurityDbEncryptionSecretId" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
         "SslMode" => list(any())
       }
       
   """
-  @type oracle_data_provider_settings() :: %{String.t() | Atom.t() => any()}
+  @type oracle_data_provider_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_orderable_replication_instances_message() :: %{
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_orderable_replication_instances_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_orderable_replication_instances_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       export_metadata_model_assessment_result_entry() :: %{
-        "ObjectURL" => String.t() | Atom.t(),
-        "S3ObjectKey" => String.t() | Atom.t()
+        "ObjectURL" => String.t() | atom(),
+        "S3ObjectKey" => String.t() | atom()
       }
       
   """
-  @type export_metadata_model_assessment_result_entry() :: %{String.t() | Atom.t() => any()}
+  @type export_metadata_model_assessment_result_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -342,12 +342,12 @@ defmodule AWS.DatabaseMigration do
       
       describe_replication_configs_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_replication_configs_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_replication_configs_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -355,11 +355,11 @@ defmodule AWS.DatabaseMigration do
       
       resource_pending_maintenance_actions() :: %{
         "PendingMaintenanceActionDetails" => list(pending_maintenance_action()),
-        "ResourceIdentifier" => String.t() | Atom.t()
+        "ResourceIdentifier" => String.t() | atom()
       }
       
   """
-  @type resource_pending_maintenance_actions() :: %{String.t() | Atom.t() => any()}
+  @type resource_pending_maintenance_actions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -367,13 +367,13 @@ defmodule AWS.DatabaseMigration do
       
       start_metadata_model_import_message() :: %{
         optional("Refresh") => boolean(),
-        required("MigrationProjectIdentifier") => String.t() | Atom.t(),
+        required("MigrationProjectIdentifier") => String.t() | atom(),
         required("Origin") => list(any()),
-        required("SelectionRules") => String.t() | Atom.t()
+        required("SelectionRules") => String.t() | atom()
       }
       
   """
-  @type start_metadata_model_import_message() :: %{String.t() | Atom.t() => any()}
+  @type start_metadata_model_import_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -384,7 +384,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type create_replication_subnet_group_response() :: %{String.t() | Atom.t() => any()}
+  @type create_replication_subnet_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -392,60 +392,60 @@ defmodule AWS.DatabaseMigration do
       
       describe_fleet_advisor_collectors_response() :: %{
         "Collectors" => list(collector_response()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_fleet_advisor_collectors_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_fleet_advisor_collectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type access_denied_fault() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_invalid_state_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type kms_invalid_state_fault() :: %{String.t() | Atom.t() => any()}
+  @type kms_invalid_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_metadata_model_imports_response() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "Requests" => list(schema_conversion_request())
       }
       
   """
-  @type describe_metadata_model_imports_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_metadata_model_imports_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_replication_task_message() :: %{
-        optional("CdcStartPosition") => String.t() | Atom.t(),
+        optional("CdcStartPosition") => String.t() | atom(),
         optional("CdcStartTime") => non_neg_integer(),
-        optional("CdcStopPosition") => String.t() | Atom.t(),
-        required("ReplicationTaskArn") => String.t() | Atom.t(),
+        optional("CdcStopPosition") => String.t() | atom(),
+        required("ReplicationTaskArn") => String.t() | atom(),
         required("StartReplicationTaskType") => list(any())
       }
       
   """
-  @type start_replication_task_message() :: %{String.t() | Atom.t() => any()}
+  @type start_replication_task_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -456,7 +456,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type delete_instance_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_instance_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -468,38 +468,38 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type rds_recommendation() :: %{String.t() | Atom.t() => any()}
+  @type rds_recommendation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_profile() :: %{
-        "AvailabilityZone" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "InstanceProfileArn" => String.t() | Atom.t(),
+        "AvailabilityZone" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "InstanceProfileArn" => String.t() | atom(),
         "InstanceProfileCreationTime" => non_neg_integer(),
-        "InstanceProfileName" => String.t() | Atom.t(),
-        "KmsKeyArn" => String.t() | Atom.t(),
-        "NetworkType" => String.t() | Atom.t(),
+        "InstanceProfileName" => String.t() | atom(),
+        "KmsKeyArn" => String.t() | atom(),
+        "NetworkType" => String.t() | atom(),
         "PubliclyAccessible" => boolean(),
-        "SubnetGroupIdentifier" => String.t() | Atom.t(),
-        "VpcSecurityGroups" => list(String.t() | Atom.t())
+        "SubnetGroupIdentifier" => String.t() | atom(),
+        "VpcSecurityGroups" => list(String.t() | atom())
       }
       
   """
-  @type instance_profile() :: %{String.t() | Atom.t() => any()}
+  @type instance_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       default_error_details() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type default_error_details() :: %{String.t() | Atom.t() => any()}
+  @type default_error_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -510,55 +510,55 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type modify_instance_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type modify_instance_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_migration_project_message() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("MigrationProjectName") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("MigrationProjectName") => String.t() | atom(),
         optional("SchemaConversionApplicationAttributes") => s_capplication_attributes(),
         optional("Tags") => list(tag()),
-        optional("TransformationRules") => String.t() | Atom.t(),
-        required("InstanceProfileIdentifier") => String.t() | Atom.t(),
+        optional("TransformationRules") => String.t() | atom(),
+        required("InstanceProfileIdentifier") => String.t() | atom(),
         required("SourceDataProviderDescriptors") => list(data_provider_descriptor_definition()),
         required("TargetDataProviderDescriptors") => list(data_provider_descriptor_definition())
       }
       
   """
-  @type create_migration_project_message() :: %{String.t() | Atom.t() => any()}
+  @type create_migration_project_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_setting() :: %{
-        "Applicability" => String.t() | Atom.t(),
-        "DefaultValue" => String.t() | Atom.t(),
-        "EnumValues" => list(String.t() | Atom.t()),
+        "Applicability" => String.t() | atom(),
+        "DefaultValue" => String.t() | atom(),
+        "EnumValues" => list(String.t() | atom()),
         "IntValueMax" => integer(),
         "IntValueMin" => integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Sensitive" => boolean(),
         "Type" => list(any()),
-        "Units" => String.t() | Atom.t()
+        "Units" => String.t() | atom()
       }
       
   """
-  @type endpoint_setting() :: %{String.t() | Atom.t() => any()}
+  @type endpoint_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       availability_zone() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type availability_zone() :: %{String.t() | Atom.t() => any()}
+  @type availability_zone() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -579,7 +579,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type replication_stats() :: %{String.t() | Atom.t() => any()}
+  @type replication_stats() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -591,18 +591,18 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type inventory_data() :: %{String.t() | Atom.t() => any()}
+  @type inventory_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_replication_task_assessment_run_message() :: %{
-        required("ReplicationTaskAssessmentRunArn") => String.t() | Atom.t()
+        required("ReplicationTaskAssessmentRunArn") => String.t() | atom()
       }
       
   """
-  @type delete_replication_task_assessment_run_message() :: %{String.t() | Atom.t() => any()}
+  @type delete_replication_task_assessment_run_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -610,11 +610,11 @@ defmodule AWS.DatabaseMigration do
       
       describe_recommendation_limitations_response() :: %{
         "Limitations" => list(limitation()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_recommendation_limitations_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_recommendation_limitations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -625,21 +625,21 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type describe_event_categories_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_event_categories_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_fleet_advisor_collector_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        required("CollectorName") => String.t() | Atom.t(),
-        required("S3BucketName") => String.t() | Atom.t(),
-        required("ServiceAccessRoleArn") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        required("CollectorName") => String.t() | atom(),
+        required("S3BucketName") => String.t() | atom(),
+        required("ServiceAccessRoleArn") => String.t() | atom()
       }
       
   """
-  @type create_fleet_advisor_collector_request() :: %{String.t() | Atom.t() => any()}
+  @type create_fleet_advisor_collector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -647,30 +647,30 @@ defmodule AWS.DatabaseMigration do
       
       describe_metadata_model_conversions_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        required("MigrationProjectIdentifier") => String.t() | Atom.t()
+        required("MigrationProjectIdentifier") => String.t() | atom()
       }
       
   """
-  @type describe_metadata_model_conversions_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_metadata_model_conversions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sybase_settings() :: %{
-        "DatabaseName" => String.t() | Atom.t(),
-        "Password" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | atom(),
+        "Password" => String.t() | atom(),
         "Port" => integer(),
-        "SecretsManagerAccessRoleArn" => String.t() | Atom.t(),
-        "SecretsManagerSecretId" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t(),
-        "Username" => String.t() | Atom.t()
+        "SecretsManagerAccessRoleArn" => String.t() | atom(),
+        "SecretsManagerSecretId" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
+        "Username" => String.t() | atom()
       }
       
   """
-  @type sybase_settings() :: %{String.t() | Atom.t() => any()}
+  @type sybase_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -678,35 +678,35 @@ defmodule AWS.DatabaseMigration do
       
       create_replication_subnet_group_message() :: %{
         optional("Tags") => list(tag()),
-        required("ReplicationSubnetGroupDescription") => String.t() | Atom.t(),
-        required("ReplicationSubnetGroupIdentifier") => String.t() | Atom.t(),
-        required("SubnetIds") => list(String.t() | Atom.t())
+        required("ReplicationSubnetGroupDescription") => String.t() | atom(),
+        required("ReplicationSubnetGroupIdentifier") => String.t() | atom(),
+        required("SubnetIds") => list(String.t() | atom())
       }
       
   """
-  @type create_replication_subnet_group_message() :: %{String.t() | Atom.t() => any()}
+  @type create_replication_subnet_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_migration_project_message() :: %{
-        required("MigrationProjectIdentifier") => String.t() | Atom.t()
+        required("MigrationProjectIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_migration_project_message() :: %{String.t() | Atom.t() => any()}
+  @type delete_migration_project_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_fleet_advisor_databases_request() :: %{
-        required("DatabaseIds") => list(String.t() | Atom.t())
+        required("DatabaseIds") => list(String.t() | atom())
       }
       
   """
-  @type delete_fleet_advisor_databases_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_fleet_advisor_databases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -714,26 +714,26 @@ defmodule AWS.DatabaseMigration do
       
       describe_fleet_advisor_databases_response() :: %{
         "Databases" => list(database_response()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_fleet_advisor_databases_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_fleet_advisor_databases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       schema_short_info_response() :: %{
-        "DatabaseId" => String.t() | Atom.t(),
-        "DatabaseIpAddress" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t(),
-        "SchemaId" => String.t() | Atom.t(),
-        "SchemaName" => String.t() | Atom.t()
+        "DatabaseId" => String.t() | atom(),
+        "DatabaseIpAddress" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "SchemaId" => String.t() | atom(),
+        "SchemaName" => String.t() | atom()
       }
       
   """
-  @type schema_short_info_response() :: %{String.t() | Atom.t() => any()}
+  @type schema_short_info_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -741,17 +741,17 @@ defmodule AWS.DatabaseMigration do
       
       engine_version() :: %{
         "AutoUpgradeDate" => non_neg_integer(),
-        "AvailableUpgrades" => list(String.t() | Atom.t()),
+        "AvailableUpgrades" => list(String.t() | atom()),
         "DeprecationDate" => non_neg_integer(),
         "ForceUpgradeDate" => non_neg_integer(),
         "LaunchDate" => non_neg_integer(),
-        "Lifecycle" => String.t() | Atom.t(),
+        "Lifecycle" => String.t() | atom(),
         "ReleaseStatus" => list(any()),
-        "Version" => String.t() | Atom.t()
+        "Version" => String.t() | atom()
       }
       
   """
-  @type engine_version() :: %{String.t() | Atom.t() => any()}
+  @type engine_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -767,13 +767,13 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_replication_table_statistics_response() :: %{
-        "Marker" => String.t() | Atom.t(),
-        "ReplicationConfigArn" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
+        "ReplicationConfigArn" => String.t() | atom(),
         "ReplicationTableStatistics" => list(table_statistics())
       }
       
   """
-  @type describe_replication_table_statistics_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_replication_table_statistics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -781,43 +781,42 @@ defmodule AWS.DatabaseMigration do
       
       modify_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t() | Atom.t()),
-        optional("SnsTopicArn") => String.t() | Atom.t(),
-        optional("SourceType") => String.t() | Atom.t(),
-        required("SubscriptionName") => String.t() | Atom.t()
+        optional("EventCategories") => list(String.t() | atom()),
+        optional("SnsTopicArn") => String.t() | atom(),
+        optional("SourceType") => String.t() | atom(),
+        required("SubscriptionName") => String.t() | atom()
       }
       
   """
-  @type modify_event_subscription_message() :: %{String.t() | Atom.t() => any()}
+  @type modify_event_subscription_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_metadata_model_export_as_script_message() :: %{
-        optional("FileName") => String.t() | Atom.t(),
-        required("MigrationProjectIdentifier") => String.t() | Atom.t(),
+        optional("FileName") => String.t() | atom(),
+        required("MigrationProjectIdentifier") => String.t() | atom(),
         required("Origin") => list(any()),
-        required("SelectionRules") => String.t() | Atom.t()
+        required("SelectionRules") => String.t() | atom()
       }
       
   """
-  @type start_metadata_model_export_as_script_message() :: %{String.t() | Atom.t() => any()}
+  @type start_metadata_model_export_as_script_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_replication_task_assessment_results_message() :: %{
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("ReplicationTaskArn") => String.t() | Atom.t()
+        optional("ReplicationTaskArn") => String.t() | atom()
       }
       
   """
   @type describe_replication_task_assessment_results_message() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -826,13 +825,13 @@ defmodule AWS.DatabaseMigration do
       
       describe_replication_tasks_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
         optional("WithoutSettings") => boolean()
       }
       
   """
-  @type describe_replication_tasks_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_replication_tasks_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -840,48 +839,48 @@ defmodule AWS.DatabaseMigration do
       
       describe_pending_maintenance_actions_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("ReplicationInstanceArn") => String.t() | Atom.t()
+        optional("ReplicationInstanceArn") => String.t() | atom()
       }
       
   """
-  @type describe_pending_maintenance_actions_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_pending_maintenance_actions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_metadata_model_import_response() :: %{
-        "RequestIdentifier" => String.t() | Atom.t()
+        "RequestIdentifier" => String.t() | atom()
       }
       
   """
-  @type start_metadata_model_import_response() :: %{String.t() | Atom.t() => any()}
+  @type start_metadata_model_import_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_replication_task_message() :: %{
-        required("ReplicationTaskArn") => String.t() | Atom.t()
+        required("ReplicationTaskArn") => String.t() | atom()
       }
       
   """
-  @type stop_replication_task_message() :: %{String.t() | Atom.t() => any()}
+  @type stop_replication_task_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_replication_instance_task_logs_message() :: %{
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        required("ReplicationInstanceArn") => String.t() | Atom.t()
+        required("ReplicationInstanceArn") => String.t() | atom()
       }
       
   """
-  @type describe_replication_instance_task_logs_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_replication_instance_task_logs_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -892,7 +891,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type delete_data_migration_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_data_migration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -900,13 +899,13 @@ defmodule AWS.DatabaseMigration do
       
       describe_metadata_model_exports_to_target_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        required("MigrationProjectIdentifier") => String.t() | Atom.t()
+        required("MigrationProjectIdentifier") => String.t() | atom()
       }
       
   """
-  @type describe_metadata_model_exports_to_target_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_metadata_model_exports_to_target_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -922,36 +921,36 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       s_capplication_attributes() :: %{
-        "S3BucketPath" => String.t() | Atom.t(),
-        "S3BucketRoleArn" => String.t() | Atom.t()
+        "S3BucketPath" => String.t() | atom(),
+        "S3BucketRoleArn" => String.t() | atom()
       }
       
   """
-  @type s_capplication_attributes() :: %{String.t() | Atom.t() => any()}
+  @type s_capplication_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_metadata_model_assessment_message() :: %{
-        required("MigrationProjectIdentifier") => String.t() | Atom.t(),
-        required("SelectionRules") => String.t() | Atom.t()
+        required("MigrationProjectIdentifier") => String.t() | atom(),
+        required("SelectionRules") => String.t() | atom()
       }
       
   """
-  @type start_metadata_model_assessment_message() :: %{String.t() | Atom.t() => any()}
+  @type start_metadata_model_assessment_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       move_replication_task_message() :: %{
-        required("ReplicationTaskArn") => String.t() | Atom.t(),
-        required("TargetReplicationInstanceArn") => String.t() | Atom.t()
+        required("ReplicationTaskArn") => String.t() | atom(),
+        required("TargetReplicationInstanceArn") => String.t() | atom()
       }
       
   """
-  @type move_replication_task_message() :: %{String.t() | Atom.t() => any()}
+  @type move_replication_task_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -962,7 +961,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type modify_replication_subnet_group_response() :: %{String.t() | Atom.t() => any()}
+  @type modify_replication_subnet_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -970,11 +969,11 @@ defmodule AWS.DatabaseMigration do
       
       describe_fleet_advisor_lsa_analysis_response() :: %{
         "Analysis" => list(fleet_advisor_lsa_analysis_response()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_fleet_advisor_lsa_analysis_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_fleet_advisor_lsa_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -983,13 +982,12 @@ defmodule AWS.DatabaseMigration do
       describe_fleet_advisor_schema_object_summary_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
   @type describe_fleet_advisor_schema_object_summary_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -999,47 +997,47 @@ defmodule AWS.DatabaseMigration do
       replication_instance() :: %{
         "AllocatedStorage" => integer(),
         "AutoMinorVersionUpgrade" => boolean(),
-        "AvailabilityZone" => String.t() | Atom.t(),
-        "DnsNameServers" => String.t() | Atom.t(),
-        "EngineVersion" => String.t() | Atom.t(),
+        "AvailabilityZone" => String.t() | atom(),
+        "DnsNameServers" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "FreeUntil" => non_neg_integer(),
         "InstanceCreateTime" => non_neg_integer(),
         "KerberosAuthenticationSettings" => kerberos_authentication_settings(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
         "MultiAZ" => boolean(),
-        "NetworkType" => String.t() | Atom.t(),
+        "NetworkType" => String.t() | atom(),
         "PendingModifiedValues" => replication_pending_modified_values(),
-        "PreferredMaintenanceWindow" => String.t() | Atom.t(),
+        "PreferredMaintenanceWindow" => String.t() | atom(),
         "PubliclyAccessible" => boolean(),
-        "ReplicationInstanceArn" => String.t() | Atom.t(),
-        "ReplicationInstanceClass" => String.t() | Atom.t(),
-        "ReplicationInstanceIdentifier" => String.t() | Atom.t(),
-        "ReplicationInstanceIpv6Addresses" => list(String.t() | Atom.t()),
-        "ReplicationInstancePrivateIpAddress" => String.t() | Atom.t(),
-        "ReplicationInstancePrivateIpAddresses" => list(String.t() | Atom.t()),
-        "ReplicationInstancePublicIpAddress" => String.t() | Atom.t(),
-        "ReplicationInstancePublicIpAddresses" => list(String.t() | Atom.t()),
-        "ReplicationInstanceStatus" => String.t() | Atom.t(),
+        "ReplicationInstanceArn" => String.t() | atom(),
+        "ReplicationInstanceClass" => String.t() | atom(),
+        "ReplicationInstanceIdentifier" => String.t() | atom(),
+        "ReplicationInstanceIpv6Addresses" => list(String.t() | atom()),
+        "ReplicationInstancePrivateIpAddress" => String.t() | atom(),
+        "ReplicationInstancePrivateIpAddresses" => list(String.t() | atom()),
+        "ReplicationInstancePublicIpAddress" => String.t() | atom(),
+        "ReplicationInstancePublicIpAddresses" => list(String.t() | atom()),
+        "ReplicationInstanceStatus" => String.t() | atom(),
         "ReplicationSubnetGroup" => replication_subnet_group(),
-        "SecondaryAvailabilityZone" => String.t() | Atom.t(),
+        "SecondaryAvailabilityZone" => String.t() | atom(),
         "VpcSecurityGroups" => list(vpc_security_group_membership())
       }
       
   """
-  @type replication_instance() :: %{String.t() | Atom.t() => any()}
+  @type replication_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_schemas_message() :: %{
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        required("EndpointArn") => String.t() | Atom.t()
+        required("EndpointArn") => String.t() | atom()
       }
       
   """
-  @type describe_schemas_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_schemas_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1050,26 +1048,26 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type modify_endpoint_response() :: %{String.t() | Atom.t() => any()}
+  @type modify_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_subscription() :: %{
-        "CustSubscriptionId" => String.t() | Atom.t(),
-        "CustomerAwsId" => String.t() | Atom.t(),
+        "CustSubscriptionId" => String.t() | atom(),
+        "CustomerAwsId" => String.t() | atom(),
         "Enabled" => boolean(),
-        "EventCategoriesList" => list(String.t() | Atom.t()),
-        "SnsTopicArn" => String.t() | Atom.t(),
-        "SourceIdsList" => list(String.t() | Atom.t()),
-        "SourceType" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
-        "SubscriptionCreationTime" => String.t() | Atom.t()
+        "EventCategoriesList" => list(String.t() | atom()),
+        "SnsTopicArn" => String.t() | atom(),
+        "SourceIdsList" => list(String.t() | atom()),
+        "SourceType" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "SubscriptionCreationTime" => String.t() | atom()
       }
       
   """
-  @type event_subscription() :: %{String.t() | Atom.t() => any()}
+  @type event_subscription() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1078,34 +1076,33 @@ defmodule AWS.DatabaseMigration do
       premigration_assessment_status() :: %{
         "AssessmentProgress" => replication_task_assessment_run_progress(),
         "FailOnAssessmentFailure" => boolean(),
-        "LastFailureMessage" => String.t() | Atom.t(),
-        "PremigrationAssessmentRunArn" => String.t() | Atom.t(),
+        "LastFailureMessage" => String.t() | atom(),
+        "PremigrationAssessmentRunArn" => String.t() | atom(),
         "PremigrationAssessmentRunCreationDate" => non_neg_integer(),
-        "ResultEncryptionMode" => String.t() | Atom.t(),
-        "ResultKmsKeyArn" => String.t() | Atom.t(),
-        "ResultLocationBucket" => String.t() | Atom.t(),
-        "ResultLocationFolder" => String.t() | Atom.t(),
+        "ResultEncryptionMode" => String.t() | atom(),
+        "ResultKmsKeyArn" => String.t() | atom(),
+        "ResultLocationBucket" => String.t() | atom(),
+        "ResultLocationFolder" => String.t() | atom(),
         "ResultStatistic" => replication_task_assessment_run_result_statistic(),
-        "Status" => String.t() | Atom.t()
+        "Status" => String.t() | atom()
       }
       
   """
-  @type premigration_assessment_status() :: %{String.t() | Atom.t() => any()}
+  @type premigration_assessment_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_replication_task_assessment_results_response() :: %{
-        "BucketName" => String.t() | Atom.t(),
-        "Marker" => String.t() | Atom.t(),
+        "BucketName" => String.t() | atom(),
+        "Marker" => String.t() | atom(),
         "ReplicationTaskAssessmentResults" => list(replication_task_assessment_result())
       }
       
   """
   @type describe_replication_task_assessment_results_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1114,12 +1111,12 @@ defmodule AWS.DatabaseMigration do
       
       describe_data_providers_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_data_providers_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_data_providers_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1127,40 +1124,40 @@ defmodule AWS.DatabaseMigration do
       
       describe_certificates_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_certificates_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_certificates_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       dynamo_db_settings() :: %{
-        "ServiceAccessRoleArn" => String.t() | Atom.t()
+        "ServiceAccessRoleArn" => String.t() | atom()
       }
       
   """
-  @type dynamo_db_settings() :: %{String.t() | Atom.t() => any()}
+  @type dynamo_db_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ibm_db2z_os_data_provider_settings() :: %{
-        "CertificateArn" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "CertificateArn" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
         "Port" => integer(),
-        "S3AccessRoleArn" => String.t() | Atom.t(),
-        "S3Path" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t(),
+        "S3AccessRoleArn" => String.t() | atom(),
+        "S3Path" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
         "SslMode" => list(any())
       }
       
   """
-  @type ibm_db2z_os_data_provider_settings() :: %{String.t() | Atom.t() => any()}
+  @type ibm_db2z_os_data_provider_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1168,12 +1165,12 @@ defmodule AWS.DatabaseMigration do
       
       subnet() :: %{
         "SubnetAvailabilityZone" => availability_zone(),
-        "SubnetIdentifier" => String.t() | Atom.t(),
-        "SubnetStatus" => String.t() | Atom.t()
+        "SubnetIdentifier" => String.t() | atom(),
+        "SubnetStatus" => String.t() | atom()
       }
       
   """
-  @type subnet() :: %{String.t() | Atom.t() => any()}
+  @type subnet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1181,39 +1178,39 @@ defmodule AWS.DatabaseMigration do
       
       describe_migration_projects_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_migration_projects_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_migration_projects_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_metadata_model_conversions_response() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "Requests" => list(schema_conversion_request())
       }
       
   """
-  @type describe_metadata_model_conversions_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_metadata_model_conversions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       elasticsearch_settings() :: %{
-        "EndpointUri" => String.t() | Atom.t(),
+        "EndpointUri" => String.t() | atom(),
         "ErrorRetryDuration" => integer(),
         "FullLoadErrorPercentage" => integer(),
-        "ServiceAccessRoleArn" => String.t() | Atom.t(),
+        "ServiceAccessRoleArn" => String.t() | atom(),
         "UseNewMappingType" => boolean()
       }
       
   """
-  @type elasticsearch_settings() :: %{String.t() | Atom.t() => any()}
+  @type elasticsearch_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1224,34 +1221,34 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type create_instance_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type create_instance_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_replication_message() :: %{
-        optional("CdcStartPosition") => String.t() | Atom.t(),
+        optional("CdcStartPosition") => String.t() | atom(),
         optional("CdcStartTime") => non_neg_integer(),
-        optional("CdcStopPosition") => String.t() | Atom.t(),
-        optional("PremigrationAssessmentSettings") => String.t() | Atom.t(),
-        required("ReplicationConfigArn") => String.t() | Atom.t(),
-        required("StartReplicationType") => String.t() | Atom.t()
+        optional("CdcStopPosition") => String.t() | atom(),
+        optional("PremigrationAssessmentSettings") => String.t() | atom(),
+        required("ReplicationConfigArn") => String.t() | atom(),
+        required("StartReplicationType") => String.t() | atom()
       }
       
   """
-  @type start_replication_message() :: %{String.t() | Atom.t() => any()}
+  @type start_replication_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_subnet() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_subnet() :: %{String.t() | Atom.t() => any()}
+  @type invalid_subnet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1259,23 +1256,23 @@ defmodule AWS.DatabaseMigration do
       
       describe_endpoints_response() :: %{
         "Endpoints" => list(endpoint()),
-        "Marker" => String.t() | Atom.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_endpoints_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_message() :: %{
-        optional("ResourceArn") => String.t() | Atom.t(),
-        optional("ResourceArnList") => list(String.t() | Atom.t())
+        optional("ResourceArn") => String.t() | atom(),
+        optional("ResourceArnList") => list(String.t() | atom())
       }
       
   """
-  @type list_tags_for_resource_message() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1283,16 +1280,16 @@ defmodule AWS.DatabaseMigration do
       
       database_response() :: %{
         "Collectors" => list(collector_short_info_response()),
-        "DatabaseId" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t(),
-        "IpAddress" => String.t() | Atom.t(),
+        "DatabaseId" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "IpAddress" => String.t() | atom(),
         "NumberOfSchemas" => float(),
         "Server" => server_short_info_response(),
         "SoftwareDetails" => database_instance_software_details_response()
       }
       
   """
-  @type database_response() :: %{String.t() | Atom.t() => any()}
+  @type database_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1303,34 +1300,34 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type recommendation_data() :: %{String.t() | Atom.t() => any()}
+  @type recommendation_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_metadata_model_exports_as_script_response() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "Requests" => list(schema_conversion_request())
       }
       
   """
-  @type describe_metadata_model_exports_as_script_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_metadata_model_exports_as_script_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       doc_db_data_provider_settings() :: %{
-        "CertificateArn" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "CertificateArn" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
         "Port" => integer(),
-        "ServerName" => String.t() | Atom.t(),
+        "ServerName" => String.t() | atom(),
         "SslMode" => list(any())
       }
       
   """
-  @type doc_db_data_provider_settings() :: %{String.t() | Atom.t() => any()}
+  @type doc_db_data_provider_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1351,43 +1348,43 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type replication_task_stats() :: %{String.t() | Atom.t() => any()}
+  @type replication_task_stats() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       server_short_info_response() :: %{
-        "IpAddress" => String.t() | Atom.t(),
-        "ServerId" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t()
+        "IpAddress" => String.t() | atom(),
+        "ServerId" => String.t() | atom(),
+        "ServerName" => String.t() | atom()
       }
       
   """
-  @type server_short_info_response() :: %{String.t() | Atom.t() => any()}
+  @type server_short_info_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_applicable_individual_assessments_response() :: %{
-        "IndividualAssessmentNames" => list(String.t() | Atom.t()),
-        "Marker" => String.t() | Atom.t()
+        "IndividualAssessmentNames" => list(String.t() | atom()),
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_applicable_individual_assessments_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_applicable_individual_assessments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_data_migration_message() :: %{
-        required("DataMigrationIdentifier") => String.t() | Atom.t()
+        required("DataMigrationIdentifier") => String.t() | atom()
       }
       
   """
-  @type stop_data_migration_message() :: %{String.t() | Atom.t() => any()}
+  @type stop_data_migration_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1398,19 +1395,19 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type import_certificate_response() :: %{String.t() | Atom.t() => any()}
+  @type import_certificate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       refresh_schemas_message() :: %{
-        required("EndpointArn") => String.t() | Atom.t(),
-        required("ReplicationInstanceArn") => String.t() | Atom.t()
+        required("EndpointArn") => String.t() | atom(),
+        required("ReplicationInstanceArn") => String.t() | atom()
       }
       
   """
-  @type refresh_schemas_message() :: %{String.t() | Atom.t() => any()}
+  @type refresh_schemas_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1421,7 +1418,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type delete_replication_config_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_replication_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1435,7 +1432,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type collector_health_check() :: %{String.t() | Atom.t() => any()}
+  @type collector_health_check() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1443,12 +1440,12 @@ defmodule AWS.DatabaseMigration do
       
       describe_instance_profiles_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_instance_profiles_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_instance_profiles_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1456,26 +1453,26 @@ defmodule AWS.DatabaseMigration do
       
       timestream_settings() :: %{
         "CdcInsertsAndUpdates" => boolean(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | atom(),
         "EnableMagneticStoreWrites" => boolean(),
         "MagneticDuration" => integer(),
         "MemoryDuration" => integer()
       }
       
   """
-  @type timestream_settings() :: %{String.t() | Atom.t() => any()}
+  @type timestream_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_recommendations_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Recommendations" => list(recommendation())
       }
       
   """
-  @type describe_recommendations_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_recommendations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1484,11 +1481,11 @@ defmodule AWS.DatabaseMigration do
       describe_fleet_advisor_collectors_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_fleet_advisor_collectors_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_fleet_advisor_collectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1499,60 +1496,60 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type update_subscriptions_to_event_bridge_message() :: %{String.t() | Atom.t() => any()}
+  @type update_subscriptions_to_event_bridge_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_recommendations_request() :: %{
-        required("DatabaseId") => String.t() | Atom.t(),
+        required("DatabaseId") => String.t() | atom(),
         required("Settings") => recommendation_settings()
       }
       
   """
-  @type start_recommendations_request() :: %{String.t() | Atom.t() => any()}
+  @type start_recommendations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_data_migration_message() :: %{
-        required("DataMigrationIdentifier") => String.t() | Atom.t()
+        required("DataMigrationIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_data_migration_message() :: %{String.t() | Atom.t() => any()}
+  @type delete_data_migration_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_replication_task_message() :: %{
-        optional("CdcStartPosition") => String.t() | Atom.t(),
+        optional("CdcStartPosition") => String.t() | atom(),
         optional("CdcStartTime") => non_neg_integer(),
-        optional("CdcStopPosition") => String.t() | Atom.t(),
+        optional("CdcStopPosition") => String.t() | atom(),
         optional("MigrationType") => list(any()),
-        optional("ReplicationTaskIdentifier") => String.t() | Atom.t(),
-        optional("ReplicationTaskSettings") => String.t() | Atom.t(),
-        optional("TableMappings") => String.t() | Atom.t(),
-        optional("TaskData") => String.t() | Atom.t(),
-        required("ReplicationTaskArn") => String.t() | Atom.t()
+        optional("ReplicationTaskIdentifier") => String.t() | atom(),
+        optional("ReplicationTaskSettings") => String.t() | atom(),
+        optional("TableMappings") => String.t() | atom(),
+        optional("TaskData") => String.t() | atom(),
+        required("ReplicationTaskArn") => String.t() | atom()
       }
       
   """
-  @type modify_replication_task_message() :: %{String.t() | Atom.t() => any()}
+  @type modify_replication_task_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       replication_subnet_group_does_not_cover_enough_a_zs() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type replication_subnet_group_does_not_cover_enough_a_zs() :: %{String.t() | Atom.t() => any()}
+  @type replication_subnet_group_does_not_cover_enough_a_zs() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1560,80 +1557,80 @@ defmodule AWS.DatabaseMigration do
       
       describe_extension_pack_associations_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        required("MigrationProjectIdentifier") => String.t() | Atom.t()
+        required("MigrationProjectIdentifier") => String.t() | atom()
       }
       
   """
-  @type describe_extension_pack_associations_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_extension_pack_associations_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rds_configuration() :: %{
-        "DeploymentOption" => String.t() | Atom.t(),
-        "EngineEdition" => String.t() | Atom.t(),
-        "EngineVersion" => String.t() | Atom.t(),
+        "DeploymentOption" => String.t() | atom(),
+        "EngineEdition" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "InstanceMemory" => float(),
-        "InstanceType" => String.t() | Atom.t(),
+        "InstanceType" => String.t() | atom(),
         "InstanceVcpu" => float(),
         "StorageIops" => integer(),
         "StorageSize" => integer(),
-        "StorageType" => String.t() | Atom.t()
+        "StorageType" => String.t() | atom()
       }
       
   """
-  @type rds_configuration() :: %{String.t() | Atom.t() => any()}
+  @type rds_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       replication_task() :: %{
-        "CdcStartPosition" => String.t() | Atom.t(),
-        "CdcStopPosition" => String.t() | Atom.t(),
-        "LastFailureMessage" => String.t() | Atom.t(),
+        "CdcStartPosition" => String.t() | atom(),
+        "CdcStopPosition" => String.t() | atom(),
+        "LastFailureMessage" => String.t() | atom(),
         "MigrationType" => list(any()),
-        "RecoveryCheckpoint" => String.t() | Atom.t(),
-        "ReplicationInstanceArn" => String.t() | Atom.t(),
-        "ReplicationTaskArn" => String.t() | Atom.t(),
+        "RecoveryCheckpoint" => String.t() | atom(),
+        "ReplicationInstanceArn" => String.t() | atom(),
+        "ReplicationTaskArn" => String.t() | atom(),
         "ReplicationTaskCreationDate" => non_neg_integer(),
-        "ReplicationTaskIdentifier" => String.t() | Atom.t(),
-        "ReplicationTaskSettings" => String.t() | Atom.t(),
+        "ReplicationTaskIdentifier" => String.t() | atom(),
+        "ReplicationTaskSettings" => String.t() | atom(),
         "ReplicationTaskStartDate" => non_neg_integer(),
         "ReplicationTaskStats" => replication_task_stats(),
-        "SourceEndpointArn" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
-        "StopReason" => String.t() | Atom.t(),
-        "TableMappings" => String.t() | Atom.t(),
-        "TargetEndpointArn" => String.t() | Atom.t(),
-        "TargetReplicationInstanceArn" => String.t() | Atom.t(),
-        "TaskData" => String.t() | Atom.t()
+        "SourceEndpointArn" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StopReason" => String.t() | atom(),
+        "TableMappings" => String.t() | atom(),
+        "TargetEndpointArn" => String.t() | atom(),
+        "TargetReplicationInstanceArn" => String.t() | atom(),
+        "TaskData" => String.t() | atom()
       }
       
   """
-  @type replication_task() :: %{String.t() | Atom.t() => any()}
+  @type replication_task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_data_migration_message() :: %{
-        optional("DataMigrationName") => String.t() | Atom.t(),
+        optional("DataMigrationName") => String.t() | atom(),
         optional("DataMigrationType") => list(any()),
         optional("EnableCloudwatchLogs") => boolean(),
         optional("NumberOfJobs") => integer(),
-        optional("SelectionRules") => String.t() | Atom.t(),
-        optional("ServiceAccessRoleArn") => String.t() | Atom.t(),
+        optional("SelectionRules") => String.t() | atom(),
+        optional("ServiceAccessRoleArn") => String.t() | atom(),
         optional("SourceDataSettings") => list(source_data_setting()),
         optional("TargetDataSettings") => list(target_data_setting()),
-        required("DataMigrationIdentifier") => String.t() | Atom.t()
+        required("DataMigrationIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_data_migration_message() :: %{String.t() | Atom.t() => any()}
+  @type modify_data_migration_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1658,20 +1655,20 @@ defmodule AWS.DatabaseMigration do
         "ResyncRowsAttempted" => float(),
         "ResyncRowsFailed" => float(),
         "ResyncRowsSucceeded" => float(),
-        "ResyncState" => String.t() | Atom.t(),
-        "SchemaName" => String.t() | Atom.t(),
-        "TableName" => String.t() | Atom.t(),
-        "TableState" => String.t() | Atom.t(),
+        "ResyncState" => String.t() | atom(),
+        "SchemaName" => String.t() | atom(),
+        "TableName" => String.t() | atom(),
+        "TableState" => String.t() | atom(),
         "Updates" => float(),
         "ValidationFailedRecords" => float(),
         "ValidationPendingRecords" => float(),
-        "ValidationState" => String.t() | Atom.t(),
-        "ValidationStateDetails" => String.t() | Atom.t(),
+        "ValidationState" => String.t() | atom(),
+        "ValidationStateDetails" => String.t() | atom(),
         "ValidationSuspendedRecords" => float()
       }
       
   """
-  @type table_statistics() :: %{String.t() | Atom.t() => any()}
+  @type table_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1679,41 +1676,41 @@ defmodule AWS.DatabaseMigration do
       
       mongo_db_data_provider_settings() :: %{
         "AuthMechanism" => list(any()),
-        "AuthSource" => String.t() | Atom.t(),
+        "AuthSource" => String.t() | atom(),
         "AuthType" => list(any()),
-        "CertificateArn" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "CertificateArn" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
         "Port" => integer(),
-        "ServerName" => String.t() | Atom.t(),
+        "ServerName" => String.t() | atom(),
         "SslMode" => list(any())
       }
       
   """
-  @type mongo_db_data_provider_settings() :: %{String.t() | Atom.t() => any()}
+  @type mongo_db_data_provider_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_recommendations_request_entry() :: %{
-        "DatabaseId" => String.t() | Atom.t(),
+        "DatabaseId" => String.t() | atom(),
         "Settings" => recommendation_settings()
       }
       
   """
-  @type start_recommendations_request_entry() :: %{String.t() | Atom.t() => any()}
+  @type start_recommendations_request_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_replication_subnet_groups_response() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "ReplicationSubnetGroups" => list(replication_subnet_group())
       }
       
   """
-  @type describe_replication_subnet_groups_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_replication_subnet_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1724,7 +1721,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type modify_data_migration_response() :: %{String.t() | Atom.t() => any()}
+  @type modify_data_migration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1735,19 +1732,19 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type delete_event_subscription_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_event_subscription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       dms_transfer_settings() :: %{
-        "BucketName" => String.t() | Atom.t(),
-        "ServiceAccessRoleArn" => String.t() | Atom.t()
+        "BucketName" => String.t() | atom(),
+        "ServiceAccessRoleArn" => String.t() | atom()
       }
       
   """
-  @type dms_transfer_settings() :: %{String.t() | Atom.t() => any()}
+  @type dms_transfer_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1758,33 +1755,33 @@ defmodule AWS.DatabaseMigration do
         "IncludeOpForFullLoad" => boolean(),
         "RowGroupLength" => integer(),
         "MaxFileSize" => integer(),
-        "ServiceAccessRoleArn" => String.t() | Atom.t(),
+        "ServiceAccessRoleArn" => String.t() | atom(),
         "DataFormat" => list(any()),
         "CdcInsertsOnly" => boolean(),
-        "ServerSideEncryptionKmsKeyId" => String.t() | Atom.t(),
+        "ServerSideEncryptionKmsKeyId" => String.t() | atom(),
         "DatePartitionEnabled" => boolean(),
         "DatePartitionDelimiter" => list(any()),
         "EncryptionMode" => list(any()),
         "DictPageSizeLimit" => integer(),
         "IgnoreHeaderRows" => integer(),
-        "CsvNoSupValue" => String.t() | Atom.t(),
-        "BucketFolder" => String.t() | Atom.t(),
+        "CsvNoSupValue" => String.t() | atom(),
+        "BucketFolder" => String.t() | atom(),
         "AddTrailingPaddingCharacter" => boolean(),
-        "CdcPath" => String.t() | Atom.t(),
-        "CsvNullValue" => String.t() | Atom.t(),
+        "CdcPath" => String.t() | atom(),
+        "CsvNullValue" => String.t() | atom(),
         "PreserveTransactions" => boolean(),
         "CdcInsertsAndUpdates" => boolean(),
         "AddColumnName" => boolean(),
         "Rfc4180" => boolean(),
         "CompressionType" => list(any()),
         "UseCsvNoSupValue" => boolean(),
-        "ExpectedBucketOwner" => String.t() | Atom.t(),
+        "ExpectedBucketOwner" => String.t() | atom(),
         "CdcMaxBatchInterval" => integer(),
-        "CsvRowDelimiter" => String.t() | Atom.t(),
-        "BucketName" => String.t() | Atom.t(),
+        "CsvRowDelimiter" => String.t() | atom(),
+        "BucketName" => String.t() | atom(),
         "EnableStatistics" => boolean(),
         "DataPageSize" => integer(),
-        "CsvDelimiter" => String.t() | Atom.t(),
+        "CsvDelimiter" => String.t() | atom(),
         "DatePartitionSequence" => list(any()),
         "ParquetTimestampInMillisecond" => boolean(),
         "EncodingType" => list(any()),
@@ -1792,26 +1789,26 @@ defmodule AWS.DatabaseMigration do
         "ParquetVersion" => list(any()),
         "CannedAclForObjects" => list(any()),
         "CdcMinFileSize" => integer(),
-        "ExternalTableDefinition" => String.t() | Atom.t(),
-        "TimestampColumnName" => String.t() | Atom.t(),
-        "DatePartitionTimezone" => String.t() | Atom.t()
+        "ExternalTableDefinition" => String.t() | atom(),
+        "TimestampColumnName" => String.t() | atom(),
+        "DatePartitionTimezone" => String.t() | atom()
       }
       
   """
-  @type s3_settings() :: %{String.t() | Atom.t() => any()}
+  @type s3_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_replication_subnet_group_message() :: %{
-        optional("ReplicationSubnetGroupDescription") => String.t() | Atom.t(),
-        required("ReplicationSubnetGroupIdentifier") => String.t() | Atom.t(),
-        required("SubnetIds") => list(String.t() | Atom.t())
+        optional("ReplicationSubnetGroupDescription") => String.t() | atom(),
+        required("ReplicationSubnetGroupIdentifier") => String.t() | atom(),
+        required("SubnetIds") => list(String.t() | atom())
       }
       
   """
-  @type modify_replication_subnet_group_message() :: %{String.t() | Atom.t() => any()}
+  @type modify_replication_subnet_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1820,13 +1817,13 @@ defmodule AWS.DatabaseMigration do
       schema_conversion_request() :: %{
         "Error" => list(),
         "ExportSqlDetails" => export_sql_details(),
-        "MigrationProjectArn" => String.t() | Atom.t(),
-        "RequestIdentifier" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "MigrationProjectArn" => String.t() | atom(),
+        "RequestIdentifier" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type schema_conversion_request() :: %{String.t() | Atom.t() => any()}
+  @type schema_conversion_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1834,13 +1831,13 @@ defmodule AWS.DatabaseMigration do
       
       export_metadata_model_assessment_message() :: %{
         optional("AssessmentReportTypes") => list(list(any())()),
-        optional("FileName") => String.t() | Atom.t(),
-        required("MigrationProjectIdentifier") => String.t() | Atom.t(),
-        required("SelectionRules") => String.t() | Atom.t()
+        optional("FileName") => String.t() | atom(),
+        required("MigrationProjectIdentifier") => String.t() | atom(),
+        required("SelectionRules") => String.t() | atom()
       }
       
   """
-  @type export_metadata_model_assessment_message() :: %{String.t() | Atom.t() => any()}
+  @type export_metadata_model_assessment_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1848,11 +1845,11 @@ defmodule AWS.DatabaseMigration do
       
       describe_connections_response() :: %{
         "Connections" => list(connection()),
-        "Marker" => String.t() | Atom.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_connections_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_connections_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1863,7 +1860,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type modify_replication_config_response() :: %{String.t() | Atom.t() => any()}
+  @type modify_replication_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1879,86 +1876,86 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_metadata_model_assessments_response() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "Requests" => list(schema_conversion_request())
       }
       
   """
-  @type describe_metadata_model_assessments_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_metadata_model_assessments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_replication_instances_response() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "ReplicationInstances" => list(replication_instance())
       }
       
   """
-  @type describe_replication_instances_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_replication_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_access_denied_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type kms_access_denied_fault() :: %{String.t() | Atom.t() => any()}
+  @type kms_access_denied_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_replication_task_message() :: %{
-        optional("CdcStartPosition") => String.t() | Atom.t(),
+        optional("CdcStartPosition") => String.t() | atom(),
         optional("CdcStartTime") => non_neg_integer(),
-        optional("CdcStopPosition") => String.t() | Atom.t(),
-        optional("ReplicationTaskSettings") => String.t() | Atom.t(),
-        optional("ResourceIdentifier") => String.t() | Atom.t(),
+        optional("CdcStopPosition") => String.t() | atom(),
+        optional("ReplicationTaskSettings") => String.t() | atom(),
+        optional("ResourceIdentifier") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("TaskData") => String.t() | Atom.t(),
+        optional("TaskData") => String.t() | atom(),
         required("MigrationType") => list(any()),
-        required("ReplicationInstanceArn") => String.t() | Atom.t(),
-        required("ReplicationTaskIdentifier") => String.t() | Atom.t(),
-        required("SourceEndpointArn") => String.t() | Atom.t(),
-        required("TableMappings") => String.t() | Atom.t(),
-        required("TargetEndpointArn") => String.t() | Atom.t()
+        required("ReplicationInstanceArn") => String.t() | atom(),
+        required("ReplicationTaskIdentifier") => String.t() | atom(),
+        required("SourceEndpointArn") => String.t() | atom(),
+        required("TableMappings") => String.t() | atom(),
+        required("TargetEndpointArn") => String.t() | atom()
       }
       
   """
-  @type create_replication_task_message() :: %{String.t() | Atom.t() => any()}
+  @type create_replication_task_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       failed_dependency_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type failed_dependency_fault() :: %{String.t() | Atom.t() => any()}
+  @type failed_dependency_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ibm_db2_luw_data_provider_settings() :: %{
-        "CertificateArn" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "CertificateArn" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
         "Port" => integer(),
-        "S3AccessRoleArn" => String.t() | Atom.t(),
-        "S3Path" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t(),
+        "S3AccessRoleArn" => String.t() | atom(),
+        "S3Path" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
         "SslMode" => list(any())
       }
       
   """
-  @type ibm_db2_luw_data_provider_settings() :: %{String.t() | Atom.t() => any()}
+  @type ibm_db2_luw_data_provider_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1969,7 +1966,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type stop_replication_task_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_replication_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1988,7 +1985,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type data_migration_statistics() :: %{String.t() | Atom.t() => any()}
+  @type data_migration_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1996,39 +1993,39 @@ defmodule AWS.DatabaseMigration do
       
       create_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t() | Atom.t()),
-        optional("SourceIds") => list(String.t() | Atom.t()),
-        optional("SourceType") => String.t() | Atom.t(),
+        optional("EventCategories") => list(String.t() | atom()),
+        optional("SourceIds") => list(String.t() | atom()),
+        optional("SourceType") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("SnsTopicArn") => String.t() | Atom.t(),
-        required("SubscriptionName") => String.t() | Atom.t()
+        required("SnsTopicArn") => String.t() | atom(),
+        required("SubscriptionName") => String.t() | atom()
       }
       
   """
-  @type create_event_subscription_message() :: %{String.t() | Atom.t() => any()}
+  @type create_event_subscription_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_instance_profile_message() :: %{
-        required("InstanceProfileIdentifier") => String.t() | Atom.t()
+        required("InstanceProfileIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_instance_profile_message() :: %{String.t() | Atom.t() => any()}
+  @type delete_instance_profile_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_replication_configs_response() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "ReplicationConfigs" => list(replication_config())
       }
       
   """
-  @type describe_replication_configs_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_replication_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2036,25 +2033,25 @@ defmodule AWS.DatabaseMigration do
       
       describe_event_subscriptions_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("SubscriptionName") => String.t() | Atom.t()
+        optional("SubscriptionName") => String.t() | atom()
       }
       
   """
-  @type describe_event_subscriptions_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_event_subscriptions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_schemas_response() :: %{
-        "Marker" => String.t() | Atom.t(),
-        "Schemas" => list(String.t() | Atom.t())
+        "Marker" => String.t() | atom(),
+        "Schemas" => list(String.t() | atom())
       }
       
   """
-  @type describe_schemas_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_schemas_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2066,22 +2063,22 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type replication_task_assessment_run_progress() :: %{String.t() | Atom.t() => any()}
+  @type replication_task_assessment_run_progress() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       replication_task_individual_assessment() :: %{
-        "IndividualAssessmentName" => String.t() | Atom.t(),
-        "ReplicationTaskAssessmentRunArn" => String.t() | Atom.t(),
-        "ReplicationTaskIndividualAssessmentArn" => String.t() | Atom.t(),
+        "IndividualAssessmentName" => String.t() | atom(),
+        "ReplicationTaskAssessmentRunArn" => String.t() | atom(),
+        "ReplicationTaskIndividualAssessmentArn" => String.t() | atom(),
         "ReplicationTaskIndividualAssessmentStartDate" => non_neg_integer(),
-        "Status" => String.t() | Atom.t()
+        "Status" => String.t() | atom()
       }
       
   """
-  @type replication_task_individual_assessment() :: %{String.t() | Atom.t() => any()}
+  @type replication_task_individual_assessment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2089,85 +2086,85 @@ defmodule AWS.DatabaseMigration do
       
       describe_data_providers_response() :: %{
         "DataProviders" => list(data_provider()),
-        "Marker" => String.t() | Atom.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_data_providers_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_data_providers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_data_provider_message() :: %{
-        optional("DataProviderName") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("DataProviderName") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag()),
         optional("Virtual") => boolean(),
-        required("Engine") => String.t() | Atom.t(),
+        required("Engine") => String.t() | atom(),
         required("Settings") => list()
       }
       
   """
-  @type create_data_provider_message() :: %{String.t() | Atom.t() => any()}
+  @type create_data_provider_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reload_tables_response() :: %{
-        "ReplicationTaskArn" => String.t() | Atom.t()
+        "ReplicationTaskArn" => String.t() | atom()
       }
       
   """
-  @type reload_tables_response() :: %{String.t() | Atom.t() => any()}
+  @type reload_tables_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       microsoft_sql_server_data_provider_settings() :: %{
-        "CertificateArn" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "CertificateArn" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
         "Port" => integer(),
-        "S3AccessRoleArn" => String.t() | Atom.t(),
-        "S3Path" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t(),
+        "S3AccessRoleArn" => String.t() | atom(),
+        "S3Path" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
         "SslMode" => list(any())
       }
       
   """
-  @type microsoft_sql_server_data_provider_settings() :: %{String.t() | Atom.t() => any()}
+  @type microsoft_sql_server_data_provider_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       replication() :: %{
-        "CdcStartPosition" => String.t() | Atom.t(),
+        "CdcStartPosition" => String.t() | atom(),
         "CdcStartTime" => non_neg_integer(),
-        "CdcStopPosition" => String.t() | Atom.t(),
-        "FailureMessages" => list(String.t() | Atom.t()),
+        "CdcStopPosition" => String.t() | atom(),
+        "FailureMessages" => list(String.t() | atom()),
         "PremigrationAssessmentStatuses" => list(premigration_assessment_status()),
         "ProvisionData" => provision_data(),
-        "RecoveryCheckpoint" => String.t() | Atom.t(),
-        "ReplicationConfigArn" => String.t() | Atom.t(),
-        "ReplicationConfigIdentifier" => String.t() | Atom.t(),
+        "RecoveryCheckpoint" => String.t() | atom(),
+        "ReplicationConfigArn" => String.t() | atom(),
+        "ReplicationConfigIdentifier" => String.t() | atom(),
         "ReplicationCreateTime" => non_neg_integer(),
         "ReplicationDeprovisionTime" => non_neg_integer(),
         "ReplicationLastStopTime" => non_neg_integer(),
         "ReplicationStats" => replication_stats(),
         "ReplicationType" => list(any()),
         "ReplicationUpdateTime" => non_neg_integer(),
-        "SourceEndpointArn" => String.t() | Atom.t(),
-        "StartReplicationType" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
-        "StopReason" => String.t() | Atom.t(),
-        "TargetEndpointArn" => String.t() | Atom.t()
+        "SourceEndpointArn" => String.t() | atom(),
+        "StartReplicationType" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StopReason" => String.t() | atom(),
+        "TargetEndpointArn" => String.t() | atom()
       }
       
   """
-  @type replication() :: %{String.t() | Atom.t() => any()}
+  @type replication() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2176,11 +2173,11 @@ defmodule AWS.DatabaseMigration do
       describe_recommendations_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_recommendations_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_recommendations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2188,11 +2185,11 @@ defmodule AWS.DatabaseMigration do
       
       describe_fleet_advisor_lsa_analysis_request() :: %{
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_fleet_advisor_lsa_analysis_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_fleet_advisor_lsa_analysis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2203,79 +2200,79 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type create_event_subscription_response() :: %{String.t() | Atom.t() => any()}
+  @type create_event_subscription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       recommendation_settings() :: %{
-        "InstanceSizingType" => String.t() | Atom.t(),
-        "WorkloadType" => String.t() | Atom.t()
+        "InstanceSizingType" => String.t() | atom(),
+        "WorkloadType" => String.t() | atom()
       }
       
   """
-  @type recommendation_settings() :: %{String.t() | Atom.t() => any()}
+  @type recommendation_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       i_b_m_db2_settings() :: %{
-        "CurrentLsn" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "CurrentLsn" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
         "KeepCsvFiles" => boolean(),
         "LoadTimeout" => integer(),
         "MaxFileSize" => integer(),
         "MaxKBytesPerRead" => integer(),
-        "Password" => String.t() | Atom.t(),
+        "Password" => String.t() | atom(),
         "Port" => integer(),
-        "SecretsManagerAccessRoleArn" => String.t() | Atom.t(),
-        "SecretsManagerSecretId" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t(),
+        "SecretsManagerAccessRoleArn" => String.t() | atom(),
+        "SecretsManagerSecretId" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
         "SetDataCaptureChanges" => boolean(),
-        "Username" => String.t() | Atom.t(),
+        "Username" => String.t() | atom(),
         "WriteBufferSize" => integer()
       }
       
   """
-  @type i_b_m_db2_settings() :: %{String.t() | Atom.t() => any()}
+  @type i_b_m_db2_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_endpoint_message() :: %{
-        required("EndpointArn") => String.t() | Atom.t()
+        required("EndpointArn") => String.t() | atom()
       }
       
   """
-  @type delete_endpoint_message() :: %{String.t() | Atom.t() => any()}
+  @type delete_endpoint_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_replication_task_assessment_runs_response() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "ReplicationTaskAssessmentRuns" => list(replication_task_assessment_run())
       }
       
   """
-  @type describe_replication_task_assessment_runs_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_replication_task_assessment_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2286,7 +2283,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type delete_endpoint_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2294,59 +2291,59 @@ defmodule AWS.DatabaseMigration do
       
       describe_fleet_advisor_schemas_response() :: %{
         "FleetAdvisorSchemas" => list(schema_response()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_fleet_advisor_schemas_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_fleet_advisor_schemas_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_data_provider_message() :: %{
-        optional("DataProviderName") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("Engine") => String.t() | Atom.t(),
+        optional("DataProviderName") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Engine") => String.t() | atom(),
         optional("ExactSettings") => boolean(),
         optional("Settings") => list(),
         optional("Virtual") => boolean(),
-        required("DataProviderIdentifier") => String.t() | Atom.t()
+        required("DataProviderIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_data_provider_message() :: %{String.t() | Atom.t() => any()}
+  @type modify_data_provider_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_replication_config_message() :: %{
-        required("ReplicationConfigArn") => String.t() | Atom.t()
+        required("ReplicationConfigArn") => String.t() | atom()
       }
       
   """
-  @type delete_replication_config_message() :: %{String.t() | Atom.t() => any()}
+  @type delete_replication_config_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_replication_config_message() :: %{
-        optional("ReplicationSettings") => String.t() | Atom.t(),
-        optional("ResourceIdentifier") => String.t() | Atom.t(),
-        optional("SupplementalSettings") => String.t() | Atom.t(),
+        optional("ReplicationSettings") => String.t() | atom(),
+        optional("ResourceIdentifier") => String.t() | atom(),
+        optional("SupplementalSettings") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("ComputeConfig") => compute_config(),
-        required("ReplicationConfigIdentifier") => String.t() | Atom.t(),
+        required("ReplicationConfigIdentifier") => String.t() | atom(),
         required("ReplicationType") => list(any()),
-        required("SourceEndpointArn") => String.t() | Atom.t(),
-        required("TableMappings") => String.t() | Atom.t(),
-        required("TargetEndpointArn") => String.t() | Atom.t()
+        required("SourceEndpointArn") => String.t() | atom(),
+        required("TableMappings") => String.t() | atom(),
+        required("TargetEndpointArn") => String.t() | atom()
       }
       
   """
-  @type create_replication_config_message() :: %{String.t() | Atom.t() => any()}
+  @type create_replication_config_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2357,35 +2354,35 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type start_data_migration_response() :: %{String.t() | Atom.t() => any()}
+  @type start_data_migration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       connection() :: %{
-        "EndpointArn" => String.t() | Atom.t(),
-        "EndpointIdentifier" => String.t() | Atom.t(),
-        "LastFailureMessage" => String.t() | Atom.t(),
-        "ReplicationInstanceArn" => String.t() | Atom.t(),
-        "ReplicationInstanceIdentifier" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "EndpointArn" => String.t() | atom(),
+        "EndpointIdentifier" => String.t() | atom(),
+        "LastFailureMessage" => String.t() | atom(),
+        "ReplicationInstanceArn" => String.t() | atom(),
+        "ReplicationInstanceIdentifier" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type connection() :: %{String.t() | Atom.t() => any()}
+  @type connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_category_group() :: %{
-        "EventCategories" => list(String.t() | Atom.t()),
-        "SourceType" => String.t() | Atom.t()
+        "EventCategories" => list(String.t() | atom()),
+        "SourceType" => String.t() | atom()
       }
       
   """
-  @type event_category_group() :: %{String.t() | Atom.t() => any()}
+  @type event_category_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2396,7 +2393,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type reboot_replication_instance_response() :: %{String.t() | Atom.t() => any()}
+  @type reboot_replication_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2404,11 +2401,11 @@ defmodule AWS.DatabaseMigration do
       
       describe_endpoint_settings_response() :: %{
         "EndpointSettings" => list(endpoint_setting()),
-        "Marker" => String.t() | Atom.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_endpoint_settings_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_endpoint_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2417,11 +2414,11 @@ defmodule AWS.DatabaseMigration do
       reboot_replication_instance_message() :: %{
         optional("ForceFailover") => boolean(),
         optional("ForcePlannedFailover") => boolean(),
-        required("ReplicationInstanceArn") => String.t() | Atom.t()
+        required("ReplicationInstanceArn") => String.t() | atom()
       }
       
   """
-  @type reboot_replication_instance_message() :: %{String.t() | Atom.t() => any()}
+  @type reboot_replication_instance_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2432,19 +2429,19 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type delete_replication_task_assessment_run_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_replication_task_assessment_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_pending_maintenance_actions_response() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "PendingMaintenanceActions" => list(resource_pending_maintenance_actions())
       }
       
   """
-  @type describe_pending_maintenance_actions_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_pending_maintenance_actions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2455,48 +2452,48 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type target_data_setting() :: %{String.t() | Atom.t() => any()}
+  @type target_data_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       recommendation() :: %{
-        "CreatedDate" => String.t() | Atom.t(),
+        "CreatedDate" => String.t() | atom(),
         "Data" => recommendation_data(),
-        "DatabaseId" => String.t() | Atom.t(),
-        "EngineName" => String.t() | Atom.t(),
+        "DatabaseId" => String.t() | atom(),
+        "EngineName" => String.t() | atom(),
         "Preferred" => boolean(),
         "Settings" => recommendation_settings(),
-        "Status" => String.t() | Atom.t()
+        "Status" => String.t() | atom()
       }
       
   """
-  @type recommendation() :: %{String.t() | Atom.t() => any()}
+  @type recommendation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       table_to_reload() :: %{
-        "SchemaName" => String.t() | Atom.t(),
-        "TableName" => String.t() | Atom.t()
+        "SchemaName" => String.t() | atom(),
+        "TableName" => String.t() | atom()
       }
       
   """
-  @type table_to_reload() :: %{String.t() | Atom.t() => any()}
+  @type table_to_reload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_endpoint_types_response() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "SupportedEndpointTypes" => list(supported_endpoint_type())
       }
       
   """
-  @type describe_endpoint_types_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_endpoint_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2507,31 +2504,31 @@ defmodule AWS.DatabaseMigration do
         "IamAuthEnabled" => boolean(),
         "MaxFileSize" => integer(),
         "MaxRetryCount" => integer(),
-        "S3BucketFolder" => String.t() | Atom.t(),
-        "S3BucketName" => String.t() | Atom.t(),
-        "ServiceAccessRoleArn" => String.t() | Atom.t()
+        "S3BucketFolder" => String.t() | atom(),
+        "S3BucketName" => String.t() | atom(),
+        "ServiceAccessRoleArn" => String.t() | atom()
       }
       
   """
-  @type neptune_settings() :: %{String.t() | Atom.t() => any()}
+  @type neptune_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_applicable_individual_assessments_message() :: %{
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
         optional("MigrationType") => list(any()),
-        optional("ReplicationConfigArn") => String.t() | Atom.t(),
-        optional("ReplicationInstanceArn") => String.t() | Atom.t(),
-        optional("ReplicationTaskArn") => String.t() | Atom.t(),
-        optional("SourceEngineName") => String.t() | Atom.t(),
-        optional("TargetEngineName") => String.t() | Atom.t()
+        optional("ReplicationConfigArn") => String.t() | atom(),
+        optional("ReplicationInstanceArn") => String.t() | atom(),
+        optional("ReplicationTaskArn") => String.t() | atom(),
+        optional("SourceEngineName") => String.t() | atom(),
+        optional("TargetEngineName") => String.t() | atom()
       }
       
   """
-  @type describe_applicable_individual_assessments_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_applicable_individual_assessments_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2543,35 +2540,35 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type export_metadata_model_assessment_response() :: %{String.t() | Atom.t() => any()}
+  @type export_metadata_model_assessment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_table_statistics_response() :: %{
-        "Marker" => String.t() | Atom.t(),
-        "ReplicationTaskArn" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
+        "ReplicationTaskArn" => String.t() | atom(),
         "TableStatistics" => list(table_statistics())
       }
       
   """
-  @type describe_table_statistics_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_table_statistics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_fleet_advisor_collector_response() :: %{
-        "CollectorName" => String.t() | Atom.t(),
-        "CollectorReferencedId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "S3BucketName" => String.t() | Atom.t(),
-        "ServiceAccessRoleArn" => String.t() | Atom.t()
+        "CollectorName" => String.t() | atom(),
+        "CollectorReferencedId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "S3BucketName" => String.t() | atom(),
+        "ServiceAccessRoleArn" => String.t() | atom()
       }
       
   """
-  @type create_fleet_advisor_collector_response() :: %{String.t() | Atom.t() => any()}
+  @type create_fleet_advisor_collector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2582,16 +2579,16 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type modify_data_provider_response() :: %{String.t() | Atom.t() => any()}
+  @type modify_data_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rds_requirements() :: %{
-        "DeploymentOption" => String.t() | Atom.t(),
-        "EngineEdition" => String.t() | Atom.t(),
-        "EngineVersion" => String.t() | Atom.t(),
+        "DeploymentOption" => String.t() | atom(),
+        "EngineEdition" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "InstanceMemory" => float(),
         "InstanceVcpu" => float(),
         "StorageIops" => integer(),
@@ -2599,54 +2596,54 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type rds_requirements() :: %{String.t() | Atom.t() => any()}
+  @type rds_requirements() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_certificate_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_certificate_fault() :: %{String.t() | Atom.t() => any()}
+  @type invalid_certificate_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_metadata_model_conversion_response() :: %{
-        "RequestIdentifier" => String.t() | Atom.t()
+        "RequestIdentifier" => String.t() | atom()
       }
       
   """
-  @type start_metadata_model_conversion_response() :: %{String.t() | Atom.t() => any()}
+  @type start_metadata_model_conversion_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_extension_pack_associations_response() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "Requests" => list(schema_conversion_request())
       }
       
   """
-  @type describe_extension_pack_associations_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_extension_pack_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kerberos_authentication_settings() :: %{
-        "KeyCacheSecretIamArn" => String.t() | Atom.t(),
-        "KeyCacheSecretId" => String.t() | Atom.t(),
-        "Krb5FileContents" => String.t() | Atom.t()
+        "KeyCacheSecretIamArn" => String.t() | atom(),
+        "KeyCacheSecretId" => String.t() | atom(),
+        "Krb5FileContents" => String.t() | atom()
       }
       
   """
-  @type kerberos_authentication_settings() :: %{String.t() | Atom.t() => any()}
+  @type kerberos_authentication_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2657,43 +2654,43 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type move_replication_task_response() :: %{String.t() | Atom.t() => any()}
+  @type move_replication_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_collector_request() :: %{
-        required("CollectorReferencedId") => String.t() | Atom.t()
+        required("CollectorReferencedId") => String.t() | atom()
       }
       
   """
-  @type delete_collector_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_collector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type kms_fault() :: %{String.t() | Atom.t() => any()}
+  @type kms_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       source_data_setting() :: %{
-        "CDCStartPosition" => String.t() | Atom.t(),
+        "CDCStartPosition" => String.t() | atom(),
         "CDCStartTime" => non_neg_integer(),
         "CDCStopTime" => non_neg_integer(),
-        "SlotName" => String.t() | Atom.t()
+        "SlotName" => String.t() | atom()
       }
       
   """
-  @type source_data_setting() :: %{String.t() | Atom.t() => any()}
+  @type source_data_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2704,24 +2701,24 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       redis_settings() :: %{
-        "AuthPassword" => String.t() | Atom.t(),
+        "AuthPassword" => String.t() | atom(),
         "AuthType" => list(any()),
-        "AuthUserName" => String.t() | Atom.t(),
+        "AuthUserName" => String.t() | atom(),
         "Port" => integer(),
-        "ServerName" => String.t() | Atom.t(),
-        "SslCaCertificateArn" => String.t() | Atom.t(),
+        "ServerName" => String.t() | atom(),
+        "SslCaCertificateArn" => String.t() | atom(),
         "SslSecurityProtocol" => list(any())
       }
       
   """
-  @type redis_settings() :: %{String.t() | Atom.t() => any()}
+  @type redis_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2729,31 +2726,31 @@ defmodule AWS.DatabaseMigration do
       
       describe_replication_instances_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_replication_instances_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_replication_instances_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       orderable_replication_instance() :: %{
-        "AvailabilityZones" => list(String.t() | Atom.t()),
+        "AvailabilityZones" => list(String.t() | atom()),
         "DefaultAllocatedStorage" => integer(),
-        "EngineVersion" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | atom(),
         "IncludedAllocatedStorage" => integer(),
         "MaxAllocatedStorage" => integer(),
         "MinAllocatedStorage" => integer(),
         "ReleaseStatus" => list(any()),
-        "ReplicationInstanceClass" => String.t() | Atom.t(),
-        "StorageType" => String.t() | Atom.t()
+        "ReplicationInstanceClass" => String.t() | atom(),
+        "StorageType" => String.t() | atom()
       }
       
   """
-  @type orderable_replication_instance() :: %{String.t() | Atom.t() => any()}
+  @type orderable_replication_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2761,23 +2758,23 @@ defmodule AWS.DatabaseMigration do
       
       describe_account_attributes_response() :: %{
         "AccountQuotas" => list(account_quota()),
-        "UniqueAccountIdentifier" => String.t() | Atom.t()
+        "UniqueAccountIdentifier" => String.t() | atom()
       }
       
   """
-  @type describe_account_attributes_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_account_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_connection_message() :: %{
-        required("EndpointArn") => String.t() | Atom.t(),
-        required("ReplicationInstanceArn") => String.t() | Atom.t()
+        required("EndpointArn") => String.t() | atom(),
+        required("ReplicationInstanceArn") => String.t() | atom()
       }
       
   """
-  @type delete_connection_message() :: %{String.t() | Atom.t() => any()}
+  @type delete_connection_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2785,13 +2782,12 @@ defmodule AWS.DatabaseMigration do
       
       describe_fleet_advisor_schema_object_summary_response() :: %{
         "FleetAdvisorSchemaObjects" => list(fleet_advisor_schema_object_response()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
   @type describe_fleet_advisor_schema_object_summary_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2803,26 +2799,26 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type start_replication_task_response() :: %{String.t() | Atom.t() => any()}
+  @type start_replication_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_instance_profile_message() :: %{
-        optional("AvailabilityZone") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("InstanceProfileName") => String.t() | Atom.t(),
-        optional("KmsKeyArn") => String.t() | Atom.t(),
-        optional("NetworkType") => String.t() | Atom.t(),
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("InstanceProfileName") => String.t() | atom(),
+        optional("KmsKeyArn") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
         optional("PubliclyAccessible") => boolean(),
-        optional("SubnetGroupIdentifier") => String.t() | Atom.t(),
+        optional("SubnetGroupIdentifier") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("VpcSecurityGroups") => list(String.t() | Atom.t())
+        optional("VpcSecurityGroups") => list(String.t() | atom())
       }
       
   """
-  @type create_instance_profile_message() :: %{String.t() | Atom.t() => any()}
+  @type create_instance_profile_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2830,24 +2826,24 @@ defmodule AWS.DatabaseMigration do
       
       describe_metadata_model_assessments_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        required("MigrationProjectIdentifier") => String.t() | Atom.t()
+        required("MigrationProjectIdentifier") => String.t() | atom()
       }
       
   """
-  @type describe_metadata_model_assessments_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_metadata_model_assessments_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_refresh_schemas_status_message() :: %{
-        required("EndpointArn") => String.t() | Atom.t()
+        required("EndpointArn") => String.t() | atom()
       }
       
   """
-  @type describe_refresh_schemas_status_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_refresh_schemas_status_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2855,23 +2851,23 @@ defmodule AWS.DatabaseMigration do
       
       replication_instance_task_log() :: %{
         "ReplicationInstanceTaskLogSize" => float(),
-        "ReplicationTaskArn" => String.t() | Atom.t(),
-        "ReplicationTaskName" => String.t() | Atom.t()
+        "ReplicationTaskArn" => String.t() | atom(),
+        "ReplicationTaskName" => String.t() | atom()
       }
       
   """
-  @type replication_instance_task_log() :: %{String.t() | Atom.t() => any()}
+  @type replication_instance_task_log() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_resource_capacity_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type insufficient_resource_capacity_fault() :: %{String.t() | Atom.t() => any()}
+  @type insufficient_resource_capacity_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2879,36 +2875,36 @@ defmodule AWS.DatabaseMigration do
       
       describe_metadata_model_exports_as_script_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        required("MigrationProjectIdentifier") => String.t() | Atom.t()
+        required("MigrationProjectIdentifier") => String.t() | atom()
       }
       
   """
-  @type describe_metadata_model_exports_as_script_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_metadata_model_exports_as_script_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       filter() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type filter() :: %{String.t() | Atom.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_replication_subnet_group_message() :: %{
-        required("ReplicationSubnetGroupIdentifier") => String.t() | Atom.t()
+        required("ReplicationSubnetGroupIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_replication_subnet_group_message() :: %{String.t() | Atom.t() => any()}
+  @type delete_replication_subnet_group_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2924,60 +2920,60 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       doc_db_settings() :: %{
-        "DatabaseName" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | atom(),
         "DocsToInvestigate" => integer(),
         "ExtractDocId" => boolean(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
         "NestingLevel" => list(any()),
-        "Password" => String.t() | Atom.t(),
+        "Password" => String.t() | atom(),
         "Port" => integer(),
         "ReplicateShardCollections" => boolean(),
-        "SecretsManagerAccessRoleArn" => String.t() | Atom.t(),
-        "SecretsManagerSecretId" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t(),
+        "SecretsManagerAccessRoleArn" => String.t() | atom(),
+        "SecretsManagerSecretId" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
         "UseUpdateLookUp" => boolean(),
-        "Username" => String.t() | Atom.t()
+        "Username" => String.t() | atom()
       }
       
   """
-  @type doc_db_settings() :: %{String.t() | Atom.t() => any()}
+  @type doc_db_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_not_found_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type kms_not_found_fault() :: %{String.t() | Atom.t() => any()}
+  @type kms_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_endpoint_message() :: %{
-        required("EndpointArn") => String.t() | Atom.t(),
+        required("EndpointArn") => String.t() | atom(),
         optional("PostgreSQLSettings") => postgre_s_q_l_settings(),
-        optional("ExternalTableDefinition") => String.t() | Atom.t(),
+        optional("ExternalTableDefinition") => String.t() | atom(),
         optional("MicrosoftSQLServerSettings") => microsoft_s_q_l_server_settings(),
-        optional("DatabaseName") => String.t() | Atom.t(),
-        optional("ExtraConnectionAttributes") => String.t() | Atom.t(),
+        optional("DatabaseName") => String.t() | atom(),
+        optional("ExtraConnectionAttributes") => String.t() | atom(),
         optional("TimestreamSettings") => timestream_settings(),
         optional("MongoDbSettings") => mongo_db_settings(),
         optional("OracleSettings") => oracle_settings(),
         optional("ElasticsearchSettings") => elasticsearch_settings(),
         optional("DynamoDbSettings") => dynamo_db_settings(),
         optional("ExactSettings") => boolean(),
-        optional("Username") => String.t() | Atom.t(),
-        optional("EngineName") => String.t() | Atom.t(),
+        optional("Username") => String.t() | atom(),
+        optional("EngineName") => String.t() | atom(),
         optional("IBMDb2Settings") => i_b_m_db2_settings(),
-        optional("ServerName") => String.t() | Atom.t(),
-        optional("CertificateArn") => String.t() | Atom.t(),
+        optional("ServerName") => String.t() | atom(),
+        optional("CertificateArn") => String.t() | atom(),
         optional("DocDbSettings") => doc_db_settings(),
         optional("NeptuneSettings") => neptune_settings(),
-        optional("Password") => String.t() | Atom.t(),
+        optional("Password") => String.t() | atom(),
         optional("DmsTransferSettings") => dms_transfer_settings(),
         optional("S3Settings") => s3_settings(),
         optional("SybaseSettings") => sybase_settings(),
@@ -2985,17 +2981,17 @@ defmodule AWS.DatabaseMigration do
         optional("SslMode") => list(any()),
         optional("EndpointType") => list(any()),
         optional("GcpMySQLSettings") => gcp_my_s_q_l_settings(),
-        optional("ServiceAccessRoleArn") => String.t() | Atom.t(),
+        optional("ServiceAccessRoleArn") => String.t() | atom(),
         optional("MySQLSettings") => my_s_q_l_settings(),
         optional("Port") => integer(),
         optional("RedisSettings") => redis_settings(),
         optional("KinesisSettings") => kinesis_settings(),
-        optional("EndpointIdentifier") => String.t() | Atom.t(),
+        optional("EndpointIdentifier") => String.t() | atom(),
         optional("RedshiftSettings") => redshift_settings()
       }
       
   """
-  @type modify_endpoint_message() :: %{String.t() | Atom.t() => any()}
+  @type modify_endpoint_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3003,34 +2999,34 @@ defmodule AWS.DatabaseMigration do
       
       describe_connections_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_connections_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_connections_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_access_denied_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type s3_access_denied_fault() :: %{String.t() | Atom.t() => any()}
+  @type s3_access_denied_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       storage_quota_exceeded_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type storage_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
+  @type storage_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3041,7 +3037,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type modify_event_subscription_response() :: %{String.t() | Atom.t() => any()}
+  @type modify_event_subscription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3049,14 +3045,13 @@ defmodule AWS.DatabaseMigration do
       
       describe_replication_task_individual_assessments_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
   @type describe_replication_task_individual_assessments_message() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3064,27 +3059,27 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       data_migration() :: %{
-        "DataMigrationArn" => String.t() | Atom.t(),
-        "DataMigrationCidrBlocks" => list(String.t() | Atom.t()),
+        "DataMigrationArn" => String.t() | atom(),
+        "DataMigrationCidrBlocks" => list(String.t() | atom()),
         "DataMigrationCreateTime" => non_neg_integer(),
         "DataMigrationEndTime" => non_neg_integer(),
-        "DataMigrationName" => String.t() | Atom.t(),
+        "DataMigrationName" => String.t() | atom(),
         "DataMigrationSettings" => data_migration_settings(),
         "DataMigrationStartTime" => non_neg_integer(),
         "DataMigrationStatistics" => data_migration_statistics(),
-        "DataMigrationStatus" => String.t() | Atom.t(),
+        "DataMigrationStatus" => String.t() | atom(),
         "DataMigrationType" => list(any()),
-        "LastFailureMessage" => String.t() | Atom.t(),
-        "MigrationProjectArn" => String.t() | Atom.t(),
-        "PublicIpAddresses" => list(String.t() | Atom.t()),
-        "ServiceAccessRoleArn" => String.t() | Atom.t(),
+        "LastFailureMessage" => String.t() | atom(),
+        "MigrationProjectArn" => String.t() | atom(),
+        "PublicIpAddresses" => list(String.t() | atom()),
+        "ServiceAccessRoleArn" => String.t() | atom(),
         "SourceDataSettings" => list(source_data_setting()),
-        "StopReason" => String.t() | Atom.t(),
+        "StopReason" => String.t() | atom(),
         "TargetDataSettings" => list(target_data_setting())
       }
       
   """
-  @type data_migration() :: %{String.t() | Atom.t() => any()}
+  @type data_migration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3095,82 +3090,81 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type stop_data_migration_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_data_migration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       redshift_data_provider_settings() :: %{
-        "DatabaseName" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | atom(),
         "Port" => integer(),
-        "S3AccessRoleArn" => String.t() | Atom.t(),
-        "S3Path" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t()
+        "S3AccessRoleArn" => String.t() | atom(),
+        "S3Path" => String.t() | atom(),
+        "ServerName" => String.t() | atom()
       }
       
   """
-  @type redshift_data_provider_settings() :: %{String.t() | Atom.t() => any()}
+  @type redshift_data_provider_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint() :: %{
-        "Status" => String.t() | Atom.t(),
-        "ServiceAccessRoleArn" => String.t() | Atom.t(),
+        "Status" => String.t() | atom(),
+        "ServiceAccessRoleArn" => String.t() | atom(),
         "RedshiftSettings" => redshift_settings(),
         "MicrosoftSQLServerSettings" => microsoft_s_q_l_server_settings(),
         "DynamoDbSettings" => dynamo_db_settings(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | atom(),
         "DmsTransferSettings" => dms_transfer_settings(),
-        "EndpointArn" => String.t() | Atom.t(),
+        "EndpointArn" => String.t() | atom(),
         "MongoDbSettings" => mongo_db_settings(),
         "DocDbSettings" => doc_db_settings(),
         "GcpMySQLSettings" => gcp_my_s_q_l_settings(),
-        "CertificateArn" => String.t() | Atom.t(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "CertificateArn" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "OracleSettings" => oracle_settings(),
-        "ExtraConnectionAttributes" => String.t() | Atom.t(),
+        "ExtraConnectionAttributes" => String.t() | atom(),
         "ElasticsearchSettings" => elasticsearch_settings(),
         "IBMDb2Settings" => i_b_m_db2_settings(),
         "SybaseSettings" => sybase_settings(),
         "Port" => integer(),
-        "ExternalId" => String.t() | Atom.t(),
-        "EngineName" => String.t() | Atom.t(),
+        "ExternalId" => String.t() | atom(),
+        "EngineName" => String.t() | atom(),
         "RedisSettings" => redis_settings(),
-        "EndpointIdentifier" => String.t() | Atom.t(),
+        "EndpointIdentifier" => String.t() | atom(),
         "TimestreamSettings" => timestream_settings(),
         "EndpointType" => list(any()),
         "MySQLSettings" => my_s_q_l_settings(),
-        "EngineDisplayName" => String.t() | Atom.t(),
-        "Username" => String.t() | Atom.t(),
-        "ExternalTableDefinition" => String.t() | Atom.t(),
+        "EngineDisplayName" => String.t() | atom(),
+        "Username" => String.t() | atom(),
+        "ExternalTableDefinition" => String.t() | atom(),
         "KafkaSettings" => kafka_settings(),
         "PostgreSQLSettings" => postgre_s_q_l_settings(),
         "S3Settings" => s3_settings(),
         "SslMode" => list(any()),
         "KinesisSettings" => kinesis_settings(),
-        "ServerName" => String.t() | Atom.t(),
+        "ServerName" => String.t() | atom(),
         "NeptuneSettings" => neptune_settings()
       }
       
   """
-  @type endpoint() :: %{String.t() | Atom.t() => any()}
+  @type endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_replication_task_individual_assessments_response() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "ReplicationTaskIndividualAssessments" => list(replication_task_individual_assessment())
       }
       
   """
   @type describe_replication_task_individual_assessments_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3178,11 +3172,11 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       delete_certificate_message() :: %{
-        required("CertificateArn") => String.t() | Atom.t()
+        required("CertificateArn") => String.t() | atom()
       }
       
   """
-  @type delete_certificate_message() :: %{String.t() | Atom.t() => any()}
+  @type delete_certificate_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3193,7 +3187,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type create_data_migration_response() :: %{String.t() | Atom.t() => any()}
+  @type create_data_migration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3201,12 +3195,12 @@ defmodule AWS.DatabaseMigration do
       
       start_metadata_model_export_to_target_message() :: %{
         optional("OverwriteExtensionPack") => boolean(),
-        required("MigrationProjectIdentifier") => String.t() | Atom.t(),
-        required("SelectionRules") => String.t() | Atom.t()
+        required("MigrationProjectIdentifier") => String.t() | atom(),
+        required("SelectionRules") => String.t() | atom()
       }
       
   """
-  @type start_metadata_model_export_to_target_message() :: %{String.t() | Atom.t() => any()}
+  @type start_metadata_model_export_to_target_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3217,35 +3211,35 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type create_replication_instance_response() :: %{String.t() | Atom.t() => any()}
+  @type create_replication_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_event_subscription_message() :: %{
-        required("SubscriptionName") => String.t() | Atom.t()
+        required("SubscriptionName") => String.t() | atom()
       }
       
   """
-  @type delete_event_subscription_message() :: %{String.t() | Atom.t() => any()}
+  @type delete_event_subscription_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       replication_task_assessment_result() :: %{
-        "AssessmentResults" => String.t() | Atom.t(),
-        "AssessmentResultsFile" => String.t() | Atom.t(),
-        "AssessmentStatus" => String.t() | Atom.t(),
-        "ReplicationTaskArn" => String.t() | Atom.t(),
-        "ReplicationTaskIdentifier" => String.t() | Atom.t(),
+        "AssessmentResults" => String.t() | atom(),
+        "AssessmentResultsFile" => String.t() | atom(),
+        "AssessmentStatus" => String.t() | atom(),
+        "ReplicationTaskArn" => String.t() | atom(),
+        "ReplicationTaskIdentifier" => String.t() | atom(),
         "ReplicationTaskLastAssessmentDate" => non_neg_integer(),
-        "S3ObjectUrl" => String.t() | Atom.t()
+        "S3ObjectUrl" => String.t() | atom()
       }
       
   """
-  @type replication_task_assessment_result() :: %{String.t() | Atom.t() => any()}
+  @type replication_task_assessment_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3256,7 +3250,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type test_connection_response() :: %{String.t() | Atom.t() => any()}
+  @type test_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3272,7 +3266,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type replication_task_assessment_run_result_statistic() :: %{String.t() | Atom.t() => any()}
+  @type replication_task_assessment_run_result_statistic() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3281,25 +3275,25 @@ defmodule AWS.DatabaseMigration do
       create_replication_instance_message() :: %{
         optional("AllocatedStorage") => integer(),
         optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("AvailabilityZone") => String.t() | Atom.t(),
-        optional("DnsNameServers") => String.t() | Atom.t(),
-        optional("EngineVersion") => String.t() | Atom.t(),
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("DnsNameServers") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
         optional("KerberosAuthenticationSettings") => kerberos_authentication_settings(),
-        optional("KmsKeyId") => String.t() | Atom.t(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("MultiAZ") => boolean(),
-        optional("NetworkType") => String.t() | Atom.t(),
-        optional("PreferredMaintenanceWindow") => String.t() | Atom.t(),
+        optional("NetworkType") => String.t() | atom(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
         optional("PubliclyAccessible") => boolean(),
-        optional("ReplicationSubnetGroupIdentifier") => String.t() | Atom.t(),
-        optional("ResourceIdentifier") => String.t() | Atom.t(),
+        optional("ReplicationSubnetGroupIdentifier") => String.t() | atom(),
+        optional("ResourceIdentifier") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("VpcSecurityGroupIds") => list(String.t() | Atom.t()),
-        required("ReplicationInstanceClass") => String.t() | Atom.t(),
-        required("ReplicationInstanceIdentifier") => String.t() | Atom.t()
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
+        required("ReplicationInstanceClass") => String.t() | atom(),
+        required("ReplicationInstanceIdentifier") => String.t() | atom()
       }
       
   """
-  @type create_replication_instance_message() :: %{String.t() | Atom.t() => any()}
+  @type create_replication_instance_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3310,87 +3304,87 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type start_replication_task_assessment_run_response() :: %{String.t() | Atom.t() => any()}
+  @type start_replication_task_assessment_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       my_s_q_l_settings() :: %{
-        "AfterConnectScript" => String.t() | Atom.t(),
+        "AfterConnectScript" => String.t() | atom(),
         "AuthenticationMethod" => list(any()),
         "CleanSourceMetadataOnMismatch" => boolean(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | atom(),
         "EventsPollInterval" => integer(),
         "ExecuteTimeout" => integer(),
         "MaxFileSize" => integer(),
         "ParallelLoadThreads" => integer(),
-        "Password" => String.t() | Atom.t(),
+        "Password" => String.t() | atom(),
         "Port" => integer(),
-        "SecretsManagerAccessRoleArn" => String.t() | Atom.t(),
-        "SecretsManagerSecretId" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t(),
-        "ServerTimezone" => String.t() | Atom.t(),
-        "ServiceAccessRoleArn" => String.t() | Atom.t(),
+        "SecretsManagerAccessRoleArn" => String.t() | atom(),
+        "SecretsManagerSecretId" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
+        "ServerTimezone" => String.t() | atom(),
+        "ServiceAccessRoleArn" => String.t() | atom(),
         "TargetDbType" => list(any()),
-        "Username" => String.t() | Atom.t()
+        "Username" => String.t() | atom()
       }
       
   """
-  @type my_s_q_l_settings() :: %{String.t() | Atom.t() => any()}
+  @type my_s_q_l_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate() :: %{
-        "CertificateArn" => String.t() | Atom.t(),
+        "CertificateArn" => String.t() | atom(),
         "CertificateCreationDate" => non_neg_integer(),
-        "CertificateIdentifier" => String.t() | Atom.t(),
-        "CertificateOwner" => String.t() | Atom.t(),
-        "CertificatePem" => String.t() | Atom.t(),
+        "CertificateIdentifier" => String.t() | atom(),
+        "CertificateOwner" => String.t() | atom(),
+        "CertificatePem" => String.t() | atom(),
         "CertificateWallet" => binary(),
         "KeyLength" => integer(),
-        "SigningAlgorithm" => String.t() | Atom.t(),
+        "SigningAlgorithm" => String.t() | atom(),
         "ValidFromDate" => non_neg_integer(),
         "ValidToDate" => non_neg_integer()
       }
       
   """
-  @type certificate() :: %{String.t() | Atom.t() => any()}
+  @type certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_replication_message() :: %{
-        required("ReplicationConfigArn") => String.t() | Atom.t()
+        required("ReplicationConfigArn") => String.t() | atom()
       }
       
   """
-  @type stop_replication_message() :: %{String.t() | Atom.t() => any()}
+  @type stop_replication_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_key_not_accessible_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type kms_key_not_accessible_fault() :: %{String.t() | Atom.t() => any()}
+  @type kms_key_not_accessible_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s_n_s_invalid_topic_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type s_n_s_invalid_topic_fault() :: %{String.t() | Atom.t() => any()}
+  @type s_n_s_invalid_topic_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3398,13 +3392,13 @@ defmodule AWS.DatabaseMigration do
       
       describe_replication_table_statistics_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        required("ReplicationConfigArn") => String.t() | Atom.t()
+        required("ReplicationConfigArn") => String.t() | atom()
       }
       
   """
-  @type describe_replication_table_statistics_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_replication_table_statistics_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3412,23 +3406,23 @@ defmodule AWS.DatabaseMigration do
       
       describe_event_subscriptions_response() :: %{
         "EventSubscriptionsList" => list(event_subscription()),
-        "Marker" => String.t() | Atom.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_event_subscriptions_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_event_subscriptions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_replications_response() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "Replications" => list(replication())
       }
       
   """
-  @type describe_replications_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_replications_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3436,71 +3430,71 @@ defmodule AWS.DatabaseMigration do
       
       event() :: %{
         "Date" => non_neg_integer(),
-        "EventCategories" => list(String.t() | Atom.t()),
-        "Message" => String.t() | Atom.t(),
-        "SourceIdentifier" => String.t() | Atom.t(),
+        "EventCategories" => list(String.t() | atom()),
+        "Message" => String.t() | atom(),
+        "SourceIdentifier" => String.t() | atom(),
         "SourceType" => list(any())
       }
       
   """
-  @type event() :: %{String.t() | Atom.t() => any()}
+  @type event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       collector_not_found_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type collector_not_found_fault() :: %{String.t() | Atom.t() => any()}
+  @type collector_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       test_connection_message() :: %{
-        required("EndpointArn") => String.t() | Atom.t(),
-        required("ReplicationInstanceArn") => String.t() | Atom.t()
+        required("EndpointArn") => String.t() | atom(),
+        required("ReplicationInstanceArn") => String.t() | atom()
       }
       
   """
-  @type test_connection_message() :: %{String.t() | Atom.t() => any()}
+  @type test_connection_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_already_exists_fault() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceArn" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resourceArn" => String.t() | atom()
       }
       
   """
-  @type resource_already_exists_fault() :: %{String.t() | Atom.t() => any()}
+  @type resource_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_metadata_model_assessment_response() :: %{
-        "RequestIdentifier" => String.t() | Atom.t()
+        "RequestIdentifier" => String.t() | atom()
       }
       
   """
-  @type start_metadata_model_assessment_response() :: %{String.t() | Atom.t() => any()}
+  @type start_metadata_model_assessment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_fleet_advisor_databases_response() :: %{
-        "DatabaseIds" => list(String.t() | Atom.t())
+        "DatabaseIds" => list(String.t() | atom())
       }
       
   """
-  @type delete_fleet_advisor_databases_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_fleet_advisor_databases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3509,11 +3503,11 @@ defmodule AWS.DatabaseMigration do
       describe_recommendation_limitations_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_recommendation_limitations_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_recommendation_limitations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3521,14 +3515,14 @@ defmodule AWS.DatabaseMigration do
       
       describe_data_migrations_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
         optional("WithoutSettings") => boolean(),
         optional("WithoutStatistics") => boolean()
       }
       
   """
-  @type describe_data_migrations_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_data_migrations_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3537,11 +3531,11 @@ defmodule AWS.DatabaseMigration do
       data_migration_settings() :: %{
         "CloudwatchLogsEnabled" => boolean(),
         "NumberOfJobs" => integer(),
-        "SelectionRules" => String.t() | Atom.t()
+        "SelectionRules" => String.t() | atom()
       }
       
   """
-  @type data_migration_settings() :: %{String.t() | Atom.t() => any()}
+  @type data_migration_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3549,100 +3543,100 @@ defmodule AWS.DatabaseMigration do
       
       mongo_db_settings() :: %{
         "AuthMechanism" => list(any()),
-        "AuthSource" => String.t() | Atom.t(),
+        "AuthSource" => String.t() | atom(),
         "AuthType" => list(any()),
-        "DatabaseName" => String.t() | Atom.t(),
-        "DocsToInvestigate" => String.t() | Atom.t(),
-        "ExtractDocId" => String.t() | Atom.t(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | atom(),
+        "DocsToInvestigate" => String.t() | atom(),
+        "ExtractDocId" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "NestingLevel" => list(any()),
-        "Password" => String.t() | Atom.t(),
+        "Password" => String.t() | atom(),
         "Port" => integer(),
         "ReplicateShardCollections" => boolean(),
-        "SecretsManagerAccessRoleArn" => String.t() | Atom.t(),
-        "SecretsManagerSecretId" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t(),
+        "SecretsManagerAccessRoleArn" => String.t() | atom(),
+        "SecretsManagerSecretId" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
         "UseUpdateLookUp" => boolean(),
-        "Username" => String.t() | Atom.t()
+        "Username" => String.t() | atom()
       }
       
   """
-  @type mongo_db_settings() :: %{String.t() | Atom.t() => any()}
+  @type mongo_db_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_replication_task_assessment_run_message() :: %{
-        required("ReplicationTaskAssessmentRunArn") => String.t() | Atom.t()
+        required("ReplicationTaskAssessmentRunArn") => String.t() | atom()
       }
       
   """
-  @type cancel_replication_task_assessment_run_message() :: %{String.t() | Atom.t() => any()}
+  @type cancel_replication_task_assessment_run_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_metadata_model_export_as_script_response() :: %{
-        "RequestIdentifier" => String.t() | Atom.t()
+        "RequestIdentifier" => String.t() | atom()
       }
       
   """
-  @type start_metadata_model_export_as_script_response() :: %{String.t() | Atom.t() => any()}
+  @type start_metadata_model_export_as_script_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       compute_config() :: %{
-        "AvailabilityZone" => String.t() | Atom.t(),
-        "DnsNameServers" => String.t() | Atom.t(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "AvailabilityZone" => String.t() | atom(),
+        "DnsNameServers" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "MaxCapacityUnits" => integer(),
         "MinCapacityUnits" => integer(),
         "MultiAZ" => boolean(),
-        "PreferredMaintenanceWindow" => String.t() | Atom.t(),
-        "ReplicationSubnetGroupId" => String.t() | Atom.t(),
-        "VpcSecurityGroupIds" => list(String.t() | Atom.t())
+        "PreferredMaintenanceWindow" => String.t() | atom(),
+        "ReplicationSubnetGroupId" => String.t() | atom(),
+        "VpcSecurityGroupIds" => list(String.t() | atom())
       }
       
   """
-  @type compute_config() :: %{String.t() | Atom.t() => any()}
+  @type compute_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_to_resource_message() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type add_tags_to_resource_message() :: %{String.t() | Atom.t() => any()}
+  @type add_tags_to_resource_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       oracle_settings() :: %{
-        "AsmUser" => String.t() | Atom.t(),
-        "SecurityDbEncryptionName" => String.t() | Atom.t(),
+        "AsmUser" => String.t() | atom(),
+        "SecurityDbEncryptionName" => String.t() | atom(),
         "AllowSelectNestedTables" => boolean(),
         "AdditionalArchivedLogDestId" => integer(),
-        "AsmServer" => String.t() | Atom.t(),
+        "AsmServer" => String.t() | atom(),
         "ReplacePathPrefix" => boolean(),
         "UseAlternateFolderForOnline" => boolean(),
         "OpenTransactionWindow" => integer(),
-        "AsmPassword" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t(),
-        "UsePathPrefix" => String.t() | Atom.t(),
+        "AsmPassword" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "UsePathPrefix" => String.t() | atom(),
         "NumberDatatypeScale" => integer(),
         "StandbyDelayTime" => integer(),
-        "SecretsManagerOracleAsmSecretId" => String.t() | Atom.t(),
-        "SpatialDataOptionToGeoJsonFunctionName" => String.t() | Atom.t(),
-        "SecretsManagerAccessRoleArn" => String.t() | Atom.t(),
+        "SecretsManagerOracleAsmSecretId" => String.t() | atom(),
+        "SpatialDataOptionToGeoJsonFunctionName" => String.t() | atom(),
+        "SecretsManagerAccessRoleArn" => String.t() | atom(),
         "AuthenticationMethod" => list(any()),
         "ArchivedLogsOnly" => boolean(),
         "ReadTableSpaceName" => boolean(),
@@ -3653,39 +3647,39 @@ defmodule AWS.DatabaseMigration do
         "Port" => integer(),
         "RetryInterval" => integer(),
         "FailTasksOnLobTruncation" => boolean(),
-        "SecretsManagerOracleAsmAccessRoleArn" => String.t() | Atom.t(),
-        "OraclePathPrefix" => String.t() | Atom.t(),
+        "SecretsManagerOracleAsmAccessRoleArn" => String.t() | atom(),
+        "OraclePathPrefix" => String.t() | atom(),
         "UseLogminerReader" => boolean(),
-        "Password" => String.t() | Atom.t(),
+        "Password" => String.t() | atom(),
         "AddSupplementalLogging" => boolean(),
         "ExtraArchivedLogDestIds" => list(integer()),
         "EnableHomogenousTablespace" => boolean(),
-        "SecurityDbEncryption" => String.t() | Atom.t(),
+        "SecurityDbEncryption" => String.t() | atom(),
         "AccessAlternateDirectly" => boolean(),
         "DirectPathNoLog" => boolean(),
-        "Username" => String.t() | Atom.t(),
+        "Username" => String.t() | atom(),
         "DirectPathParallelLoad" => boolean(),
         "CharLengthSemantics" => list(any()),
-        "SecretsManagerSecretId" => String.t() | Atom.t(),
+        "SecretsManagerSecretId" => String.t() | atom(),
         "TrimSpaceInChar" => boolean(),
         "ParallelAsmReadThreads" => integer(),
         "ReadAheadBlocks" => integer(),
-        "ServerName" => String.t() | Atom.t()
+        "ServerName" => String.t() | atom()
       }
       
   """
-  @type oracle_settings() :: %{String.t() | Atom.t() => any()}
+  @type oracle_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_conversion_configuration_response() :: %{
-        "MigrationProjectIdentifier" => String.t() | Atom.t()
+        "MigrationProjectIdentifier" => String.t() | atom()
       }
       
   """
-  @type modify_conversion_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type modify_conversion_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3696,7 +3690,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type stop_replication_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_replication_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3707,14 +3701,14 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type start_replication_response() :: %{String.t() | Atom.t() => any()}
+  @type start_replication_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kafka_settings() :: %{
-        "Broker" => String.t() | Atom.t(),
+        "Broker" => String.t() | atom(),
         "IncludeControlDetails" => boolean(),
         "IncludeNullAndEmpty" => boolean(),
         "IncludePartitionValue" => boolean(),
@@ -3725,20 +3719,20 @@ defmodule AWS.DatabaseMigration do
         "NoHexPrefix" => boolean(),
         "PartitionIncludeSchemaTable" => boolean(),
         "SaslMechanism" => list(any()),
-        "SaslPassword" => String.t() | Atom.t(),
-        "SaslUsername" => String.t() | Atom.t(),
+        "SaslPassword" => String.t() | atom(),
+        "SaslUsername" => String.t() | atom(),
         "SecurityProtocol" => list(any()),
-        "SslCaCertificateArn" => String.t() | Atom.t(),
-        "SslClientCertificateArn" => String.t() | Atom.t(),
-        "SslClientKeyArn" => String.t() | Atom.t(),
-        "SslClientKeyPassword" => String.t() | Atom.t(),
+        "SslCaCertificateArn" => String.t() | atom(),
+        "SslClientCertificateArn" => String.t() | atom(),
+        "SslClientKeyArn" => String.t() | atom(),
+        "SslClientKeyPassword" => String.t() | atom(),
         "SslEndpointIdentificationAlgorithm" => list(any()),
-        "Topic" => String.t() | Atom.t(),
+        "Topic" => String.t() | atom(),
         "UseLargeIntegerValue" => boolean()
       }
       
   """
-  @type kafka_settings() :: %{String.t() | Atom.t() => any()}
+  @type kafka_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3746,88 +3740,88 @@ defmodule AWS.DatabaseMigration do
       
       describe_metadata_model_imports_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        required("MigrationProjectIdentifier") => String.t() | Atom.t()
+        required("MigrationProjectIdentifier") => String.t() | atom()
       }
       
   """
-  @type describe_metadata_model_imports_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_metadata_model_imports_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       gcp_my_s_q_l_settings() :: %{
-        "AfterConnectScript" => String.t() | Atom.t(),
+        "AfterConnectScript" => String.t() | atom(),
         "CleanSourceMetadataOnMismatch" => boolean(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | atom(),
         "EventsPollInterval" => integer(),
         "MaxFileSize" => integer(),
         "ParallelLoadThreads" => integer(),
-        "Password" => String.t() | Atom.t(),
+        "Password" => String.t() | atom(),
         "Port" => integer(),
-        "SecretsManagerAccessRoleArn" => String.t() | Atom.t(),
-        "SecretsManagerSecretId" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t(),
-        "ServerTimezone" => String.t() | Atom.t(),
+        "SecretsManagerAccessRoleArn" => String.t() | atom(),
+        "SecretsManagerSecretId" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
+        "ServerTimezone" => String.t() | atom(),
         "TargetDbType" => list(any()),
-        "Username" => String.t() | Atom.t()
+        "Username" => String.t() | atom()
       }
       
   """
-  @type gcp_my_s_q_l_settings() :: %{String.t() | Atom.t() => any()}
+  @type gcp_my_s_q_l_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_conversion_configuration_response() :: %{
-        "ConversionConfiguration" => String.t() | Atom.t(),
-        "MigrationProjectIdentifier" => String.t() | Atom.t()
+        "ConversionConfiguration" => String.t() | atom(),
+        "MigrationProjectIdentifier" => String.t() | atom()
       }
       
   """
-  @type describe_conversion_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_conversion_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_orderable_replication_instances_response() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "OrderableReplicationInstances" => list(orderable_replication_instance())
       }
       
   """
-  @type describe_orderable_replication_instances_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_orderable_replication_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limitation() :: %{
-        "DatabaseId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "EngineName" => String.t() | Atom.t(),
-        "Impact" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "DatabaseId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "EngineName" => String.t() | atom(),
+        "Impact" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type limitation() :: %{String.t() | Atom.t() => any()}
+  @type limitation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_replication_instance_message() :: %{
-        required("ReplicationInstanceArn") => String.t() | Atom.t()
+        required("ReplicationInstanceArn") => String.t() | atom()
       }
       
   """
-  @type delete_replication_instance_message() :: %{String.t() | Atom.t() => any()}
+  @type delete_replication_instance_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3836,17 +3830,17 @@ defmodule AWS.DatabaseMigration do
       describe_events_message() :: %{
         optional("Duration") => integer(),
         optional("EndTime") => non_neg_integer(),
-        optional("EventCategories") => list(String.t() | Atom.t()),
+        optional("EventCategories") => list(String.t() | atom()),
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("SourceIdentifier") => String.t() | Atom.t(),
+        optional("SourceIdentifier") => String.t() | atom(),
         optional("SourceType") => list(any()),
         optional("StartTime") => non_neg_integer()
       }
       
   """
-  @type describe_events_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_events_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3854,30 +3848,30 @@ defmodule AWS.DatabaseMigration do
       
       describe_endpoint_types_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_endpoint_types_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_endpoint_types_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_migration_project_message() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("InstanceProfileIdentifier") => String.t() | Atom.t(),
-        optional("MigrationProjectName") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("InstanceProfileIdentifier") => String.t() | atom(),
+        optional("MigrationProjectName") => String.t() | atom(),
         optional("SchemaConversionApplicationAttributes") => s_capplication_attributes(),
         optional("SourceDataProviderDescriptors") => list(data_provider_descriptor_definition()),
         optional("TargetDataProviderDescriptors") => list(data_provider_descriptor_definition()),
-        optional("TransformationRules") => String.t() | Atom.t(),
-        required("MigrationProjectIdentifier") => String.t() | Atom.t()
+        optional("TransformationRules") => String.t() | atom(),
+        required("MigrationProjectIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_migration_project_message() :: %{String.t() | Atom.t() => any()}
+  @type modify_migration_project_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3888,35 +3882,35 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type create_replication_task_response() :: %{String.t() | Atom.t() => any()}
+  @type create_replication_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_metadata_model_export_to_target_response() :: %{
-        "RequestIdentifier" => String.t() | Atom.t()
+        "RequestIdentifier" => String.t() | atom()
       }
       
   """
-  @type start_metadata_model_export_to_target_response() :: %{String.t() | Atom.t() => any()}
+  @type start_metadata_model_export_to_target_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       database_instance_software_details_response() :: %{
-        "Engine" => String.t() | Atom.t(),
-        "EngineEdition" => String.t() | Atom.t(),
-        "EngineVersion" => String.t() | Atom.t(),
+        "Engine" => String.t() | atom(),
+        "EngineEdition" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "OsArchitecture" => integer(),
-        "ServicePack" => String.t() | Atom.t(),
-        "SupportLevel" => String.t() | Atom.t(),
-        "Tooltip" => String.t() | Atom.t()
+        "ServicePack" => String.t() | atom(),
+        "SupportLevel" => String.t() | atom(),
+        "Tooltip" => String.t() | atom()
       }
       
   """
-  @type database_instance_software_details_response() :: %{String.t() | Atom.t() => any()}
+  @type database_instance_software_details_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3927,7 +3921,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type modify_replication_instance_response() :: %{String.t() | Atom.t() => any()}
+  @type modify_replication_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3935,11 +3929,11 @@ defmodule AWS.DatabaseMigration do
       
       describe_instance_profiles_response() :: %{
         "InstanceProfiles" => list(instance_profile()),
-        "Marker" => String.t() | Atom.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_instance_profiles_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_instance_profiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3950,59 +3944,59 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type delete_connection_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       maria_db_data_provider_settings() :: %{
-        "CertificateArn" => String.t() | Atom.t(),
+        "CertificateArn" => String.t() | atom(),
         "Port" => integer(),
-        "S3AccessRoleArn" => String.t() | Atom.t(),
-        "S3Path" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t(),
+        "S3AccessRoleArn" => String.t() | atom(),
+        "S3Path" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
         "SslMode" => list(any())
       }
       
   """
-  @type maria_db_data_provider_settings() :: %{String.t() | Atom.t() => any()}
+  @type maria_db_data_provider_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_data_migration_message() :: %{
-        optional("DataMigrationName") => String.t() | Atom.t(),
+        optional("DataMigrationName") => String.t() | atom(),
         optional("EnableCloudwatchLogs") => boolean(),
         optional("NumberOfJobs") => integer(),
-        optional("SelectionRules") => String.t() | Atom.t(),
+        optional("SelectionRules") => String.t() | atom(),
         optional("SourceDataSettings") => list(source_data_setting()),
         optional("Tags") => list(tag()),
         optional("TargetDataSettings") => list(target_data_setting()),
         required("DataMigrationType") => list(any()),
-        required("MigrationProjectIdentifier") => String.t() | Atom.t(),
-        required("ServiceAccessRoleArn") => String.t() | Atom.t()
+        required("MigrationProjectIdentifier") => String.t() | atom(),
+        required("ServiceAccessRoleArn") => String.t() | atom()
       }
       
   """
-  @type create_data_migration_message() :: %{String.t() | Atom.t() => any()}
+  @type create_data_migration_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       replication_subnet_group() :: %{
-        "ReplicationSubnetGroupDescription" => String.t() | Atom.t(),
-        "ReplicationSubnetGroupIdentifier" => String.t() | Atom.t(),
-        "SubnetGroupStatus" => String.t() | Atom.t(),
+        "ReplicationSubnetGroupDescription" => String.t() | atom(),
+        "ReplicationSubnetGroupIdentifier" => String.t() | atom(),
+        "SubnetGroupStatus" => String.t() | atom(),
         "Subnets" => list(subnet()),
-        "SupportedNetworkTypes" => list(String.t() | Atom.t()),
-        "VpcId" => String.t() | Atom.t()
+        "SupportedNetworkTypes" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type replication_subnet_group() :: %{String.t() | Atom.t() => any()}
+  @type replication_subnet_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4013,7 +4007,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type start_replication_task_assessment_response() :: %{String.t() | Atom.t() => any()}
+  @type start_replication_task_assessment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4024,7 +4018,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type create_migration_project_response() :: %{String.t() | Atom.t() => any()}
+  @type create_migration_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4034,58 +4028,58 @@ defmodule AWS.DatabaseMigration do
         "DateNewProvisioningDataAvailable" => non_neg_integer(),
         "DateProvisioned" => non_neg_integer(),
         "IsNewProvisioningAvailable" => boolean(),
-        "ProvisionState" => String.t() | Atom.t(),
+        "ProvisionState" => String.t() | atom(),
         "ProvisionedCapacityUnits" => integer(),
-        "ReasonForNewProvisioningData" => String.t() | Atom.t()
+        "ReasonForNewProvisioningData" => String.t() | atom()
       }
       
   """
-  @type provision_data() :: %{String.t() | Atom.t() => any()}
+  @type provision_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_replication_task_assessment_run_message() :: %{
-        optional("Exclude") => list(String.t() | Atom.t()),
-        optional("IncludeOnly") => list(String.t() | Atom.t()),
-        optional("ResultEncryptionMode") => String.t() | Atom.t(),
-        optional("ResultKmsKeyArn") => String.t() | Atom.t(),
-        optional("ResultLocationFolder") => String.t() | Atom.t(),
+        optional("Exclude") => list(String.t() | atom()),
+        optional("IncludeOnly") => list(String.t() | atom()),
+        optional("ResultEncryptionMode") => String.t() | atom(),
+        optional("ResultKmsKeyArn") => String.t() | atom(),
+        optional("ResultLocationFolder") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("AssessmentRunName") => String.t() | Atom.t(),
-        required("ReplicationTaskArn") => String.t() | Atom.t(),
-        required("ResultLocationBucket") => String.t() | Atom.t(),
-        required("ServiceAccessRoleArn") => String.t() | Atom.t()
+        required("AssessmentRunName") => String.t() | atom(),
+        required("ReplicationTaskArn") => String.t() | atom(),
+        required("ResultLocationBucket") => String.t() | atom(),
+        required("ServiceAccessRoleArn") => String.t() | atom()
       }
       
   """
-  @type start_replication_task_assessment_run_message() :: %{String.t() | Atom.t() => any()}
+  @type start_replication_task_assessment_run_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_start_recommendations_error_entry() :: %{
-        "Code" => String.t() | Atom.t(),
-        "DatabaseId" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "DatabaseId" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type batch_start_recommendations_error_entry() :: %{String.t() | Atom.t() => any()}
+  @type batch_start_recommendations_error_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       run_fleet_advisor_lsa_analysis_response() :: %{
-        "LsaAnalysisId" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "LsaAnalysisId" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type run_fleet_advisor_lsa_analysis_response() :: %{String.t() | Atom.t() => any()}
+  @type run_fleet_advisor_lsa_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4096,18 +4090,18 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type create_replication_config_response() :: %{String.t() | Atom.t() => any()}
+  @type create_replication_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_operation_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_operation_fault() :: %{String.t() | Atom.t() => any()}
+  @type invalid_operation_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4115,23 +4109,23 @@ defmodule AWS.DatabaseMigration do
       
       describe_data_migrations_response() :: %{
         "DataMigrations" => list(data_migration()),
-        "Marker" => String.t() | Atom.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_data_migrations_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_data_migrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_replication_tasks_response() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "ReplicationTasks" => list(replication_task())
       }
       
   """
-  @type describe_replication_tasks_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_replication_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4142,29 +4136,29 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type refresh_schemas_response() :: %{String.t() | Atom.t() => any()}
+  @type refresh_schemas_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_extension_pack_association_message() :: %{
-        required("MigrationProjectIdentifier") => String.t() | Atom.t()
+        required("MigrationProjectIdentifier") => String.t() | atom()
       }
       
   """
-  @type start_extension_pack_association_message() :: %{String.t() | Atom.t() => any()}
+  @type start_extension_pack_association_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_replication_task_message() :: %{
-        required("ReplicationTaskArn") => String.t() | Atom.t()
+        required("ReplicationTaskArn") => String.t() | atom()
       }
       
   """
-  @type delete_replication_task_message() :: %{String.t() | Atom.t() => any()}
+  @type delete_replication_task_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4172,18 +4166,18 @@ defmodule AWS.DatabaseMigration do
       
       modify_replication_config_message() :: %{
         optional("ComputeConfig") => compute_config(),
-        optional("ReplicationConfigIdentifier") => String.t() | Atom.t(),
-        optional("ReplicationSettings") => String.t() | Atom.t(),
+        optional("ReplicationConfigIdentifier") => String.t() | atom(),
+        optional("ReplicationSettings") => String.t() | atom(),
         optional("ReplicationType") => list(any()),
-        optional("SourceEndpointArn") => String.t() | Atom.t(),
-        optional("SupplementalSettings") => String.t() | Atom.t(),
-        optional("TableMappings") => String.t() | Atom.t(),
-        optional("TargetEndpointArn") => String.t() | Atom.t(),
-        required("ReplicationConfigArn") => String.t() | Atom.t()
+        optional("SourceEndpointArn") => String.t() | atom(),
+        optional("SupplementalSettings") => String.t() | atom(),
+        optional("TableMappings") => String.t() | atom(),
+        optional("TargetEndpointArn") => String.t() | atom(),
+        required("ReplicationConfigArn") => String.t() | atom()
       }
       
   """
-  @type modify_replication_config_message() :: %{String.t() | Atom.t() => any()}
+  @type modify_replication_config_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4192,17 +4186,17 @@ defmodule AWS.DatabaseMigration do
       schema_response() :: %{
         "CodeLineCount" => float(),
         "CodeSize" => float(),
-        "Complexity" => String.t() | Atom.t(),
+        "Complexity" => String.t() | atom(),
         "DatabaseInstance" => database_short_info_response(),
         "OriginalSchema" => schema_short_info_response(),
-        "SchemaId" => String.t() | Atom.t(),
-        "SchemaName" => String.t() | Atom.t(),
+        "SchemaId" => String.t() | atom(),
+        "SchemaName" => String.t() | atom(),
         "Server" => server_short_info_response(),
         "Similarity" => float()
       }
       
   """
-  @type schema_response() :: %{String.t() | Atom.t() => any()}
+  @type schema_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4213,141 +4207,141 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type modify_replication_task_response() :: %{String.t() | Atom.t() => any()}
+  @type modify_replication_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_conversion_configuration_message() :: %{
-        required("ConversionConfiguration") => String.t() | Atom.t(),
-        required("MigrationProjectIdentifier") => String.t() | Atom.t()
+        required("ConversionConfiguration") => String.t() | atom(),
+        required("MigrationProjectIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_conversion_configuration_message() :: %{String.t() | Atom.t() => any()}
+  @type modify_conversion_configuration_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_certificate_message() :: %{
-        optional("CertificatePem") => String.t() | Atom.t(),
+        optional("CertificatePem") => String.t() | atom(),
         optional("CertificateWallet") => binary(),
         optional("Tags") => list(tag()),
-        required("CertificateIdentifier") => String.t() | Atom.t()
+        required("CertificateIdentifier") => String.t() | atom()
       }
       
   """
-  @type import_certificate_message() :: %{String.t() | Atom.t() => any()}
+  @type import_certificate_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       postgre_sql_data_provider_settings() :: %{
-        "CertificateArn" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "CertificateArn" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
         "Port" => integer(),
-        "S3AccessRoleArn" => String.t() | Atom.t(),
-        "S3Path" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t(),
+        "S3AccessRoleArn" => String.t() | atom(),
+        "S3Path" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
         "SslMode" => list(any())
       }
       
   """
-  @type postgre_sql_data_provider_settings() :: %{String.t() | Atom.t() => any()}
+  @type postgre_sql_data_provider_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_data_migration_message() :: %{
-        required("DataMigrationIdentifier") => String.t() | Atom.t(),
+        required("DataMigrationIdentifier") => String.t() | atom(),
         required("StartType") => list(any())
       }
       
   """
-  @type start_data_migration_message() :: %{String.t() | Atom.t() => any()}
+  @type start_data_migration_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_instance_profile_message() :: %{
-        optional("AvailabilityZone") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("InstanceProfileName") => String.t() | Atom.t(),
-        optional("KmsKeyArn") => String.t() | Atom.t(),
-        optional("NetworkType") => String.t() | Atom.t(),
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("InstanceProfileName") => String.t() | atom(),
+        optional("KmsKeyArn") => String.t() | atom(),
+        optional("NetworkType") => String.t() | atom(),
         optional("PubliclyAccessible") => boolean(),
-        optional("SubnetGroupIdentifier") => String.t() | Atom.t(),
-        optional("VpcSecurityGroups") => list(String.t() | Atom.t()),
-        required("InstanceProfileIdentifier") => String.t() | Atom.t()
+        optional("SubnetGroupIdentifier") => String.t() | atom(),
+        optional("VpcSecurityGroups") => list(String.t() | atom()),
+        required("InstanceProfileIdentifier") => String.t() | atom()
       }
       
   """
-  @type modify_instance_profile_message() :: %{String.t() | Atom.t() => any()}
+  @type modify_instance_profile_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       database_short_info_response() :: %{
-        "DatabaseEngine" => String.t() | Atom.t(),
-        "DatabaseId" => String.t() | Atom.t(),
-        "DatabaseIpAddress" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t()
+        "DatabaseEngine" => String.t() | atom(),
+        "DatabaseId" => String.t() | atom(),
+        "DatabaseIpAddress" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom()
       }
       
   """
-  @type database_short_info_response() :: %{String.t() | Atom.t() => any()}
+  @type database_short_info_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_metadata_model_conversion_message() :: %{
-        required("MigrationProjectIdentifier") => String.t() | Atom.t(),
-        required("SelectionRules") => String.t() | Atom.t()
+        required("MigrationProjectIdentifier") => String.t() | atom(),
+        required("SelectionRules") => String.t() | atom()
       }
       
   """
-  @type start_metadata_model_conversion_message() :: %{String.t() | Atom.t() => any()}
+  @type start_metadata_model_conversion_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_extension_pack_association_response() :: %{
-        "RequestIdentifier" => String.t() | Atom.t()
+        "RequestIdentifier" => String.t() | atom()
       }
       
   """
-  @type start_extension_pack_association_response() :: %{String.t() | Atom.t() => any()}
+  @type start_extension_pack_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_migration_projects_response() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "MigrationProjects" => list(migration_project())
       }
       
   """
-  @type describe_migration_projects_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_migration_projects_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_disabled_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type kms_disabled_fault() :: %{String.t() | Atom.t() => any()}
+  @type kms_disabled_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4355,44 +4349,44 @@ defmodule AWS.DatabaseMigration do
       
       create_endpoint_message() :: %{
         optional("PostgreSQLSettings") => postgre_s_q_l_settings(),
-        optional("ExternalTableDefinition") => String.t() | Atom.t(),
+        optional("ExternalTableDefinition") => String.t() | atom(),
         optional("MicrosoftSQLServerSettings") => microsoft_s_q_l_server_settings(),
-        optional("DatabaseName") => String.t() | Atom.t(),
-        optional("ExtraConnectionAttributes") => String.t() | Atom.t(),
+        optional("DatabaseName") => String.t() | atom(),
+        optional("ExtraConnectionAttributes") => String.t() | atom(),
         optional("TimestreamSettings") => timestream_settings(),
         optional("MongoDbSettings") => mongo_db_settings(),
         optional("OracleSettings") => oracle_settings(),
         optional("ElasticsearchSettings") => elasticsearch_settings(),
         optional("DynamoDbSettings") => dynamo_db_settings(),
-        optional("Username") => String.t() | Atom.t(),
-        required("EndpointIdentifier") => String.t() | Atom.t(),
+        optional("Username") => String.t() | atom(),
+        required("EndpointIdentifier") => String.t() | atom(),
         optional("IBMDb2Settings") => i_b_m_db2_settings(),
-        optional("ServerName") => String.t() | Atom.t(),
-        optional("CertificateArn") => String.t() | Atom.t(),
+        optional("ServerName") => String.t() | atom(),
+        optional("CertificateArn") => String.t() | atom(),
         optional("DocDbSettings") => doc_db_settings(),
         optional("NeptuneSettings") => neptune_settings(),
-        optional("Password") => String.t() | Atom.t(),
+        optional("Password") => String.t() | atom(),
         optional("DmsTransferSettings") => dms_transfer_settings(),
         optional("S3Settings") => s3_settings(),
         optional("SybaseSettings") => sybase_settings(),
         optional("KafkaSettings") => kafka_settings(),
         optional("SslMode") => list(any()),
         optional("GcpMySQLSettings") => gcp_my_s_q_l_settings(),
-        optional("ServiceAccessRoleArn") => String.t() | Atom.t(),
+        optional("ServiceAccessRoleArn") => String.t() | atom(),
         optional("MySQLSettings") => my_s_q_l_settings(),
         required("EndpointType") => list(any()),
         optional("Port") => integer(),
         optional("RedisSettings") => redis_settings(),
         optional("KinesisSettings") => kinesis_settings(),
-        optional("KmsKeyId") => String.t() | Atom.t(),
-        optional("ResourceIdentifier") => String.t() | Atom.t(),
-        required("EngineName") => String.t() | Atom.t(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("ResourceIdentifier") => String.t() | atom(),
+        required("EngineName") => String.t() | atom(),
         optional("Tags") => list(tag()),
         optional("RedshiftSettings") => redshift_settings()
       }
       
   """
-  @type create_endpoint_message() :: %{String.t() | Atom.t() => any()}
+  @type create_endpoint_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4403,19 +4397,19 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type modify_migration_project_response() :: %{String.t() | Atom.t() => any()}
+  @type modify_migration_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_tags_from_resource_message() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type remove_tags_from_resource_message() :: %{String.t() | Atom.t() => any()}
+  @type remove_tags_from_resource_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4426,7 +4420,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type create_endpoint_response() :: %{String.t() | Atom.t() => any()}
+  @type create_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4435,26 +4429,26 @@ defmodule AWS.DatabaseMigration do
       microsoft_s_q_l_server_settings() :: %{
         "AuthenticationMethod" => list(any()),
         "BcpPacketSize" => integer(),
-        "ControlTablesFileGroup" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "ControlTablesFileGroup" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
         "ForceLobLookup" => boolean(),
-        "Password" => String.t() | Atom.t(),
+        "Password" => String.t() | atom(),
         "Port" => integer(),
         "QuerySingleAlwaysOnNode" => boolean(),
         "ReadBackupOnly" => boolean(),
         "SafeguardPolicy" => list(any()),
-        "SecretsManagerAccessRoleArn" => String.t() | Atom.t(),
-        "SecretsManagerSecretId" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t(),
+        "SecretsManagerAccessRoleArn" => String.t() | atom(),
+        "SecretsManagerSecretId" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
         "TlogAccessMode" => list(any()),
         "TrimSpaceInChar" => boolean(),
         "UseBcpFullLoad" => boolean(),
         "UseThirdPartyBackupDevice" => boolean(),
-        "Username" => String.t() | Atom.t()
+        "Username" => String.t() | atom()
       }
       
   """
-  @type microsoft_s_q_l_server_settings() :: %{String.t() | Atom.t() => any()}
+  @type microsoft_s_q_l_server_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4465,29 +4459,29 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type apply_pending_maintenance_action_response() :: %{String.t() | Atom.t() => any()}
+  @type apply_pending_maintenance_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_quota_exceeded_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_quota_exceeded_fault() :: %{String.t() | Atom.t() => any()}
+  @type resource_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reload_replication_tables_response() :: %{
-        "ReplicationConfigArn" => String.t() | Atom.t()
+        "ReplicationConfigArn" => String.t() | atom()
       }
       
   """
-  @type reload_replication_tables_response() :: %{String.t() | Atom.t() => any()}
+  @type reload_replication_tables_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4495,25 +4489,25 @@ defmodule AWS.DatabaseMigration do
       
       describe_replication_subnet_groups_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_replication_subnet_groups_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_replication_subnet_groups_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_provider_descriptor_definition() :: %{
-        "DataProviderIdentifier" => String.t() | Atom.t(),
-        "SecretsManagerAccessRoleArn" => String.t() | Atom.t(),
-        "SecretsManagerSecretId" => String.t() | Atom.t()
+        "DataProviderIdentifier" => String.t() | atom(),
+        "SecretsManagerAccessRoleArn" => String.t() | atom(),
+        "SecretsManagerSecretId" => String.t() | atom()
       }
       
   """
-  @type data_provider_descriptor_definition() :: %{String.t() | Atom.t() => any()}
+  @type data_provider_descriptor_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4521,48 +4515,48 @@ defmodule AWS.DatabaseMigration do
       
       describe_event_categories_message() :: %{
         optional("Filters") => list(filter()),
-        optional("SourceType") => String.t() | Atom.t()
+        optional("SourceType") => String.t() | atom()
       }
       
   """
-  @type describe_event_categories_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_event_categories_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       postgre_s_q_l_settings() :: %{
-        "AfterConnectScript" => String.t() | Atom.t(),
+        "AfterConnectScript" => String.t() | atom(),
         "AuthenticationMethod" => list(any()),
-        "BabelfishDatabaseName" => String.t() | Atom.t(),
+        "BabelfishDatabaseName" => String.t() | atom(),
         "CaptureDdls" => boolean(),
         "DatabaseMode" => list(any()),
-        "DatabaseName" => String.t() | Atom.t(),
-        "DdlArtifactsSchema" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | atom(),
+        "DdlArtifactsSchema" => String.t() | atom(),
         "DisableUnicodeSourceFilter" => boolean(),
         "ExecuteTimeout" => integer(),
         "FailTasksOnLobTruncation" => boolean(),
         "HeartbeatEnable" => boolean(),
         "HeartbeatFrequency" => integer(),
-        "HeartbeatSchema" => String.t() | Atom.t(),
+        "HeartbeatSchema" => String.t() | atom(),
         "MapBooleanAsBoolean" => boolean(),
         "MapJsonbAsClob" => boolean(),
         "MapLongVarcharAs" => list(any()),
         "MaxFileSize" => integer(),
-        "Password" => String.t() | Atom.t(),
+        "Password" => String.t() | atom(),
         "PluginName" => list(any()),
         "Port" => integer(),
-        "SecretsManagerAccessRoleArn" => String.t() | Atom.t(),
-        "SecretsManagerSecretId" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t(),
-        "ServiceAccessRoleArn" => String.t() | Atom.t(),
-        "SlotName" => String.t() | Atom.t(),
+        "SecretsManagerAccessRoleArn" => String.t() | atom(),
+        "SecretsManagerSecretId" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
+        "ServiceAccessRoleArn" => String.t() | atom(),
+        "SlotName" => String.t() | atom(),
         "TrimSpaceInChar" => boolean(),
-        "Username" => String.t() | Atom.t()
+        "Username" => String.t() | atom()
       }
       
   """
-  @type postgre_s_q_l_settings() :: %{String.t() | Atom.t() => any()}
+  @type postgre_s_q_l_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4573,7 +4567,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type describe_refresh_schemas_status_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_refresh_schemas_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4584,7 +4578,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type batch_start_recommendations_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_start_recommendations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4595,7 +4589,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type delete_data_provider_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_data_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4603,12 +4597,12 @@ defmodule AWS.DatabaseMigration do
       
       describe_replications_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_replications_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_replications_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4616,12 +4610,12 @@ defmodule AWS.DatabaseMigration do
       
       reload_replication_tables_message() :: %{
         optional("ReloadOption") => list(any()),
-        required("ReplicationConfigArn") => String.t() | Atom.t(),
+        required("ReplicationConfigArn") => String.t() | atom(),
         required("TablesToReload") => list(table_to_reload())
       }
       
   """
-  @type reload_replication_tables_message() :: %{String.t() | Atom.t() => any()}
+  @type reload_replication_tables_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4632,34 +4626,34 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type batch_start_recommendations_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_start_recommendations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_metadata_model_exports_to_target_response() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "Requests" => list(schema_conversion_request())
       }
       
   """
-  @type describe_metadata_model_exports_to_target_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_metadata_model_exports_to_target_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       refresh_schemas_status() :: %{
-        "EndpointArn" => String.t() | Atom.t(),
-        "LastFailureMessage" => String.t() | Atom.t(),
+        "EndpointArn" => String.t() | atom(),
+        "LastFailureMessage" => String.t() | atom(),
         "LastRefreshDate" => non_neg_integer(),
-        "ReplicationInstanceArn" => String.t() | Atom.t(),
+        "ReplicationInstanceArn" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type refresh_schemas_status() :: %{String.t() | Atom.t() => any()}
+  @type refresh_schemas_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4667,22 +4661,22 @@ defmodule AWS.DatabaseMigration do
       
       describe_engine_versions_response() :: %{
         "EngineVersions" => list(engine_version()),
-        "Marker" => String.t() | Atom.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_engine_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_engine_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s_n_s_no_authorization_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type s_n_s_no_authorization_fault() :: %{String.t() | Atom.t() => any()}
+  @type s_n_s_no_authorization_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4693,32 +4687,32 @@ defmodule AWS.DatabaseMigration do
         optional("AllowMajorVersionUpgrade") => boolean(),
         optional("ApplyImmediately") => boolean(),
         optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("EngineVersion") => String.t() | Atom.t(),
+        optional("EngineVersion") => String.t() | atom(),
         optional("KerberosAuthenticationSettings") => kerberos_authentication_settings(),
         optional("MultiAZ") => boolean(),
-        optional("NetworkType") => String.t() | Atom.t(),
-        optional("PreferredMaintenanceWindow") => String.t() | Atom.t(),
-        optional("ReplicationInstanceClass") => String.t() | Atom.t(),
-        optional("ReplicationInstanceIdentifier") => String.t() | Atom.t(),
-        optional("VpcSecurityGroupIds") => list(String.t() | Atom.t()),
-        required("ReplicationInstanceArn") => String.t() | Atom.t()
+        optional("NetworkType") => String.t() | atom(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
+        optional("ReplicationInstanceClass") => String.t() | atom(),
+        optional("ReplicationInstanceIdentifier") => String.t() | atom(),
+        optional("VpcSecurityGroupIds") => list(String.t() | atom()),
+        required("ReplicationInstanceArn") => String.t() | atom()
       }
       
   """
-  @type modify_replication_instance_message() :: %{String.t() | Atom.t() => any()}
+  @type modify_replication_instance_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_replication_instance_task_logs_response() :: %{
-        "Marker" => String.t() | Atom.t(),
-        "ReplicationInstanceArn" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
+        "ReplicationInstanceArn" => String.t() | atom(),
         "ReplicationInstanceTaskLogs" => list(replication_instance_task_log())
       }
       
   """
-  @type describe_replication_instance_task_logs_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_replication_instance_task_logs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4729,7 +4723,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type delete_replication_instance_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_replication_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4737,47 +4731,47 @@ defmodule AWS.DatabaseMigration do
       
       describe_certificates_response() :: %{
         "Certificates" => list(certificate()),
-        "Marker" => String.t() | Atom.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_certificates_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_certificates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       collector_short_info_response() :: %{
-        "CollectorName" => String.t() | Atom.t(),
-        "CollectorReferencedId" => String.t() | Atom.t()
+        "CollectorName" => String.t() | atom(),
+        "CollectorReferencedId" => String.t() | atom()
       }
       
   """
-  @type collector_short_info_response() :: %{String.t() | Atom.t() => any()}
+  @type collector_short_info_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       export_sql_details() :: %{
-        "ObjectURL" => String.t() | Atom.t(),
-        "S3ObjectKey" => String.t() | Atom.t()
+        "ObjectURL" => String.t() | atom(),
+        "S3ObjectKey" => String.t() | atom()
       }
       
   """
-  @type export_sql_details() :: %{String.t() | Atom.t() => any()}
+  @type export_sql_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_security_group_membership() :: %{
-        "Status" => String.t() | Atom.t(),
-        "VpcSecurityGroupId" => String.t() | Atom.t()
+        "Status" => String.t() | atom(),
+        "VpcSecurityGroupId" => String.t() | atom()
       }
       
   """
-  @type vpc_security_group_membership() :: %{String.t() | Atom.t() => any()}
+  @type vpc_security_group_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4788,7 +4782,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type delete_replication_task_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_replication_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4796,63 +4790,63 @@ defmodule AWS.DatabaseMigration do
       
       replication_config() :: %{
         "ComputeConfig" => compute_config(),
-        "ReplicationConfigArn" => String.t() | Atom.t(),
+        "ReplicationConfigArn" => String.t() | atom(),
         "ReplicationConfigCreateTime" => non_neg_integer(),
-        "ReplicationConfigIdentifier" => String.t() | Atom.t(),
+        "ReplicationConfigIdentifier" => String.t() | atom(),
         "ReplicationConfigUpdateTime" => non_neg_integer(),
-        "ReplicationSettings" => String.t() | Atom.t(),
+        "ReplicationSettings" => String.t() | atom(),
         "ReplicationType" => list(any()),
-        "SourceEndpointArn" => String.t() | Atom.t(),
-        "SupplementalSettings" => String.t() | Atom.t(),
-        "TableMappings" => String.t() | Atom.t(),
-        "TargetEndpointArn" => String.t() | Atom.t()
+        "SourceEndpointArn" => String.t() | atom(),
+        "SupplementalSettings" => String.t() | atom(),
+        "TableMappings" => String.t() | atom(),
+        "TargetEndpointArn" => String.t() | atom()
       }
       
   """
-  @type replication_config() :: %{String.t() | Atom.t() => any()}
+  @type replication_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       migration_project() :: %{
-        "Description" => String.t() | Atom.t(),
-        "InstanceProfileArn" => String.t() | Atom.t(),
-        "InstanceProfileName" => String.t() | Atom.t(),
-        "MigrationProjectArn" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "InstanceProfileArn" => String.t() | atom(),
+        "InstanceProfileName" => String.t() | atom(),
+        "MigrationProjectArn" => String.t() | atom(),
         "MigrationProjectCreationTime" => non_neg_integer(),
-        "MigrationProjectName" => String.t() | Atom.t(),
+        "MigrationProjectName" => String.t() | atom(),
         "SchemaConversionApplicationAttributes" => s_capplication_attributes(),
         "SourceDataProviderDescriptors" => list(data_provider_descriptor()),
         "TargetDataProviderDescriptors" => list(data_provider_descriptor()),
-        "TransformationRules" => String.t() | Atom.t()
+        "TransformationRules" => String.t() | atom()
       }
       
   """
-  @type migration_project() :: %{String.t() | Atom.t() => any()}
+  @type migration_project() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       fleet_advisor_lsa_analysis_response() :: %{
-        "LsaAnalysisId" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "LsaAnalysisId" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type fleet_advisor_lsa_analysis_response() :: %{String.t() | Atom.t() => any()}
+  @type fleet_advisor_lsa_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_throttling_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type kms_throttling_fault() :: %{String.t() | Atom.t() => any()}
+  @type kms_throttling_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4863,7 +4857,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type delete_migration_project_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_migration_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4872,11 +4866,11 @@ defmodule AWS.DatabaseMigration do
       describe_fleet_advisor_schemas_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_fleet_advisor_schemas_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_fleet_advisor_schemas_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4884,42 +4878,42 @@ defmodule AWS.DatabaseMigration do
       
       describe_replication_task_assessment_runs_message() :: %{
         optional("Filters") => list(filter()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer()
       }
       
   """
-  @type describe_replication_task_assessment_runs_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_replication_task_assessment_runs_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_provider_descriptor() :: %{
-        "DataProviderArn" => String.t() | Atom.t(),
-        "DataProviderName" => String.t() | Atom.t(),
-        "SecretsManagerAccessRoleArn" => String.t() | Atom.t(),
-        "SecretsManagerSecretId" => String.t() | Atom.t()
+        "DataProviderArn" => String.t() | atom(),
+        "DataProviderName" => String.t() | atom(),
+        "SecretsManagerAccessRoleArn" => String.t() | atom(),
+        "SecretsManagerSecretId" => String.t() | atom()
       }
       
   """
-  @type data_provider_descriptor() :: %{String.t() | Atom.t() => any()}
+  @type data_provider_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       my_sql_data_provider_settings() :: %{
-        "CertificateArn" => String.t() | Atom.t(),
+        "CertificateArn" => String.t() | atom(),
         "Port" => integer(),
-        "S3AccessRoleArn" => String.t() | Atom.t(),
-        "S3Path" => String.t() | Atom.t(),
-        "ServerName" => String.t() | Atom.t(),
+        "S3AccessRoleArn" => String.t() | atom(),
+        "S3Path" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
         "SslMode" => list(any())
       }
       
   """
-  @type my_sql_data_provider_settings() :: %{String.t() | Atom.t() => any()}
+  @type my_sql_data_provider_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4927,49 +4921,49 @@ defmodule AWS.DatabaseMigration do
       
       replication_pending_modified_values() :: %{
         "AllocatedStorage" => integer(),
-        "EngineVersion" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | atom(),
         "MultiAZ" => boolean(),
-        "NetworkType" => String.t() | Atom.t(),
-        "ReplicationInstanceClass" => String.t() | Atom.t()
+        "NetworkType" => String.t() | atom(),
+        "ReplicationInstanceClass" => String.t() | atom()
       }
       
   """
-  @type replication_pending_modified_values() :: %{String.t() | Atom.t() => any()}
+  @type replication_pending_modified_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_resource_not_found_fault() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type s3_resource_not_found_fault() :: %{String.t() | Atom.t() => any()}
+  @type s3_resource_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_subscriptions_to_event_bridge_response() :: %{
-        "Result" => String.t() | Atom.t()
+        "Result" => String.t() | atom()
       }
       
   """
-  @type update_subscriptions_to_event_bridge_response() :: %{String.t() | Atom.t() => any()}
+  @type update_subscriptions_to_event_bridge_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_endpoint_settings_message() :: %{
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        required("EngineName") => String.t() | Atom.t()
+        required("EngineName") => String.t() | atom()
       }
       
   """
-  @type describe_endpoint_settings_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_endpoint_settings_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4977,22 +4971,22 @@ defmodule AWS.DatabaseMigration do
       
       describe_events_response() :: %{
         "Events" => list(event()),
-        "Marker" => String.t() | Atom.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type describe_events_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_conversion_configuration_message() :: %{
-        required("MigrationProjectIdentifier") => String.t() | Atom.t()
+        required("MigrationProjectIdentifier") => String.t() | atom()
       }
       
   """
-  @type describe_conversion_configuration_message() :: %{String.t() | Atom.t() => any()}
+  @type describe_conversion_configuration_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5000,23 +4994,23 @@ defmodule AWS.DatabaseMigration do
       
       reload_tables_message() :: %{
         optional("ReloadOption") => list(any()),
-        required("ReplicationTaskArn") => String.t() | Atom.t(),
+        required("ReplicationTaskArn") => String.t() | atom(),
         required("TablesToReload") => list(table_to_reload())
       }
       
   """
-  @type reload_tables_message() :: %{String.t() | Atom.t() => any()}
+  @type reload_tables_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_replication_task_assessment_message() :: %{
-        required("ReplicationTaskArn") => String.t() | Atom.t()
+        required("ReplicationTaskArn") => String.t() | atom()
       }
       
   """
-  @type start_replication_task_assessment_message() :: %{String.t() | Atom.t() => any()}
+  @type start_replication_task_assessment_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5027,7 +5021,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type cancel_replication_task_assessment_run_response() :: %{String.t() | Atom.t() => any()}
+  @type cancel_replication_task_assessment_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5038,7 +5032,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type delete_certificate_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_certificate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5049,7 +5043,7 @@ defmodule AWS.DatabaseMigration do
       }
       
   """
-  @type create_data_provider_response() :: %{String.t() | Atom.t() => any()}
+  @type create_data_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5057,14 +5051,14 @@ defmodule AWS.DatabaseMigration do
       
       supported_endpoint_type() :: %{
         "EndpointType" => list(any()),
-        "EngineDisplayName" => String.t() | Atom.t(),
-        "EngineName" => String.t() | Atom.t(),
-        "ReplicationInstanceEngineMinimumVersion" => String.t() | Atom.t(),
+        "EngineDisplayName" => String.t() | atom(),
+        "EngineName" => String.t() | atom(),
+        "ReplicationInstanceEngineMinimumVersion" => String.t() | atom(),
         "SupportsCDC" => boolean()
       }
       
   """
-  @type supported_endpoint_type() :: %{String.t() | Atom.t() => any()}
+  @type supported_endpoint_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5072,23 +5066,23 @@ defmodule AWS.DatabaseMigration do
       
       replication_task_assessment_run() :: %{
         "AssessmentProgress" => replication_task_assessment_run_progress(),
-        "AssessmentRunName" => String.t() | Atom.t(),
+        "AssessmentRunName" => String.t() | atom(),
         "IsLatestTaskAssessmentRun" => boolean(),
-        "LastFailureMessage" => String.t() | Atom.t(),
-        "ReplicationTaskArn" => String.t() | Atom.t(),
-        "ReplicationTaskAssessmentRunArn" => String.t() | Atom.t(),
+        "LastFailureMessage" => String.t() | atom(),
+        "ReplicationTaskArn" => String.t() | atom(),
+        "ReplicationTaskAssessmentRunArn" => String.t() | atom(),
         "ReplicationTaskAssessmentRunCreationDate" => non_neg_integer(),
-        "ResultEncryptionMode" => String.t() | Atom.t(),
-        "ResultKmsKeyArn" => String.t() | Atom.t(),
-        "ResultLocationBucket" => String.t() | Atom.t(),
-        "ResultLocationFolder" => String.t() | Atom.t(),
+        "ResultEncryptionMode" => String.t() | atom(),
+        "ResultKmsKeyArn" => String.t() | atom(),
+        "ResultLocationBucket" => String.t() | atom(),
+        "ResultLocationFolder" => String.t() | atom(),
         "ResultStatistic" => replication_task_assessment_run_result_statistic(),
-        "ServiceAccessRoleArn" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "ServiceAccessRoleArn" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type replication_task_assessment_run() :: %{String.t() | Atom.t() => any()}
+  @type replication_task_assessment_run() :: %{(String.t() | atom()) => any()}
 
   @type add_tags_to_resource_errors() ::
           invalid_resource_state_fault() | resource_not_found_fault()

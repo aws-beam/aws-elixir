@@ -59,13 +59,13 @@ defmodule AWS.Glacier do
   ## Example:
 
       missing_parameter_value_exception() :: %{
-        "code" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t()
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type missing_parameter_value_exception() :: %{String.t() | Atom.t() => any()}
+  @type missing_parameter_value_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -81,13 +81,13 @@ defmodule AWS.Glacier do
   ## Example:
 
       initiate_job_output() :: %{
-        "jobId" => String.t() | Atom.t(),
-        "jobOutputPath" => String.t() | Atom.t(),
-        "location" => String.t() | Atom.t()
+        "jobId" => String.t() | atom(),
+        "jobOutputPath" => String.t() | atom(),
+        "location" => String.t() | atom()
       }
 
   """
-  @type initiate_job_output() :: %{String.t() | Atom.t() => any()}
+  @type initiate_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -103,11 +103,11 @@ defmodule AWS.Glacier do
   ## Example:
 
       remove_tags_from_vault_input() :: %{
-        optional("TagKeys") => list(String.t() | Atom.t())
+        optional("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type remove_tags_from_vault_input() :: %{String.t() | Atom.t() => any()}
+  @type remove_tags_from_vault_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -127,7 +127,7 @@ defmodule AWS.Glacier do
       }
 
   """
-  @type get_vault_access_policy_output() :: %{String.t() | Atom.t() => any()}
+  @type get_vault_access_policy_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -165,7 +165,7 @@ defmodule AWS.Glacier do
       }
 
   """
-  @type list_tags_for_vault_output() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_vault_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -176,7 +176,7 @@ defmodule AWS.Glacier do
       }
 
   """
-  @type set_vault_access_policy_input() :: %{String.t() | Atom.t() => any()}
+  @type set_vault_access_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -184,24 +184,24 @@ defmodule AWS.Glacier do
 
       data_retrieval_rule() :: %{
         "BytesPerHour" => float(),
-        "Strategy" => String.t() | Atom.t()
+        "Strategy" => String.t() | atom()
       }
 
   """
-  @type data_retrieval_rule() :: %{String.t() | Atom.t() => any()}
+  @type data_retrieval_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       upload_archive_input() :: %{
-        optional("archiveDescription") => String.t() | Atom.t(),
+        optional("archiveDescription") => String.t() | atom(),
         optional("body") => binary(),
-        optional("checksum") => String.t() | Atom.t()
+        optional("checksum") => String.t() | atom()
       }
 
   """
-  @type upload_archive_input() :: %{String.t() | Atom.t() => any()}
+  @type upload_archive_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -212,7 +212,7 @@ defmodule AWS.Glacier do
       }
 
   """
-  @type input_serialization() :: %{String.t() | Atom.t() => any()}
+  @type input_serialization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -223,22 +223,22 @@ defmodule AWS.Glacier do
       }
 
   """
-  @type list_provisioned_capacity_output() :: %{String.t() | Atom.t() => any()}
+  @type list_provisioned_capacity_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       grantee() :: %{
-        "DisplayName" => String.t() | Atom.t(),
-        "EmailAddress" => String.t() | Atom.t(),
-        "ID" => String.t() | Atom.t(),
+        "DisplayName" => String.t() | atom(),
+        "EmailAddress" => String.t() | atom(),
+        "ID" => String.t() | atom(),
         "Type" => list(any()),
-        "URI" => String.t() | Atom.t()
+        "URI" => String.t() | atom()
       }
 
   """
-  @type grantee() :: %{String.t() | Atom.t() => any()}
+  @type grantee() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -254,24 +254,24 @@ defmodule AWS.Glacier do
   ## Example:
 
       request_timeout_exception() :: %{
-        "code" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t()
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type request_timeout_exception() :: %{String.t() | Atom.t() => any()}
+  @type request_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vault_access_policy() :: %{
-        "Policy" => String.t() | Atom.t()
+        "Policy" => String.t() | atom()
       }
 
   """
-  @type vault_access_policy() :: %{String.t() | Atom.t() => any()}
+  @type vault_access_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -282,92 +282,92 @@ defmodule AWS.Glacier do
       }
 
   """
-  @type initiate_job_input() :: %{String.t() | Atom.t() => any()}
+  @type initiate_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       inventory_retrieval_job_description() :: %{
-        "EndDate" => String.t() | Atom.t(),
-        "Format" => String.t() | Atom.t(),
-        "Limit" => String.t() | Atom.t(),
-        "Marker" => String.t() | Atom.t(),
-        "StartDate" => String.t() | Atom.t()
+        "EndDate" => String.t() | atom(),
+        "Format" => String.t() | atom(),
+        "Limit" => String.t() | atom(),
+        "Marker" => String.t() | atom(),
+        "StartDate" => String.t() | atom()
       }
 
   """
-  @type inventory_retrieval_job_description() :: %{String.t() | Atom.t() => any()}
+  @type inventory_retrieval_job_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       select_parameters() :: %{
-        "Expression" => String.t() | Atom.t(),
+        "Expression" => String.t() | atom(),
         "ExpressionType" => list(any()),
         "InputSerialization" => input_serialization(),
         "OutputSerialization" => output_serialization()
       }
 
   """
-  @type select_parameters() :: %{String.t() | Atom.t() => any()}
+  @type select_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       insufficient_capacity_exception() :: %{
-        "code" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t()
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type insufficient_capacity_exception() :: %{String.t() | Atom.t() => any()}
+  @type insufficient_capacity_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_vault_output() :: %{
-        "location" => String.t() | Atom.t()
+        "location" => String.t() | atom()
       }
 
   """
-  @type create_vault_output() :: %{String.t() | Atom.t() => any()}
+  @type create_vault_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_parameters() :: %{
-        "ArchiveId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "Format" => String.t() | Atom.t(),
+        "ArchiveId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Format" => String.t() | atom(),
         "InventoryRetrievalParameters" => inventory_retrieval_job_input(),
         "OutputLocation" => output_location(),
-        "RetrievalByteRange" => String.t() | Atom.t(),
-        "SNSTopic" => String.t() | Atom.t(),
+        "RetrievalByteRange" => String.t() | atom(),
+        "SNSTopic" => String.t() | atom(),
         "SelectParameters" => select_parameters(),
-        "Tier" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Tier" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type job_parameters() :: %{String.t() | Atom.t() => any()}
+  @type job_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       complete_multipart_upload_input() :: %{
-        optional("archiveSize") => String.t() | Atom.t(),
-        optional("checksum") => String.t() | Atom.t()
+        optional("archiveSize") => String.t() | atom(),
+        optional("checksum") => String.t() | atom()
       }
 
   """
-  @type complete_multipart_upload_input() :: %{String.t() | Atom.t() => any()}
+  @type complete_multipart_upload_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -387,7 +387,7 @@ defmodule AWS.Glacier do
       }
 
   """
-  @type set_vault_notifications_input() :: %{String.t() | Atom.t() => any()}
+  @type set_vault_notifications_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -407,45 +407,45 @@ defmodule AWS.Glacier do
       }
 
   """
-  @type data_retrieval_policy() :: %{String.t() | Atom.t() => any()}
+  @type data_retrieval_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "code" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t()
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       provisioned_capacity_description() :: %{
-        "CapacityId" => String.t() | Atom.t(),
-        "ExpirationDate" => String.t() | Atom.t(),
-        "StartDate" => String.t() | Atom.t()
+        "CapacityId" => String.t() | atom(),
+        "ExpirationDate" => String.t() | atom(),
+        "StartDate" => String.t() | atom()
       }
 
   """
-  @type provisioned_capacity_description() :: %{String.t() | Atom.t() => any()}
+  @type provisioned_capacity_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       part_list_element() :: %{
-        "RangeInBytes" => String.t() | Atom.t(),
-        "SHA256TreeHash" => String.t() | Atom.t()
+        "RangeInBytes" => String.t() | atom(),
+        "SHA256TreeHash" => String.t() | atom()
       }
 
   """
-  @type part_list_element() :: %{String.t() | Atom.t() => any()}
+  @type part_list_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -457,7 +457,7 @@ defmodule AWS.Glacier do
       }
 
   """
-  @type grant() :: %{String.t() | Atom.t() => any()}
+  @type grant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -468,7 +468,7 @@ defmodule AWS.Glacier do
       }
 
   """
-  @type get_vault_notifications_output() :: %{String.t() | Atom.t() => any()}
+  @type get_vault_notifications_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -476,64 +476,64 @@ defmodule AWS.Glacier do
 
       list_vaults_input() :: %{
         optional("limit") => [integer()],
-        optional("marker") => String.t() | Atom.t()
+        optional("marker") => String.t() | atom()
       }
 
   """
-  @type list_vaults_input() :: %{String.t() | Atom.t() => any()}
+  @type list_vaults_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_value_exception() :: %{
-        "code" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t()
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type invalid_parameter_value_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       csv_input() :: %{
-        "Comments" => String.t() | Atom.t(),
-        "FieldDelimiter" => String.t() | Atom.t(),
+        "Comments" => String.t() | atom(),
+        "FieldDelimiter" => String.t() | atom(),
         "FileHeaderInfo" => list(any()),
-        "QuoteCharacter" => String.t() | Atom.t(),
-        "QuoteEscapeCharacter" => String.t() | Atom.t(),
-        "RecordDelimiter" => String.t() | Atom.t()
+        "QuoteCharacter" => String.t() | atom(),
+        "QuoteEscapeCharacter" => String.t() | atom(),
+        "RecordDelimiter" => String.t() | atom()
       }
 
   """
-  @type csv_input() :: %{String.t() | Atom.t() => any()}
+  @type csv_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_job_output_input() :: %{
-        optional("range") => String.t() | Atom.t()
+        optional("range") => String.t() | atom()
       }
 
   """
-  @type get_job_output_input() :: %{String.t() | Atom.t() => any()}
+  @type get_job_output_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       archive_creation_output() :: %{
-        "archiveId" => String.t() | Atom.t(),
-        "checksum" => String.t() | Atom.t(),
-        "location" => String.t() | Atom.t()
+        "archiveId" => String.t() | atom(),
+        "checksum" => String.t() | atom(),
+        "location" => String.t() | atom()
       }
 
   """
-  @type archive_creation_output() :: %{String.t() | Atom.t() => any()}
+  @type archive_creation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -541,12 +541,12 @@ defmodule AWS.Glacier do
 
       encryption() :: %{
         "EncryptionType" => list(any()),
-        "KMSContext" => String.t() | Atom.t(),
-        "KMSKeyId" => String.t() | Atom.t()
+        "KMSContext" => String.t() | atom(),
+        "KMSKeyId" => String.t() | atom()
       }
 
   """
-  @type encryption() :: %{String.t() | Atom.t() => any()}
+  @type encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -575,35 +575,35 @@ defmodule AWS.Glacier do
       }
 
   """
-  @type output_location() :: %{String.t() | Atom.t() => any()}
+  @type output_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       upload_list_element() :: %{
-        "ArchiveDescription" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
-        "MultipartUploadId" => String.t() | Atom.t(),
+        "ArchiveDescription" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "MultipartUploadId" => String.t() | atom(),
         "PartSizeInBytes" => float(),
-        "VaultARN" => String.t() | Atom.t()
+        "VaultARN" => String.t() | atom()
       }
 
   """
-  @type upload_list_element() :: %{String.t() | Atom.t() => any()}
+  @type upload_list_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "code" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t()
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -611,12 +611,12 @@ defmodule AWS.Glacier do
 
       upload_multipart_part_input() :: %{
         optional("body") => binary(),
-        optional("checksum") => String.t() | Atom.t(),
-        optional("range") => String.t() | Atom.t()
+        optional("checksum") => String.t() | atom(),
+        optional("range") => String.t() | atom()
       }
 
   """
-  @type upload_multipart_part_input() :: %{String.t() | Atom.t() => any()}
+  @type upload_multipart_part_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -624,29 +624,29 @@ defmodule AWS.Glacier do
 
       s3_location() :: %{
         "AccessControlList" => list(grant()),
-        "BucketName" => String.t() | Atom.t(),
+        "BucketName" => String.t() | atom(),
         "CannedACL" => list(any()),
         "Encryption" => encryption(),
-        "Prefix" => String.t() | Atom.t(),
+        "Prefix" => String.t() | atom(),
         "StorageClass" => list(any()),
         "Tagging" => map(),
         "UserMetadata" => map()
       }
 
   """
-  @type s3_location() :: %{String.t() | Atom.t() => any()}
+  @type s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       initiate_multipart_upload_input() :: %{
-        optional("archiveDescription") => String.t() | Atom.t(),
-        optional("partSize") => String.t() | Atom.t()
+        optional("archiveDescription") => String.t() | atom(),
+        optional("partSize") => String.t() | atom()
       }
 
   """
-  @type initiate_multipart_upload_input() :: %{String.t() | Atom.t() => any()}
+  @type initiate_multipart_upload_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -657,30 +657,30 @@ defmodule AWS.Glacier do
       }
 
   """
-  @type set_data_retrieval_policy_input() :: %{String.t() | Atom.t() => any()}
+  @type set_data_retrieval_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_vaults_output() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "VaultList" => list(describe_vault_output())
       }
 
   """
-  @type list_vaults_output() :: %{String.t() | Atom.t() => any()}
+  @type list_vaults_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vault_lock_policy() :: %{
-        "Policy" => String.t() | Atom.t()
+        "Policy" => String.t() | atom()
       }
 
   """
-  @type vault_lock_policy() :: %{String.t() | Atom.t() => any()}
+  @type vault_lock_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -696,13 +696,13 @@ defmodule AWS.Glacier do
   ## Example:
 
       policy_enforced_exception() :: %{
-        "code" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t()
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type policy_enforced_exception() :: %{String.t() | Atom.t() => any()}
+  @type policy_enforced_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -710,11 +710,11 @@ defmodule AWS.Glacier do
 
       list_jobs_output() :: %{
         "JobList" => list(glacier_job_description()),
-        "Marker" => String.t() | Atom.t()
+        "Marker" => String.t() | atom()
       }
 
   """
-  @type list_jobs_output() :: %{String.t() | Atom.t() => any()}
+  @type list_jobs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -730,11 +730,11 @@ defmodule AWS.Glacier do
   ## Example:
 
       upload_multipart_part_output() :: %{
-        "checksum" => String.t() | Atom.t()
+        "checksum" => String.t() | atom()
       }
 
   """
-  @type upload_multipart_part_output() :: %{String.t() | Atom.t() => any()}
+  @type upload_multipart_part_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -754,30 +754,30 @@ defmodule AWS.Glacier do
       }
 
   """
-  @type initiate_vault_lock_input() :: %{String.t() | Atom.t() => any()}
+  @type initiate_vault_lock_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       purchase_provisioned_capacity_output() :: %{
-        "capacityId" => String.t() | Atom.t()
+        "capacityId" => String.t() | atom()
       }
 
   """
-  @type purchase_provisioned_capacity_output() :: %{String.t() | Atom.t() => any()}
+  @type purchase_provisioned_capacity_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vault_notification_config() :: %{
-        "Events" => list(String.t() | Atom.t()),
-        "SNSTopic" => String.t() | Atom.t()
+        "Events" => list(String.t() | atom()),
+        "SNSTopic" => String.t() | atom()
       }
 
   """
-  @type vault_notification_config() :: %{String.t() | Atom.t() => any()}
+  @type vault_notification_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -785,56 +785,56 @@ defmodule AWS.Glacier do
 
       glacier_job_description() :: %{
         "Action" => list(any()),
-        "ArchiveId" => String.t() | Atom.t(),
-        "ArchiveSHA256TreeHash" => String.t() | Atom.t(),
+        "ArchiveId" => String.t() | atom(),
+        "ArchiveSHA256TreeHash" => String.t() | atom(),
         "ArchiveSizeInBytes" => float(),
         "Completed" => boolean(),
-        "CompletionDate" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
+        "CompletionDate" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
         "InventoryRetrievalParameters" => inventory_retrieval_job_description(),
         "InventorySizeInBytes" => float(),
-        "JobDescription" => String.t() | Atom.t(),
-        "JobId" => String.t() | Atom.t(),
-        "JobOutputPath" => String.t() | Atom.t(),
+        "JobDescription" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "JobOutputPath" => String.t() | atom(),
         "OutputLocation" => output_location(),
-        "RetrievalByteRange" => String.t() | Atom.t(),
-        "SHA256TreeHash" => String.t() | Atom.t(),
-        "SNSTopic" => String.t() | Atom.t(),
+        "RetrievalByteRange" => String.t() | atom(),
+        "SHA256TreeHash" => String.t() | atom(),
+        "SNSTopic" => String.t() | atom(),
         "SelectParameters" => select_parameters(),
         "StatusCode" => list(any()),
-        "StatusMessage" => String.t() | Atom.t(),
-        "Tier" => String.t() | Atom.t(),
-        "VaultARN" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom(),
+        "Tier" => String.t() | atom(),
+        "VaultARN" => String.t() | atom()
       }
 
   """
-  @type glacier_job_description() :: %{String.t() | Atom.t() => any()}
+  @type glacier_job_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_jobs_input() :: %{
-        optional("completed") => String.t() | Atom.t(),
+        optional("completed") => String.t() | atom(),
         optional("limit") => [integer()],
-        optional("marker") => String.t() | Atom.t(),
-        optional("statuscode") => String.t() | Atom.t()
+        optional("marker") => String.t() | atom(),
+        optional("statuscode") => String.t() | atom()
       }
 
   """
-  @type list_jobs_input() :: %{String.t() | Atom.t() => any()}
+  @type list_jobs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_multipart_uploads_output() :: %{
-        "Marker" => String.t() | Atom.t(),
+        "Marker" => String.t() | atom(),
         "UploadsList" => list(upload_list_element())
       }
 
   """
-  @type list_multipart_uploads_output() :: %{String.t() | Atom.t() => any()}
+  @type list_multipart_uploads_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -842,126 +842,126 @@ defmodule AWS.Glacier do
 
       list_parts_input() :: %{
         optional("limit") => [integer()],
-        optional("marker") => String.t() | Atom.t()
+        optional("marker") => String.t() | atom()
       }
 
   """
-  @type list_parts_input() :: %{String.t() | Atom.t() => any()}
+  @type list_parts_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       initiate_vault_lock_output() :: %{
-        "lockId" => String.t() | Atom.t()
+        "lockId" => String.t() | atom()
       }
 
   """
-  @type initiate_vault_lock_output() :: %{String.t() | Atom.t() => any()}
+  @type initiate_vault_lock_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_parts_output() :: %{
-        "ArchiveDescription" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
-        "Marker" => String.t() | Atom.t(),
-        "MultipartUploadId" => String.t() | Atom.t(),
+        "ArchiveDescription" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "Marker" => String.t() | atom(),
+        "MultipartUploadId" => String.t() | atom(),
         "PartSizeInBytes" => float(),
         "Parts" => list(part_list_element()),
-        "VaultARN" => String.t() | Atom.t()
+        "VaultARN" => String.t() | atom()
       }
 
   """
-  @type list_parts_output() :: %{String.t() | Atom.t() => any()}
+  @type list_parts_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       csv_output() :: %{
-        "FieldDelimiter" => String.t() | Atom.t(),
-        "QuoteCharacter" => String.t() | Atom.t(),
-        "QuoteEscapeCharacter" => String.t() | Atom.t(),
+        "FieldDelimiter" => String.t() | atom(),
+        "QuoteCharacter" => String.t() | atom(),
+        "QuoteEscapeCharacter" => String.t() | atom(),
         "QuoteFields" => list(any()),
-        "RecordDelimiter" => String.t() | Atom.t()
+        "RecordDelimiter" => String.t() | atom()
       }
 
   """
-  @type csv_output() :: %{String.t() | Atom.t() => any()}
+  @type csv_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       inventory_retrieval_job_input() :: %{
-        "EndDate" => String.t() | Atom.t(),
-        "Limit" => String.t() | Atom.t(),
-        "Marker" => String.t() | Atom.t(),
-        "StartDate" => String.t() | Atom.t()
+        "EndDate" => String.t() | atom(),
+        "Limit" => String.t() | atom(),
+        "Marker" => String.t() | atom(),
+        "StartDate" => String.t() | atom()
       }
 
   """
-  @type inventory_retrieval_job_input() :: %{String.t() | Atom.t() => any()}
+  @type inventory_retrieval_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "code" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t()
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_job_output_output() :: %{
-        "acceptRanges" => String.t() | Atom.t(),
-        "archiveDescription" => String.t() | Atom.t(),
+        "acceptRanges" => String.t() | atom(),
+        "archiveDescription" => String.t() | atom(),
         "body" => binary(),
-        "checksum" => String.t() | Atom.t(),
-        "contentRange" => String.t() | Atom.t(),
-        "contentType" => String.t() | Atom.t(),
+        "checksum" => String.t() | atom(),
+        "contentRange" => String.t() | atom(),
+        "contentType" => String.t() | atom(),
         "status" => integer()
       }
 
   """
-  @type get_job_output_output() :: %{String.t() | Atom.t() => any()}
+  @type get_job_output_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_vault_output() :: %{
-        "CreationDate" => String.t() | Atom.t(),
-        "LastInventoryDate" => String.t() | Atom.t(),
+        "CreationDate" => String.t() | atom(),
+        "LastInventoryDate" => String.t() | atom(),
         "NumberOfArchives" => float(),
         "SizeInBytes" => float(),
-        "VaultARN" => String.t() | Atom.t(),
-        "VaultName" => String.t() | Atom.t()
+        "VaultARN" => String.t() | atom(),
+        "VaultName" => String.t() | atom()
       }
 
   """
-  @type describe_vault_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_vault_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       initiate_multipart_upload_output() :: %{
-        "location" => String.t() | Atom.t(),
-        "uploadId" => String.t() | Atom.t()
+        "location" => String.t() | atom(),
+        "uploadId" => String.t() | atom()
       }
 
   """
-  @type initiate_multipart_upload_output() :: %{String.t() | Atom.t() => any()}
+  @type initiate_multipart_upload_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -972,7 +972,7 @@ defmodule AWS.Glacier do
       }
 
   """
-  @type add_tags_to_vault_input() :: %{String.t() | Atom.t() => any()}
+  @type add_tags_to_vault_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -980,11 +980,11 @@ defmodule AWS.Glacier do
 
       list_multipart_uploads_input() :: %{
         optional("limit") => [integer()],
-        optional("marker") => String.t() | Atom.t()
+        optional("marker") => String.t() | atom()
       }
 
   """
-  @type list_multipart_uploads_input() :: %{String.t() | Atom.t() => any()}
+  @type list_multipart_uploads_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -995,7 +995,7 @@ defmodule AWS.Glacier do
       }
 
   """
-  @type output_serialization() :: %{String.t() | Atom.t() => any()}
+  @type output_serialization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1020,14 +1020,14 @@ defmodule AWS.Glacier do
   ## Example:
 
       get_vault_lock_output() :: %{
-        "CreationDate" => String.t() | Atom.t(),
-        "ExpirationDate" => String.t() | Atom.t(),
-        "Policy" => String.t() | Atom.t(),
-        "State" => String.t() | Atom.t()
+        "CreationDate" => String.t() | atom(),
+        "ExpirationDate" => String.t() | atom(),
+        "Policy" => String.t() | atom(),
+        "State" => String.t() | atom()
       }
 
   """
-  @type get_vault_lock_output() :: %{String.t() | Atom.t() => any()}
+  @type get_vault_lock_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1038,7 +1038,7 @@ defmodule AWS.Glacier do
       }
 
   """
-  @type get_data_retrieval_policy_output() :: %{String.t() | Atom.t() => any()}
+  @type get_data_retrieval_policy_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1296,9 +1296,9 @@ defmodule AWS.Glacier do
   """
   @spec abort_multipart_upload(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           abort_multipart_upload_input(),
           list()
         ) ::
@@ -1362,8 +1362,8 @@ defmodule AWS.Glacier do
   """
   @spec abort_vault_lock(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           abort_vault_lock_input(),
           list()
         ) ::
@@ -1408,8 +1408,8 @@ defmodule AWS.Glacier do
   """
   @spec add_tags_to_vault(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           add_tags_to_vault_input(),
           list()
         ) ::
@@ -1506,9 +1506,9 @@ defmodule AWS.Glacier do
   """
   @spec complete_multipart_upload(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           complete_multipart_upload_input(),
           list()
         ) ::
@@ -1588,9 +1588,9 @@ defmodule AWS.Glacier do
   """
   @spec complete_vault_lock(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           complete_vault_lock_input(),
           list()
         ) ::
@@ -1665,8 +1665,8 @@ defmodule AWS.Glacier do
   """
   @spec create_vault(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_vault_input(),
           list()
         ) ::
@@ -1743,9 +1743,9 @@ defmodule AWS.Glacier do
   """
   @spec delete_archive(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_archive_input(),
           list()
         ) ::
@@ -1811,8 +1811,8 @@ defmodule AWS.Glacier do
   """
   @spec delete_vault(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_vault_input(),
           list()
         ) ::
@@ -1859,8 +1859,8 @@ defmodule AWS.Glacier do
   """
   @spec delete_vault_access_policy(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_vault_access_policy_input(),
           list()
         ) ::
@@ -1918,8 +1918,8 @@ defmodule AWS.Glacier do
   """
   @spec delete_vault_notifications(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_vault_notifications_input(),
           list()
         ) ::
@@ -1983,13 +1983,7 @@ defmodule AWS.Glacier do
   see the documentation for the underlying REST API [Describe Job](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-describe-job-get.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  @spec describe_job(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec describe_job(map(), String.t() | atom(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, glacier_job_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2040,7 +2034,7 @@ defmodule AWS.Glacier do
   the
   *Amazon Glacier Developer Guide*.
   """
-  @spec describe_vault(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec describe_vault(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2063,7 +2057,7 @@ defmodule AWS.Glacier do
   For more information about data retrieval policies, see
   [Amazon Glacier Data Retrieval Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html).
   """
-  @spec get_data_retrieval_policy(map(), String.t() | Atom.t(), list()) ::
+  @spec get_data_retrieval_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_data_retrieval_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2144,10 +2138,10 @@ defmodule AWS.Glacier do
   """
   @spec get_job_output(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_job_output_output(), any()}
@@ -2204,7 +2198,7 @@ defmodule AWS.Glacier do
   access policies, see [Amazon Glacier Access Control with Vault Access
   Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html).
   """
-  @spec get_vault_access_policy(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_vault_access_policy(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_vault_access_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2257,7 +2251,7 @@ defmodule AWS.Glacier do
   error. For more information about vault lock policies, [Amazon Glacier Access Control with Vault Lock
   Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html).
   """
-  @spec get_vault_lock(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_vault_lock(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_vault_lock_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2299,7 +2293,7 @@ defmodule AWS.Glacier do
   ](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html)
   in the *Amazon Glacier Developer Guide*.
   """
-  @spec get_vault_notifications(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_vault_notifications(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_vault_notifications_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2327,8 +2321,8 @@ defmodule AWS.Glacier do
   """
   @spec initiate_job(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           initiate_job_input(),
           list()
         ) ::
@@ -2424,8 +2418,8 @@ defmodule AWS.Glacier do
   """
   @spec initiate_multipart_upload(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           initiate_multipart_upload_input(),
           list()
         ) ::
@@ -2509,8 +2503,8 @@ defmodule AWS.Glacier do
   """
   @spec initiate_vault_lock(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           initiate_vault_lock_input(),
           list()
         ) ::
@@ -2601,12 +2595,12 @@ defmodule AWS.Glacier do
   """
   @spec list_jobs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_jobs_output(), any()}
@@ -2705,10 +2699,10 @@ defmodule AWS.Glacier do
   """
   @spec list_multipart_uploads(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_multipart_uploads_output(), any()}
@@ -2786,11 +2780,11 @@ defmodule AWS.Glacier do
   """
   @spec list_parts(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_parts_output(), any()}
@@ -2835,7 +2829,7 @@ defmodule AWS.Glacier do
   This operation lists the provisioned capacity units for the specified AWS
   account.
   """
-  @spec list_provisioned_capacity(map(), String.t() | Atom.t(), list()) ::
+  @spec list_provisioned_capacity(map(), String.t() | atom(), list()) ::
           {:ok, list_provisioned_capacity_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2857,7 +2851,7 @@ defmodule AWS.Glacier do
   map if there are no tags. For more information about tags, see [Tagging Amazon S3 Glacier
   Resources](https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html).
   """
-  @spec list_tags_for_vault(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_vault(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_vault_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2908,9 +2902,9 @@ defmodule AWS.Glacier do
   """
   @spec list_vaults(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_vaults_output(), any()}
@@ -2946,7 +2940,7 @@ defmodule AWS.Glacier do
   """
   @spec purchase_provisioned_capacity(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           purchase_provisioned_capacity_input(),
           list()
         ) ::
@@ -2994,8 +2988,8 @@ defmodule AWS.Glacier do
   """
   @spec remove_tags_from_vault(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           remove_tags_from_vault_input(),
           list()
         ) ::
@@ -3042,7 +3036,7 @@ defmodule AWS.Glacier do
   """
   @spec set_data_retrieval_policy(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           set_data_retrieval_policy_input(),
           list()
         ) ::
@@ -3086,8 +3080,8 @@ defmodule AWS.Glacier do
   """
   @spec set_vault_access_policy(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           set_vault_access_policy_input(),
           list()
         ) ::
@@ -3171,8 +3165,8 @@ defmodule AWS.Glacier do
   """
   @spec set_vault_notifications(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           set_vault_notifications_input(),
           list()
         ) ::
@@ -3259,8 +3253,8 @@ defmodule AWS.Glacier do
   """
   @spec upload_archive(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           upload_archive_input(),
           list()
         ) ::
@@ -3378,9 +3372,9 @@ defmodule AWS.Glacier do
   """
   @spec upload_multipart_part(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           upload_multipart_part_input(),
           list()
         ) ::

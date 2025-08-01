@@ -15,13 +15,13 @@ defmodule AWS.S3Control do
   ## Example:
 
       region_report() :: %{
-        "Bucket" => String.t() | Atom.t(),
-        "BucketAccountId" => String.t() | Atom.t(),
-        "Region" => String.t() | Atom.t()
+        "Bucket" => String.t() | atom(),
+        "BucketAccountId" => String.t() | atom(),
+        "Region" => String.t() | atom()
       }
 
   """
-  @type region_report() :: %{String.t() | Atom.t() => any()}
+  @type region_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -29,37 +29,37 @@ defmodule AWS.S3Control do
 
       put_bucket_policy_request() :: %{
         optional("ConfirmRemoveSelfBucketAccess") => boolean(),
-        required("AccountId") => String.t() | Atom.t(),
-        required("Policy") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom(),
+        required("Policy") => String.t() | atom()
       }
 
   """
-  @type put_bucket_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type put_bucket_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_multi_region_access_point_policy_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
-        required("ClientToken") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
+        required("ClientToken") => String.t() | atom(),
         required("Details") => put_multi_region_access_point_policy_input()
       }
 
   """
-  @type put_multi_region_access_point_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type put_multi_region_access_point_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       storage_lens_group_level_selection_criteria() :: %{
-        "Exclude" => list(String.t() | Atom.t()),
-        "Include" => list(String.t() | Atom.t())
+        "Exclude" => list(String.t() | atom()),
+        "Include" => list(String.t() | atom())
       }
 
   """
-  @type storage_lens_group_level_selection_criteria() :: %{String.t() | Atom.t() => any()}
+  @type storage_lens_group_level_selection_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,7 +71,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type job_manifest() :: %{String.t() | Atom.t() => any()}
+  @type job_manifest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -82,90 +82,90 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type get_storage_lens_configuration_tagging_result() :: %{String.t() | Atom.t() => any()}
+  @type get_storage_lens_configuration_tagging_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_multi_region_access_point_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
-        required("ClientToken") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
+        required("ClientToken") => String.t() | atom(),
         required("Details") => delete_multi_region_access_point_input()
       }
 
   """
-  @type delete_multi_region_access_point_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_multi_region_access_point_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       encryption_configuration() :: %{
-        "ReplicaKmsKeyID" => String.t() | Atom.t()
+        "ReplicaKmsKeyID" => String.t() | atom()
       }
 
   """
-  @type encryption_configuration() :: %{String.t() | Atom.t() => any()}
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
         required("Tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_public_access_block_configuration() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type no_such_public_access_block_configuration() :: %{String.t() | Atom.t() => any()}
+  @type no_such_public_access_block_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_bucket_versioning_request() :: %{
-        optional("MFA") => String.t() | Atom.t(),
-        required("AccountId") => String.t() | Atom.t(),
+        optional("MFA") => String.t() | atom(),
+        required("AccountId") => String.t() | atom(),
         required("VersioningConfiguration") => versioning_configuration()
       }
 
   """
-  @type put_bucket_versioning_request() :: %{String.t() | Atom.t() => any()}
+  @type put_bucket_versioning_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       multi_region_access_point_regional_response() :: %{
-        "Name" => String.t() | Atom.t(),
-        "RequestStatus" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "RequestStatus" => String.t() | atom()
       }
 
   """
-  @type multi_region_access_point_regional_response() :: %{String.t() | Atom.t() => any()}
+  @type multi_region_access_point_regional_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_storage_lens_configuration_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_storage_lens_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type get_storage_lens_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -177,8 +177,7 @@ defmodule AWS.S3Control do
 
   """
   @type get_access_point_configuration_for_object_lambda_result() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -193,7 +192,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type public_access_block_configuration() :: %{String.t() | Atom.t() => any()}
+  @type public_access_block_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -205,7 +204,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type storage_lens_data_export() :: %{String.t() | Atom.t() => any()}
+  @type storage_lens_data_export() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -216,7 +215,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type storage_lens_group_level() :: %{String.t() | Atom.t() => any()}
+  @type storage_lens_group_level() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -228,23 +227,23 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type prefix_level_storage_metrics() :: %{String.t() | Atom.t() => any()}
+  @type prefix_level_storage_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_access_grants_instance_result() :: %{
-        "AccessGrantsInstanceArn" => String.t() | Atom.t(),
-        "AccessGrantsInstanceId" => String.t() | Atom.t(),
+        "AccessGrantsInstanceArn" => String.t() | atom(),
+        "AccessGrantsInstanceId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "IdentityCenterApplicationArn" => String.t() | Atom.t(),
-        "IdentityCenterArn" => String.t() | Atom.t(),
-        "IdentityCenterInstanceArn" => String.t() | Atom.t()
+        "IdentityCenterApplicationArn" => String.t() | atom(),
+        "IdentityCenterArn" => String.t() | atom(),
+        "IdentityCenterInstanceArn" => String.t() | atom()
       }
 
   """
-  @type create_access_grants_instance_result() :: %{String.t() | Atom.t() => any()}
+  @type create_access_grants_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -256,7 +255,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type generated_manifest_encryption() :: %{String.t() | Atom.t() => any()}
+  @type generated_manifest_encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -267,7 +266,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type describe_job_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_job_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -279,7 +278,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type match_object_age() :: %{String.t() | Atom.t() => any()}
+  @type match_object_age() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -287,53 +286,53 @@ defmodule AWS.S3Control do
 
       list_jobs_result() :: %{
         "Jobs" => list(job_list_descriptor()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_jobs_result() :: %{String.t() | Atom.t() => any()}
+  @type list_jobs_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_public_access_block_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
         required("PublicAccessBlockConfiguration") => public_access_block_configuration()
       }
 
   """
-  @type put_public_access_block_request() :: %{String.t() | Atom.t() => any()}
+  @type put_public_access_block_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_grant_result() :: %{
-        "AccessGrantArn" => String.t() | Atom.t(),
-        "AccessGrantId" => String.t() | Atom.t(),
+        "AccessGrantArn" => String.t() | atom(),
+        "AccessGrantId" => String.t() | atom(),
         "AccessGrantsLocationConfiguration" => access_grants_location_configuration(),
-        "AccessGrantsLocationId" => String.t() | Atom.t(),
-        "ApplicationArn" => String.t() | Atom.t(),
+        "AccessGrantsLocationId" => String.t() | atom(),
+        "ApplicationArn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "GrantScope" => String.t() | Atom.t(),
+        "GrantScope" => String.t() | atom(),
         "Grantee" => grantee(),
         "Permission" => list(any())
       }
 
   """
-  @type get_access_grant_result() :: %{String.t() | Atom.t() => any()}
+  @type get_access_grant_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_configuration() :: %{
-        "VpcId" => String.t() | Atom.t()
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type vpc_configuration() :: %{String.t() | Atom.t() => any()}
+  @type vpc_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -345,7 +344,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type s3_access_control_list() :: %{String.t() | Atom.t() => any()}
+  @type s3_access_control_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -356,7 +355,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type abort_incomplete_multipart_upload() :: %{String.t() | Atom.t() => any()}
+  @type abort_incomplete_multipart_upload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -366,7 +365,7 @@ defmodule AWS.S3Control do
         "AbortIncompleteMultipartUpload" => abort_incomplete_multipart_upload(),
         "Expiration" => lifecycle_expiration(),
         "Filter" => lifecycle_rule_filter(),
-        "ID" => String.t() | Atom.t(),
+        "ID" => String.t() | atom(),
         "NoncurrentVersionExpiration" => noncurrent_version_expiration(),
         "NoncurrentVersionTransitions" => list(noncurrent_version_transition()),
         "Status" => list(any()),
@@ -374,7 +373,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type lifecycle_rule() :: %{String.t() | Atom.t() => any()}
+  @type lifecycle_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -390,11 +389,11 @@ defmodule AWS.S3Control do
   ## Example:
 
       delete_public_access_block_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type delete_public_access_block_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_public_access_block_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -402,12 +401,12 @@ defmodule AWS.S3Control do
 
       put_access_grants_instance_resource_policy_result() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Organization" => String.t() | Atom.t(),
-        "Policy" => String.t() | Atom.t()
+        "Organization" => String.t() | atom(),
+        "Policy" => String.t() | atom()
       }
 
   """
-  @type put_access_grants_instance_resource_policy_result() :: %{String.t() | Atom.t() => any()}
+  @type put_access_grants_instance_resource_policy_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -416,12 +415,12 @@ defmodule AWS.S3Control do
       object_lambda_configuration() :: %{
         "AllowedFeatures" => list(list(any())()),
         "CloudWatchMetricsEnabled" => boolean(),
-        "SupportingAccessPoint" => String.t() | Atom.t(),
+        "SupportingAccessPoint" => String.t() | atom(),
         "TransformationConfigurations" => list(object_lambda_transformation_configuration())
       }
 
   """
-  @type object_lambda_configuration() :: %{String.t() | Atom.t() => any()}
+  @type object_lambda_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -432,7 +431,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type get_multi_region_access_point_policy_result() :: %{String.t() | Atom.t() => any()}
+  @type get_multi_region_access_point_policy_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -444,22 +443,22 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type versioning_configuration() :: %{String.t() | Atom.t() => any()}
+  @type versioning_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_report() :: %{
-        "Bucket" => String.t() | Atom.t(),
+        "Bucket" => String.t() | atom(),
         "Enabled" => boolean(),
         "Format" => list(any()),
-        "Prefix" => String.t() | Atom.t(),
+        "Prefix" => String.t() | atom(),
         "ReportScope" => list(any())
       }
 
   """
-  @type job_report() :: %{String.t() | Atom.t() => any()}
+  @type job_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -467,12 +466,12 @@ defmodule AWS.S3Control do
 
       create_storage_lens_group_request() :: %{
         optional("Tags") => list(tag()),
-        required("AccountId") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
         required("StorageLensGroup") => storage_lens_group()
       }
 
   """
-  @type create_storage_lens_group_request() :: %{String.t() | Atom.t() => any()}
+  @type create_storage_lens_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -480,35 +479,35 @@ defmodule AWS.S3Control do
 
       list_access_grants_result() :: %{
         "AccessGrantsList" => list(list_access_grant_entry()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_access_grants_result() :: %{String.t() | Atom.t() => any()}
+  @type list_access_grants_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_access_grants_instance_resource_policy_request() :: %{
-        optional("Organization") => String.t() | Atom.t(),
-        required("AccountId") => String.t() | Atom.t(),
-        required("Policy") => String.t() | Atom.t()
+        optional("Organization") => String.t() | atom(),
+        required("AccountId") => String.t() | atom(),
+        required("Policy") => String.t() | atom()
       }
 
   """
-  @type put_access_grants_instance_resource_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type put_access_grants_instance_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_job_tagging_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type delete_job_tagging_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_job_tagging_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -517,25 +516,25 @@ defmodule AWS.S3Control do
       list_jobs_request() :: %{
         optional("JobStatuses") => list(list(any())()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("AccountId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type list_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_access_grants_instance_request() :: %{
-        optional("IdentityCenterArn") => String.t() | Atom.t(),
+        optional("IdentityCenterArn") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type create_access_grants_instance_request() :: %{String.t() | Atom.t() => any()}
+  @type create_access_grants_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -547,19 +546,19 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type source_selection_criteria() :: %{String.t() | Atom.t() => any()}
+  @type source_selection_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_job_tagging_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
         required("Tags") => list(s3_tag())
       }
 
   """
-  @type put_job_tagging_request() :: %{String.t() | Atom.t() => any()}
+  @type put_job_tagging_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -570,42 +569,42 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type lifecycle_configuration() :: %{String.t() | Atom.t() => any()}
+  @type lifecycle_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_storage_lens_group_entry() :: %{
-        "HomeRegion" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "StorageLensGroupArn" => String.t() | Atom.t()
+        "HomeRegion" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "StorageLensGroupArn" => String.t() | atom()
       }
 
   """
-  @type list_storage_lens_group_entry() :: %{String.t() | Atom.t() => any()}
+  @type list_storage_lens_group_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bucket_tagging_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type delete_bucket_tagging_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_bucket_tagging_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_storage_lens_group_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_storage_lens_group_request() :: %{String.t() | Atom.t() => any()}
+  @type get_storage_lens_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -616,52 +615,52 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type prefix_level() :: %{String.t() | Atom.t() => any()}
+  @type prefix_level() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_access_grant_result() :: %{
-        "AccessGrantArn" => String.t() | Atom.t(),
-        "AccessGrantId" => String.t() | Atom.t(),
+        "AccessGrantArn" => String.t() | atom(),
+        "AccessGrantId" => String.t() | atom(),
         "AccessGrantsLocationConfiguration" => access_grants_location_configuration(),
-        "AccessGrantsLocationId" => String.t() | Atom.t(),
-        "ApplicationArn" => String.t() | Atom.t(),
+        "AccessGrantsLocationId" => String.t() | atom(),
+        "ApplicationArn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "GrantScope" => String.t() | Atom.t(),
+        "GrantScope" => String.t() | atom(),
         "Grantee" => grantee(),
         "Permission" => list(any())
       }
 
   """
-  @type create_access_grant_result() :: %{String.t() | Atom.t() => any()}
+  @type create_access_grant_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       credentials() :: %{
-        "AccessKeyId" => String.t() | Atom.t(),
+        "AccessKeyId" => String.t() | atom(),
         "Expiration" => non_neg_integer(),
-        "SecretAccessKey" => String.t() | Atom.t(),
-        "SessionToken" => String.t() | Atom.t()
+        "SecretAccessKey" => String.t() | atom(),
+        "SessionToken" => String.t() | atom()
       }
 
   """
-  @type credentials() :: %{String.t() | Atom.t() => any()}
+  @type credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_bucket_replication_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
         required("ReplicationConfiguration") => replication_configuration()
       }
 
   """
-  @type put_bucket_replication_request() :: %{String.t() | Atom.t() => any()}
+  @type put_bucket_replication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -669,83 +668,83 @@ defmodule AWS.S3Control do
 
       create_access_point_for_object_lambda_result() :: %{
         "Alias" => object_lambda_access_point_alias(),
-        "ObjectLambdaAccessPointArn" => String.t() | Atom.t()
+        "ObjectLambdaAccessPointArn" => String.t() | atom()
       }
 
   """
-  @type create_access_point_for_object_lambda_result() :: %{String.t() | Atom.t() => any()}
+  @type create_access_point_for_object_lambda_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_status_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type job_status_exception() :: %{String.t() | Atom.t() => any()}
+  @type job_status_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_grants_instance_for_prefix_result() :: %{
-        "AccessGrantsInstanceArn" => String.t() | Atom.t(),
-        "AccessGrantsInstanceId" => String.t() | Atom.t()
+        "AccessGrantsInstanceArn" => String.t() | atom(),
+        "AccessGrantsInstanceId" => String.t() | atom()
       }
 
   """
-  @type get_access_grants_instance_for_prefix_result() :: %{String.t() | Atom.t() => any()}
+  @type get_access_grants_instance_for_prefix_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_access_grants_identity_center_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
-        required("IdentityCenterArn") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom(),
+        required("IdentityCenterArn") => String.t() | atom()
       }
 
   """
-  @type associate_access_grants_identity_center_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_access_grants_identity_center_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_access_points_for_directory_buckets_request() :: %{
-        optional("DirectoryBucket") => String.t() | Atom.t(),
+        optional("DirectoryBucket") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("AccountId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type list_access_points_for_directory_buckets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_access_points_for_directory_buckets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_storage_lens_configurations_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "StorageLensConfigurationList" => list(list_storage_lens_configuration_entry())
       }
 
   """
-  @type list_storage_lens_configurations_result() :: %{String.t() | Atom.t() => any()}
+  @type list_storage_lens_configurations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_multi_region_access_point_input() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type delete_multi_region_access_point_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_multi_region_access_point_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -756,18 +755,18 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type describe_multi_region_access_point_operation_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_multi_region_access_point_operation_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_point_for_object_lambda_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_access_point_for_object_lambda_request() :: %{String.t() | Atom.t() => any()}
+  @type get_access_point_for_object_lambda_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -775,12 +774,12 @@ defmodule AWS.S3Control do
 
       list_access_points_for_object_lambda_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("AccountId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type list_access_points_for_object_lambda_request() :: %{String.t() | Atom.t() => any()}
+  @type list_access_points_for_object_lambda_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -791,7 +790,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type get_job_tagging_result() :: %{String.t() | Atom.t() => any()}
+  @type get_job_tagging_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -799,13 +798,13 @@ defmodule AWS.S3Control do
 
       create_access_grants_location_request() :: %{
         optional("Tags") => list(tag()),
-        required("AccountId") => String.t() | Atom.t(),
-        required("IAMRoleArn") => String.t() | Atom.t(),
-        required("LocationScope") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom(),
+        required("IAMRoleArn") => String.t() | atom(),
+        required("LocationScope") => String.t() | atom()
       }
 
   """
-  @type create_access_grants_location_request() :: %{String.t() | Atom.t() => any()}
+  @type create_access_grants_location_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -815,26 +814,25 @@ defmodule AWS.S3Control do
         "CreationTime" => non_neg_integer(),
         "Operation" => list(any()),
         "RequestParameters" => async_request_parameters(),
-        "RequestStatus" => String.t() | Atom.t(),
-        "RequestTokenARN" => String.t() | Atom.t(),
+        "RequestStatus" => String.t() | atom(),
+        "RequestTokenARN" => String.t() | atom(),
         "ResponseDetails" => async_response_details()
       }
 
   """
-  @type async_operation() :: %{String.t() | Atom.t() => any()}
+  @type async_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_access_point_policy_for_object_lambda_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
   @type delete_access_point_policy_for_object_lambda_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -842,16 +840,16 @@ defmodule AWS.S3Control do
   ## Example:
 
       s3_bucket_destination() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "Arn" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
         "Encryption" => storage_lens_data_export_encryption(),
         "Format" => list(any()),
         "OutputSchemaVersion" => list(any()),
-        "Prefix" => String.t() | Atom.t()
+        "Prefix" => String.t() | atom()
       }
 
   """
-  @type s3_bucket_destination() :: %{String.t() | Atom.t() => any()}
+  @type s3_bucket_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -862,7 +860,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type get_storage_lens_group_result() :: %{String.t() | Atom.t() => any()}
+  @type get_storage_lens_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -870,34 +868,34 @@ defmodule AWS.S3Control do
 
       list_caller_access_grants_result() :: %{
         "CallerAccessGrantsList" => list(list_caller_access_grants_entry()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_caller_access_grants_result() :: %{String.t() | Atom.t() => any()}
+  @type list_caller_access_grants_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_grants_instance_resource_policy_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_access_grants_instance_resource_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type get_access_grants_instance_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       grantee() :: %{
-        "GranteeIdentifier" => String.t() | Atom.t(),
+        "GranteeIdentifier" => String.t() | atom(),
         "GranteeType" => list(any())
       }
 
   """
-  @type grantee() :: %{String.t() | Atom.t() => any()}
+  @type grantee() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -912,7 +910,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type bucket_level() :: %{String.t() | Atom.t() => any()}
+  @type bucket_level() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -923,20 +921,20 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type get_access_point_policy_status_result() :: %{String.t() | Atom.t() => any()}
+  @type get_access_point_policy_status_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_grantee() :: %{
-        "DisplayName" => String.t() | Atom.t(),
-        "Identifier" => String.t() | Atom.t(),
+        "DisplayName" => String.t() | atom(),
+        "Identifier" => String.t() | atom(),
         "TypeIdentifier" => list(any())
       }
 
   """
-  @type s3_grantee() :: %{String.t() | Atom.t() => any()}
+  @type s3_grantee() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -944,62 +942,62 @@ defmodule AWS.S3Control do
 
       create_job_request() :: %{
         optional("ConfirmationRequired") => boolean(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("Manifest") => job_manifest(),
         optional("ManifestGenerator") => list(),
         optional("Tags") => list(s3_tag()),
-        required("AccountId") => String.t() | Atom.t(),
-        required("ClientRequestToken") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
+        required("ClientRequestToken") => String.t() | atom(),
         required("Operation") => job_operation(),
         required("Priority") => integer(),
         required("Report") => job_report(),
-        required("RoleArn") => String.t() | Atom.t()
+        required("RoleArn") => String.t() | atom()
       }
 
   """
-  @type create_job_request() :: %{String.t() | Atom.t() => any()}
+  @type create_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_point_policy_for_object_lambda_result() :: %{
-        "Policy" => String.t() | Atom.t()
+        "Policy" => String.t() | atom()
       }
 
   """
-  @type get_access_point_policy_for_object_lambda_result() :: %{String.t() | Atom.t() => any()}
+  @type get_access_point_policy_for_object_lambda_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       storage_lens_tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type storage_lens_tag() :: %{String.t() | Atom.t() => any()}
+  @type storage_lens_tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_access_grant_entry() :: %{
-        "AccessGrantArn" => String.t() | Atom.t(),
-        "AccessGrantId" => String.t() | Atom.t(),
+        "AccessGrantArn" => String.t() | atom(),
+        "AccessGrantId" => String.t() | atom(),
         "AccessGrantsLocationConfiguration" => access_grants_location_configuration(),
-        "AccessGrantsLocationId" => String.t() | Atom.t(),
-        "ApplicationArn" => String.t() | Atom.t(),
+        "AccessGrantsLocationId" => String.t() | atom(),
+        "ApplicationArn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "GrantScope" => String.t() | Atom.t(),
+        "GrantScope" => String.t() | atom(),
         "Grantee" => grantee(),
         "Permission" => list(any())
       }
 
   """
-  @type list_access_grant_entry() :: %{String.t() | Atom.t() => any()}
+  @type list_access_grant_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1007,8 +1005,8 @@ defmodule AWS.S3Control do
 
       storage_lens_group_filter() :: %{
         "And" => storage_lens_group_and_operator(),
-        "MatchAnyPrefix" => list(String.t() | Atom.t()),
-        "MatchAnySuffix" => list(String.t() | Atom.t()),
+        "MatchAnyPrefix" => list(String.t() | atom()),
+        "MatchAnySuffix" => list(String.t() | atom()),
         "MatchAnyTag" => list(s3_tag()),
         "MatchObjectAge" => match_object_age(),
         "MatchObjectSize" => match_object_size(),
@@ -1016,118 +1014,118 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type storage_lens_group_filter() :: %{String.t() | Atom.t() => any()}
+  @type storage_lens_group_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       storage_lens_group_or_operator() :: %{
-        "MatchAnyPrefix" => list(String.t() | Atom.t()),
-        "MatchAnySuffix" => list(String.t() | Atom.t()),
+        "MatchAnyPrefix" => list(String.t() | atom()),
+        "MatchAnySuffix" => list(String.t() | atom()),
         "MatchAnyTag" => list(s3_tag()),
         "MatchObjectAge" => match_object_age(),
         "MatchObjectSize" => match_object_size()
       }
 
   """
-  @type storage_lens_group_or_operator() :: %{String.t() | Atom.t() => any()}
+  @type storage_lens_group_or_operator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       proposed_multi_region_access_point_policy() :: %{
-        "Policy" => String.t() | Atom.t()
+        "Policy" => String.t() | atom()
       }
 
   """
-  @type proposed_multi_region_access_point_policy() :: %{String.t() | Atom.t() => any()}
+  @type proposed_multi_region_access_point_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       include() :: %{
-        "Buckets" => list(String.t() | Atom.t()),
-        "Regions" => list(String.t() | Atom.t())
+        "Buckets" => list(String.t() | atom()),
+        "Regions" => list(String.t() | atom())
       }
 
   """
-  @type include() :: %{String.t() | Atom.t() => any()}
+  @type include() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_service_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_service_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_multi_region_access_point_policy_input() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Policy" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Policy" => String.t() | atom()
       }
 
   """
-  @type put_multi_region_access_point_policy_input() :: %{String.t() | Atom.t() => any()}
+  @type put_multi_region_access_point_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_grants_instance_result() :: %{
-        "AccessGrantsInstanceArn" => String.t() | Atom.t(),
-        "AccessGrantsInstanceId" => String.t() | Atom.t(),
+        "AccessGrantsInstanceArn" => String.t() | atom(),
+        "AccessGrantsInstanceId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "IdentityCenterApplicationArn" => String.t() | Atom.t(),
-        "IdentityCenterArn" => String.t() | Atom.t(),
-        "IdentityCenterInstanceArn" => String.t() | Atom.t()
+        "IdentityCenterApplicationArn" => String.t() | atom(),
+        "IdentityCenterArn" => String.t() | atom(),
+        "IdentityCenterInstanceArn" => String.t() | atom()
       }
 
   """
-  @type get_access_grants_instance_result() :: %{String.t() | Atom.t() => any()}
+  @type get_access_grants_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sse_kms_encryption() :: %{
-        "KeyId" => String.t() | Atom.t()
+        "KeyId" => String.t() | atom()
       }
 
   """
-  @type sse_kms_encryption() :: %{String.t() | Atom.t() => any()}
+  @type sse_kms_encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_versioning_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_bucket_versioning_request() :: %{String.t() | Atom.t() => any()}
+  @type get_bucket_versioning_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("AccountId") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1138,30 +1136,30 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type advanced_data_protection_metrics() :: %{String.t() | Atom.t() => any()}
+  @type advanced_data_protection_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_access_point_for_object_lambda_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
         required("Configuration") => object_lambda_configuration()
       }
 
   """
-  @type create_access_point_for_object_lambda_request() :: %{String.t() | Atom.t() => any()}
+  @type create_access_point_for_object_lambda_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1172,32 +1170,32 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type sse_kms_encrypted_objects() :: %{String.t() | Atom.t() => any()}
+  @type sse_kms_encrypted_objects() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_manifest_location() :: %{
-        "ETag" => String.t() | Atom.t(),
-        "ObjectArn" => String.t() | Atom.t(),
-        "ObjectVersionId" => String.t() | Atom.t()
+        "ETag" => String.t() | atom(),
+        "ObjectArn" => String.t() | atom(),
+        "ObjectVersionId" => String.t() | atom()
       }
 
   """
-  @type job_manifest_location() :: %{String.t() | Atom.t() => any()}
+  @type job_manifest_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_access_points_for_object_lambda_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ObjectLambdaAccessPointList" => list(object_lambda_access_point())
       }
 
   """
-  @type list_access_points_for_object_lambda_result() :: %{String.t() | Atom.t() => any()}
+  @type list_access_points_for_object_lambda_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1205,12 +1203,12 @@ defmodule AWS.S3Control do
 
       put_storage_lens_configuration_request() :: %{
         optional("Tags") => list(storage_lens_tag()),
-        required("AccountId") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
         required("StorageLensConfiguration") => storage_lens_configuration()
       }
 
   """
-  @type put_storage_lens_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type put_storage_lens_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1221,7 +1219,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type get_storage_lens_configuration_result() :: %{String.t() | Atom.t() => any()}
+  @type get_storage_lens_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1229,37 +1227,37 @@ defmodule AWS.S3Control do
 
       s3_job_manifest_generator() :: %{
         "EnableManifestOutput" => boolean(),
-        "ExpectedBucketOwner" => String.t() | Atom.t(),
+        "ExpectedBucketOwner" => String.t() | atom(),
         "Filter" => job_manifest_generator_filter(),
         "ManifestOutputLocation" => s3_manifest_output_location(),
-        "SourceBucket" => String.t() | Atom.t()
+        "SourceBucket" => String.t() | atom()
       }
 
   """
-  @type s3_job_manifest_generator() :: %{String.t() | Atom.t() => any()}
+  @type s3_job_manifest_generator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_regional_buckets_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "RegionalBucketList" => list(regional_bucket())
       }
 
   """
-  @type list_regional_buckets_result() :: %{String.t() | Atom.t() => any()}
+  @type list_regional_buckets_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bucket_lifecycle_configuration_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type delete_bucket_lifecycle_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_bucket_lifecycle_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1267,12 +1265,12 @@ defmodule AWS.S3Control do
 
       object_lambda_access_point() :: %{
         "Alias" => object_lambda_access_point_alias(),
-        "Name" => String.t() | Atom.t(),
-        "ObjectLambdaAccessPointArn" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "ObjectLambdaAccessPointArn" => String.t() | atom()
       }
 
   """
-  @type object_lambda_access_point() :: %{String.t() | Atom.t() => any()}
+  @type object_lambda_access_point() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1280,48 +1278,48 @@ defmodule AWS.S3Control do
 
       replication_rule_filter() :: %{
         "And" => replication_rule_and_operator(),
-        "Prefix" => String.t() | Atom.t(),
+        "Prefix" => String.t() | atom(),
         "Tag" => s3_tag()
       }
 
   """
-  @type replication_rule_filter() :: %{String.t() | Atom.t() => any()}
+  @type replication_rule_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_storage_lens_configuration_tagging_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type delete_storage_lens_configuration_tagging_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_storage_lens_configuration_tagging_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_multi_region_access_point_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
-        required("ClientToken") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
+        required("ClientToken") => String.t() | atom(),
         required("Details") => create_multi_region_access_point_input()
       }
 
   """
-  @type create_multi_region_access_point_request() :: %{String.t() | Atom.t() => any()}
+  @type create_multi_region_access_point_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_access_point_scope_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
         required("Scope") => scope()
       }
 
   """
-  @type put_access_point_scope_request() :: %{String.t() | Atom.t() => any()}
+  @type put_access_point_scope_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1340,19 +1338,19 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type job_operation() :: %{String.t() | Atom.t() => any()}
+  @type job_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_storage_lens_groups_request() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        required("AccountId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type list_storage_lens_groups_request() :: %{String.t() | Atom.t() => any()}
+  @type list_storage_lens_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1368,44 +1366,44 @@ defmodule AWS.S3Control do
   ## Example:
 
       delete_bucket_policy_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type delete_bucket_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_bucket_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_multi_region_access_point_policy_result() :: %{
-        "RequestTokenARN" => String.t() | Atom.t()
+        "RequestTokenARN" => String.t() | atom()
       }
 
   """
-  @type put_multi_region_access_point_policy_result() :: %{String.t() | Atom.t() => any()}
+  @type put_multi_region_access_point_policy_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_storage_lens_configuration_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type delete_storage_lens_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_storage_lens_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dissociate_access_grants_identity_center_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type dissociate_access_grants_identity_center_request() :: %{String.t() | Atom.t() => any()}
+  @type dissociate_access_grants_identity_center_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1417,7 +1415,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type noncurrent_version_expiration() :: %{String.t() | Atom.t() => any()}
+  @type noncurrent_version_expiration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1443,12 +1441,12 @@ defmodule AWS.S3Control do
 
       list_access_grants_instances_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("AccountId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type list_access_grants_instances_request() :: %{String.t() | Atom.t() => any()}
+  @type list_access_grants_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1459,7 +1457,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type multi_region_access_points_async_response() :: %{String.t() | Atom.t() => any()}
+  @type multi_region_access_points_async_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1467,11 +1465,11 @@ defmodule AWS.S3Control do
 
       list_multi_region_access_points_result() :: %{
         "AccessPoints" => list(multi_region_access_point_report()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_multi_region_access_points_result() :: %{String.t() | Atom.t() => any()}
+  @type list_multi_region_access_points_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1479,22 +1477,22 @@ defmodule AWS.S3Control do
 
       list_access_points_for_directory_buckets_result() :: %{
         "AccessPointList" => list(access_point()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_access_points_for_directory_buckets_result() :: %{String.t() | Atom.t() => any()}
+  @type list_access_points_for_directory_buckets_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bucket_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type delete_bucket_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_bucket_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1505,46 +1503,46 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type get_multi_region_access_point_policy_status_result() :: %{String.t() | Atom.t() => any()}
+  @type get_multi_region_access_point_policy_status_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_access_point_request() :: %{
-        optional("BucketAccountId") => String.t() | Atom.t(),
+        optional("BucketAccountId") => String.t() | atom(),
         optional("PublicAccessBlockConfiguration") => public_access_block_configuration(),
         optional("Scope") => scope(),
         optional("VpcConfiguration") => vpc_configuration(),
-        required("AccountId") => String.t() | Atom.t(),
-        required("Bucket") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom(),
+        required("Bucket") => String.t() | atom()
       }
 
   """
-  @type create_access_point_request() :: %{String.t() | Atom.t() => any()}
+  @type create_access_point_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_access_grants_instance_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type delete_access_grants_instance_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_access_grants_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       submit_multi_region_access_point_routes_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
         required("RouteUpdates") => list(multi_region_access_point_route())
       }
 
   """
-  @type submit_multi_region_access_point_routes_request() :: %{String.t() | Atom.t() => any()}
+  @type submit_multi_region_access_point_routes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1556,63 +1554,63 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type metrics() :: %{String.t() | Atom.t() => any()}
+  @type metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_multi_region_access_point_result() :: %{
-        "RequestTokenARN" => String.t() | Atom.t()
+        "RequestTokenARN" => String.t() | atom()
       }
 
   """
-  @type create_multi_region_access_point_result() :: %{String.t() | Atom.t() => any()}
+  @type create_multi_region_access_point_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       region() :: %{
-        "Bucket" => String.t() | Atom.t(),
-        "BucketAccountId" => String.t() | Atom.t()
+        "Bucket" => String.t() | atom(),
+        "BucketAccountId" => String.t() | atom()
       }
 
   """
-  @type region() :: %{String.t() | Atom.t() => any()}
+  @type region() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_storage_lens_configuration_tagging_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_storage_lens_configuration_tagging_request() :: %{String.t() | Atom.t() => any()}
+  @type get_storage_lens_configuration_tagging_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_point_policy_for_object_lambda_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_access_point_policy_for_object_lambda_request() :: %{String.t() | Atom.t() => any()}
+  @type get_access_point_policy_for_object_lambda_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_point_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_access_point_request() :: %{String.t() | Atom.t() => any()}
+  @type get_access_point_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1623,7 +1621,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type replica_modifications() :: %{String.t() | Atom.t() => any()}
+  @type replica_modifications() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1634,31 +1632,31 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type replication_time_value() :: %{String.t() | Atom.t() => any()}
+  @type replication_time_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_access_grants_location_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
-        required("IAMRoleArn") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom(),
+        required("IAMRoleArn") => String.t() | atom()
       }
 
   """
-  @type update_access_grants_location_request() :: %{String.t() | Atom.t() => any()}
+  @type update_access_grants_location_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       exclude() :: %{
-        "Buckets" => list(String.t() | Atom.t()),
-        "Regions" => list(String.t() | Atom.t())
+        "Buckets" => list(String.t() | atom()),
+        "Regions" => list(String.t() | atom())
       }
 
   """
-  @type exclude() :: %{String.t() | Atom.t() => any()}
+  @type exclude() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1669,18 +1667,18 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type policy_status() :: %{String.t() | Atom.t() => any()}
+  @type policy_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_replication_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_bucket_replication_request() :: %{String.t() | Atom.t() => any()}
+  @type get_bucket_replication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1692,19 +1690,19 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type s3_initiate_restore_object_operation() :: %{String.t() | Atom.t() => any()}
+  @type s3_initiate_restore_object_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       replication_configuration() :: %{
-        "Role" => String.t() | Atom.t(),
+        "Role" => String.t() | atom(),
         "Rules" => list(replication_rule())
       }
 
   """
-  @type replication_configuration() :: %{String.t() | Atom.t() => any()}
+  @type replication_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1716,20 +1714,19 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type s3_access_control_policy() :: %{String.t() | Atom.t() => any()}
+  @type s3_access_control_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_point_configuration_for_object_lambda_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
   @type get_access_point_configuration_for_object_lambda_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1737,11 +1734,11 @@ defmodule AWS.S3Control do
   ## Example:
 
       get_access_grant_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_access_grant_request() :: %{String.t() | Atom.t() => any()}
+  @type get_access_grant_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1753,19 +1750,19 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type s3_grant() :: %{String.t() | Atom.t() => any()}
+  @type s3_grant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1775,35 +1772,35 @@ defmodule AWS.S3Control do
         optional("DurationSeconds") => integer(),
         optional("Privilege") => list(any()),
         optional("TargetType") => list(any()),
-        required("AccountId") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
         required("Permission") => list(any()),
-        required("Target") => String.t() | Atom.t()
+        required("Target") => String.t() | atom()
       }
 
   """
-  @type get_data_access_request() :: %{String.t() | Atom.t() => any()}
+  @type get_data_access_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_policy_result() :: %{
-        "Policy" => String.t() | Atom.t()
+        "Policy" => String.t() | atom()
       }
 
   """
-  @type get_bucket_policy_result() :: %{String.t() | Atom.t() => any()}
+  @type get_bucket_policy_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1815,22 +1812,22 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type noncurrent_version_transition() :: %{String.t() | Atom.t() => any()}
+  @type noncurrent_version_transition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_grants_location_result() :: %{
-        "AccessGrantsLocationArn" => String.t() | Atom.t(),
-        "AccessGrantsLocationId" => String.t() | Atom.t(),
+        "AccessGrantsLocationArn" => String.t() | atom(),
+        "AccessGrantsLocationId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "IAMRoleArn" => String.t() | Atom.t(),
-        "LocationScope" => String.t() | Atom.t()
+        "IAMRoleArn" => String.t() | atom(),
+        "LocationScope" => String.t() | atom()
       }
 
   """
-  @type get_access_grants_location_result() :: %{String.t() | Atom.t() => any()}
+  @type get_access_grants_location_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1840,47 +1837,47 @@ defmodule AWS.S3Control do
         "And" => lifecycle_rule_and_operator(),
         "ObjectSizeGreaterThan" => float(),
         "ObjectSizeLessThan" => float(),
-        "Prefix" => String.t() | Atom.t(),
+        "Prefix" => String.t() | atom(),
         "Tag" => s3_tag()
       }
 
   """
-  @type lifecycle_rule_filter() :: %{String.t() | Atom.t() => any()}
+  @type lifecycle_rule_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_storage_lens_group_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type delete_storage_lens_group_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_storage_lens_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_next_token_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_job_status_result() :: %{
-        "JobId" => String.t() | Atom.t(),
+        "JobId" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusUpdateReason" => String.t() | Atom.t()
+        "StatusUpdateReason" => String.t() | atom()
       }
 
   """
-  @type update_job_status_result() :: %{String.t() | Atom.t() => any()}
+  @type update_job_status_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1888,12 +1885,12 @@ defmodule AWS.S3Control do
 
       list_multi_region_access_points_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("AccountId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type list_multi_region_access_points_request() :: %{String.t() | Atom.t() => any()}
+  @type list_multi_region_access_points_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1905,23 +1902,23 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type multi_region_access_point_policy_document() :: %{String.t() | Atom.t() => any()}
+  @type multi_region_access_point_policy_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_access_grants_instance_entry() :: %{
-        "AccessGrantsInstanceArn" => String.t() | Atom.t(),
-        "AccessGrantsInstanceId" => String.t() | Atom.t(),
+        "AccessGrantsInstanceArn" => String.t() | atom(),
+        "AccessGrantsInstanceId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "IdentityCenterApplicationArn" => String.t() | Atom.t(),
-        "IdentityCenterArn" => String.t() | Atom.t(),
-        "IdentityCenterInstanceArn" => String.t() | Atom.t()
+        "IdentityCenterApplicationArn" => String.t() | atom(),
+        "IdentityCenterArn" => String.t() | atom(),
+        "IdentityCenterInstanceArn" => String.t() | atom()
       }
 
   """
-  @type list_access_grants_instance_entry() :: %{String.t() | Atom.t() => any()}
+  @type list_access_grants_instance_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1929,24 +1926,24 @@ defmodule AWS.S3Control do
 
       get_access_grants_instance_resource_policy_result() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Organization" => String.t() | Atom.t(),
-        "Policy" => String.t() | Atom.t()
+        "Organization" => String.t() | atom(),
+        "Policy" => String.t() | atom()
       }
 
   """
-  @type get_access_grants_instance_resource_policy_result() :: %{String.t() | Atom.t() => any()}
+  @type get_access_grants_instance_resource_policy_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_failure() :: %{
-        "FailureCode" => String.t() | Atom.t(),
-        "FailureReason" => String.t() | Atom.t()
+        "FailureCode" => String.t() | atom(),
+        "FailureReason" => String.t() | atom()
       }
 
   """
-  @type job_failure() :: %{String.t() | Atom.t() => any()}
+  @type job_failure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1957,18 +1954,18 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type create_bucket_configuration() :: %{String.t() | Atom.t() => any()}
+  @type create_bucket_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1988,22 +1985,22 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type get_bucket_replication_result() :: %{String.t() | Atom.t() => any()}
+  @type get_bucket_replication_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       regional_bucket() :: %{
-        "Bucket" => String.t() | Atom.t(),
-        "BucketArn" => String.t() | Atom.t(),
+        "Bucket" => String.t() | atom(),
+        "BucketArn" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
-        "OutpostId" => String.t() | Atom.t(),
+        "OutpostId" => String.t() | atom(),
         "PublicAccessBlockEnabled" => boolean()
       }
 
   """
-  @type regional_bucket() :: %{String.t() | Atom.t() => any()}
+  @type regional_bucket() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2015,7 +2012,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type async_response_details() :: %{String.t() | Atom.t() => any()}
+  @type async_response_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2026,7 +2023,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type s3_set_object_acl_operation() :: %{String.t() | Atom.t() => any()}
+  @type s3_set_object_acl_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2039,7 +2036,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type async_request_parameters() :: %{String.t() | Atom.t() => any()}
+  @type async_request_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2050,7 +2047,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type tagging() :: %{String.t() | Atom.t() => any()}
+  @type tagging() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2061,7 +2058,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type activity_metrics() :: %{String.t() | Atom.t() => any()}
+  @type activity_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2072,33 +2069,33 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type access_control_translation() :: %{String.t() | Atom.t() => any()}
+  @type access_control_translation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_access_grants_location_result() :: %{
-        "AccessGrantsLocationArn" => String.t() | Atom.t(),
-        "AccessGrantsLocationId" => String.t() | Atom.t(),
+        "AccessGrantsLocationArn" => String.t() | atom(),
+        "AccessGrantsLocationId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "IAMRoleArn" => String.t() | Atom.t(),
-        "LocationScope" => String.t() | Atom.t()
+        "IAMRoleArn" => String.t() | atom(),
+        "LocationScope" => String.t() | atom()
       }
 
   """
-  @type create_access_grants_location_result() :: %{String.t() | Atom.t() => any()}
+  @type create_access_grants_location_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_job_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type describe_job_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2110,22 +2107,22 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type storage_lens_data_export_encryption() :: %{String.t() | Atom.t() => any()}
+  @type storage_lens_data_export_encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       storage_lens_group_and_operator() :: %{
-        "MatchAnyPrefix" => list(String.t() | Atom.t()),
-        "MatchAnySuffix" => list(String.t() | Atom.t()),
+        "MatchAnyPrefix" => list(String.t() | atom()),
+        "MatchAnySuffix" => list(String.t() | atom()),
         "MatchAnyTag" => list(s3_tag()),
         "MatchObjectAge" => match_object_age(),
         "MatchObjectSize" => match_object_size()
       }
 
   """
-  @type storage_lens_group_and_operator() :: %{String.t() | Atom.t() => any()}
+  @type storage_lens_group_and_operator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2137,7 +2134,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type object_lambda_transformation_configuration() :: %{String.t() | Atom.t() => any()}
+  @type object_lambda_transformation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2146,27 +2143,27 @@ defmodule AWS.S3Control do
       job_descriptor() :: %{
         "ConfirmationRequired" => boolean(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "FailureReasons" => list(job_failure()),
         "GeneratedManifestDescriptor" => s3_generated_manifest_descriptor(),
-        "JobArn" => String.t() | Atom.t(),
-        "JobId" => String.t() | Atom.t(),
+        "JobArn" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
         "Manifest" => job_manifest(),
         "ManifestGenerator" => list(),
         "Operation" => job_operation(),
         "Priority" => integer(),
         "ProgressSummary" => job_progress_summary(),
         "Report" => job_report(),
-        "RoleArn" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusUpdateReason" => String.t() | Atom.t(),
-        "SuspendedCause" => String.t() | Atom.t(),
+        "StatusUpdateReason" => String.t() | atom(),
+        "SuspendedCause" => String.t() | atom(),
         "SuspendedDate" => non_neg_integer(),
         "TerminationDate" => non_neg_integer()
       }
 
   """
-  @type job_descriptor() :: %{String.t() | Atom.t() => any()}
+  @type job_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2177,18 +2174,18 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type detailed_status_codes_metrics() :: %{String.t() | Atom.t() => any()}
+  @type detailed_status_codes_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_point_policy_status_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_access_point_policy_status_request() :: %{String.t() | Atom.t() => any()}
+  @type get_access_point_policy_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2200,20 +2197,20 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type job_manifest_spec() :: %{String.t() | Atom.t() => any()}
+  @type job_manifest_spec() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_object_metadata() :: %{
-        "CacheControl" => String.t() | Atom.t(),
-        "ContentDisposition" => String.t() | Atom.t(),
-        "ContentEncoding" => String.t() | Atom.t(),
-        "ContentLanguage" => String.t() | Atom.t(),
+        "CacheControl" => String.t() | atom(),
+        "ContentDisposition" => String.t() | atom(),
+        "ContentEncoding" => String.t() | atom(),
+        "ContentLanguage" => String.t() | atom(),
         "ContentLength" => float(),
-        "ContentMD5" => String.t() | Atom.t(),
-        "ContentType" => String.t() | Atom.t(),
+        "ContentMD5" => String.t() | atom(),
+        "ContentType" => String.t() | atom(),
         "HttpExpiresDate" => non_neg_integer(),
         "RequesterCharged" => boolean(),
         "SSEAlgorithm" => list(any()),
@@ -2221,7 +2218,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type s3_object_metadata() :: %{String.t() | Atom.t() => any()}
+  @type s3_object_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2229,48 +2226,48 @@ defmodule AWS.S3Control do
 
       list_access_grants_instances_result() :: %{
         "AccessGrantsInstancesList" => list(list_access_grants_instance_entry()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_access_grants_instances_result() :: %{String.t() | Atom.t() => any()}
+  @type list_access_grants_instances_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_multi_region_access_point_result() :: %{
-        "RequestTokenARN" => String.t() | Atom.t()
+        "RequestTokenARN" => String.t() | atom()
       }
 
   """
-  @type delete_multi_region_access_point_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_multi_region_access_point_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       established_multi_region_access_point_policy() :: %{
-        "Policy" => String.t() | Atom.t()
+        "Policy" => String.t() | atom()
       }
 
   """
-  @type established_multi_region_access_point_policy() :: %{String.t() | Atom.t() => any()}
+  @type established_multi_region_access_point_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_access_grants_location_result() :: %{
-        "AccessGrantsLocationArn" => String.t() | Atom.t(),
-        "AccessGrantsLocationId" => String.t() | Atom.t(),
+        "AccessGrantsLocationArn" => String.t() | atom(),
+        "AccessGrantsLocationId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "IAMRoleArn" => String.t() | Atom.t(),
-        "LocationScope" => String.t() | Atom.t()
+        "IAMRoleArn" => String.t() | atom(),
+        "LocationScope" => String.t() | atom()
       }
 
   """
-  @type update_access_grants_location_result() :: %{String.t() | Atom.t() => any()}
+  @type update_access_grants_location_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2286,13 +2283,13 @@ defmodule AWS.S3Control do
   ## Example:
 
       create_multi_region_access_point_input() :: %{
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "PublicAccessBlock" => public_access_block_configuration(),
         "Regions" => list(region())
       }
 
   """
-  @type create_multi_region_access_point_input() :: %{String.t() | Atom.t() => any()}
+  @type create_multi_region_access_point_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2300,12 +2297,12 @@ defmodule AWS.S3Control do
 
       storage_lens_group() :: %{
         "Filter" => storage_lens_group_filter(),
-        "Name" => String.t() | Atom.t(),
-        "StorageLensGroupArn" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "StorageLensGroupArn" => String.t() | atom()
       }
 
   """
-  @type storage_lens_group() :: %{String.t() | Atom.t() => any()}
+  @type storage_lens_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2314,24 +2311,24 @@ defmodule AWS.S3Control do
       get_access_point_for_object_lambda_result() :: %{
         "Alias" => object_lambda_access_point_alias(),
         "CreationDate" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "PublicAccessBlockConfiguration" => public_access_block_configuration()
       }
 
   """
-  @type get_access_point_for_object_lambda_result() :: %{String.t() | Atom.t() => any()}
+  @type get_access_point_for_object_lambda_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_bucket_result() :: %{
-        "BucketArn" => String.t() | Atom.t(),
-        "Location" => String.t() | Atom.t()
+        "BucketArn" => String.t() | atom(),
+        "Location" => String.t() | atom()
       }
 
   """
-  @type create_bucket_result() :: %{String.t() | Atom.t() => any()}
+  @type create_bucket_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2348,76 +2345,75 @@ defmodule AWS.S3Control do
 
       list_regional_buckets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("OutpostId") => String.t() | Atom.t(),
-        required("AccountId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("OutpostId") => String.t() | atom(),
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type list_regional_buckets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_regional_buckets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_manifest_output_location() :: %{
-        "Bucket" => String.t() | Atom.t(),
-        "ExpectedManifestBucketOwner" => String.t() | Atom.t(),
+        "Bucket" => String.t() | atom(),
+        "ExpectedManifestBucketOwner" => String.t() | atom(),
         "ManifestEncryption" => generated_manifest_encryption(),
         "ManifestFormat" => list(any()),
-        "ManifestPrefix" => String.t() | Atom.t()
+        "ManifestPrefix" => String.t() | atom()
       }
 
   """
-  @type s3_manifest_output_location() :: %{String.t() | Atom.t() => any()}
+  @type s3_manifest_output_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_access_point_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type delete_access_point_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_access_point_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lambda_invoke_operation() :: %{
-        "FunctionArn" => String.t() | Atom.t(),
-        "InvocationSchemaVersion" => String.t() | Atom.t(),
+        "FunctionArn" => String.t() | atom(),
+        "InvocationSchemaVersion" => String.t() | atom(),
         "UserArguments" => map()
       }
 
   """
-  @type lambda_invoke_operation() :: %{String.t() | Atom.t() => any()}
+  @type lambda_invoke_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_lifecycle_configuration_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_bucket_lifecycle_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type get_bucket_lifecycle_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_access_grants_instance_resource_policy_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
   @type delete_access_grants_instance_resource_policy_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2429,7 +2425,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type get_access_point_scope_result() :: %{String.t() | Atom.t() => any()}
+  @type get_access_point_scope_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2437,22 +2433,22 @@ defmodule AWS.S3Control do
 
       scope() :: %{
         "Permissions" => list(list(any())()),
-        "Prefixes" => list(String.t() | Atom.t())
+        "Prefixes" => list(String.t() | atom())
       }
 
   """
-  @type scope() :: %{String.t() | Atom.t() => any()}
+  @type scope() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       storage_lens_aws_org() :: %{
-        "Arn" => String.t() | Atom.t()
+        "Arn" => String.t() | atom()
       }
 
   """
-  @type storage_lens_aws_org() :: %{String.t() | Atom.t() => any()}
+  @type storage_lens_aws_org() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2463,21 +2459,21 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type list_tags_for_resource_result() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       async_error_details() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t(),
-        "RequestId" => String.t() | Atom.t(),
-        "Resource" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "Resource" => String.t() | atom()
       }
 
   """
-  @type async_error_details() :: %{String.t() | Atom.t() => any()}
+  @type async_error_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2485,8 +2481,8 @@ defmodule AWS.S3Control do
 
       job_list_descriptor() :: %{
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "JobId" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
         "Operation" => list(any()),
         "Priority" => integer(),
         "ProgressSummary" => job_progress_summary(),
@@ -2495,29 +2491,29 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type job_list_descriptor() :: %{String.t() | Atom.t() => any()}
+  @type job_list_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_access_point_for_object_lambda_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type delete_access_point_for_object_lambda_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_access_point_for_object_lambda_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_bucket_request() :: %{String.t() | Atom.t() => any()}
+  @type get_bucket_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2535,28 +2531,28 @@ defmodule AWS.S3Control do
         "ObjectLockLegalHoldStatus" => list(any()),
         "ObjectLockMode" => list(any()),
         "ObjectLockRetainUntilDate" => non_neg_integer(),
-        "RedirectLocation" => String.t() | Atom.t(),
+        "RedirectLocation" => String.t() | atom(),
         "RequesterPays" => boolean(),
-        "SSEAwsKmsKeyId" => String.t() | Atom.t(),
+        "SSEAwsKmsKeyId" => String.t() | atom(),
         "StorageClass" => list(any()),
-        "TargetKeyPrefix" => String.t() | Atom.t(),
-        "TargetResource" => String.t() | Atom.t(),
+        "TargetKeyPrefix" => String.t() | atom(),
+        "TargetResource" => String.t() | atom(),
         "UnModifiedSinceConstraint" => non_neg_integer()
       }
 
   """
-  @type s3_copy_object_operation() :: %{String.t() | Atom.t() => any()}
+  @type s3_copy_object_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_policy_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_bucket_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type get_bucket_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2567,30 +2563,30 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type get_public_access_block_output() :: %{String.t() | Atom.t() => any()}
+  @type get_public_access_block_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_access_point_policy_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type delete_access_point_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_access_point_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_lambda_transformation() :: %{
-        "FunctionArn" => String.t() | Atom.t(),
-        "FunctionPayload" => String.t() | Atom.t()
+        "FunctionArn" => String.t() | atom(),
+        "FunctionPayload" => String.t() | atom()
       }
 
   """
-  @type aws_lambda_transformation() :: %{String.t() | Atom.t() => any()}
+  @type aws_lambda_transformation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2601,7 +2597,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type get_bucket_tagging_result() :: %{String.t() | Atom.t() => any()}
+  @type get_bucket_tagging_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2612,7 +2608,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type delete_marker_replication() :: %{String.t() | Atom.t() => any()}
+  @type delete_marker_replication() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2621,54 +2617,54 @@ defmodule AWS.S3Control do
       create_bucket_request() :: %{
         optional("ACL") => list(any()),
         optional("CreateBucketConfiguration") => create_bucket_configuration(),
-        optional("GrantFullControl") => String.t() | Atom.t(),
-        optional("GrantRead") => String.t() | Atom.t(),
-        optional("GrantReadACP") => String.t() | Atom.t(),
-        optional("GrantWrite") => String.t() | Atom.t(),
-        optional("GrantWriteACP") => String.t() | Atom.t(),
+        optional("GrantFullControl") => String.t() | atom(),
+        optional("GrantRead") => String.t() | atom(),
+        optional("GrantReadACP") => String.t() | atom(),
+        optional("GrantWrite") => String.t() | atom(),
+        optional("GrantWriteACP") => String.t() | atom(),
         optional("ObjectLockEnabledForBucket") => boolean(),
-        optional("OutpostId") => String.t() | Atom.t()
+        optional("OutpostId") => String.t() | atom()
       }
 
   """
-  @type create_bucket_request() :: %{String.t() | Atom.t() => any()}
+  @type create_bucket_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       key_name_constraint() :: %{
-        "MatchAnyPrefix" => list(String.t() | Atom.t()),
-        "MatchAnySubstring" => list(String.t() | Atom.t()),
-        "MatchAnySuffix" => list(String.t() | Atom.t())
+        "MatchAnyPrefix" => list(String.t() | atom()),
+        "MatchAnySubstring" => list(String.t() | atom()),
+        "MatchAnySuffix" => list(String.t() | atom())
       }
 
   """
-  @type key_name_constraint() :: %{String.t() | Atom.t() => any()}
+  @type key_name_constraint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_result() :: %{
-        "Bucket" => String.t() | Atom.t(),
+        "Bucket" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
         "PublicAccessBlockEnabled" => boolean()
       }
 
   """
-  @type get_bucket_result() :: %{String.t() | Atom.t() => any()}
+  @type get_bucket_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_job_tagging_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_job_tagging_request() :: %{String.t() | Atom.t() => any()}
+  @type get_job_tagging_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2677,22 +2673,22 @@ defmodule AWS.S3Control do
       get_data_access_result() :: %{
         "Credentials" => credentials(),
         "Grantee" => grantee(),
-        "MatchedGrantTarget" => String.t() | Atom.t()
+        "MatchedGrantTarget" => String.t() | atom()
       }
 
   """
-  @type get_data_access_result() :: %{String.t() | Atom.t() => any()}
+  @type get_data_access_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_point_policy_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_access_point_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type get_access_point_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2703,7 +2699,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type job_timers() :: %{String.t() | Atom.t() => any()}
+  @type job_timers() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2714,7 +2710,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type existing_object_replication() :: %{String.t() | Atom.t() => any()}
+  @type existing_object_replication() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2727,20 +2723,20 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type transition() :: %{String.t() | Atom.t() => any()}
+  @type transition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       multi_region_access_point_route() :: %{
-        "Bucket" => String.t() | Atom.t(),
-        "Region" => String.t() | Atom.t(),
+        "Bucket" => String.t() | atom(),
+        "Region" => String.t() | atom(),
         "TrafficDialPercentage" => integer()
       }
 
   """
-  @type multi_region_access_point_route() :: %{String.t() | Atom.t() => any()}
+  @type multi_region_access_point_route() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2756,11 +2752,11 @@ defmodule AWS.S3Control do
   ## Example:
 
       get_multi_region_access_point_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_multi_region_access_point_request() :: %{String.t() | Atom.t() => any()}
+  @type get_multi_region_access_point_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2778,34 +2774,34 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type job_manifest_generator_filter() :: %{String.t() | Atom.t() => any()}
+  @type job_manifest_generator_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       multi_region_access_point_report() :: %{
-        "Alias" => String.t() | Atom.t(),
+        "Alias" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "PublicAccessBlock" => public_access_block_configuration(),
         "Regions" => list(region_report()),
         "Status" => list(any())
       }
 
   """
-  @type multi_region_access_point_report() :: %{String.t() | Atom.t() => any()}
+  @type multi_region_access_point_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_bucket_tagging_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_bucket_tagging_request() :: %{String.t() | Atom.t() => any()}
+  @type get_bucket_tagging_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2822,24 +2818,23 @@ defmodule AWS.S3Control do
 
       list_access_grants_locations_result() :: %{
         "AccessGrantsLocationsList" => list(list_access_grants_locations_entry()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_access_grants_locations_result() :: %{String.t() | Atom.t() => any()}
+  @type list_access_grants_locations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_point_policy_status_for_object_lambda_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
   @type get_access_point_policy_status_for_object_lambda_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2847,11 +2842,11 @@ defmodule AWS.S3Control do
   ## Example:
 
       access_grants_location_configuration() :: %{
-        "S3SubPrefix" => String.t() | Atom.t()
+        "S3SubPrefix" => String.t() | atom()
       }
 
   """
-  @type access_grants_location_configuration() :: %{String.t() | Atom.t() => any()}
+  @type access_grants_location_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2867,72 +2862,72 @@ defmodule AWS.S3Control do
   ## Example:
 
       put_access_point_policy_for_object_lambda_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
-        required("Policy") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom(),
+        required("Policy") => String.t() | atom()
       }
 
   """
-  @type put_access_point_policy_for_object_lambda_request() :: %{String.t() | Atom.t() => any()}
+  @type put_access_point_policy_for_object_lambda_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_access_grants_request() :: %{
-        optional("ApplicationArn") => String.t() | Atom.t(),
-        optional("GrantScope") => String.t() | Atom.t(),
-        optional("GranteeIdentifier") => String.t() | Atom.t(),
+        optional("ApplicationArn") => String.t() | atom(),
+        optional("GrantScope") => String.t() | atom(),
+        optional("GranteeIdentifier") => String.t() | atom(),
         optional("GranteeType") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Permission") => list(any()),
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type list_access_grants_request() :: %{String.t() | Atom.t() => any()}
+  @type list_access_grants_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_access_grants_location_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type delete_access_grants_location_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_access_grants_location_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_multi_region_access_point_routes_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_multi_region_access_point_routes_request() :: %{String.t() | Atom.t() => any()}
+  @type get_multi_region_access_point_routes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       replication_rule() :: %{
-        "Bucket" => String.t() | Atom.t(),
+        "Bucket" => String.t() | atom(),
         "DeleteMarkerReplication" => delete_marker_replication(),
         "Destination" => destination(),
         "ExistingObjectReplication" => existing_object_replication(),
         "Filter" => replication_rule_filter(),
-        "ID" => String.t() | Atom.t(),
-        "Prefix" => String.t() | Atom.t(),
+        "ID" => String.t() | atom(),
+        "Prefix" => String.t() | atom(),
         "Priority" => integer(),
         "SourceSelectionCriteria" => source_selection_criteria(),
         "Status" => list(any())
       }
 
   """
-  @type replication_rule() :: %{String.t() | Atom.t() => any()}
+  @type replication_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2944,7 +2939,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type s3_retention() :: %{String.t() | Atom.t() => any()}
+  @type s3_retention() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2956,49 +2951,49 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type match_object_size() :: %{String.t() | Atom.t() => any()}
+  @type match_object_size() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_job_priority_result() :: %{
-        "JobId" => String.t() | Atom.t(),
+        "JobId" => String.t() | atom(),
         "Priority" => integer()
       }
 
   """
-  @type update_job_priority_result() :: %{String.t() | Atom.t() => any()}
+  @type update_job_priority_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_point() :: %{
-        "AccessPointArn" => String.t() | Atom.t(),
-        "Alias" => String.t() | Atom.t(),
-        "Bucket" => String.t() | Atom.t(),
-        "BucketAccountId" => String.t() | Atom.t(),
-        "DataSourceId" => String.t() | Atom.t(),
-        "DataSourceType" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "AccessPointArn" => String.t() | atom(),
+        "Alias" => String.t() | atom(),
+        "Bucket" => String.t() | atom(),
+        "BucketAccountId" => String.t() | atom(),
+        "DataSourceId" => String.t() | atom(),
+        "DataSourceType" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "NetworkOrigin" => list(any()),
         "VpcConfiguration" => vpc_configuration()
       }
 
   """
-  @type access_point() :: %{String.t() | Atom.t() => any()}
+  @type access_point() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3009,7 +3004,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type cloud_watch_metrics() :: %{String.t() | Atom.t() => any()}
+  @type cloud_watch_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3021,18 +3016,18 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type get_bucket_versioning_result() :: %{String.t() | Atom.t() => any()}
+  @type get_bucket_versioning_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       idempotency_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type idempotency_exception() :: %{String.t() | Atom.t() => any()}
+  @type idempotency_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3040,8 +3035,8 @@ defmodule AWS.S3Control do
 
       destination() :: %{
         "AccessControlTranslation" => access_control_translation(),
-        "Account" => String.t() | Atom.t(),
-        "Bucket" => String.t() | Atom.t(),
+        "Account" => String.t() | atom(),
+        "Bucket" => String.t() | atom(),
         "EncryptionConfiguration" => encryption_configuration(),
         "Metrics" => metrics(),
         "ReplicationTime" => replication_time(),
@@ -3049,20 +3044,20 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type destination() :: %{String.t() | Atom.t() => any()}
+  @type destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_job_status_request() :: %{
-        optional("StatusUpdateReason") => String.t() | Atom.t(),
-        required("AccountId") => String.t() | Atom.t(),
+        optional("StatusUpdateReason") => String.t() | atom(),
+        required("AccountId") => String.t() | atom(),
         required("RequestedJobStatus") => list(any())
       }
 
   """
-  @type update_job_status_request() :: %{String.t() | Atom.t() => any()}
+  @type update_job_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3075,7 +3070,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type lifecycle_expiration() :: %{String.t() | Atom.t() => any()}
+  @type lifecycle_expiration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3086,53 +3081,53 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type s3_set_object_legal_hold_operation() :: %{String.t() | Atom.t() => any()}
+  @type s3_set_object_legal_hold_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_job_result() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
 
   """
-  @type create_job_result() :: %{String.t() | Atom.t() => any()}
+  @type create_job_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_bucket_tagging_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
         required("Tagging") => tagging()
       }
 
   """
-  @type put_bucket_tagging_request() :: %{String.t() | Atom.t() => any()}
+  @type put_bucket_tagging_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_grants_instance_for_prefix_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
-        required("S3Prefix") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom(),
+        required("S3Prefix") => String.t() | atom()
       }
 
   """
-  @type get_access_grants_instance_for_prefix_request() :: %{String.t() | Atom.t() => any()}
+  @type get_access_grants_instance_for_prefix_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sse_kms() :: %{
-        "KeyId" => String.t() | Atom.t()
+        "KeyId" => String.t() | atom()
       }
 
   """
-  @type sse_kms() :: %{String.t() | Atom.t() => any()}
+  @type sse_kms() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3140,48 +3135,48 @@ defmodule AWS.S3Control do
 
       list_caller_access_grants_request() :: %{
         optional("AllowedByApplication") => boolean(),
-        optional("GrantScope") => String.t() | Atom.t(),
+        optional("GrantScope") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("AccountId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type list_caller_access_grants_request() :: %{String.t() | Atom.t() => any()}
+  @type list_caller_access_grants_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_job_priority_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
         required("Priority") => integer()
       }
 
   """
-  @type update_job_priority_request() :: %{String.t() | Atom.t() => any()}
+  @type update_job_priority_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_point_result() :: %{
-        "AccessPointArn" => String.t() | Atom.t(),
-        "Alias" => String.t() | Atom.t(),
-        "Bucket" => String.t() | Atom.t(),
-        "BucketAccountId" => String.t() | Atom.t(),
+        "AccessPointArn" => String.t() | atom(),
+        "Alias" => String.t() | atom(),
+        "Bucket" => String.t() | atom(),
+        "BucketAccountId" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
-        "DataSourceId" => String.t() | Atom.t(),
-        "DataSourceType" => String.t() | Atom.t(),
+        "DataSourceId" => String.t() | atom(),
+        "DataSourceType" => String.t() | atom(),
         "Endpoints" => map(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "NetworkOrigin" => list(any()),
         "PublicAccessBlockConfiguration" => public_access_block_configuration(),
         "VpcConfiguration" => vpc_configuration()
       }
 
   """
-  @type get_access_point_result() :: %{String.t() | Atom.t() => any()}
+  @type get_access_point_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3198,11 +3193,11 @@ defmodule AWS.S3Control do
 
       list_access_points_result() :: %{
         "AccessPointList" => list(access_point()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_access_points_result() :: %{String.t() | Atom.t() => any()}
+  @type list_access_points_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3218,23 +3213,23 @@ defmodule AWS.S3Control do
   ## Example:
 
       get_multi_region_access_point_policy_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_multi_region_access_point_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type get_multi_region_access_point_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       replication_rule_and_operator() :: %{
-        "Prefix" => String.t() | Atom.t(),
+        "Prefix" => String.t() | atom(),
         "Tags" => list(s3_tag())
       }
 
   """
-  @type replication_rule_and_operator() :: %{String.t() | Atom.t() => any()}
+  @type replication_rule_and_operator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3246,8 +3241,7 @@ defmodule AWS.S3Control do
 
   """
   @type get_access_point_policy_status_for_object_lambda_result() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3255,23 +3249,23 @@ defmodule AWS.S3Control do
   ## Example:
 
       bad_request_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_multi_region_access_point_routes_result() :: %{
-        "Mrap" => String.t() | Atom.t(),
+        "Mrap" => String.t() | atom(),
         "Routes" => list(multi_region_access_point_route())
       }
 
   """
-  @type get_multi_region_access_point_routes_result() :: %{String.t() | Atom.t() => any()}
+  @type get_multi_region_access_point_routes_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3279,84 +3273,84 @@ defmodule AWS.S3Control do
 
       object_lambda_access_point_alias() :: %{
         "Status" => list(any()),
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type object_lambda_access_point_alias() :: %{String.t() | Atom.t() => any()}
+  @type object_lambda_access_point_alias() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_public_access_block_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_public_access_block_request() :: %{String.t() | Atom.t() => any()}
+  @type get_public_access_block_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_access_point_scope_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type delete_access_point_scope_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_access_point_scope_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_access_point_policy_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
-        required("Policy") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom(),
+        required("Policy") => String.t() | atom()
       }
 
   """
-  @type put_access_point_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type put_access_point_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       selection_criteria() :: %{
-        "Delimiter" => String.t() | Atom.t(),
+        "Delimiter" => String.t() | atom(),
         "MaxDepth" => integer(),
         "MinStorageBytesPercentage" => float()
       }
 
   """
-  @type selection_criteria() :: %{String.t() | Atom.t() => any()}
+  @type selection_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_access_point_result() :: %{
-        "AccessPointArn" => String.t() | Atom.t(),
-        "Alias" => String.t() | Atom.t()
+        "AccessPointArn" => String.t() | atom(),
+        "Alias" => String.t() | atom()
       }
 
   """
-  @type create_access_point_result() :: %{String.t() | Atom.t() => any()}
+  @type create_access_point_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_storage_lens_configuration_entry() :: %{
-        "HomeRegion" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "HomeRegion" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "IsEnabled" => boolean(),
-        "StorageLensArn" => String.t() | Atom.t()
+        "StorageLensArn" => String.t() | atom()
       }
 
   """
-  @type list_storage_lens_configuration_entry() :: %{String.t() | Atom.t() => any()}
+  @type list_storage_lens_configuration_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3368,69 +3362,69 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type replication_time() :: %{String.t() | Atom.t() => any()}
+  @type replication_time() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_object_owner() :: %{
-        "DisplayName" => String.t() | Atom.t(),
-        "ID" => String.t() | Atom.t()
+        "DisplayName" => String.t() | atom(),
+        "ID" => String.t() | atom()
       }
 
   """
-  @type s3_object_owner() :: %{String.t() | Atom.t() => any()}
+  @type s3_object_owner() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_access_points_request() :: %{
-        optional("Bucket") => String.t() | Atom.t(),
-        optional("DataSourceId") => String.t() | Atom.t(),
-        optional("DataSourceType") => String.t() | Atom.t(),
+        optional("Bucket") => String.t() | atom(),
+        optional("DataSourceId") => String.t() | atom(),
+        optional("DataSourceType") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("AccountId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type list_access_points_request() :: %{String.t() | Atom.t() => any()}
+  @type list_access_points_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_storage_lens_configuration_tagging_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
         required("Tags") => list(storage_lens_tag())
       }
 
   """
-  @type put_storage_lens_configuration_tagging_request() :: %{String.t() | Atom.t() => any()}
+  @type put_storage_lens_configuration_tagging_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_point_policy_result() :: %{
-        "Policy" => String.t() | Atom.t()
+        "Policy" => String.t() | atom()
       }
 
   """
-  @type get_access_point_policy_result() :: %{String.t() | Atom.t() => any()}
+  @type get_access_point_policy_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_multi_region_access_point_policy_status_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_multi_region_access_point_policy_status_request() :: %{String.t() | Atom.t() => any()}
+  @type get_multi_region_access_point_policy_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3441,14 +3435,14 @@ defmodule AWS.S3Control do
         "AwsOrg" => storage_lens_aws_org(),
         "DataExport" => storage_lens_data_export(),
         "Exclude" => exclude(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "Include" => include(),
         "IsEnabled" => boolean(),
-        "StorageLensArn" => String.t() | Atom.t()
+        "StorageLensArn" => String.t() | atom()
       }
 
   """
-  @type storage_lens_configuration() :: %{String.t() | Atom.t() => any()}
+  @type storage_lens_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3459,7 +3453,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type s3_set_object_tagging_operation() :: %{String.t() | Atom.t() => any()}
+  @type s3_set_object_tagging_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3467,34 +3461,34 @@ defmodule AWS.S3Control do
 
       put_bucket_lifecycle_configuration_request() :: %{
         optional("LifecycleConfiguration") => lifecycle_configuration(),
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type put_bucket_lifecycle_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type put_bucket_lifecycle_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_access_grant_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type delete_access_grant_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_access_grant_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type s3_tag() :: %{String.t() | Atom.t() => any()}
+  @type s3_tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3506,7 +3500,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type s3_generated_manifest_descriptor() :: %{String.t() | Atom.t() => any()}
+  @type s3_generated_manifest_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3517,7 +3511,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type advanced_cost_optimization_metrics() :: %{String.t() | Atom.t() => any()}
+  @type advanced_cost_optimization_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3525,17 +3519,17 @@ defmodule AWS.S3Control do
 
       create_access_grant_request() :: %{
         optional("AccessGrantsLocationConfiguration") => access_grants_location_configuration(),
-        optional("ApplicationArn") => String.t() | Atom.t(),
+        optional("ApplicationArn") => String.t() | atom(),
         optional("S3PrefixType") => list(any()),
         optional("Tags") => list(tag()),
-        required("AccessGrantsLocationId") => String.t() | Atom.t(),
-        required("AccountId") => String.t() | Atom.t(),
+        required("AccessGrantsLocationId") => String.t() | atom(),
+        required("AccountId") => String.t() | atom(),
         required("Grantee") => grantee(),
         required("Permission") => list(any())
       }
 
   """
-  @type create_access_grant_request() :: %{String.t() | Atom.t() => any()}
+  @type create_access_grant_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3546,34 +3540,33 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type get_bucket_lifecycle_configuration_result() :: %{String.t() | Atom.t() => any()}
+  @type get_bucket_lifecycle_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_access_grants_locations_request() :: %{
-        optional("LocationScope") => String.t() | Atom.t(),
+        optional("LocationScope") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("AccountId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type list_access_grants_locations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_access_grants_locations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_multi_region_access_point_operation_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
   @type describe_multi_region_access_point_operation_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3586,34 +3579,34 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type s3_set_object_retention_operation() :: %{String.t() | Atom.t() => any()}
+  @type s3_set_object_retention_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_access_grants_locations_entry() :: %{
-        "AccessGrantsLocationArn" => String.t() | Atom.t(),
-        "AccessGrantsLocationId" => String.t() | Atom.t(),
+        "AccessGrantsLocationArn" => String.t() | atom(),
+        "AccessGrantsLocationId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "IAMRoleArn" => String.t() | Atom.t(),
-        "LocationScope" => String.t() | Atom.t()
+        "IAMRoleArn" => String.t() | atom(),
+        "LocationScope" => String.t() | atom()
       }
 
   """
-  @type list_access_grants_locations_entry() :: %{String.t() | Atom.t() => any()}
+  @type list_access_grants_locations_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_storage_lens_group_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
         required("StorageLensGroup") => storage_lens_group()
       }
 
   """
-  @type update_storage_lens_group_request() :: %{String.t() | Atom.t() => any()}
+  @type update_storage_lens_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3629,30 +3622,30 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type account_level() :: %{String.t() | Atom.t() => any()}
+  @type account_level() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_storage_lens_groups_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "StorageLensGroupList" => list(list_storage_lens_group_entry())
       }
 
   """
-  @type list_storage_lens_groups_result() :: %{String.t() | Atom.t() => any()}
+  @type list_storage_lens_groups_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_grants_location_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_access_grants_location_request() :: %{String.t() | Atom.t() => any()}
+  @type get_access_grants_location_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3663,29 +3656,29 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type s3_object_lock_legal_hold() :: %{String.t() | Atom.t() => any()}
+  @type s3_object_lock_legal_hold() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_bucket_replication_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type delete_bucket_replication_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_bucket_replication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_point_scope_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_access_point_scope_request() :: %{String.t() | Atom.t() => any()}
+  @type get_access_point_scope_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3701,12 +3694,12 @@ defmodule AWS.S3Control do
   ## Example:
 
       list_storage_lens_configurations_request() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        required("AccountId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type list_storage_lens_configurations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_storage_lens_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3720,34 +3713,33 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type job_progress_summary() :: %{String.t() | Atom.t() => any()}
+  @type job_progress_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_caller_access_grants_entry() :: %{
-        "ApplicationArn" => String.t() | Atom.t(),
-        "GrantScope" => String.t() | Atom.t(),
+        "ApplicationArn" => String.t() | atom(),
+        "GrantScope" => String.t() | atom(),
         "Permission" => list(any())
       }
 
   """
-  @type list_caller_access_grants_entry() :: %{String.t() | Atom.t() => any()}
+  @type list_caller_access_grants_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_access_point_configuration_for_object_lambda_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
+        required("AccountId") => String.t() | atom(),
         required("Configuration") => object_lambda_configuration()
       }
 
   """
   @type put_access_point_configuration_for_object_lambda_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3755,11 +3747,11 @@ defmodule AWS.S3Control do
   ## Example:
 
       too_many_tags_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3770,7 +3762,7 @@ defmodule AWS.S3Control do
       }
 
   """
-  @type get_multi_region_access_point_result() :: %{String.t() | Atom.t() => any()}
+  @type get_multi_region_access_point_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3779,23 +3771,23 @@ defmodule AWS.S3Control do
       lifecycle_rule_and_operator() :: %{
         "ObjectSizeGreaterThan" => float(),
         "ObjectSizeLessThan" => float(),
-        "Prefix" => String.t() | Atom.t(),
+        "Prefix" => String.t() | atom(),
         "Tags" => list(s3_tag())
       }
 
   """
-  @type lifecycle_rule_and_operator() :: %{String.t() | Atom.t() => any()}
+  @type lifecycle_rule_and_operator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_access_grants_instance_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_access_grants_instance_request() :: %{String.t() | Atom.t() => any()}
+  @type get_access_grants_instance_request() :: %{(String.t() | atom()) => any()}
 
   @type create_bucket_errors() :: bucket_already_exists() | bucket_already_owned_by_you()
 
@@ -4137,7 +4129,7 @@ defmodule AWS.S3Control do
 
   [ListAccessPointsForDirectoryBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForDirectoryBuckets.html)
   """
-  @spec create_access_point(map(), String.t() | Atom.t(), create_access_point_request(), list()) ::
+  @spec create_access_point(map(), String.t() | atom(), create_access_point_request(), list()) ::
           {:ok, create_access_point_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4194,7 +4186,7 @@ defmodule AWS.S3Control do
   """
   @spec create_access_point_for_object_lambda(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_access_point_for_object_lambda_request(),
           list()
         ) ::
@@ -4288,7 +4280,7 @@ defmodule AWS.S3Control do
 
   [PutAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html)
   """
-  @spec create_bucket(map(), String.t() | Atom.t(), create_bucket_request(), list()) ::
+  @spec create_bucket(map(), String.t() | atom(), create_bucket_request(), list()) ::
           {:ok, create_bucket_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4549,7 +4541,7 @@ defmodule AWS.S3Control do
 
   You must have the `s3:DeleteAccessGrant` permission to use this operation.
   """
-  @spec delete_access_grant(map(), String.t() | Atom.t(), delete_access_grant_request(), list()) ::
+  @spec delete_access_grant(map(), String.t() | atom(), delete_access_grant_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4699,7 +4691,7 @@ defmodule AWS.S3Control do
   """
   @spec delete_access_grants_location(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_access_grants_location_request(),
           list()
         ) ::
@@ -4764,7 +4756,7 @@ defmodule AWS.S3Control do
 
   [ListAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html)
   """
-  @spec delete_access_point(map(), String.t() | Atom.t(), delete_access_point_request(), list()) ::
+  @spec delete_access_point(map(), String.t() | atom(), delete_access_point_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4818,7 +4810,7 @@ defmodule AWS.S3Control do
   """
   @spec delete_access_point_for_object_lambda(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_access_point_for_object_lambda_request(),
           list()
         ) ::
@@ -4875,7 +4867,7 @@ defmodule AWS.S3Control do
   """
   @spec delete_access_point_policy(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_access_point_policy_request(),
           list()
         ) ::
@@ -4928,7 +4920,7 @@ defmodule AWS.S3Control do
   """
   @spec delete_access_point_policy_for_object_lambda(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_access_point_policy_for_object_lambda_request(),
           list()
         ) ::
@@ -4976,7 +4968,7 @@ defmodule AWS.S3Control do
   """
   @spec delete_access_point_scope(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_access_point_scope_request(),
           list()
         ) ::
@@ -5048,7 +5040,7 @@ defmodule AWS.S3Control do
 
   [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
   """
-  @spec delete_bucket(map(), String.t() | Atom.t(), delete_bucket_request(), list()) ::
+  @spec delete_bucket(map(), String.t() | atom(), delete_bucket_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5128,7 +5120,7 @@ defmodule AWS.S3Control do
   """
   @spec delete_bucket_lifecycle_configuration(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_bucket_lifecycle_configuration_request(),
           list()
         ) ::
@@ -5227,7 +5219,7 @@ defmodule AWS.S3Control do
 
   [PutBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketPolicy.html)
   """
-  @spec delete_bucket_policy(map(), String.t() | Atom.t(), delete_bucket_policy_request(), list()) ::
+  @spec delete_bucket_policy(map(), String.t() | atom(), delete_bucket_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5314,7 +5306,7 @@ defmodule AWS.S3Control do
   """
   @spec delete_bucket_replication(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_bucket_replication_request(),
           list()
         ) ::
@@ -5383,12 +5375,7 @@ defmodule AWS.S3Control do
 
   [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketTagging.html)
   """
-  @spec delete_bucket_tagging(
-          map(),
-          String.t() | Atom.t(),
-          delete_bucket_tagging_request(),
-          list()
-        ) ::
+  @spec delete_bucket_tagging(map(), String.t() | atom(), delete_bucket_tagging_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5447,7 +5434,7 @@ defmodule AWS.S3Control do
 
   [PutJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutJobTagging.html)
   """
-  @spec delete_job_tagging(map(), String.t() | Atom.t(), delete_job_tagging_request(), list()) ::
+  @spec delete_job_tagging(map(), String.t() | atom(), delete_job_tagging_request(), list()) ::
           {:ok, delete_job_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5621,7 +5608,7 @@ defmodule AWS.S3Control do
   """
   @spec delete_storage_lens_configuration(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_storage_lens_configuration_request(),
           list()
         ) ::
@@ -5673,7 +5660,7 @@ defmodule AWS.S3Control do
   """
   @spec delete_storage_lens_configuration_tagging(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_storage_lens_configuration_tagging_request(),
           list()
         ) ::
@@ -5726,7 +5713,7 @@ defmodule AWS.S3Control do
   """
   @spec delete_storage_lens_group(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_storage_lens_group_request(),
           list()
         ) ::
@@ -5792,7 +5779,7 @@ defmodule AWS.S3Control do
 
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
   """
-  @spec describe_job(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec describe_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5845,8 +5832,8 @@ defmodule AWS.S3Control do
   """
   @spec describe_multi_region_access_point_operation(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, describe_multi_region_access_point_operation_result(), any()}
@@ -5936,7 +5923,7 @@ defmodule AWS.S3Control do
 
   You must have the `s3:GetAccessGrant` permission to use this operation.
   """
-  @spec get_access_grant(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_access_grant(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_access_grant_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5970,7 +5957,7 @@ defmodule AWS.S3Control do
   `GetAccessGrantsInstance` is not supported for cross-account access. You can
   only call the API from the account that owns the S3 Access Grants instance.
   """
-  @spec get_access_grants_instance(map(), String.t() | Atom.t(), list()) ::
+  @spec get_access_grants_instance(map(), String.t() | atom(), list()) ::
           {:ok, get_access_grants_instance_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6009,8 +5996,8 @@ defmodule AWS.S3Control do
   """
   @spec get_access_grants_instance_for_prefix(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_access_grants_instance_for_prefix_result(), any()}
@@ -6056,7 +6043,7 @@ defmodule AWS.S3Control do
   You must have the `s3:GetAccessGrantsInstanceResourcePolicy` permission to use
   this operation.
   """
-  @spec get_access_grants_instance_resource_policy(map(), String.t() | Atom.t(), list()) ::
+  @spec get_access_grants_instance_resource_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_access_grants_instance_resource_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6088,7 +6075,7 @@ defmodule AWS.S3Control do
 
   You must have the `s3:GetAccessGrantsLocation` permission to use this operation.
   """
-  @spec get_access_grants_location(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_access_grants_location(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_access_grants_location_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6142,7 +6129,7 @@ defmodule AWS.S3Control do
 
   [ListAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html)
   """
-  @spec get_access_point(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_access_point(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_access_point_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6179,8 +6166,8 @@ defmodule AWS.S3Control do
   """
   @spec get_access_point_configuration_for_object_lambda(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_access_point_configuration_for_object_lambda_result(), any()}
@@ -6231,8 +6218,8 @@ defmodule AWS.S3Control do
   """
   @spec get_access_point_for_object_lambda(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_access_point_for_object_lambda_result(), any()}
@@ -6269,7 +6256,7 @@ defmodule AWS.S3Control do
 
   [DeleteAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html)
   """
-  @spec get_access_point_policy(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_access_point_policy(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_access_point_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6310,8 +6297,8 @@ defmodule AWS.S3Control do
   """
   @spec get_access_point_policy_for_object_lambda(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_access_point_policy_for_object_lambda_result(), any()}
@@ -6351,12 +6338,7 @@ defmodule AWS.S3Control do
   points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html)
   in the *Amazon S3 User Guide*.
   """
-  @spec get_access_point_policy_status(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec get_access_point_policy_status(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_access_point_policy_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6387,8 +6369,8 @@ defmodule AWS.S3Control do
   """
   @spec get_access_point_policy_status_for_object_lambda(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_access_point_policy_status_for_object_lambda_result(), any()}
@@ -6426,7 +6408,7 @@ defmodule AWS.S3Control do
 
   For information about REST API errors, see [REST error responses](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#RESTErrorResponses).
   """
-  @spec get_access_point_scope(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_access_point_scope(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_access_point_scope_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6496,7 +6478,7 @@ defmodule AWS.S3Control do
 
   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucket.html)
   """
-  @spec get_bucket(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_bucket(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_bucket_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6578,8 +6560,8 @@ defmodule AWS.S3Control do
   """
   @spec get_bucket_lifecycle_configuration(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_bucket_lifecycle_configuration_result(), any()}
@@ -6661,7 +6643,7 @@ defmodule AWS.S3Control do
 
   [DeleteBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html)
   """
-  @spec get_bucket_policy(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_bucket_policy(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_bucket_policy_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6746,7 +6728,7 @@ defmodule AWS.S3Control do
 
   [DeleteBucketReplication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketReplication.html)
   """
-  @spec get_bucket_replication(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_bucket_replication(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_bucket_replication_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6812,7 +6794,7 @@ defmodule AWS.S3Control do
 
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketTagging.html)
   """
-  @spec get_bucket_tagging(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_bucket_tagging(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_bucket_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6885,7 +6867,7 @@ defmodule AWS.S3Control do
 
   [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html)
   """
-  @spec get_bucket_versioning(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_bucket_versioning(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_bucket_versioning_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6929,12 +6911,12 @@ defmodule AWS.S3Control do
   """
   @spec get_data_access(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_data_access_result(), any()}
@@ -7030,7 +7012,7 @@ defmodule AWS.S3Control do
 
   [DeleteJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html)
   """
-  @spec get_job_tagging(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_job_tagging(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_job_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7084,7 +7066,7 @@ defmodule AWS.S3Control do
 
   [ListMultiRegionAccessPoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListMultiRegionAccessPoints.html)
   """
-  @spec get_multi_region_access_point(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_multi_region_access_point(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_multi_region_access_point_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7132,8 +7114,8 @@ defmodule AWS.S3Control do
   """
   @spec get_multi_region_access_point_policy(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_multi_region_access_point_policy_result(), any()}
@@ -7185,8 +7167,8 @@ defmodule AWS.S3Control do
   """
   @spec get_multi_region_access_point_policy_status(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_multi_region_access_point_policy_status_result(), any()}
@@ -7249,8 +7231,8 @@ defmodule AWS.S3Control do
   """
   @spec get_multi_region_access_point_routes(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_multi_region_access_point_routes_result(), any()}
@@ -7293,7 +7275,7 @@ defmodule AWS.S3Control do
 
   [PutPublicAccessBlock](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutPublicAccessBlock.html)
   """
-  @spec get_public_access_block(map(), String.t() | Atom.t(), list()) ::
+  @spec get_public_access_block(map(), String.t() | atom(), list()) ::
           {:ok, get_public_access_block_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7333,12 +7315,7 @@ defmodule AWS.S3Control do
   in the
   *Amazon S3 User Guide*.
   """
-  @spec get_storage_lens_configuration(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec get_storage_lens_configuration(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_storage_lens_configuration_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7378,8 +7355,8 @@ defmodule AWS.S3Control do
   """
   @spec get_storage_lens_configuration_tagging(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_storage_lens_configuration_tagging_result(), any()}
@@ -7420,7 +7397,7 @@ defmodule AWS.S3Control do
   For information about Storage Lens groups errors, see [List of Amazon S3 Storage Lens error
   codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList).
   """
-  @spec get_storage_lens_group(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_storage_lens_group(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_storage_lens_group_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7453,14 +7430,14 @@ defmodule AWS.S3Control do
   """
   @spec list_access_grants(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_access_grants_result(), any()}
@@ -7560,9 +7537,9 @@ defmodule AWS.S3Control do
   """
   @spec list_access_grants_instances(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_access_grants_instances_result(), any()}
@@ -7618,10 +7595,10 @@ defmodule AWS.S3Control do
   """
   @spec list_access_grants_locations(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_access_grants_locations_result(), any()}
@@ -7712,12 +7689,12 @@ defmodule AWS.S3Control do
   """
   @spec list_access_points(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_access_points_result(), any()}
@@ -7798,10 +7775,10 @@ defmodule AWS.S3Control do
   """
   @spec list_access_points_for_directory_buckets(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_access_points_for_directory_buckets_result(), any()}
@@ -7880,9 +7857,9 @@ defmodule AWS.S3Control do
   """
   @spec list_access_points_for_object_lambda(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_access_points_for_object_lambda_result(), any()}
@@ -7950,11 +7927,11 @@ defmodule AWS.S3Control do
   """
   @spec list_caller_access_grants(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_caller_access_grants_result(), any()}
@@ -8050,10 +8027,10 @@ defmodule AWS.S3Control do
   """
   @spec list_jobs(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_jobs_result(), any()}
@@ -8143,9 +8120,9 @@ defmodule AWS.S3Control do
   """
   @spec list_multi_region_access_points(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_multi_region_access_points_result(), any()}
@@ -8207,10 +8184,10 @@ defmodule AWS.S3Control do
   """
   @spec list_regional_buckets(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_regional_buckets_result(), any()}
@@ -8280,8 +8257,8 @@ defmodule AWS.S3Control do
   """
   @spec list_storage_lens_configurations(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_storage_lens_configurations_result(), any()}
@@ -8329,12 +8306,7 @@ defmodule AWS.S3Control do
   For information about Storage Lens groups errors, see [List of Amazon S3 Storage Lens error
   codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList).
   """
-  @spec list_storage_lens_groups(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec list_storage_lens_groups(map(), String.t() | atom() | nil, String.t() | atom(), list()) ::
           {:ok, list_storage_lens_groups_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8408,7 +8380,7 @@ defmodule AWS.S3Control do
 
   For information about S3 Tagging errors, see [List of Amazon S3 Tagging error codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList).
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8490,7 +8462,7 @@ defmodule AWS.S3Control do
   """
   @spec put_access_point_configuration_for_object_lambda(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           put_access_point_configuration_for_object_lambda_request(),
           list()
         ) ::
@@ -8557,7 +8529,7 @@ defmodule AWS.S3Control do
   """
   @spec put_access_point_policy(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           put_access_point_policy_request(),
           list()
         ) ::
@@ -8612,7 +8584,7 @@ defmodule AWS.S3Control do
   """
   @spec put_access_point_policy_for_object_lambda(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           put_access_point_policy_for_object_lambda_request(),
           list()
         ) ::
@@ -8662,7 +8634,7 @@ defmodule AWS.S3Control do
   """
   @spec put_access_point_scope(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           put_access_point_scope_request(),
           list()
         ) ::
@@ -8734,7 +8706,7 @@ defmodule AWS.S3Control do
   """
   @spec put_bucket_lifecycle_configuration(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           put_bucket_lifecycle_configuration_request(),
           list()
         ) ::
@@ -8833,7 +8805,7 @@ defmodule AWS.S3Control do
 
   [DeleteBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html)
   """
-  @spec put_bucket_policy(map(), String.t() | Atom.t(), put_bucket_policy_request(), list()) ::
+  @spec put_bucket_policy(map(), String.t() | atom(), put_bucket_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8976,7 +8948,7 @@ defmodule AWS.S3Control do
   """
   @spec put_bucket_replication(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           put_bucket_replication_request(),
           list()
         ) ::
@@ -9101,7 +9073,7 @@ defmodule AWS.S3Control do
 
   [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketTagging.html)
   """
-  @spec put_bucket_tagging(map(), String.t() | Atom.t(), put_bucket_tagging_request(), list()) ::
+  @spec put_bucket_tagging(map(), String.t() | atom(), put_bucket_tagging_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9223,12 +9195,7 @@ defmodule AWS.S3Control do
 
   [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html)
   """
-  @spec put_bucket_versioning(
-          map(),
-          String.t() | Atom.t(),
-          put_bucket_versioning_request(),
-          list()
-        ) ::
+  @spec put_bucket_versioning(map(), String.t() | atom(), put_bucket_versioning_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9332,7 +9299,7 @@ defmodule AWS.S3Control do
 
   [DeleteJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html)
   """
-  @spec put_job_tagging(map(), String.t() | Atom.t(), put_job_tagging_request(), list()) ::
+  @spec put_job_tagging(map(), String.t() | atom(), put_job_tagging_request(), list()) ::
           {:ok, put_job_tagging_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9497,7 +9464,7 @@ defmodule AWS.S3Control do
   """
   @spec put_storage_lens_configuration(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           put_storage_lens_configuration_request(),
           list()
         ) ::
@@ -9549,7 +9516,7 @@ defmodule AWS.S3Control do
   """
   @spec put_storage_lens_configuration_tagging(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           put_storage_lens_configuration_tagging_request(),
           list()
         ) ::
@@ -9635,7 +9602,7 @@ defmodule AWS.S3Control do
   """
   @spec submit_multi_region_access_point_routes(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           submit_multi_region_access_point_routes_request(),
           list()
         ) ::
@@ -9715,7 +9682,7 @@ defmodule AWS.S3Control do
 
   For information about S3 Tagging errors, see [List of Amazon S3 Tagging error codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList).
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9790,7 +9757,7 @@ defmodule AWS.S3Control do
   For information about S3 Tagging errors, see [List of Amazon S3 Tagging error
   codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3TaggingErrorCodeList).
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9842,7 +9809,7 @@ defmodule AWS.S3Control do
   """
   @spec update_access_grants_location(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_access_grants_location_request(),
           list()
         ) ::
@@ -9914,7 +9881,7 @@ defmodule AWS.S3Control do
 
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
   """
-  @spec update_job_priority(map(), String.t() | Atom.t(), update_job_priority_request(), list()) ::
+  @spec update_job_priority(map(), String.t() | atom(), update_job_priority_request(), list()) ::
           {:ok, update_job_priority_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9984,7 +9951,7 @@ defmodule AWS.S3Control do
 
   [UpdateJobStatus](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html)
   """
-  @spec update_job_status(map(), String.t() | Atom.t(), update_job_status_request(), list()) ::
+  @spec update_job_status(map(), String.t() | atom(), update_job_status_request(), list()) ::
           {:ok, update_job_status_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10036,7 +10003,7 @@ defmodule AWS.S3Control do
   """
   @spec update_storage_lens_group(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_storage_lens_group_request(),
           list()
         ) ::

@@ -29,66 +29,66 @@ defmodule AWS.EC2InstanceConnect do
   ## Example:
       
       auth_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type auth_exception() :: %{String.t() | Atom.t() => any()}
+  @type auth_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_instance_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type ec2_instance_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type ec2_instance_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_instance_state_invalid_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type ec2_instance_state_invalid_exception() :: %{String.t() | Atom.t() => any()}
+  @type ec2_instance_state_invalid_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_instance_type_invalid_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type ec2_instance_type_invalid_exception() :: %{String.t() | Atom.t() => any()}
+  @type ec2_instance_type_invalid_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_instance_unavailable_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type ec2_instance_unavailable_exception() :: %{String.t() | Atom.t() => any()}
+  @type ec2_instance_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_args_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_args_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_args_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -96,116 +96,116 @@ defmodule AWS.EC2InstanceConnect do
       
       send_serial_console_ssh_public_key_request() :: %{
         optional("SerialPort") => integer(),
-        required("InstanceId") => String.t() | Atom.t(),
-        required("SSHPublicKey") => String.t() | Atom.t()
+        required("InstanceId") => String.t() | atom(),
+        required("SSHPublicKey") => String.t() | atom()
       }
       
   """
-  @type send_serial_console_ssh_public_key_request() :: %{String.t() | Atom.t() => any()}
+  @type send_serial_console_ssh_public_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_serial_console_ssh_public_key_response() :: %{
-        "RequestId" => String.t() | Atom.t(),
+        "RequestId" => String.t() | atom(),
         "Success" => boolean()
       }
       
   """
-  @type send_serial_console_ssh_public_key_response() :: %{String.t() | Atom.t() => any()}
+  @type send_serial_console_ssh_public_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_ssh_public_key_request() :: %{
-        optional("AvailabilityZone") => String.t() | Atom.t(),
-        required("InstanceId") => String.t() | Atom.t(),
-        required("InstanceOSUser") => String.t() | Atom.t(),
-        required("SSHPublicKey") => String.t() | Atom.t()
+        optional("AvailabilityZone") => String.t() | atom(),
+        required("InstanceId") => String.t() | atom(),
+        required("InstanceOSUser") => String.t() | atom(),
+        required("SSHPublicKey") => String.t() | atom()
       }
       
   """
-  @type send_ssh_public_key_request() :: %{String.t() | Atom.t() => any()}
+  @type send_ssh_public_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_ssh_public_key_response() :: %{
-        "RequestId" => String.t() | Atom.t(),
+        "RequestId" => String.t() | atom(),
         "Success" => boolean()
       }
       
   """
-  @type send_ssh_public_key_response() :: %{String.t() | Atom.t() => any()}
+  @type send_ssh_public_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       serial_console_access_disabled_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type serial_console_access_disabled_exception() :: %{String.t() | Atom.t() => any()}
+  @type serial_console_access_disabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       serial_console_session_limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type serial_console_session_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type serial_console_session_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       serial_console_session_unavailable_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type serial_console_session_unavailable_exception() :: %{String.t() | Atom.t() => any()}
+  @type serial_console_session_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       serial_console_session_unsupported_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type serial_console_session_unsupported_exception() :: %{String.t() | Atom.t() => any()}
+  @type serial_console_session_unsupported_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type service_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @type send_serial_console_ssh_public_key_errors() ::
           throttling_exception()

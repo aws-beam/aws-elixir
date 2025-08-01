@@ -183,12 +183,12 @@ defmodule AWS.AppConfig do
 
       list_extensions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("Name") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_extensions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_extensions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -196,11 +196,11 @@ defmodule AWS.AppConfig do
 
       applications() :: %{
         optional("Items") => list(application()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type applications() :: %{String.t() | Atom.t() => any()}
+  @type applications() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -211,7 +211,7 @@ defmodule AWS.AppConfig do
       }
 
   """
-  @type stop_deployment_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -222,7 +222,7 @@ defmodule AWS.AppConfig do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -230,11 +230,11 @@ defmodule AWS.AppConfig do
 
       list_deployments_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_deployments_request() :: %{String.t() | Atom.t() => any()}
+  @type list_deployments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -242,16 +242,16 @@ defmodule AWS.AppConfig do
 
       extension() :: %{
         optional("Actions") => map(),
-        optional("Arn") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("Id") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Id") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
         optional("Parameters") => map(),
         optional("VersionNumber") => integer()
       }
 
   """
-  @type extension() :: %{String.t() | Atom.t() => any()}
+  @type extension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -259,8 +259,8 @@ defmodule AWS.AppConfig do
 
       deployment_summary() :: %{
         "CompletedAt" => non_neg_integer(),
-        "ConfigurationName" => String.t() | Atom.t(),
-        "ConfigurationVersion" => String.t() | Atom.t(),
+        "ConfigurationName" => String.t() | atom(),
+        "ConfigurationVersion" => String.t() | atom(),
         "DeploymentDurationInMinutes" => integer(),
         "DeploymentNumber" => integer(),
         "FinalBakeTimeInMinutes" => integer(),
@@ -269,11 +269,11 @@ defmodule AWS.AppConfig do
         "PercentageComplete" => float(),
         "StartedAt" => non_neg_integer(),
         "State" => list(any()),
-        "VersionLabel" => String.t() | Atom.t()
+        "VersionLabel" => String.t() | atom()
       }
 
   """
-  @type deployment_summary() :: %{String.t() | Atom.t() => any()}
+  @type deployment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -281,58 +281,58 @@ defmodule AWS.AppConfig do
 
       extension_associations() :: %{
         optional("Items") => list(extension_association_summary()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type extension_associations() :: %{String.t() | Atom.t() => any()}
+  @type extension_associations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       deployment() :: %{
-        optional("ApplicationId") => String.t() | Atom.t(),
+        optional("ApplicationId") => String.t() | atom(),
         optional("AppliedExtensions") => list(applied_extension()),
         optional("CompletedAt") => non_neg_integer(),
-        optional("ConfigurationLocationUri") => String.t() | Atom.t(),
-        optional("ConfigurationName") => String.t() | Atom.t(),
-        optional("ConfigurationProfileId") => String.t() | Atom.t(),
-        optional("ConfigurationVersion") => String.t() | Atom.t(),
+        optional("ConfigurationLocationUri") => String.t() | atom(),
+        optional("ConfigurationName") => String.t() | atom(),
+        optional("ConfigurationProfileId") => String.t() | atom(),
+        optional("ConfigurationVersion") => String.t() | atom(),
         optional("DeploymentDurationInMinutes") => integer(),
         optional("DeploymentNumber") => integer(),
-        optional("DeploymentStrategyId") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("EnvironmentId") => String.t() | Atom.t(),
+        optional("DeploymentStrategyId") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("EnvironmentId") => String.t() | atom(),
         optional("EventLog") => list(deployment_event()),
         optional("FinalBakeTimeInMinutes") => integer(),
         optional("GrowthFactor") => float(),
         optional("GrowthType") => list(any()),
-        optional("KmsKeyArn") => String.t() | Atom.t(),
-        optional("KmsKeyIdentifier") => String.t() | Atom.t(),
+        optional("KmsKeyArn") => String.t() | atom(),
+        optional("KmsKeyIdentifier") => String.t() | atom(),
         optional("PercentageComplete") => float(),
         optional("StartedAt") => non_neg_integer(),
         optional("State") => list(any()),
-        optional("VersionLabel") => String.t() | Atom.t()
+        optional("VersionLabel") => String.t() | atom()
       }
 
   """
-  @type deployment() :: %{String.t() | Atom.t() => any()}
+  @type deployment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_configuration_detail() :: %{
-        "Constraint" => String.t() | Atom.t(),
-        "Location" => String.t() | Atom.t(),
-        "Reason" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Constraint" => String.t() | atom(),
+        "Location" => String.t() | atom(),
+        "Reason" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type invalid_configuration_detail() :: %{String.t() | Atom.t() => any()}
+  @type invalid_configuration_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -348,23 +348,23 @@ defmodule AWS.AppConfig do
   ## Example:
 
       get_configuration_request() :: %{
-        optional("ClientConfigurationVersion") => String.t() | Atom.t(),
-        required("ClientId") => String.t() | Atom.t()
+        optional("ClientConfigurationVersion") => String.t() | atom(),
+        required("ClientId") => String.t() | atom()
       }
 
   """
-  @type get_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type get_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validate_configuration_request() :: %{
-        required("ConfigurationVersion") => String.t() | Atom.t()
+        required("ConfigurationVersion") => String.t() | atom()
       }
 
   """
-  @type validate_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type validate_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -375,22 +375,22 @@ defmodule AWS.AppConfig do
       }
 
   """
-  @type resource_tags() :: %{String.t() | Atom.t() => any()}
+  @type resource_tags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_hosted_configuration_version_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("LatestVersionNumber") => integer(),
-        optional("VersionLabel") => String.t() | Atom.t(),
+        optional("VersionLabel") => String.t() | atom(),
         required("Content") => binary(),
-        required("ContentType") => String.t() | Atom.t()
+        required("ContentType") => String.t() | atom()
       }
 
   """
-  @type create_hosted_configuration_version_request() :: %{String.t() | Atom.t() => any()}
+  @type create_hosted_configuration_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -406,15 +406,15 @@ defmodule AWS.AppConfig do
   ## Example:
 
       update_configuration_profile_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("KmsKeyIdentifier") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("RetrievalRoleArn") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("KmsKeyIdentifier") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("RetrievalRoleArn") => String.t() | atom(),
         optional("Validators") => list(validator())
       }
 
   """
-  @type update_configuration_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type update_configuration_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -422,14 +422,14 @@ defmodule AWS.AppConfig do
 
       update_deployment_strategy_request() :: %{
         optional("DeploymentDurationInMinutes") => integer(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("FinalBakeTimeInMinutes") => integer(),
         optional("GrowthFactor") => float(),
         optional("GrowthType") => list(any())
       }
 
   """
-  @type update_deployment_strategy_request() :: %{String.t() | Atom.t() => any()}
+  @type update_deployment_strategy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -437,17 +437,17 @@ defmodule AWS.AppConfig do
 
       deployment_strategy() :: %{
         optional("DeploymentDurationInMinutes") => integer(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("FinalBakeTimeInMinutes") => integer(),
         optional("GrowthFactor") => float(),
         optional("GrowthType") => list(any()),
-        optional("Id") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
+        optional("Id") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
         optional("ReplicateTo") => list(any())
       }
 
   """
-  @type deployment_strategy() :: %{String.t() | Atom.t() => any()}
+  @type deployment_strategy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -459,33 +459,33 @@ defmodule AWS.AppConfig do
       }
 
   """
-  @type deletion_protection_settings() :: %{String.t() | Atom.t() => any()}
+  @type deletion_protection_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       configuration() :: %{
-        optional("ConfigurationVersion") => String.t() | Atom.t(),
+        optional("ConfigurationVersion") => String.t() | atom(),
         optional("Content") => binary(),
-        optional("ContentType") => String.t() | Atom.t()
+        optional("ContentType") => String.t() | atom()
       }
 
   """
-  @type configuration() :: %{String.t() | Atom.t() => any()}
+  @type configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       extension_association_summary() :: %{
-        "ExtensionArn" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t()
+        "ExtensionArn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
       }
 
   """
-  @type extension_association_summary() :: %{String.t() | Atom.t() => any()}
+  @type extension_association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -493,63 +493,63 @@ defmodule AWS.AppConfig do
 
       hosted_configuration_versions() :: %{
         optional("Items") => list(hosted_configuration_version_summary()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type hosted_configuration_versions() :: %{String.t() | Atom.t() => any()}
+  @type hosted_configuration_versions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       applied_extension() :: %{
-        "ExtensionAssociationId" => String.t() | Atom.t(),
-        "ExtensionId" => String.t() | Atom.t(),
+        "ExtensionAssociationId" => String.t() | atom(),
+        "ExtensionId" => String.t() | atom(),
         "Parameters" => map(),
         "VersionNumber" => integer()
       }
 
   """
-  @type applied_extension() :: %{String.t() | Atom.t() => any()}
+  @type applied_extension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       monitor() :: %{
-        "AlarmArn" => String.t() | Atom.t(),
-        "AlarmRoleArn" => String.t() | Atom.t()
+        "AlarmArn" => String.t() | atom(),
+        "AlarmRoleArn" => String.t() | atom()
       }
 
   """
-  @type monitor() :: %{String.t() | Atom.t() => any()}
+  @type monitor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       extension_summary() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "VersionNumber" => integer()
       }
 
   """
-  @type extension_summary() :: %{String.t() | Atom.t() => any()}
+  @type extension_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -565,23 +565,23 @@ defmodule AWS.AppConfig do
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceName" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -590,39 +590,39 @@ defmodule AWS.AppConfig do
       payload_too_large_exception() :: %{
         "Limit" => float(),
         "Measure" => list(any()),
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "Size" => float()
       }
 
   """
-  @type payload_too_large_exception() :: %{String.t() | Atom.t() => any()}
+  @type payload_too_large_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       environment() :: %{
-        optional("ApplicationId") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("Id") => String.t() | Atom.t(),
+        optional("ApplicationId") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Id") => String.t() | atom(),
         optional("Monitors") => list(monitor()),
-        optional("Name") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
         optional("State") => list(any())
       }
 
   """
-  @type environment() :: %{String.t() | Atom.t() => any()}
+  @type environment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -642,20 +642,20 @@ defmodule AWS.AppConfig do
       }
 
   """
-  @type delete_configuration_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_configuration_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       application() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("Id") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        optional("Id") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type application() :: %{String.t() | Atom.t() => any()}
+  @type application() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -666,71 +666,71 @@ defmodule AWS.AppConfig do
       }
 
   """
-  @type update_extension_association_request() :: %{String.t() | Atom.t() => any()}
+  @type update_extension_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       parameter() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "Dynamic" => boolean(),
         "Required" => boolean()
       }
 
   """
-  @type parameter() :: %{String.t() | Atom.t() => any()}
+  @type parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_deployment_strategy_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("FinalBakeTimeInMinutes") => integer(),
         optional("GrowthType") => list(any()),
         optional("ReplicateTo") => list(any()),
         optional("Tags") => map(),
         required("DeploymentDurationInMinutes") => integer(),
         required("GrowthFactor") => float(),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_deployment_strategy_request() :: %{String.t() | Atom.t() => any()}
+  @type create_deployment_strategy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       configuration_profile() :: %{
-        optional("ApplicationId") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("Id") => String.t() | Atom.t(),
-        optional("KmsKeyArn") => String.t() | Atom.t(),
-        optional("KmsKeyIdentifier") => String.t() | Atom.t(),
-        optional("LocationUri") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("RetrievalRoleArn") => String.t() | Atom.t(),
-        optional("Type") => String.t() | Atom.t(),
+        optional("ApplicationId") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Id") => String.t() | atom(),
+        optional("KmsKeyArn") => String.t() | atom(),
+        optional("KmsKeyIdentifier") => String.t() | atom(),
+        optional("LocationUri") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("RetrievalRoleArn") => String.t() | atom(),
+        optional("Type") => String.t() | atom(),
         optional("Validators") => list(validator())
       }
 
   """
-  @type configuration_profile() :: %{String.t() | Atom.t() => any()}
+  @type configuration_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_application_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_application_request() :: %{String.t() | Atom.t() => any()}
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -738,11 +738,11 @@ defmodule AWS.AppConfig do
 
       list_environments_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_environments_request() :: %{String.t() | Atom.t() => any()}
+  @type list_environments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -753,7 +753,7 @@ defmodule AWS.AppConfig do
       }
 
   """
-  @type get_extension_request() :: %{String.t() | Atom.t() => any()}
+  @type get_extension_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -769,17 +769,17 @@ defmodule AWS.AppConfig do
   ## Example:
 
       action_invocation() :: %{
-        "ActionName" => String.t() | Atom.t(),
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "ExtensionIdentifier" => String.t() | Atom.t(),
-        "InvocationId" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
-        "Uri" => String.t() | Atom.t()
+        "ActionName" => String.t() | atom(),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ExtensionIdentifier" => String.t() | atom(),
+        "InvocationId" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "Uri" => String.t() | atom()
       }
 
   """
-  @type action_invocation() :: %{String.t() | Atom.t() => any()}
+  @type action_invocation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -790,7 +790,7 @@ defmodule AWS.AppConfig do
       }
 
   """
-  @type update_account_settings_request() :: %{String.t() | Atom.t() => any()}
+  @type update_account_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -798,11 +798,11 @@ defmodule AWS.AppConfig do
 
       environments() :: %{
         optional("Items") => list(environment()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type environments() :: %{String.t() | Atom.t() => any()}
+  @type environments() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -828,51 +828,51 @@ defmodule AWS.AppConfig do
 
       deployment_strategies() :: %{
         optional("Items") => list(deployment_strategy()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type deployment_strategies() :: %{String.t() | Atom.t() => any()}
+  @type deployment_strategies() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       hosted_configuration_version_summary() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "ConfigurationProfileId" => String.t() | Atom.t(),
-        "ContentType" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "KmsKeyArn" => String.t() | Atom.t(),
-        "VersionLabel" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "ConfigurationProfileId" => String.t() | atom(),
+        "ContentType" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "KmsKeyArn" => String.t() | atom(),
+        "VersionLabel" => String.t() | atom(),
         "VersionNumber" => integer()
       }
 
   """
-  @type hosted_configuration_version_summary() :: %{String.t() | Atom.t() => any()}
+  @type hosted_configuration_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_application_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_application_request() :: %{String.t() | Atom.t() => any()}
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -880,12 +880,12 @@ defmodule AWS.AppConfig do
 
       list_configuration_profiles_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("Type") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("Type") => String.t() | atom()
       }
 
   """
-  @type list_configuration_profiles_request() :: %{String.t() | Atom.t() => any()}
+  @type list_configuration_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -896,7 +896,7 @@ defmodule AWS.AppConfig do
       }
 
   """
-  @type delete_environment_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_environment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -906,12 +906,12 @@ defmodule AWS.AppConfig do
         optional("ExtensionVersionNumber") => integer(),
         optional("Parameters") => map(),
         optional("Tags") => map(),
-        required("ExtensionIdentifier") => String.t() | Atom.t(),
-        required("ResourceIdentifier") => String.t() | Atom.t()
+        required("ExtensionIdentifier") => String.t() | atom(),
+        required("ResourceIdentifier") => String.t() | atom()
       }
 
   """
-  @type create_extension_association_request() :: %{String.t() | Atom.t() => any()}
+  @type create_extension_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -919,25 +919,25 @@ defmodule AWS.AppConfig do
 
       configuration_profiles() :: %{
         optional("Items") => list(configuration_profile_summary()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type configuration_profiles() :: %{String.t() | Atom.t() => any()}
+  @type configuration_profiles() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       action() :: %{
-        "Description" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
-        "Uri" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "Uri" => String.t() | atom()
       }
 
   """
-  @type action() :: %{String.t() | Atom.t() => any()}
+  @type action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -945,11 +945,11 @@ defmodule AWS.AppConfig do
 
       list_applications_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_applications_request() :: %{String.t() | Atom.t() => any()}
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -957,11 +957,11 @@ defmodule AWS.AppConfig do
 
       extensions() :: %{
         optional("Items") => list(extension_summary()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type extensions() :: %{String.t() | Atom.t() => any()}
+  @type extensions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -972,25 +972,25 @@ defmodule AWS.AppConfig do
       }
 
   """
-  @type account_settings() :: %{String.t() | Atom.t() => any()}
+  @type account_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_configuration_profile_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("KmsKeyIdentifier") => String.t() | Atom.t(),
-        optional("RetrievalRoleArn") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("KmsKeyIdentifier") => String.t() | atom(),
+        optional("RetrievalRoleArn") => String.t() | atom(),
         optional("Tags") => map(),
-        optional("Type") => String.t() | Atom.t(),
+        optional("Type") => String.t() | atom(),
         optional("Validators") => list(validator()),
-        required("LocationUri") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        required("LocationUri") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_configuration_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type create_configuration_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1006,15 +1006,15 @@ defmodule AWS.AppConfig do
   ## Example:
 
       list_extension_associations_request() :: %{
-        optional("ExtensionIdentifier") => String.t() | Atom.t(),
+        optional("ExtensionIdentifier") => String.t() | atom(),
         optional("ExtensionVersionNumber") => integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("ResourceIdentifier") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceIdentifier") => String.t() | atom()
       }
 
   """
-  @type list_extension_associations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_extension_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1030,16 +1030,16 @@ defmodule AWS.AppConfig do
   ## Example:
 
       create_extension_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("LatestVersionNumber") => integer(),
         optional("Parameters") => map(),
         optional("Tags") => map(),
         required("Actions") => map(),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_extension_request() :: %{String.t() | Atom.t() => any()}
+  @type create_extension_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1047,11 +1047,11 @@ defmodule AWS.AppConfig do
 
       list_deployment_strategies_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_deployment_strategies_request() :: %{String.t() | Atom.t() => any()}
+  @type list_deployment_strategies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1068,42 +1068,42 @@ defmodule AWS.AppConfig do
 
       bad_request_exception() :: %{
         "Details" => list(),
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "Reason" => list(any())
       }
 
   """
-  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       hosted_configuration_version() :: %{
-        optional("ApplicationId") => String.t() | Atom.t(),
-        optional("ConfigurationProfileId") => String.t() | Atom.t(),
+        optional("ApplicationId") => String.t() | atom(),
+        optional("ConfigurationProfileId") => String.t() | atom(),
         optional("Content") => binary(),
-        optional("ContentType") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("KmsKeyArn") => String.t() | Atom.t(),
-        optional("VersionLabel") => String.t() | Atom.t(),
+        optional("ContentType") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("KmsKeyArn") => String.t() | atom(),
+        optional("VersionLabel") => String.t() | atom(),
         optional("VersionNumber") => integer()
       }
 
   """
-  @type hosted_configuration_version() :: %{String.t() | Atom.t() => any()}
+  @type hosted_configuration_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validator() :: %{
-        "Content" => String.t() | Atom.t(),
+        "Content" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type validator() :: %{String.t() | Atom.t() => any()}
+  @type validator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1111,27 +1111,27 @@ defmodule AWS.AppConfig do
 
       update_extension_request() :: %{
         optional("Actions") => map(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("Parameters") => map(),
         optional("VersionNumber") => integer()
       }
 
   """
-  @type update_extension_request() :: %{String.t() | Atom.t() => any()}
+  @type update_extension_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_environment_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("Monitors") => list(monitor()),
         optional("Tags") => map(),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_environment_request() :: %{String.t() | Atom.t() => any()}
+  @type create_environment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1139,27 +1139,27 @@ defmodule AWS.AppConfig do
 
       deployment_event() :: %{
         "ActionInvocations" => list(action_invocation()),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "EventType" => list(any()),
         "OccurredAt" => non_neg_integer(),
         "TriggeredBy" => list(any())
       }
 
   """
-  @type deployment_event() :: %{String.t() | Atom.t() => any()}
+  @type deployment_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_environment_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("Monitors") => list(monitor()),
-        optional("Name") => String.t() | Atom.t()
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_environment_request() :: %{String.t() | Atom.t() => any()}
+  @type update_environment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1170,23 +1170,23 @@ defmodule AWS.AppConfig do
       }
 
   """
-  @type delete_extension_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_extension_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       configuration_profile_summary() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LocationUri" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LocationUri" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom(),
         "ValidatorTypes" => list(list(any())())
       }
 
   """
-  @type configuration_profile_summary() :: %{String.t() | Atom.t() => any()}
+  @type configuration_profile_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1194,11 +1194,11 @@ defmodule AWS.AppConfig do
 
       deployments() :: %{
         optional("Items") => list(deployment_summary()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type deployments() :: %{String.t() | Atom.t() => any()}
+  @type deployments() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1214,17 +1214,17 @@ defmodule AWS.AppConfig do
   ## Example:
 
       start_deployment_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("DynamicExtensionParameters") => map(),
-        optional("KmsKeyIdentifier") => String.t() | Atom.t(),
+        optional("KmsKeyIdentifier") => String.t() | atom(),
         optional("Tags") => map(),
-        required("ConfigurationProfileId") => String.t() | Atom.t(),
-        required("ConfigurationVersion") => String.t() | Atom.t(),
-        required("DeploymentStrategyId") => String.t() | Atom.t()
+        required("ConfigurationProfileId") => String.t() | atom(),
+        required("ConfigurationVersion") => String.t() | atom(),
+        required("DeploymentStrategyId") => String.t() | atom()
       }
 
   """
-  @type start_deployment_request() :: %{String.t() | Atom.t() => any()}
+  @type start_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1232,28 +1232,28 @@ defmodule AWS.AppConfig do
 
       list_hosted_configuration_versions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("VersionLabel") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("VersionLabel") => String.t() | atom()
       }
 
   """
-  @type list_hosted_configuration_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_hosted_configuration_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       extension_association() :: %{
-        optional("Arn") => String.t() | Atom.t(),
-        optional("ExtensionArn") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
+        optional("ExtensionArn") => String.t() | atom(),
         optional("ExtensionVersionNumber") => integer(),
-        optional("Id") => String.t() | Atom.t(),
+        optional("Id") => String.t() | atom(),
         optional("Parameters") => map(),
-        optional("ResourceArn") => String.t() | Atom.t()
+        optional("ResourceArn") => String.t() | atom()
       }
 
   """
-  @type extension_association() :: %{String.t() | Atom.t() => any()}
+  @type extension_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1532,7 +1532,7 @@ defmodule AWS.AppConfig do
   """
   @spec create_configuration_profile(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_configuration_profile_request(),
           list()
         ) ::
@@ -1611,7 +1611,7 @@ defmodule AWS.AppConfig do
   configuration deployment. If an alarm is triggered, the system rolls back the
   configuration.
   """
-  @spec create_environment(map(), String.t() | Atom.t(), create_environment_request(), list()) ::
+  @spec create_environment(map(), String.t() | atom(), create_environment_request(), list()) ::
           {:ok, environment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1765,8 +1765,8 @@ defmodule AWS.AppConfig do
   """
   @spec create_hosted_configuration_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_hosted_configuration_version_request(),
           list()
         ) ::
@@ -1829,7 +1829,7 @@ defmodule AWS.AppConfig do
   @doc """
   Deletes an application.
   """
-  @spec delete_application(map(), String.t() | Atom.t(), delete_application_request(), list()) ::
+  @spec delete_application(map(), String.t() | atom(), delete_application_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1864,8 +1864,8 @@ defmodule AWS.AppConfig do
   """
   @spec delete_configuration_profile(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_configuration_profile_request(),
           list()
         ) ::
@@ -1912,7 +1912,7 @@ defmodule AWS.AppConfig do
   """
   @spec delete_deployment_strategy(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_deployment_strategy_request(),
           list()
         ) ::
@@ -1949,8 +1949,8 @@ defmodule AWS.AppConfig do
   """
   @spec delete_environment(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_environment_request(),
           list()
         ) ::
@@ -1992,7 +1992,7 @@ defmodule AWS.AppConfig do
   You must delete all associations to an
   extension before you delete the extension.
   """
-  @spec delete_extension(map(), String.t() | Atom.t(), delete_extension_request(), list()) ::
+  @spec delete_extension(map(), String.t() | atom(), delete_extension_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2031,7 +2031,7 @@ defmodule AWS.AppConfig do
   """
   @spec delete_extension_association(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_extension_association_request(),
           list()
         ) ::
@@ -2071,9 +2071,9 @@ defmodule AWS.AppConfig do
   """
   @spec delete_hosted_configuration_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_hosted_configuration_version_request(),
           list()
         ) ::
@@ -2133,7 +2133,7 @@ defmodule AWS.AppConfig do
   @doc """
   Retrieves information about an application.
   """
-  @spec get_application(map(), String.t() | Atom.t(), list()) ::
+  @spec get_application(map(), String.t() | atom(), list()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2167,11 +2167,11 @@ defmodule AWS.AppConfig do
   """
   @spec get_configuration(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, configuration(), any()}
@@ -2225,7 +2225,7 @@ defmodule AWS.AppConfig do
   @doc """
   Retrieves information about a configuration profile.
   """
-  @spec get_configuration_profile(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_configuration_profile(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, configuration_profile(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2252,9 +2252,9 @@ defmodule AWS.AppConfig do
   """
   @spec get_deployment(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, deployment(), any()}
@@ -2291,7 +2291,7 @@ defmodule AWS.AppConfig do
   percentage
   grows, and bake time.
   """
-  @spec get_deployment_strategy(map(), String.t() | Atom.t(), list()) ::
+  @spec get_deployment_strategy(map(), String.t() | atom(), list()) ::
           {:ok, deployment_strategy(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2317,7 +2317,7 @@ defmodule AWS.AppConfig do
   an alarm is triggered during a deployment, AppConfig roles back the
   configuration.
   """
-  @spec get_environment(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_environment(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, environment(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2337,7 +2337,7 @@ defmodule AWS.AppConfig do
   @doc """
   Returns information about an AppConfig extension.
   """
-  @spec get_extension(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec get_extension(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, extension(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2371,7 +2371,7 @@ defmodule AWS.AppConfig do
   information about extensions and associations, see [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
   """
-  @spec get_extension_association(map(), String.t() | Atom.t(), list()) ::
+  @spec get_extension_association(map(), String.t() | atom(), list()) ::
           {:ok, extension_association(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2391,9 +2391,9 @@ defmodule AWS.AppConfig do
   """
   @spec get_hosted_configuration_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, hosted_configuration_version(), any()}
@@ -2436,7 +2436,7 @@ defmodule AWS.AppConfig do
   @doc """
   Lists all applications in your Amazon Web Services account.
   """
-  @spec list_applications(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_applications(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, applications(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2470,10 +2470,10 @@ defmodule AWS.AppConfig do
   """
   @spec list_configuration_profiles(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, configuration_profiles(), any()}
@@ -2523,8 +2523,8 @@ defmodule AWS.AppConfig do
   """
   @spec list_deployment_strategies(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, deployment_strategies(), any()}
@@ -2565,10 +2565,10 @@ defmodule AWS.AppConfig do
   """
   @spec list_deployments(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, deployments(), any()}
@@ -2613,9 +2613,9 @@ defmodule AWS.AppConfig do
   """
   @spec list_environments(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, environments(), any()}
@@ -2661,11 +2661,11 @@ defmodule AWS.AppConfig do
   """
   @spec list_extension_associations(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, extension_associations(), any()}
@@ -2734,9 +2734,9 @@ defmodule AWS.AppConfig do
   """
   @spec list_extensions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, extensions(), any()}
@@ -2786,11 +2786,11 @@ defmodule AWS.AppConfig do
   """
   @spec list_hosted_configuration_versions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, hosted_configuration_versions(), any()}
@@ -2841,7 +2841,7 @@ defmodule AWS.AppConfig do
   @doc """
   Retrieves the list of key-value tags assigned to the resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, resource_tags(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2861,8 +2861,8 @@ defmodule AWS.AppConfig do
   """
   @spec start_deployment(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           start_deployment_request(),
           list()
         ) ::
@@ -2905,9 +2905,9 @@ defmodule AWS.AppConfig do
   """
   @spec stop_deployment(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           stop_deployment_request(),
           list()
         ) ::
@@ -2957,7 +2957,7 @@ defmodule AWS.AppConfig do
   your AppConfig resources. Each tag consists of a key and an optional value, both
   of which you define. You can specify a maximum of 50 tags for a resource.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2986,7 +2986,7 @@ defmodule AWS.AppConfig do
   @doc """
   Deletes a tag key and value from an AppConfig resource.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3049,7 +3049,7 @@ defmodule AWS.AppConfig do
   @doc """
   Updates an application.
   """
-  @spec update_application(map(), String.t() | Atom.t(), update_application_request(), list()) ::
+  @spec update_application(map(), String.t() | atom(), update_application_request(), list()) ::
           {:ok, application(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3080,8 +3080,8 @@ defmodule AWS.AppConfig do
   """
   @spec update_configuration_profile(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_configuration_profile_request(),
           list()
         ) ::
@@ -3123,7 +3123,7 @@ defmodule AWS.AppConfig do
   """
   @spec update_deployment_strategy(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_deployment_strategy_request(),
           list()
         ) ::
@@ -3157,8 +3157,8 @@ defmodule AWS.AppConfig do
   """
   @spec update_environment(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_environment_request(),
           list()
         ) ::
@@ -3196,7 +3196,7 @@ defmodule AWS.AppConfig do
   [Extending workflows](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)
   in the *AppConfig User Guide*.
   """
-  @spec update_extension(map(), String.t() | Atom.t(), update_extension_request(), list()) ::
+  @spec update_extension(map(), String.t() | atom(), update_extension_request(), list()) ::
           {:ok, extension(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3231,7 +3231,7 @@ defmodule AWS.AppConfig do
   """
   @spec update_extension_association(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_extension_association_request(),
           list()
         ) ::
@@ -3270,8 +3270,8 @@ defmodule AWS.AppConfig do
   """
   @spec validate_configuration(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           validate_configuration_request(),
           list()
         ) ::

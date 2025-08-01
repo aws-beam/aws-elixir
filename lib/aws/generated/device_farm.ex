@@ -32,30 +32,30 @@ defmodule AWS.DeviceFarm do
   ## Example:
       
       update_test_grid_project_request() :: %{
-        optional("description") => String.t() | Atom.t(),
-        optional("name") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
         optional("vpcConfig") => test_grid_vpc_config(),
-        required("projectArn") => String.t() | Atom.t()
+        required("projectArn") => String.t() | atom()
       }
       
   """
-  @type update_test_grid_project_request() :: %{String.t() | Atom.t() => any()}
+  @type update_test_grid_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       device_pool() :: %{
-        "arn" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "maxDevices" => integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "rules" => list(rule()),
         "type" => list(any())
       }
       
   """
-  @type device_pool() :: %{String.t() | Atom.t() => any()}
+  @type device_pool() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -66,7 +66,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type create_vpce_configuration_result() :: %{String.t() | Atom.t() => any()}
+  @type create_vpce_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -75,18 +75,18 @@ defmodule AWS.DeviceFarm do
       create_remote_access_session_configuration() :: %{
         "billingMethod" => list(any()),
         "deviceProxy" => device_proxy(),
-        "vpceConfigurationArns" => list(String.t() | Atom.t())
+        "vpceConfigurationArns" => list(String.t() | atom())
       }
       
   """
-  @type create_remote_access_session_configuration() :: %{String.t() | Atom.t() => any()}
+  @type create_remote_access_session_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_network_profile_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("downlinkBandwidthBits") => float(),
         optional("downlinkDelayMs") => float(),
         optional("downlinkJitterMs") => float(),
@@ -96,24 +96,24 @@ defmodule AWS.DeviceFarm do
         optional("uplinkDelayMs") => float(),
         optional("uplinkJitterMs") => float(),
         optional("uplinkLossPercent") => integer(),
-        required("name") => String.t() | Atom.t(),
-        required("projectArn") => String.t() | Atom.t()
+        required("name") => String.t() | atom(),
+        required("projectArn") => String.t() | atom()
       }
       
   """
-  @type create_network_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type create_network_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tests_result() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "tests" => list(test())
       }
       
   """
-  @type list_tests_result() :: %{String.t() | Atom.t() => any()}
+  @type list_tests_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -121,111 +121,111 @@ defmodule AWS.DeviceFarm do
       
       list_instance_profiles_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_instance_profiles_request() :: %{String.t() | Atom.t() => any()}
+  @type list_instance_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_device_pool_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("maxDevices") => integer(),
-        required("name") => String.t() | Atom.t(),
-        required("projectArn") => String.t() | Atom.t(),
+        required("name") => String.t() | atom(),
+        required("projectArn") => String.t() | atom(),
         required("rules") => list(rule())
       }
       
   """
-  @type create_device_pool_request() :: %{String.t() | Atom.t() => any()}
+  @type create_device_pool_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_suite_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type get_suite_request() :: %{String.t() | Atom.t() => any()}
+  @type get_suite_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_upload_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type get_upload_request() :: %{String.t() | Atom.t() => any()}
+  @type get_upload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_devices_request() :: %{
-        optional("arn") => String.t() | Atom.t(),
+        optional("arn") => String.t() | atom(),
         optional("filters") => list(device_filter()),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_devices_request() :: %{String.t() | Atom.t() => any()}
+  @type list_devices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
+        required("ResourceARN") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_remote_access_session_request() :: %{
-        optional("clientId") => String.t() | Atom.t(),
+        optional("clientId") => String.t() | atom(),
         optional("configuration") => create_remote_access_session_configuration(),
-        optional("instanceArn") => String.t() | Atom.t(),
+        optional("instanceArn") => String.t() | atom(),
         optional("interactionMode") => list(any()),
-        optional("name") => String.t() | Atom.t(),
+        optional("name") => String.t() | atom(),
         optional("remoteDebugEnabled") => boolean(),
-        optional("remoteRecordAppArn") => String.t() | Atom.t(),
+        optional("remoteRecordAppArn") => String.t() | atom(),
         optional("remoteRecordEnabled") => boolean(),
         optional("skipAppResign") => boolean(),
-        optional("sshPublicKey") => String.t() | Atom.t(),
-        required("deviceArn") => String.t() | Atom.t(),
-        required("projectArn") => String.t() | Atom.t()
+        optional("sshPublicKey") => String.t() | atom(),
+        required("deviceArn") => String.t() | atom(),
+        required("projectArn") => String.t() | atom()
       }
       
   """
-  @type create_remote_access_session_request() :: %{String.t() | Atom.t() => any()}
+  @type create_remote_access_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_profile() :: %{
-        "arn" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "excludeAppPackagesFromCleanup" => list(String.t() | Atom.t()),
-        "name" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "excludeAppPackagesFromCleanup" => list(String.t() | atom()),
+        "name" => String.t() | atom(),
         "packageCleanup" => boolean(),
         "rebootAfterUse" => boolean()
       }
       
   """
-  @type instance_profile() :: %{String.t() | Atom.t() => any()}
+  @type instance_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -233,12 +233,12 @@ defmodule AWS.DeviceFarm do
       
       list_test_grid_session_actions_request() :: %{
         optional("maxResult") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("sessionArn") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("sessionArn") => String.t() | atom()
       }
       
   """
-  @type list_test_grid_session_actions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_test_grid_session_actions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -246,58 +246,58 @@ defmodule AWS.DeviceFarm do
       
       list_test_grid_session_artifacts_request() :: %{
         optional("maxResult") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("type") => list(any()),
-        required("sessionArn") => String.t() | Atom.t()
+        required("sessionArn") => String.t() | atom()
       }
       
   """
-  @type list_test_grid_session_artifacts_request() :: %{String.t() | Atom.t() => any()}
+  @type list_test_grid_session_artifacts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_upload_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type delete_upload_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_upload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_run_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type get_run_request() :: %{String.t() | Atom.t() => any()}
+  @type get_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_remote_access_session_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type delete_remote_access_session_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_remote_access_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       suite() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "counters" => counters(),
         "created" => non_neg_integer(),
         "deviceMinutes" => device_minutes(),
-        "message" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "result" => list(any()),
         "started" => non_neg_integer(),
         "status" => list(any()),
@@ -306,31 +306,31 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type suite() :: %{String.t() | Atom.t() => any()}
+  @type suite() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_operation_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceName" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resourceName" => String.t() | atom()
       }
       
   """
-  @type tag_operation_exception() :: %{String.t() | Atom.t() => any()}
+  @type tag_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_unique_problems_request() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
-        required("arn") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type list_unique_problems_request() :: %{String.t() | Atom.t() => any()}
+  @type list_unique_problems_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -338,36 +338,36 @@ defmodule AWS.DeviceFarm do
       
       list_jobs_result() :: %{
         "jobs" => list(job()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_jobs_result() :: %{String.t() | Atom.t() => any()}
+  @type list_jobs_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_vpce_configuration_request() :: %{
-        optional("vpceConfigurationDescription") => String.t() | Atom.t(),
-        required("serviceDnsName") => String.t() | Atom.t(),
-        required("vpceConfigurationName") => String.t() | Atom.t(),
-        required("vpceServiceName") => String.t() | Atom.t()
+        optional("vpceConfigurationDescription") => String.t() | atom(),
+        required("serviceDnsName") => String.t() | atom(),
+        required("vpceConfigurationName") => String.t() | atom(),
+        required("vpceServiceName") => String.t() | atom()
       }
       
   """
-  @type create_vpce_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type create_vpce_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       not_eligible_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type not_eligible_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_eligible_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -383,30 +383,30 @@ defmodule AWS.DeviceFarm do
   ## Example:
       
       schedule_run_request() :: %{
-        optional("appArn") => String.t() | Atom.t(),
+        optional("appArn") => String.t() | atom(),
         optional("configuration") => schedule_run_configuration(),
-        optional("devicePoolArn") => String.t() | Atom.t(),
+        optional("devicePoolArn") => String.t() | atom(),
         optional("deviceSelectionConfiguration") => device_selection_configuration(),
         optional("executionConfiguration") => execution_configuration(),
-        optional("name") => String.t() | Atom.t(),
-        required("projectArn") => String.t() | Atom.t(),
+        optional("name") => String.t() | atom(),
+        required("projectArn") => String.t() | atom(),
         required("test") => schedule_run_test()
       }
       
   """
-  @type schedule_run_request() :: %{String.t() | Atom.t() => any()}
+  @type schedule_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       renew_offering_request() :: %{
-        required("offeringId") => String.t() | Atom.t(),
+        required("offeringId") => String.t() | atom(),
         required("quantity") => integer()
       }
       
   """
-  @type renew_offering_request() :: %{String.t() | Atom.t() => any()}
+  @type renew_offering_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -417,7 +417,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type update_upload_result() :: %{String.t() | Atom.t() => any()}
+  @type update_upload_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -425,11 +425,11 @@ defmodule AWS.DeviceFarm do
       
       list_network_profiles_result() :: %{
         "networkProfiles" => list(network_profile()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_network_profiles_result() :: %{String.t() | Atom.t() => any()}
+  @type list_network_profiles_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -445,12 +445,12 @@ defmodule AWS.DeviceFarm do
   ## Example:
       
       list_offering_promotions_result() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "offeringPromotions" => list(offering_promotion())
       }
       
   """
-  @type list_offering_promotions_result() :: %{String.t() | Atom.t() => any()}
+  @type list_offering_promotions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -462,19 +462,19 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type monetary_amount() :: %{String.t() | Atom.t() => any()}
+  @type monetary_amount() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_jobs_request() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
-        required("arn") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type list_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -485,7 +485,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type schedule_run_result() :: %{String.t() | Atom.t() => any()}
+  @type schedule_run_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -493,11 +493,11 @@ defmodule AWS.DeviceFarm do
       
       list_devices_result() :: %{
         "devices" => list(device()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_devices_result() :: %{String.t() | Atom.t() => any()}
+  @type list_devices_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -518,31 +518,31 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type device_selection_configuration() :: %{String.t() | Atom.t() => any()}
+  @type device_selection_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_test_grid_session_request() :: %{
-        optional("projectArn") => String.t() | Atom.t(),
-        optional("sessionArn") => String.t() | Atom.t(),
-        optional("sessionId") => String.t() | Atom.t()
+        optional("projectArn") => String.t() | atom(),
+        optional("sessionArn") => String.t() | atom(),
+        optional("sessionId") => String.t() | atom()
       }
       
   """
-  @type get_test_grid_session_request() :: %{String.t() | Atom.t() => any()}
+  @type get_test_grid_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_offerings_request() :: %{
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_offerings_request() :: %{String.t() | Atom.t() => any()}
+  @type list_offerings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -562,18 +562,18 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type get_remote_access_session_result() :: %{String.t() | Atom.t() => any()}
+  @type get_remote_access_session_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_network_profile_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type delete_network_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_network_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -584,18 +584,18 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type get_vpce_configuration_result() :: %{String.t() | Atom.t() => any()}
+  @type get_vpce_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_project_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type get_project_request() :: %{String.t() | Atom.t() => any()}
+  @type get_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -607,7 +607,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type recurring_charge() :: %{String.t() | Atom.t() => any()}
+  @type recurring_charge() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -623,13 +623,13 @@ defmodule AWS.DeviceFarm do
   ## Example:
       
       update_device_instance_request() :: %{
-        optional("labels") => list(String.t() | Atom.t()),
-        optional("profileArn") => String.t() | Atom.t(),
-        required("arn") => String.t() | Atom.t()
+        optional("labels") => list(String.t() | atom()),
+        optional("profileArn") => String.t() | atom(),
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type update_device_instance_request() :: %{String.t() | Atom.t() => any()}
+  @type update_device_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -640,7 +640,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type get_instance_profile_result() :: %{String.t() | Atom.t() => any()}
+  @type get_instance_profile_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -651,18 +651,18 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type create_instance_profile_result() :: %{String.t() | Atom.t() => any()}
+  @type create_instance_profile_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_operation_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_operation_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -673,45 +673,45 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type get_device_instance_result() :: %{String.t() | Atom.t() => any()}
+  @type get_device_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_job_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type stop_job_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       vpce_configuration() :: %{
-        "arn" => String.t() | Atom.t(),
-        "serviceDnsName" => String.t() | Atom.t(),
-        "vpceConfigurationDescription" => String.t() | Atom.t(),
-        "vpceConfigurationName" => String.t() | Atom.t(),
-        "vpceServiceName" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "serviceDnsName" => String.t() | atom(),
+        "vpceConfigurationDescription" => String.t() | atom(),
+        "vpceConfigurationName" => String.t() | atom(),
+        "vpceServiceName" => String.t() | atom()
       }
       
   """
-  @type vpce_configuration() :: %{String.t() | Atom.t() => any()}
+  @type vpce_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       install_to_remote_access_session_request() :: %{
-        required("appArn") => String.t() | Atom.t(),
-        required("remoteAccessSessionArn") => String.t() | Atom.t()
+        required("appArn") => String.t() | atom(),
+        required("remoteAccessSessionArn") => String.t() | atom()
       }
       
   """
-  @type install_to_remote_access_session_request() :: %{String.t() | Atom.t() => any()}
+  @type install_to_remote_access_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -720,35 +720,35 @@ defmodule AWS.DeviceFarm do
       get_offering_status_result() :: %{
         "current" => map(),
         "nextPeriod" => map(),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type get_offering_status_result() :: %{String.t() | Atom.t() => any()}
+  @type get_offering_status_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_vpce_configuration_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type delete_vpce_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_vpce_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_uploads_request() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("type") => list(any()),
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type list_uploads_request() :: %{String.t() | Atom.t() => any()}
+  @type list_uploads_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -762,43 +762,43 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type offering_status() :: %{String.t() | Atom.t() => any()}
+  @type offering_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_unique_problems_result() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "uniqueProblems" => map()
       }
       
   """
-  @type list_unique_problems_result() :: %{String.t() | Atom.t() => any()}
+  @type list_unique_problems_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_remote_access_sessions_request() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
-        required("arn") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type list_remote_access_sessions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_remote_access_sessions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_policy_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceName" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resourceName" => String.t() | atom()
       }
       
   """
-  @type tag_policy_exception() :: %{String.t() | Atom.t() => any()}
+  @type tag_policy_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -806,11 +806,11 @@ defmodule AWS.DeviceFarm do
       
       list_instance_profiles_result() :: %{
         "instanceProfiles" => list(instance_profile()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_instance_profiles_result() :: %{String.t() | Atom.t() => any()}
+  @type list_instance_profiles_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -821,30 +821,30 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type create_device_pool_result() :: %{String.t() | Atom.t() => any()}
+  @type create_device_pool_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_service_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type internal_service_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -855,19 +855,19 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type get_upload_result() :: %{String.t() | Atom.t() => any()}
+  @type get_upload_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       test() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "counters" => counters(),
         "created" => non_neg_integer(),
         "deviceMinutes" => device_minutes(),
-        "message" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "result" => list(any()),
         "started" => non_neg_integer(),
         "status" => list(any()),
@@ -876,64 +876,64 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type test() :: %{String.t() | Atom.t() => any()}
+  @type test() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_device_pool_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type delete_device_pool_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_device_pool_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       test_grid_vpc_config() :: %{
-        "securityGroupIds" => list(String.t() | Atom.t()),
-        "subnetIds" => list(String.t() | Atom.t()),
-        "vpcId" => String.t() | Atom.t()
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
       }
       
   """
-  @type test_grid_vpc_config() :: %{String.t() | Atom.t() => any()}
+  @type test_grid_vpc_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       upload() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "category" => list(any()),
-        "contentType" => String.t() | Atom.t(),
+        "contentType" => String.t() | atom(),
         "created" => non_neg_integer(),
-        "message" => String.t() | Atom.t(),
-        "metadata" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
+        "metadata" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
         "type" => list(any()),
-        "url" => String.t() | Atom.t()
+        "url" => String.t() | atom()
       }
       
   """
-  @type upload() :: %{String.t() | Atom.t() => any()}
+  @type upload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       network_profile() :: %{
-        "arn" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "downlinkBandwidthBits" => float(),
         "downlinkDelayMs" => float(),
         "downlinkJitterMs" => float(),
         "downlinkLossPercent" => integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "type" => list(any()),
         "uplinkBandwidthBits" => float(),
         "uplinkDelayMs" => float(),
@@ -942,91 +942,91 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type network_profile() :: %{String.t() | Atom.t() => any()}
+  @type network_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_instance_profile_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type delete_instance_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_instance_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       schedule_run_configuration() :: %{
-        "auxiliaryApps" => list(String.t() | Atom.t()),
+        "auxiliaryApps" => list(String.t() | atom()),
         "billingMethod" => list(any()),
         "customerArtifactPaths" => customer_artifact_paths(),
         "deviceProxy" => device_proxy(),
-        "extraDataPackageArn" => String.t() | Atom.t(),
-        "locale" => String.t() | Atom.t(),
+        "extraDataPackageArn" => String.t() | atom(),
+        "locale" => String.t() | atom(),
         "location" => location(),
-        "networkProfileArn" => String.t() | Atom.t(),
+        "networkProfileArn" => String.t() | atom(),
         "radios" => radios(),
-        "vpceConfigurationArns" => list(String.t() | Atom.t())
+        "vpceConfigurationArns" => list(String.t() | atom())
       }
       
   """
-  @type schedule_run_configuration() :: %{String.t() | Atom.t() => any()}
+  @type schedule_run_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_instance_profile_request() :: %{
-        optional("description") => String.t() | Atom.t(),
-        optional("excludeAppPackagesFromCleanup") => list(String.t() | Atom.t()),
+        optional("description") => String.t() | atom(),
+        optional("excludeAppPackagesFromCleanup") => list(String.t() | atom()),
         optional("packageCleanup") => boolean(),
         optional("rebootAfterUse") => boolean(),
-        required("name") => String.t() | Atom.t()
+        required("name") => String.t() | atom()
       }
       
   """
-  @type create_instance_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type create_instance_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_device_pools_request() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("type") => list(any()),
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type list_device_pools_request() :: %{String.t() | Atom.t() => any()}
+  @type list_device_pools_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unique_problem() :: %{
-        "message" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
         "problems" => list(problem())
       }
       
   """
-  @type unique_problem() :: %{String.t() | Atom.t() => any()}
+  @type unique_problem() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_network_profiles_request() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("type") => list(any()),
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type list_network_profiles_request() :: %{String.t() | Atom.t() => any()}
+  @type list_network_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1037,7 +1037,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type get_job_result() :: %{String.t() | Atom.t() => any()}
+  @type get_job_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1053,12 +1053,12 @@ defmodule AWS.DeviceFarm do
   ## Example:
       
       list_tests_request() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
-        required("arn") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type list_tests_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tests_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1075,18 +1075,18 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type counters() :: %{String.t() | Atom.t() => any()}
+  @type counters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_network_profile_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type get_network_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type get_network_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1100,48 +1100,48 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type radios() :: %{String.t() | Atom.t() => any()}
+  @type radios() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_vpce_configuration_request() :: %{
-        optional("serviceDnsName") => String.t() | Atom.t(),
-        optional("vpceConfigurationDescription") => String.t() | Atom.t(),
-        optional("vpceConfigurationName") => String.t() | Atom.t(),
-        optional("vpceServiceName") => String.t() | Atom.t(),
-        required("arn") => String.t() | Atom.t()
+        optional("serviceDnsName") => String.t() | atom(),
+        optional("vpceConfigurationDescription") => String.t() | atom(),
+        optional("vpceConfigurationName") => String.t() | atom(),
+        optional("vpceServiceName") => String.t() | atom(),
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type update_vpce_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_vpce_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       schedule_run_test() :: %{
-        "filter" => String.t() | Atom.t(),
+        "filter" => String.t() | atom(),
         "parameters" => map(),
-        "testPackageArn" => String.t() | Atom.t(),
-        "testSpecArn" => String.t() | Atom.t(),
+        "testPackageArn" => String.t() | atom(),
+        "testSpecArn" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type schedule_run_test() :: %{String.t() | Atom.t() => any()}
+  @type schedule_run_test() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_instance_profile_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type get_instance_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type get_instance_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1161,7 +1161,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type get_project_result() :: %{String.t() | Atom.t() => any()}
+  @type get_project_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1173,7 +1173,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type trial_minutes() :: %{String.t() | Atom.t() => any()}
+  @type trial_minutes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1184,19 +1184,19 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type update_instance_profile_result() :: %{String.t() | Atom.t() => any()}
+  @type update_instance_profile_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_samples_result() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "samples" => list(sample())
       }
       
   """
-  @type list_samples_result() :: %{String.t() | Atom.t() => any()}
+  @type list_samples_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1207,95 +1207,95 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type get_suite_result() :: %{String.t() | Atom.t() => any()}
+  @type get_suite_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_test_grid_projects_result() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "testGridProjects" => list(test_grid_project())
       }
       
   """
-  @type list_test_grid_projects_result() :: %{String.t() | Atom.t() => any()}
+  @type list_test_grid_projects_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_offering_status_request() :: %{
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type get_offering_status_request() :: %{String.t() | Atom.t() => any()}
+  @type get_offering_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_offering_transactions_result() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "offeringTransactions" => list(offering_transaction())
       }
       
   """
-  @type list_offering_transactions_result() :: %{String.t() | Atom.t() => any()}
+  @type list_offering_transactions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       project() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "created" => non_neg_integer(),
         "defaultJobTimeoutMinutes" => integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "vpcConfig" => vpc_config()
       }
       
   """
-  @type project() :: %{String.t() | Atom.t() => any()}
+  @type project() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       test_grid_session_action() :: %{
-        "action" => String.t() | Atom.t(),
+        "action" => String.t() | atom(),
         "duration" => float(),
-        "requestMethod" => String.t() | Atom.t(),
+        "requestMethod" => String.t() | atom(),
         "started" => non_neg_integer(),
-        "statusCode" => String.t() | Atom.t()
+        "statusCode" => String.t() | atom()
       }
       
   """
-  @type test_grid_session_action() :: %{String.t() | Atom.t() => any()}
+  @type test_grid_session_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cannot_delete_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type cannot_delete_exception() :: %{String.t() | Atom.t() => any()}
+  @type cannot_delete_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1307,23 +1307,23 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type get_device_pool_compatibility_result() :: %{String.t() | Atom.t() => any()}
+  @type get_device_pool_compatibility_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_device_pool_compatibility_request() :: %{
-        optional("appArn") => String.t() | Atom.t(),
+        optional("appArn") => String.t() | atom(),
         optional("configuration") => schedule_run_configuration(),
-        optional("projectArn") => String.t() | Atom.t(),
+        optional("projectArn") => String.t() | atom(),
         optional("test") => schedule_run_test(),
         optional("testType") => list(any()),
-        required("devicePoolArn") => String.t() | Atom.t()
+        required("devicePoolArn") => String.t() | atom()
       }
       
   """
-  @type get_device_pool_compatibility_request() :: %{String.t() | Atom.t() => any()}
+  @type get_device_pool_compatibility_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1332,28 +1332,28 @@ defmodule AWS.DeviceFarm do
       offering_transaction() :: %{
         "cost" => monetary_amount(),
         "createdOn" => non_neg_integer(),
-        "offeringPromotionId" => String.t() | Atom.t(),
+        "offeringPromotionId" => String.t() | atom(),
         "offeringStatus" => offering_status(),
-        "transactionId" => String.t() | Atom.t()
+        "transactionId" => String.t() | atom()
       }
       
   """
-  @type offering_transaction() :: %{String.t() | Atom.t() => any()}
+  @type offering_transaction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       test_grid_project() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "created" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "vpcConfig" => test_grid_vpc_config()
       }
       
   """
-  @type test_grid_project() :: %{String.t() | Atom.t() => any()}
+  @type test_grid_project() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1364,7 +1364,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type purchase_offering_result() :: %{String.t() | Atom.t() => any()}
+  @type purchase_offering_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1375,31 +1375,31 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type update_vpce_configuration_result() :: %{String.t() | Atom.t() => any()}
+  @type update_vpce_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_remote_access_session_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type get_remote_access_session_request() :: %{String.t() | Atom.t() => any()}
+  @type get_remote_access_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       c_p_u() :: %{
-        "architecture" => String.t() | Atom.t(),
+        "architecture" => String.t() | atom(),
         "clock" => float(),
-        "frequency" => String.t() | Atom.t()
+        "frequency" => String.t() | atom()
       }
       
   """
-  @type c_p_u() :: %{String.t() | Atom.t() => any()}
+  @type c_p_u() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1410,7 +1410,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type get_run_result() :: %{String.t() | Atom.t() => any()}
+  @type get_run_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1421,7 +1421,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type create_test_grid_project_result() :: %{String.t() | Atom.t() => any()}
+  @type create_test_grid_project_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1429,23 +1429,23 @@ defmodule AWS.DeviceFarm do
       
       list_device_instances_result() :: %{
         "deviceInstances" => list(device_instance()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_device_instances_result() :: %{String.t() | Atom.t() => any()}
+  @type list_device_instances_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_runs_result() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "runs" => list(run())
       }
       
   """
-  @type list_runs_result() :: %{String.t() | Atom.t() => any()}
+  @type list_runs_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1456,42 +1456,42 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type renew_offering_result() :: %{String.t() | Atom.t() => any()}
+  @type renew_offering_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_test_grid_project_request() :: %{
-        required("projectArn") => String.t() | Atom.t()
+        required("projectArn") => String.t() | atom()
       }
       
   """
-  @type delete_test_grid_project_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_test_grid_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sample() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "type" => list(any()),
-        "url" => String.t() | Atom.t()
+        "url" => String.t() | atom()
       }
       
   """
-  @type sample() :: %{String.t() | Atom.t() => any()}
+  @type sample() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1499,28 +1499,28 @@ defmodule AWS.DeviceFarm do
       
       update_device_pool_request() :: %{
         optional("clearMaxDevices") => boolean(),
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("maxDevices") => integer(),
-        optional("name") => String.t() | Atom.t(),
+        optional("name") => String.t() | atom(),
         optional("rules") => list(rule()),
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type update_device_pool_request() :: %{String.t() | Atom.t() => any()}
+  @type update_device_pool_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_config() :: %{
-        "securityGroupIds" => list(String.t() | Atom.t()),
-        "subnetIds" => list(String.t() | Atom.t()),
-        "vpcId" => String.t() | Atom.t()
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
       }
       
   """
-  @type vpc_config() :: %{String.t() | Atom.t() => any()}
+  @type vpc_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1528,11 +1528,11 @@ defmodule AWS.DeviceFarm do
       
       list_test_grid_session_artifacts_result() :: %{
         "artifacts" => list(test_grid_session_artifact()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_test_grid_session_artifacts_result() :: %{String.t() | Atom.t() => any()}
+  @type list_test_grid_session_artifacts_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1543,7 +1543,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type get_device_result() :: %{String.t() | Atom.t() => any()}
+  @type get_device_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1554,19 +1554,19 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       problem_detail() :: %{
-        "arn" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
       
   """
-  @type problem_detail() :: %{String.t() | Atom.t() => any()}
+  @type problem_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1577,7 +1577,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type create_network_profile_result() :: %{String.t() | Atom.t() => any()}
+  @type create_network_profile_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1589,7 +1589,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type location() :: %{String.t() | Atom.t() => any()}
+  @type location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1604,40 +1604,40 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type execution_configuration() :: %{String.t() | Atom.t() => any()}
+  @type execution_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_offering_transactions_request() :: %{
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_offering_transactions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_offering_transactions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_account_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type service_account_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_account_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_test_grid_project_request() :: %{
-        required("projectArn") => String.t() | Atom.t()
+        required("projectArn") => String.t() | atom()
       }
       
   """
-  @type get_test_grid_project_request() :: %{String.t() | Atom.t() => any()}
+  @type get_test_grid_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1648,32 +1648,32 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type install_to_remote_access_session_result() :: %{String.t() | Atom.t() => any()}
+  @type install_to_remote_access_session_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_samples_request() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
-        required("arn") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type list_samples_request() :: %{String.t() | Atom.t() => any()}
+  @type list_samples_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       test_grid_session_artifact() :: %{
-        "filename" => String.t() | Atom.t(),
+        "filename" => String.t() | atom(),
         "type" => list(any()),
-        "url" => String.t() | Atom.t()
+        "url" => String.t() | atom()
       }
       
   """
-  @type test_grid_session_artifact() :: %{String.t() | Atom.t() => any()}
+  @type test_grid_session_artifact() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1682,22 +1682,22 @@ defmodule AWS.DeviceFarm do
       rule() :: %{
         "attribute" => list(any()),
         "operator" => list(any()),
-        "value" => String.t() | Atom.t()
+        "value" => String.t() | atom()
       }
       
   """
-  @type rule() :: %{String.t() | Atom.t() => any()}
+  @type rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_run_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type delete_run_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1710,18 +1710,18 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type device_pool_compatibility_result() :: %{String.t() | Atom.t() => any()}
+  @type device_pool_compatibility_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_device_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type get_device_request() :: %{String.t() | Atom.t() => any()}
+  @type get_device_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1734,7 +1734,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type device_selection_result() :: %{String.t() | Atom.t() => any()}
+  @type device_selection_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1745,7 +1745,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type create_upload_result() :: %{String.t() | Atom.t() => any()}
+  @type create_upload_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1753,11 +1753,11 @@ defmodule AWS.DeviceFarm do
       
       create_test_grid_url_result() :: %{
         "expires" => non_neg_integer(),
-        "url" => String.t() | Atom.t()
+        "url" => String.t() | atom()
       }
       
   """
-  @type create_test_grid_url_result() :: %{String.t() | Atom.t() => any()}
+  @type create_test_grid_url_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1768,7 +1768,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type get_network_profile_result() :: %{String.t() | Atom.t() => any()}
+  @type get_network_profile_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1779,7 +1779,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type stop_remote_access_session_result() :: %{String.t() | Atom.t() => any()}
+  @type stop_remote_access_session_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1790,7 +1790,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type update_device_instance_result() :: %{String.t() | Atom.t() => any()}
+  @type update_device_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1810,18 +1810,18 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type stop_run_result() :: %{String.t() | Atom.t() => any()}
+  @type stop_run_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_offering_promotions_request() :: %{
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_offering_promotions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_offering_promotions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1829,54 +1829,54 @@ defmodule AWS.DeviceFarm do
       
       update_project_request() :: %{
         optional("defaultJobTimeoutMinutes") => integer(),
-        optional("name") => String.t() | Atom.t(),
+        optional("name") => String.t() | atom(),
         optional("vpcConfig") => vpc_config(),
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type update_project_request() :: %{String.t() | Atom.t() => any()}
+  @type update_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       test_grid_session() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "billingMinutes" => float(),
         "created" => non_neg_integer(),
         "ended" => non_neg_integer(),
-        "seleniumProperties" => String.t() | Atom.t(),
+        "seleniumProperties" => String.t() | atom(),
         "status" => list(any())
       }
       
   """
-  @type test_grid_session() :: %{String.t() | Atom.t() => any()}
+  @type test_grid_session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_upload_request() :: %{
-        optional("contentType") => String.t() | Atom.t(),
+        optional("contentType") => String.t() | atom(),
         optional("editContent") => boolean(),
-        optional("name") => String.t() | Atom.t(),
-        required("arn") => String.t() | Atom.t()
+        optional("name") => String.t() | atom(),
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type update_upload_request() :: %{String.t() | Atom.t() => any()}
+  @type update_upload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_run_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type stop_run_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1892,12 +1892,12 @@ defmodule AWS.DeviceFarm do
   ## Example:
       
       incompatibility_message() :: %{
-        "message" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type incompatibility_message() :: %{String.t() | Atom.t() => any()}
+  @type incompatibility_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1906,7 +1906,7 @@ defmodule AWS.DeviceFarm do
       problem() :: %{
         "device" => device(),
         "job" => problem_detail(),
-        "message" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
         "result" => list(any()),
         "run" => problem_detail(),
         "suite" => problem_detail(),
@@ -1914,7 +1914,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type problem() :: %{String.t() | Atom.t() => any()}
+  @type problem() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1934,29 +1934,29 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type update_test_grid_project_result() :: %{String.t() | Atom.t() => any()}
+  @type update_test_grid_project_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remote_access_session() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "billingMethod" => list(any()),
-        "clientId" => String.t() | Atom.t(),
+        "clientId" => String.t() | atom(),
         "created" => non_neg_integer(),
         "device" => device(),
         "deviceMinutes" => device_minutes(),
         "deviceProxy" => device_proxy(),
-        "deviceUdid" => String.t() | Atom.t(),
-        "endpoint" => String.t() | Atom.t(),
-        "hostAddress" => String.t() | Atom.t(),
-        "instanceArn" => String.t() | Atom.t(),
+        "deviceUdid" => String.t() | atom(),
+        "endpoint" => String.t() | atom(),
+        "hostAddress" => String.t() | atom(),
+        "instanceArn" => String.t() | atom(),
         "interactionMode" => list(any()),
-        "message" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "remoteDebugEnabled" => boolean(),
-        "remoteRecordAppArn" => String.t() | Atom.t(),
+        "remoteRecordAppArn" => String.t() | atom(),
         "remoteRecordEnabled" => boolean(),
         "result" => list(any()),
         "skipAppResign" => boolean(),
@@ -1967,48 +1967,48 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type remote_access_session() :: %{String.t() | Atom.t() => any()}
+  @type remote_access_session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_test_grid_sessions_result() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "testGridSessions" => list(test_grid_session())
       }
       
   """
-  @type list_test_grid_sessions_result() :: %{String.t() | Atom.t() => any()}
+  @type list_test_grid_sessions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       customer_artifact_paths() :: %{
-        "androidPaths" => list(String.t() | Atom.t()),
-        "deviceHostPaths" => list(String.t() | Atom.t()),
-        "iosPaths" => list(String.t() | Atom.t())
+        "androidPaths" => list(String.t() | atom()),
+        "deviceHostPaths" => list(String.t() | atom()),
+        "iosPaths" => list(String.t() | atom())
       }
       
   """
-  @type customer_artifact_paths() :: %{String.t() | Atom.t() => any()}
+  @type customer_artifact_paths() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       device_instance() :: %{
-        "arn" => String.t() | Atom.t(),
-        "deviceArn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
+        "deviceArn" => String.t() | atom(),
         "instanceProfile" => instance_profile(),
-        "labels" => list(String.t() | Atom.t()),
+        "labels" => list(String.t() | atom()),
         "status" => list(any()),
-        "udid" => String.t() | Atom.t()
+        "udid" => String.t() | atom()
       }
       
   """
-  @type device_instance() :: %{String.t() | Atom.t() => any()}
+  @type device_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2019,7 +2019,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type create_remote_access_session_result() :: %{String.t() | Atom.t() => any()}
+  @type create_remote_access_session_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2039,18 +2039,18 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type get_device_pool_result() :: %{String.t() | Atom.t() => any()}
+  @type get_device_pool_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_device_pool_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type get_device_pool_request() :: %{String.t() | Atom.t() => any()}
+  @type get_device_pool_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2061,14 +2061,14 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type update_network_profile_result() :: %{String.t() | Atom.t() => any()}
+  @type update_network_profile_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       account_settings() :: %{
-        "awsAccountNumber" => String.t() | Atom.t(),
+        "awsAccountNumber" => String.t() | atom(),
         "defaultJobTimeoutMinutes" => integer(),
         "maxJobTimeoutMinutes" => integer(),
         "maxSlots" => map(),
@@ -2079,7 +2079,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type account_settings() :: %{String.t() | Atom.t() => any()}
+  @type account_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2090,103 +2090,103 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type update_device_pool_result() :: %{String.t() | Atom.t() => any()}
+  @type update_device_pool_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_network_profile_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("downlinkBandwidthBits") => float(),
         optional("downlinkDelayMs") => float(),
         optional("downlinkJitterMs") => float(),
         optional("downlinkLossPercent") => integer(),
-        optional("name") => String.t() | Atom.t(),
+        optional("name") => String.t() | atom(),
         optional("type") => list(any()),
         optional("uplinkBandwidthBits") => float(),
         optional("uplinkDelayMs") => float(),
         optional("uplinkJitterMs") => float(),
         optional("uplinkLossPercent") => integer(),
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type update_network_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type update_network_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_upload_request() :: %{
-        optional("contentType") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t(),
-        required("projectArn") => String.t() | Atom.t(),
+        optional("contentType") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("projectArn") => String.t() | atom(),
         required("type") => list(any())
       }
       
   """
-  @type create_upload_request() :: %{String.t() | Atom.t() => any()}
+  @type create_upload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t()
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       idempotency_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type idempotency_exception() :: %{String.t() | Atom.t() => any()}
+  @type idempotency_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       job() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "counters" => counters(),
         "created" => non_neg_integer(),
         "device" => device(),
         "deviceMinutes" => device_minutes(),
-        "instanceArn" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "instanceArn" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "result" => list(any()),
         "started" => non_neg_integer(),
         "status" => list(any()),
         "stopped" => non_neg_integer(),
         "type" => list(any()),
         "videoCapture" => boolean(),
-        "videoEndpoint" => String.t() | Atom.t()
+        "videoEndpoint" => String.t() | atom()
       }
       
   """
-  @type job() :: %{String.t() | Atom.t() => any()}
+  @type job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_artifacts_request() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
-        required("arn") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
+        required("arn") => String.t() | atom(),
         required("type") => list(any())
       }
       
   """
-  @type list_artifacts_request() :: %{String.t() | Atom.t() => any()}
+  @type list_artifacts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2203,22 +2203,22 @@ defmodule AWS.DeviceFarm do
       
       list_device_instances_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_device_instances_request() :: %{String.t() | Atom.t() => any()}
+  @type list_device_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_job_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type get_job_request() :: %{String.t() | Atom.t() => any()}
+  @type get_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2227,47 +2227,47 @@ defmodule AWS.DeviceFarm do
       create_project_request() :: %{
         optional("defaultJobTimeoutMinutes") => integer(),
         optional("vpcConfig") => vpc_config(),
-        required("name") => String.t() | Atom.t()
+        required("name") => String.t() | atom()
       }
       
   """
-  @type create_project_request() :: %{String.t() | Atom.t() => any()}
+  @type create_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_vpce_configurations_result() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "vpceConfigurations" => list(vpce_configuration())
       }
       
   """
-  @type list_vpce_configurations_result() :: %{String.t() | Atom.t() => any()}
+  @type list_vpce_configurations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_suites_request() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
-        required("arn") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type list_suites_request() :: %{String.t() | Atom.t() => any()}
+  @type list_suites_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_projects_request() :: %{
-        optional("arn") => String.t() | Atom.t(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("arn") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_projects_request() :: %{String.t() | Atom.t() => any()}
+  @type list_projects_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2278,7 +2278,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type get_account_settings_result() :: %{String.t() | Atom.t() => any()}
+  @type get_account_settings_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2286,26 +2286,26 @@ defmodule AWS.DeviceFarm do
       
       list_vpce_configurations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_vpce_configurations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_vpce_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       offering() :: %{
-        "description" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "platform" => list(any()),
         "recurringCharges" => list(recurring_charge()),
         "type" => list(any())
       }
       
   """
-  @type offering() :: %{String.t() | Atom.t() => any()}
+  @type offering() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2318,18 +2318,18 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type device_minutes() :: %{String.t() | Atom.t() => any()}
+  @type device_minutes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2341,23 +2341,23 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type resolution() :: %{String.t() | Atom.t() => any()}
+  @type resolution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_instance_profile_request() :: %{
-        optional("description") => String.t() | Atom.t(),
-        optional("excludeAppPackagesFromCleanup") => list(String.t() | Atom.t()),
-        optional("name") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
+        optional("excludeAppPackagesFromCleanup") => list(String.t() | atom()),
+        optional("name") => String.t() | atom(),
         optional("packageCleanup") => boolean(),
         optional("rebootAfterUse") => boolean(),
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type update_instance_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type update_instance_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2365,11 +2365,11 @@ defmodule AWS.DeviceFarm do
       
       create_test_grid_url_request() :: %{
         required("expiresInSeconds") => integer(),
-        required("projectArn") => String.t() | Atom.t()
+        required("projectArn") => String.t() | atom()
       }
       
   """
-  @type create_test_grid_url_request() :: %{String.t() | Atom.t() => any()}
+  @type create_test_grid_url_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2380,7 +2380,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type get_test_result() :: %{String.t() | Atom.t() => any()}
+  @type get_test_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2388,73 +2388,73 @@ defmodule AWS.DeviceFarm do
       
       list_device_pools_result() :: %{
         "devicePools" => list(device_pool()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_device_pools_result() :: %{String.t() | Atom.t() => any()}
+  @type list_device_pools_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_suites_result() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "suites" => list(suite())
       }
       
   """
-  @type list_suites_result() :: %{String.t() | Atom.t() => any()}
+  @type list_suites_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_test_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type get_test_request() :: %{String.t() | Atom.t() => any()}
+  @type get_test_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_test_grid_project_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("vpcConfig") => test_grid_vpc_config(),
-        required("name") => String.t() | Atom.t()
+        required("name") => String.t() | atom()
       }
       
   """
-  @type create_test_grid_project_request() :: %{String.t() | Atom.t() => any()}
+  @type create_test_grid_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_remote_access_session_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type stop_remote_access_session_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_remote_access_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       artifact() :: %{
-        "arn" => String.t() | Atom.t(),
-        "extension" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
+        "extension" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "type" => list(any()),
-        "url" => String.t() | Atom.t()
+        "url" => String.t() | atom()
       }
       
   """
-  @type artifact() :: %{String.t() | Atom.t() => any()}
+  @type artifact() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2462,77 +2462,77 @@ defmodule AWS.DeviceFarm do
       
       list_artifacts_result() :: %{
         "artifacts" => list(artifact()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_artifacts_result() :: %{String.t() | Atom.t() => any()}
+  @type list_artifacts_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       device() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "availability" => list(any()),
-        "carrier" => String.t() | Atom.t(),
+        "carrier" => String.t() | atom(),
         "cpu" => c_p_u(),
-        "fleetName" => String.t() | Atom.t(),
-        "fleetType" => String.t() | Atom.t(),
+        "fleetName" => String.t() | atom(),
+        "fleetType" => String.t() | atom(),
         "formFactor" => list(any()),
         "heapSize" => float(),
-        "image" => String.t() | Atom.t(),
+        "image" => String.t() | atom(),
         "instances" => list(device_instance()),
-        "manufacturer" => String.t() | Atom.t(),
+        "manufacturer" => String.t() | atom(),
         "memory" => float(),
-        "model" => String.t() | Atom.t(),
-        "modelId" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "os" => String.t() | Atom.t(),
+        "model" => String.t() | atom(),
+        "modelId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "os" => String.t() | atom(),
         "platform" => list(any()),
-        "radio" => String.t() | Atom.t(),
+        "radio" => String.t() | atom(),
         "remoteAccessEnabled" => boolean(),
         "remoteDebugEnabled" => boolean(),
         "resolution" => resolution()
       }
       
   """
-  @type device() :: %{String.t() | Atom.t() => any()}
+  @type device() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_projects_result() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "projects" => list(project())
       }
       
   """
-  @type list_projects_result() :: %{String.t() | Atom.t() => any()}
+  @type list_projects_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_project_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type delete_project_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_remote_access_sessions_result() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "remoteAccessSessions" => list(remote_access_session())
       }
       
   """
-  @type list_remote_access_sessions_result() :: %{String.t() | Atom.t() => any()}
+  @type list_remote_access_sessions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2543,31 +2543,31 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type get_test_grid_project_result() :: %{String.t() | Atom.t() => any()}
+  @type get_test_grid_project_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       offering_promotion() :: %{
-        "description" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t()
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom()
       }
       
   """
-  @type offering_promotion() :: %{String.t() | Atom.t() => any()}
+  @type offering_promotion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_offerings_result() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "offerings" => list(offering())
       }
       
   """
-  @type list_offerings_result() :: %{String.t() | Atom.t() => any()}
+  @type list_offerings_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2575,11 +2575,11 @@ defmodule AWS.DeviceFarm do
       
       list_test_grid_session_actions_result() :: %{
         "actions" => list(test_grid_session_action()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_test_grid_session_actions_result() :: %{String.t() | Atom.t() => any()}
+  @type list_test_grid_session_actions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2590,19 +2590,19 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type create_project_result() :: %{String.t() | Atom.t() => any()}
+  @type create_project_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       device_proxy() :: %{
-        "host" => String.t() | Atom.t(),
+        "host" => String.t() | atom(),
         "port" => integer()
       }
       
   """
-  @type device_proxy() :: %{String.t() | Atom.t() => any()}
+  @type device_proxy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2613,30 +2613,30 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type stop_job_result() :: %{String.t() | Atom.t() => any()}
+  @type stop_job_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_runs_request() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
-        required("arn") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type list_runs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_runs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_vpce_configuration_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type get_vpce_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type get_vpce_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2645,11 +2645,11 @@ defmodule AWS.DeviceFarm do
       device_filter() :: %{
         "attribute" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t() | Atom.t())
+        "values" => list(String.t() | atom())
       }
       
   """
-  @type device_filter() :: %{String.t() | Atom.t() => any()}
+  @type device_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2661,37 +2661,37 @@ defmodule AWS.DeviceFarm do
         optional("endTimeAfter") => non_neg_integer(),
         optional("endTimeBefore") => non_neg_integer(),
         optional("maxResult") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("status") => list(any()),
-        required("projectArn") => String.t() | Atom.t()
+        required("projectArn") => String.t() | atom()
       }
       
   """
-  @type list_test_grid_sessions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_test_grid_sessions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_uploads_result() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "uploads" => list(upload())
       }
       
   """
-  @type list_uploads_result() :: %{String.t() | Atom.t() => any()}
+  @type list_uploads_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tags_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceName" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resourceName" => String.t() | atom()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2702,31 +2702,31 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type get_test_grid_session_result() :: %{String.t() | Atom.t() => any()}
+  @type get_test_grid_session_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_device_instance_request() :: %{
-        required("arn") => String.t() | Atom.t()
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type get_device_instance_request() :: %{String.t() | Atom.t() => any()}
+  @type get_device_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       purchase_offering_request() :: %{
-        optional("offeringPromotionId") => String.t() | Atom.t(),
-        required("offeringId") => String.t() | Atom.t(),
+        optional("offeringPromotionId") => String.t() | atom(),
+        required("offeringId") => String.t() | atom(),
         required("quantity") => integer()
       }
       
   """
-  @type purchase_offering_request() :: %{String.t() | Atom.t() => any()}
+  @type purchase_offering_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2734,31 +2734,31 @@ defmodule AWS.DeviceFarm do
       
       run() :: %{
         "resultCode" => list(any()),
-        "testSpecArn" => String.t() | Atom.t(),
+        "testSpecArn" => String.t() | atom(),
         "seed" => integer(),
-        "message" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
         "billingMethod" => list(any()),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "eventCount" => integer(),
         "networkProfile" => network_profile(),
         "jobTimeoutMinutes" => integer(),
         "deviceSelectionResult" => device_selection_result(),
         "started" => non_neg_integer(),
         "location" => location(),
-        "webUrl" => String.t() | Atom.t(),
+        "webUrl" => String.t() | atom(),
         "radios" => radios(),
-        "locale" => String.t() | Atom.t(),
+        "locale" => String.t() | atom(),
         "platform" => list(any()),
         "type" => list(any()),
         "customerArtifactPaths" => customer_artifact_paths(),
         "deviceProxy" => device_proxy(),
         "deviceMinutes" => device_minutes(),
-        "devicePoolArn" => String.t() | Atom.t(),
-        "arn" => String.t() | Atom.t(),
-        "parsingResultUrl" => String.t() | Atom.t(),
+        "devicePoolArn" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "parsingResultUrl" => String.t() | atom(),
         "counters" => counters(),
         "totalJobs" => integer(),
-        "appUpload" => String.t() | Atom.t(),
+        "appUpload" => String.t() | atom(),
         "created" => non_neg_integer(),
         "result" => list(any()),
         "status" => list(any()),
@@ -2769,18 +2769,18 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type run() :: %{String.t() | Atom.t() => any()}
+  @type run() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       argument_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type argument_exception() :: %{String.t() | Atom.t() => any()}
+  @type argument_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2788,11 +2788,11 @@ defmodule AWS.DeviceFarm do
       
       list_test_grid_projects_request() :: %{
         optional("maxResult") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_test_grid_projects_request() :: %{String.t() | Atom.t() => any()}
+  @type list_test_grid_projects_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2803,7 +2803,7 @@ defmodule AWS.DeviceFarm do
       }
       
   """
-  @type update_project_result() :: %{String.t() | Atom.t() => any()}
+  @type update_project_result() :: %{(String.t() | atom()) => any()}
 
   @type create_device_pool_errors() ::
           argument_exception()

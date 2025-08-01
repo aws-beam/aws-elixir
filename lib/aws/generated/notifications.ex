@@ -31,14 +31,13 @@ defmodule AWS.Notifications do
 
       list_managed_notification_channel_associations_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t(),
-        required("managedNotificationConfigurationArn") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("managedNotificationConfigurationArn") => String.t() | atom()
       }
 
   """
   @type list_managed_notification_channel_associations_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -50,76 +49,76 @@ defmodule AWS.Notifications do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       source_event_metadata_summary() :: %{
-        "eventOriginRegion" => [String.t() | Atom.t()],
-        "eventType" => [String.t() | Atom.t()],
-        "source" => [String.t() | Atom.t()]
+        "eventOriginRegion" => [String.t() | atom()],
+        "eventType" => [String.t() | atom()],
+        "source" => [String.t() | atom()]
       }
 
   """
-  @type source_event_metadata_summary() :: %{String.t() | Atom.t() => any()}
+  @type source_event_metadata_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_managed_notification_configurations_request() :: %{
-        optional("channelIdentifier") => String.t() | Atom.t(),
+        optional("channelIdentifier") => String.t() | atom(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_managed_notification_configurations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_managed_notification_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       text_part_value() :: %{
-        "displayText" => [String.t() | Atom.t()],
+        "displayText" => [String.t() | atom()],
         "textByLocale" => map(),
-        "type" => String.t() | Atom.t(),
-        "url" => String.t() | Atom.t()
+        "type" => String.t() | atom(),
+        "url" => String.t() | atom()
       }
 
   """
-  @type text_part_value() :: %{String.t() | Atom.t() => any()}
+  @type text_part_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_event_rule_response() :: %{
-        "arn" => String.t() | Atom.t(),
-        "notificationConfigurationArn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
+        "notificationConfigurationArn" => String.t() | atom(),
         "statusSummaryByRegion" => map()
       }
 
   """
-  @type create_event_rule_response() :: %{String.t() | Atom.t() => any()}
+  @type create_event_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       notification_configuration_structure() :: %{
-        "aggregationDuration" => String.t() | Atom.t(),
-        "arn" => String.t() | Atom.t(),
+        "aggregationDuration" => String.t() | atom(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t()
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type notification_configuration_structure() :: %{String.t() | Atom.t() => any()}
+  @type notification_configuration_structure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -139,29 +138,29 @@ defmodule AWS.Notifications do
       }
 
   """
-  @type notifications_access_for_organization() :: %{String.t() | Atom.t() => any()}
+  @type notifications_access_for_organization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_managed_notification_child_event_request() :: %{
-        optional("locale") => String.t() | Atom.t()
+        optional("locale") => String.t() | atom()
       }
 
   """
-  @type get_managed_notification_child_event_request() :: %{String.t() | Atom.t() => any()}
+  @type get_managed_notification_child_event_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_notification_event_request() :: %{
-        optional("locale") => String.t() | Atom.t()
+        optional("locale") => String.t() | atom()
       }
 
   """
-  @type get_notification_event_request() :: %{String.t() | Atom.t() => any()}
+  @type get_notification_event_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -178,46 +177,46 @@ defmodule AWS.Notifications do
 
       list_managed_notification_child_events_response() :: %{
         "managedNotificationChildEvents" => list(managed_notification_child_event_overview()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_managed_notification_child_events_response() :: %{String.t() | Atom.t() => any()}
+  @type list_managed_notification_child_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_managed_notification_event_request() :: %{
-        optional("locale") => String.t() | Atom.t()
+        optional("locale") => String.t() | atom()
       }
 
   """
-  @type get_managed_notification_event_request() :: %{String.t() | Atom.t() => any()}
+  @type get_managed_notification_event_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       notification_hub_status_summary() :: %{
-        "reason" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t()
+        "reason" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type notification_hub_status_summary() :: %{String.t() | Atom.t() => any()}
+  @type notification_hub_status_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_event_rule_request() :: %{
-        optional("eventPattern") => String.t() | Atom.t(),
-        optional("regions") => list(String.t() | Atom.t())
+        optional("eventPattern") => String.t() | atom(),
+        optional("regions") => list(String.t() | atom())
       }
 
   """
-  @type update_event_rule_request() :: %{String.t() | Atom.t() => any()}
+  @type update_event_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -242,44 +241,44 @@ defmodule AWS.Notifications do
   ## Example:
 
       media_element() :: %{
-        "caption" => String.t() | Atom.t(),
-        "mediaId" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t(),
-        "url" => String.t() | Atom.t()
+        "caption" => String.t() | atom(),
+        "mediaId" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "url" => String.t() | atom()
       }
 
   """
-  @type media_element() :: %{String.t() | Atom.t() => any()}
+  @type media_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       managed_notification_event_overview() :: %{
-        "aggregatedNotificationRegions" => list(String.t() | Atom.t()),
-        "aggregationEventType" => String.t() | Atom.t(),
+        "aggregatedNotificationRegions" => list(String.t() | atom()),
+        "aggregationEventType" => String.t() | atom(),
         "aggregationSummary" => aggregation_summary(),
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "managedNotificationConfigurationArn" => String.t() | Atom.t(),
+        "managedNotificationConfigurationArn" => String.t() | atom(),
         "notificationEvent" => managed_notification_event_summary(),
-        "organizationalUnitId" => String.t() | Atom.t(),
-        "relatedAccount" => String.t() | Atom.t()
+        "organizationalUnitId" => String.t() | atom(),
+        "relatedAccount" => String.t() | atom()
       }
 
   """
-  @type managed_notification_event_overview() :: %{String.t() | Atom.t() => any()}
+  @type managed_notification_event_overview() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       message_components_summary() :: %{
-        "headline" => [String.t() | Atom.t()]
+        "headline" => [String.t() | atom()]
       }
 
   """
-  @type message_components_summary() :: %{String.t() | Atom.t() => any()}
+  @type message_components_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -295,12 +294,12 @@ defmodule AWS.Notifications do
   ## Example:
 
       deregister_notification_hub_response() :: %{
-        "notificationHubRegion" => String.t() | Atom.t(),
+        "notificationHubRegion" => String.t() | atom(),
         "statusSummary" => notification_hub_status_summary()
       }
 
   """
-  @type deregister_notification_hub_response() :: %{String.t() | Atom.t() => any()}
+  @type deregister_notification_hub_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -325,37 +324,37 @@ defmodule AWS.Notifications do
   ## Example:
 
       get_managed_notification_event_response() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "content" => managed_notification_event(),
         "creationTime" => non_neg_integer(),
-        "managedNotificationConfigurationArn" => String.t() | Atom.t()
+        "managedNotificationConfigurationArn" => String.t() | atom()
       }
 
   """
-  @type get_managed_notification_event_response() :: %{String.t() | Atom.t() => any()}
+  @type get_managed_notification_event_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       managed_notification_event() :: %{
-        "aggregationEventType" => String.t() | Atom.t(),
+        "aggregationEventType" => String.t() | atom(),
         "aggregationSummary" => aggregation_summary(),
         "endTime" => [non_neg_integer()],
-        "eventStatus" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "eventStatus" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "messageComponents" => message_components(),
-        "notificationType" => String.t() | Atom.t(),
-        "organizationalUnitId" => String.t() | Atom.t(),
-        "schemaVersion" => String.t() | Atom.t(),
-        "sourceEventDetailUrl" => String.t() | Atom.t(),
-        "sourceEventDetailUrlDisplayText" => [String.t() | Atom.t()],
+        "notificationType" => String.t() | atom(),
+        "organizationalUnitId" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom(),
+        "sourceEventDetailUrl" => String.t() | atom(),
+        "sourceEventDetailUrlDisplayText" => [String.t() | atom()],
         "startTime" => [non_neg_integer()],
         "textParts" => map()
       }
 
   """
-  @type managed_notification_event() :: %{String.t() | Atom.t() => any()}
+  @type managed_notification_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -363,25 +362,25 @@ defmodule AWS.Notifications do
 
       list_notification_hubs_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_notification_hubs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_notification_hubs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_notification_event_response() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "content" => notification_event_schema(),
         "creationTime" => non_neg_integer(),
-        "notificationConfigurationArn" => String.t() | Atom.t()
+        "notificationConfigurationArn" => String.t() | atom()
       }
 
   """
-  @type get_notification_event_response() :: %{String.t() | Atom.t() => any()}
+  @type get_notification_event_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -397,31 +396,31 @@ defmodule AWS.Notifications do
       }
 
   """
-  @type aggregation_summary() :: %{String.t() | Atom.t() => any()}
+  @type aggregation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aggregation_key() :: %{
-        "name" => [String.t() | Atom.t()],
-        "value" => [String.t() | Atom.t()]
+        "name" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
       }
 
   """
-  @type aggregation_key() :: %{String.t() | Atom.t() => any()}
+  @type aggregation_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       summarization_dimension_detail() :: %{
-        "name" => [String.t() | Atom.t()],
-        "value" => [String.t() | Atom.t()]
+        "name" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
       }
 
   """
-  @type summarization_dimension_detail() :: %{String.t() | Atom.t() => any()}
+  @type summarization_dimension_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -429,12 +428,12 @@ defmodule AWS.Notifications do
 
       list_event_rules_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t(),
-        required("notificationConfigurationArn") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("notificationConfigurationArn") => String.t() | atom()
       }
 
   """
-  @type list_event_rules_request() :: %{String.t() | Atom.t() => any()}
+  @type list_event_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -459,11 +458,11 @@ defmodule AWS.Notifications do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -480,96 +479,96 @@ defmodule AWS.Notifications do
 
       list_managed_notification_configurations_response() :: %{
         "managedNotificationConfigurations" => list(managed_notification_configuration_structure()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_managed_notification_configurations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_managed_notification_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_notification_configurations_request() :: %{
-        optional("channelArn") => String.t() | Atom.t(),
-        optional("eventRuleSource") => String.t() | Atom.t(),
+        optional("channelArn") => String.t() | atom(),
+        optional("eventRuleSource") => String.t() | atom(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("status") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => String.t() | atom()
       }
 
   """
-  @type list_notification_configurations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_notification_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_notification_configuration_response() :: %{
-        "aggregationDuration" => String.t() | Atom.t(),
-        "arn" => String.t() | Atom.t(),
+        "aggregationDuration" => String.t() | atom(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t()
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type get_notification_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_notification_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_channel_request() :: %{
-        required("notificationConfigurationArn") => String.t() | Atom.t()
+        required("notificationConfigurationArn") => String.t() | atom()
       }
 
   """
-  @type associate_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       notification_event_schema() :: %{
-        "aggregateNotificationEventArn" => String.t() | Atom.t(),
-        "aggregationEventType" => String.t() | Atom.t(),
+        "aggregateNotificationEventArn" => String.t() | atom(),
+        "aggregationEventType" => String.t() | atom(),
         "aggregationSummary" => aggregation_summary(),
         "endTime" => [non_neg_integer()],
-        "eventStatus" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "eventStatus" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "media" => list(media_element()),
         "messageComponents" => message_components(),
-        "notificationType" => String.t() | Atom.t(),
-        "schemaVersion" => String.t() | Atom.t(),
-        "sourceEventDetailUrl" => String.t() | Atom.t(),
-        "sourceEventDetailUrlDisplayText" => [String.t() | Atom.t()],
+        "notificationType" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom(),
+        "sourceEventDetailUrl" => String.t() | atom(),
+        "sourceEventDetailUrlDisplayText" => [String.t() | atom()],
         "sourceEventMetadata" => source_event_metadata(),
         "startTime" => [non_neg_integer()],
         "textParts" => map()
       }
 
   """
-  @type notification_event_schema() :: %{String.t() | Atom.t() => any()}
+  @type notification_event_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_notification_events_request() :: %{
-        optional("aggregateNotificationEventArn") => String.t() | Atom.t(),
+        optional("aggregateNotificationEventArn") => String.t() | atom(),
         optional("endTime") => [non_neg_integer()],
         optional("includeChildEvents") => [boolean()],
-        optional("locale") => String.t() | Atom.t(),
+        optional("locale") => String.t() | atom(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("source") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
+        optional("source") => String.t() | atom(),
         optional("startTime") => [non_neg_integer()]
       }
 
   """
-  @type list_notification_events_request() :: %{String.t() | Atom.t() => any()}
+  @type list_notification_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -594,23 +593,23 @@ defmodule AWS.Notifications do
   ## Example:
 
       managed_notification_child_event() :: %{
-        "aggregateManagedNotificationEventArn" => String.t() | Atom.t(),
+        "aggregateManagedNotificationEventArn" => String.t() | atom(),
         "aggregationDetail" => aggregation_detail(),
         "endTime" => [non_neg_integer()],
-        "eventStatus" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "eventStatus" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "messageComponents" => message_components(),
-        "notificationType" => String.t() | Atom.t(),
-        "organizationalUnitId" => String.t() | Atom.t(),
-        "schemaVersion" => String.t() | Atom.t(),
-        "sourceEventDetailUrl" => String.t() | Atom.t(),
-        "sourceEventDetailUrlDisplayText" => [String.t() | Atom.t()],
+        "notificationType" => String.t() | atom(),
+        "organizationalUnitId" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom(),
+        "sourceEventDetailUrl" => String.t() | atom(),
+        "sourceEventDetailUrlDisplayText" => [String.t() | atom()],
         "startTime" => [non_neg_integer()],
         "textParts" => map()
       }
 
   """
-  @type managed_notification_child_event() :: %{String.t() | Atom.t() => any()}
+  @type managed_notification_child_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -630,7 +629,7 @@ defmodule AWS.Notifications do
       }
 
   """
-  @type aggregation_detail() :: %{String.t() | Atom.t() => any()}
+  @type aggregation_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -648,49 +647,49 @@ defmodule AWS.Notifications do
       notification_hub_overview() :: %{
         "creationTime" => non_neg_integer(),
         "lastActivationTime" => non_neg_integer(),
-        "notificationHubRegion" => String.t() | Atom.t(),
+        "notificationHubRegion" => String.t() | atom(),
         "statusSummary" => notification_hub_status_summary()
       }
 
   """
-  @type notification_hub_overview() :: %{String.t() | Atom.t() => any()}
+  @type notification_hub_overview() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_event_rule_response() :: %{
-        "arn" => String.t() | Atom.t(),
-        "notificationConfigurationArn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
+        "notificationConfigurationArn" => String.t() | atom(),
         "statusSummaryByRegion" => map()
       }
 
   """
-  @type update_event_rule_response() :: %{String.t() | Atom.t() => any()}
+  @type update_event_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceId" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceId" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -706,12 +705,12 @@ defmodule AWS.Notifications do
   ## Example:
 
       list_notification_configurations_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "notificationConfigurations" => list(notification_configuration_structure())
       }
 
   """
-  @type list_notification_configurations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_notification_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -722,7 +721,7 @@ defmodule AWS.Notifications do
       }
 
   """
-  @type get_notifications_access_for_organization_response() :: %{String.t() | Atom.t() => any()}
+  @type get_notifications_access_for_organization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -739,17 +738,17 @@ defmodule AWS.Notifications do
 
       list_managed_notification_events_request() :: %{
         optional("endTime") => [non_neg_integer()],
-        optional("locale") => String.t() | Atom.t(),
+        optional("locale") => String.t() | atom(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("organizationalUnitId") => String.t() | Atom.t(),
-        optional("relatedAccount") => String.t() | Atom.t(),
-        optional("source") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
+        optional("organizationalUnitId") => String.t() | atom(),
+        optional("relatedAccount") => String.t() | atom(),
+        optional("source") => String.t() | atom(),
         optional("startTime") => [non_neg_integer()]
       }
 
   """
-  @type list_managed_notification_events_request() :: %{String.t() | Atom.t() => any()}
+  @type list_managed_notification_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -757,59 +756,58 @@ defmodule AWS.Notifications do
 
       list_managed_notification_child_events_request() :: %{
         optional("endTime") => [non_neg_integer()],
-        optional("locale") => String.t() | Atom.t(),
+        optional("locale") => String.t() | atom(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("organizationalUnitId") => String.t() | Atom.t(),
-        optional("relatedAccount") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
+        optional("organizationalUnitId") => String.t() | atom(),
+        optional("relatedAccount") => String.t() | atom(),
         optional("startTime") => [non_neg_integer()]
       }
 
   """
-  @type list_managed_notification_child_events_request() :: %{String.t() | Atom.t() => any()}
+  @type list_managed_notification_child_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "quotaCode" => String.t() | Atom.t(),
-        "resourceId" => String.t() | Atom.t(),
-        "resourceType" => String.t() | Atom.t(),
-        "serviceCode" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "serviceCode" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_managed_notification_configuration_response() :: %{
-        "arn" => String.t() | Atom.t(),
-        "category" => [String.t() | Atom.t()],
-        "description" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "subCategory" => [String.t() | Atom.t()]
+        "arn" => String.t() | atom(),
+        "category" => [String.t() | atom()],
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "subCategory" => [String.t() | atom()]
       }
 
   """
-  @type get_managed_notification_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_managed_notification_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_managed_notification_additional_channel_request() :: %{
-        required("managedNotificationConfigurationArn") => String.t() | Atom.t()
+        required("managedNotificationConfigurationArn") => String.t() | atom()
       }
 
   """
   @type disassociate_managed_notification_additional_channel_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -817,82 +815,82 @@ defmodule AWS.Notifications do
   ## Example:
 
       event_rule_structure() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "eventPattern" => String.t() | Atom.t(),
-        "eventType" => String.t() | Atom.t(),
-        "managedRules" => list(String.t() | Atom.t()),
-        "notificationConfigurationArn" => String.t() | Atom.t(),
-        "regions" => list(String.t() | Atom.t()),
-        "source" => String.t() | Atom.t(),
+        "eventPattern" => String.t() | atom(),
+        "eventType" => String.t() | atom(),
+        "managedRules" => list(String.t() | atom()),
+        "notificationConfigurationArn" => String.t() | atom(),
+        "regions" => list(String.t() | atom()),
+        "source" => String.t() | atom(),
         "statusSummaryByRegion" => map()
       }
 
   """
-  @type event_rule_structure() :: %{String.t() | Atom.t() => any()}
+  @type event_rule_structure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_notification_hubs_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "notificationHubs" => list(notification_hub_overview())
       }
 
   """
-  @type list_notification_hubs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_notification_hubs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_managed_notification_child_event_response() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "content" => managed_notification_child_event(),
         "creationTime" => non_neg_integer(),
-        "managedNotificationConfigurationArn" => String.t() | Atom.t()
+        "managedNotificationConfigurationArn" => String.t() | atom()
       }
 
   """
-  @type get_managed_notification_child_event_response() :: %{String.t() | Atom.t() => any()}
+  @type get_managed_notification_child_event_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_notification_configuration_request() :: %{
-        optional("aggregationDuration") => String.t() | Atom.t(),
+        optional("aggregationDuration") => String.t() | atom(),
         optional("tags") => map(),
-        required("description") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t()
+        required("description") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_notification_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type create_notification_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_notification_hub_request() :: %{
-        required("notificationHubRegion") => String.t() | Atom.t()
+        required("notificationHubRegion") => String.t() | atom()
       }
 
   """
-  @type register_notification_hub_request() :: %{String.t() | Atom.t() => any()}
+  @type register_notification_hub_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_notification_events_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "notificationEvents" => list(notification_event_overview())
       }
 
   """
-  @type list_notification_events_response() :: %{String.t() | Atom.t() => any()}
+  @type list_notification_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -903,71 +901,71 @@ defmodule AWS.Notifications do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_notification_configuration_request() :: %{
-        optional("aggregationDuration") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
-        optional("name") => String.t() | Atom.t()
+        optional("aggregationDuration") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom()
       }
 
   """
-  @type update_notification_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_notification_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_notification_configuration_response() :: %{
-        "arn" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type create_notification_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type create_notification_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t() | Atom.t()],
-        "name" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_channels_response() :: %{
-        "channels" => list(String.t() | Atom.t()),
-        "nextToken" => String.t() | Atom.t()
+        "channels" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_channels_response() :: %{String.t() | Atom.t() => any()}
+  @type list_channels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       managed_notification_event_summary() :: %{
-        "eventStatus" => String.t() | Atom.t(),
+        "eventStatus" => String.t() | atom(),
         "messageComponents" => message_components_summary(),
-        "notificationType" => String.t() | Atom.t(),
-        "schemaVersion" => String.t() | Atom.t(),
+        "notificationType" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom(),
         "sourceEventMetadata" => managed_source_event_metadata_summary()
       }
 
   """
-  @type managed_notification_event_summary() :: %{String.t() | Atom.t() => any()}
+  @type managed_notification_event_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -975,13 +973,12 @@ defmodule AWS.Notifications do
 
       list_managed_notification_channel_associations_response() :: %{
         "channelAssociations" => list(managed_notification_channel_association_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
   @type list_managed_notification_channel_associations_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -989,12 +986,12 @@ defmodule AWS.Notifications do
   ## Example:
 
       event_rule_status_summary() :: %{
-        "reason" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t()
+        "reason" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type event_rule_status_summary() :: %{String.t() | Atom.t() => any()}
+  @type event_rule_status_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1002,26 +999,26 @@ defmodule AWS.Notifications do
 
       list_event_rules_response() :: %{
         "eventRules" => list(event_rule_structure()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_event_rules_response() :: %{String.t() | Atom.t() => any()}
+  @type list_event_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       notification_event_summary() :: %{
-        "eventStatus" => String.t() | Atom.t(),
+        "eventStatus" => String.t() | atom(),
         "messageComponents" => message_components_summary(),
-        "notificationType" => String.t() | Atom.t(),
-        "schemaVersion" => String.t() | Atom.t(),
+        "notificationType" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom(),
         "sourceEventMetadata" => source_event_metadata_summary()
       }
 
   """
-  @type notification_event_summary() :: %{String.t() | Atom.t() => any()}
+  @type notification_event_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1029,40 +1026,40 @@ defmodule AWS.Notifications do
 
       list_managed_notification_events_response() :: %{
         "managedNotificationEvents" => list(managed_notification_event_overview()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_managed_notification_events_response() :: %{String.t() | Atom.t() => any()}
+  @type list_managed_notification_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       notification_event_overview() :: %{
-        "aggregateNotificationEventArn" => String.t() | Atom.t(),
-        "aggregationEventType" => String.t() | Atom.t(),
+        "aggregateNotificationEventArn" => String.t() | atom(),
+        "aggregationEventType" => String.t() | atom(),
         "aggregationSummary" => aggregation_summary(),
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "notificationConfigurationArn" => String.t() | Atom.t(),
+        "notificationConfigurationArn" => String.t() | atom(),
         "notificationEvent" => notification_event_summary(),
-        "relatedAccount" => String.t() | Atom.t()
+        "relatedAccount" => String.t() | atom()
       }
 
   """
-  @type notification_event_overview() :: %{String.t() | Atom.t() => any()}
+  @type notification_event_overview() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1070,40 +1067,40 @@ defmodule AWS.Notifications do
 
       managed_notification_child_event_summary() :: %{
         "aggregationDetail" => aggregation_detail(),
-        "eventStatus" => String.t() | Atom.t(),
+        "eventStatus" => String.t() | atom(),
         "messageComponents" => message_components_summary(),
-        "notificationType" => String.t() | Atom.t(),
-        "schemaVersion" => String.t() | Atom.t(),
+        "notificationType" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom(),
         "sourceEventMetadata" => managed_source_event_metadata_summary()
       }
 
   """
-  @type managed_notification_child_event_summary() :: %{String.t() | Atom.t() => any()}
+  @type managed_notification_child_event_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_channel_request() :: %{
-        required("notificationConfigurationArn") => String.t() | Atom.t()
+        required("notificationConfigurationArn") => String.t() | atom()
       }
 
   """
-  @type disassociate_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       message_components() :: %{
-        "completeDescription" => String.t() | Atom.t(),
+        "completeDescription" => String.t() | atom(),
         "dimensions" => list(dimension()),
-        "headline" => String.t() | Atom.t(),
-        "paragraphSummary" => String.t() | Atom.t()
+        "headline" => String.t() | atom(),
+        "paragraphSummary" => String.t() | atom()
       }
 
   """
-  @type message_components() :: %{String.t() | Atom.t() => any()}
+  @type message_components() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1111,34 +1108,34 @@ defmodule AWS.Notifications do
 
       summarization_dimension_overview() :: %{
         "count" => [integer()],
-        "name" => [String.t() | Atom.t()],
-        "sampleValues" => list([String.t() | Atom.t()]())
+        "name" => [String.t() | atom()],
+        "sampleValues" => list([String.t() | atom()]())
       }
 
   """
-  @type summarization_dimension_overview() :: %{String.t() | Atom.t() => any()}
+  @type summarization_dimension_overview() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_notification_configuration_response() :: %{
-        "arn" => String.t() | Atom.t()
+        "arn" => String.t() | atom()
       }
 
   """
-  @type update_notification_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type update_notification_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1173,12 +1170,12 @@ defmodule AWS.Notifications do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | Atom.t(),
-        "reason" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "reason" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1194,14 +1191,14 @@ defmodule AWS.Notifications do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "quotaCode" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
         "retryAfterSeconds" => [integer()],
-        "serviceCode" => String.t() | Atom.t()
+        "serviceCode" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1218,43 +1215,42 @@ defmodule AWS.Notifications do
 
       source_event_metadata() :: %{
         "eventOccurrenceTime" => [non_neg_integer()],
-        "eventOriginRegion" => String.t() | Atom.t(),
-        "eventType" => [String.t() | Atom.t()],
-        "eventTypeVersion" => [String.t() | Atom.t()],
-        "relatedAccount" => String.t() | Atom.t(),
+        "eventOriginRegion" => String.t() | atom(),
+        "eventType" => [String.t() | atom()],
+        "eventTypeVersion" => [String.t() | atom()],
+        "relatedAccount" => String.t() | atom(),
         "relatedResources" => list(resource()),
-        "source" => String.t() | Atom.t(),
-        "sourceEventId" => [String.t() | Atom.t()]
+        "source" => String.t() | atom(),
+        "sourceEventId" => [String.t() | atom()]
       }
 
   """
-  @type source_event_metadata() :: %{String.t() | Atom.t() => any()}
+  @type source_event_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       managed_notification_configuration_structure() :: %{
-        "arn" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type managed_notification_configuration_structure() :: %{String.t() | Atom.t() => any()}
+  @type managed_notification_configuration_structure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_managed_notification_account_contact_request() :: %{
-        required("managedNotificationConfigurationArn") => String.t() | Atom.t()
+        required("managedNotificationConfigurationArn") => String.t() | atom()
       }
 
   """
   @type associate_managed_notification_account_contact_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1271,70 +1267,69 @@ defmodule AWS.Notifications do
   ## Example:
 
       dimension() :: %{
-        "name" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type dimension() :: %{String.t() | Atom.t() => any()}
+  @type dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       managed_notification_channel_association_summary() :: %{
-        "channelIdentifier" => [String.t() | Atom.t()],
-        "channelType" => String.t() | Atom.t(),
-        "overrideOption" => String.t() | Atom.t()
+        "channelIdentifier" => [String.t() | atom()],
+        "channelType" => String.t() | atom(),
+        "overrideOption" => String.t() | atom()
       }
 
   """
-  @type managed_notification_channel_association_summary() :: %{String.t() | Atom.t() => any()}
+  @type managed_notification_channel_association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       managed_source_event_metadata_summary() :: %{
-        "eventOriginRegion" => String.t() | Atom.t(),
-        "eventType" => String.t() | Atom.t(),
-        "source" => String.t() | Atom.t()
+        "eventOriginRegion" => String.t() | atom(),
+        "eventType" => String.t() | atom(),
+        "source" => String.t() | atom()
       }
 
   """
-  @type managed_source_event_metadata_summary() :: %{String.t() | Atom.t() => any()}
+  @type managed_source_event_metadata_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_event_rule_response() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "eventPattern" => String.t() | Atom.t(),
-        "eventType" => String.t() | Atom.t(),
-        "managedRules" => list(String.t() | Atom.t()),
-        "notificationConfigurationArn" => String.t() | Atom.t(),
-        "regions" => list(String.t() | Atom.t()),
-        "source" => String.t() | Atom.t(),
+        "eventPattern" => String.t() | atom(),
+        "eventType" => String.t() | atom(),
+        "managedRules" => list(String.t() | atom()),
+        "notificationConfigurationArn" => String.t() | atom(),
+        "regions" => list(String.t() | atom()),
+        "source" => String.t() | atom(),
         "statusSummaryByRegion" => map()
       }
 
   """
-  @type get_event_rule_response() :: %{String.t() | Atom.t() => any()}
+  @type get_event_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_managed_notification_account_contact_request() :: %{
-        required("managedNotificationConfigurationArn") => String.t() | Atom.t()
+        required("managedNotificationConfigurationArn") => String.t() | atom()
       }
 
   """
   @type disassociate_managed_notification_account_contact_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1342,17 +1337,17 @@ defmodule AWS.Notifications do
   ## Example:
 
       managed_notification_child_event_overview() :: %{
-        "aggregateManagedNotificationEventArn" => String.t() | Atom.t(),
-        "arn" => String.t() | Atom.t(),
+        "aggregateManagedNotificationEventArn" => String.t() | atom(),
+        "arn" => String.t() | atom(),
         "childEvent" => managed_notification_child_event_summary(),
         "creationTime" => non_neg_integer(),
-        "managedNotificationConfigurationArn" => String.t() | Atom.t(),
-        "organizationalUnitId" => String.t() | Atom.t(),
-        "relatedAccount" => String.t() | Atom.t()
+        "managedNotificationConfigurationArn" => String.t() | atom(),
+        "organizationalUnitId" => String.t() | atom(),
+        "relatedAccount" => String.t() | atom()
       }
 
   """
-  @type managed_notification_child_event_overview() :: %{String.t() | Atom.t() => any()}
+  @type managed_notification_child_event_overview() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1361,12 +1356,12 @@ defmodule AWS.Notifications do
       register_notification_hub_response() :: %{
         "creationTime" => non_neg_integer(),
         "lastActivationTime" => non_neg_integer(),
-        "notificationHubRegion" => String.t() | Atom.t(),
+        "notificationHubRegion" => String.t() | atom(),
         "statusSummary" => notification_hub_status_summary()
       }
 
   """
-  @type register_notification_hub_response() :: %{String.t() | Atom.t() => any()}
+  @type register_notification_hub_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1374,40 +1369,39 @@ defmodule AWS.Notifications do
 
       list_channels_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t(),
-        required("notificationConfigurationArn") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("notificationConfigurationArn") => String.t() | atom()
       }
 
   """
-  @type list_channels_request() :: %{String.t() | Atom.t() => any()}
+  @type list_channels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_event_rule_request() :: %{
-        optional("eventPattern") => String.t() | Atom.t(),
-        required("eventType") => String.t() | Atom.t(),
-        required("notificationConfigurationArn") => String.t() | Atom.t(),
-        required("regions") => list(String.t() | Atom.t()),
-        required("source") => String.t() | Atom.t()
+        optional("eventPattern") => String.t() | atom(),
+        required("eventType") => String.t() | atom(),
+        required("notificationConfigurationArn") => String.t() | atom(),
+        required("regions") => list(String.t() | atom()),
+        required("source") => String.t() | atom()
       }
 
   """
-  @type create_event_rule_request() :: %{String.t() | Atom.t() => any()}
+  @type create_event_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_managed_notification_additional_channel_request() :: %{
-        required("managedNotificationConfigurationArn") => String.t() | Atom.t()
+        required("managedNotificationConfigurationArn") => String.t() | atom()
       }
 
   """
   @type associate_managed_notification_additional_channel_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1415,14 +1409,14 @@ defmodule AWS.Notifications do
   ## Example:
 
       resource() :: %{
-        "arn" => String.t() | Atom.t(),
-        "detailUrl" => String.t() | Atom.t(),
-        "id" => [String.t() | Atom.t()],
-        "tags" => list([String.t() | Atom.t()]())
+        "arn" => String.t() | atom(),
+        "detailUrl" => String.t() | atom(),
+        "id" => [String.t() | atom()],
+        "tags" => list([String.t() | atom()]())
       }
 
   """
-  @type resource() :: %{String.t() | Atom.t() => any()}
+  @type resource() :: %{(String.t() | atom()) => any()}
 
   @type associate_channel_errors() ::
           throttling_exception()
@@ -1706,7 +1700,7 @@ defmodule AWS.Notifications do
   Supported Channels include Chatbot,
   the Console Mobile Application, and emails (notifications-contacts).
   """
-  @spec associate_channel(map(), String.t() | Atom.t(), associate_channel_request(), list()) ::
+  @spec associate_channel(map(), String.t() | atom(), associate_channel_request(), list()) ::
           {:ok, associate_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1738,7 +1732,7 @@ defmodule AWS.Notifications do
   """
   @spec associate_managed_notification_account_contact(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           associate_managed_notification_account_contact_request(),
           list()
         ) ::
@@ -1783,7 +1777,7 @@ defmodule AWS.Notifications do
   """
   @spec associate_managed_notification_additional_channel(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           associate_managed_notification_additional_channel_request(),
           list()
         ) ::
@@ -1885,7 +1879,7 @@ defmodule AWS.Notifications do
   @doc """
   Deletes an `EventRule`.
   """
-  @spec delete_event_rule(map(), String.t() | Atom.t(), delete_event_rule_request(), list()) ::
+  @spec delete_event_rule(map(), String.t() | atom(), delete_event_rule_request(), list()) ::
           {:ok, delete_event_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1916,7 +1910,7 @@ defmodule AWS.Notifications do
   """
   @spec delete_notification_configuration(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_notification_configuration_request(),
           list()
         ) ::
@@ -1957,7 +1951,7 @@ defmodule AWS.Notifications do
   """
   @spec deregister_notification_hub(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           deregister_notification_hub_request(),
           list()
         ) ::
@@ -2031,7 +2025,7 @@ defmodule AWS.Notifications do
   Supported Channels include Chatbot, the Console Mobile Application, and emails
   (notifications-contacts).
   """
-  @spec disassociate_channel(map(), String.t() | Atom.t(), disassociate_channel_request(), list()) ::
+  @spec disassociate_channel(map(), String.t() | atom(), disassociate_channel_request(), list()) ::
           {:ok, disassociate_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2063,7 +2057,7 @@ defmodule AWS.Notifications do
   """
   @spec disassociate_managed_notification_account_contact(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           disassociate_managed_notification_account_contact_request(),
           list()
         ) ::
@@ -2108,7 +2102,7 @@ defmodule AWS.Notifications do
   """
   @spec disassociate_managed_notification_additional_channel(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           disassociate_managed_notification_additional_channel_request(),
           list()
         ) ::
@@ -2179,7 +2173,7 @@ defmodule AWS.Notifications do
   @doc """
   Returns a specified `EventRule`.
   """
-  @spec get_event_rule(map(), String.t() | Atom.t(), list()) ::
+  @spec get_event_rule(map(), String.t() | atom(), list()) ::
           {:ok, get_event_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2199,8 +2193,8 @@ defmodule AWS.Notifications do
   """
   @spec get_managed_notification_child_event(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_managed_notification_child_event_response(), any()}
@@ -2227,7 +2221,7 @@ defmodule AWS.Notifications do
   @doc """
   Returns a specified `ManagedNotificationConfiguration`.
   """
-  @spec get_managed_notification_configuration(map(), String.t() | Atom.t(), list()) ::
+  @spec get_managed_notification_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_managed_notification_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2247,8 +2241,8 @@ defmodule AWS.Notifications do
   """
   @spec get_managed_notification_event(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_managed_notification_event_response(), any()}
@@ -2275,7 +2269,7 @@ defmodule AWS.Notifications do
   @doc """
   Returns a specified `NotificationConfiguration`.
   """
-  @spec get_notification_configuration(map(), String.t() | Atom.t(), list()) ::
+  @spec get_notification_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_notification_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2303,7 +2297,7 @@ defmodule AWS.Notifications do
   For more information, see [Notification hubs](https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html)
   in the *Amazon Web Services User Notifications User Guide*.
   """
-  @spec get_notification_event(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec get_notification_event(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_notification_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2349,9 +2343,9 @@ defmodule AWS.Notifications do
   """
   @spec list_channels(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_channels_response(), any()}
@@ -2401,9 +2395,9 @@ defmodule AWS.Notifications do
   """
   @spec list_event_rules(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_event_rules_response(), any()}
@@ -2453,9 +2447,9 @@ defmodule AWS.Notifications do
   """
   @spec list_managed_notification_channel_associations(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_managed_notification_channel_associations_response(), any()}
@@ -2509,14 +2503,14 @@ defmodule AWS.Notifications do
   """
   @spec list_managed_notification_child_events(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_managed_notification_child_events_response(), any()}
@@ -2601,9 +2595,9 @@ defmodule AWS.Notifications do
   """
   @spec list_managed_notification_configurations(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_managed_notification_configurations_response(), any()}
@@ -2653,14 +2647,14 @@ defmodule AWS.Notifications do
   """
   @spec list_managed_notification_events(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_managed_notification_events_response(), any()}
@@ -2750,11 +2744,11 @@ defmodule AWS.Notifications do
   """
   @spec list_notification_configurations(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_notification_configurations_response(), any()}
@@ -2830,14 +2824,14 @@ defmodule AWS.Notifications do
   """
   @spec list_notification_events(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_notification_events_response(), any()}
@@ -2926,8 +2920,8 @@ defmodule AWS.Notifications do
   """
   @spec list_notification_hubs(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_notification_hubs_response(), any()}
@@ -2971,7 +2965,7 @@ defmodule AWS.Notifications do
 
   This is only supported for `NotificationConfigurations`.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3026,7 +3020,7 @@ defmodule AWS.Notifications do
 
   This is only supported for `NotificationConfigurations`.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3058,7 +3052,7 @@ defmodule AWS.Notifications do
   For more information, see [Tagging your Amazon Web Services resources](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html)
   in the *Tagging Amazon Web Services Resources User Guide*.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3092,7 +3086,7 @@ defmodule AWS.Notifications do
   @doc """
   Updates an existing `EventRule`.
   """
-  @spec update_event_rule(map(), String.t() | Atom.t(), update_event_rule_request(), list()) ::
+  @spec update_event_rule(map(), String.t() | atom(), update_event_rule_request(), list()) ::
           {:ok, update_event_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3123,7 +3117,7 @@ defmodule AWS.Notifications do
   """
   @spec update_notification_configuration(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_notification_configuration_request(),
           list()
         ) ::

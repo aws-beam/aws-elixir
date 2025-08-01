@@ -15,24 +15,24 @@ defmodule AWS.InspectorScan do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t() | Atom.t()],
+        "message" => [String.t() | atom()],
         "reason" => list(any()),
         "retryAfterSeconds" => [integer()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -44,7 +44,7 @@ defmodule AWS.InspectorScan do
       }
 
   """
-  @type scan_sbom_request() :: %{String.t() | Atom.t() => any()}
+  @type scan_sbom_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -55,19 +55,19 @@ defmodule AWS.InspectorScan do
       }
 
   """
-  @type scan_sbom_response() :: %{String.t() | Atom.t() => any()}
+  @type scan_sbom_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t() | Atom.t()],
+        "message" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -75,24 +75,24 @@ defmodule AWS.InspectorScan do
 
       validation_exception() :: %{
         "fields" => list(validation_exception_field()),
-        "message" => [String.t() | Atom.t()],
+        "message" => [String.t() | atom()],
         "reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t() | Atom.t()],
-        "name" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @type scan_sbom_errors() ::
           validation_exception()

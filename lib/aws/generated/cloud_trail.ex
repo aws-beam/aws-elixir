@@ -41,12 +41,12 @@ defmodule AWS.CloudTrail do
   ## Example:
       
       partition_key() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type partition_key() :: %{String.t() | Atom.t() => any()}
+  @type partition_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -54,35 +54,35 @@ defmodule AWS.CloudTrail do
       
       list_dashboards_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NamePrefix") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NamePrefix") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("Type") => list(any())
       }
       
   """
-  @type list_dashboards_request() :: %{String.t() | Atom.t() => any()}
+  @type list_dashboards_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_dashboard_request() :: %{
-        required("DashboardId") => String.t() | Atom.t()
+        required("DashboardId") => String.t() | atom()
       }
       
   """
-  @type get_dashboard_request() :: %{String.t() | Atom.t() => any()}
+  @type get_dashboard_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_trail_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_trail_request() :: %{String.t() | Atom.t() => any()}
+  @type get_trail_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -90,8 +90,8 @@ defmodule AWS.CloudTrail do
       
       update_dashboard_response() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "DashboardArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "DashboardArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "RefreshSchedule" => refresh_schedule(),
         "TerminationProtectionEnabled" => boolean(),
         "Type" => list(any()),
@@ -100,18 +100,18 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type update_dashboard_response() :: %{String.t() | Atom.t() => any()}
+  @type update_dashboard_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_channel_request() :: %{
-        required("Channel") => String.t() | Atom.t()
+        required("Channel") => String.t() | atom()
       }
       
   """
-  @type delete_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -121,44 +121,44 @@ defmodule AWS.CloudTrail do
         optional("RefreshSchedule") => refresh_schedule(),
         optional("TerminationProtectionEnabled") => boolean(),
         optional("Widgets") => list(request_widget()),
-        required("DashboardId") => String.t() | Atom.t()
+        required("DashboardId") => String.t() | atom()
       }
       
   """
-  @type update_dashboard_request() :: %{String.t() | Atom.t() => any()}
+  @type update_dashboard_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_max_results_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_max_results_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_max_results_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_federation_request() :: %{
-        required("EventDataStore") => String.t() | Atom.t()
+        required("EventDataStore") => String.t() | atom()
       }
       
   """
-  @type disable_federation_request() :: %{String.t() | Atom.t() => any()}
+  @type disable_federation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_channel_request() :: %{
-        required("Channel") => String.t() | Atom.t()
+        required("Channel") => String.t() | atom()
       }
       
   """
-  @type get_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type get_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -175,53 +175,53 @@ defmodule AWS.CloudTrail do
       
       search_sample_queries_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("SearchPhrase") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("SearchPhrase") => String.t() | atom()
       }
       
   """
-  @type search_sample_queries_request() :: %{String.t() | Atom.t() => any()}
+  @type search_sample_queries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_trail_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_trail_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_trail_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_query_response() :: %{
-        "DeliveryS3Uri" => String.t() | Atom.t(),
+        "DeliveryS3Uri" => String.t() | atom(),
         "DeliveryStatus" => list(any()),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "EventDataStoreOwnerAccountId" => String.t() | Atom.t(),
-        "Prompt" => String.t() | Atom.t(),
-        "QueryId" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | atom(),
+        "EventDataStoreOwnerAccountId" => String.t() | atom(),
+        "Prompt" => String.t() | atom(),
+        "QueryId" => String.t() | atom(),
         "QueryStatistics" => query_statistics_for_describe_query(),
         "QueryStatus" => list(any()),
-        "QueryString" => String.t() | Atom.t()
+        "QueryString" => String.t() | atom()
       }
       
   """
-  @type describe_query_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_query_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       not_organization_management_account_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type not_organization_management_account_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_organization_management_account_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -237,152 +237,152 @@ defmodule AWS.CloudTrail do
   ## Example:
       
       resource_type_not_supported_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_type_not_supported_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_type_not_supported_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       trail_not_provided_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type trail_not_provided_exception() :: %{String.t() | Atom.t() => any()}
+  @type trail_not_provided_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_operation_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type unsupported_operation_exception() :: %{String.t() | Atom.t() => any()}
+  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       account_registered_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type account_registered_exception() :: %{String.t() | Atom.t() => any()}
+  @type account_registered_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_import_request() :: %{
-        required("ImportId") => String.t() | Atom.t()
+        required("ImportId") => String.t() | atom()
       }
       
   """
-  @type stop_import_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_import_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_watch_logs_delivery_unavailable_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type cloud_watch_logs_delivery_unavailable_exception() :: %{String.t() | Atom.t() => any()}
+  @type cloud_watch_logs_delivery_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_channel_response() :: %{
-        "ChannelArn" => String.t() | Atom.t(),
+        "ChannelArn" => String.t() | atom(),
         "Destinations" => list(destination()),
-        "Name" => String.t() | Atom.t(),
-        "Source" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "Source" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type create_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type create_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_federation_response() :: %{
-        "EventDataStoreArn" => String.t() | Atom.t(),
+        "EventDataStoreArn" => String.t() | atom(),
         "FederationStatus" => list(any())
       }
       
   """
-  @type disable_federation_response() :: %{String.t() | Atom.t() => any()}
+  @type disable_federation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delegated_admin_account_limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type delegated_admin_account_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type delegated_admin_account_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_encryption_policy_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type insufficient_encryption_policy_exception() :: %{String.t() | Atom.t() => any()}
+  @type insufficient_encryption_policy_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_query_results_response() :: %{
-        "ErrorMessage" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
         "QueryResultRows" => list(list(map())()),
         "QueryStatistics" => query_statistics(),
         "QueryStatus" => list(any())
       }
       
   """
-  @type get_query_results_response() :: %{String.t() | Atom.t() => any()}
+  @type get_query_results_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_event_data_store_ingestion_request() :: %{
-        required("EventDataStore") => String.t() | Atom.t()
+        required("EventDataStore") => String.t() | atom()
       }
       
   """
-  @type stop_event_data_store_ingestion_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_event_data_store_ingestion_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_organization_delegated_admin_request() :: %{
-        required("DelegatedAdminAccountId") => String.t() | Atom.t()
+        required("DelegatedAdminAccountId") => String.t() | atom()
       }
       
   """
-  @type deregister_organization_delegated_admin_request() :: %{String.t() | Atom.t() => any()}
+  @type deregister_organization_delegated_admin_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -417,9 +417,9 @@ defmodule AWS.CloudTrail do
       
       get_import_response() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "Destinations" => list(String.t() | Atom.t()),
+        "Destinations" => list(String.t() | atom()),
         "EndEventTime" => non_neg_integer(),
-        "ImportId" => String.t() | Atom.t(),
+        "ImportId" => String.t() | atom(),
         "ImportSource" => import_source(),
         "ImportStatistics" => import_statistics(),
         "ImportStatus" => list(any()),
@@ -428,111 +428,111 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type get_import_response() :: %{String.t() | Atom.t() => any()}
+  @type get_import_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       channel_exists_for_e_d_s_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type channel_exists_for_e_d_s_exception() :: %{String.t() | Atom.t() => any()}
+  @type channel_exists_for_e_d_s_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_public_keys_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "PublicKeyList" => list(public_key())
       }
       
   """
-  @type list_public_keys_response() :: %{String.t() | Atom.t() => any()}
+  @type list_public_keys_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       query_id_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type query_id_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type query_id_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_key_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type kms_key_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type kms_key_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_bucket_does_not_exist_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type s3_bucket_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
+  @type s3_bucket_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_data_store_already_exists_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type event_data_store_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type event_data_store_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_query_results_request() :: %{
-        optional("EventDataStore") => String.t() | Atom.t(),
-        optional("EventDataStoreOwnerAccountId") => String.t() | Atom.t(),
+        optional("EventDataStore") => String.t() | atom(),
+        optional("EventDataStoreOwnerAccountId") => String.t() | atom(),
         optional("MaxQueryResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("QueryId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("QueryId") => String.t() | atom()
       }
       
   """
-  @type get_query_results_request() :: %{String.t() | Atom.t() => any()}
+  @type get_query_results_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_trail_request() :: %{
-        optional("CloudWatchLogsLogGroupArn") => String.t() | Atom.t(),
-        optional("CloudWatchLogsRoleArn") => String.t() | Atom.t(),
+        optional("CloudWatchLogsLogGroupArn") => String.t() | atom(),
+        optional("CloudWatchLogsRoleArn") => String.t() | atom(),
         optional("EnableLogFileValidation") => boolean(),
         optional("IncludeGlobalServiceEvents") => boolean(),
         optional("IsMultiRegionTrail") => boolean(),
         optional("IsOrganizationTrail") => boolean(),
-        optional("KmsKeyId") => String.t() | Atom.t(),
-        optional("S3KeyPrefix") => String.t() | Atom.t(),
-        optional("SnsTopicName") => String.t() | Atom.t(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("S3KeyPrefix") => String.t() | atom(),
+        optional("SnsTopicName") => String.t() | atom(),
         optional("TagsList") => list(tag()),
-        required("Name") => String.t() | Atom.t(),
-        required("S3BucketName") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("S3BucketName") => String.t() | atom()
       }
       
   """
-  @type create_trail_request() :: %{String.t() | Atom.t() => any()}
+  @type create_trail_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -540,11 +540,11 @@ defmodule AWS.CloudTrail do
       
       describe_trails_request() :: %{
         optional("includeShadowTrails") => boolean(),
-        optional("trailNameList") => list(String.t() | Atom.t())
+        optional("trailNameList") => list(String.t() | atom())
       }
       
   """
-  @type describe_trails_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_trails_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -560,23 +560,23 @@ defmodule AWS.CloudTrail do
   ## Example:
       
       update_trail_response() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t() | Atom.t(),
-        "CloudWatchLogsRoleArn" => String.t() | Atom.t(),
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
+        "CloudWatchLogsRoleArn" => String.t() | atom(),
         "IncludeGlobalServiceEvents" => boolean(),
         "IsMultiRegionTrail" => boolean(),
         "IsOrganizationTrail" => boolean(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
         "LogFileValidationEnabled" => boolean(),
-        "Name" => String.t() | Atom.t(),
-        "S3BucketName" => String.t() | Atom.t(),
-        "S3KeyPrefix" => String.t() | Atom.t(),
-        "SnsTopicARN" => String.t() | Atom.t(),
-        "SnsTopicName" => String.t() | Atom.t(),
-        "TrailARN" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "S3BucketName" => String.t() | atom(),
+        "S3KeyPrefix" => String.t() | atom(),
+        "SnsTopicARN" => String.t() | atom(),
+        "SnsTopicName" => String.t() | atom(),
+        "TrailARN" => String.t() | atom()
       }
       
   """
-  @type update_trail_response() :: %{String.t() | Atom.t() => any()}
+  @type update_trail_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -584,22 +584,22 @@ defmodule AWS.CloudTrail do
       
       lookup_events_response() :: %{
         "Events" => list(event()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type lookup_events_response() :: %{String.t() | Atom.t() => any()}
+  @type lookup_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_event_configuration_request() :: %{
-        optional("EventDataStore") => String.t() | Atom.t()
+        optional("EventDataStore") => String.t() | atom()
       }
       
   """
-  @type get_event_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type get_event_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -609,12 +609,12 @@ defmodule AWS.CloudTrail do
         "AdvancedEventSelectors" => list(advanced_event_selector()),
         "BillingMode" => list(any()),
         "CreatedTimestamp" => non_neg_integer(),
-        "EventDataStoreArn" => String.t() | Atom.t(),
-        "FederationRoleArn" => String.t() | Atom.t(),
+        "EventDataStoreArn" => String.t() | atom(),
+        "FederationRoleArn" => String.t() | atom(),
         "FederationStatus" => list(any()),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
         "MultiRegionEnabled" => boolean(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "OrganizationEnabled" => boolean(),
         "RetentionPeriod" => integer(),
         "Status" => list(any()),
@@ -623,33 +623,33 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type update_event_data_store_response() :: %{String.t() | Atom.t() => any()}
+  @type update_event_data_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ingestion_status() :: %{
-        "LatestIngestionAttemptEventID" => String.t() | Atom.t(),
+        "LatestIngestionAttemptEventID" => String.t() | atom(),
         "LatestIngestionAttemptTime" => non_neg_integer(),
-        "LatestIngestionErrorCode" => String.t() | Atom.t(),
-        "LatestIngestionSuccessEventID" => String.t() | Atom.t(),
+        "LatestIngestionErrorCode" => String.t() | atom(),
+        "LatestIngestionSuccessEventID" => String.t() | atom(),
         "LatestIngestionSuccessTime" => non_neg_integer()
       }
       
   """
-  @type ingestion_status() :: %{String.t() | Atom.t() => any()}
+  @type ingestion_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_s3_bucket_name_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_s3_bucket_name_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_s3_bucket_name_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -657,47 +657,47 @@ defmodule AWS.CloudTrail do
       
       start_dashboard_refresh_request() :: %{
         optional("QueryParameterValues") => map(),
-        required("DashboardId") => String.t() | Atom.t()
+        required("DashboardId") => String.t() | atom()
       }
       
   """
-  @type start_dashboard_refresh_request() :: %{String.t() | Atom.t() => any()}
+  @type start_dashboard_refresh_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ResourceTagList" => list(resource_tag())
       }
       
   """
-  @type list_tags_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_policy_response() :: %{
-        "DelegatedAdminResourcePolicy" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t(),
-        "ResourcePolicy" => String.t() | Atom.t()
+        "DelegatedAdminResourcePolicy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourcePolicy" => String.t() | atom()
       }
       
   """
-  @type get_resource_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_data_store_arn_invalid_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type event_data_store_arn_invalid_exception() :: %{String.t() | Atom.t() => any()}
+  @type event_data_store_arn_invalid_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -713,108 +713,108 @@ defmodule AWS.CloudTrail do
   ## Example:
       
       describe_query_request() :: %{
-        optional("EventDataStore") => String.t() | Atom.t(),
-        optional("EventDataStoreOwnerAccountId") => String.t() | Atom.t(),
-        optional("QueryAlias") => String.t() | Atom.t(),
-        optional("QueryId") => String.t() | Atom.t(),
-        optional("RefreshId") => String.t() | Atom.t()
+        optional("EventDataStore") => String.t() | atom(),
+        optional("EventDataStoreOwnerAccountId") => String.t() | atom(),
+        optional("QueryAlias") => String.t() | atom(),
+        optional("QueryId") => String.t() | atom(),
+        optional("RefreshId") => String.t() | atom()
       }
       
   """
-  @type describe_query_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_query_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_trail_request() :: %{
-        optional("CloudWatchLogsLogGroupArn") => String.t() | Atom.t(),
-        optional("CloudWatchLogsRoleArn") => String.t() | Atom.t(),
+        optional("CloudWatchLogsLogGroupArn") => String.t() | atom(),
+        optional("CloudWatchLogsRoleArn") => String.t() | atom(),
         optional("EnableLogFileValidation") => boolean(),
         optional("IncludeGlobalServiceEvents") => boolean(),
         optional("IsMultiRegionTrail") => boolean(),
         optional("IsOrganizationTrail") => boolean(),
-        optional("KmsKeyId") => String.t() | Atom.t(),
-        optional("S3BucketName") => String.t() | Atom.t(),
-        optional("S3KeyPrefix") => String.t() | Atom.t(),
-        optional("SnsTopicName") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("S3BucketName") => String.t() | atom(),
+        optional("S3KeyPrefix") => String.t() | atom(),
+        optional("SnsTopicName") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type update_trail_request() :: %{String.t() | Atom.t() => any()}
+  @type update_trail_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       channel_already_exists_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type channel_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type channel_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       channel_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type channel_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type channel_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_home_region_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_home_region_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_home_region_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_query_request() :: %{
-        optional("DeliveryS3Uri") => String.t() | Atom.t(),
-        optional("EventDataStoreOwnerAccountId") => String.t() | Atom.t(),
-        optional("QueryAlias") => String.t() | Atom.t(),
-        optional("QueryParameters") => list(String.t() | Atom.t()),
-        optional("QueryStatement") => String.t() | Atom.t()
+        optional("DeliveryS3Uri") => String.t() | atom(),
+        optional("EventDataStoreOwnerAccountId") => String.t() | atom(),
+        optional("QueryAlias") => String.t() | atom(),
+        optional("QueryParameters") => list(String.t() | atom()),
+        optional("QueryStatement") => String.t() | atom()
       }
       
   """
-  @type start_query_request() :: %{String.t() | Atom.t() => any()}
+  @type start_query_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_sns_topic_policy_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type insufficient_sns_topic_policy_exception() :: %{String.t() | Atom.t() => any()}
+  @type insufficient_sns_topic_policy_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_query_response() :: %{
-        "EventDataStoreOwnerAccountId" => String.t() | Atom.t(),
-        "QueryId" => String.t() | Atom.t(),
+        "EventDataStoreOwnerAccountId" => String.t() | atom(),
+        "QueryId" => String.t() | atom(),
         "QueryStatus" => list(any())
       }
       
   """
-  @type cancel_query_response() :: %{String.t() | Atom.t() => any()}
+  @type cancel_query_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -822,14 +822,14 @@ defmodule AWS.CloudTrail do
       
       imports_list_item() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "Destinations" => list(String.t() | Atom.t()),
-        "ImportId" => String.t() | Atom.t(),
+        "Destinations" => list(String.t() | atom()),
+        "ImportId" => String.t() | atom(),
         "ImportStatus" => list(any()),
         "UpdatedTimestamp" => non_neg_integer()
       }
       
   """
-  @type imports_list_item() :: %{String.t() | Atom.t() => any()}
+  @type imports_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -844,140 +844,140 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type import_statistics() :: %{String.t() | Atom.t() => any()}
+  @type import_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       generate_query_response() :: %{
-        "EventDataStoreOwnerAccountId" => String.t() | Atom.t(),
-        "QueryAlias" => String.t() | Atom.t(),
-        "QueryStatement" => String.t() | Atom.t()
+        "EventDataStoreOwnerAccountId" => String.t() | atom(),
+        "QueryAlias" => String.t() | atom(),
+        "QueryStatement" => String.t() | atom()
       }
       
   """
-  @type generate_query_response() :: %{String.t() | Atom.t() => any()}
+  @type generate_query_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_queries_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Queries" => list(query())
       }
       
   """
-  @type list_queries_response() :: %{String.t() | Atom.t() => any()}
+  @type list_queries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_tag_parameter_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_tag_parameter_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_tag_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_insights_metric_data_response() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "EventName" => String.t() | Atom.t(),
-        "EventSource" => String.t() | Atom.t(),
+        "ErrorCode" => String.t() | atom(),
+        "EventName" => String.t() | atom(),
+        "EventSource" => String.t() | atom(),
         "InsightType" => list(any()),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Timestamps" => list(non_neg_integer()),
         "Values" => list(float())
       }
       
   """
-  @type list_insights_metric_data_response() :: %{String.t() | Atom.t() => any()}
+  @type list_insights_metric_data_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_s3_prefix_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_s3_prefix_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_s3_prefix_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       trail_info() :: %{
-        "HomeRegion" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "TrailARN" => String.t() | Atom.t()
+        "HomeRegion" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "TrailARN" => String.t() | atom()
       }
       
   """
-  @type trail_info() :: %{String.t() | Atom.t() => any()}
+  @type trail_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       maximum_number_of_trails_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type maximum_number_of_trails_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type maximum_number_of_trails_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_management_account_s_l_r_exists_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type no_management_account_s_l_r_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_management_account_s_l_r_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_event_selectors_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_event_selectors_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_event_selectors_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       enable_federation_request() :: %{
-        required("EventDataStore") => String.t() | Atom.t(),
-        required("FederationRoleArn") => String.t() | Atom.t()
+        required("EventDataStore") => String.t() | atom(),
+        required("FederationRoleArn") => String.t() | atom()
       }
       
   """
-  @type enable_federation_request() :: %{String.t() | Atom.t() => any()}
+  @type enable_federation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_combination_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_combination_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -985,11 +985,11 @@ defmodule AWS.CloudTrail do
       
       advanced_event_selector() :: %{
         "FieldSelectors" => list(advanced_field_selector()),
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type advanced_event_selector() :: %{String.t() | Atom.t() => any()}
+  @type advanced_event_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -997,12 +997,12 @@ defmodule AWS.CloudTrail do
       
       list_public_keys_request() :: %{
         optional("EndTime") => non_neg_integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("StartTime") => non_neg_integer()
       }
       
   """
-  @type list_public_keys_request() :: %{String.t() | Atom.t() => any()}
+  @type list_public_keys_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1010,11 +1010,11 @@ defmodule AWS.CloudTrail do
       
       list_imports_response() :: %{
         "Imports" => list(imports_list_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_imports_response() :: %{String.t() | Atom.t() => any()}
+  @type list_imports_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1024,10 +1024,10 @@ defmodule AWS.CloudTrail do
         "AdvancedEventSelectors" => list(advanced_event_selector()),
         "BillingMode" => list(any()),
         "CreatedTimestamp" => non_neg_integer(),
-        "EventDataStoreArn" => String.t() | Atom.t(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "EventDataStoreArn" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "MultiRegionEnabled" => boolean(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "OrganizationEnabled" => boolean(),
         "RetentionPeriod" => integer(),
         "Status" => list(any()),
@@ -1036,18 +1036,18 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type restore_event_data_store_response() :: %{String.t() | Atom.t() => any()}
+  @type restore_event_data_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_query_status_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_query_status_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_query_status_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1055,195 +1055,194 @@ defmodule AWS.CloudTrail do
       
       put_event_configuration_response() :: %{
         "ContextKeySelectors" => list(context_key_selector()),
-        "EventDataStoreArn" => String.t() | Atom.t(),
+        "EventDataStoreArn" => String.t() | atom(),
         "MaxEventSize" => list(any())
       }
       
   """
-  @type put_event_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type put_event_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_source_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_source_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_source_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_request() :: %{
-        required("ResourceId") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | atom(),
         required("TagsList") => list(tag())
       }
       
   """
-  @type add_tags_request() :: %{String.t() | Atom.t() => any()}
+  @type add_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_event_category_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_event_category_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_event_category_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       account_has_ongoing_import_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type account_has_ongoing_import_exception() :: %{String.t() | Atom.t() => any()}
+  @type account_has_ongoing_import_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_event_configuration_request() :: %{
-        optional("EventDataStore") => String.t() | Atom.t(),
+        optional("EventDataStore") => String.t() | atom(),
         required("ContextKeySelectors") => list(context_key_selector()),
         required("MaxEventSize") => list(any())
       }
       
   """
-  @type put_event_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type put_event_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_logging_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type start_logging_request() :: %{String.t() | Atom.t() => any()}
+  @type start_logging_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_logging_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type stop_logging_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_logging_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       insight_not_enabled_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type insight_not_enabled_exception() :: %{String.t() | Atom.t() => any()}
+  @type insight_not_enabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       inactive_query_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type inactive_query_exception() :: %{String.t() | Atom.t() => any()}
+  @type inactive_query_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_query_request() :: %{
-        optional("EventDataStore") => String.t() | Atom.t(),
-        optional("EventDataStoreOwnerAccountId") => String.t() | Atom.t(),
-        required("QueryId") => String.t() | Atom.t()
+        optional("EventDataStore") => String.t() | atom(),
+        optional("EventDataStoreOwnerAccountId") => String.t() | atom(),
+        required("QueryId") => String.t() | atom()
       }
       
   """
-  @type cancel_query_request() :: %{String.t() | Atom.t() => any()}
+  @type cancel_query_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_not_in_all_features_mode_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type organization_not_in_all_features_mode_exception() :: %{String.t() | Atom.t() => any()}
+  @type organization_not_in_all_features_mode_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_event_data_store_ingestion_request() :: %{
-        required("EventDataStore") => String.t() | Atom.t()
+        required("EventDataStore") => String.t() | atom()
       }
       
   """
-  @type start_event_data_store_ingestion_request() :: %{String.t() | Atom.t() => any()}
+  @type start_event_data_store_ingestion_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_time_range_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_time_range_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_time_range_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_dependency_service_access_permission_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
   @type insufficient_dependency_service_access_permission_exception() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1251,47 +1250,47 @@ defmodule AWS.CloudTrail do
   ## Example:
       
       request_widget() :: %{
-        "QueryParameters" => list(String.t() | Atom.t()),
-        "QueryStatement" => String.t() | Atom.t(),
+        "QueryParameters" => list(String.t() | atom()),
+        "QueryStatement" => String.t() | atom(),
         "ViewProperties" => map()
       }
       
   """
-  @type request_widget() :: %{String.t() | Atom.t() => any()}
+  @type request_widget() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_iam_access_permission_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type insufficient_iam_access_permission_exception() :: %{String.t() | Atom.t() => any()}
+  @type insufficient_iam_access_permission_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_event_data_store_category_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_event_data_store_category_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_event_data_store_category_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1300,14 +1299,14 @@ defmodule AWS.CloudTrail do
       list_queries_request() :: %{
         optional("EndTime") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("QueryStatus") => list(any()),
         optional("StartTime") => non_neg_integer(),
-        required("EventDataStore") => String.t() | Atom.t()
+        required("EventDataStore") => String.t() | atom()
       }
       
   """
-  @type list_queries_request() :: %{String.t() | Atom.t() => any()}
+  @type list_queries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1315,35 +1314,35 @@ defmodule AWS.CloudTrail do
       
       event_selector() :: %{
         "DataResources" => list(data_resource()),
-        "ExcludeManagementEventSources" => list(String.t() | Atom.t()),
+        "ExcludeManagementEventSources" => list(String.t() | atom()),
         "IncludeManagementEvents" => boolean(),
         "ReadWriteType" => list(any())
       }
       
   """
-  @type event_selector() :: %{String.t() | Atom.t() => any()}
+  @type event_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_data_store_federation_enabled_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type event_data_store_federation_enabled_exception() :: %{String.t() | Atom.t() => any()}
+  @type event_data_store_federation_enabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1351,33 +1350,33 @@ defmodule AWS.CloudTrail do
       
       lookup_attribute() :: %{
         "AttributeKey" => list(any()),
-        "AttributeValue" => String.t() | Atom.t()
+        "AttributeValue" => String.t() | atom()
       }
       
   """
-  @type lookup_attribute() :: %{String.t() | Atom.t() => any()}
+  @type lookup_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_next_token_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       account_not_registered_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type account_not_registered_exception() :: %{String.t() | Atom.t() => any()}
+  @type account_not_registered_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1387,10 +1386,10 @@ defmodule AWS.CloudTrail do
         "AdvancedEventSelectors" => list(advanced_event_selector()),
         "BillingMode" => list(any()),
         "CreatedTimestamp" => non_neg_integer(),
-        "EventDataStoreArn" => String.t() | Atom.t(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "EventDataStoreArn" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "MultiRegionEnabled" => boolean(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "OrganizationEnabled" => boolean(),
         "RetentionPeriod" => integer(),
         "Status" => list(any()),
@@ -1400,7 +1399,7 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type create_event_data_store_response() :: %{String.t() | Atom.t() => any()}
+  @type create_event_data_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1409,28 +1408,28 @@ defmodule AWS.CloudTrail do
       update_event_data_store_request() :: %{
         optional("AdvancedEventSelectors") => list(advanced_event_selector()),
         optional("BillingMode") => list(any()),
-        optional("KmsKeyId") => String.t() | Atom.t(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("MultiRegionEnabled") => boolean(),
-        optional("Name") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
         optional("OrganizationEnabled") => boolean(),
         optional("RetentionPeriod") => integer(),
         optional("TerminationProtectionEnabled") => boolean(),
-        required("EventDataStore") => String.t() | Atom.t()
+        required("EventDataStore") => String.t() | atom()
       }
       
   """
-  @type update_event_data_store_request() :: %{String.t() | Atom.t() => any()}
+  @type update_event_data_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       trail_already_exists_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type trail_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type trail_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1441,7 +1440,7 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type insight_selector() :: %{String.t() | Atom.t() => any()}
+  @type insight_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1465,18 +1464,18 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type query_statistics_for_describe_query() :: %{String.t() | Atom.t() => any()}
+  @type query_statistics_for_describe_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_trails_request() :: %{
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_trails_request() :: %{String.t() | Atom.t() => any()}
+  @type list_trails_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1494,30 +1493,30 @@ defmodule AWS.CloudTrail do
       create_event_data_store_request() :: %{
         optional("AdvancedEventSelectors") => list(advanced_event_selector()),
         optional("BillingMode") => list(any()),
-        optional("KmsKeyId") => String.t() | Atom.t(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("MultiRegionEnabled") => boolean(),
         optional("OrganizationEnabled") => boolean(),
         optional("RetentionPeriod") => integer(),
         optional("StartIngestion") => boolean(),
         optional("TagsList") => list(tag()),
         optional("TerminationProtectionEnabled") => boolean(),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_event_data_store_request() :: %{String.t() | Atom.t() => any()}
+  @type create_event_data_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       generate_query_request() :: %{
-        required("EventDataStores") => list(String.t() | Atom.t()),
-        required("Prompt") => String.t() | Atom.t()
+        required("EventDataStores") => list(String.t() | atom()),
+        required("Prompt") => String.t() | atom()
       }
       
   """
-  @type generate_query_request() :: %{String.t() | Atom.t() => any()}
+  @type generate_query_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1526,23 +1525,23 @@ defmodule AWS.CloudTrail do
       create_channel_request() :: %{
         optional("Tags") => list(tag()),
         required("Destinations") => list(destination()),
-        required("Name") => String.t() | Atom.t(),
-        required("Source") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("Source") => String.t() | atom()
       }
       
   """
-  @type create_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type create_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_import_request() :: %{
-        required("ImportId") => String.t() | Atom.t()
+        required("ImportId") => String.t() | atom()
       }
       
   """
-  @type get_import_request() :: %{String.t() | Atom.t() => any()}
+  @type get_import_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1552,12 +1551,12 @@ defmodule AWS.CloudTrail do
         "AdvancedEventSelectors" => list(advanced_event_selector()),
         "BillingMode" => list(any()),
         "CreatedTimestamp" => non_neg_integer(),
-        "EventDataStoreArn" => String.t() | Atom.t(),
-        "FederationRoleArn" => String.t() | Atom.t(),
+        "EventDataStoreArn" => String.t() | atom(),
+        "FederationRoleArn" => String.t() | atom(),
         "FederationStatus" => list(any()),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
         "MultiRegionEnabled" => boolean(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "OrganizationEnabled" => boolean(),
         "PartitionKeys" => list(partition_key()),
         "RetentionPeriod" => integer(),
@@ -1567,40 +1566,40 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type get_event_data_store_response() :: %{String.t() | Atom.t() => any()}
+  @type get_event_data_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_cloud_watch_logs_role_arn_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_cloud_watch_logs_role_arn_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_cloud_watch_logs_role_arn_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_trail_status_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_trail_status_request() :: %{String.t() | Atom.t() => any()}
+  @type get_trail_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       trail_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type trail_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type trail_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1617,11 +1616,11 @@ defmodule AWS.CloudTrail do
       
       list_event_data_stores_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_event_data_stores_request() :: %{String.t() | Atom.t() => any()}
+  @type list_event_data_stores_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1633,18 +1632,18 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type refresh_schedule_frequency() :: %{String.t() | Atom.t() => any()}
+  @type refresh_schedule_frequency() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       account_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type account_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type account_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1653,40 +1652,40 @@ defmodule AWS.CloudTrail do
       list_insights_metric_data_request() :: %{
         optional("DataType") => list(any()),
         optional("EndTime") => non_neg_integer(),
-        optional("ErrorCode") => String.t() | Atom.t(),
+        optional("ErrorCode") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Period") => integer(),
         optional("StartTime") => non_neg_integer(),
-        required("EventName") => String.t() | Atom.t(),
-        required("EventSource") => String.t() | Atom.t(),
+        required("EventName") => String.t() | atom(),
+        required("EventSource") => String.t() | atom(),
         required("InsightType") => list(any())
       }
       
   """
-  @type list_insights_metric_data_request() :: %{String.t() | Atom.t() => any()}
+  @type list_insights_metric_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       organizations_not_in_use_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type organizations_not_in_use_exception() :: %{String.t() | Atom.t() => any()}
+  @type organizations_not_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_not_permitted_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type operation_not_permitted_exception() :: %{String.t() | Atom.t() => any()}
+  @type operation_not_permitted_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1694,58 +1693,58 @@ defmodule AWS.CloudTrail do
       
       list_channels_response() :: %{
         "Channels" => list(channel()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_channels_response() :: %{String.t() | Atom.t() => any()}
+  @type list_channels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       public_key() :: %{
-        "Fingerprint" => String.t() | Atom.t(),
+        "Fingerprint" => String.t() | atom(),
         "ValidityEndTime" => non_neg_integer(),
         "ValidityStartTime" => non_neg_integer(),
         "Value" => binary()
       }
       
   """
-  @type public_key() :: %{String.t() | Atom.t() => any()}
+  @type public_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_policy_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type get_resource_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_policy_not_valid_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_policy_not_valid_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_policy_not_valid_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tags_limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type tags_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type tags_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1753,12 +1752,12 @@ defmodule AWS.CloudTrail do
       
       update_channel_request() :: %{
         optional("Destinations") => list(destination()),
-        optional("Name") => String.t() | Atom.t(),
-        required("Channel") => String.t() | Atom.t()
+        optional("Name") => String.t() | atom(),
+        required("Channel") => String.t() | atom()
       }
       
   """
-  @type update_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type update_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1766,12 +1765,12 @@ defmodule AWS.CloudTrail do
       
       list_import_failures_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ImportId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ImportId") => String.t() | atom()
       }
       
   """
-  @type list_import_failures_request() :: %{String.t() | Atom.t() => any()}
+  @type list_import_failures_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1779,9 +1778,9 @@ defmodule AWS.CloudTrail do
       
       get_dashboard_response() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "DashboardArn" => String.t() | Atom.t(),
-        "LastRefreshFailureReason" => String.t() | Atom.t(),
-        "LastRefreshId" => String.t() | Atom.t(),
+        "DashboardArn" => String.t() | atom(),
+        "LastRefreshFailureReason" => String.t() | atom(),
+        "LastRefreshId" => String.t() | atom(),
         "RefreshSchedule" => refresh_schedule(),
         "Status" => list(any()),
         "TerminationProtectionEnabled" => boolean(),
@@ -1791,40 +1790,40 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type get_dashboard_response() :: %{String.t() | Atom.t() => any()}
+  @type get_dashboard_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_dashboard_request() :: %{
-        required("DashboardId") => String.t() | Atom.t()
+        required("DashboardId") => String.t() | atom()
       }
       
   """
-  @type delete_dashboard_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_dashboard_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_event_data_store_request() :: %{
-        required("EventDataStore") => String.t() | Atom.t()
+        required("EventDataStore") => String.t() | atom()
       }
       
   """
-  @type get_event_data_store_request() :: %{String.t() | Atom.t() => any()}
+  @type get_event_data_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_event_selectors_request() :: %{
-        required("TrailName") => String.t() | Atom.t()
+        required("TrailName") => String.t() | atom()
       }
       
   """
-  @type get_event_selectors_request() :: %{String.t() | Atom.t() => any()}
+  @type get_event_selectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1833,11 +1832,11 @@ defmodule AWS.CloudTrail do
       refresh_schedule() :: %{
         "Frequency" => refresh_schedule_frequency(),
         "Status" => list(any()),
-        "TimeOfDay" => String.t() | Atom.t()
+        "TimeOfDay" => String.t() | atom()
       }
       
   """
-  @type refresh_schedule() :: %{String.t() | Atom.t() => any()}
+  @type refresh_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1863,30 +1862,30 @@ defmodule AWS.CloudTrail do
       
       list_import_failures_response() :: %{
         "Failures" => list(import_failure_list_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_import_failures_response() :: %{String.t() | Atom.t() => any()}
+  @type list_import_failures_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       restore_event_data_store_request() :: %{
-        required("EventDataStore") => String.t() | Atom.t()
+        required("EventDataStore") => String.t() | atom()
       }
       
   """
-  @type restore_event_data_store_request() :: %{String.t() | Atom.t() => any()}
+  @type restore_event_data_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_dashboard_response() :: %{
-        "DashboardArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "DashboardArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "RefreshSchedule" => refresh_schedule(),
         "TagsList" => list(tag()),
         "TerminationProtectionEnabled" => boolean(),
@@ -1895,132 +1894,132 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type create_dashboard_response() :: %{String.t() | Atom.t() => any()}
+  @type create_dashboard_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type import_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type import_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_tag() :: %{
-        "ResourceId" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | atom(),
         "TagsList" => list(tag())
       }
       
   """
-  @type resource_tag() :: %{String.t() | Atom.t() => any()}
+  @type resource_tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       not_organization_master_account_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type not_organization_master_account_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_organization_master_account_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event() :: %{
-        "AccessKeyId" => String.t() | Atom.t(),
-        "CloudTrailEvent" => String.t() | Atom.t(),
-        "EventId" => String.t() | Atom.t(),
-        "EventName" => String.t() | Atom.t(),
-        "EventSource" => String.t() | Atom.t(),
+        "AccessKeyId" => String.t() | atom(),
+        "CloudTrailEvent" => String.t() | atom(),
+        "EventId" => String.t() | atom(),
+        "EventName" => String.t() | atom(),
+        "EventSource" => String.t() | atom(),
         "EventTime" => non_neg_integer(),
-        "ReadOnly" => String.t() | Atom.t(),
+        "ReadOnly" => String.t() | atom(),
         "Resources" => list(resource()),
-        "Username" => String.t() | Atom.t()
+        "Username" => String.t() | atom()
       }
       
   """
-  @type event() :: %{String.t() | Atom.t() => any()}
+  @type event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_trail_name_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_trail_name_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_trail_name_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_s3_bucket_policy_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type insufficient_s3_bucket_policy_exception() :: %{String.t() | Atom.t() => any()}
+  @type insufficient_s3_bucket_policy_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_import_source() :: %{
-        "S3BucketAccessRoleArn" => String.t() | Atom.t(),
-        "S3BucketRegion" => String.t() | Atom.t(),
-        "S3LocationUri" => String.t() | Atom.t()
+        "S3BucketAccessRoleArn" => String.t() | atom(),
+        "S3BucketRegion" => String.t() | atom(),
+        "S3LocationUri" => String.t() | atom()
       }
       
   """
-  @type s3_import_source() :: %{String.t() | Atom.t() => any()}
+  @type s3_import_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_query_response() :: %{
-        "EventDataStoreOwnerAccountId" => String.t() | Atom.t(),
-        "QueryId" => String.t() | Atom.t()
+        "EventDataStoreOwnerAccountId" => String.t() | atom(),
+        "QueryId" => String.t() | atom()
       }
       
   """
-  @type start_query_response() :: %{String.t() | Atom.t() => any()}
+  @type start_query_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_cloud_watch_logs_log_group_arn_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_cloud_watch_logs_log_group_arn_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_cloud_watch_logs_log_group_arn_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_insight_selectors_response() :: %{
-        "EventDataStoreArn" => String.t() | Atom.t(),
+        "EventDataStoreArn" => String.t() | atom(),
         "InsightSelectors" => list(insight_selector()),
-        "InsightsDestination" => String.t() | Atom.t(),
-        "TrailARN" => String.t() | Atom.t()
+        "InsightsDestination" => String.t() | atom(),
+        "TrailARN" => String.t() | atom()
       }
       
   """
-  @type get_insight_selectors_response() :: %{String.t() | Atom.t() => any()}
+  @type get_insight_selectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2028,60 +2027,60 @@ defmodule AWS.CloudTrail do
       
       get_event_configuration_response() :: %{
         "ContextKeySelectors" => list(context_key_selector()),
-        "EventDataStoreArn" => String.t() | Atom.t(),
+        "EventDataStoreArn" => String.t() | atom(),
         "MaxEventSize" => list(any())
       }
       
   """
-  @type get_event_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_event_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_insight_selectors_response() :: %{
-        "EventDataStoreArn" => String.t() | Atom.t(),
+        "EventDataStoreArn" => String.t() | atom(),
         "InsightSelectors" => list(insight_selector()),
-        "InsightsDestination" => String.t() | Atom.t(),
-        "TrailARN" => String.t() | Atom.t()
+        "InsightsDestination" => String.t() | atom(),
+        "TrailARN" => String.t() | atom()
       }
       
   """
-  @type put_insight_selectors_response() :: %{String.t() | Atom.t() => any()}
+  @type put_insight_selectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
-        required("ResourcePolicy") => String.t() | Atom.t()
+        required("ResourceArn") => String.t() | atom(),
+        required("ResourcePolicy") => String.t() | atom()
       }
       
   """
-  @type put_resource_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_trail_invalid_client_token_id_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type cloud_trail_invalid_client_token_id_exception() :: %{String.t() | Atom.t() => any()}
+  @type cloud_trail_invalid_client_token_id_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       inactive_event_data_store_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type inactive_event_data_store_exception() :: %{String.t() | Atom.t() => any()}
+  @type inactive_event_data_store_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2089,9 +2088,9 @@ defmodule AWS.CloudTrail do
       
       stop_import_response() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "Destinations" => list(String.t() | Atom.t()),
+        "Destinations" => list(String.t() | atom()),
         "EndEventTime" => non_neg_integer(),
-        "ImportId" => String.t() | Atom.t(),
+        "ImportId" => String.t() | atom(),
         "ImportSource" => import_source(),
         "ImportStatistics" => import_statistics(),
         "ImportStatus" => list(any()),
@@ -2100,51 +2099,51 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type stop_import_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_import_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_import_source_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_import_source_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_import_source_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_dashboard_refresh_response() :: %{
-        "RefreshId" => String.t() | Atom.t()
+        "RefreshId" => String.t() | atom()
       }
       
   """
-  @type start_dashboard_refresh_response() :: %{String.t() | Atom.t() => any()}
+  @type start_dashboard_refresh_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2160,56 +2159,56 @@ defmodule AWS.CloudTrail do
   ## Example:
       
       max_concurrent_queries_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type max_concurrent_queries_exception() :: %{String.t() | Atom.t() => any()}
+  @type max_concurrent_queries_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_key_disabled_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type kms_key_disabled_exception() :: %{String.t() | Atom.t() => any()}
+  @type kms_key_disabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       concurrent_modification_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type concurrent_modification_exception() :: %{String.t() | Atom.t() => any()}
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       channel_arn_invalid_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type channel_arn_invalid_exception() :: %{String.t() | Atom.t() => any()}
+  @type channel_arn_invalid_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       search_sample_queries_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "SearchResults" => list(search_sample_queries_search_result())
       }
       
   """
-  @type search_sample_queries_response() :: %{String.t() | Atom.t() => any()}
+  @type search_sample_queries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2218,9 +2217,9 @@ defmodule AWS.CloudTrail do
       event_data_store() :: %{
         "AdvancedEventSelectors" => list(advanced_event_selector()),
         "CreatedTimestamp" => non_neg_integer(),
-        "EventDataStoreArn" => String.t() | Atom.t(),
+        "EventDataStoreArn" => String.t() | atom(),
         "MultiRegionEnabled" => boolean(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "OrganizationEnabled" => boolean(),
         "RetentionPeriod" => integer(),
         "Status" => list(any()),
@@ -2229,18 +2228,18 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type event_data_store() :: %{String.t() | Atom.t() => any()}
+  @type event_data_store() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type kms_exception() :: %{String.t() | Atom.t() => any()}
+  @type kms_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2249,23 +2248,23 @@ defmodule AWS.CloudTrail do
       put_event_selectors_response() :: %{
         "AdvancedEventSelectors" => list(advanced_event_selector()),
         "EventSelectors" => list(event_selector()),
-        "TrailARN" => String.t() | Atom.t()
+        "TrailARN" => String.t() | atom()
       }
       
   """
-  @type put_event_selectors_response() :: %{String.t() | Atom.t() => any()}
+  @type put_event_selectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       destination() :: %{
-        "Location" => String.t() | Atom.t(),
+        "Location" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type destination() :: %{String.t() | Atom.t() => any()}
+  @type destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2276,91 +2275,91 @@ defmodule AWS.CloudTrail do
         optional("EventCategory") => list(any()),
         optional("LookupAttributes") => list(lookup_attribute()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("StartTime") => non_neg_integer()
       }
       
   """
-  @type lookup_events_request() :: %{String.t() | Atom.t() => any()}
+  @type lookup_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_organization_delegated_admin_request() :: %{
-        required("MemberAccountId") => String.t() | Atom.t()
+        required("MemberAccountId") => String.t() | atom()
       }
       
   """
-  @type register_organization_delegated_admin_request() :: %{String.t() | Atom.t() => any()}
+  @type register_organization_delegated_admin_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_data_store_termination_protected_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type event_data_store_termination_protected_exception() :: %{String.t() | Atom.t() => any()}
+  @type event_data_store_termination_protected_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_kms_key_id_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_kms_key_id_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_kms_key_id_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_insight_selectors_request() :: %{
-        optional("EventDataStore") => String.t() | Atom.t(),
-        optional("TrailName") => String.t() | Atom.t()
+        optional("EventDataStore") => String.t() | atom(),
+        optional("TrailName") => String.t() | atom()
       }
       
   """
-  @type get_insight_selectors_request() :: %{String.t() | Atom.t() => any()}
+  @type get_insight_selectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       channel() :: %{
-        "ChannelArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "ChannelArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type channel() :: %{String.t() | Atom.t() => any()}
+  @type channel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_data_store_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type event_data_store_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type event_data_store_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2371,56 +2370,56 @@ defmodule AWS.CloudTrail do
         optional("TagsList") => list(tag()),
         optional("TerminationProtectionEnabled") => boolean(),
         optional("Widgets") => list(request_widget()),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_dashboard_request() :: %{String.t() | Atom.t() => any()}
+  @type create_dashboard_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_imports_request() :: %{
-        optional("Destination") => String.t() | Atom.t(),
+        optional("Destination") => String.t() | atom(),
         optional("ImportStatus") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_imports_request() :: %{String.t() | Atom.t() => any()}
+  @type list_imports_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_insight_selectors_request() :: %{
-        optional("EventDataStore") => String.t() | Atom.t(),
-        optional("InsightsDestination") => String.t() | Atom.t(),
-        optional("TrailName") => String.t() | Atom.t(),
+        optional("EventDataStore") => String.t() | atom(),
+        optional("InsightsDestination") => String.t() | atom(),
+        optional("TrailName") => String.t() | atom(),
         required("InsightSelectors") => list(insight_selector())
       }
       
   """
-  @type put_insight_selectors_request() :: %{String.t() | Atom.t() => any()}
+  @type put_insight_selectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       advanced_field_selector() :: %{
-        "EndsWith" => list(String.t() | Atom.t()),
-        "Equals" => list(String.t() | Atom.t()),
-        "Field" => String.t() | Atom.t(),
-        "NotEndsWith" => list(String.t() | Atom.t()),
-        "NotEquals" => list(String.t() | Atom.t()),
-        "NotStartsWith" => list(String.t() | Atom.t()),
-        "StartsWith" => list(String.t() | Atom.t())
+        "EndsWith" => list(String.t() | atom()),
+        "Equals" => list(String.t() | atom()),
+        "Field" => String.t() | atom(),
+        "NotEndsWith" => list(String.t() | atom()),
+        "NotEquals" => list(String.t() | atom()),
+        "NotStartsWith" => list(String.t() | atom()),
+        "StartsWith" => list(String.t() | atom())
       }
       
   """
-  @type advanced_field_selector() :: %{String.t() | Atom.t() => any()}
+  @type advanced_field_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2428,73 +2427,73 @@ defmodule AWS.CloudTrail do
       
       list_event_data_stores_response() :: %{
         "EventDataStores" => list(event_data_store()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_event_data_stores_response() :: %{String.t() | Atom.t() => any()}
+  @type list_event_data_stores_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_response() :: %{
-        "DelegatedAdminResourcePolicy" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t(),
-        "ResourcePolicy" => String.t() | Atom.t()
+        "DelegatedAdminResourcePolicy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourcePolicy" => String.t() | atom()
       }
       
   """
-  @type put_resource_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_trails_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Trails" => list(trail_info())
       }
       
   """
-  @type list_trails_response() :: %{String.t() | Atom.t() => any()}
+  @type list_trails_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       widget() :: %{
-        "QueryAlias" => String.t() | Atom.t(),
-        "QueryParameters" => list(String.t() | Atom.t()),
-        "QueryStatement" => String.t() | Atom.t(),
+        "QueryAlias" => String.t() | atom(),
+        "QueryParameters" => list(String.t() | atom()),
+        "QueryStatement" => String.t() | atom(),
         "ViewProperties" => map()
       }
       
   """
-  @type widget() :: %{String.t() | Atom.t() => any()}
+  @type widget() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_resource() :: %{
-        "Type" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Type" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type data_resource() :: %{String.t() | Atom.t() => any()}
+  @type data_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cannot_delegate_management_account_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type cannot_delegate_management_account_exception() :: %{String.t() | Atom.t() => any()}
+  @type cannot_delegate_management_account_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2507,18 +2506,18 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type query_statistics() :: %{String.t() | Atom.t() => any()}
+  @type query_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_data_store_has_ongoing_import_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type event_data_store_has_ongoing_import_exception() :: %{String.t() | Atom.t() => any()}
+  @type event_data_store_has_ongoing_import_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2530,34 +2529,34 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type source_config() :: %{String.t() | Atom.t() => any()}
+  @type source_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_channel_response() :: %{
-        "ChannelArn" => String.t() | Atom.t(),
+        "ChannelArn" => String.t() | atom(),
         "Destinations" => list(destination()),
         "IngestionStatus" => ingestion_status(),
-        "Name" => String.t() | Atom.t(),
-        "Source" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "Source" => String.t() | atom(),
         "SourceConfig" => source_config()
       }
       
   """
-  @type get_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type get_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       channel_max_limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type channel_max_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type channel_max_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2566,33 +2565,33 @@ defmodule AWS.CloudTrail do
       put_event_selectors_request() :: %{
         optional("AdvancedEventSelectors") => list(advanced_event_selector()),
         optional("EventSelectors") => list(event_selector()),
-        required("TrailName") => String.t() | Atom.t()
+        required("TrailName") => String.t() | atom()
       }
       
   """
-  @type put_event_selectors_request() :: %{String.t() | Atom.t() => any()}
+  @type put_event_selectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_date_range_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_date_range_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_date_range_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_policy_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type delete_resource_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2603,70 +2602,70 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type import_source() :: %{String.t() | Atom.t() => any()}
+  @type import_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_failure_list_item() :: %{
-        "ErrorMessage" => String.t() | Atom.t(),
-        "ErrorType" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | atom(),
+        "ErrorType" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
-        "Location" => String.t() | Atom.t(),
+        "Location" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type import_failure_list_item() :: %{String.t() | Atom.t() => any()}
+  @type import_failure_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_lookup_attributes_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_lookup_attributes_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_lookup_attributes_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_data_store_max_limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type event_data_store_max_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type event_data_store_max_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       trail() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t() | Atom.t(),
-        "CloudWatchLogsRoleArn" => String.t() | Atom.t(),
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
+        "CloudWatchLogsRoleArn" => String.t() | atom(),
         "HasCustomEventSelectors" => boolean(),
         "HasInsightSelectors" => boolean(),
-        "HomeRegion" => String.t() | Atom.t(),
+        "HomeRegion" => String.t() | atom(),
         "IncludeGlobalServiceEvents" => boolean(),
         "IsMultiRegionTrail" => boolean(),
         "IsOrganizationTrail" => boolean(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
         "LogFileValidationEnabled" => boolean(),
-        "Name" => String.t() | Atom.t(),
-        "S3BucketName" => String.t() | Atom.t(),
-        "S3KeyPrefix" => String.t() | Atom.t(),
-        "SnsTopicARN" => String.t() | Atom.t(),
-        "SnsTopicName" => String.t() | Atom.t(),
-        "TrailARN" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "S3BucketName" => String.t() | atom(),
+        "S3KeyPrefix" => String.t() | atom(),
+        "SnsTopicARN" => String.t() | atom(),
+        "SnsTopicName" => String.t() | atom(),
+        "TrailARN" => String.t() | atom()
       }
       
   """
-  @type trail() :: %{String.t() | Atom.t() => any()}
+  @type trail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2674,116 +2673,116 @@ defmodule AWS.CloudTrail do
       
       query() :: %{
         "CreationTime" => non_neg_integer(),
-        "QueryId" => String.t() | Atom.t(),
+        "QueryId" => String.t() | atom(),
         "QueryStatus" => list(any())
       }
       
   """
-  @type query() :: %{String.t() | Atom.t() => any()}
+  @type query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       generate_response_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type generate_response_exception() :: %{String.t() | Atom.t() => any()}
+  @type generate_response_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_event_data_store_status_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_event_data_store_status_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_event_data_store_status_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_trail_access_not_enabled_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type cloud_trail_access_not_enabled_exception() :: %{String.t() | Atom.t() => any()}
+  @type cloud_trail_access_not_enabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_channel_response() :: %{
-        "ChannelArn" => String.t() | Atom.t(),
+        "ChannelArn" => String.t() | atom(),
         "Destinations" => list(destination()),
-        "Name" => String.t() | Atom.t(),
-        "Source" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Source" => String.t() | atom()
       }
       
   """
-  @type update_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type update_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_event_data_store_request() :: %{
-        required("EventDataStore") => String.t() | Atom.t()
+        required("EventDataStore") => String.t() | atom()
       }
       
   """
-  @type delete_event_data_store_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_event_data_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_trail_arn_invalid_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type cloud_trail_arn_invalid_exception() :: %{String.t() | Atom.t() => any()}
+  @type cloud_trail_arn_invalid_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_tags_request() :: %{
-        required("ResourceId") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | atom(),
         required("TagsList") => list(tag())
       }
       
   """
-  @type remove_tags_request() :: %{String.t() | Atom.t() => any()}
+  @type remove_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_policy_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_policy_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_request() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ResourceIdList") => list(String.t() | Atom.t())
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceIdList") => list(String.t() | atom())
       }
       
   """
-  @type list_tags_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2791,58 +2790,58 @@ defmodule AWS.CloudTrail do
       
       list_dashboards_response() :: %{
         "Dashboards" => list(dashboard_detail()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_dashboards_response() :: %{String.t() | Atom.t() => any()}
+  @type list_dashboards_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       search_sample_queries_search_result() :: %{
-        "Description" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Relevance" => float(),
-        "SQL" => String.t() | Atom.t()
+        "SQL" => String.t() | atom()
       }
       
   """
-  @type search_sample_queries_search_result() :: %{String.t() | Atom.t() => any()}
+  @type search_sample_queries_search_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_arn_not_valid_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_arn_not_valid_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_arn_not_valid_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_token_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_token_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_insight_selectors_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_insight_selectors_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_insight_selectors_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2850,33 +2849,33 @@ defmodule AWS.CloudTrail do
       
       list_channels_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_channels_request() :: %{String.t() | Atom.t() => any()}
+  @type list_channels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_sns_topic_name_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_sns_topic_name_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_sns_topic_name_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_query_statement_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_query_statement_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_query_statement_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2884,53 +2883,53 @@ defmodule AWS.CloudTrail do
       
       get_trail_status_response() :: %{
         "IsLogging" => boolean(),
-        "LatestCloudWatchLogsDeliveryError" => String.t() | Atom.t(),
+        "LatestCloudWatchLogsDeliveryError" => String.t() | atom(),
         "LatestCloudWatchLogsDeliveryTime" => non_neg_integer(),
-        "LatestDeliveryAttemptSucceeded" => String.t() | Atom.t(),
-        "LatestDeliveryAttemptTime" => String.t() | Atom.t(),
-        "LatestDeliveryError" => String.t() | Atom.t(),
+        "LatestDeliveryAttemptSucceeded" => String.t() | atom(),
+        "LatestDeliveryAttemptTime" => String.t() | atom(),
+        "LatestDeliveryError" => String.t() | atom(),
         "LatestDeliveryTime" => non_neg_integer(),
-        "LatestDigestDeliveryError" => String.t() | Atom.t(),
+        "LatestDigestDeliveryError" => String.t() | atom(),
         "LatestDigestDeliveryTime" => non_neg_integer(),
-        "LatestNotificationAttemptSucceeded" => String.t() | Atom.t(),
-        "LatestNotificationAttemptTime" => String.t() | Atom.t(),
-        "LatestNotificationError" => String.t() | Atom.t(),
+        "LatestNotificationAttemptSucceeded" => String.t() | atom(),
+        "LatestNotificationAttemptTime" => String.t() | atom(),
+        "LatestNotificationError" => String.t() | atom(),
         "LatestNotificationTime" => non_neg_integer(),
         "StartLoggingTime" => non_neg_integer(),
         "StopLoggingTime" => non_neg_integer(),
-        "TimeLoggingStarted" => String.t() | Atom.t(),
-        "TimeLoggingStopped" => String.t() | Atom.t()
+        "TimeLoggingStarted" => String.t() | atom(),
+        "TimeLoggingStopped" => String.t() | atom()
       }
       
   """
-  @type get_trail_status_response() :: %{String.t() | Atom.t() => any()}
+  @type get_trail_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       context_key_selector() :: %{
-        "Equals" => list(String.t() | Atom.t()),
+        "Equals" => list(String.t() | atom()),
         "Type" => list(any())
       }
       
   """
-  @type context_key_selector() :: %{String.t() | Atom.t() => any()}
+  @type context_key_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_import_request() :: %{
-        optional("Destinations") => list(String.t() | Atom.t()),
+        optional("Destinations") => list(String.t() | atom()),
         optional("EndEventTime") => non_neg_integer(),
-        optional("ImportId") => String.t() | Atom.t(),
+        optional("ImportId") => String.t() | atom(),
         optional("ImportSource") => import_source(),
         optional("StartEventTime") => non_neg_integer()
       }
       
   """
-  @type start_import_request() :: %{String.t() | Atom.t() => any()}
+  @type start_import_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2938,9 +2937,9 @@ defmodule AWS.CloudTrail do
       
       start_import_response() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "Destinations" => list(String.t() | Atom.t()),
+        "Destinations" => list(String.t() | atom()),
         "EndEventTime" => non_neg_integer(),
-        "ImportId" => String.t() | Atom.t(),
+        "ImportId" => String.t() | atom(),
         "ImportSource" => import_source(),
         "ImportStatus" => list(any()),
         "StartEventTime" => non_neg_integer(),
@@ -2948,7 +2947,7 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type start_import_response() :: %{String.t() | Atom.t() => any()}
+  @type start_import_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2957,34 +2956,34 @@ defmodule AWS.CloudTrail do
       get_event_selectors_response() :: %{
         "AdvancedEventSelectors" => list(advanced_event_selector()),
         "EventSelectors" => list(event_selector()),
-        "TrailARN" => String.t() | Atom.t()
+        "TrailARN" => String.t() | atom()
       }
       
   """
-  @type get_event_selectors_response() :: %{String.t() | Atom.t() => any()}
+  @type get_event_selectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_trail_response() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t() | Atom.t(),
-        "CloudWatchLogsRoleArn" => String.t() | Atom.t(),
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
+        "CloudWatchLogsRoleArn" => String.t() | atom(),
         "IncludeGlobalServiceEvents" => boolean(),
         "IsMultiRegionTrail" => boolean(),
         "IsOrganizationTrail" => boolean(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
         "LogFileValidationEnabled" => boolean(),
-        "Name" => String.t() | Atom.t(),
-        "S3BucketName" => String.t() | Atom.t(),
-        "S3KeyPrefix" => String.t() | Atom.t(),
-        "SnsTopicARN" => String.t() | Atom.t(),
-        "SnsTopicName" => String.t() | Atom.t(),
-        "TrailARN" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "S3BucketName" => String.t() | atom(),
+        "S3KeyPrefix" => String.t() | atom(),
+        "SnsTopicARN" => String.t() | atom(),
+        "SnsTopicName" => String.t() | atom(),
+        "TrailARN" => String.t() | atom()
       }
       
   """
-  @type create_trail_response() :: %{String.t() | Atom.t() => any()}
+  @type create_trail_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2995,19 +2994,19 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type describe_trails_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_trails_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       dashboard_detail() :: %{
-        "DashboardArn" => String.t() | Atom.t(),
+        "DashboardArn" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type dashboard_detail() :: %{String.t() | Atom.t() => any()}
+  @type dashboard_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3018,32 +3017,32 @@ defmodule AWS.CloudTrail do
       }
       
   """
-  @type get_trail_response() :: %{String.t() | Atom.t() => any()}
+  @type get_trail_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       enable_federation_response() :: %{
-        "EventDataStoreArn" => String.t() | Atom.t(),
-        "FederationRoleArn" => String.t() | Atom.t(),
+        "EventDataStoreArn" => String.t() | atom(),
+        "FederationRoleArn" => String.t() | atom(),
         "FederationStatus" => list(any())
       }
       
   """
-  @type enable_federation_response() :: %{String.t() | Atom.t() => any()}
+  @type enable_federation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource() :: %{
-        "ResourceName" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "ResourceName" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type resource() :: %{String.t() | Atom.t() => any()}
+  @type resource() :: %{(String.t() | atom()) => any()}
 
   @type add_tags_errors() ::
           cloud_trail_arn_invalid_exception()

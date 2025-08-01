@@ -36,14 +36,14 @@ defmodule AWS.QApps do
   ## Example:
 
       create_library_item_input() :: %{
-        required("appId") => String.t() | Atom.t(),
+        required("appId") => String.t() | atom(),
         required("appVersion") => integer(),
-        required("categories") => list(String.t() | Atom.t()),
-        required("instanceId") => String.t() | Atom.t()
+        required("categories") => list(String.t() | atom()),
+        required("instanceId") => String.t() | atom()
       }
 
   """
-  @type create_library_item_input() :: %{String.t() | Atom.t() => any()}
+  @type create_library_item_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -51,30 +51,30 @@ defmodule AWS.QApps do
 
       update_library_item_metadata_input() :: %{
         optional("isVerified") => [boolean()],
-        required("instanceId") => String.t() | Atom.t(),
-        required("libraryItemId") => String.t() | Atom.t()
+        required("instanceId") => String.t() | atom(),
+        required("libraryItemId") => String.t() | atom()
       }
 
   """
-  @type update_library_item_metadata_input() :: %{String.t() | Atom.t() => any()}
+  @type update_library_item_metadata_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       user_app_item() :: %{
-        "appArn" => String.t() | Atom.t(),
-        "appId" => String.t() | Atom.t(),
+        "appArn" => String.t() | atom(),
+        "appId" => String.t() | atom(),
         "canEdit" => [boolean()],
         "createdAt" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "isVerified" => [boolean()],
-        "status" => [String.t() | Atom.t()],
-        "title" => String.t() | Atom.t()
+        "status" => [String.t() | atom()],
+        "title" => String.t() | atom()
       }
 
   """
-  @type user_app_item() :: %{String.t() | Atom.t() => any()}
+  @type user_app_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -82,69 +82,69 @@ defmodule AWS.QApps do
 
       create_library_item_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => [String.t() | Atom.t()],
+        "createdBy" => [String.t() | atom()],
         "isVerified" => [boolean()],
-        "libraryItemId" => String.t() | Atom.t(),
+        "libraryItemId" => String.t() | atom(),
         "ratingCount" => [integer()],
-        "status" => [String.t() | Atom.t()],
+        "status" => [String.t() | atom()],
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => [String.t() | Atom.t()]
+        "updatedBy" => [String.t() | atom()]
       }
 
   """
-  @type create_library_item_output() :: %{String.t() | Atom.t() => any()}
+  @type create_library_item_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_q_app_permissions_output() :: %{
-        "appId" => [String.t() | Atom.t()],
+        "appId" => [String.t() | atom()],
         "permissions" => list(permission_output()),
-        "resourceArn" => [String.t() | Atom.t()]
+        "resourceArn" => [String.t() | atom()]
       }
 
   """
-  @type update_q_app_permissions_output() :: %{String.t() | Atom.t() => any()}
+  @type update_q_app_permissions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_q_app_session_metadata_input() :: %{
-        optional("sessionName") => String.t() | Atom.t(),
-        required("instanceId") => String.t() | Atom.t(),
-        required("sessionId") => String.t() | Atom.t(),
+        optional("sessionName") => String.t() | atom(),
+        required("instanceId") => String.t() | atom(),
+        required("sessionId") => String.t() | atom(),
         required("sharingConfiguration") => session_sharing_configuration()
       }
 
   """
-  @type update_q_app_session_metadata_input() :: %{String.t() | Atom.t() => any()}
+  @type update_q_app_session_metadata_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       import_document_output() :: %{
-        "fileId" => [String.t() | Atom.t()]
+        "fileId" => [String.t() | atom()]
       }
 
   """
-  @type import_document_output() :: %{String.t() | Atom.t() => any()}
+  @type import_document_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_q_app_session_data_output() :: %{
-        "nextToken" => [String.t() | Atom.t()],
-        "sessionArn" => [String.t() | Atom.t()],
+        "nextToken" => [String.t() | atom()],
+        "sessionArn" => [String.t() | atom()],
         "sessionData" => list(q_app_session_data()),
-        "sessionId" => String.t() | Atom.t()
+        "sessionId" => String.t() | atom()
       }
 
   """
-  @type list_q_app_session_data_output() :: %{String.t() | Atom.t() => any()}
+  @type list_q_app_session_data_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -155,43 +155,43 @@ defmodule AWS.QApps do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_library_item_input() :: %{
-        optional("appId") => String.t() | Atom.t(),
-        required("instanceId") => String.t() | Atom.t(),
-        required("libraryItemId") => String.t() | Atom.t()
+        optional("appId") => String.t() | atom(),
+        required("instanceId") => String.t() | atom(),
+        required("libraryItemId") => String.t() | atom()
       }
 
   """
-  @type get_library_item_input() :: %{String.t() | Atom.t() => any()}
+  @type get_library_item_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() | Atom.t() => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_q_app_session_metadata_input() :: %{
-        required("instanceId") => String.t() | Atom.t(),
-        required("sessionId") => String.t() | Atom.t()
+        required("instanceId") => String.t() | atom(),
+        required("sessionId") => String.t() | atom()
       }
 
   """
-  @type get_q_app_session_metadata_input() :: %{String.t() | Atom.t() => any()}
+  @type get_q_app_session_metadata_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -203,19 +203,19 @@ defmodule AWS.QApps do
       }
 
   """
-  @type permission_output() :: %{String.t() | Atom.t() => any()}
+  @type permission_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       document_attribute() :: %{
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "value" => list()
       }
 
   """
-  @type document_attribute() :: %{String.t() | Atom.t() => any()}
+  @type document_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -231,12 +231,12 @@ defmodule AWS.QApps do
   ## Example:
 
       disassociate_q_app_from_user_input() :: %{
-        required("appId") => String.t() | Atom.t(),
-        required("instanceId") => String.t() | Atom.t()
+        required("appId") => String.t() | atom(),
+        required("instanceId") => String.t() | atom()
       }
 
   """
-  @type disassociate_q_app_from_user_input() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_q_app_from_user_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -244,11 +244,11 @@ defmodule AWS.QApps do
 
       batch_create_category_input() :: %{
         required("categories") => list(batch_create_category_input_category()),
-        required("instanceId") => String.t() | Atom.t()
+        required("instanceId") => String.t() | atom()
       }
 
   """
-  @type batch_create_category_input() :: %{String.t() | Atom.t() => any()}
+  @type batch_create_category_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -259,7 +259,7 @@ defmodule AWS.QApps do
       }
 
   """
-  @type list_categories_output() :: %{String.t() | Atom.t() => any()}
+  @type list_categories_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -267,14 +267,14 @@ defmodule AWS.QApps do
 
       form_input_card_input() :: %{
         "computeMode" => list(any()),
-        "id" => String.t() | Atom.t(),
+        "id" => String.t() | atom(),
         "metadata" => form_input_card_metadata(),
-        "title" => String.t() | Atom.t(),
+        "title" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type form_input_card_input() :: %{String.t() | Atom.t() => any()}
+  @type form_input_card_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -287,20 +287,20 @@ defmodule AWS.QApps do
       }
 
   """
-  @type session_sharing_configuration() :: %{String.t() | Atom.t() => any()}
+  @type session_sharing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       category_input() :: %{
-        "color" => [String.t() | Atom.t()],
-        "id" => String.t() | Atom.t(),
-        "title" => [String.t() | Atom.t()]
+        "color" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "title" => [String.t() | atom()]
       }
 
   """
-  @type category_input() :: %{String.t() | Atom.t() => any()}
+  @type category_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -308,11 +308,11 @@ defmodule AWS.QApps do
 
       app_definition_input() :: %{
         "cards" => list(list()),
-        "initialPrompt" => String.t() | Atom.t()
+        "initialPrompt" => String.t() | atom()
       }
 
   """
-  @type app_definition_input() :: %{String.t() | Atom.t() => any()}
+  @type app_definition_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -323,7 +323,7 @@ defmodule AWS.QApps do
       }
 
   """
-  @type form_input_card_metadata() :: %{String.t() | Atom.t() => any()}
+  @type form_input_card_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -331,38 +331,38 @@ defmodule AWS.QApps do
 
       start_q_app_session_input() :: %{
         optional("initialValues") => list(card_value()),
-        optional("sessionId") => [String.t() | Atom.t()],
+        optional("sessionId") => [String.t() | atom()],
         optional("tags") => map(),
-        required("appId") => String.t() | Atom.t(),
+        required("appId") => String.t() | atom(),
         required("appVersion") => integer(),
-        required("instanceId") => String.t() | Atom.t()
+        required("instanceId") => String.t() | atom()
       }
 
   """
-  @type start_q_app_session_input() :: %{String.t() | Atom.t() => any()}
+  @type start_q_app_session_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_library_item_output() :: %{
-        "appId" => String.t() | Atom.t(),
+        "appId" => String.t() | atom(),
         "appVersion" => integer(),
         "categories" => list(category()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => [String.t() | Atom.t()],
+        "createdBy" => [String.t() | atom()],
         "isRatedByUser" => [boolean()],
         "isVerified" => [boolean()],
-        "libraryItemId" => String.t() | Atom.t(),
+        "libraryItemId" => String.t() | atom(),
         "ratingCount" => [integer()],
-        "status" => [String.t() | Atom.t()],
+        "status" => [String.t() | atom()],
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => [String.t() | Atom.t()],
+        "updatedBy" => [String.t() | atom()],
         "userCount" => [integer()]
       }
 
   """
-  @type get_library_item_output() :: %{String.t() | Atom.t() => any()}
+  @type get_library_item_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -370,24 +370,24 @@ defmodule AWS.QApps do
 
       update_q_app_session_input() :: %{
         optional("values") => list(card_value()),
-        required("instanceId") => String.t() | Atom.t(),
-        required("sessionId") => String.t() | Atom.t()
+        required("instanceId") => String.t() | atom(),
+        required("sessionId") => String.t() | atom()
       }
 
   """
-  @type update_q_app_session_input() :: %{String.t() | Atom.t() => any()}
+  @type update_q_app_session_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_q_app_input() :: %{
-        required("appId") => String.t() | Atom.t(),
-        required("instanceId") => String.t() | Atom.t()
+        required("appId") => String.t() | atom(),
+        required("instanceId") => String.t() | atom()
       }
 
   """
-  @type delete_q_app_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_q_app_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -395,103 +395,103 @@ defmodule AWS.QApps do
 
       predict_q_app_output() :: %{
         "app" => predict_app_definition(),
-        "problemStatement" => [String.t() | Atom.t()]
+        "problemStatement" => [String.t() | atom()]
       }
 
   """
-  @type predict_q_app_output() :: %{String.t() | Atom.t() => any()}
+  @type predict_q_app_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_q_app_with_user_input() :: %{
-        required("appId") => String.t() | Atom.t(),
-        required("instanceId") => String.t() | Atom.t()
+        required("appId") => String.t() | atom(),
+        required("instanceId") => String.t() | atom()
       }
 
   """
-  @type associate_q_app_with_user_input() :: %{String.t() | Atom.t() => any()}
+  @type associate_q_app_with_user_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_q_app_permissions_output() :: %{
-        "appId" => [String.t() | Atom.t()],
+        "appId" => [String.t() | atom()],
         "permissions" => list(permission_output()),
-        "resourceArn" => [String.t() | Atom.t()]
+        "resourceArn" => [String.t() | atom()]
       }
 
   """
-  @type describe_q_app_permissions_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_q_app_permissions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_q_app_input() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("tags") => map(),
         required("appDefinition") => app_definition_input(),
-        required("instanceId") => String.t() | Atom.t(),
-        required("title") => String.t() | Atom.t()
+        required("instanceId") => String.t() | atom(),
+        required("title") => String.t() | atom()
       }
 
   """
-  @type create_q_app_input() :: %{String.t() | Atom.t() => any()}
+  @type create_q_app_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       q_plugin_card() :: %{
-        "actionIdentifier" => String.t() | Atom.t(),
-        "dependencies" => list([String.t() | Atom.t()]()),
-        "id" => String.t() | Atom.t(),
-        "pluginId" => [String.t() | Atom.t()],
+        "actionIdentifier" => String.t() | atom(),
+        "dependencies" => list([String.t() | atom()]()),
+        "id" => String.t() | atom(),
+        "pluginId" => [String.t() | atom()],
         "pluginType" => list(any()),
-        "prompt" => String.t() | Atom.t(),
-        "title" => String.t() | Atom.t(),
+        "prompt" => String.t() | atom(),
+        "title" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type q_plugin_card() :: %{String.t() | Atom.t() => any()}
+  @type q_plugin_card() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_library_item_output() :: %{
-        "appId" => String.t() | Atom.t(),
+        "appId" => String.t() | atom(),
         "appVersion" => integer(),
         "categories" => list(category()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => [String.t() | Atom.t()],
+        "createdBy" => [String.t() | atom()],
         "isRatedByUser" => [boolean()],
         "isVerified" => [boolean()],
-        "libraryItemId" => String.t() | Atom.t(),
+        "libraryItemId" => String.t() | atom(),
         "ratingCount" => [integer()],
-        "status" => [String.t() | Atom.t()],
+        "status" => [String.t() | atom()],
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => [String.t() | Atom.t()],
+        "updatedBy" => [String.t() | atom()],
         "userCount" => [integer()]
       }
 
   """
-  @type update_library_item_output() :: %{String.t() | Atom.t() => any()}
+  @type update_library_item_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -499,118 +499,118 @@ defmodule AWS.QApps do
 
       file_upload_card_input() :: %{
         "allowOverride" => [boolean()],
-        "fileId" => String.t() | Atom.t(),
-        "filename" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "title" => String.t() | Atom.t(),
+        "fileId" => String.t() | atom(),
+        "filename" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "title" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type file_upload_card_input() :: %{String.t() | Atom.t() => any()}
+  @type file_upload_card_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_q_app_session_output() :: %{
-        "sessionArn" => [String.t() | Atom.t()],
-        "sessionId" => [String.t() | Atom.t()]
+        "sessionArn" => [String.t() | atom()],
+        "sessionId" => [String.t() | atom()]
       }
 
   """
-  @type update_q_app_session_output() :: %{String.t() | Atom.t() => any()}
+  @type update_q_app_session_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       app_definition() :: %{
-        "appDefinitionVersion" => [String.t() | Atom.t()],
+        "appDefinitionVersion" => [String.t() | atom()],
         "canEdit" => [boolean()],
         "cards" => list(list())
       }
 
   """
-  @type app_definition() :: %{String.t() | Atom.t() => any()}
+  @type app_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "resourceId" => [String.t() | Atom.t()],
-        "resourceType" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "resourceId" => [String.t() | Atom.t()],
-        "resourceType" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_presigned_url_output() :: %{
-        "fileId" => [String.t() | Atom.t()],
-        "presignedUrl" => [String.t() | Atom.t()],
+        "fileId" => [String.t() | atom()],
+        "presignedUrl" => [String.t() | atom()],
         "presignedUrlExpiration" => non_neg_integer(),
         "presignedUrlFields" => map()
       }
 
   """
-  @type create_presigned_url_output() :: %{String.t() | Atom.t() => any()}
+  @type create_presigned_url_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       library_item_member() :: %{
-        "appId" => String.t() | Atom.t(),
+        "appId" => String.t() | atom(),
         "appVersion" => integer(),
         "categories" => list(category()),
         "createdAt" => non_neg_integer(),
-        "createdBy" => [String.t() | Atom.t()],
+        "createdBy" => [String.t() | atom()],
         "isRatedByUser" => [boolean()],
         "isVerified" => [boolean()],
-        "libraryItemId" => String.t() | Atom.t(),
+        "libraryItemId" => String.t() | atom(),
         "ratingCount" => [integer()],
-        "status" => [String.t() | Atom.t()],
+        "status" => [String.t() | atom()],
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => [String.t() | Atom.t()],
+        "updatedBy" => [String.t() | atom()],
         "userCount" => [integer()]
       }
 
   """
-  @type library_item_member() :: %{String.t() | Atom.t() => any()}
+  @type library_item_member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "quotaCode" => [String.t() | Atom.t()],
-        "resourceId" => [String.t() | Atom.t()],
-        "resourceType" => [String.t() | Atom.t()],
-        "serviceCode" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -618,36 +618,36 @@ defmodule AWS.QApps do
 
       get_q_app_input() :: %{
         optional("appVersion") => integer(),
-        required("appId") => String.t() | Atom.t(),
-        required("instanceId") => String.t() | Atom.t()
+        required("appId") => String.t() | atom(),
+        required("instanceId") => String.t() | atom()
       }
 
   """
-  @type get_q_app_input() :: %{String.t() | Atom.t() => any()}
+  @type get_q_app_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_q_app_session_input() :: %{
-        required("instanceId") => String.t() | Atom.t(),
-        required("sessionId") => String.t() | Atom.t()
+        required("instanceId") => String.t() | atom(),
+        required("sessionId") => String.t() | atom()
       }
 
   """
-  @type get_q_app_session_input() :: %{String.t() | Atom.t() => any()}
+  @type get_q_app_session_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_library_item_input() :: %{
-        required("instanceId") => String.t() | Atom.t(),
-        required("libraryItemId") => String.t() | Atom.t()
+        required("instanceId") => String.t() | atom(),
+        required("libraryItemId") => String.t() | atom()
       }
 
   """
-  @type delete_library_item_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_library_item_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -655,12 +655,12 @@ defmodule AWS.QApps do
 
       predict_app_definition() :: %{
         "appDefinition" => app_definition_input(),
-        "description" => String.t() | Atom.t(),
-        "title" => String.t() | Atom.t()
+        "description" => String.t() | atom(),
+        "title" => String.t() | atom()
       }
 
   """
-  @type predict_app_definition() :: %{String.t() | Atom.t() => any()}
+  @type predict_app_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -668,12 +668,12 @@ defmodule AWS.QApps do
 
       card_status() :: %{
         "currentState" => list(any()),
-        "currentValue" => [String.t() | Atom.t()],
+        "currentValue" => [String.t() | atom()],
         "submissions" => list(submission())
       }
 
   """
-  @type card_status() :: %{String.t() | Atom.t() => any()}
+  @type card_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -681,71 +681,71 @@ defmodule AWS.QApps do
 
       q_query_card() :: %{
         "attributeFilter" => attribute_filter(),
-        "dependencies" => list([String.t() | Atom.t()]()),
-        "id" => String.t() | Atom.t(),
-        "memoryReferences" => list([String.t() | Atom.t()]()),
+        "dependencies" => list([String.t() | atom()]()),
+        "id" => String.t() | atom(),
+        "memoryReferences" => list([String.t() | atom()]()),
         "outputSource" => list(any()),
-        "prompt" => String.t() | Atom.t(),
-        "title" => String.t() | Atom.t(),
+        "prompt" => String.t() | atom(),
+        "title" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type q_query_card() :: %{String.t() | Atom.t() => any()}
+  @type q_query_card() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_category_input() :: %{
-        required("categories") => list(String.t() | Atom.t()),
-        required("instanceId") => String.t() | Atom.t()
+        required("categories") => list(String.t() | atom()),
+        required("instanceId") => String.t() | atom()
       }
 
   """
-  @type batch_delete_category_input() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_category_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       principal_output() :: %{
-        "email" => [String.t() | Atom.t()],
-        "userId" => [String.t() | Atom.t()],
+        "email" => [String.t() | atom()],
+        "userId" => [String.t() | atom()],
         "userType" => list(any())
       }
 
   """
-  @type principal_output() :: %{String.t() | Atom.t() => any()}
+  @type principal_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_create_category_input_category() :: %{
-        "color" => [String.t() | Atom.t()],
-        "id" => String.t() | Atom.t(),
-        "title" => [String.t() | Atom.t()]
+        "color" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "title" => [String.t() | atom()]
       }
 
   """
-  @type batch_create_category_input_category() :: %{String.t() | Atom.t() => any()}
+  @type batch_create_category_input_category() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       q_plugin_card_input() :: %{
-        "actionIdentifier" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "pluginId" => String.t() | Atom.t(),
-        "prompt" => String.t() | Atom.t(),
-        "title" => String.t() | Atom.t(),
+        "actionIdentifier" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "pluginId" => String.t() | atom(),
+        "prompt" => String.t() | atom(),
+        "title" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type q_plugin_card_input() :: %{String.t() | Atom.t() => any()}
+  @type q_plugin_card_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -756,30 +756,30 @@ defmodule AWS.QApps do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_q_app_output() :: %{
-        "appArn" => String.t() | Atom.t(),
+        "appArn" => String.t() | atom(),
         "appDefinition" => app_definition(),
-        "appId" => String.t() | Atom.t(),
+        "appId" => String.t() | atom(),
         "appVersion" => integer(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => [String.t() | Atom.t()],
-        "description" => String.t() | Atom.t(),
-        "initialPrompt" => String.t() | Atom.t(),
+        "createdBy" => [String.t() | atom()],
+        "description" => String.t() | atom(),
+        "initialPrompt" => String.t() | atom(),
         "requiredCapabilities" => list(list(any())()),
         "status" => list(any()),
-        "title" => String.t() | Atom.t(),
+        "title" => String.t() | atom(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => [String.t() | Atom.t()]
+        "updatedBy" => [String.t() | atom()]
       }
 
   """
-  @type get_q_app_output() :: %{String.t() | Atom.t() => any()}
+  @type get_q_app_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -788,193 +788,193 @@ defmodule AWS.QApps do
       update_q_app_permissions_input() :: %{
         optional("grantPermissions") => list(permission_input()),
         optional("revokePermissions") => list(permission_input()),
-        required("appId") => String.t() | Atom.t(),
-        required("instanceId") => String.t() | Atom.t()
+        required("appId") => String.t() | atom(),
+        required("instanceId") => String.t() | atom()
       }
 
   """
-  @type update_q_app_permissions_input() :: %{String.t() | Atom.t() => any()}
+  @type update_q_app_permissions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_library_item_review_input() :: %{
-        required("instanceId") => String.t() | Atom.t(),
-        required("libraryItemId") => String.t() | Atom.t()
+        required("instanceId") => String.t() | atom(),
+        required("libraryItemId") => String.t() | atom()
       }
 
   """
-  @type disassociate_library_item_review_input() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_library_item_review_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_library_items_input() :: %{
-        optional("categoryId") => String.t() | Atom.t(),
+        optional("categoryId") => String.t() | atom(),
         optional("limit") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("instanceId") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("instanceId") => String.t() | atom()
       }
 
   """
-  @type list_library_items_input() :: %{String.t() | Atom.t() => any()}
+  @type list_library_items_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       text_input_card_input() :: %{
-        "defaultValue" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "placeholder" => String.t() | Atom.t(),
-        "title" => String.t() | Atom.t(),
+        "defaultValue" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "placeholder" => String.t() | atom(),
+        "title" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type text_input_card_input() :: %{String.t() | Atom.t() => any()}
+  @type text_input_card_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conversation_message() :: %{
-        "body" => [String.t() | Atom.t()],
+        "body" => [String.t() | atom()],
         "type" => list(any())
       }
 
   """
-  @type conversation_message() :: %{String.t() | Atom.t() => any()}
+  @type conversation_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_library_item_input() :: %{
-        optional("categories") => list(String.t() | Atom.t()),
+        optional("categories") => list(String.t() | atom()),
         optional("status") => list(any()),
-        required("instanceId") => String.t() | Atom.t(),
-        required("libraryItemId") => String.t() | Atom.t()
+        required("instanceId") => String.t() | atom(),
+        required("libraryItemId") => String.t() | atom()
       }
 
   """
-  @type update_library_item_input() :: %{String.t() | Atom.t() => any()}
+  @type update_library_item_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_q_app_output() :: %{
-        "appArn" => String.t() | Atom.t(),
-        "appId" => String.t() | Atom.t(),
+        "appArn" => String.t() | atom(),
+        "appId" => String.t() | atom(),
         "appVersion" => integer(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => [String.t() | Atom.t()],
-        "description" => String.t() | Atom.t(),
-        "initialPrompt" => String.t() | Atom.t(),
+        "createdBy" => [String.t() | atom()],
+        "description" => String.t() | atom(),
+        "initialPrompt" => String.t() | atom(),
         "requiredCapabilities" => list(list(any())()),
         "status" => list(any()),
-        "title" => String.t() | Atom.t(),
+        "title" => String.t() | atom(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => [String.t() | Atom.t()]
+        "updatedBy" => [String.t() | atom()]
       }
 
   """
-  @type create_q_app_output() :: %{String.t() | Atom.t() => any()}
+  @type create_q_app_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_q_app_session_metadata_output() :: %{
-        "sessionArn" => [String.t() | Atom.t()],
-        "sessionId" => String.t() | Atom.t(),
-        "sessionName" => String.t() | Atom.t(),
+        "sessionArn" => [String.t() | atom()],
+        "sessionId" => String.t() | atom(),
+        "sessionName" => String.t() | atom(),
         "sharingConfiguration" => session_sharing_configuration()
       }
 
   """
-  @type update_q_app_session_metadata_output() :: %{String.t() | Atom.t() => any()}
+  @type update_q_app_session_metadata_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_categories_input() :: %{
-        required("instanceId") => String.t() | Atom.t()
+        required("instanceId") => String.t() | atom()
       }
 
   """
-  @type list_categories_input() :: %{String.t() | Atom.t() => any()}
+  @type list_categories_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_presigned_url_input() :: %{
-        optional("sessionId") => String.t() | Atom.t(),
-        required("appId") => String.t() | Atom.t(),
-        required("cardId") => String.t() | Atom.t(),
-        required("fileContentsSha256") => [String.t() | Atom.t()],
-        required("fileName") => String.t() | Atom.t(),
-        required("instanceId") => String.t() | Atom.t(),
+        optional("sessionId") => String.t() | atom(),
+        required("appId") => String.t() | atom(),
+        required("cardId") => String.t() | atom(),
+        required("fileContentsSha256") => [String.t() | atom()],
+        required("fileName") => String.t() | atom(),
+        required("instanceId") => String.t() | atom(),
         required("scope") => list(any())
       }
 
   """
-  @type create_presigned_url_input() :: %{String.t() | Atom.t() => any()}
+  @type create_presigned_url_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t() | Atom.t()],
+        "message" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_q_app_session_metadata_output() :: %{
-        "sessionArn" => [String.t() | Atom.t()],
-        "sessionId" => String.t() | Atom.t(),
-        "sessionName" => String.t() | Atom.t(),
+        "sessionArn" => [String.t() | atom()],
+        "sessionId" => String.t() | atom(),
+        "sessionName" => String.t() | atom(),
         "sessionOwner" => [boolean()],
         "sharingConfiguration" => session_sharing_configuration()
       }
 
   """
-  @type get_q_app_session_metadata_output() :: %{String.t() | Atom.t() => any()}
+  @type get_q_app_session_metadata_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_q_app_session_data_input() :: %{
-        required("instanceId") => String.t() | Atom.t(),
-        required("sessionId") => String.t() | Atom.t()
+        required("instanceId") => String.t() | atom(),
+        required("sessionId") => String.t() | atom()
       }
 
   """
-  @type list_q_app_session_data_input() :: %{String.t() | Atom.t() => any()}
+  @type list_q_app_session_data_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -982,24 +982,24 @@ defmodule AWS.QApps do
 
       permission_input() :: %{
         "action" => list(any()),
-        "principal" => [String.t() | Atom.t()]
+        "principal" => [String.t() | atom()]
       }
 
   """
-  @type permission_input() :: %{String.t() | Atom.t() => any()}
+  @type permission_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       submission() :: %{
-        "submissionId" => String.t() | Atom.t(),
+        "submissionId" => String.t() | atom(),
         "timestamp" => non_neg_integer(),
         "value" => [any()]
       }
 
   """
-  @type submission() :: %{String.t() | Atom.t() => any()}
+  @type submission() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1015,16 +1015,16 @@ defmodule AWS.QApps do
   ## Example:
 
       text_input_card() :: %{
-        "defaultValue" => String.t() | Atom.t(),
-        "dependencies" => list([String.t() | Atom.t()]()),
-        "id" => String.t() | Atom.t(),
-        "placeholder" => String.t() | Atom.t(),
-        "title" => String.t() | Atom.t(),
+        "defaultValue" => String.t() | atom(),
+        "dependencies" => list([String.t() | atom()]()),
+        "id" => String.t() | atom(),
+        "placeholder" => String.t() | atom(),
+        "title" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type text_input_card() :: %{String.t() | Atom.t() => any()}
+  @type text_input_card() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1032,11 +1032,11 @@ defmodule AWS.QApps do
 
       list_library_items_output() :: %{
         "libraryItems" => list(library_item_member()),
-        "nextToken" => [String.t() | Atom.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_library_items_output() :: %{String.t() | Atom.t() => any()}
+  @type list_library_items_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1046,15 +1046,15 @@ defmodule AWS.QApps do
         "appVersion" => integer(),
         "cardStatus" => map(),
         "latestPublishedAppVersion" => integer(),
-        "sessionArn" => [String.t() | Atom.t()],
-        "sessionId" => [String.t() | Atom.t()],
-        "sessionName" => String.t() | Atom.t(),
+        "sessionArn" => [String.t() | atom()],
+        "sessionId" => [String.t() | atom()],
+        "sessionName" => String.t() | atom(),
         "status" => list(any()),
         "userIsHost" => [boolean()]
       }
 
   """
-  @type get_q_app_session_output() :: %{String.t() | Atom.t() => any()}
+  @type get_q_app_session_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1062,23 +1062,23 @@ defmodule AWS.QApps do
 
       list_q_apps_input() :: %{
         optional("limit") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("instanceId") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("instanceId") => String.t() | atom()
       }
 
   """
-  @type list_q_apps_input() :: %{String.t() | Atom.t() => any()}
+  @type list_q_apps_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1094,49 +1094,49 @@ defmodule AWS.QApps do
   ## Example:
 
       export_q_app_session_data_input() :: %{
-        required("instanceId") => String.t() | Atom.t(),
-        required("sessionId") => String.t() | Atom.t()
+        required("instanceId") => String.t() | atom(),
+        required("sessionId") => String.t() | atom()
       }
 
   """
-  @type export_q_app_session_data_input() :: %{String.t() | Atom.t() => any()}
+  @type export_q_app_session_data_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "quotaCode" => [String.t() | Atom.t()],
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t() | Atom.t()]
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       user() :: %{
-        "userId" => String.t() | Atom.t()
+        "userId" => String.t() | atom()
       }
 
   """
-  @type user() :: %{String.t() | Atom.t() => any()}
+  @type user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_library_item_review_input() :: %{
-        required("instanceId") => String.t() | Atom.t(),
-        required("libraryItemId") => String.t() | Atom.t()
+        required("instanceId") => String.t() | atom(),
+        required("libraryItemId") => String.t() | atom()
       }
 
   """
-  @type associate_library_item_review_input() :: %{String.t() | Atom.t() => any()}
+  @type associate_library_item_review_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1144,51 +1144,51 @@ defmodule AWS.QApps do
 
       file_upload_card() :: %{
         "allowOverride" => [boolean()],
-        "dependencies" => list([String.t() | Atom.t()]()),
-        "fileId" => [String.t() | Atom.t()],
-        "filename" => [String.t() | Atom.t()],
-        "id" => String.t() | Atom.t(),
-        "title" => String.t() | Atom.t(),
+        "dependencies" => list([String.t() | atom()]()),
+        "fileId" => [String.t() | atom()],
+        "filename" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "title" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type file_upload_card() :: %{String.t() | Atom.t() => any()}
+  @type file_upload_card() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       card_value() :: %{
-        "cardId" => String.t() | Atom.t(),
+        "cardId" => String.t() | atom(),
         "submissionMutation" => submission_mutation(),
-        "value" => [String.t() | Atom.t()]
+        "value" => [String.t() | atom()]
       }
 
   """
-  @type card_value() :: %{String.t() | Atom.t() => any()}
+  @type card_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_q_app_output() :: %{
-        "appArn" => String.t() | Atom.t(),
-        "appId" => String.t() | Atom.t(),
+        "appArn" => String.t() | atom(),
+        "appId" => String.t() | atom(),
         "appVersion" => integer(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => [String.t() | Atom.t()],
-        "description" => String.t() | Atom.t(),
-        "initialPrompt" => String.t() | Atom.t(),
+        "createdBy" => [String.t() | atom()],
+        "description" => String.t() | atom(),
+        "initialPrompt" => String.t() | atom(),
         "requiredCapabilities" => list(list(any())()),
         "status" => list(any()),
-        "title" => String.t() | Atom.t(),
+        "title" => String.t() | atom(),
         "updatedAt" => non_neg_integer(),
-        "updatedBy" => [String.t() | Atom.t()]
+        "updatedBy" => [String.t() | atom()]
       }
 
   """
-  @type update_q_app_output() :: %{String.t() | Atom.t() => any()}
+  @type update_q_app_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1196,25 +1196,25 @@ defmodule AWS.QApps do
 
       category() :: %{
         "appCount" => [integer()],
-        "color" => [String.t() | Atom.t()],
-        "id" => String.t() | Atom.t(),
-        "title" => [String.t() | Atom.t()]
+        "color" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "title" => [String.t() | atom()]
       }
 
   """
-  @type category() :: %{String.t() | Atom.t() => any()}
+  @type category() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_q_app_session_input() :: %{
-        required("instanceId") => String.t() | Atom.t(),
-        required("sessionId") => String.t() | Atom.t()
+        required("instanceId") => String.t() | atom(),
+        required("sessionId") => String.t() | atom()
       }
 
   """
-  @type stop_q_app_session_input() :: %{String.t() | Atom.t() => any()}
+  @type stop_q_app_session_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1234,7 +1234,7 @@ defmodule AWS.QApps do
       }
 
   """
-  @type attribute_filter() :: %{String.t() | Atom.t() => any()}
+  @type attribute_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1242,15 +1242,15 @@ defmodule AWS.QApps do
 
       q_query_card_input() :: %{
         "attributeFilter" => attribute_filter(),
-        "id" => String.t() | Atom.t(),
+        "id" => String.t() | atom(),
         "outputSource" => list(any()),
-        "prompt" => String.t() | Atom.t(),
-        "title" => String.t() | Atom.t(),
+        "prompt" => String.t() | atom(),
+        "title" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type q_query_card_input() :: %{String.t() | Atom.t() => any()}
+  @type q_query_card_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1258,14 +1258,14 @@ defmodule AWS.QApps do
 
       update_q_app_input() :: %{
         optional("appDefinition") => app_definition_input(),
-        optional("description") => String.t() | Atom.t(),
-        optional("title") => String.t() | Atom.t(),
-        required("appId") => String.t() | Atom.t(),
-        required("instanceId") => String.t() | Atom.t()
+        optional("description") => String.t() | atom(),
+        optional("title") => String.t() | atom(),
+        required("appId") => String.t() | atom(),
+        required("instanceId") => String.t() | atom()
       }
 
   """
-  @type update_q_app_input() :: %{String.t() | Atom.t() => any()}
+  @type update_q_app_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1273,41 +1273,41 @@ defmodule AWS.QApps do
 
       predict_q_app_input() :: %{
         optional("options") => list(),
-        required("instanceId") => String.t() | Atom.t()
+        required("instanceId") => String.t() | atom()
       }
 
   """
-  @type predict_q_app_input() :: %{String.t() | Atom.t() => any()}
+  @type predict_q_app_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       content_too_large_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "resourceId" => [String.t() | Atom.t()],
-        "resourceType" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type content_too_large_exception() :: %{String.t() | Atom.t() => any()}
+  @type content_too_large_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       import_document_input() :: %{
-        optional("sessionId") => String.t() | Atom.t(),
-        required("appId") => String.t() | Atom.t(),
-        required("cardId") => String.t() | Atom.t(),
-        required("fileContentsBase64") => [String.t() | Atom.t()],
-        required("fileName") => String.t() | Atom.t(),
-        required("instanceId") => String.t() | Atom.t(),
+        optional("sessionId") => String.t() | atom(),
+        required("appId") => String.t() | atom(),
+        required("cardId") => String.t() | atom(),
+        required("fileContentsBase64") => [String.t() | atom()],
+        required("fileName") => String.t() | atom(),
+        required("instanceId") => String.t() | atom(),
         required("scope") => list(any())
       }
 
   """
-  @type import_document_input() :: %{String.t() | Atom.t() => any()}
+  @type import_document_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1315,35 +1315,35 @@ defmodule AWS.QApps do
 
       batch_update_category_input() :: %{
         required("categories") => list(category_input()),
-        required("instanceId") => String.t() | Atom.t()
+        required("instanceId") => String.t() | atom()
       }
 
   """
-  @type batch_update_category_input() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_category_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_q_app_session_output() :: %{
-        "sessionArn" => [String.t() | Atom.t()],
-        "sessionId" => [String.t() | Atom.t()]
+        "sessionArn" => [String.t() | atom()],
+        "sessionId" => [String.t() | atom()]
       }
 
   """
-  @type start_q_app_session_output() :: %{String.t() | Atom.t() => any()}
+  @type start_q_app_session_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_q_app_permissions_input() :: %{
-        required("appId") => String.t() | Atom.t(),
-        required("instanceId") => String.t() | Atom.t()
+        required("appId") => String.t() | atom(),
+        required("instanceId") => String.t() | atom()
       }
 
   """
-  @type describe_q_app_permissions_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_q_app_permissions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1351,11 +1351,11 @@ defmodule AWS.QApps do
 
       submission_mutation() :: %{
         "mutationType" => list(any()),
-        "submissionId" => String.t() | Atom.t()
+        "submissionId" => String.t() | atom()
       }
 
   """
-  @type submission_mutation() :: %{String.t() | Atom.t() => any()}
+  @type submission_mutation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1363,15 +1363,15 @@ defmodule AWS.QApps do
 
       form_input_card() :: %{
         "computeMode" => list(any()),
-        "dependencies" => list([String.t() | Atom.t()]()),
-        "id" => String.t() | Atom.t(),
+        "dependencies" => list([String.t() | atom()]()),
+        "id" => String.t() | atom(),
         "metadata" => form_input_card_metadata(),
-        "title" => String.t() | Atom.t(),
+        "title" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type form_input_card() :: %{String.t() | Atom.t() => any()}
+  @type form_input_card() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1379,39 +1379,39 @@ defmodule AWS.QApps do
 
       list_q_apps_output() :: %{
         "apps" => list(user_app_item()),
-        "nextToken" => [String.t() | Atom.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_q_apps_output() :: %{String.t() | Atom.t() => any()}
+  @type list_q_apps_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       q_app_session_data() :: %{
-        "cardId" => String.t() | Atom.t(),
-        "submissionId" => String.t() | Atom.t(),
+        "cardId" => String.t() | atom(),
+        "submissionId" => String.t() | atom(),
         "timestamp" => non_neg_integer(),
         "user" => user(),
         "value" => [any()]
       }
 
   """
-  @type q_app_session_data() :: %{String.t() | Atom.t() => any()}
+  @type q_app_session_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_q_app_session_data_output() :: %{
-        "csvFileLink" => [String.t() | Atom.t()],
+        "csvFileLink" => [String.t() | atom()],
         "expiresAt" => non_neg_integer(),
-        "sessionArn" => [String.t() | Atom.t()]
+        "sessionArn" => [String.t() | atom()]
       }
 
   """
-  @type export_q_app_session_data_output() :: %{String.t() | Atom.t() => any()}
+  @type export_q_app_session_data_output() :: %{(String.t() | atom()) => any()}
 
   @type associate_library_item_review_errors() ::
           throttling_exception()
@@ -2124,7 +2124,7 @@ defmodule AWS.QApps do
   Describes read permissions for a Amazon Q App in Amazon Q Business application
   environment instance.
   """
-  @spec describe_q_app_permissions(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec describe_q_app_permissions(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_q_app_permissions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2266,9 +2266,9 @@ defmodule AWS.QApps do
   """
   @spec get_library_item(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_library_item_output(), any()}
@@ -2320,9 +2320,9 @@ defmodule AWS.QApps do
   """
   @spec get_q_app(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_q_app_output(), any()}
@@ -2365,7 +2365,7 @@ defmodule AWS.QApps do
   Retrieves the current state and results for an active session of an Amazon Q
   App.
   """
-  @spec get_q_app_session(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_q_app_session(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_q_app_session_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2398,7 +2398,7 @@ defmodule AWS.QApps do
   @doc """
   Retrieves the current configuration of a Q App session.
   """
-  @spec get_q_app_session_metadata(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_q_app_session_metadata(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_q_app_session_metadata_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2475,7 +2475,7 @@ defmodule AWS.QApps do
   For more information, see
   [Custom labels for Amazon Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html).
   """
-  @spec list_categories(map(), String.t() | Atom.t(), list()) ::
+  @spec list_categories(map(), String.t() | atom(), list()) ::
           {:ok, list_categories_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2505,10 +2505,10 @@ defmodule AWS.QApps do
   """
   @spec list_library_items(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_library_items_output(), any()}
@@ -2564,7 +2564,7 @@ defmodule AWS.QApps do
   @doc """
   Lists the collected data of a Q App data collection session.
   """
-  @spec list_q_app_session_data(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec list_q_app_session_data(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, list_q_app_session_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2604,9 +2604,9 @@ defmodule AWS.QApps do
   """
   @spec list_q_apps(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_q_apps_output(), any()}
@@ -2648,7 +2648,7 @@ defmodule AWS.QApps do
   @doc """
   Lists the tags associated with an Amazon Q Apps resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2785,7 +2785,7 @@ defmodule AWS.QApps do
   @doc """
   Associates tags with an Amazon Q Apps resource.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2814,7 +2814,7 @@ defmodule AWS.QApps do
   @doc """
   Disassociates tags from an Amazon Q Apps resource.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

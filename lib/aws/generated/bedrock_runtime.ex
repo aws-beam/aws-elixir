@@ -18,7 +18,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type invoke_model_with_bidirectional_stream_response() :: %{String.t() | Atom.t() => any()}
+  @type invoke_model_with_bidirectional_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -26,22 +26,22 @@ defmodule AWS.BedrockRuntime do
 
       list_async_invokes_response() :: %{
         "asyncInvokeSummaries" => list(async_invoke_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_async_invokes_response() :: %{String.t() | Atom.t() => any()}
+  @type list_async_invokes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       specific_tool_choice() :: %{
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type specific_tool_choice() :: %{String.t() | Atom.t() => any()}
+  @type specific_tool_choice() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -54,7 +54,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type document_char_location() :: %{String.t() | Atom.t() => any()}
+  @type document_char_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -65,7 +65,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type guardrail_content_policy_assessment() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_content_policy_assessment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -73,14 +73,14 @@ defmodule AWS.BedrockRuntime do
 
       document_block() :: %{
         "citations" => citations_config(),
-        "context" => [String.t() | Atom.t()],
+        "context" => [String.t() | atom()],
         "format" => list(any()),
-        "name" => [String.t() | Atom.t()],
+        "name" => [String.t() | atom()],
         "source" => list()
       }
 
   """
-  @type document_block() :: %{String.t() | Atom.t() => any()}
+  @type document_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -88,7 +88,7 @@ defmodule AWS.BedrockRuntime do
 
       apply_guardrail_response() :: %{
         "action" => list(any()),
-        "actionReason" => [String.t() | Atom.t()],
+        "actionReason" => [String.t() | atom()],
         "assessments" => list(guardrail_assessment()),
         "guardrailCoverage" => guardrail_coverage(),
         "outputs" => list(guardrail_output_content()),
@@ -96,18 +96,18 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type apply_guardrail_response() :: %{String.t() | Atom.t() => any()}
+  @type apply_guardrail_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       model_not_ready_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type model_not_ready_exception() :: %{String.t() | Atom.t() => any()}
+  @type model_not_ready_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -118,7 +118,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type content_block_stop_event() :: %{String.t() | Atom.t() => any()}
+  @type content_block_stop_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -144,13 +144,13 @@ defmodule AWS.BedrockRuntime do
 
       inference_configuration() :: %{
         "maxTokens" => [integer()],
-        "stopSequences" => list(String.t() | Atom.t()),
+        "stopSequences" => list(String.t() | atom()),
         "temperature" => [float()],
         "topP" => [float()]
       }
 
   """
-  @type inference_configuration() :: %{String.t() | Atom.t() => any()}
+  @type inference_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -172,7 +172,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type apply_guardrail_request() :: %{String.t() | Atom.t() => any()}
+  @type apply_guardrail_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -180,7 +180,7 @@ defmodule AWS.BedrockRuntime do
 
       converse_request() :: %{
         optional("additionalModelRequestFields") => [any()],
-        optional("additionalModelResponseFieldPaths") => list([String.t() | Atom.t()]()),
+        optional("additionalModelResponseFieldPaths") => list([String.t() | atom()]()),
         optional("guardrailConfig") => guardrail_configuration(),
         optional("inferenceConfig") => inference_configuration(),
         optional("messages") => list(message()),
@@ -192,21 +192,21 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type converse_request() :: %{String.t() | Atom.t() => any()}
+  @type converse_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       guardrail_trace_assessment() :: %{
-        "actionReason" => [String.t() | Atom.t()],
+        "actionReason" => [String.t() | atom()],
         "inputAssessment" => map(),
-        "modelOutput" => list(String.t() | Atom.t()),
+        "modelOutput" => list(String.t() | atom()),
         "outputAssessments" => map()
       }
 
   """
-  @type guardrail_trace_assessment() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_trace_assessment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -215,11 +215,11 @@ defmodule AWS.BedrockRuntime do
       citation() :: %{
         "location" => list(),
         "sourceContent" => list(list()),
-        "title" => [String.t() | Atom.t()]
+        "title" => [String.t() | atom()]
       }
 
   """
-  @type citation() :: %{String.t() | Atom.t() => any()}
+  @type citation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -231,7 +231,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type citations_content_block() :: %{String.t() | Atom.t() => any()}
+  @type citations_content_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -242,7 +242,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type payload_part() :: %{String.t() | Atom.t() => any()}
+  @type payload_part() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -254,7 +254,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type message_stop_event() :: %{String.t() | Atom.t() => any()}
+  @type message_stop_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -263,12 +263,12 @@ defmodule AWS.BedrockRuntime do
       guardrail_managed_word() :: %{
         "action" => list(any()),
         "detected" => [boolean()],
-        "match" => [String.t() | Atom.t()],
+        "match" => [String.t() | atom()],
         "type" => list(any())
       }
 
   """
-  @type guardrail_managed_word() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_managed_word() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -276,12 +276,12 @@ defmodule AWS.BedrockRuntime do
 
       invoke_model_with_response_stream_response() :: %{
         "body" => list(),
-        "contentType" => String.t() | Atom.t(),
+        "contentType" => String.t() | atom(),
         "performanceConfigLatency" => list(any())
       }
 
   """
-  @type invoke_model_with_response_stream_response() :: %{String.t() | Atom.t() => any()}
+  @type invoke_model_with_response_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -289,11 +289,11 @@ defmodule AWS.BedrockRuntime do
 
       guardrail_text_block() :: %{
         "qualifiers" => list(list(any())()),
-        "text" => [String.t() | Atom.t()]
+        "text" => [String.t() | atom()]
       }
 
   """
-  @type guardrail_text_block() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_text_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -305,7 +305,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type image_block() :: %{String.t() | Atom.t() => any()}
+  @type image_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -317,20 +317,20 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type guardrail_converse_image_block() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_converse_image_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       async_invoke_s3_output_data_config() :: %{
-        "bucketOwner" => String.t() | Atom.t(),
-        "kmsKeyId" => String.t() | Atom.t(),
-        "s3Uri" => String.t() | Atom.t()
+        "bucketOwner" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom(),
+        "s3Uri" => String.t() | atom()
       }
 
   """
-  @type async_invoke_s3_output_data_config() :: %{String.t() | Atom.t() => any()}
+  @type async_invoke_s3_output_data_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -342,7 +342,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type guardrail_text_characters_coverage() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_text_characters_coverage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -354,18 +354,18 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type content_block_start_event() :: %{String.t() | Atom.t() => any()}
+  @type content_block_start_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       prompt_router_trace() :: %{
-        "invokedModelId" => String.t() | Atom.t()
+        "invokedModelId" => String.t() | atom()
       }
 
   """
-  @type prompt_router_trace() :: %{String.t() | Atom.t() => any()}
+  @type prompt_router_trace() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -377,7 +377,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type guardrail_image_coverage() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_image_coverage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -389,7 +389,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type content_block_delta_event() :: %{String.t() | Atom.t() => any()}
+  @type content_block_delta_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -398,11 +398,11 @@ defmodule AWS.BedrockRuntime do
       guardrail_custom_word() :: %{
         "action" => list(any()),
         "detected" => [boolean()],
-        "match" => [String.t() | Atom.t()]
+        "match" => [String.t() | atom()]
       }
 
   """
-  @type guardrail_custom_word() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_custom_word() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -413,7 +413,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type bidirectional_input_payload_part() :: %{String.t() | Atom.t() => any()}
+  @type bidirectional_input_payload_part() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -424,7 +424,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type message_start_event() :: %{String.t() | Atom.t() => any()}
+  @type message_start_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -435,7 +435,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type invoke_model_with_bidirectional_stream_request() :: %{String.t() | Atom.t() => any()}
+  @type invoke_model_with_bidirectional_stream_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -447,22 +447,22 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type guardrail_word_policy_assessment() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_word_policy_assessment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_async_invoke_request() :: %{
-        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("modelId") => String.t() | Atom.t(),
+        required("modelId") => String.t() | atom(),
         required("modelInput") => any(),
         required("outputDataConfig") => list()
       }
 
   """
-  @type start_async_invoke_request() :: %{String.t() | Atom.t() => any()}
+  @type start_async_invoke_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -470,7 +470,7 @@ defmodule AWS.BedrockRuntime do
 
       list_async_invokes_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("sortBy") => list(any()),
         optional("sortOrder") => list(any()),
         optional("statusEquals") => list(any()),
@@ -479,7 +479,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type list_async_invokes_request() :: %{String.t() | Atom.t() => any()}
+  @type list_async_invokes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -491,75 +491,75 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type guardrail_coverage() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_coverage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invoke_model_request() :: %{
-        optional("accept") => String.t() | Atom.t(),
+        optional("accept") => String.t() | atom(),
         optional("body") => binary(),
-        optional("contentType") => String.t() | Atom.t(),
-        optional("guardrailIdentifier") => String.t() | Atom.t(),
-        optional("guardrailVersion") => String.t() | Atom.t(),
+        optional("contentType") => String.t() | atom(),
+        optional("guardrailIdentifier") => String.t() | atom(),
+        optional("guardrailVersion") => String.t() | atom(),
         optional("performanceConfigLatency") => list(any()),
         optional("trace") => list(any())
       }
 
   """
-  @type invoke_model_request() :: %{String.t() | Atom.t() => any()}
+  @type invoke_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reasoning_text_block() :: %{
-        "signature" => [String.t() | Atom.t()],
-        "text" => [String.t() | Atom.t()]
+        "signature" => [String.t() | atom()],
+        "text" => [String.t() | atom()]
       }
 
   """
-  @type reasoning_text_block() :: %{String.t() | Atom.t() => any()}
+  @type reasoning_text_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invoke_model_with_response_stream_request() :: %{
-        optional("accept") => String.t() | Atom.t(),
+        optional("accept") => String.t() | atom(),
         optional("body") => binary(),
-        optional("contentType") => String.t() | Atom.t(),
-        optional("guardrailIdentifier") => String.t() | Atom.t(),
-        optional("guardrailVersion") => String.t() | Atom.t(),
+        optional("contentType") => String.t() | atom(),
+        optional("guardrailIdentifier") => String.t() | atom(),
+        optional("guardrailVersion") => String.t() | atom(),
         optional("performanceConfigLatency") => list(any()),
         optional("trace") => list(any())
       }
 
   """
-  @type invoke_model_with_response_stream_request() :: %{String.t() | Atom.t() => any()}
+  @type invoke_model_with_response_stream_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -571,7 +571,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type guardrail_sensitive_information_policy_assessment() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_sensitive_information_policy_assessment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -582,31 +582,31 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type converse_stream_metrics() :: %{String.t() | Atom.t() => any()}
+  @type converse_stream_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "key" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tool_use_block_start() :: %{
-        "name" => String.t() | Atom.t(),
-        "toolUseId" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "toolUseId" => String.t() | atom()
       }
 
   """
-  @type tool_use_block_start() :: %{String.t() | Atom.t() => any()}
+  @type tool_use_block_start() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -614,12 +614,12 @@ defmodule AWS.BedrockRuntime do
 
       invoke_model_response() :: %{
         "body" => binary(),
-        "contentType" => String.t() | Atom.t(),
+        "contentType" => String.t() | atom(),
         "performanceConfigLatency" => list(any())
       }
 
   """
-  @type invoke_model_response() :: %{String.t() | Atom.t() => any()}
+  @type invoke_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -634,18 +634,18 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type guardrail_content_filter() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_content_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -657,7 +657,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type converse_trace() :: %{String.t() | Atom.t() => any()}
+  @type converse_trace() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -672,20 +672,20 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type guardrail_contextual_grounding_filter() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_contextual_grounding_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tool_specification() :: %{
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "inputSchema" => list(),
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type tool_specification() :: %{String.t() | Atom.t() => any()}
+  @type tool_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -697,7 +697,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type guardrail_image_block() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_image_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -708,7 +708,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type converse_stream_response() :: %{String.t() | Atom.t() => any()}
+  @type converse_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -719,7 +719,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type cache_point_block() :: %{String.t() | Atom.t() => any()}
+  @type cache_point_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -732,37 +732,37 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type document_page_location() :: %{String.t() | Atom.t() => any()}
+  @type document_page_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_async_invoke_response() :: %{
-        "clientRequestToken" => String.t() | Atom.t(),
+        "clientRequestToken" => String.t() | atom(),
         "endTime" => non_neg_integer(),
-        "failureMessage" => String.t() | Atom.t(),
-        "invocationArn" => String.t() | Atom.t(),
+        "failureMessage" => String.t() | atom(),
+        "invocationArn" => String.t() | atom(),
         "lastModifiedTime" => non_neg_integer(),
-        "modelArn" => String.t() | Atom.t(),
+        "modelArn" => String.t() | atom(),
         "outputDataConfig" => list(),
         "status" => list(any()),
         "submitTime" => non_neg_integer()
       }
 
   """
-  @type get_async_invoke_response() :: %{String.t() | Atom.t() => any()}
+  @type get_async_invoke_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -775,7 +775,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type document_chunk_location() :: %{String.t() | Atom.t() => any()}
+  @type document_chunk_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -786,19 +786,19 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type guardrail_contextual_grounding_policy_assessment() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_contextual_grounding_policy_assessment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_location() :: %{
-        "bucketOwner" => String.t() | Atom.t(),
-        "uri" => String.t() | Atom.t()
+        "bucketOwner" => String.t() | atom(),
+        "uri" => String.t() | atom()
       }
 
   """
-  @type s3_location() :: %{String.t() | Atom.t() => any()}
+  @type s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -812,32 +812,32 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type converse_stream_metadata_event() :: %{String.t() | Atom.t() => any()}
+  @type converse_stream_metadata_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       guardrail_stream_configuration() :: %{
-        "guardrailIdentifier" => String.t() | Atom.t(),
-        "guardrailVersion" => String.t() | Atom.t(),
+        "guardrailIdentifier" => String.t() | atom(),
+        "guardrailVersion" => String.t() | atom(),
         "streamProcessingMode" => list(any()),
         "trace" => list(any())
       }
 
   """
-  @type guardrail_stream_configuration() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_stream_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -853,7 +853,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type guardrail_assessment() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_assessment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -864,20 +864,20 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type converse_metrics() :: %{String.t() | Atom.t() => any()}
+  @type converse_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       model_error_exception() :: %{
-        "message" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
         "originalStatusCode" => integer(),
-        "resourceName" => String.t() | Atom.t()
+        "resourceName" => String.t() | atom()
       }
 
   """
-  @type model_error_exception() :: %{String.t() | Atom.t() => any()}
+  @type model_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -890,7 +890,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type guardrail_invocation_metrics() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_invocation_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -902,7 +902,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type tool_configuration() :: %{String.t() | Atom.t() => any()}
+  @type tool_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -910,7 +910,7 @@ defmodule AWS.BedrockRuntime do
 
       converse_stream_request() :: %{
         optional("additionalModelRequestFields") => [any()],
-        optional("additionalModelResponseFieldPaths") => list([String.t() | Atom.t()]()),
+        optional("additionalModelResponseFieldPaths") => list([String.t() | atom()]()),
         optional("guardrailConfig") => guardrail_stream_configuration(),
         optional("inferenceConfig") => inference_configuration(),
         optional("messages") => list(message()),
@@ -922,7 +922,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type converse_stream_request() :: %{String.t() | Atom.t() => any()}
+  @type converse_stream_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -931,22 +931,22 @@ defmodule AWS.BedrockRuntime do
       tool_result_block() :: %{
         "content" => list(list()),
         "status" => list(any()),
-        "toolUseId" => String.t() | Atom.t()
+        "toolUseId" => String.t() | atom()
       }
 
   """
-  @type tool_result_block() :: %{String.t() | Atom.t() => any()}
+  @type tool_result_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -954,12 +954,12 @@ defmodule AWS.BedrockRuntime do
 
       tool_use_block() :: %{
         "input" => [any()],
-        "name" => String.t() | Atom.t(),
-        "toolUseId" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "toolUseId" => String.t() | atom()
       }
 
   """
-  @type tool_use_block() :: %{String.t() | Atom.t() => any()}
+  @type tool_use_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -974,7 +974,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type token_usage() :: %{String.t() | Atom.t() => any()}
+  @type token_usage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -985,7 +985,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type guardrail_topic_policy_assessment() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_topic_policy_assessment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1002,83 +1002,83 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type guardrail_usage() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_usage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       async_invoke_summary() :: %{
-        "clientRequestToken" => String.t() | Atom.t(),
+        "clientRequestToken" => String.t() | atom(),
         "endTime" => non_neg_integer(),
-        "failureMessage" => String.t() | Atom.t(),
-        "invocationArn" => String.t() | Atom.t(),
+        "failureMessage" => String.t() | atom(),
+        "invocationArn" => String.t() | atom(),
         "lastModifiedTime" => non_neg_integer(),
-        "modelArn" => String.t() | Atom.t(),
+        "modelArn" => String.t() | atom(),
         "outputDataConfig" => list(),
         "status" => list(any()),
         "submitTime" => non_neg_integer()
       }
 
   """
-  @type async_invoke_summary() :: %{String.t() | Atom.t() => any()}
+  @type async_invoke_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       model_stream_error_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "originalMessage" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
+        "originalMessage" => String.t() | atom(),
         "originalStatusCode" => integer()
       }
 
   """
-  @type model_stream_error_exception() :: %{String.t() | Atom.t() => any()}
+  @type model_stream_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       model_timeout_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type model_timeout_exception() :: %{String.t() | Atom.t() => any()}
+  @type model_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       citation_source_content_delta() :: %{
-        "text" => [String.t() | Atom.t()]
+        "text" => [String.t() | atom()]
       }
 
   """
-  @type citation_source_content_delta() :: %{String.t() | Atom.t() => any()}
+  @type citation_source_content_delta() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1089,20 +1089,20 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type bidirectional_output_payload_part() :: %{String.t() | Atom.t() => any()}
+  @type bidirectional_output_payload_part() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       guardrail_configuration() :: %{
-        "guardrailIdentifier" => String.t() | Atom.t(),
-        "guardrailVersion" => String.t() | Atom.t(),
+        "guardrailIdentifier" => String.t() | atom(),
+        "guardrailVersion" => String.t() | atom(),
         "trace" => list(any())
       }
 
   """
-  @type guardrail_configuration() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1111,13 +1111,13 @@ defmodule AWS.BedrockRuntime do
       guardrail_regex_filter() :: %{
         "action" => list(any()),
         "detected" => [boolean()],
-        "match" => [String.t() | Atom.t()],
-        "name" => [String.t() | Atom.t()],
-        "regex" => [String.t() | Atom.t()]
+        "match" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "regex" => [String.t() | atom()]
       }
 
   """
-  @type guardrail_regex_filter() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_regex_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1129,18 +1129,18 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type video_block() :: %{String.t() | Atom.t() => any()}
+  @type video_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       guardrail_output_content() :: %{
-        "text" => String.t() | Atom.t()
+        "text" => String.t() | atom()
       }
 
   """
-  @type guardrail_output_content() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_output_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1151,7 +1151,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type citations_config() :: %{String.t() | Atom.t() => any()}
+  @type citations_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1160,12 +1160,12 @@ defmodule AWS.BedrockRuntime do
       guardrail_pii_entity_filter() :: %{
         "action" => list(any()),
         "detected" => [boolean()],
-        "match" => [String.t() | Atom.t()],
+        "match" => [String.t() | atom()],
         "type" => list(any())
       }
 
   """
-  @type guardrail_pii_entity_filter() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_pii_entity_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1173,11 +1173,11 @@ defmodule AWS.BedrockRuntime do
 
       guardrail_converse_text_block() :: %{
         "qualifiers" => list(list(any())()),
-        "text" => [String.t() | Atom.t()]
+        "text" => [String.t() | atom()]
       }
 
   """
-  @type guardrail_converse_text_block() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_converse_text_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1189,29 +1189,29 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type converse_stream_trace() :: %{String.t() | Atom.t() => any()}
+  @type converse_stream_trace() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tool_use_block_delta() :: %{
-        "input" => [String.t() | Atom.t()]
+        "input" => [String.t() | atom()]
       }
 
   """
-  @type tool_use_block_delta() :: %{String.t() | Atom.t() => any()}
+  @type tool_use_block_delta() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_async_invoke_response() :: %{
-        "invocationArn" => String.t() | Atom.t()
+        "invocationArn" => String.t() | atom()
       }
 
   """
-  @type start_async_invoke_response() :: %{String.t() | Atom.t() => any()}
+  @type start_async_invoke_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1220,12 +1220,12 @@ defmodule AWS.BedrockRuntime do
       guardrail_topic() :: %{
         "action" => list(any()),
         "detected" => [boolean()],
-        "name" => [String.t() | Atom.t()],
+        "name" => [String.t() | atom()],
         "type" => list(any())
       }
 
   """
-  @type guardrail_topic() :: %{String.t() | Atom.t() => any()}
+  @type guardrail_topic() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1236,7 +1236,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type performance_configuration() :: %{String.t() | Atom.t() => any()}
+  @type performance_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1245,11 +1245,11 @@ defmodule AWS.BedrockRuntime do
       citations_delta() :: %{
         "location" => list(),
         "sourceContent" => list(citation_source_content_delta()),
-        "title" => [String.t() | Atom.t()]
+        "title" => [String.t() | atom()]
       }
 
   """
-  @type citations_delta() :: %{String.t() | Atom.t() => any()}
+  @type citations_delta() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1261,7 +1261,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type message() :: %{String.t() | Atom.t() => any()}
+  @type message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1278,7 +1278,7 @@ defmodule AWS.BedrockRuntime do
       }
 
   """
-  @type converse_response() :: %{String.t() | Atom.t() => any()}
+  @type converse_response() :: %{(String.t() | atom()) => any()}
 
   @type apply_guardrail_errors() ::
           throttling_exception()
@@ -1395,8 +1395,8 @@ defmodule AWS.BedrockRuntime do
   """
   @spec apply_guardrail(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           apply_guardrail_request(),
           list()
         ) ::
@@ -1479,7 +1479,7 @@ defmodule AWS.BedrockRuntime do
   `Converse` API, see [Troubleshooting Amazon Bedrock API Error Codes](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html)
   in the Amazon Bedrock User Guide
   """
-  @spec converse(map(), String.t() | Atom.t(), converse_request(), list()) ::
+  @spec converse(map(), String.t() | atom(), converse_request(), list()) ::
           {:ok, converse_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1560,7 +1560,7 @@ defmodule AWS.BedrockRuntime do
   `ConverseStream` API, see [Troubleshooting Amazon Bedrock API Error Codes](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html)
   in the Amazon Bedrock User Guide
   """
-  @spec converse_stream(map(), String.t() | Atom.t(), converse_stream_request(), list()) ::
+  @spec converse_stream(map(), String.t() | atom(), converse_stream_request(), list()) ::
           {:ok, converse_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1589,7 +1589,7 @@ defmodule AWS.BedrockRuntime do
   @doc """
   Retrieve information about an asynchronous invocation.
   """
-  @spec get_async_invoke(map(), String.t() | Atom.t(), list()) ::
+  @spec get_async_invoke(map(), String.t() | atom(), list()) ::
           {:ok, get_async_invoke_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1627,7 +1627,7 @@ defmodule AWS.BedrockRuntime do
   `InvokeModel` API, see [Troubleshooting Amazon Bedrock API Error Codes](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html)
   in the Amazon Bedrock User Guide
   """
-  @spec invoke_model(map(), String.t() | Atom.t(), invoke_model_request(), list()) ::
+  @spec invoke_model(map(), String.t() | atom(), invoke_model_request(), list()) ::
           {:ok, invoke_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1689,7 +1689,7 @@ defmodule AWS.BedrockRuntime do
   """
   @spec invoke_model_with_bidirectional_stream(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           invoke_model_with_bidirectional_stream_request(),
           list()
         ) ::
@@ -1752,7 +1752,7 @@ defmodule AWS.BedrockRuntime do
   """
   @spec invoke_model_with_response_stream(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           invoke_model_with_response_stream_request(),
           list()
         ) ::
@@ -1807,13 +1807,13 @@ defmodule AWS.BedrockRuntime do
   """
   @spec list_async_invokes(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_async_invokes_response(), any()}

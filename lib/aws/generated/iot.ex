@@ -45,58 +45,58 @@ defmodule AWS.IoT do
       }
 
   """
-  @type get_buckets_aggregation_response() :: %{String.t() | Atom.t() => any()}
+  @type get_buckets_aggregation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       http_url_destination_configuration() :: %{
-        "confirmationUrl" => String.t() | Atom.t()
+        "confirmationUrl" => String.t() | atom()
       }
 
   """
-  @type http_url_destination_configuration() :: %{String.t() | Atom.t() => any()}
+  @type http_url_destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_audit_suppression_request() :: %{
-        required("checkName") => String.t() | Atom.t(),
+        required("checkName") => String.t() | atom(),
         required("resourceIdentifier") => resource_identifier()
       }
 
   """
-  @type describe_audit_suppression_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_audit_suppression_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sbom_validation_results_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "validationResultSummaries" => list(sbom_validation_result_summary())
       }
 
   """
-  @type list_sbom_validation_results_response() :: %{String.t() | Atom.t() => any()}
+  @type list_sbom_validation_results_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_billing_group_response() :: %{
-        "billingGroupArn" => String.t() | Atom.t(),
-        "billingGroupId" => String.t() | Atom.t(),
+        "billingGroupArn" => String.t() | atom(),
+        "billingGroupId" => String.t() | atom(),
         "billingGroupMetadata" => billing_group_metadata(),
-        "billingGroupName" => String.t() | Atom.t(),
+        "billingGroupName" => String.t() | atom(),
         "billingGroupProperties" => billing_group_properties(),
         "version" => float()
       }
 
   """
-  @type describe_billing_group_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_billing_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -107,46 +107,46 @@ defmodule AWS.IoT do
       }
 
   """
-  @type delete_command_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_command_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_job_request() :: %{
-        optional("comment") => String.t() | Atom.t(),
+        optional("comment") => String.t() | atom(),
         optional("force") => boolean(),
-        optional("reasonCode") => String.t() | Atom.t()
+        optional("reasonCode") => String.t() | atom()
       }
 
   """
-  @type cancel_job_request() :: %{String.t() | Atom.t() => any()}
+  @type cancel_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_thing_response() :: %{
-        "thingArn" => String.t() | Atom.t(),
-        "thingId" => String.t() | Atom.t(),
-        "thingName" => String.t() | Atom.t()
+        "thingArn" => String.t() | atom(),
+        "thingId" => String.t() | atom(),
+        "thingName" => String.t() | atom()
       }
 
   """
-  @type create_thing_response() :: %{String.t() | Atom.t() => any()}
+  @type create_thing_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_thing_registration_task_reports_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "reportType" => list(any()),
-        "resourceLinks" => list(String.t() | Atom.t())
+        "resourceLinks" => list(String.t() | atom())
       }
 
   """
-  @type list_thing_registration_task_reports_response() :: %{String.t() | Atom.t() => any()}
+  @type list_thing_registration_task_reports_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -162,22 +162,22 @@ defmodule AWS.IoT do
   ## Example:
 
       get_command_response() :: %{
-        "commandArn" => String.t() | Atom.t(),
-        "commandId" => String.t() | Atom.t(),
+        "commandArn" => String.t() | atom(),
+        "commandId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "deprecated" => boolean(),
-        "description" => String.t() | Atom.t(),
-        "displayName" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "mandatoryParameters" => list(command_parameter()),
         "namespace" => list(any()),
         "payload" => command_payload(),
         "pendingDeletion" => boolean(),
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type get_command_response() :: %{String.t() | Atom.t() => any()}
+  @type get_command_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -189,32 +189,32 @@ defmodule AWS.IoT do
       }
 
   """
-  @type retry_criteria() :: %{String.t() | Atom.t() => any()}
+  @type retry_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_billing_group_response() :: %{
-        "billingGroupArn" => String.t() | Atom.t(),
-        "billingGroupId" => String.t() | Atom.t(),
-        "billingGroupName" => String.t() | Atom.t()
+        "billingGroupArn" => String.t() | atom(),
+        "billingGroupId" => String.t() | atom(),
+        "billingGroupName" => String.t() | atom()
       }
 
   """
-  @type create_billing_group_response() :: %{String.t() | Atom.t() => any()}
+  @type create_billing_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_dimension_response() :: %{
-        "arn" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type create_dimension_response() :: %{String.t() | Atom.t() => any()}
+  @type create_dimension_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -230,43 +230,43 @@ defmodule AWS.IoT do
   ## Example:
 
       list_provisioning_template_versions_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "versions" => list(provisioning_template_version_summary())
       }
 
   """
-  @type list_provisioning_template_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_provisioning_template_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       audit_mitigation_action_execution_metadata() :: %{
-        "actionId" => String.t() | Atom.t(),
-        "actionName" => String.t() | Atom.t(),
+        "actionId" => String.t() | atom(),
+        "actionName" => String.t() | atom(),
         "endTime" => non_neg_integer(),
-        "errorCode" => String.t() | Atom.t(),
-        "findingId" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
+        "errorCode" => String.t() | atom(),
+        "findingId" => String.t() | atom(),
+        "message" => String.t() | atom(),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
-        "taskId" => String.t() | Atom.t()
+        "taskId" => String.t() | atom()
       }
 
   """
-  @type audit_mitigation_action_execution_metadata() :: %{String.t() | Atom.t() => any()}
+  @type audit_mitigation_action_execution_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       geo_location_target() :: %{
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "order" => list(any())
       }
 
   """
-  @type geo_location_target() :: %{String.t() | Atom.t() => any()}
+  @type geo_location_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -277,19 +277,19 @@ defmodule AWS.IoT do
       }
 
   """
-  @type update_certificate_request() :: %{String.t() | Atom.t() => any()}
+  @type update_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       user_property() :: %{
-        "key" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type user_property() :: %{String.t() | Atom.t() => any()}
+  @type user_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -297,29 +297,29 @@ defmodule AWS.IoT do
 
       topic_rule() :: %{
         "actions" => list(action()),
-        "awsIotSqlVersion" => String.t() | Atom.t(),
+        "awsIotSqlVersion" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "errorAction" => action(),
         "ruleDisabled" => boolean(),
-        "ruleName" => String.t() | Atom.t(),
-        "sql" => String.t() | Atom.t()
+        "ruleName" => String.t() | atom(),
+        "sql" => String.t() | atom()
       }
 
   """
-  @type topic_rule() :: %{String.t() | Atom.t() => any()}
+  @type topic_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       timestream_dimension() :: %{
-        "name" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type timestream_dimension() :: %{String.t() | Atom.t() => any()}
+  @type timestream_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -330,7 +330,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type terms_aggregation() :: %{String.t() | Atom.t() => any()}
+  @type terms_aggregation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -347,11 +347,11 @@ defmodule AWS.IoT do
 
       command_payload() :: %{
         "content" => binary(),
-        "contentType" => String.t() | Atom.t()
+        "contentType" => String.t() | atom()
       }
 
   """
-  @type command_payload() :: %{String.t() | Atom.t() => any()}
+  @type command_payload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -367,12 +367,12 @@ defmodule AWS.IoT do
   ## Example:
 
       update_package_configuration_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("versionUpdateByJobsConfig") => version_update_by_jobs_config()
       }
 
   """
-  @type update_package_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_package_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -382,13 +382,13 @@ defmodule AWS.IoT do
         "attributes" => map(),
         "codeSigning" => code_signing(),
         "fileLocation" => file_location(),
-        "fileName" => String.t() | Atom.t(),
+        "fileName" => String.t() | atom(),
         "fileType" => integer(),
-        "fileVersion" => String.t() | Atom.t()
+        "fileVersion" => String.t() | atom()
       }
 
   """
-  @type ota_update_file() :: %{String.t() | Atom.t() => any()}
+  @type ota_update_file() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -399,7 +399,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type get_statistics_response() :: %{String.t() | Atom.t() => any()}
+  @type get_statistics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -410,7 +410,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type violation_event_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type violation_event_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -421,7 +421,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type delete_billing_group_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_billing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -432,19 +432,19 @@ defmodule AWS.IoT do
       }
 
   """
-  @type list_policy_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_policy_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("resourceArn") => String.t() | Atom.t(),
+        required("resourceArn") => String.t() | atom(),
         required("tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -456,7 +456,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type get_indexing_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_indexing_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -466,11 +466,11 @@ defmodule AWS.IoT do
         optional("attributePayload") => attribute_payload(),
         optional("expectedVersion") => float(),
         optional("removeThingType") => boolean(),
-        optional("thingTypeName") => String.t() | Atom.t()
+        optional("thingTypeName") => String.t() | atom()
       }
 
   """
-  @type update_thing_request() :: %{String.t() | Atom.t() => any()}
+  @type update_thing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -486,23 +486,23 @@ defmodule AWS.IoT do
   ## Example:
 
       internal_failure_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_failure_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_job_template_response() :: %{
-        "jobTemplateArn" => String.t() | Atom.t(),
-        "jobTemplateId" => String.t() | Atom.t()
+        "jobTemplateArn" => String.t() | atom(),
+        "jobTemplateId" => String.t() | atom()
       }
 
   """
-  @type create_job_template_response() :: %{String.t() | Atom.t() => any()}
+  @type create_job_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -524,7 +524,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type thing_group_indexing_configuration() :: %{String.t() | Atom.t() => any()}
+  @type thing_group_indexing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -532,17 +532,17 @@ defmodule AWS.IoT do
 
       get_policy_version_response() :: %{
         "creationDate" => non_neg_integer(),
-        "generationId" => String.t() | Atom.t(),
+        "generationId" => String.t() | atom(),
         "isDefaultVersion" => boolean(),
         "lastModifiedDate" => non_neg_integer(),
-        "policyArn" => String.t() | Atom.t(),
-        "policyDocument" => String.t() | Atom.t(),
-        "policyName" => String.t() | Atom.t(),
-        "policyVersionId" => String.t() | Atom.t()
+        "policyArn" => String.t() | atom(),
+        "policyDocument" => String.t() | atom(),
+        "policyName" => String.t() | atom(),
+        "policyVersionId" => String.t() | atom()
       }
 
   """
-  @type get_policy_version_response() :: %{String.t() | Atom.t() => any()}
+  @type get_policy_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -550,24 +550,24 @@ defmodule AWS.IoT do
 
       firehose_action() :: %{
         "batchMode" => boolean(),
-        "deliveryStreamName" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
-        "separator" => String.t() | Atom.t()
+        "deliveryStreamName" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "separator" => String.t() | atom()
       }
 
   """
-  @type firehose_action() :: %{String.t() | Atom.t() => any()}
+  @type firehose_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_audit_mitigation_actions_task_response() :: %{
-        "taskId" => String.t() | Atom.t()
+        "taskId" => String.t() | atom()
       }
 
   """
-  @type start_audit_mitigation_actions_task_response() :: %{String.t() | Atom.t() => any()}
+  @type start_audit_mitigation_actions_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -575,12 +575,12 @@ defmodule AWS.IoT do
 
       list_things_in_thing_group_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("recursive") => boolean()
       }
 
   """
-  @type list_things_in_thing_group_request() :: %{String.t() | Atom.t() => any()}
+  @type list_things_in_thing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -591,33 +591,33 @@ defmodule AWS.IoT do
       }
 
   """
-  @type http_authorization() :: %{String.t() | Atom.t() => any()}
+  @type http_authorization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       detect_mitigation_actions_task_target() :: %{
-        "behaviorName" => String.t() | Atom.t(),
-        "securityProfileName" => String.t() | Atom.t(),
-        "violationIds" => list(String.t() | Atom.t())
+        "behaviorName" => String.t() | atom(),
+        "securityProfileName" => String.t() | atom(),
+        "violationIds" => list(String.t() | atom())
       }
 
   """
-  @type detect_mitigation_actions_task_target() :: %{String.t() | Atom.t() => any()}
+  @type detect_mitigation_actions_task_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       registration_config() :: %{
-        "roleArn" => String.t() | Atom.t(),
-        "templateBody" => String.t() | Atom.t(),
-        "templateName" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom(),
+        "templateBody" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
 
   """
-  @type registration_config() :: %{String.t() | Atom.t() => any()}
+  @type registration_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -625,34 +625,34 @@ defmodule AWS.IoT do
 
       list_provisioning_template_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_provisioning_template_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_provisioning_template_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       malformed_policy_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type malformed_policy_exception() :: %{String.t() | Atom.t() => any()}
+  @type malformed_policy_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_principal_things_v2_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "principalThingObjects" => list(principal_thing_object())
       }
 
   """
-  @type list_principal_things_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type list_principal_things_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -660,14 +660,14 @@ defmodule AWS.IoT do
 
       list_thing_groups_request() :: %{
         optional("maxResults") => integer(),
-        optional("namePrefixFilter") => String.t() | Atom.t(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("parentGroup") => String.t() | Atom.t(),
+        optional("namePrefixFilter") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("parentGroup") => String.t() | atom(),
         optional("recursive") => boolean()
       }
 
   """
-  @type list_thing_groups_request() :: %{String.t() | Atom.t() => any()}
+  @type list_thing_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -678,10 +678,10 @@ defmodule AWS.IoT do
         "authenticationType" => list(any()),
         "authorizerConfig" => authorizer_config(),
         "clientCertificateConfig" => client_certificate_config(),
-        "domainConfigurationArn" => String.t() | Atom.t(),
-        "domainConfigurationName" => String.t() | Atom.t(),
+        "domainConfigurationArn" => String.t() | atom(),
+        "domainConfigurationName" => String.t() | atom(),
         "domainConfigurationStatus" => list(any()),
-        "domainName" => String.t() | Atom.t(),
+        "domainName" => String.t() | atom(),
         "domainType" => list(any()),
         "lastStatusChangeDate" => non_neg_integer(),
         "serverCertificateConfig" => server_certificate_config(),
@@ -691,7 +691,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type describe_domain_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_domain_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -699,45 +699,45 @@ defmodule AWS.IoT do
 
       attach_thing_principal_request() :: %{
         optional("thingPrincipalType") => list(any()),
-        required("principal") => String.t() | Atom.t()
+        required("principal") => String.t() | atom()
       }
 
   """
-  @type attach_thing_principal_request() :: %{String.t() | Atom.t() => any()}
+  @type attach_thing_principal_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_package_version_request() :: %{
-        optional("clientToken") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type delete_package_version_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_package_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_job_response() :: %{
-        "documentSource" => String.t() | Atom.t(),
+        "documentSource" => String.t() | atom(),
         "job" => job()
       }
 
   """
-  @type describe_job_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       version_conflict_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type version_conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type version_conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -748,7 +748,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type describe_job_execution_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_job_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -770,64 +770,64 @@ defmodule AWS.IoT do
       }
 
   """
-  @type cancel_job_execution_request() :: %{String.t() | Atom.t() => any()}
+  @type cancel_job_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_topic_rules_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "rules" => list(topic_rule_list_item())
       }
 
   """
-  @type list_topic_rules_response() :: %{String.t() | Atom.t() => any()}
+  @type list_topic_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_job_response() :: %{
-        "description" => String.t() | Atom.t(),
-        "jobArn" => String.t() | Atom.t(),
-        "jobId" => String.t() | Atom.t()
+        "description" => String.t() | atom(),
+        "jobArn" => String.t() | atom(),
+        "jobId" => String.t() | atom()
       }
 
   """
-  @type create_job_response() :: %{String.t() | Atom.t() => any()}
+  @type create_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       audit_finding() :: %{
-        "checkName" => String.t() | Atom.t(),
-        "findingId" => String.t() | Atom.t(),
+        "checkName" => String.t() | atom(),
+        "findingId" => String.t() | atom(),
         "findingTime" => non_neg_integer(),
         "isSuppressed" => boolean(),
         "nonCompliantResource" => non_compliant_resource(),
-        "reasonForNonCompliance" => String.t() | Atom.t(),
-        "reasonForNonComplianceCode" => String.t() | Atom.t(),
+        "reasonForNonCompliance" => String.t() | atom(),
+        "reasonForNonComplianceCode" => String.t() | atom(),
         "relatedResources" => list(related_resource()),
         "severity" => list(any()),
-        "taskId" => String.t() | Atom.t(),
+        "taskId" => String.t() | atom(),
         "taskStartTime" => non_neg_integer()
       }
 
   """
-  @type audit_finding() :: %{String.t() | Atom.t() => any()}
+  @type audit_finding() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() | Atom.t() => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -845,23 +845,23 @@ defmodule AWS.IoT do
       describe_provisioning_template_version_response() :: %{
         "creationDate" => non_neg_integer(),
         "isDefaultVersion" => boolean(),
-        "templateBody" => String.t() | Atom.t(),
+        "templateBody" => String.t() | atom(),
         "versionId" => integer()
       }
 
   """
-  @type describe_provisioning_template_version_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_provisioning_template_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tls_context() :: %{
-        "serverName" => String.t() | Atom.t()
+        "serverName" => String.t() | atom()
       }
 
   """
-  @type tls_context() :: %{String.t() | Atom.t() => any()}
+  @type tls_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -877,12 +877,12 @@ defmodule AWS.IoT do
   ## Example:
 
       status_reason() :: %{
-        "reasonCode" => String.t() | Atom.t(),
-        "reasonDescription" => String.t() | Atom.t()
+        "reasonCode" => String.t() | atom(),
+        "reasonDescription" => String.t() | atom()
       }
 
   """
-  @type status_reason() :: %{String.t() | Atom.t() => any()}
+  @type status_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -900,7 +900,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type update_domain_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_domain_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -920,7 +920,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type billing_group_metadata() :: %{String.t() | Atom.t() => any()}
+  @type billing_group_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -931,7 +931,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type buckets_aggregation_type() :: %{String.t() | Atom.t() => any()}
+  @type buckets_aggregation_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -942,7 +942,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type describe_authorizer_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_authorizer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -962,7 +962,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type test_authorization_response() :: %{String.t() | Atom.t() => any()}
+  @type test_authorization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -974,7 +974,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type aws_job_executions_rollout_config() :: %{String.t() | Atom.t() => any()}
+  @type aws_job_executions_rollout_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -982,11 +982,11 @@ defmodule AWS.IoT do
 
       get_topic_rule_response() :: %{
         "rule" => topic_rule(),
-        "ruleArn" => String.t() | Atom.t()
+        "ruleArn" => String.t() | atom()
       }
 
   """
-  @type get_topic_rule_response() :: %{String.t() | Atom.t() => any()}
+  @type get_topic_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -998,7 +998,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type violation_event_occurrence_range() :: %{String.t() | Atom.t() => any()}
+  @type violation_event_occurrence_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1006,11 +1006,11 @@ defmodule AWS.IoT do
 
       list_commands_response() :: %{
         "commands" => list(command_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_commands_response() :: %{String.t() | Atom.t() => any()}
+  @type list_commands_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1018,13 +1018,13 @@ defmodule AWS.IoT do
 
       list_security_profiles_for_target_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("recursive") => boolean(),
-        required("securityProfileTargetArn") => String.t() | Atom.t()
+        required("securityProfileTargetArn") => String.t() | atom()
       }
 
   """
-  @type list_security_profiles_for_target_request() :: %{String.t() | Atom.t() => any()}
+  @type list_security_profiles_for_target_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1033,12 +1033,12 @@ defmodule AWS.IoT do
       get_thing_connectivity_data_response() :: %{
         "connected" => boolean(),
         "disconnectReason" => list(any()),
-        "thingName" => String.t() | Atom.t(),
+        "thingName" => String.t() | atom(),
         "timestamp" => non_neg_integer()
       }
 
   """
-  @type get_thing_connectivity_data_response() :: %{String.t() | Atom.t() => any()}
+  @type get_thing_connectivity_data_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1046,33 +1046,33 @@ defmodule AWS.IoT do
 
       ca_certificate_description() :: %{
         "autoRegistrationStatus" => list(any()),
-        "certificateArn" => String.t() | Atom.t(),
-        "certificateId" => String.t() | Atom.t(),
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom(),
         "certificateMode" => list(any()),
-        "certificatePem" => String.t() | Atom.t(),
+        "certificatePem" => String.t() | atom(),
         "creationDate" => non_neg_integer(),
         "customerVersion" => integer(),
-        "generationId" => String.t() | Atom.t(),
+        "generationId" => String.t() | atom(),
         "lastModifiedDate" => non_neg_integer(),
-        "ownedBy" => String.t() | Atom.t(),
+        "ownedBy" => String.t() | atom(),
         "status" => list(any()),
         "validity" => certificate_validity()
       }
 
   """
-  @type ca_certificate_description() :: %{String.t() | Atom.t() => any()}
+  @type ca_certificate_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_policies_response() :: %{
-        "nextMarker" => String.t() | Atom.t(),
+        "nextMarker" => String.t() | atom(),
         "policies" => list(policy())
       }
 
   """
-  @type list_policies_response() :: %{String.t() | Atom.t() => any()}
+  @type list_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1110,7 +1110,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type get_percentiles_response() :: %{String.t() | Atom.t() => any()}
+  @type get_percentiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1118,13 +1118,13 @@ defmodule AWS.IoT do
 
       list_topic_rules_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("ruleDisabled") => boolean(),
-        optional("topic") => String.t() | Atom.t()
+        optional("topic") => String.t() | atom()
       }
 
   """
-  @type list_topic_rules_request() :: %{String.t() | Atom.t() => any()}
+  @type list_topic_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1135,7 +1135,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type aws_job_timeout_config() :: %{String.t() | Atom.t() => any()}
+  @type aws_job_timeout_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1160,13 +1160,13 @@ defmodule AWS.IoT do
   ## Example:
 
       create_package_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("tags") => map()
       }
 
   """
-  @type create_package_request() :: %{String.t() | Atom.t() => any()}
+  @type create_package_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1175,13 +1175,13 @@ defmodule AWS.IoT do
       list_audit_mitigation_actions_executions_request() :: %{
         optional("actionStatus") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("findingId") => String.t() | Atom.t(),
-        required("taskId") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("findingId") => String.t() | atom(),
+        required("taskId") => String.t() | atom()
       }
 
   """
-  @type list_audit_mitigation_actions_executions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_audit_mitigation_actions_executions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1201,7 +1201,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type update_thing_type_request() :: %{String.t() | Atom.t() => any()}
+  @type update_thing_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1218,23 +1218,23 @@ defmodule AWS.IoT do
 
       list_topic_rule_destinations_response() :: %{
         "destinationSummaries" => list(topic_rule_destination_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_topic_rule_destinations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_topic_rule_destinations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_detect_mitigation_actions_tasks_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "tasks" => list(detect_mitigation_actions_task_summary())
       }
 
   """
-  @type list_detect_mitigation_actions_tasks_response() :: %{String.t() | Atom.t() => any()}
+  @type list_detect_mitigation_actions_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1244,12 +1244,12 @@ defmodule AWS.IoT do
         optional("httpContext") => http_context(),
         optional("mqttContext") => mqtt_context(),
         optional("tlsContext") => tls_context(),
-        optional("token") => String.t() | Atom.t(),
-        optional("tokenSignature") => String.t() | Atom.t()
+        optional("token") => String.t() | atom(),
+        optional("tokenSignature") => String.t() | atom()
       }
 
   """
-  @type test_invoke_authorizer_request() :: %{String.t() | Atom.t() => any()}
+  @type test_invoke_authorizer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1263,7 +1263,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type aws_job_abort_criteria() :: %{String.t() | Atom.t() => any()}
+  @type aws_job_abort_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1279,12 +1279,12 @@ defmodule AWS.IoT do
   ## Example:
 
       provisioning_hook() :: %{
-        "payloadVersion" => String.t() | Atom.t(),
-        "targetArn" => String.t() | Atom.t()
+        "payloadVersion" => String.t() | atom(),
+        "targetArn" => String.t() | atom()
       }
 
   """
-  @type provisioning_hook() :: %{String.t() | Atom.t() => any()}
+  @type provisioning_hook() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1292,11 +1292,11 @@ defmodule AWS.IoT do
 
       dynamo_dbv2_action() :: %{
         "putItem" => put_item_input(),
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type dynamo_dbv2_action() :: %{String.t() | Atom.t() => any()}
+  @type dynamo_dbv2_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1313,12 +1313,12 @@ defmodule AWS.IoT do
 
       audit_mitigation_actions_task_metadata() :: %{
         "startTime" => non_neg_integer(),
-        "taskId" => String.t() | Atom.t(),
+        "taskId" => String.t() | atom(),
         "taskStatus" => list(any())
       }
 
   """
-  @type audit_mitigation_actions_task_metadata() :: %{String.t() | Atom.t() => any()}
+  @type audit_mitigation_actions_task_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1329,20 +1329,20 @@ defmodule AWS.IoT do
       }
 
   """
-  @type get_ota_update_response() :: %{String.t() | Atom.t() => any()}
+  @type get_ota_update_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_property_value() :: %{
-        "quality" => String.t() | Atom.t(),
+        "quality" => String.t() | atom(),
         "timestamp" => asset_property_timestamp(),
         "value" => list()
       }
 
   """
-  @type asset_property_value() :: %{String.t() | Atom.t() => any()}
+  @type asset_property_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1350,16 +1350,16 @@ defmodule AWS.IoT do
 
       list_jobs_request() :: %{
         optional("maxResults") => integer(),
-        optional("namespaceId") => String.t() | Atom.t(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("namespaceId") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
         optional("status") => list(any()),
         optional("targetSelection") => list(any()),
-        optional("thingGroupId") => String.t() | Atom.t(),
-        optional("thingGroupName") => String.t() | Atom.t()
+        optional("thingGroupId") => String.t() | atom(),
+        optional("thingGroupName") => String.t() | atom()
       }
 
   """
-  @type list_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1367,12 +1367,12 @@ defmodule AWS.IoT do
 
       list_policies_request() :: %{
         optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | Atom.t(),
+        optional("marker") => String.t() | atom(),
         optional("pageSize") => integer()
       }
 
   """
-  @type list_policies_request() :: %{String.t() | Atom.t() => any()}
+  @type list_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1383,7 +1383,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type mqtt5_configuration() :: %{String.t() | Atom.t() => any()}
+  @type mqtt5_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1391,41 +1391,41 @@ defmodule AWS.IoT do
 
       list_billing_groups_request() :: %{
         optional("maxResults") => integer(),
-        optional("namePrefixFilter") => String.t() | Atom.t(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("namePrefixFilter") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_billing_groups_request() :: %{String.t() | Atom.t() => any()}
+  @type list_billing_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_action() :: %{
-        "bucketName" => String.t() | Atom.t(),
+        "bucketName" => String.t() | atom(),
         "cannedAcl" => list(any()),
-        "key" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "key" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type s3_action() :: %{String.t() | Atom.t() => any()}
+  @type s3_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       document_parameter() :: %{
-        "description" => String.t() | Atom.t(),
-        "example" => String.t() | Atom.t(),
-        "key" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "example" => String.t() | atom(),
+        "key" => String.t() | atom(),
         "optional" => boolean(),
-        "regex" => String.t() | Atom.t()
+        "regex" => String.t() | atom()
       }
 
   """
-  @type document_parameter() :: %{String.t() | Atom.t() => any()}
+  @type document_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1445,18 +1445,18 @@ defmodule AWS.IoT do
       }
 
   """
-  @type update_billing_group_response() :: %{String.t() | Atom.t() => any()}
+  @type update_billing_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reject_certificate_transfer_request() :: %{
-        optional("rejectReason") => String.t() | Atom.t()
+        optional("rejectReason") => String.t() | atom()
       }
 
   """
-  @type reject_certificate_transfer_request() :: %{String.t() | Atom.t() => any()}
+  @type reject_certificate_transfer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1464,114 +1464,114 @@ defmodule AWS.IoT do
 
       list_thing_principals_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_thing_principals_request() :: %{String.t() | Atom.t() => any()}
+  @type list_thing_principals_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       billing_group_properties() :: %{
-        "billingGroupDescription" => String.t() | Atom.t()
+        "billingGroupDescription" => String.t() | atom()
       }
 
   """
-  @type billing_group_properties() :: %{String.t() | Atom.t() => any()}
+  @type billing_group_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_security_profile_response() :: %{
-        "additionalMetricsToRetain" => list(String.t() | Atom.t()),
+        "additionalMetricsToRetain" => list(String.t() | atom()),
         "additionalMetricsToRetainV2" => list(metric_to_retain()),
         "alertTargets" => map(),
         "behaviors" => list(behavior()),
         "creationDate" => non_neg_integer(),
         "lastModifiedDate" => non_neg_integer(),
         "metricsExportConfig" => metrics_export_config(),
-        "securityProfileArn" => String.t() | Atom.t(),
-        "securityProfileDescription" => String.t() | Atom.t(),
-        "securityProfileName" => String.t() | Atom.t(),
+        "securityProfileArn" => String.t() | atom(),
+        "securityProfileDescription" => String.t() | atom(),
+        "securityProfileName" => String.t() | atom(),
         "version" => float()
       }
 
   """
-  @type describe_security_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_security_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_aggregation_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_aggregation_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_aggregation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_security_profile_response() :: %{
-        "securityProfileArn" => String.t() | Atom.t(),
-        "securityProfileName" => String.t() | Atom.t()
+        "securityProfileArn" => String.t() | atom(),
+        "securityProfileName" => String.t() | atom()
       }
 
   """
-  @type create_security_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type create_security_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       http_url_destination_properties() :: %{
-        "confirmationUrl" => String.t() | Atom.t()
+        "confirmationUrl" => String.t() | atom()
       }
 
   """
-  @type http_url_destination_properties() :: %{String.t() | Atom.t() => any()}
+  @type http_url_destination_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_certificate_without_ca_response() :: %{
-        "certificateArn" => String.t() | Atom.t(),
-        "certificateId" => String.t() | Atom.t()
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom()
       }
 
   """
-  @type register_certificate_without_ca_response() :: %{String.t() | Atom.t() => any()}
+  @type register_certificate_without_ca_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_certificate_provider_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("tags") => list(tag()),
         required("accountDefaultForOperations") => list(list(any())()),
-        required("lambdaFunctionArn") => String.t() | Atom.t()
+        required("lambdaFunctionArn") => String.t() | atom()
       }
 
   """
-  @type create_certificate_provider_request() :: %{String.t() | Atom.t() => any()}
+  @type create_certificate_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_conflict_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type delete_conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type delete_conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1579,11 +1579,11 @@ defmodule AWS.IoT do
 
       create_certificate_from_csr_request() :: %{
         optional("setAsActive") => boolean(),
-        required("certificateSigningRequest") => String.t() | Atom.t()
+        required("certificateSigningRequest") => String.t() | atom()
       }
 
   """
-  @type create_certificate_from_csr_request() :: %{String.t() | Atom.t() => any()}
+  @type create_certificate_from_csr_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1591,23 +1591,23 @@ defmodule AWS.IoT do
 
       list_audit_findings_response() :: %{
         "findings" => list(audit_finding()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_audit_findings_response() :: %{String.t() | Atom.t() => any()}
+  @type list_audit_findings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_attached_policies_response() :: %{
-        "nextMarker" => String.t() | Atom.t(),
+        "nextMarker" => String.t() | atom(),
         "policies" => list(policy())
       }
 
   """
-  @type list_attached_policies_response() :: %{String.t() | Atom.t() => any()}
+  @type list_attached_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1624,14 +1624,14 @@ defmodule AWS.IoT do
       }
 
   """
-  @type thing_indexing_configuration() :: %{String.t() | Atom.t() => any()}
+  @type thing_indexing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_security_profile_request() :: %{
-        optional("additionalMetricsToRetain") => list(String.t() | Atom.t()),
+        optional("additionalMetricsToRetain") => list(String.t() | atom()),
         optional("additionalMetricsToRetainV2") => list(metric_to_retain()),
         optional("alertTargets") => map(),
         optional("behaviors") => list(behavior()),
@@ -1641,30 +1641,30 @@ defmodule AWS.IoT do
         optional("deleteMetricsExportConfig") => boolean(),
         optional("expectedVersion") => float(),
         optional("metricsExportConfig") => metrics_export_config(),
-        optional("securityProfileDescription") => String.t() | Atom.t()
+        optional("securityProfileDescription") => String.t() | atom()
       }
 
   """
-  @type update_security_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type update_security_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_fleet_metric_request() :: %{
-        optional("description") => String.t() | Atom.t(),
-        optional("indexName") => String.t() | Atom.t(),
-        optional("queryVersion") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
+        optional("indexName") => String.t() | atom(),
+        optional("queryVersion") => String.t() | atom(),
         optional("tags") => list(tag()),
         optional("unit") => list(any()),
-        required("aggregationField") => String.t() | Atom.t(),
+        required("aggregationField") => String.t() | atom(),
         required("aggregationType") => aggregation_type(),
         required("period") => integer(),
-        required("queryString") => String.t() | Atom.t()
+        required("queryString") => String.t() | atom()
       }
 
   """
-  @type create_fleet_metric_request() :: %{String.t() | Atom.t() => any()}
+  @type create_fleet_metric_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1690,23 +1690,23 @@ defmodule AWS.IoT do
 
       list_role_aliases_request() :: %{
         optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | Atom.t(),
+        optional("marker") => String.t() | atom(),
         optional("pageSize") => integer()
       }
 
   """
-  @type list_role_aliases_request() :: %{String.t() | Atom.t() => any()}
+  @type list_role_aliases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_custom_metric_request() :: %{
-        required("displayName") => String.t() | Atom.t()
+        required("displayName") => String.t() | atom()
       }
 
   """
-  @type update_custom_metric_request() :: %{String.t() | Atom.t() => any()}
+  @type update_custom_metric_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1717,66 +1717,66 @@ defmodule AWS.IoT do
       }
 
   """
-  @type get_job_document_request() :: %{String.t() | Atom.t() => any()}
+  @type get_job_document_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dynamo_db_action() :: %{
-        "hashKeyField" => String.t() | Atom.t(),
+        "hashKeyField" => String.t() | atom(),
         "hashKeyType" => list(any()),
-        "hashKeyValue" => String.t() | Atom.t(),
-        "operation" => String.t() | Atom.t(),
-        "payloadField" => String.t() | Atom.t(),
-        "rangeKeyField" => String.t() | Atom.t(),
+        "hashKeyValue" => String.t() | atom(),
+        "operation" => String.t() | atom(),
+        "payloadField" => String.t() | atom(),
+        "rangeKeyField" => String.t() | atom(),
         "rangeKeyType" => list(any()),
-        "rangeKeyValue" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
-        "tableName" => String.t() | Atom.t()
+        "rangeKeyValue" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "tableName" => String.t() | atom()
       }
 
   """
-  @type dynamo_db_action() :: %{String.t() | Atom.t() => any()}
+  @type dynamo_db_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       certificate_description() :: %{
-        "caCertificateId" => String.t() | Atom.t(),
-        "certificateArn" => String.t() | Atom.t(),
-        "certificateId" => String.t() | Atom.t(),
+        "caCertificateId" => String.t() | atom(),
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom(),
         "certificateMode" => list(any()),
-        "certificatePem" => String.t() | Atom.t(),
+        "certificatePem" => String.t() | atom(),
         "creationDate" => non_neg_integer(),
         "customerVersion" => integer(),
-        "generationId" => String.t() | Atom.t(),
+        "generationId" => String.t() | atom(),
         "lastModifiedDate" => non_neg_integer(),
-        "ownedBy" => String.t() | Atom.t(),
-        "previousOwnedBy" => String.t() | Atom.t(),
+        "ownedBy" => String.t() | atom(),
+        "previousOwnedBy" => String.t() | atom(),
         "status" => list(any()),
         "transferData" => transfer_data(),
         "validity" => certificate_validity()
       }
 
   """
-  @type certificate_description() :: %{String.t() | Atom.t() => any()}
+  @type certificate_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_asset_property_value_entry() :: %{
-        "assetId" => String.t() | Atom.t(),
-        "entryId" => String.t() | Atom.t(),
-        "propertyAlias" => String.t() | Atom.t(),
-        "propertyId" => String.t() | Atom.t(),
+        "assetId" => String.t() | atom(),
+        "entryId" => String.t() | atom(),
+        "propertyAlias" => String.t() | atom(),
+        "propertyId" => String.t() | atom(),
         "propertyValues" => list(asset_property_value())
       }
 
   """
-  @type put_asset_property_value_entry() :: %{String.t() | Atom.t() => any()}
+  @type put_asset_property_value_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1787,7 +1787,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type get_effective_policies_response() :: %{String.t() | Atom.t() => any()}
+  @type get_effective_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1796,34 +1796,34 @@ defmodule AWS.IoT do
       list_mitigation_actions_request() :: %{
         optional("actionType") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_mitigation_actions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_mitigation_actions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_policy_principals_response() :: %{
-        "nextMarker" => String.t() | Atom.t(),
-        "principals" => list(String.t() | Atom.t())
+        "nextMarker" => String.t() | atom(),
+        "principals" => list(String.t() | atom())
       }
 
   """
-  @type list_policy_principals_response() :: %{String.t() | Atom.t() => any()}
+  @type list_policy_principals_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       certificate_state_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type certificate_state_exception() :: %{String.t() | Atom.t() => any()}
+  @type certificate_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1831,11 +1831,11 @@ defmodule AWS.IoT do
 
       list_domain_configurations_response() :: %{
         "domainConfigurations" => list(domain_configuration_summary()),
-        "nextMarker" => String.t() | Atom.t()
+        "nextMarker" => String.t() | atom()
       }
 
   """
-  @type list_domain_configurations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_domain_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1843,11 +1843,11 @@ defmodule AWS.IoT do
 
       create_policy_request() :: %{
         optional("tags") => list(tag()),
-        required("policyDocument") => String.t() | Atom.t()
+        required("policyDocument") => String.t() | atom()
       }
 
   """
-  @type create_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type create_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1855,11 +1855,11 @@ defmodule AWS.IoT do
 
       list_packages_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_packages_request() :: %{String.t() | Atom.t() => any()}
+  @type list_packages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1879,43 +1879,43 @@ defmodule AWS.IoT do
       }
 
   """
-  @type replace_topic_rule_request() :: %{String.t() | Atom.t() => any()}
+  @type replace_topic_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_thing_registration_task_request() :: %{
-        required("inputFileBucket") => String.t() | Atom.t(),
-        required("inputFileKey") => String.t() | Atom.t(),
-        required("roleArn") => String.t() | Atom.t(),
-        required("templateBody") => String.t() | Atom.t()
+        required("inputFileBucket") => String.t() | atom(),
+        required("inputFileKey") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
+        required("templateBody") => String.t() | atom()
       }
 
   """
-  @type start_thing_registration_task_request() :: %{String.t() | Atom.t() => any()}
+  @type start_thing_registration_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       detach_security_profile_request() :: %{
-        required("securityProfileTargetArn") => String.t() | Atom.t()
+        required("securityProfileTargetArn") => String.t() | atom()
       }
 
   """
-  @type detach_security_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type detach_security_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_command_execution_request() :: %{
-        required("targetArn") => String.t() | Atom.t()
+        required("targetArn") => String.t() | atom()
       }
 
   """
-  @type delete_command_execution_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_command_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1932,11 +1932,11 @@ defmodule AWS.IoT do
 
       list_fleet_metrics_response() :: %{
         "fleetMetrics" => list(fleet_metric_name_and_arn()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_fleet_metrics_response() :: %{String.t() | Atom.t() => any()}
+  @type list_fleet_metrics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1953,12 +1953,12 @@ defmodule AWS.IoT do
 
       metric_to_retain() :: %{
         "exportMetric" => boolean(),
-        "metric" => String.t() | Atom.t(),
+        "metric" => String.t() | atom(),
         "metricDimension" => metric_dimension()
       }
 
   """
-  @type metric_to_retain() :: %{String.t() | Atom.t() => any()}
+  @type metric_to_retain() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1969,7 +1969,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type create_topic_rule_destination_response() :: %{String.t() | Atom.t() => any()}
+  @type create_topic_rule_destination_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1977,11 +1977,11 @@ defmodule AWS.IoT do
 
       list_ca_certificates_response() :: %{
         "certificates" => list(ca_certificate()),
-        "nextMarker" => String.t() | Atom.t()
+        "nextMarker" => String.t() | atom()
       }
 
   """
-  @type list_ca_certificates_response() :: %{String.t() | Atom.t() => any()}
+  @type list_ca_certificates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2006,11 +2006,11 @@ defmodule AWS.IoT do
   ## Example:
 
       versions_limit_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type versions_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type versions_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2018,11 +2018,11 @@ defmodule AWS.IoT do
 
       update_mitigation_action_request() :: %{
         optional("actionParams") => mitigation_action_params(),
-        optional("roleArn") => String.t() | Atom.t()
+        optional("roleArn") => String.t() | atom()
       }
 
   """
-  @type update_mitigation_action_request() :: %{String.t() | Atom.t() => any()}
+  @type update_mitigation_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2032,16 +2032,16 @@ defmodule AWS.IoT do
         optional("behaviorCriteriaType") => list(any()),
         optional("listSuppressedAlerts") => boolean(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("securityProfileName") => String.t() | Atom.t(),
-        optional("thingName") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
+        optional("securityProfileName") => String.t() | atom(),
+        optional("thingName") => String.t() | atom(),
         optional("verificationState") => list(any()),
         required("endTime") => non_neg_integer(),
         required("startTime") => non_neg_integer()
       }
 
   """
-  @type list_violation_events_request() :: %{String.t() | Atom.t() => any()}
+  @type list_violation_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2049,13 +2049,13 @@ defmodule AWS.IoT do
 
       create_policy_version_response() :: %{
         "isDefaultVersion" => boolean(),
-        "policyArn" => String.t() | Atom.t(),
-        "policyDocument" => String.t() | Atom.t(),
-        "policyVersionId" => String.t() | Atom.t()
+        "policyArn" => String.t() | atom(),
+        "policyDocument" => String.t() | atom(),
+        "policyVersionId" => String.t() | atom()
       }
 
   """
-  @type create_policy_version_response() :: %{String.t() | Atom.t() => any()}
+  @type create_policy_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2063,11 +2063,11 @@ defmodule AWS.IoT do
 
       add_things_to_thing_group_params() :: %{
         "overrideDynamicGroups" => boolean(),
-        "thingGroupNames" => list(String.t() | Atom.t())
+        "thingGroupNames" => list(String.t() | atom())
       }
 
   """
-  @type add_things_to_thing_group_params() :: %{String.t() | Atom.t() => any()}
+  @type add_things_to_thing_group_params() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2075,23 +2075,23 @@ defmodule AWS.IoT do
 
       register_certificate_without_ca_request() :: %{
         optional("status") => list(any()),
-        required("certificatePem") => String.t() | Atom.t()
+        required("certificatePem") => String.t() | atom()
       }
 
   """
-  @type register_certificate_without_ca_request() :: %{String.t() | Atom.t() => any()}
+  @type register_certificate_without_ca_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_things_in_thing_group_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
-        "things" => list(String.t() | Atom.t())
+        "nextToken" => String.t() | atom(),
+        "things" => list(String.t() | atom())
       }
 
   """
-  @type list_things_in_thing_group_response() :: %{String.t() | Atom.t() => any()}
+  @type list_things_in_thing_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2102,7 +2102,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type configuration() :: %{String.t() | Atom.t() => any()}
+  @type configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2110,12 +2110,12 @@ defmodule AWS.IoT do
 
       start_audit_mitigation_actions_task_request() :: %{
         required("auditCheckToActionsMapping") => map(),
-        required("clientRequestToken") => String.t() | Atom.t(),
+        required("clientRequestToken") => String.t() | atom(),
         required("target") => audit_mitigation_actions_task_target()
       }
 
   """
-  @type start_audit_mitigation_actions_task_request() :: %{String.t() | Atom.t() => any()}
+  @type start_audit_mitigation_actions_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2140,12 +2140,12 @@ defmodule AWS.IoT do
   ## Example:
 
       http_action_header() :: %{
-        "key" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type http_action_header() :: %{String.t() | Atom.t() => any()}
+  @type http_action_header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2158,19 +2158,19 @@ defmodule AWS.IoT do
       }
 
   """
-  @type exponential_rollout_rate() :: %{String.t() | Atom.t() => any()}
+  @type exponential_rollout_rate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_ca_certificate_response() :: %{
-        "certificateArn" => String.t() | Atom.t(),
-        "certificateId" => String.t() | Atom.t()
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom()
       }
 
   """
-  @type register_ca_certificate_response() :: %{String.t() | Atom.t() => any()}
+  @type register_ca_certificate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2178,23 +2178,23 @@ defmodule AWS.IoT do
 
       list_jobs_response() :: %{
         "jobs" => list(job_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_security_profiles_for_target_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "securityProfileTargetMappings" => list(security_profile_target_mapping())
       }
 
   """
-  @type list_security_profiles_for_target_response() :: %{String.t() | Atom.t() => any()}
+  @type list_security_profiles_for_target_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2202,36 +2202,36 @@ defmodule AWS.IoT do
 
       create_job_request() :: %{
         optional("abortConfig") => abort_config(),
-        optional("description") => String.t() | Atom.t(),
-        optional("destinationPackageVersions") => list(String.t() | Atom.t()),
-        optional("document") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
+        optional("destinationPackageVersions") => list(String.t() | atom()),
+        optional("document") => String.t() | atom(),
         optional("documentParameters") => map(),
-        optional("documentSource") => String.t() | Atom.t(),
+        optional("documentSource") => String.t() | atom(),
         optional("jobExecutionsRetryConfig") => job_executions_retry_config(),
         optional("jobExecutionsRolloutConfig") => job_executions_rollout_config(),
-        optional("jobTemplateArn") => String.t() | Atom.t(),
-        optional("namespaceId") => String.t() | Atom.t(),
+        optional("jobTemplateArn") => String.t() | atom(),
+        optional("namespaceId") => String.t() | atom(),
         optional("presignedUrlConfig") => presigned_url_config(),
         optional("schedulingConfig") => scheduling_config(),
         optional("tags") => list(tag()),
         optional("targetSelection") => list(any()),
         optional("timeoutConfig") => timeout_config(),
-        required("targets") => list(String.t() | Atom.t())
+        required("targets") => list(String.t() | atom())
       }
 
   """
-  @type create_job_request() :: %{String.t() | Atom.t() => any()}
+  @type create_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       detach_policy_request() :: %{
-        required("target") => String.t() | Atom.t()
+        required("target") => String.t() | atom()
       }
 
   """
-  @type detach_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type detach_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2240,11 +2240,11 @@ defmodule AWS.IoT do
       describe_account_audit_configuration_response() :: %{
         "auditCheckConfigurations" => map(),
         "auditNotificationTargetConfigurations" => map(),
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type describe_account_audit_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_account_audit_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2260,54 +2260,54 @@ defmodule AWS.IoT do
   ## Example:
 
       mqtt_headers() :: %{
-        "contentType" => String.t() | Atom.t(),
-        "correlationData" => String.t() | Atom.t(),
-        "messageExpiry" => String.t() | Atom.t(),
-        "payloadFormatIndicator" => String.t() | Atom.t(),
-        "responseTopic" => String.t() | Atom.t(),
+        "contentType" => String.t() | atom(),
+        "correlationData" => String.t() | atom(),
+        "messageExpiry" => String.t() | atom(),
+        "payloadFormatIndicator" => String.t() | atom(),
+        "responseTopic" => String.t() | atom(),
         "userProperties" => list(user_property())
       }
 
   """
-  @type mqtt_headers() :: %{String.t() | Atom.t() => any()}
+  @type mqtt_headers() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_sbom_with_package_version_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         required("sbom") => sbom()
       }
 
   """
-  @type associate_sbom_with_package_version_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_sbom_with_package_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_thing_from_billing_group_request() :: %{
-        optional("billingGroupArn") => String.t() | Atom.t(),
-        optional("billingGroupName") => String.t() | Atom.t(),
-        optional("thingArn") => String.t() | Atom.t(),
-        optional("thingName") => String.t() | Atom.t()
+        optional("billingGroupArn") => String.t() | atom(),
+        optional("billingGroupName") => String.t() | atom(),
+        optional("thingArn") => String.t() | atom(),
+        optional("thingName") => String.t() | atom()
       }
 
   """
-  @type remove_thing_from_billing_group_request() :: %{String.t() | Atom.t() => any()}
+  @type remove_thing_from_billing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_provisioning_templates_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "templates" => list(provisioning_template_summary())
       }
 
   """
-  @type list_provisioning_templates_response() :: %{String.t() | Atom.t() => any()}
+  @type list_provisioning_templates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2327,7 +2327,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type update_ca_certificate_params() :: %{String.t() | Atom.t() => any()}
+  @type update_ca_certificate_params() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2335,38 +2335,38 @@ defmodule AWS.IoT do
 
       list_ca_certificates_request() :: %{
         optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | Atom.t(),
+        optional("marker") => String.t() | atom(),
         optional("pageSize") => integer(),
-        optional("templateName") => String.t() | Atom.t()
+        optional("templateName") => String.t() | atom()
       }
 
   """
-  @type list_ca_certificates_request() :: %{String.t() | Atom.t() => any()}
+  @type list_ca_certificates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_topic_rule_request() :: %{
-        optional("tags") => String.t() | Atom.t(),
+        optional("tags") => String.t() | atom(),
         required("topicRulePayload") => topic_rule_payload()
       }
 
   """
-  @type create_topic_rule_request() :: %{String.t() | Atom.t() => any()}
+  @type create_topic_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_targets_with_job_request() :: %{
-        optional("comment") => String.t() | Atom.t(),
-        optional("namespaceId") => String.t() | Atom.t(),
-        required("targets") => list(String.t() | Atom.t())
+        optional("comment") => String.t() | atom(),
+        optional("namespaceId") => String.t() | atom(),
+        required("targets") => list(String.t() | atom())
       }
 
   """
-  @type associate_targets_with_job_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_targets_with_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2391,12 +2391,12 @@ defmodule AWS.IoT do
   ## Example:
 
       update_certificate_provider_response() :: %{
-        "certificateProviderArn" => String.t() | Atom.t(),
-        "certificateProviderName" => String.t() | Atom.t()
+        "certificateProviderArn" => String.t() | atom(),
+        "certificateProviderName" => String.t() | atom()
       }
 
   """
-  @type update_certificate_provider_response() :: %{String.t() | Atom.t() => any()}
+  @type update_certificate_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2413,78 +2413,78 @@ defmodule AWS.IoT do
 
       list_policy_principals_request() :: %{
         optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | Atom.t(),
+        optional("marker") => String.t() | atom(),
         optional("pageSize") => integer(),
-        required("policyName") => String.t() | Atom.t()
+        required("policyName") => String.t() | atom()
       }
 
   """
-  @type list_policy_principals_request() :: %{String.t() | Atom.t() => any()}
+  @type list_policy_principals_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_dynamic_thing_group_response() :: %{
-        "indexName" => String.t() | Atom.t(),
-        "queryString" => String.t() | Atom.t(),
-        "queryVersion" => String.t() | Atom.t(),
-        "thingGroupArn" => String.t() | Atom.t(),
-        "thingGroupId" => String.t() | Atom.t(),
-        "thingGroupName" => String.t() | Atom.t()
+        "indexName" => String.t() | atom(),
+        "queryString" => String.t() | atom(),
+        "queryVersion" => String.t() | atom(),
+        "thingGroupArn" => String.t() | atom(),
+        "thingGroupId" => String.t() | atom(),
+        "thingGroupName" => String.t() | atom()
       }
 
   """
-  @type create_dynamic_thing_group_response() :: %{String.t() | Atom.t() => any()}
+  @type create_dynamic_thing_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       error_info() :: %{
-        "code" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type error_info() :: %{String.t() | Atom.t() => any()}
+  @type error_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       statistical_threshold() :: %{
-        "statistic" => String.t() | Atom.t()
+        "statistic" => String.t() | atom()
       }
 
   """
-  @type statistical_threshold() :: %{String.t() | Atom.t() => any()}
+  @type statistical_threshold() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_scheduled_audit_request() :: %{
-        optional("dayOfMonth") => String.t() | Atom.t(),
+        optional("dayOfMonth") => String.t() | atom(),
         optional("dayOfWeek") => list(any()),
         optional("frequency") => list(any()),
-        optional("targetCheckNames") => list(String.t() | Atom.t())
+        optional("targetCheckNames") => list(String.t() | atom())
       }
 
   """
-  @type update_scheduled_audit_request() :: %{String.t() | Atom.t() => any()}
+  @type update_scheduled_audit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("resourceArn") => String.t() | Atom.t(),
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2501,12 +2501,12 @@ defmodule AWS.IoT do
 
       thing_connectivity() :: %{
         "connected" => boolean(),
-        "disconnectReason" => String.t() | Atom.t(),
+        "disconnectReason" => String.t() | atom(),
         "timestamp" => float()
       }
 
   """
-  @type thing_connectivity() :: %{String.t() | Atom.t() => any()}
+  @type thing_connectivity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2517,7 +2517,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type create_keys_and_certificate_request() :: %{String.t() | Atom.t() => any()}
+  @type create_keys_and_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2525,12 +2525,12 @@ defmodule AWS.IoT do
 
       list_certificates_request() :: %{
         optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | Atom.t(),
+        optional("marker") => String.t() | atom(),
         optional("pageSize") => integer()
       }
 
   """
-  @type list_certificates_request() :: %{String.t() | Atom.t() => any()}
+  @type list_certificates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2555,15 +2555,15 @@ defmodule AWS.IoT do
   ## Example:
 
       timestream_action() :: %{
-        "databaseName" => String.t() | Atom.t(),
+        "databaseName" => String.t() | atom(),
         "dimensions" => list(timestream_dimension()),
-        "roleArn" => String.t() | Atom.t(),
-        "tableName" => String.t() | Atom.t(),
+        "roleArn" => String.t() | atom(),
+        "tableName" => String.t() | atom(),
         "timestamp" => timestream_timestamp()
       }
 
   """
-  @type timestream_action() :: %{String.t() | Atom.t() => any()}
+  @type timestream_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2574,21 +2574,21 @@ defmodule AWS.IoT do
       }
 
   """
-  @type code_signing_signature() :: %{String.t() | Atom.t() => any()}
+  @type code_signing_signature() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_keys_and_certificate_response() :: %{
-        "certificateArn" => String.t() | Atom.t(),
-        "certificateId" => String.t() | Atom.t(),
-        "certificatePem" => String.t() | Atom.t(),
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom(),
+        "certificatePem" => String.t() | atom(),
         "keyPair" => key_pair()
       }
 
   """
-  @type create_keys_and_certificate_response() :: %{String.t() | Atom.t() => any()}
+  @type create_keys_and_certificate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2597,11 +2597,11 @@ defmodule AWS.IoT do
       list_streams_request() :: %{
         optional("ascendingOrder") => boolean(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_streams_request() :: %{String.t() | Atom.t() => any()}
+  @type list_streams_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2612,13 +2612,13 @@ defmodule AWS.IoT do
         optional("signingDisabled") => boolean(),
         optional("status") => list(any()),
         optional("tags") => list(tag()),
-        optional("tokenKeyName") => String.t() | Atom.t(),
+        optional("tokenKeyName") => String.t() | atom(),
         optional("tokenSigningPublicKeys") => map(),
-        required("authorizerFunctionArn") => String.t() | Atom.t()
+        required("authorizerFunctionArn") => String.t() | atom()
       }
 
   """
-  @type create_authorizer_request() :: %{String.t() | Atom.t() => any()}
+  @type create_authorizer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2626,13 +2626,13 @@ defmodule AWS.IoT do
 
       create_provisioning_template_version_response() :: %{
         "isDefaultVersion" => boolean(),
-        "templateArn" => String.t() | Atom.t(),
-        "templateName" => String.t() | Atom.t(),
+        "templateArn" => String.t() | atom(),
+        "templateName" => String.t() | atom(),
         "versionId" => integer()
       }
 
   """
-  @type create_provisioning_template_version_response() :: %{String.t() | Atom.t() => any()}
+  @type create_provisioning_template_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2640,7 +2640,7 @@ defmodule AWS.IoT do
 
       list_audit_tasks_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("taskStatus") => list(any()),
         optional("taskType") => list(any()),
         required("endTime") => non_neg_integer(),
@@ -2648,37 +2648,37 @@ defmodule AWS.IoT do
       }
 
   """
-  @type list_audit_tasks_request() :: %{String.t() | Atom.t() => any()}
+  @type list_audit_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_index_response() :: %{
-        "indexName" => String.t() | Atom.t(),
+        "indexName" => String.t() | atom(),
         "indexStatus" => list(any()),
-        "schema" => String.t() | Atom.t()
+        "schema" => String.t() | atom()
       }
 
   """
-  @type describe_index_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_audit_mitigation_actions_tasks_request() :: %{
-        optional("auditTaskId") => String.t() | Atom.t(),
-        optional("findingId") => String.t() | Atom.t(),
+        optional("auditTaskId") => String.t() | atom(),
+        optional("findingId") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("taskStatus") => list(any()),
         required("endTime") => non_neg_integer(),
         required("startTime") => non_neg_integer()
       }
 
   """
-  @type list_audit_mitigation_actions_tasks_request() :: %{String.t() | Atom.t() => any()}
+  @type list_audit_mitigation_actions_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2690,17 +2690,17 @@ defmodule AWS.IoT do
         optional("awsJobExecutionsRolloutConfig") => aws_job_executions_rollout_config(),
         optional("awsJobPresignedUrlConfig") => aws_job_presigned_url_config(),
         optional("awsJobTimeoutConfig") => aws_job_timeout_config(),
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("protocols") => list(list(any())()),
         optional("tags") => list(tag()),
         optional("targetSelection") => list(any()),
         required("files") => list(ota_update_file()),
-        required("roleArn") => String.t() | Atom.t(),
-        required("targets") => list(String.t() | Atom.t())
+        required("roleArn") => String.t() | atom(),
+        required("targets") => list(String.t() | atom())
       }
 
   """
-  @type create_ota_update_request() :: %{String.t() | Atom.t() => any()}
+  @type create_ota_update_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2708,11 +2708,11 @@ defmodule AWS.IoT do
 
       list_fleet_metrics_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_fleet_metrics_request() :: %{String.t() | Atom.t() => any()}
+  @type list_fleet_metrics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2721,35 +2721,35 @@ defmodule AWS.IoT do
       create_role_alias_request() :: %{
         optional("credentialDurationSeconds") => integer(),
         optional("tags") => list(tag()),
-        required("roleArn") => String.t() | Atom.t()
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type create_role_alias_request() :: %{String.t() | Atom.t() => any()}
+  @type create_role_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_certificate_provider_response() :: %{
-        "certificateProviderArn" => String.t() | Atom.t(),
-        "certificateProviderName" => String.t() | Atom.t()
+        "certificateProviderArn" => String.t() | atom(),
+        "certificateProviderName" => String.t() | atom()
       }
 
   """
-  @type create_certificate_provider_response() :: %{String.t() | Atom.t() => any()}
+  @type create_certificate_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       log_target() :: %{
-        "targetName" => String.t() | Atom.t(),
+        "targetName" => String.t() | atom(),
         "targetType" => list(any())
       }
 
   """
-  @type log_target() :: %{String.t() | Atom.t() => any()}
+  @type log_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2757,68 +2757,68 @@ defmodule AWS.IoT do
 
       mitigation_action() :: %{
         "actionParams" => mitigation_action_params(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type mitigation_action() :: %{String.t() | Atom.t() => any()}
+  @type mitigation_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_ota_update_response() :: %{
-        "awsIotJobArn" => String.t() | Atom.t(),
-        "awsIotJobId" => String.t() | Atom.t(),
-        "otaUpdateArn" => String.t() | Atom.t(),
-        "otaUpdateId" => String.t() | Atom.t(),
+        "awsIotJobArn" => String.t() | atom(),
+        "awsIotJobId" => String.t() | atom(),
+        "otaUpdateArn" => String.t() | atom(),
+        "otaUpdateId" => String.t() | atom(),
         "otaUpdateStatus" => list(any())
       }
 
   """
-  @type create_ota_update_response() :: %{String.t() | Atom.t() => any()}
+  @type create_ota_update_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metrics_export_config() :: %{
-        "mqttTopic" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "mqttTopic" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type metrics_export_config() :: %{String.t() | Atom.t() => any()}
+  @type metrics_export_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       mitigation_action_identifier() :: %{
-        "actionArn" => String.t() | Atom.t(),
-        "actionName" => String.t() | Atom.t(),
+        "actionArn" => String.t() | atom(),
+        "actionName" => String.t() | atom(),
         "creationDate" => non_neg_integer()
       }
 
   """
-  @type mitigation_action_identifier() :: %{String.t() | Atom.t() => any()}
+  @type mitigation_action_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_commands_request() :: %{
-        optional("commandParameterName") => String.t() | Atom.t(),
+        optional("commandParameterName") => String.t() | atom(),
         optional("maxResults") => integer(),
         optional("namespace") => list(any()),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("sortOrder") => list(any())
       }
 
   """
-  @type list_commands_request() :: %{String.t() | Atom.t() => any()}
+  @type list_commands_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2838,22 +2838,22 @@ defmodule AWS.IoT do
       }
 
   """
-  @type aws_job_presigned_url_config() :: %{String.t() | Atom.t() => any()}
+  @type aws_job_presigned_url_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_command_response() :: %{
-        "commandId" => String.t() | Atom.t(),
+        "commandId" => String.t() | atom(),
         "deprecated" => boolean(),
-        "description" => String.t() | Atom.t(),
-        "displayName" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer()
       }
 
   """
-  @type update_command_response() :: %{String.t() | Atom.t() => any()}
+  @type update_command_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2865,7 +2865,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type percent_pair() :: %{String.t() | Atom.t() => any()}
+  @type percent_pair() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2873,11 +2873,11 @@ defmodule AWS.IoT do
 
       list_things_in_billing_group_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_things_in_billing_group_request() :: %{String.t() | Atom.t() => any()}
+  @type list_things_in_billing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2889,30 +2889,30 @@ defmodule AWS.IoT do
       }
 
   """
-  @type create_billing_group_request() :: %{String.t() | Atom.t() => any()}
+  @type create_billing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       security_profile_identifier() :: %{
-        "arn" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type security_profile_identifier() :: %{String.t() | Atom.t() => any()}
+  @type security_profile_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_on_demand_audit_task_response() :: %{
-        "taskId" => String.t() | Atom.t()
+        "taskId" => String.t() | atom()
       }
 
   """
-  @type start_on_demand_audit_task_response() :: %{String.t() | Atom.t() => any()}
+  @type start_on_demand_audit_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2920,78 +2920,78 @@ defmodule AWS.IoT do
 
       list_indices_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_indices_request() :: %{String.t() | Atom.t() => any()}
+  @type list_indices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       location_timestamp() :: %{
-        "unit" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "unit" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type location_timestamp() :: %{String.t() | Atom.t() => any()}
+  @type location_timestamp() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       elasticsearch_action() :: %{
-        "endpoint" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "index" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t()
+        "endpoint" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "index" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type elasticsearch_action() :: %{String.t() | Atom.t() => any()}
+  @type elasticsearch_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       policy_version_identifier() :: %{
-        "policyName" => String.t() | Atom.t(),
-        "policyVersionId" => String.t() | Atom.t()
+        "policyName" => String.t() | atom(),
+        "policyVersionId" => String.t() | atom()
       }
 
   """
-  @type policy_version_identifier() :: %{String.t() | Atom.t() => any()}
+  @type policy_version_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_job_executions_for_thing_request() :: %{
-        optional("jobId") => String.t() | Atom.t(),
+        optional("jobId") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("namespaceId") => String.t() | Atom.t(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("namespaceId") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
         optional("status") => list(any())
       }
 
   """
-  @type list_job_executions_for_thing_request() :: %{String.t() | Atom.t() => any()}
+  @type list_job_executions_for_thing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_targets_with_job_response() :: %{
-        "description" => String.t() | Atom.t(),
-        "jobArn" => String.t() | Atom.t(),
-        "jobId" => String.t() | Atom.t()
+        "description" => String.t() | atom(),
+        "jobArn" => String.t() | atom(),
+        "jobId" => String.t() | atom()
       }
 
   """
-  @type associate_targets_with_job_response() :: %{String.t() | Atom.t() => any()}
+  @type associate_targets_with_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3001,13 +3001,13 @@ defmodule AWS.IoT do
         optional("includeOnlyActiveViolations") => boolean(),
         optional("includeSuppressedAlerts") => boolean(),
         optional("violationEventOccurrenceRange") => violation_event_occurrence_range(),
-        required("actions") => list(String.t() | Atom.t()),
-        required("clientRequestToken") => String.t() | Atom.t(),
+        required("actions") => list(String.t() | atom()),
+        required("clientRequestToken") => String.t() | atom(),
         required("target") => detect_mitigation_actions_task_target()
       }
 
   """
-  @type start_detect_mitigation_actions_task_request() :: %{String.t() | Atom.t() => any()}
+  @type start_detect_mitigation_actions_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3025,63 +3025,63 @@ defmodule AWS.IoT do
       policy_version() :: %{
         "createDate" => non_neg_integer(),
         "isDefaultVersion" => boolean(),
-        "versionId" => String.t() | Atom.t()
+        "versionId" => String.t() | atom()
       }
 
   """
-  @type policy_version() :: %{String.t() | Atom.t() => any()}
+  @type policy_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_provisioning_claim_response() :: %{
-        "certificateId" => String.t() | Atom.t(),
-        "certificatePem" => String.t() | Atom.t(),
+        "certificateId" => String.t() | atom(),
+        "certificatePem" => String.t() | atom(),
         "expiration" => non_neg_integer(),
         "keyPair" => key_pair()
       }
 
   """
-  @type create_provisioning_claim_response() :: %{String.t() | Atom.t() => any()}
+  @type create_provisioning_claim_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_thing_registration_task_response() :: %{
-        "taskId" => String.t() | Atom.t()
+        "taskId" => String.t() | atom()
       }
 
   """
-  @type start_thing_registration_task_response() :: %{String.t() | Atom.t() => any()}
+  @type start_thing_registration_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_percentiles_request() :: %{
-        optional("aggregationField") => String.t() | Atom.t(),
-        optional("indexName") => String.t() | Atom.t(),
+        optional("aggregationField") => String.t() | atom(),
+        optional("indexName") => String.t() | atom(),
         optional("percents") => list(float()),
-        optional("queryVersion") => String.t() | Atom.t(),
-        required("queryString") => String.t() | Atom.t()
+        optional("queryVersion") => String.t() | atom(),
+        required("queryString") => String.t() | atom()
       }
 
   """
-  @type get_percentiles_request() :: %{String.t() | Atom.t() => any()}
+  @type get_percentiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_authorizer_response() :: %{
-        "authorizerArn" => String.t() | Atom.t(),
-        "authorizerName" => String.t() | Atom.t()
+        "authorizerArn" => String.t() | atom(),
+        "authorizerName" => String.t() | atom()
       }
 
   """
-  @type create_authorizer_response() :: %{String.t() | Atom.t() => any()}
+  @type create_authorizer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3089,12 +3089,12 @@ defmodule AWS.IoT do
 
       create_thing_request() :: %{
         optional("attributePayload") => attribute_payload(),
-        optional("billingGroupName") => String.t() | Atom.t(),
-        optional("thingTypeName") => String.t() | Atom.t()
+        optional("billingGroupName") => String.t() | atom(),
+        optional("thingTypeName") => String.t() | atom()
       }
 
   """
-  @type create_thing_request() :: %{String.t() | Atom.t() => any()}
+  @type create_thing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3104,13 +3104,13 @@ defmodule AWS.IoT do
         optional("action") => list(any()),
         optional("artifact") => package_version_artifact(),
         optional("attributes") => map(),
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
-        optional("recipe") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("recipe") => String.t() | atom()
       }
 
   """
-  @type update_package_version_request() :: %{String.t() | Atom.t() => any()}
+  @type update_package_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3123,7 +3123,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type provisioning_template_version_summary() :: %{String.t() | Atom.t() => any()}
+  @type provisioning_template_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3156,11 +3156,11 @@ defmodule AWS.IoT do
         "numberOfRemovedThings" => integer(),
         "numberOfSucceededThings" => integer(),
         "numberOfTimedOutThings" => integer(),
-        "processingTargets" => list(String.t() | Atom.t())
+        "processingTargets" => list(String.t() | atom())
       }
 
   """
-  @type job_process_details() :: %{String.t() | Atom.t() => any()}
+  @type job_process_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3177,11 +3177,11 @@ defmodule AWS.IoT do
 
       get_command_execution_request() :: %{
         optional("includeResult") => boolean(),
-        required("targetArn") => String.t() | Atom.t()
+        required("targetArn") => String.t() | atom()
       }
 
   """
-  @type get_command_execution_request() :: %{String.t() | Atom.t() => any()}
+  @type get_command_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3198,12 +3198,12 @@ defmodule AWS.IoT do
 
       sns_action() :: %{
         "messageFormat" => list(any()),
-        "roleArn" => String.t() | Atom.t(),
-        "targetArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom(),
+        "targetArn" => String.t() | atom()
       }
 
   """
-  @type sns_action() :: %{String.t() | Atom.t() => any()}
+  @type sns_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3211,11 +3211,11 @@ defmodule AWS.IoT do
 
       indexing_filter() :: %{
         "geoLocations" => list(geo_location_target()),
-        "namedShadowNames" => list(String.t() | Atom.t())
+        "namedShadowNames" => list(String.t() | atom())
       }
 
   """
-  @type indexing_filter() :: %{String.t() | Atom.t() => any()}
+  @type indexing_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3226,7 +3226,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type set_logging_options_request() :: %{String.t() | Atom.t() => any()}
+  @type set_logging_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3246,47 +3246,47 @@ defmodule AWS.IoT do
       }
 
   """
-  @type describe_audit_finding_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_audit_finding_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_attached_policies_request() :: %{
-        optional("marker") => String.t() | Atom.t(),
+        optional("marker") => String.t() | atom(),
         optional("pageSize") => integer(),
         optional("recursive") => boolean()
       }
 
   """
-  @type list_attached_policies_request() :: %{String.t() | Atom.t() => any()}
+  @type list_attached_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sig_v4_authorization() :: %{
-        "roleArn" => String.t() | Atom.t(),
-        "serviceName" => String.t() | Atom.t(),
-        "signingRegion" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom(),
+        "serviceName" => String.t() | atom(),
+        "signingRegion" => String.t() | atom()
       }
 
   """
-  @type sig_v4_authorization() :: %{String.t() | Atom.t() => any()}
+  @type sig_v4_authorization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_stream_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("tags") => list(tag()),
         required("files") => list(stream_file()),
-        required("roleArn") => String.t() | Atom.t()
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type create_stream_request() :: %{String.t() | Atom.t() => any()}
+  @type create_stream_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3294,15 +3294,15 @@ defmodule AWS.IoT do
 
       update_provisioning_template_request() :: %{
         optional("defaultVersionId") => integer(),
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("enabled") => boolean(),
         optional("preProvisioningHook") => provisioning_hook(),
-        optional("provisioningRoleArn") => String.t() | Atom.t(),
+        optional("provisioningRoleArn") => String.t() | atom(),
         optional("removePreProvisioningHook") => boolean()
       }
 
   """
-  @type update_provisioning_template_request() :: %{String.t() | Atom.t() => any()}
+  @type update_provisioning_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3310,23 +3310,23 @@ defmodule AWS.IoT do
 
       list_v2_logging_levels_response() :: %{
         "logTargetConfigurations" => list(log_target_configuration()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_v2_logging_levels_response() :: %{String.t() | Atom.t() => any()}
+  @type list_v2_logging_levels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_audit_suppression_request() :: %{
-        required("checkName") => String.t() | Atom.t(),
+        required("checkName") => String.t() | atom(),
         required("resourceIdentifier") => resource_identifier()
       }
 
   """
-  @type delete_audit_suppression_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_audit_suppression_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3345,31 +3345,31 @@ defmodule AWS.IoT do
         "completedAt" => non_neg_integer(),
         "createdAt" => non_neg_integer(),
         "isConcurrent" => boolean(),
-        "jobArn" => String.t() | Atom.t(),
-        "jobId" => String.t() | Atom.t(),
+        "jobArn" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "status" => list(any()),
         "targetSelection" => list(any()),
-        "thingGroupId" => String.t() | Atom.t()
+        "thingGroupId" => String.t() | atom()
       }
 
   """
-  @type job_summary() :: %{String.t() | Atom.t() => any()}
+  @type job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_scheduled_audit_request() :: %{
-        optional("dayOfMonth") => String.t() | Atom.t(),
+        optional("dayOfMonth") => String.t() | atom(),
         optional("dayOfWeek") => list(any()),
         optional("tags") => list(tag()),
         required("frequency") => list(any()),
-        required("targetCheckNames") => list(String.t() | Atom.t())
+        required("targetCheckNames") => list(String.t() | atom())
       }
 
   """
-  @type create_scheduled_audit_request() :: %{String.t() | Atom.t() => any()}
+  @type create_scheduled_audit_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3380,7 +3380,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type sbom() :: %{String.t() | Atom.t() => any()}
+  @type sbom() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3396,14 +3396,14 @@ defmodule AWS.IoT do
   ## Example:
 
       get_statistics_request() :: %{
-        optional("aggregationField") => String.t() | Atom.t(),
-        optional("indexName") => String.t() | Atom.t(),
-        optional("queryVersion") => String.t() | Atom.t(),
-        required("queryString") => String.t() | Atom.t()
+        optional("aggregationField") => String.t() | atom(),
+        optional("indexName") => String.t() | atom(),
+        optional("queryVersion") => String.t() | atom(),
+        required("queryString") => String.t() | atom()
       }
 
   """
-  @type get_statistics_request() :: %{String.t() | Atom.t() => any()}
+  @type get_statistics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3411,14 +3411,14 @@ defmodule AWS.IoT do
 
       thing_attribute() :: %{
         "attributes" => map(),
-        "thingArn" => String.t() | Atom.t(),
-        "thingName" => String.t() | Atom.t(),
-        "thingTypeName" => String.t() | Atom.t(),
+        "thingArn" => String.t() | atom(),
+        "thingName" => String.t() | atom(),
+        "thingTypeName" => String.t() | atom(),
         "version" => float()
       }
 
   """
-  @type thing_attribute() :: %{String.t() | Atom.t() => any()}
+  @type thing_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3426,11 +3426,11 @@ defmodule AWS.IoT do
 
       list_active_violations_response() :: %{
         "activeViolations" => list(active_violation()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_active_violations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_active_violations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3438,32 +3438,32 @@ defmodule AWS.IoT do
 
       describe_custom_metric_response() :: %{
         "creationDate" => non_neg_integer(),
-        "displayName" => String.t() | Atom.t(),
+        "displayName" => String.t() | atom(),
         "lastModifiedDate" => non_neg_integer(),
-        "metricArn" => String.t() | Atom.t(),
-        "metricName" => String.t() | Atom.t(),
+        "metricArn" => String.t() | atom(),
+        "metricName" => String.t() | atom(),
         "metricType" => list(any())
       }
 
   """
-  @type describe_custom_metric_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_custom_metric_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_command_request() :: %{
-        optional("description") => String.t() | Atom.t(),
-        optional("displayName") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
         optional("mandatoryParameters") => list(command_parameter()),
         optional("namespace") => list(any()),
         optional("payload") => command_payload(),
-        optional("roleArn") => String.t() | Atom.t(),
+        optional("roleArn") => String.t() | atom(),
         optional("tags") => list(tag())
       }
 
   """
-  @type create_command_request() :: %{String.t() | Atom.t() => any()}
+  @type create_command_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3488,39 +3488,39 @@ defmodule AWS.IoT do
   ## Example:
 
       describe_managed_job_template_request() :: %{
-        optional("templateVersion") => String.t() | Atom.t()
+        optional("templateVersion") => String.t() | atom()
       }
 
   """
-  @type describe_managed_job_template_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_managed_job_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_targets_for_policy_response() :: %{
-        "nextMarker" => String.t() | Atom.t(),
-        "targets" => list(String.t() | Atom.t())
+        "nextMarker" => String.t() | atom(),
+        "targets" => list(String.t() | atom())
       }
 
   """
-  @type list_targets_for_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type list_targets_for_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_audit_suppression_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("expirationDate") => non_neg_integer(),
         optional("suppressIndefinitely") => boolean(),
-        required("checkName") => String.t() | Atom.t(),
-        required("clientRequestToken") => String.t() | Atom.t(),
+        required("checkName") => String.t() | atom(),
+        required("clientRequestToken") => String.t() | atom(),
         required("resourceIdentifier") => resource_identifier()
       }
 
   """
-  @type create_audit_suppression_request() :: %{String.t() | Atom.t() => any()}
+  @type create_audit_suppression_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3541,23 +3541,23 @@ defmodule AWS.IoT do
       }
 
   """
-  @type aws_job_rate_increase_criteria() :: %{String.t() | Atom.t() => any()}
+  @type aws_job_rate_increase_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cloudwatch_metric_action() :: %{
-        "metricName" => String.t() | Atom.t(),
-        "metricNamespace" => String.t() | Atom.t(),
-        "metricTimestamp" => String.t() | Atom.t(),
-        "metricUnit" => String.t() | Atom.t(),
-        "metricValue" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "metricName" => String.t() | atom(),
+        "metricNamespace" => String.t() | atom(),
+        "metricTimestamp" => String.t() | atom(),
+        "metricUnit" => String.t() | atom(),
+        "metricValue" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type cloudwatch_metric_action() :: %{String.t() | Atom.t() => any()}
+  @type cloudwatch_metric_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3565,11 +3565,11 @@ defmodule AWS.IoT do
 
       list_certificate_providers_request() :: %{
         optional("ascendingOrder") => boolean(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_certificate_providers_request() :: %{String.t() | Atom.t() => any()}
+  @type list_certificate_providers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3580,7 +3580,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type describe_job_execution_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_job_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3597,11 +3597,11 @@ defmodule AWS.IoT do
 
       http_context() :: %{
         "headers" => map(),
-        "queryString" => String.t() | Atom.t()
+        "queryString" => String.t() | atom()
       }
 
   """
-  @type http_context() :: %{String.t() | Atom.t() => any()}
+  @type http_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3618,13 +3618,13 @@ defmodule AWS.IoT do
 
       iot_analytics_action() :: %{
         "batchMode" => boolean(),
-        "channelArn" => String.t() | Atom.t(),
-        "channelName" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "channelArn" => String.t() | atom(),
+        "channelName" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type iot_analytics_action() :: %{String.t() | Atom.t() => any()}
+  @type iot_analytics_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3636,19 +3636,19 @@ defmodule AWS.IoT do
       }
 
   """
-  @type metric_datum() :: %{String.t() | Atom.t() => any()}
+  @type metric_datum() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceId" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3664,11 +3664,11 @@ defmodule AWS.IoT do
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3676,40 +3676,40 @@ defmodule AWS.IoT do
 
       logging_options_payload() :: %{
         "logLevel" => list(any()),
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type logging_options_payload() :: %{String.t() | Atom.t() => any()}
+  @type logging_options_payload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_security_profile_request() :: %{
-        optional("additionalMetricsToRetain") => list(String.t() | Atom.t()),
+        optional("additionalMetricsToRetain") => list(String.t() | atom()),
         optional("additionalMetricsToRetainV2") => list(metric_to_retain()),
         optional("alertTargets") => map(),
         optional("behaviors") => list(behavior()),
         optional("metricsExportConfig") => metrics_export_config(),
-        optional("securityProfileDescription") => String.t() | Atom.t(),
+        optional("securityProfileDescription") => String.t() | atom(),
         optional("tags") => list(tag())
       }
 
   """
-  @type create_security_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type create_security_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_mitigation_action_response() :: %{
-        "actionArn" => String.t() | Atom.t(),
-        "actionId" => String.t() | Atom.t()
+        "actionArn" => String.t() | atom(),
+        "actionId" => String.t() | atom()
       }
 
   """
-  @type create_mitigation_action_response() :: %{String.t() | Atom.t() => any()}
+  @type create_mitigation_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3717,12 +3717,12 @@ defmodule AWS.IoT do
 
       list_ota_updates_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("otaUpdateStatus") => list(any())
       }
 
   """
-  @type list_ota_updates_request() :: %{String.t() | Atom.t() => any()}
+  @type list_ota_updates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3734,19 +3734,19 @@ defmodule AWS.IoT do
       }
 
   """
-  @type update_indexing_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_indexing_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_things_in_billing_group_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
-        "things" => list(String.t() | Atom.t())
+        "nextToken" => String.t() | atom(),
+        "things" => list(String.t() | atom())
       }
 
   """
-  @type list_things_in_billing_group_response() :: %{String.t() | Atom.t() => any()}
+  @type list_things_in_billing_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3763,12 +3763,12 @@ defmodule AWS.IoT do
 
       list_managed_job_templates_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("templateName") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("templateName") => String.t() | atom()
       }
 
   """
-  @type list_managed_job_templates_request() :: %{String.t() | Atom.t() => any()}
+  @type list_managed_job_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3776,33 +3776,33 @@ defmodule AWS.IoT do
 
       list_provisioning_templates_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_provisioning_templates_request() :: %{String.t() | Atom.t() => any()}
+  @type list_provisioning_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lambda_action() :: %{
-        "functionArn" => String.t() | Atom.t()
+        "functionArn" => String.t() | atom()
       }
 
   """
-  @type lambda_action() :: %{String.t() | Atom.t() => any()}
+  @type lambda_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       attach_security_profile_request() :: %{
-        required("securityProfileTargetArn") => String.t() | Atom.t()
+        required("securityProfileTargetArn") => String.t() | atom()
       }
 
   """
-  @type attach_security_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type attach_security_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3810,12 +3810,12 @@ defmodule AWS.IoT do
 
       update_command_request() :: %{
         optional("deprecated") => boolean(),
-        optional("description") => String.t() | Atom.t(),
-        optional("displayName") => String.t() | Atom.t()
+        optional("description") => String.t() | atom(),
+        optional("displayName") => String.t() | atom()
       }
 
   """
-  @type update_command_request() :: %{String.t() | Atom.t() => any()}
+  @type update_command_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3823,13 +3823,13 @@ defmodule AWS.IoT do
 
       command_parameter() :: %{
         "defaultValue" => command_parameter_value(),
-        "description" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "value" => command_parameter_value()
       }
 
   """
-  @type command_parameter() :: %{String.t() | Atom.t() => any()}
+  @type command_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3837,81 +3837,81 @@ defmodule AWS.IoT do
 
       update_role_alias_request() :: %{
         optional("credentialDurationSeconds") => integer(),
-        optional("roleArn") => String.t() | Atom.t()
+        optional("roleArn") => String.t() | atom()
       }
 
   """
-  @type update_role_alias_request() :: %{String.t() | Atom.t() => any()}
+  @type update_role_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kinesis_action() :: %{
-        "partitionKey" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
-        "streamName" => String.t() | Atom.t()
+        "partitionKey" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "streamName" => String.t() | atom()
       }
 
   """
-  @type kinesis_action() :: %{String.t() | Atom.t() => any()}
+  @type kinesis_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       timestream_timestamp() :: %{
-        "unit" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "unit" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type timestream_timestamp() :: %{String.t() | Atom.t() => any()}
+  @type timestream_timestamp() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_identifier() :: %{
-        "account" => String.t() | Atom.t(),
-        "caCertificateId" => String.t() | Atom.t(),
-        "clientId" => String.t() | Atom.t(),
-        "cognitoIdentityPoolId" => String.t() | Atom.t(),
-        "deviceCertificateArn" => String.t() | Atom.t(),
-        "deviceCertificateId" => String.t() | Atom.t(),
-        "iamRoleArn" => String.t() | Atom.t(),
+        "account" => String.t() | atom(),
+        "caCertificateId" => String.t() | atom(),
+        "clientId" => String.t() | atom(),
+        "cognitoIdentityPoolId" => String.t() | atom(),
+        "deviceCertificateArn" => String.t() | atom(),
+        "deviceCertificateId" => String.t() | atom(),
+        "iamRoleArn" => String.t() | atom(),
         "issuerCertificateIdentifier" => issuer_certificate_identifier(),
         "policyVersionIdentifier" => policy_version_identifier(),
-        "roleAliasArn" => String.t() | Atom.t()
+        "roleAliasArn" => String.t() | atom()
       }
 
   """
-  @type resource_identifier() :: %{String.t() | Atom.t() => any()}
+  @type resource_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       signing_profile_parameter() :: %{
-        "certificateArn" => String.t() | Atom.t(),
-        "certificatePathOnDevice" => String.t() | Atom.t(),
-        "platform" => String.t() | Atom.t()
+        "certificateArn" => String.t() | atom(),
+        "certificatePathOnDevice" => String.t() | atom(),
+        "platform" => String.t() | atom()
       }
 
   """
-  @type signing_profile_parameter() :: %{String.t() | Atom.t() => any()}
+  @type signing_profile_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3919,11 +3919,11 @@ defmodule AWS.IoT do
 
       list_custom_metrics_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_custom_metrics_request() :: %{String.t() | Atom.t() => any()}
+  @type list_custom_metrics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3932,14 +3932,14 @@ defmodule AWS.IoT do
       create_package_version_request() :: %{
         optional("artifact") => package_version_artifact(),
         optional("attributes") => map(),
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
-        optional("recipe") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("recipe") => String.t() | atom(),
         optional("tags") => map()
       }
 
   """
-  @type create_package_version_request() :: %{String.t() | Atom.t() => any()}
+  @type create_package_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3947,22 +3947,22 @@ defmodule AWS.IoT do
 
       create_policy_version_request() :: %{
         optional("setAsDefault") => boolean(),
-        required("policyDocument") => String.t() | Atom.t()
+        required("policyDocument") => String.t() | atom()
       }
 
   """
-  @type create_policy_version_request() :: %{String.t() | Atom.t() => any()}
+  @type create_policy_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_response_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_response_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_response_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3970,27 +3970,27 @@ defmodule AWS.IoT do
 
       update_job_request() :: %{
         optional("abortConfig") => abort_config(),
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("jobExecutionsRetryConfig") => job_executions_retry_config(),
         optional("jobExecutionsRolloutConfig") => job_executions_rollout_config(),
-        optional("namespaceId") => String.t() | Atom.t(),
+        optional("namespaceId") => String.t() | atom(),
         optional("presignedUrlConfig") => presigned_url_config(),
         optional("timeoutConfig") => timeout_config()
       }
 
   """
-  @type update_job_request() :: %{String.t() | Atom.t() => any()}
+  @type update_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4006,30 +4006,30 @@ defmodule AWS.IoT do
   ## Example:
 
       describe_audit_suppression_response() :: %{
-        "checkName" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "checkName" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "expirationDate" => non_neg_integer(),
         "resourceIdentifier" => resource_identifier(),
         "suppressIndefinitely" => boolean()
       }
 
   """
-  @type describe_audit_suppression_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_audit_suppression_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_audit_suppression_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("expirationDate") => non_neg_integer(),
         optional("suppressIndefinitely") => boolean(),
-        required("checkName") => String.t() | Atom.t(),
+        required("checkName") => String.t() | atom(),
         required("resourceIdentifier") => resource_identifier()
       }
 
   """
-  @type update_audit_suppression_request() :: %{String.t() | Atom.t() => any()}
+  @type update_audit_suppression_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4041,18 +4041,18 @@ defmodule AWS.IoT do
       }
 
   """
-  @type update_thing_group_request() :: %{String.t() | Atom.t() => any()}
+  @type update_thing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       certificate_conflict_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type certificate_conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type certificate_conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4068,25 +4068,25 @@ defmodule AWS.IoT do
   ## Example:
 
       create_thing_group_request() :: %{
-        optional("parentGroupName") => String.t() | Atom.t(),
+        optional("parentGroupName") => String.t() | atom(),
         optional("tags") => list(tag()),
         optional("thingGroupProperties") => thing_group_properties()
       }
 
   """
-  @type create_thing_group_request() :: %{String.t() | Atom.t() => any()}
+  @type create_thing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_scheduled_audits_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "scheduledAudits" => list(scheduled_audit_metadata())
       }
 
   """
-  @type list_scheduled_audits_response() :: %{String.t() | Atom.t() => any()}
+  @type list_scheduled_audits_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4094,11 +4094,11 @@ defmodule AWS.IoT do
 
       enable_io_t_logging_params() :: %{
         "logLevel" => list(any()),
-        "roleArnForLogging" => String.t() | Atom.t()
+        "roleArnForLogging" => String.t() | atom()
       }
 
   """
-  @type enable_io_t_logging_params() :: %{String.t() | Atom.t() => any()}
+  @type enable_io_t_logging_params() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4114,36 +4114,36 @@ defmodule AWS.IoT do
   ## Example:
 
       list_thing_types_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "thingTypes" => list(thing_type_definition())
       }
 
   """
-  @type list_thing_types_response() :: %{String.t() | Atom.t() => any()}
+  @type list_thing_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_security_profiles_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "securityProfileIdentifiers" => list(security_profile_identifier())
       }
 
   """
-  @type list_security_profiles_response() :: %{String.t() | Atom.t() => any()}
+  @type list_security_profiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_streams_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "streams" => list(stream_summary())
       }
 
   """
-  @type list_streams_response() :: %{String.t() | Atom.t() => any()}
+  @type list_streams_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4155,12 +4155,12 @@ defmodule AWS.IoT do
         optional("registrationConfig") => registration_config(),
         optional("setAsActive") => boolean(),
         optional("tags") => list(tag()),
-        optional("verificationCertificate") => String.t() | Atom.t(),
-        required("caCertificate") => String.t() | Atom.t()
+        optional("verificationCertificate") => String.t() | atom(),
+        required("caCertificate") => String.t() | atom()
       }
 
   """
-  @type register_ca_certificate_request() :: %{String.t() | Atom.t() => any()}
+  @type register_ca_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4185,37 +4185,37 @@ defmodule AWS.IoT do
   ## Example:
 
       cloudwatch_alarm_action() :: %{
-        "alarmName" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
-        "stateReason" => String.t() | Atom.t(),
-        "stateValue" => String.t() | Atom.t()
+        "alarmName" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "stateReason" => String.t() | atom(),
+        "stateValue" => String.t() | atom()
       }
 
   """
-  @type cloudwatch_alarm_action() :: %{String.t() | Atom.t() => any()}
+  @type cloudwatch_alarm_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       time_filter() :: %{
-        "after" => String.t() | Atom.t(),
-        "before" => String.t() | Atom.t()
+        "after" => String.t() | atom(),
+        "before" => String.t() | atom()
       }
 
   """
-  @type time_filter() :: %{String.t() | Atom.t() => any()}
+  @type time_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4231,13 +4231,13 @@ defmodule AWS.IoT do
   ## Example:
 
       effective_policy() :: %{
-        "policyArn" => String.t() | Atom.t(),
-        "policyDocument" => String.t() | Atom.t(),
-        "policyName" => String.t() | Atom.t()
+        "policyArn" => String.t() | atom(),
+        "policyDocument" => String.t() | atom(),
+        "policyName" => String.t() | atom()
       }
 
   """
-  @type effective_policy() :: %{String.t() | Atom.t() => any()}
+  @type effective_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4245,11 +4245,11 @@ defmodule AWS.IoT do
 
       get_logging_options_response() :: %{
         "logLevel" => list(any()),
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type get_logging_options_response() :: %{String.t() | Atom.t() => any()}
+  @type get_logging_options_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4260,18 +4260,18 @@ defmodule AWS.IoT do
       }
 
   """
-  @type describe_role_alias_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_role_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       attach_policy_request() :: %{
-        required("target") => String.t() | Atom.t()
+        required("target") => String.t() | atom()
       }
 
   """
-  @type attach_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type attach_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4289,32 +4289,32 @@ defmodule AWS.IoT do
       describe_thing_registration_task_response() :: %{
         "creationDate" => non_neg_integer(),
         "failureCount" => integer(),
-        "inputFileBucket" => String.t() | Atom.t(),
-        "inputFileKey" => String.t() | Atom.t(),
+        "inputFileBucket" => String.t() | atom(),
+        "inputFileKey" => String.t() | atom(),
         "lastModifiedDate" => non_neg_integer(),
-        "message" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
         "percentageProgress" => integer(),
-        "roleArn" => String.t() | Atom.t(),
+        "roleArn" => String.t() | atom(),
         "status" => list(any()),
         "successCount" => integer(),
-        "taskId" => String.t() | Atom.t(),
-        "templateBody" => String.t() | Atom.t()
+        "taskId" => String.t() | atom(),
+        "templateBody" => String.t() | atom()
       }
 
   """
-  @type describe_thing_registration_task_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_thing_registration_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_principal_things_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
-        "things" => list(String.t() | Atom.t())
+        "nextToken" => String.t() | atom(),
+        "things" => list(String.t() | atom())
       }
 
   """
-  @type list_principal_things_response() :: %{String.t() | Atom.t() => any()}
+  @type list_principal_things_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4330,13 +4330,13 @@ defmodule AWS.IoT do
   ## Example:
 
       create_certificate_from_csr_response() :: %{
-        "certificateArn" => String.t() | Atom.t(),
-        "certificateId" => String.t() | Atom.t(),
-        "certificatePem" => String.t() | Atom.t()
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom(),
+        "certificatePem" => String.t() | atom()
       }
 
   """
-  @type create_certificate_from_csr_response() :: %{String.t() | Atom.t() => any()}
+  @type create_certificate_from_csr_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4344,11 +4344,11 @@ defmodule AWS.IoT do
 
       register_thing_request() :: %{
         optional("parameters") => map(),
-        required("templateBody") => String.t() | Atom.t()
+        required("templateBody") => String.t() | atom()
       }
 
   """
-  @type register_thing_request() :: %{String.t() | Atom.t() => any()}
+  @type register_thing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4365,25 +4365,25 @@ defmodule AWS.IoT do
 
       list_principal_policies_request() :: %{
         optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | Atom.t(),
+        optional("marker") => String.t() | atom(),
         optional("pageSize") => integer(),
-        required("principal") => String.t() | Atom.t()
+        required("principal") => String.t() | atom()
       }
 
   """
-  @type list_principal_policies_request() :: %{String.t() | Atom.t() => any()}
+  @type list_principal_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       thing_principal_object() :: %{
-        "principal" => String.t() | Atom.t(),
+        "principal" => String.t() | atom(),
         "thingPrincipalType" => list(any())
       }
 
   """
-  @type thing_principal_object() :: %{String.t() | Atom.t() => any()}
+  @type thing_principal_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4394,7 +4394,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type delete_account_audit_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_account_audit_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4405,7 +4405,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type abort_config() :: %{String.t() | Atom.t() => any()}
+  @type abort_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4417,7 +4417,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type delete_ota_update_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_ota_update_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4425,22 +4425,22 @@ defmodule AWS.IoT do
 
       list_metric_values_response() :: %{
         "metricDatumList" => list(metric_datum()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_metric_values_response() :: %{String.t() | Atom.t() => any()}
+  @type list_metric_values_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       client_certificate_config() :: %{
-        "clientCertificateCallbackArn" => String.t() | Atom.t()
+        "clientCertificateCallbackArn" => String.t() | atom()
       }
 
   """
-  @type client_certificate_config() :: %{String.t() | Atom.t() => any()}
+  @type client_certificate_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4448,11 +4448,11 @@ defmodule AWS.IoT do
 
       update_certificate_provider_request() :: %{
         optional("accountDefaultForOperations") => list(list(any())()),
-        optional("lambdaFunctionArn") => String.t() | Atom.t()
+        optional("lambdaFunctionArn") => String.t() | atom()
       }
 
   """
-  @type update_certificate_provider_request() :: %{String.t() | Atom.t() => any()}
+  @type update_certificate_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4463,7 +4463,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type update_event_configurations_request() :: %{String.t() | Atom.t() => any()}
+  @type update_event_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4474,18 +4474,18 @@ defmodule AWS.IoT do
       }
 
   """
-  @type allowed() :: %{String.t() | Atom.t() => any()}
+  @type allowed() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_dimension_request() :: %{
-        required("stringValues") => list(String.t() | Atom.t())
+        required("stringValues") => list(String.t() | atom())
       }
 
   """
-  @type update_dimension_request() :: %{String.t() | Atom.t() => any()}
+  @type update_dimension_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4496,7 +4496,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type deprecate_thing_type_request() :: %{String.t() | Atom.t() => any()}
+  @type deprecate_thing_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4512,11 +4512,11 @@ defmodule AWS.IoT do
   ## Example:
 
       security_profile_target() :: %{
-        "arn" => String.t() | Atom.t()
+        "arn" => String.t() | atom()
       }
 
   """
-  @type security_profile_target() :: %{String.t() | Atom.t() => any()}
+  @type security_profile_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4532,42 +4532,42 @@ defmodule AWS.IoT do
   ## Example:
 
       issuer_certificate_identifier() :: %{
-        "issuerCertificateSerialNumber" => String.t() | Atom.t(),
-        "issuerCertificateSubject" => String.t() | Atom.t(),
-        "issuerId" => String.t() | Atom.t()
+        "issuerCertificateSerialNumber" => String.t() | atom(),
+        "issuerCertificateSubject" => String.t() | atom(),
+        "issuerId" => String.t() | atom()
       }
 
   """
-  @type issuer_certificate_identifier() :: %{String.t() | Atom.t() => any()}
+  @type issuer_certificate_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       topic_rule_destination_summary() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "httpUrlSummary" => http_url_destination_summary(),
         "lastUpdatedAt" => non_neg_integer(),
         "status" => list(any()),
-        "statusReason" => String.t() | Atom.t(),
+        "statusReason" => String.t() | atom(),
         "vpcDestinationSummary" => vpc_destination_summary()
       }
 
   """
-  @type topic_rule_destination_summary() :: %{String.t() | Atom.t() => any()}
+  @type topic_rule_destination_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       alert_target() :: %{
-        "alertTargetArn" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "alertTargetArn" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type alert_target() :: %{String.t() | Atom.t() => any()}
+  @type alert_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4582,20 +4582,20 @@ defmodule AWS.IoT do
       }
 
   """
-  @type task_statistics_for_audit_check() :: %{String.t() | Atom.t() => any()}
+  @type task_statistics_for_audit_check() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_domain_configurations_request() :: %{
-        optional("marker") => String.t() | Atom.t(),
+        optional("marker") => String.t() | atom(),
         optional("pageSize") => integer(),
         optional("serviceType") => list(any())
       }
 
   """
-  @type list_domain_configurations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_domain_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4603,36 +4603,36 @@ defmodule AWS.IoT do
 
       list_job_executions_for_job_response() :: %{
         "executionSummaries" => list(job_execution_summary_for_job()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_job_executions_for_job_response() :: %{String.t() | Atom.t() => any()}
+  @type list_job_executions_for_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       field() :: %{
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type field() :: %{String.t() | Atom.t() => any()}
+  @type field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       step_functions_action() :: %{
-        "executionNamePrefix" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
-        "stateMachineName" => String.t() | Atom.t()
+        "executionNamePrefix" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "stateMachineName" => String.t() | atom()
       }
 
   """
-  @type step_functions_action() :: %{String.t() | Atom.t() => any()}
+  @type step_functions_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4640,11 +4640,11 @@ defmodule AWS.IoT do
 
       list_thing_groups_for_thing_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_thing_groups_for_thing_request() :: %{String.t() | Atom.t() => any()}
+  @type list_thing_groups_for_thing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4652,23 +4652,23 @@ defmodule AWS.IoT do
 
       list_certificate_providers_response() :: %{
         "certificateProviders" => list(certificate_provider_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_certificate_providers_response() :: %{String.t() | Atom.t() => any()}
+  @type list_certificate_providers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       principal_thing_object() :: %{
-        "thingName" => String.t() | Atom.t(),
+        "thingName" => String.t() | atom(),
         "thingPrincipalType" => list(any())
       }
 
   """
-  @type principal_thing_object() :: %{String.t() | Atom.t() => any()}
+  @type principal_thing_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4680,7 +4680,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type attribute_payload() :: %{String.t() | Atom.t() => any()}
+  @type attribute_payload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4688,37 +4688,37 @@ defmodule AWS.IoT do
 
       update_dynamic_thing_group_request() :: %{
         optional("expectedVersion") => float(),
-        optional("indexName") => String.t() | Atom.t(),
-        optional("queryString") => String.t() | Atom.t(),
-        optional("queryVersion") => String.t() | Atom.t(),
+        optional("indexName") => String.t() | atom(),
+        optional("queryString") => String.t() | atom(),
+        optional("queryVersion") => String.t() | atom(),
         required("thingGroupProperties") => thing_group_properties()
       }
 
   """
-  @type update_dynamic_thing_group_request() :: %{String.t() | Atom.t() => any()}
+  @type update_dynamic_thing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_role_alias_response() :: %{
-        "roleAlias" => String.t() | Atom.t(),
-        "roleAliasArn" => String.t() | Atom.t()
+        "roleAlias" => String.t() | atom(),
+        "roleAliasArn" => String.t() | atom()
       }
 
   """
-  @type update_role_alias_response() :: %{String.t() | Atom.t() => any()}
+  @type update_role_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_state_transition_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_state_transition_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_state_transition_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4726,11 +4726,11 @@ defmodule AWS.IoT do
 
       presigned_url_config() :: %{
         "expiresInSec" => float(),
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type presigned_url_config() :: %{String.t() | Atom.t() => any()}
+  @type presigned_url_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4738,12 +4738,12 @@ defmodule AWS.IoT do
 
       list_thing_principals_v2_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("thingPrincipalType") => list(any())
       }
 
   """
-  @type list_thing_principals_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type list_thing_principals_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4754,7 +4754,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type aws_job_abort_config() :: %{String.t() | Atom.t() => any()}
+  @type aws_job_abort_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4765,56 +4765,56 @@ defmodule AWS.IoT do
       }
 
   """
-  @type describe_job_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       managed_job_template_summary() :: %{
-        "description" => String.t() | Atom.t(),
-        "environments" => list(String.t() | Atom.t()),
-        "templateArn" => String.t() | Atom.t(),
-        "templateName" => String.t() | Atom.t(),
-        "templateVersion" => String.t() | Atom.t()
+        "description" => String.t() | atom(),
+        "environments" => list(String.t() | atom()),
+        "templateArn" => String.t() | atom(),
+        "templateName" => String.t() | atom(),
+        "templateVersion" => String.t() | atom()
       }
 
   """
-  @type managed_job_template_summary() :: %{String.t() | Atom.t() => any()}
+  @type managed_job_template_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       transfer_already_completed_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type transfer_already_completed_exception() :: %{String.t() | Atom.t() => any()}
+  @type transfer_already_completed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_domain_configuration_response() :: %{
-        "domainConfigurationArn" => String.t() | Atom.t(),
-        "domainConfigurationName" => String.t() | Atom.t()
+        "domainConfigurationArn" => String.t() | atom(),
+        "domainConfigurationName" => String.t() | atom()
       }
 
   """
-  @type create_domain_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type create_domain_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_endpoint_request() :: %{
-        optional("endpointType") => String.t() | Atom.t()
+        optional("endpointType") => String.t() | atom()
       }
 
   """
-  @type describe_endpoint_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4822,24 +4822,24 @@ defmodule AWS.IoT do
 
       list_thing_registration_tasks_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("status") => list(any())
       }
 
   """
-  @type list_thing_registration_tasks_request() :: %{String.t() | Atom.t() => any()}
+  @type list_thing_registration_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "tags" => list(tag())
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4855,26 +4855,26 @@ defmodule AWS.IoT do
   ## Example:
 
       create_dynamic_thing_group_request() :: %{
-        optional("indexName") => String.t() | Atom.t(),
-        optional("queryVersion") => String.t() | Atom.t(),
+        optional("indexName") => String.t() | atom(),
+        optional("queryVersion") => String.t() | atom(),
         optional("tags") => list(tag()),
         optional("thingGroupProperties") => thing_group_properties(),
-        required("queryString") => String.t() | Atom.t()
+        required("queryString") => String.t() | atom()
       }
 
   """
-  @type create_dynamic_thing_group_request() :: %{String.t() | Atom.t() => any()}
+  @type create_dynamic_thing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_error() :: %{
-        "errorMessage" => String.t() | Atom.t()
+        "errorMessage" => String.t() | atom()
       }
 
   """
-  @type validation_error() :: %{String.t() | Atom.t() => any()}
+  @type validation_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4897,7 +4897,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type update_ca_certificate_request() :: %{String.t() | Atom.t() => any()}
+  @type update_ca_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4923,11 +4923,11 @@ defmodule AWS.IoT do
 
       auth_info() :: %{
         "actionType" => list(any()),
-        "resources" => list(String.t() | Atom.t())
+        "resources" => list(String.t() | atom())
       }
 
   """
-  @type auth_info() :: %{String.t() | Atom.t() => any()}
+  @type auth_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4945,21 +4945,21 @@ defmodule AWS.IoT do
       describe_job_template_response() :: %{
         "abortConfig" => abort_config(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "destinationPackageVersions" => list(String.t() | Atom.t()),
-        "document" => String.t() | Atom.t(),
-        "documentSource" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "destinationPackageVersions" => list(String.t() | atom()),
+        "document" => String.t() | atom(),
+        "documentSource" => String.t() | atom(),
         "jobExecutionsRetryConfig" => job_executions_retry_config(),
         "jobExecutionsRolloutConfig" => job_executions_rollout_config(),
-        "jobTemplateArn" => String.t() | Atom.t(),
-        "jobTemplateId" => String.t() | Atom.t(),
+        "jobTemplateArn" => String.t() | atom(),
+        "jobTemplateId" => String.t() | atom(),
         "maintenanceWindows" => list(maintenance_window()),
         "presignedUrlConfig" => presigned_url_config(),
         "timeoutConfig" => timeout_config()
       }
 
   """
-  @type describe_job_template_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_job_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4970,21 +4970,21 @@ defmodule AWS.IoT do
       }
 
   """
-  @type delete_thing_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_thing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_certificate_request() :: %{
-        optional("caCertificatePem") => String.t() | Atom.t(),
+        optional("caCertificatePem") => String.t() | atom(),
         optional("setAsActive") => boolean(),
         optional("status") => list(any()),
-        required("certificatePem") => String.t() | Atom.t()
+        required("certificatePem") => String.t() | atom()
       }
 
   """
-  @type register_certificate_request() :: %{String.t() | Atom.t() => any()}
+  @type register_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4994,14 +4994,14 @@ defmodule AWS.IoT do
         optional("behaviorCriteriaType") => list(any()),
         optional("listSuppressedAlerts") => boolean(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("securityProfileName") => String.t() | Atom.t(),
-        optional("thingName") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
+        optional("securityProfileName") => String.t() | atom(),
+        optional("thingName") => String.t() | atom(),
         optional("verificationState") => list(any())
       }
 
   """
-  @type list_active_violations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_active_violations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5009,38 +5009,38 @@ defmodule AWS.IoT do
 
       describe_certificate_provider_response() :: %{
         "accountDefaultForOperations" => list(list(any())()),
-        "certificateProviderArn" => String.t() | Atom.t(),
-        "certificateProviderName" => String.t() | Atom.t(),
+        "certificateProviderArn" => String.t() | atom(),
+        "certificateProviderName" => String.t() | atom(),
         "creationDate" => non_neg_integer(),
-        "lambdaFunctionArn" => String.t() | Atom.t(),
+        "lambdaFunctionArn" => String.t() | atom(),
         "lastModifiedDate" => non_neg_integer()
       }
 
   """
-  @type describe_certificate_provider_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_certificate_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       set_default_authorizer_response() :: %{
-        "authorizerArn" => String.t() | Atom.t(),
-        "authorizerName" => String.t() | Atom.t()
+        "authorizerArn" => String.t() | atom(),
+        "authorizerName" => String.t() | atom()
       }
 
   """
-  @type set_default_authorizer_response() :: %{String.t() | Atom.t() => any()}
+  @type set_default_authorizer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5048,17 +5048,17 @@ defmodule AWS.IoT do
 
       describe_thing_response() :: %{
         "attributes" => map(),
-        "billingGroupName" => String.t() | Atom.t(),
-        "defaultClientId" => String.t() | Atom.t(),
-        "thingArn" => String.t() | Atom.t(),
-        "thingId" => String.t() | Atom.t(),
-        "thingName" => String.t() | Atom.t(),
-        "thingTypeName" => String.t() | Atom.t(),
+        "billingGroupName" => String.t() | atom(),
+        "defaultClientId" => String.t() | atom(),
+        "thingArn" => String.t() | atom(),
+        "thingId" => String.t() | atom(),
+        "thingName" => String.t() | atom(),
+        "thingTypeName" => String.t() | atom(),
         "version" => float()
       }
 
   """
-  @type describe_thing_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_thing_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5097,7 +5097,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type security_profile_target_mapping() :: %{String.t() | Atom.t() => any()}
+  @type security_profile_target_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5105,93 +5105,93 @@ defmodule AWS.IoT do
 
       list_outgoing_certificates_request() :: %{
         optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | Atom.t(),
+        optional("marker") => String.t() | atom(),
         optional("pageSize") => integer()
       }
 
   """
-  @type list_outgoing_certificates_request() :: %{String.t() | Atom.t() => any()}
+  @type list_outgoing_certificates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_audit_tasks_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "tasks" => list(audit_task_metadata())
       }
 
   """
-  @type list_audit_tasks_response() :: %{String.t() | Atom.t() => any()}
+  @type list_audit_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_location() :: %{
-        "bucket" => String.t() | Atom.t(),
-        "key" => String.t() | Atom.t(),
-        "version" => String.t() | Atom.t()
+        "bucket" => String.t() | atom(),
+        "key" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type s3_location() :: %{String.t() | Atom.t() => any()}
+  @type s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_item_input() :: %{
-        "tableName" => String.t() | Atom.t()
+        "tableName" => String.t() | atom()
       }
 
   """
-  @type put_item_input() :: %{String.t() | Atom.t() => any()}
+  @type put_item_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_mitigation_action_response() :: %{
-        "actionArn" => String.t() | Atom.t(),
-        "actionId" => String.t() | Atom.t()
+        "actionArn" => String.t() | atom(),
+        "actionId" => String.t() | atom()
       }
 
   """
-  @type update_mitigation_action_response() :: %{String.t() | Atom.t() => any()}
+  @type update_mitigation_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_package_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("defaultVersionName") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("defaultVersionName") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("unsetDefaultVersion") => boolean()
       }
 
   """
-  @type update_package_request() :: %{String.t() | Atom.t() => any()}
+  @type update_package_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       detect_mitigation_action_execution() :: %{
-        "actionName" => String.t() | Atom.t(),
-        "errorCode" => String.t() | Atom.t(),
+        "actionName" => String.t() | atom(),
+        "errorCode" => String.t() | atom(),
         "executionEndDate" => non_neg_integer(),
         "executionStartDate" => non_neg_integer(),
-        "message" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
         "status" => list(any()),
-        "taskId" => String.t() | Atom.t(),
-        "thingName" => String.t() | Atom.t(),
-        "violationId" => String.t() | Atom.t()
+        "taskId" => String.t() | atom(),
+        "thingName" => String.t() | atom(),
+        "violationId" => String.t() | atom()
       }
 
   """
-  @type detect_mitigation_action_execution() :: %{String.t() | Atom.t() => any()}
+  @type detect_mitigation_action_execution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5218,72 +5218,72 @@ defmodule AWS.IoT do
       violation_event() :: %{
         "behavior" => behavior(),
         "metricValue" => metric_value(),
-        "securityProfileName" => String.t() | Atom.t(),
-        "thingName" => String.t() | Atom.t(),
+        "securityProfileName" => String.t() | atom(),
+        "thingName" => String.t() | atom(),
         "verificationState" => list(any()),
-        "verificationStateDescription" => String.t() | Atom.t(),
+        "verificationStateDescription" => String.t() | atom(),
         "violationEventAdditionalInfo" => violation_event_additional_info(),
         "violationEventTime" => non_neg_integer(),
         "violationEventType" => list(any()),
-        "violationId" => String.t() | Atom.t()
+        "violationId" => String.t() | atom()
       }
 
   """
-  @type violation_event() :: %{String.t() | Atom.t() => any()}
+  @type violation_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_indices_response() :: %{
-        "indexNames" => list(String.t() | Atom.t()),
-        "nextToken" => String.t() | Atom.t()
+        "indexNames" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_indices_response() :: %{String.t() | Atom.t() => any()}
+  @type list_indices_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_command_executions_request() :: %{
-        optional("commandArn") => String.t() | Atom.t(),
+        optional("commandArn") => String.t() | atom(),
         optional("completedTimeFilter") => time_filter(),
         optional("maxResults") => integer(),
         optional("namespace") => list(any()),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("sortOrder") => list(any()),
         optional("startedTimeFilter") => time_filter(),
         optional("status") => list(any()),
-        optional("targetArn") => String.t() | Atom.t()
+        optional("targetArn") => String.t() | atom()
       }
 
   """
-  @type list_command_executions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_command_executions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       key_pair() :: %{
-        "PrivateKey" => String.t() | Atom.t(),
-        "PublicKey" => String.t() | Atom.t()
+        "PrivateKey" => String.t() | atom(),
+        "PublicKey" => String.t() | atom()
       }
 
   """
-  @type key_pair() :: %{String.t() | Atom.t() => any()}
+  @type key_pair() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_scheduled_audit_response() :: %{
-        "scheduledAuditArn" => String.t() | Atom.t()
+        "scheduledAuditArn" => String.t() | atom()
       }
 
   """
-  @type update_scheduled_audit_response() :: %{String.t() | Atom.t() => any()}
+  @type update_scheduled_audit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5294,7 +5294,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type job_executions_retry_config() :: %{String.t() | Atom.t() => any()}
+  @type job_executions_retry_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5302,53 +5302,53 @@ defmodule AWS.IoT do
 
       kafka_action() :: %{
         "clientProperties" => map(),
-        "destinationArn" => String.t() | Atom.t(),
+        "destinationArn" => String.t() | atom(),
         "headers" => list(kafka_action_header()),
-        "key" => String.t() | Atom.t(),
-        "partition" => String.t() | Atom.t(),
-        "topic" => String.t() | Atom.t()
+        "key" => String.t() | atom(),
+        "partition" => String.t() | atom(),
+        "topic" => String.t() | atom()
       }
 
   """
-  @type kafka_action() :: %{String.t() | Atom.t() => any()}
+  @type kafka_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_destination() :: %{
-        "bucket" => String.t() | Atom.t(),
-        "prefix" => String.t() | Atom.t()
+        "bucket" => String.t() | atom(),
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type s3_destination() :: %{String.t() | Atom.t() => any()}
+  @type s3_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metric_dimension() :: %{
-        "dimensionName" => String.t() | Atom.t(),
+        "dimensionName" => String.t() | atom(),
         "operator" => list(any())
       }
 
   """
-  @type metric_dimension() :: %{String.t() | Atom.t() => any()}
+  @type metric_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_policy_response() :: %{
-        "policyArn" => String.t() | Atom.t(),
-        "policyDocument" => String.t() | Atom.t(),
-        "policyName" => String.t() | Atom.t(),
-        "policyVersionId" => String.t() | Atom.t()
+        "policyArn" => String.t() | atom(),
+        "policyDocument" => String.t() | atom(),
+        "policyName" => String.t() | atom(),
+        "policyVersionId" => String.t() | atom()
       }
 
   """
-  @type create_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type create_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5358,20 +5358,20 @@ defmodule AWS.IoT do
         "artifact" => package_version_artifact(),
         "attributes" => map(),
         "creationDate" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "errorReason" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "errorReason" => String.t() | atom(),
         "lastModifiedDate" => non_neg_integer(),
-        "packageName" => String.t() | Atom.t(),
-        "packageVersionArn" => String.t() | Atom.t(),
-        "recipe" => String.t() | Atom.t(),
+        "packageName" => String.t() | atom(),
+        "packageVersionArn" => String.t() | atom(),
+        "recipe" => String.t() | atom(),
         "sbom" => sbom(),
         "sbomValidationStatus" => list(any()),
         "status" => list(any()),
-        "versionName" => String.t() | Atom.t()
+        "versionName" => String.t() | atom()
       }
 
   """
-  @type get_package_version_response() :: %{String.t() | Atom.t() => any()}
+  @type get_package_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5381,57 +5381,57 @@ defmodule AWS.IoT do
         "approximateSecondsBeforeTimedOut" => float(),
         "executionNumber" => float(),
         "forceCanceled" => boolean(),
-        "jobId" => String.t() | Atom.t(),
+        "jobId" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "queuedAt" => non_neg_integer(),
         "startedAt" => non_neg_integer(),
         "status" => list(any()),
         "statusDetails" => job_execution_status_details(),
-        "thingArn" => String.t() | Atom.t(),
+        "thingArn" => String.t() | atom(),
         "versionNumber" => float()
       }
 
   """
-  @type job_execution() :: %{String.t() | Atom.t() => any()}
+  @type job_execution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       scheduled_audit_metadata() :: %{
-        "dayOfMonth" => String.t() | Atom.t(),
+        "dayOfMonth" => String.t() | atom(),
         "dayOfWeek" => list(any()),
         "frequency" => list(any()),
-        "scheduledAuditArn" => String.t() | Atom.t(),
-        "scheduledAuditName" => String.t() | Atom.t()
+        "scheduledAuditArn" => String.t() | atom(),
+        "scheduledAuditName" => String.t() | atom()
       }
 
   """
-  @type scheduled_audit_metadata() :: %{String.t() | Atom.t() => any()}
+  @type scheduled_audit_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_sbom_from_package_version_request() :: %{
-        optional("clientToken") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type disassociate_sbom_from_package_version_request() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_sbom_from_package_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_configuration_summary() :: %{
-        "domainConfigurationArn" => String.t() | Atom.t(),
-        "domainConfigurationName" => String.t() | Atom.t(),
+        "domainConfigurationArn" => String.t() | atom(),
+        "domainConfigurationName" => String.t() | atom(),
         "serviceType" => list(any())
       }
 
   """
-  @type domain_configuration_summary() :: %{String.t() | Atom.t() => any()}
+  @type domain_configuration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5465,34 +5465,34 @@ defmodule AWS.IoT do
   ## Example:
 
       invalid_query_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_query_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_query_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_stream_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("files") => list(stream_file()),
-        optional("roleArn") => String.t() | Atom.t()
+        optional("roleArn") => String.t() | atom()
       }
 
   """
-  @type update_stream_request() :: %{String.t() | Atom.t() => any()}
+  @type update_stream_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_command_execution_response() :: %{
-        "commandArn" => String.t() | Atom.t(),
+        "commandArn" => String.t() | atom(),
         "completedAt" => non_neg_integer(),
         "createdAt" => non_neg_integer(),
-        "executionId" => String.t() | Atom.t(),
+        "executionId" => String.t() | atom(),
         "executionTimeoutSeconds" => float(),
         "lastUpdatedAt" => non_neg_integer(),
         "parameters" => map(),
@@ -5500,12 +5500,12 @@ defmodule AWS.IoT do
         "startedAt" => non_neg_integer(),
         "status" => list(any()),
         "statusReason" => status_reason(),
-        "targetArn" => String.t() | Atom.t(),
+        "targetArn" => String.t() | atom(),
         "timeToLive" => non_neg_integer()
       }
 
   """
-  @type get_command_execution_response() :: %{String.t() | Atom.t() => any()}
+  @type get_command_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5519,7 +5519,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type abort_criteria() :: %{String.t() | Atom.t() => any()}
+  @type abort_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5527,14 +5527,14 @@ defmodule AWS.IoT do
 
       topic_rule_list_item() :: %{
         "createdAt" => non_neg_integer(),
-        "ruleArn" => String.t() | Atom.t(),
+        "ruleArn" => String.t() | atom(),
         "ruleDisabled" => boolean(),
-        "ruleName" => String.t() | Atom.t(),
-        "topicPattern" => String.t() | Atom.t()
+        "ruleName" => String.t() | atom(),
+        "topicPattern" => String.t() | atom()
       }
 
   """
-  @type topic_rule_list_item() :: %{String.t() | Atom.t() => any()}
+  @type topic_rule_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5550,13 +5550,13 @@ defmodule AWS.IoT do
   ## Example:
 
       propagating_attribute() :: %{
-        "connectionAttribute" => String.t() | Atom.t(),
-        "thingAttribute" => String.t() | Atom.t(),
-        "userPropertyKey" => String.t() | Atom.t()
+        "connectionAttribute" => String.t() | atom(),
+        "thingAttribute" => String.t() | atom(),
+        "userPropertyKey" => String.t() | atom()
       }
 
   """
-  @type propagating_attribute() :: %{String.t() | Atom.t() => any()}
+  @type propagating_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5564,16 +5564,16 @@ defmodule AWS.IoT do
 
       get_policy_response() :: %{
         "creationDate" => non_neg_integer(),
-        "defaultVersionId" => String.t() | Atom.t(),
-        "generationId" => String.t() | Atom.t(),
+        "defaultVersionId" => String.t() | atom(),
+        "generationId" => String.t() | atom(),
         "lastModifiedDate" => non_neg_integer(),
-        "policyArn" => String.t() | Atom.t(),
-        "policyDocument" => String.t() | Atom.t(),
-        "policyName" => String.t() | Atom.t()
+        "policyArn" => String.t() | atom(),
+        "policyDocument" => String.t() | atom(),
+        "policyName" => String.t() | atom()
       }
 
   """
-  @type get_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type get_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5585,7 +5585,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type describe_ca_certificate_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_ca_certificate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5603,25 +5603,25 @@ defmodule AWS.IoT do
       create_mitigation_action_request() :: %{
         optional("tags") => list(tag()),
         required("actionParams") => mitigation_action_params(),
-        required("roleArn") => String.t() | Atom.t()
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type create_mitigation_action_request() :: %{String.t() | Atom.t() => any()}
+  @type create_mitigation_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ca_certificate() :: %{
-        "certificateArn" => String.t() | Atom.t(),
-        "certificateId" => String.t() | Atom.t(),
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom(),
         "creationDate" => non_neg_integer(),
         "status" => list(any())
       }
 
   """
-  @type ca_certificate() :: %{String.t() | Atom.t() => any()}
+  @type ca_certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5655,14 +5655,14 @@ defmodule AWS.IoT do
   ## Example:
 
       update_stream_response() :: %{
-        "description" => String.t() | Atom.t(),
-        "streamArn" => String.t() | Atom.t(),
-        "streamId" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "streamArn" => String.t() | atom(),
+        "streamId" => String.t() | atom(),
         "streamVersion" => integer()
       }
 
   """
-  @type update_stream_response() :: %{String.t() | Atom.t() => any()}
+  @type update_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5678,13 +5678,13 @@ defmodule AWS.IoT do
   ## Example:
 
       search_index_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "thingGroups" => list(thing_group_document()),
         "things" => list(thing_document())
       }
 
   """
-  @type search_index_response() :: %{String.t() | Atom.t() => any()}
+  @type search_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5701,18 +5701,18 @@ defmodule AWS.IoT do
       }
 
   """
-  @type task_statistics() :: %{String.t() | Atom.t() => any()}
+  @type task_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_configured_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type not_configured_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_configured_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5724,7 +5724,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type file_location() :: %{String.t() | Atom.t() => any()}
+  @type file_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5744,7 +5744,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type job_execution_status_details() :: %{String.t() | Atom.t() => any()}
+  @type job_execution_status_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5765,18 +5765,18 @@ defmodule AWS.IoT do
       }
 
   """
-  @type rate_increase_criteria() :: %{String.t() | Atom.t() => any()}
+  @type rate_increase_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_registration_code_response() :: %{
-        "registrationCode" => String.t() | Atom.t()
+        "registrationCode" => String.t() | atom()
       }
 
   """
-  @type get_registration_code_response() :: %{String.t() | Atom.t() => any()}
+  @type get_registration_code_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5784,12 +5784,12 @@ defmodule AWS.IoT do
 
       thing_group_metadata() :: %{
         "creationDate" => non_neg_integer(),
-        "parentGroupName" => String.t() | Atom.t(),
+        "parentGroupName" => String.t() | atom(),
         "rootToParentThingGroups" => list(group_name_and_arn())
       }
 
   """
-  @type thing_group_metadata() :: %{String.t() | Atom.t() => any()}
+  @type thing_group_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5797,25 +5797,25 @@ defmodule AWS.IoT do
 
       custom_code_signing() :: %{
         "certificateChain" => code_signing_certificate_chain(),
-        "hashAlgorithm" => String.t() | Atom.t(),
+        "hashAlgorithm" => String.t() | atom(),
         "signature" => code_signing_signature(),
-        "signatureAlgorithm" => String.t() | Atom.t()
+        "signatureAlgorithm" => String.t() | atom()
       }
 
   """
-  @type custom_code_signing() :: %{String.t() | Atom.t() => any()}
+  @type custom_code_signing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       group_name_and_arn() :: %{
-        "groupArn" => String.t() | Atom.t(),
-        "groupName" => String.t() | Atom.t()
+        "groupArn" => String.t() | atom(),
+        "groupName" => String.t() | atom()
       }
 
   """
-  @type group_name_and_arn() :: %{String.t() | Atom.t() => any()}
+  @type group_name_and_arn() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5823,26 +5823,26 @@ defmodule AWS.IoT do
 
       package_summary() :: %{
         "creationDate" => non_neg_integer(),
-        "defaultVersionName" => String.t() | Atom.t(),
+        "defaultVersionName" => String.t() | atom(),
         "lastModifiedDate" => non_neg_integer(),
-        "packageName" => String.t() | Atom.t()
+        "packageName" => String.t() | atom()
       }
 
   """
-  @type package_summary() :: %{String.t() | Atom.t() => any()}
+  @type package_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_thing_group_response() :: %{
-        "thingGroupArn" => String.t() | Atom.t(),
-        "thingGroupId" => String.t() | Atom.t(),
-        "thingGroupName" => String.t() | Atom.t()
+        "thingGroupArn" => String.t() | atom(),
+        "thingGroupId" => String.t() | atom(),
+        "thingGroupName" => String.t() | atom()
       }
 
   """
-  @type create_thing_group_response() :: %{String.t() | Atom.t() => any()}
+  @type create_thing_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5858,12 +5858,12 @@ defmodule AWS.IoT do
   ## Example:
 
       list_ota_updates_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "otaUpdates" => list(ota_update_summary())
       }
 
   """
-  @type list_ota_updates_response() :: %{String.t() | Atom.t() => any()}
+  @type list_ota_updates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5879,11 +5879,11 @@ defmodule AWS.IoT do
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5891,12 +5891,12 @@ defmodule AWS.IoT do
 
       list_v2_logging_levels_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("targetType") => list(any())
       }
 
   """
-  @type list_v2_logging_levels_request() :: %{String.t() | Atom.t() => any()}
+  @type list_v2_logging_levels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5907,7 +5907,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type describe_default_authorizer_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_default_authorizer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5916,11 +5916,11 @@ defmodule AWS.IoT do
       command_execution_result() :: %{
         "B" => boolean(),
         "BIN" => binary(),
-        "S" => String.t() | Atom.t()
+        "S" => String.t() | atom()
       }
 
   """
-  @type command_execution_result() :: %{String.t() | Atom.t() => any()}
+  @type command_execution_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5931,7 +5931,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type get_package_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_package_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5943,7 +5943,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type update_billing_group_request() :: %{String.t() | Atom.t() => any()}
+  @type update_billing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5963,7 +5963,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type delete_security_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_security_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5980,11 +5980,11 @@ defmodule AWS.IoT do
 
       delete_job_execution_request() :: %{
         optional("force") => boolean(),
-        optional("namespaceId") => String.t() | Atom.t()
+        optional("namespaceId") => String.t() | atom()
       }
 
   """
-  @type delete_job_execution_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_job_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5992,11 +5992,11 @@ defmodule AWS.IoT do
 
       thing_group_properties() :: %{
         "attributePayload" => attribute_payload(),
-        "thingGroupDescription" => String.t() | Atom.t()
+        "thingGroupDescription" => String.t() | atom()
       }
 
   """
-  @type thing_group_properties() :: %{String.t() | Atom.t() => any()}
+  @type thing_group_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6012,30 +6012,30 @@ defmodule AWS.IoT do
   ## Example:
 
       get_buckets_aggregation_request() :: %{
-        optional("indexName") => String.t() | Atom.t(),
-        optional("queryVersion") => String.t() | Atom.t(),
-        required("aggregationField") => String.t() | Atom.t(),
+        optional("indexName") => String.t() | atom(),
+        optional("queryVersion") => String.t() | atom(),
+        required("aggregationField") => String.t() | atom(),
         required("bucketsAggregationType") => buckets_aggregation_type(),
-        required("queryString") => String.t() | Atom.t()
+        required("queryString") => String.t() | atom()
       }
 
   """
-  @type get_buckets_aggregation_request() :: %{String.t() | Atom.t() => any()}
+  @type get_buckets_aggregation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       certificate() :: %{
-        "certificateArn" => String.t() | Atom.t(),
-        "certificateId" => String.t() | Atom.t(),
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom(),
         "certificateMode" => list(any()),
         "creationDate" => non_neg_integer(),
         "status" => list(any())
       }
 
   """
-  @type certificate() :: %{String.t() | Atom.t() => any()}
+  @type certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6043,23 +6043,23 @@ defmodule AWS.IoT do
 
       ota_update_summary() :: %{
         "creationDate" => non_neg_integer(),
-        "otaUpdateArn" => String.t() | Atom.t(),
-        "otaUpdateId" => String.t() | Atom.t()
+        "otaUpdateArn" => String.t() | atom(),
+        "otaUpdateId" => String.t() | atom()
       }
 
   """
-  @type ota_update_summary() :: %{String.t() | Atom.t() => any()}
+  @type ota_update_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       set_default_authorizer_request() :: %{
-        required("authorizerName") => String.t() | Atom.t()
+        required("authorizerName") => String.t() | atom()
       }
 
   """
-  @type set_default_authorizer_request() :: %{String.t() | Atom.t() => any()}
+  @type set_default_authorizer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6071,7 +6071,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type denied() :: %{String.t() | Atom.t() => any()}
+  @type denied() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6082,7 +6082,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type delete_fleet_metric_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_fleet_metric_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6091,31 +6091,31 @@ defmodule AWS.IoT do
       describe_provisioning_template_response() :: %{
         "creationDate" => non_neg_integer(),
         "defaultVersionId" => integer(),
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "enabled" => boolean(),
         "lastModifiedDate" => non_neg_integer(),
         "preProvisioningHook" => provisioning_hook(),
-        "provisioningRoleArn" => String.t() | Atom.t(),
-        "templateArn" => String.t() | Atom.t(),
-        "templateBody" => String.t() | Atom.t(),
-        "templateName" => String.t() | Atom.t(),
+        "provisioningRoleArn" => String.t() | atom(),
+        "templateArn" => String.t() | atom(),
+        "templateBody" => String.t() | atom(),
+        "templateName" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type describe_provisioning_template_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_provisioning_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_things_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "things" => list(thing_attribute())
       }
 
   """
-  @type list_things_response() :: %{String.t() | Atom.t() => any()}
+  @type list_things_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6131,12 +6131,12 @@ defmodule AWS.IoT do
   ## Example:
 
       asset_property_timestamp() :: %{
-        "offsetInNanos" => String.t() | Atom.t(),
-        "timeInSeconds" => String.t() | Atom.t()
+        "offsetInNanos" => String.t() | atom(),
+        "timeInSeconds" => String.t() | atom()
       }
 
   """
-  @type asset_property_timestamp() :: %{String.t() | Atom.t() => any()}
+  @type asset_property_timestamp() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6144,118 +6144,118 @@ defmodule AWS.IoT do
 
       update_custom_metric_response() :: %{
         "creationDate" => non_neg_integer(),
-        "displayName" => String.t() | Atom.t(),
+        "displayName" => String.t() | atom(),
         "lastModifiedDate" => non_neg_integer(),
-        "metricArn" => String.t() | Atom.t(),
-        "metricName" => String.t() | Atom.t(),
+        "metricArn" => String.t() | atom(),
+        "metricName" => String.t() | atom(),
         "metricType" => list(any())
       }
 
   """
-  @type update_custom_metric_response() :: %{String.t() | Atom.t() => any()}
+  @type update_custom_metric_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       code_signing_certificate_chain() :: %{
-        "certificateName" => String.t() | Atom.t(),
-        "inlineDocument" => String.t() | Atom.t()
+        "certificateName" => String.t() | atom(),
+        "inlineDocument" => String.t() | atom()
       }
 
   """
-  @type code_signing_certificate_chain() :: %{String.t() | Atom.t() => any()}
+  @type code_signing_certificate_chain() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_scheduled_audit_response() :: %{
-        "scheduledAuditArn" => String.t() | Atom.t()
+        "scheduledAuditArn" => String.t() | atom()
       }
 
   """
-  @type create_scheduled_audit_response() :: %{String.t() | Atom.t() => any()}
+  @type create_scheduled_audit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_custom_metric_request() :: %{
-        optional("displayName") => String.t() | Atom.t(),
+        optional("displayName") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("clientRequestToken") => String.t() | Atom.t(),
+        required("clientRequestToken") => String.t() | atom(),
         required("metricType") => list(any())
       }
 
   """
-  @type create_custom_metric_request() :: %{String.t() | Atom.t() => any()}
+  @type create_custom_metric_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       task_already_exists_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type task_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type task_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_thing_groups_for_thing_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "thingGroups" => list(group_name_and_arn())
       }
 
   """
-  @type list_thing_groups_for_thing_response() :: %{String.t() | Atom.t() => any()}
+  @type list_thing_groups_for_thing_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_certificate_response() :: %{
-        "certificateArn" => String.t() | Atom.t(),
-        "certificateId" => String.t() | Atom.t()
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom()
       }
 
   """
-  @type register_certificate_response() :: %{String.t() | Atom.t() => any()}
+  @type register_certificate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       authorizer_description() :: %{
-        "authorizerArn" => String.t() | Atom.t(),
-        "authorizerFunctionArn" => String.t() | Atom.t(),
-        "authorizerName" => String.t() | Atom.t(),
+        "authorizerArn" => String.t() | atom(),
+        "authorizerFunctionArn" => String.t() | atom(),
+        "authorizerName" => String.t() | atom(),
         "creationDate" => non_neg_integer(),
         "enableCachingForHttp" => boolean(),
         "lastModifiedDate" => non_neg_integer(),
         "signingDisabled" => boolean(),
         "status" => list(any()),
-        "tokenKeyName" => String.t() | Atom.t(),
+        "tokenKeyName" => String.t() | atom(),
         "tokenSigningPublicKeys" => map()
       }
 
   """
-  @type authorizer_description() :: %{String.t() | Atom.t() => any()}
+  @type authorizer_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       http_url_destination_summary() :: %{
-        "confirmationUrl" => String.t() | Atom.t()
+        "confirmationUrl" => String.t() | atom()
       }
 
   """
-  @type http_url_destination_summary() :: %{String.t() | Atom.t() => any()}
+  @type http_url_destination_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6288,30 +6288,30 @@ defmodule AWS.IoT do
       }
 
   """
-  @type action() :: %{String.t() | Atom.t() => any()}
+  @type action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_violation_events_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "violationEvents" => list(violation_event())
       }
 
   """
-  @type list_violation_events_response() :: %{String.t() | Atom.t() => any()}
+  @type list_violation_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tls_config() :: %{
-        "securityPolicy" => String.t() | Atom.t()
+        "securityPolicy" => String.t() | atom()
       }
 
   """
-  @type tls_config() :: %{String.t() | Atom.t() => any()}
+  @type tls_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6320,12 +6320,12 @@ defmodule AWS.IoT do
       republish_action() :: %{
         "headers" => mqtt_headers(),
         "qos" => integer(),
-        "roleArn" => String.t() | Atom.t(),
-        "topic" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom(),
+        "topic" => String.t() | atom()
       }
 
   """
-  @type republish_action() :: %{String.t() | Atom.t() => any()}
+  @type republish_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6341,12 +6341,12 @@ defmodule AWS.IoT do
   ## Example:
 
       put_verification_state_on_violation_request() :: %{
-        optional("verificationStateDescription") => String.t() | Atom.t(),
+        optional("verificationStateDescription") => String.t() | atom(),
         required("verificationState") => list(any())
       }
 
   """
-  @type put_verification_state_on_violation_request() :: %{String.t() | Atom.t() => any()}
+  @type put_verification_state_on_violation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6354,11 +6354,11 @@ defmodule AWS.IoT do
 
       list_authorizers_response() :: %{
         "authorizers" => list(authorizer_summary()),
-        "nextMarker" => String.t() | Atom.t()
+        "nextMarker" => String.t() | atom()
       }
 
   """
-  @type list_authorizers_response() :: %{String.t() | Atom.t() => any()}
+  @type list_authorizers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6366,12 +6366,12 @@ defmodule AWS.IoT do
 
       server_certificate_config() :: %{
         "enableOCSPCheck" => boolean(),
-        "ocspAuthorizedResponderArn" => String.t() | Atom.t(),
-        "ocspLambdaArn" => String.t() | Atom.t()
+        "ocspAuthorizedResponderArn" => String.t() | atom(),
+        "ocspLambdaArn" => String.t() | atom()
       }
 
   """
-  @type server_certificate_config() :: %{String.t() | Atom.t() => any()}
+  @type server_certificate_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6379,11 +6379,11 @@ defmodule AWS.IoT do
 
       list_job_executions_for_thing_response() :: %{
         "executionSummaries" => list(job_execution_summary_for_thing()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_job_executions_for_thing_response() :: %{String.t() | Atom.t() => any()}
+  @type list_job_executions_for_thing_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6395,18 +6395,18 @@ defmodule AWS.IoT do
       }
 
   """
-  @type topic_rule_destination_configuration() :: %{String.t() | Atom.t() => any()}
+  @type topic_rule_destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       index_not_ready_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type index_not_ready_exception() :: %{String.t() | Atom.t() => any()}
+  @type index_not_ready_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6414,23 +6414,23 @@ defmodule AWS.IoT do
 
       list_job_templates_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_job_templates_request() :: %{String.t() | Atom.t() => any()}
+  @type list_job_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       policy() :: %{
-        "policyArn" => String.t() | Atom.t(),
-        "policyName" => String.t() | Atom.t()
+        "policyArn" => String.t() | atom(),
+        "policyName" => String.t() | atom()
       }
 
   """
-  @type policy() :: %{String.t() | Atom.t() => any()}
+  @type policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6442,7 +6442,7 @@ defmodule AWS.IoT do
         "suppressedAlertsIncluded" => boolean(),
         "target" => detect_mitigation_actions_task_target(),
         "taskEndTime" => non_neg_integer(),
-        "taskId" => String.t() | Atom.t(),
+        "taskId" => String.t() | atom(),
         "taskStartTime" => non_neg_integer(),
         "taskStatistics" => detect_mitigation_actions_task_statistics(),
         "taskStatus" => list(any()),
@@ -6450,24 +6450,24 @@ defmodule AWS.IoT do
       }
 
   """
-  @type detect_mitigation_actions_task_summary() :: %{String.t() | Atom.t() => any()}
+  @type detect_mitigation_actions_task_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       command_execution_summary() :: %{
-        "commandArn" => String.t() | Atom.t(),
+        "commandArn" => String.t() | atom(),
         "completedAt" => non_neg_integer(),
         "createdAt" => non_neg_integer(),
-        "executionId" => String.t() | Atom.t(),
+        "executionId" => String.t() | atom(),
         "startedAt" => non_neg_integer(),
         "status" => list(any()),
-        "targetArn" => String.t() | Atom.t()
+        "targetArn" => String.t() | atom()
       }
 
   """
-  @type command_execution_summary() :: %{String.t() | Atom.t() => any()}
+  @type command_execution_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6475,34 +6475,34 @@ defmodule AWS.IoT do
 
       bucket() :: %{
         "count" => integer(),
-        "keyValue" => String.t() | Atom.t()
+        "keyValue" => String.t() | atom()
       }
 
   """
-  @type bucket() :: %{String.t() | Atom.t() => any()}
+  @type bucket() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_thing_registration_tasks_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
-        "taskIds" => list(String.t() | Atom.t())
+        "nextToken" => String.t() | atom(),
+        "taskIds" => list(String.t() | atom())
       }
 
   """
-  @type list_thing_registration_tasks_response() :: %{String.t() | Atom.t() => any()}
+  @type list_thing_registration_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       attach_principal_policy_request() :: %{
-        required("principal") => String.t() | Atom.t()
+        required("principal") => String.t() | atom()
       }
 
   """
-  @type attach_principal_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type attach_principal_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6510,14 +6510,14 @@ defmodule AWS.IoT do
 
       thing_group_document() :: %{
         "attributes" => map(),
-        "parentGroupNames" => list(String.t() | Atom.t()),
-        "thingGroupDescription" => String.t() | Atom.t(),
-        "thingGroupId" => String.t() | Atom.t(),
-        "thingGroupName" => String.t() | Atom.t()
+        "parentGroupNames" => list(String.t() | atom()),
+        "thingGroupDescription" => String.t() | atom(),
+        "thingGroupId" => String.t() | atom(),
+        "thingGroupName" => String.t() | atom()
       }
 
   """
-  @type thing_group_document() :: %{String.t() | Atom.t() => any()}
+  @type thing_group_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6525,59 +6525,59 @@ defmodule AWS.IoT do
 
       create_job_template_request() :: %{
         optional("abortConfig") => abort_config(),
-        optional("destinationPackageVersions") => list(String.t() | Atom.t()),
-        optional("document") => String.t() | Atom.t(),
-        optional("documentSource") => String.t() | Atom.t(),
-        optional("jobArn") => String.t() | Atom.t(),
+        optional("destinationPackageVersions") => list(String.t() | atom()),
+        optional("document") => String.t() | atom(),
+        optional("documentSource") => String.t() | atom(),
+        optional("jobArn") => String.t() | atom(),
         optional("jobExecutionsRetryConfig") => job_executions_retry_config(),
         optional("jobExecutionsRolloutConfig") => job_executions_rollout_config(),
         optional("maintenanceWindows") => list(maintenance_window()),
         optional("presignedUrlConfig") => presigned_url_config(),
         optional("tags") => list(tag()),
         optional("timeoutConfig") => timeout_config(),
-        required("description") => String.t() | Atom.t()
+        required("description") => String.t() | atom()
       }
 
   """
-  @type create_job_template_request() :: %{String.t() | Atom.t() => any()}
+  @type create_job_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_stream_response() :: %{
-        "description" => String.t() | Atom.t(),
-        "streamArn" => String.t() | Atom.t(),
-        "streamId" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "streamArn" => String.t() | atom(),
+        "streamId" => String.t() | atom(),
         "streamVersion" => integer()
       }
 
   """
-  @type create_stream_response() :: %{String.t() | Atom.t() => any()}
+  @type create_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       publish_finding_to_sns_params() :: %{
-        "topicArn" => String.t() | Atom.t()
+        "topicArn" => String.t() | atom()
       }
 
   """
-  @type publish_finding_to_sns_params() :: %{String.t() | Atom.t() => any()}
+  @type publish_finding_to_sns_params() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_thing_type_response() :: %{
-        "thingTypeArn" => String.t() | Atom.t(),
-        "thingTypeId" => String.t() | Atom.t(),
-        "thingTypeName" => String.t() | Atom.t()
+        "thingTypeArn" => String.t() | atom(),
+        "thingTypeId" => String.t() | atom(),
+        "thingTypeName" => String.t() | atom()
       }
 
   """
-  @type create_thing_type_response() :: %{String.t() | Atom.t() => any()}
+  @type create_thing_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6589,18 +6589,18 @@ defmodule AWS.IoT do
       }
 
   """
-  @type job_executions_rollout_config() :: %{String.t() | Atom.t() => any()}
+  @type job_executions_rollout_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_package_request() :: %{
-        optional("clientToken") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type delete_package_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_package_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6611,7 +6611,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type timeout_config() :: %{String.t() | Atom.t() => any()}
+  @type timeout_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6620,16 +6620,16 @@ defmodule AWS.IoT do
       thing_document() :: %{
         "attributes" => map(),
         "connectivity" => thing_connectivity(),
-        "deviceDefender" => String.t() | Atom.t(),
-        "shadow" => String.t() | Atom.t(),
-        "thingGroupNames" => list(String.t() | Atom.t()),
-        "thingId" => String.t() | Atom.t(),
-        "thingName" => String.t() | Atom.t(),
-        "thingTypeName" => String.t() | Atom.t()
+        "deviceDefender" => String.t() | atom(),
+        "shadow" => String.t() | atom(),
+        "thingGroupNames" => list(String.t() | atom()),
+        "thingId" => String.t() | atom(),
+        "thingName" => String.t() | atom(),
+        "thingTypeName" => String.t() | atom()
       }
 
   """
-  @type thing_document() :: %{String.t() | Atom.t() => any()}
+  @type thing_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6640,18 +6640,18 @@ defmodule AWS.IoT do
       }
 
   """
-  @type replace_default_policy_version_params() :: %{String.t() | Atom.t() => any()}
+  @type replace_default_policy_version_params() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6667,23 +6667,23 @@ defmodule AWS.IoT do
   ## Example:
 
       list_related_resources_for_audit_finding_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "relatedResources" => list(related_resource())
       }
 
   """
-  @type list_related_resources_for_audit_finding_response() :: %{String.t() | Atom.t() => any()}
+  @type list_related_resources_for_audit_finding_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_job_document_response() :: %{
-        "document" => String.t() | Atom.t()
+        "document" => String.t() | atom()
       }
 
   """
-  @type get_job_document_response() :: %{String.t() | Atom.t() => any()}
+  @type get_job_document_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6700,23 +6700,23 @@ defmodule AWS.IoT do
 
       create_provisioning_template_version_request() :: %{
         optional("setAsDefault") => boolean(),
-        required("templateBody") => String.t() | Atom.t()
+        required("templateBody") => String.t() | atom()
       }
 
   """
-  @type create_provisioning_template_version_request() :: %{String.t() | Atom.t() => any()}
+  @type create_provisioning_template_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       transfer_certificate_request() :: %{
-        optional("transferMessage") => String.t() | Atom.t(),
-        required("targetAwsAccount") => String.t() | Atom.t()
+        optional("transferMessage") => String.t() | atom(),
+        required("targetAwsAccount") => String.t() | atom()
       }
 
   """
-  @type transfer_certificate_request() :: %{String.t() | Atom.t() => any()}
+  @type transfer_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6724,12 +6724,12 @@ defmodule AWS.IoT do
 
       list_related_resources_for_audit_finding_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("findingId") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("findingId") => String.t() | atom()
       }
 
   """
-  @type list_related_resources_for_audit_finding_request() :: %{String.t() | Atom.t() => any()}
+  @type list_related_resources_for_audit_finding_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6740,7 +6740,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type delete_certificate_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6751,7 +6751,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type describe_detect_mitigation_actions_task_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_detect_mitigation_actions_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6760,14 +6760,14 @@ defmodule AWS.IoT do
       behavior() :: %{
         "criteria" => behavior_criteria(),
         "exportMetric" => boolean(),
-        "metric" => String.t() | Atom.t(),
+        "metric" => String.t() | atom(),
         "metricDimension" => metric_dimension(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "suppressAlerts" => boolean()
       }
 
   """
-  @type behavior() :: %{String.t() | Atom.t() => any()}
+  @type behavior() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6778,7 +6778,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type describe_certificate_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_certificate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6786,22 +6786,22 @@ defmodule AWS.IoT do
 
       list_dimensions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_dimensions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_dimensions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_endpoint_response() :: %{
-        "endpointAddress" => String.t() | Atom.t()
+        "endpointAddress" => String.t() | atom()
       }
 
   """
-  @type describe_endpoint_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6817,26 +6817,26 @@ defmodule AWS.IoT do
   ## Example:
 
       server_certificate_summary() :: %{
-        "serverCertificateArn" => String.t() | Atom.t(),
+        "serverCertificateArn" => String.t() | atom(),
         "serverCertificateStatus" => list(any()),
-        "serverCertificateStatusDetail" => String.t() | Atom.t()
+        "serverCertificateStatusDetail" => String.t() | atom()
       }
 
   """
-  @type server_certificate_summary() :: %{String.t() | Atom.t() => any()}
+  @type server_certificate_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       code_signing() :: %{
-        "awsSignerJobId" => String.t() | Atom.t(),
+        "awsSignerJobId" => String.t() | atom(),
         "customCodeSigning" => custom_code_signing(),
         "startSigningJobParameter" => start_signing_job_parameter()
       }
 
   """
-  @type code_signing() :: %{String.t() | Atom.t() => any()}
+  @type code_signing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6844,24 +6844,24 @@ defmodule AWS.IoT do
 
       list_thing_registration_task_reports_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("reportType") => list(any())
       }
 
   """
-  @type list_thing_registration_task_reports_request() :: %{String.t() | Atom.t() => any()}
+  @type list_thing_registration_task_reports_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       authorizer_summary() :: %{
-        "authorizerArn" => String.t() | Atom.t(),
-        "authorizerName" => String.t() | Atom.t()
+        "authorizerArn" => String.t() | atom(),
+        "authorizerName" => String.t() | atom()
       }
 
   """
-  @type authorizer_summary() :: %{String.t() | Atom.t() => any()}
+  @type authorizer_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6878,54 +6878,54 @@ defmodule AWS.IoT do
 
       authorizer_config() :: %{
         "allowAuthorizerOverride" => boolean(),
-        "defaultAuthorizerName" => String.t() | Atom.t()
+        "defaultAuthorizerName" => String.t() | atom()
       }
 
   """
-  @type authorizer_config() :: %{String.t() | Atom.t() => any()}
+  @type authorizer_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_dimension_response() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationDate" => non_neg_integer(),
         "lastModifiedDate" => non_neg_integer(),
-        "name" => String.t() | Atom.t(),
-        "stringValues" => list(String.t() | Atom.t()),
+        "name" => String.t() | atom(),
+        "stringValues" => list(String.t() | atom()),
         "type" => list(any())
       }
 
   """
-  @type update_dimension_response() :: %{String.t() | Atom.t() => any()}
+  @type update_dimension_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_audit_mitigation_actions_tasks_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "tasks" => list(audit_mitigation_actions_task_metadata())
       }
 
   """
-  @type list_audit_mitigation_actions_tasks_response() :: %{String.t() | Atom.t() => any()}
+  @type list_audit_mitigation_actions_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       open_search_action() :: %{
-        "endpoint" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "index" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t()
+        "endpoint" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "index" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type open_search_action() :: %{String.t() | Atom.t() => any()}
+  @type open_search_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6936,18 +6936,18 @@ defmodule AWS.IoT do
       }
 
   """
-  @type machine_learning_detection_config() :: %{String.t() | Atom.t() => any()}
+  @type machine_learning_detection_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflicting_resource_update_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflicting_resource_update_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflicting_resource_update_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6955,25 +6955,25 @@ defmodule AWS.IoT do
 
       update_thing_groups_for_thing_request() :: %{
         optional("overrideDynamicGroups") => boolean(),
-        optional("thingGroupsToAdd") => list(String.t() | Atom.t()),
-        optional("thingGroupsToRemove") => list(String.t() | Atom.t()),
-        optional("thingName") => String.t() | Atom.t()
+        optional("thingGroupsToAdd") => list(String.t() | atom()),
+        optional("thingGroupsToRemove") => list(String.t() | atom()),
+        optional("thingName") => String.t() | atom()
       }
 
   """
-  @type update_thing_groups_for_thing_request() :: %{String.t() | Atom.t() => any()}
+  @type update_thing_groups_for_thing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_thing_groups_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "thingGroups" => list(group_name_and_arn())
       }
 
   """
-  @type list_thing_groups_response() :: %{String.t() | Atom.t() => any()}
+  @type list_thing_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6981,12 +6981,12 @@ defmodule AWS.IoT do
 
       create_provisioning_template_response() :: %{
         "defaultVersionId" => integer(),
-        "templateArn" => String.t() | Atom.t(),
-        "templateName" => String.t() | Atom.t()
+        "templateArn" => String.t() | atom(),
+        "templateName" => String.t() | atom()
       }
 
   """
-  @type create_provisioning_template_response() :: %{String.t() | Atom.t() => any()}
+  @type create_provisioning_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7003,19 +7003,19 @@ defmodule AWS.IoT do
       }
 
   """
-  @type behavior_criteria() :: %{String.t() | Atom.t() => any()}
+  @type behavior_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_principal_policies_response() :: %{
-        "nextMarker" => String.t() | Atom.t(),
+        "nextMarker" => String.t() | atom(),
         "policies" => list(policy())
       }
 
   """
-  @type list_principal_policies_response() :: %{String.t() | Atom.t() => any()}
+  @type list_principal_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7023,32 +7023,32 @@ defmodule AWS.IoT do
 
       list_detect_mitigation_actions_tasks_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("endTime") => non_neg_integer(),
         required("startTime") => non_neg_integer()
       }
 
   """
-  @type list_detect_mitigation_actions_tasks_request() :: %{String.t() | Atom.t() => any()}
+  @type list_detect_mitigation_actions_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_fleet_metric_request() :: %{
-        optional("aggregationField") => String.t() | Atom.t(),
+        optional("aggregationField") => String.t() | atom(),
         optional("aggregationType") => aggregation_type(),
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("expectedVersion") => float(),
         optional("period") => integer(),
-        optional("queryString") => String.t() | Atom.t(),
-        optional("queryVersion") => String.t() | Atom.t(),
+        optional("queryString") => String.t() | atom(),
+        optional("queryVersion") => String.t() | atom(),
         optional("unit") => list(any()),
-        required("indexName") => String.t() | Atom.t()
+        required("indexName") => String.t() | atom()
       }
 
   """
-  @type update_fleet_metric_request() :: %{String.t() | Atom.t() => any()}
+  @type update_fleet_metric_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7059,29 +7059,29 @@ defmodule AWS.IoT do
       }
 
   """
-  @type delete_thing_group_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_thing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_detect_mitigation_actions_task_response() :: %{
-        "taskId" => String.t() | Atom.t()
+        "taskId" => String.t() | atom()
       }
 
   """
-  @type start_detect_mitigation_actions_task_response() :: %{String.t() | Atom.t() => any()}
+  @type start_detect_mitigation_actions_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       registration_code_validation_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type registration_code_validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type registration_code_validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7097,19 +7097,19 @@ defmodule AWS.IoT do
       }
 
   """
-  @type mitigation_action_params() :: %{String.t() | Atom.t() => any()}
+  @type mitigation_action_params() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_dimensions_response() :: %{
-        "dimensionNames" => list(String.t() | Atom.t()),
-        "nextToken" => String.t() | Atom.t()
+        "dimensionNames" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_dimensions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_dimensions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7126,11 +7126,11 @@ defmodule AWS.IoT do
 
       delete_job_request() :: %{
         optional("force") => boolean(),
-        optional("namespaceId") => String.t() | Atom.t()
+        optional("namespaceId") => String.t() | atom()
       }
 
   """
-  @type delete_job_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7138,13 +7138,13 @@ defmodule AWS.IoT do
 
       sbom_validation_result_summary() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => String.t() | Atom.t(),
-        "fileName" => String.t() | Atom.t(),
+        "errorMessage" => String.t() | atom(),
+        "fileName" => String.t() | atom(),
         "validationResult" => list(any())
       }
 
   """
-  @type sbom_validation_result_summary() :: %{String.t() | Atom.t() => any()}
+  @type sbom_validation_result_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7162,7 +7162,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type statistics() :: %{String.t() | Atom.t() => any()}
+  @type statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7179,34 +7179,34 @@ defmodule AWS.IoT do
       }
 
   """
-  @type describe_audit_mitigation_actions_task_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_audit_mitigation_actions_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       detach_principal_policy_request() :: %{
-        required("principal") => String.t() | Atom.t()
+        required("principal") => String.t() | atom()
       }
 
   """
-  @type detach_principal_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type detach_principal_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       behavior_model_training_summary() :: %{
-        "behaviorName" => String.t() | Atom.t(),
+        "behaviorName" => String.t() | atom(),
         "datapointsCollectionPercentage" => float(),
         "lastModelRefreshDate" => non_neg_integer(),
         "modelStatus" => list(any()),
-        "securityProfileName" => String.t() | Atom.t(),
+        "securityProfileName" => String.t() | atom(),
         "trainingDataCollectionStartDate" => non_neg_integer()
       }
 
   """
-  @type behavior_model_training_summary() :: %{String.t() | Atom.t() => any()}
+  @type behavior_model_training_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7216,30 +7216,30 @@ defmodule AWS.IoT do
         "creationDate" => non_neg_integer(),
         "credentialDurationSeconds" => integer(),
         "lastModifiedDate" => non_neg_integer(),
-        "owner" => String.t() | Atom.t(),
-        "roleAlias" => String.t() | Atom.t(),
-        "roleAliasArn" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "owner" => String.t() | atom(),
+        "roleAlias" => String.t() | atom(),
+        "roleAliasArn" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type role_alias_description() :: %{String.t() | Atom.t() => any()}
+  @type role_alias_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metric_value() :: %{
-        "cidrs" => list(String.t() | Atom.t()),
+        "cidrs" => list(String.t() | atom()),
         "count" => float(),
         "number" => float(),
         "numbers" => list(float()),
         "ports" => list(integer()),
-        "strings" => list(String.t() | Atom.t())
+        "strings" => list(String.t() | atom())
       }
 
   """
-  @type metric_value() :: %{String.t() | Atom.t() => any()}
+  @type metric_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7247,36 +7247,36 @@ defmodule AWS.IoT do
 
       http_action() :: %{
         "auth" => http_authorization(),
-        "confirmationUrl" => String.t() | Atom.t(),
+        "confirmationUrl" => String.t() | atom(),
         "headers" => list(http_action_header()),
-        "url" => String.t() | Atom.t()
+        "url" => String.t() | atom()
       }
 
   """
-  @type http_action() :: %{String.t() | Atom.t() => any()}
+  @type http_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_fleet_metric_response() :: %{
-        "aggregationField" => String.t() | Atom.t(),
+        "aggregationField" => String.t() | atom(),
         "aggregationType" => aggregation_type(),
         "creationDate" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "indexName" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "indexName" => String.t() | atom(),
         "lastModifiedDate" => non_neg_integer(),
-        "metricArn" => String.t() | Atom.t(),
-        "metricName" => String.t() | Atom.t(),
+        "metricArn" => String.t() | atom(),
+        "metricName" => String.t() | atom(),
         "period" => integer(),
-        "queryString" => String.t() | Atom.t(),
-        "queryVersion" => String.t() | Atom.t(),
+        "queryString" => String.t() | atom(),
+        "queryVersion" => String.t() | atom(),
         "unit" => list(any()),
         "version" => float()
       }
 
   """
-  @type describe_fleet_metric_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_fleet_metric_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7288,7 +7288,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type validate_security_profile_behaviors_response() :: %{String.t() | Atom.t() => any()}
+  @type validate_security_profile_behaviors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7296,12 +7296,12 @@ defmodule AWS.IoT do
 
       start_signing_job_parameter() :: %{
         "destination" => destination(),
-        "signingProfileName" => String.t() | Atom.t(),
+        "signingProfileName" => String.t() | atom(),
         "signingProfileParameter" => signing_profile_parameter()
       }
 
   """
-  @type start_signing_job_parameter() :: %{String.t() | Atom.t() => any()}
+  @type start_signing_job_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7310,11 +7310,11 @@ defmodule AWS.IoT do
       set_v2_logging_options_request() :: %{
         optional("defaultLogLevel") => list(any()),
         optional("disableAllLogs") => boolean(),
-        optional("roleArn") => String.t() | Atom.t()
+        optional("roleArn") => String.t() | atom()
       }
 
   """
-  @type set_v2_logging_options_request() :: %{String.t() | Atom.t() => any()}
+  @type set_v2_logging_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7326,7 +7326,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type set_v2_logging_level_request() :: %{String.t() | Atom.t() => any()}
+  @type set_v2_logging_level_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7351,11 +7351,11 @@ defmodule AWS.IoT do
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7364,38 +7364,38 @@ defmodule AWS.IoT do
       list_detect_mitigation_actions_executions_request() :: %{
         optional("endTime") => non_neg_integer(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("startTime") => non_neg_integer(),
-        optional("taskId") => String.t() | Atom.t(),
-        optional("thingName") => String.t() | Atom.t(),
-        optional("violationId") => String.t() | Atom.t()
+        optional("taskId") => String.t() | atom(),
+        optional("thingName") => String.t() | atom(),
+        optional("violationId") => String.t() | atom()
       }
 
   """
-  @type list_detect_mitigation_actions_executions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_detect_mitigation_actions_executions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
-        required("resourceArn") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       certificate_validation_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type certificate_validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type certificate_validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7411,12 +7411,12 @@ defmodule AWS.IoT do
   ## Example:
 
       list_thing_principals_v2_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "thingPrincipalObjects" => list(thing_principal_object())
       }
 
   """
-  @type list_thing_principals_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type list_thing_principals_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7424,11 +7424,11 @@ defmodule AWS.IoT do
 
       list_audit_mitigation_actions_executions_response() :: %{
         "actionsExecutions" => list(audit_mitigation_action_execution_metadata()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_audit_mitigation_actions_executions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_audit_mitigation_actions_executions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7436,34 +7436,34 @@ defmodule AWS.IoT do
 
       job() :: %{
         "abortConfig" => abort_config(),
-        "comment" => String.t() | Atom.t(),
+        "comment" => String.t() | atom(),
         "completedAt" => non_neg_integer(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "destinationPackageVersions" => list(String.t() | Atom.t()),
+        "description" => String.t() | atom(),
+        "destinationPackageVersions" => list(String.t() | atom()),
         "documentParameters" => map(),
         "forceCanceled" => boolean(),
         "isConcurrent" => boolean(),
-        "jobArn" => String.t() | Atom.t(),
+        "jobArn" => String.t() | atom(),
         "jobExecutionsRetryConfig" => job_executions_retry_config(),
         "jobExecutionsRolloutConfig" => job_executions_rollout_config(),
-        "jobId" => String.t() | Atom.t(),
+        "jobId" => String.t() | atom(),
         "jobProcessDetails" => job_process_details(),
-        "jobTemplateArn" => String.t() | Atom.t(),
+        "jobTemplateArn" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
-        "namespaceId" => String.t() | Atom.t(),
+        "namespaceId" => String.t() | atom(),
         "presignedUrlConfig" => presigned_url_config(),
-        "reasonCode" => String.t() | Atom.t(),
+        "reasonCode" => String.t() | atom(),
         "scheduledJobRollouts" => list(scheduled_job_rollout()),
         "schedulingConfig" => scheduling_config(),
         "status" => list(any()),
         "targetSelection" => list(any()),
-        "targets" => list(String.t() | Atom.t()),
+        "targets" => list(String.t() | atom()),
         "timeoutConfig" => timeout_config()
       }
 
   """
-  @type job() :: %{String.t() | Atom.t() => any()}
+  @type job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7480,12 +7480,12 @@ defmodule AWS.IoT do
 
       list_package_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("status") => list(any())
       }
 
   """
-  @type list_package_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_package_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7496,7 +7496,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type destination() :: %{String.t() | Atom.t() => any()}
+  @type destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7508,20 +7508,20 @@ defmodule AWS.IoT do
       }
 
   """
-  @type stream_file() :: %{String.t() | Atom.t() => any()}
+  @type stream_file() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       mqtt_context() :: %{
-        "clientId" => String.t() | Atom.t(),
+        "clientId" => String.t() | atom(),
         "password" => binary(),
-        "username" => String.t() | Atom.t()
+        "username" => String.t() | atom()
       }
 
   """
-  @type mqtt_context() :: %{String.t() | Atom.t() => any()}
+  @type mqtt_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7538,60 +7538,60 @@ defmodule AWS.IoT do
 
       job_execution_summary_for_thing() :: %{
         "jobExecutionSummary" => job_execution_summary(),
-        "jobId" => String.t() | Atom.t()
+        "jobId" => String.t() | atom()
       }
 
   """
-  @type job_execution_summary_for_thing() :: %{String.t() | Atom.t() => any()}
+  @type job_execution_summary_for_thing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_thing_principals_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
-        "principals" => list(String.t() | Atom.t())
+        "nextToken" => String.t() | atom(),
+        "principals" => list(String.t() | atom())
       }
 
   """
-  @type list_thing_principals_response() :: %{String.t() | Atom.t() => any()}
+  @type list_thing_principals_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       audit_task_metadata() :: %{
-        "taskId" => String.t() | Atom.t(),
+        "taskId" => String.t() | atom(),
         "taskStatus" => list(any()),
         "taskType" => list(any())
       }
 
   """
-  @type audit_task_metadata() :: %{String.t() | Atom.t() => any()}
+  @type audit_task_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_authorizer_response() :: %{
-        "authorizerArn" => String.t() | Atom.t(),
-        "authorizerName" => String.t() | Atom.t()
+        "authorizerArn" => String.t() | atom(),
+        "authorizerName" => String.t() | atom()
       }
 
   """
-  @type update_authorizer_response() :: %{String.t() | Atom.t() => any()}
+  @type update_authorizer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       certificate_provider_summary() :: %{
-        "certificateProviderArn" => String.t() | Atom.t(),
-        "certificateProviderName" => String.t() | Atom.t()
+        "certificateProviderArn" => String.t() | atom(),
+        "certificateProviderName" => String.t() | atom()
       }
 
   """
-  @type certificate_provider_summary() :: %{String.t() | Atom.t() => any()}
+  @type certificate_provider_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7599,11 +7599,11 @@ defmodule AWS.IoT do
 
       list_scheduled_audits_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_scheduled_audits_request() :: %{String.t() | Atom.t() => any()}
+  @type list_scheduled_audits_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7619,22 +7619,22 @@ defmodule AWS.IoT do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sql_parse_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type sql_parse_exception() :: %{String.t() | Atom.t() => any()}
+  @type sql_parse_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7642,7 +7642,7 @@ defmodule AWS.IoT do
 
       describe_audit_task_response() :: %{
         "auditDetails" => map(),
-        "scheduledAuditName" => String.t() | Atom.t(),
+        "scheduledAuditName" => String.t() | atom(),
         "taskStartTime" => non_neg_integer(),
         "taskStatistics" => task_statistics(),
         "taskStatus" => list(any()),
@@ -7650,19 +7650,19 @@ defmodule AWS.IoT do
       }
 
   """
-  @type describe_audit_task_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_audit_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kafka_action_header() :: %{
-        "key" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type kafka_action_header() :: %{String.t() | Atom.t() => any()}
+  @type kafka_action_header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7670,12 +7670,12 @@ defmodule AWS.IoT do
 
       get_behavior_model_training_summaries_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("securityProfileName") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("securityProfileName") => String.t() | atom()
       }
 
   """
-  @type get_behavior_model_training_summaries_request() :: %{String.t() | Atom.t() => any()}
+  @type get_behavior_model_training_summaries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7700,12 +7700,12 @@ defmodule AWS.IoT do
   ## Example:
 
       list_targets_for_policy_request() :: %{
-        optional("marker") => String.t() | Atom.t(),
+        optional("marker") => String.t() | atom(),
         optional("pageSize") => integer()
       }
 
   """
-  @type list_targets_for_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type list_targets_for_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7713,64 +7713,64 @@ defmodule AWS.IoT do
 
       ota_update_info() :: %{
         "additionalParameters" => map(),
-        "awsIotJobArn" => String.t() | Atom.t(),
-        "awsIotJobId" => String.t() | Atom.t(),
+        "awsIotJobArn" => String.t() | atom(),
+        "awsIotJobId" => String.t() | atom(),
         "awsJobExecutionsRolloutConfig" => aws_job_executions_rollout_config(),
         "awsJobPresignedUrlConfig" => aws_job_presigned_url_config(),
         "creationDate" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "errorInfo" => error_info(),
         "lastModifiedDate" => non_neg_integer(),
-        "otaUpdateArn" => String.t() | Atom.t(),
+        "otaUpdateArn" => String.t() | atom(),
         "otaUpdateFiles" => list(ota_update_file()),
-        "otaUpdateId" => String.t() | Atom.t(),
+        "otaUpdateId" => String.t() | atom(),
         "otaUpdateStatus" => list(any()),
         "protocols" => list(list(any())()),
         "targetSelection" => list(any()),
-        "targets" => list(String.t() | Atom.t())
+        "targets" => list(String.t() | atom())
       }
 
   """
-  @type ota_update_info() :: %{String.t() | Atom.t() => any()}
+  @type ota_update_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_behavior_model_training_summaries_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "summaries" => list(behavior_model_training_summary())
       }
 
   """
-  @type get_behavior_model_training_summaries_response() :: %{String.t() | Atom.t() => any()}
+  @type get_behavior_model_training_summaries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_sbom_with_package_version_response() :: %{
-        "packageName" => String.t() | Atom.t(),
+        "packageName" => String.t() | atom(),
         "sbom" => sbom(),
         "sbomValidationStatus" => list(any()),
-        "versionName" => String.t() | Atom.t()
+        "versionName" => String.t() | atom()
       }
 
   """
-  @type associate_sbom_with_package_version_response() :: %{String.t() | Atom.t() => any()}
+  @type associate_sbom_with_package_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_package_response() :: %{
-        "description" => String.t() | Atom.t(),
-        "packageArn" => String.t() | Atom.t(),
-        "packageName" => String.t() | Atom.t()
+        "description" => String.t() | atom(),
+        "packageArn" => String.t() | atom(),
+        "packageName" => String.t() | atom()
       }
 
   """
-  @type create_package_response() :: %{String.t() | Atom.t() => any()}
+  @type create_package_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7782,7 +7782,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type audit_check_configuration() :: %{String.t() | Atom.t() => any()}
+  @type audit_check_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7799,13 +7799,13 @@ defmodule AWS.IoT do
 
       scheduling_config() :: %{
         "endBehavior" => list(any()),
-        "endTime" => String.t() | Atom.t(),
+        "endTime" => String.t() | atom(),
         "maintenanceWindows" => list(maintenance_window()),
-        "startTime" => String.t() | Atom.t()
+        "startTime" => String.t() | atom()
       }
 
   """
-  @type scheduling_config() :: %{String.t() | Atom.t() => any()}
+  @type scheduling_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7813,16 +7813,16 @@ defmodule AWS.IoT do
 
       provisioning_template_summary() :: %{
         "creationDate" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "enabled" => boolean(),
         "lastModifiedDate" => non_neg_integer(),
-        "templateArn" => String.t() | Atom.t(),
-        "templateName" => String.t() | Atom.t(),
+        "templateArn" => String.t() | atom(),
+        "templateName" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type provisioning_template_summary() :: %{String.t() | Atom.t() => any()}
+  @type provisioning_template_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7830,12 +7830,12 @@ defmodule AWS.IoT do
 
       list_sbom_validation_results_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("validationResult") => list(any())
       }
 
   """
-  @type list_sbom_validation_results_request() :: %{String.t() | Atom.t() => any()}
+  @type list_sbom_validation_results_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7848,59 +7848,59 @@ defmodule AWS.IoT do
       }
 
   """
-  @type describe_event_configurations_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_event_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_provisioning_template_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("enabled") => boolean(),
         optional("preProvisioningHook") => provisioning_hook(),
         optional("tags") => list(tag()),
         optional("type") => list(any()),
-        required("provisioningRoleArn") => String.t() | Atom.t(),
-        required("templateBody") => String.t() | Atom.t(),
-        required("templateName") => String.t() | Atom.t()
+        required("provisioningRoleArn") => String.t() | atom(),
+        required("templateBody") => String.t() | atom(),
+        required("templateName") => String.t() | atom()
       }
 
   """
-  @type create_provisioning_template_request() :: %{String.t() | Atom.t() => any()}
+  @type create_provisioning_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stream_summary() :: %{
-        "description" => String.t() | Atom.t(),
-        "streamArn" => String.t() | Atom.t(),
-        "streamId" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "streamArn" => String.t() | atom(),
+        "streamId" => String.t() | atom(),
         "streamVersion" => integer()
       }
 
   """
-  @type stream_summary() :: %{String.t() | Atom.t() => any()}
+  @type stream_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_thing_group_response() :: %{
-        "indexName" => String.t() | Atom.t(),
-        "queryString" => String.t() | Atom.t(),
-        "queryVersion" => String.t() | Atom.t(),
+        "indexName" => String.t() | atom(),
+        "queryString" => String.t() | atom(),
+        "queryVersion" => String.t() | atom(),
         "status" => list(any()),
-        "thingGroupArn" => String.t() | Atom.t(),
-        "thingGroupId" => String.t() | Atom.t(),
+        "thingGroupArn" => String.t() | atom(),
+        "thingGroupId" => String.t() | atom(),
         "thingGroupMetadata" => thing_group_metadata(),
-        "thingGroupName" => String.t() | Atom.t(),
+        "thingGroupName" => String.t() | atom(),
         "thingGroupProperties" => thing_group_properties(),
         "version" => float()
       }
 
   """
-  @type describe_thing_group_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_thing_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7920,7 +7920,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type validate_security_profile_behaviors_request() :: %{String.t() | Atom.t() => any()}
+  @type validate_security_profile_behaviors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7937,13 +7937,13 @@ defmodule AWS.IoT do
 
       list_authorizers_request() :: %{
         optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | Atom.t(),
+        optional("marker") => String.t() | atom(),
         optional("pageSize") => integer(),
         optional("status") => list(any())
       }
 
   """
-  @type list_authorizers_request() :: %{String.t() | Atom.t() => any()}
+  @type list_authorizers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7959,62 +7959,62 @@ defmodule AWS.IoT do
   ## Example:
 
       register_thing_response() :: %{
-        "certificatePem" => String.t() | Atom.t(),
+        "certificatePem" => String.t() | atom(),
         "resourceArns" => map()
       }
 
   """
-  @type register_thing_response() :: %{String.t() | Atom.t() => any()}
+  @type register_thing_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_role_aliases_response() :: %{
-        "nextMarker" => String.t() | Atom.t(),
-        "roleAliases" => list(String.t() | Atom.t())
+        "nextMarker" => String.t() | atom(),
+        "roleAliases" => list(String.t() | atom())
       }
 
   """
-  @type list_role_aliases_response() :: %{String.t() | Atom.t() => any()}
+  @type list_role_aliases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_thing_from_thing_group_request() :: %{
-        optional("thingArn") => String.t() | Atom.t(),
-        optional("thingGroupArn") => String.t() | Atom.t(),
-        optional("thingGroupName") => String.t() | Atom.t(),
-        optional("thingName") => String.t() | Atom.t()
+        optional("thingArn") => String.t() | atom(),
+        optional("thingGroupArn") => String.t() | atom(),
+        optional("thingGroupName") => String.t() | atom(),
+        optional("thingName") => String.t() | atom()
       }
 
   """
-  @type remove_thing_from_thing_group_request() :: %{String.t() | Atom.t() => any()}
+  @type remove_thing_from_thing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_audit_suppressions_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "suppressions" => list(audit_suppression())
       }
 
   """
-  @type list_audit_suppressions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_audit_suppressions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_fleet_metric_response() :: %{
-        "metricArn" => String.t() | Atom.t(),
-        "metricName" => String.t() | Atom.t()
+        "metricArn" => String.t() | atom(),
+        "metricName" => String.t() | atom()
       }
 
   """
-  @type create_fleet_metric_response() :: %{String.t() | Atom.t() => any()}
+  @type create_fleet_metric_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8027,7 +8027,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type related_resource() :: %{String.t() | Atom.t() => any()}
+  @type related_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8043,12 +8043,12 @@ defmodule AWS.IoT do
   ## Example:
 
       fleet_metric_name_and_arn() :: %{
-        "metricArn" => String.t() | Atom.t(),
-        "metricName" => String.t() | Atom.t()
+        "metricArn" => String.t() | atom(),
+        "metricName" => String.t() | atom()
       }
 
   """
-  @type fleet_metric_name_and_arn() :: %{String.t() | Atom.t() => any()}
+  @type fleet_metric_name_and_arn() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8068,7 +8068,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type implicit_deny() :: %{String.t() | Atom.t() => any()}
+  @type implicit_deny() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8084,36 +8084,36 @@ defmodule AWS.IoT do
   ## Example:
 
       vpc_destination_summary() :: %{
-        "roleArn" => String.t() | Atom.t(),
-        "securityGroups" => list(String.t() | Atom.t()),
-        "subnetIds" => list(String.t() | Atom.t()),
-        "vpcId" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom(),
+        "securityGroups" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
       }
 
   """
-  @type vpc_destination_summary() :: %{String.t() | Atom.t() => any()}
+  @type vpc_destination_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_registration_failure_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_registration_failure_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_registration_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8124,7 +8124,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type accept_certificate_transfer_request() :: %{String.t() | Atom.t() => any()}
+  @type accept_certificate_transfer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8132,11 +8132,11 @@ defmodule AWS.IoT do
 
       iot_site_wise_action() :: %{
         "putAssetPropertyValueEntries" => list(put_asset_property_value_entry()),
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type iot_site_wise_action() :: %{String.t() | Atom.t() => any()}
+  @type iot_site_wise_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8147,23 +8147,23 @@ defmodule AWS.IoT do
       }
 
   """
-  @type update_thing_group_response() :: %{String.t() | Atom.t() => any()}
+  @type update_thing_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_scheduled_audit_response() :: %{
-        "dayOfMonth" => String.t() | Atom.t(),
+        "dayOfMonth" => String.t() | atom(),
         "dayOfWeek" => list(any()),
         "frequency" => list(any()),
-        "scheduledAuditArn" => String.t() | Atom.t(),
-        "scheduledAuditName" => String.t() | Atom.t(),
-        "targetCheckNames" => list(String.t() | Atom.t())
+        "scheduledAuditArn" => String.t() | atom(),
+        "scheduledAuditName" => String.t() | atom(),
+        "targetCheckNames" => list(String.t() | atom())
       }
 
   """
-  @type describe_scheduled_audit_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_scheduled_audit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8180,11 +8180,11 @@ defmodule AWS.IoT do
 
       list_billing_groups_response() :: %{
         "billingGroups" => list(group_name_and_arn()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_billing_groups_response() :: %{String.t() | Atom.t() => any()}
+  @type list_billing_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8195,7 +8195,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type create_topic_rule_destination_request() :: %{String.t() | Atom.t() => any()}
+  @type create_topic_rule_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8205,17 +8205,17 @@ defmodule AWS.IoT do
         "behavior" => behavior(),
         "lastViolationTime" => non_neg_integer(),
         "lastViolationValue" => metric_value(),
-        "securityProfileName" => String.t() | Atom.t(),
-        "thingName" => String.t() | Atom.t(),
+        "securityProfileName" => String.t() | atom(),
+        "thingName" => String.t() | atom(),
         "verificationState" => list(any()),
-        "verificationStateDescription" => String.t() | Atom.t(),
+        "verificationStateDescription" => String.t() | atom(),
         "violationEventAdditionalInfo" => violation_event_additional_info(),
-        "violationId" => String.t() | Atom.t(),
+        "violationId" => String.t() | atom(),
         "violationStartTime" => non_neg_integer()
       }
 
   """
-  @type active_violation() :: %{String.t() | Atom.t() => any()}
+  @type active_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8228,23 +8228,23 @@ defmodule AWS.IoT do
       }
 
   """
-  @type detect_mitigation_actions_task_statistics() :: %{String.t() | Atom.t() => any()}
+  @type detect_mitigation_actions_task_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_things_request() :: %{
-        optional("attributeName") => String.t() | Atom.t(),
-        optional("attributeValue") => String.t() | Atom.t(),
+        optional("attributeName") => String.t() | atom(),
+        optional("attributeValue") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("thingTypeName") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
+        optional("thingTypeName") => String.t() | atom(),
         optional("usePrefixAttributeValue") => boolean()
       }
 
   """
-  @type list_things_request() :: %{String.t() | Atom.t() => any()}
+  @type list_things_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8252,11 +8252,11 @@ defmodule AWS.IoT do
 
       list_command_executions_response() :: %{
         "commandExecutions" => list(command_execution_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_command_executions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_command_executions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8274,47 +8274,47 @@ defmodule AWS.IoT do
       test_invoke_authorizer_response() :: %{
         "disconnectAfterInSeconds" => integer(),
         "isAuthenticated" => boolean(),
-        "policyDocuments" => list(String.t() | Atom.t()),
-        "principalId" => String.t() | Atom.t(),
+        "policyDocuments" => list(String.t() | atom()),
+        "principalId" => String.t() | atom(),
         "refreshAfterInSeconds" => integer()
       }
 
   """
-  @type test_invoke_authorizer_response() :: %{String.t() | Atom.t() => any()}
+  @type test_invoke_authorizer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_audit_findings_request() :: %{
-        optional("checkName") => String.t() | Atom.t(),
+        optional("checkName") => String.t() | atom(),
         optional("endTime") => non_neg_integer(),
         optional("listSuppressedFindings") => boolean(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("resourceIdentifier") => resource_identifier(),
         optional("startTime") => non_neg_integer(),
-        optional("taskId") => String.t() | Atom.t()
+        optional("taskId") => String.t() | atom()
       }
 
   """
-  @type list_audit_findings_request() :: %{String.t() | Atom.t() => any()}
+  @type list_audit_findings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       location_action() :: %{
-        "deviceId" => String.t() | Atom.t(),
-        "latitude" => String.t() | Atom.t(),
-        "longitude" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
+        "deviceId" => String.t() | atom(),
+        "latitude" => String.t() | atom(),
+        "longitude" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
         "timestamp" => location_timestamp(),
-        "trackerName" => String.t() | Atom.t()
+        "trackerName" => String.t() | atom()
       }
 
   """
-  @type location_action() :: %{String.t() | Atom.t() => any()}
+  @type location_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8322,12 +8322,12 @@ defmodule AWS.IoT do
 
       list_thing_types_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("thingTypeName") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("thingTypeName") => String.t() | atom()
       }
 
   """
-  @type list_thing_types_request() :: %{String.t() | Atom.t() => any()}
+  @type list_thing_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8349,20 +8349,20 @@ defmodule AWS.IoT do
       }
 
   """
-  @type thing_type_metadata() :: %{String.t() | Atom.t() => any()}
+  @type thing_type_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_effective_policies_request() :: %{
-        optional("cognitoIdentityPoolId") => String.t() | Atom.t(),
-        optional("principal") => String.t() | Atom.t(),
-        optional("thingName") => String.t() | Atom.t()
+        optional("cognitoIdentityPoolId") => String.t() | atom(),
+        optional("principal") => String.t() | atom(),
+        optional("thingName") => String.t() | atom()
       }
 
   """
-  @type get_effective_policies_request() :: %{String.t() | Atom.t() => any()}
+  @type get_effective_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8370,11 +8370,11 @@ defmodule AWS.IoT do
 
       list_topic_rule_destinations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_topic_rule_destinations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_topic_rule_destinations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8385,7 +8385,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type get_topic_rule_destination_response() :: %{String.t() | Atom.t() => any()}
+  @type get_topic_rule_destination_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8394,13 +8394,13 @@ defmodule AWS.IoT do
       package_version_summary() :: %{
         "creationDate" => non_neg_integer(),
         "lastModifiedDate" => non_neg_integer(),
-        "packageName" => String.t() | Atom.t(),
+        "packageName" => String.t() | atom(),
         "status" => list(any()),
-        "versionName" => String.t() | Atom.t()
+        "versionName" => String.t() | atom()
       }
 
   """
-  @type package_version_summary() :: %{String.t() | Atom.t() => any()}
+  @type package_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8411,23 +8411,23 @@ defmodule AWS.IoT do
       }
 
   """
-  @type update_dynamic_thing_group_response() :: %{String.t() | Atom.t() => any()}
+  @type update_dynamic_thing_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_dimension_response() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationDate" => non_neg_integer(),
         "lastModifiedDate" => non_neg_integer(),
-        "name" => String.t() | Atom.t(),
-        "stringValues" => list(String.t() | Atom.t()),
+        "name" => String.t() | atom(),
+        "stringValues" => list(String.t() | atom()),
         "type" => list(any())
       }
 
   """
-  @type describe_dimension_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_dimension_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8435,42 +8435,42 @@ defmodule AWS.IoT do
 
       list_audit_suppressions_request() :: %{
         optional("ascendingOrder") => boolean(),
-        optional("checkName") => String.t() | Atom.t(),
+        optional("checkName") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("resourceIdentifier") => resource_identifier()
       }
 
   """
-  @type list_audit_suppressions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_audit_suppressions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       add_thing_to_billing_group_request() :: %{
-        optional("billingGroupArn") => String.t() | Atom.t(),
-        optional("billingGroupName") => String.t() | Atom.t(),
-        optional("thingArn") => String.t() | Atom.t(),
-        optional("thingName") => String.t() | Atom.t()
+        optional("billingGroupArn") => String.t() | atom(),
+        optional("billingGroupName") => String.t() | atom(),
+        optional("thingArn") => String.t() | atom(),
+        optional("thingName") => String.t() | atom()
       }
 
   """
-  @type add_thing_to_billing_group_request() :: %{String.t() | Atom.t() => any()}
+  @type add_thing_to_billing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_cardinality_request() :: %{
-        optional("aggregationField") => String.t() | Atom.t(),
-        optional("indexName") => String.t() | Atom.t(),
-        optional("queryVersion") => String.t() | Atom.t(),
-        required("queryString") => String.t() | Atom.t()
+        optional("aggregationField") => String.t() | atom(),
+        optional("indexName") => String.t() | atom(),
+        optional("queryVersion") => String.t() | atom(),
+        required("queryString") => String.t() | atom()
       }
 
   """
-  @type get_cardinality_request() :: %{String.t() | Atom.t() => any()}
+  @type get_cardinality_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8478,11 +8478,11 @@ defmodule AWS.IoT do
 
       stream() :: %{
         "fileId" => integer(),
-        "streamId" => String.t() | Atom.t()
+        "streamId" => String.t() | atom()
       }
 
   """
-  @type stream() :: %{String.t() | Atom.t() => any()}
+  @type stream() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8499,11 +8499,11 @@ defmodule AWS.IoT do
 
       list_detect_mitigation_actions_executions_response() :: %{
         "actionsExecutions" => list(detect_mitigation_action_execution()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_detect_mitigation_actions_executions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_detect_mitigation_actions_executions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8511,11 +8511,11 @@ defmodule AWS.IoT do
 
       list_job_templates_response() :: %{
         "jobTemplates" => list(job_template_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_job_templates_response() :: %{String.t() | Atom.t() => any()}
+  @type list_job_templates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8528,25 +8528,25 @@ defmodule AWS.IoT do
       }
 
   """
-  @type non_compliant_resource() :: %{String.t() | Atom.t() => any()}
+  @type non_compliant_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_mitigation_action_response() :: %{
-        "actionArn" => String.t() | Atom.t(),
-        "actionId" => String.t() | Atom.t(),
-        "actionName" => String.t() | Atom.t(),
+        "actionArn" => String.t() | atom(),
+        "actionId" => String.t() | atom(),
+        "actionName" => String.t() | atom(),
         "actionParams" => mitigation_action_params(),
         "actionType" => list(any()),
         "creationDate" => non_neg_integer(),
         "lastModifiedDate" => non_neg_integer(),
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type describe_mitigation_action_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_mitigation_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8554,17 +8554,17 @@ defmodule AWS.IoT do
 
       stream_info() :: %{
         "createdAt" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "files" => list(stream_file()),
         "lastUpdatedAt" => non_neg_integer(),
-        "roleArn" => String.t() | Atom.t(),
-        "streamArn" => String.t() | Atom.t(),
-        "streamId" => String.t() | Atom.t(),
+        "roleArn" => String.t() | atom(),
+        "streamArn" => String.t() | atom(),
+        "streamId" => String.t() | atom(),
         "streamVersion" => integer()
       }
 
   """
-  @type stream_info() :: %{String.t() | Atom.t() => any()}
+  @type stream_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8572,15 +8572,15 @@ defmodule AWS.IoT do
 
       topic_rule_payload() :: %{
         "actions" => list(action()),
-        "awsIotSqlVersion" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "awsIotSqlVersion" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "errorAction" => action(),
         "ruleDisabled" => boolean(),
-        "sql" => String.t() | Atom.t()
+        "sql" => String.t() | atom()
       }
 
   """
-  @type topic_rule_payload() :: %{String.t() | Atom.t() => any()}
+  @type topic_rule_payload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8600,7 +8600,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type explicit_deny() :: %{String.t() | Atom.t() => any()}
+  @type explicit_deny() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8611,19 +8611,19 @@ defmodule AWS.IoT do
       }
 
   """
-  @type delete_dynamic_thing_group_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_dynamic_thing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_v2_logging_level_request() :: %{
-        required("targetName") => String.t() | Atom.t(),
+        required("targetName") => String.t() | atom(),
         required("targetType") => list(any())
       }
 
   """
-  @type delete_v2_logging_level_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_v2_logging_level_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8640,24 +8640,24 @@ defmodule AWS.IoT do
 
       list_mitigation_actions_response() :: %{
         "actionIdentifiers" => list(mitigation_action_identifier()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_mitigation_actions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_mitigation_actions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_already_exists_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceArn" => String.t() | Atom.t(),
-        "resourceId" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "resourceId" => String.t() | atom()
       }
 
   """
-  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8669,18 +8669,18 @@ defmodule AWS.IoT do
       }
 
   """
-  @type certificate_validity() :: %{String.t() | Atom.t() => any()}
+  @type certificate_validity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       scheduled_job_rollout() :: %{
-        "startTime" => String.t() | Atom.t()
+        "startTime" => String.t() | atom()
       }
 
   """
-  @type scheduled_job_rollout() :: %{String.t() | Atom.t() => any()}
+  @type scheduled_job_rollout() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8693,31 +8693,31 @@ defmodule AWS.IoT do
       }
 
   """
-  @type aws_job_exponential_rollout_rate() :: %{String.t() | Atom.t() => any()}
+  @type aws_job_exponential_rollout_rate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_outgoing_certificates_response() :: %{
-        "nextMarker" => String.t() | Atom.t(),
+        "nextMarker" => String.t() | atom(),
         "outgoingCertificates" => list(outgoing_certificate())
       }
 
   """
-  @type list_outgoing_certificates_response() :: %{String.t() | Atom.t() => any()}
+  @type list_outgoing_certificates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_custom_metrics_response() :: %{
-        "metricNames" => list(String.t() | Atom.t()),
-        "nextToken" => String.t() | Atom.t()
+        "metricNames" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_custom_metrics_response() :: %{String.t() | Atom.t() => any()}
+  @type list_custom_metrics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8725,13 +8725,13 @@ defmodule AWS.IoT do
 
       create_dimension_request() :: %{
         optional("tags") => list(tag()),
-        required("clientRequestToken") => String.t() | Atom.t(),
-        required("stringValues") => list(String.t() | Atom.t()),
+        required("clientRequestToken") => String.t() | atom(),
+        required("stringValues") => list(String.t() | atom()),
         required("type") => list(any())
       }
 
   """
-  @type create_dimension_request() :: %{String.t() | Atom.t() => any()}
+  @type create_dimension_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8739,12 +8739,12 @@ defmodule AWS.IoT do
 
       list_certificates_by_ca_request() :: %{
         optional("ascendingOrder") => boolean(),
-        optional("marker") => String.t() | Atom.t(),
+        optional("marker") => String.t() | atom(),
         optional("pageSize") => integer()
       }
 
   """
-  @type list_certificates_by_ca_request() :: %{String.t() | Atom.t() => any()}
+  @type list_certificates_by_ca_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8752,16 +8752,16 @@ defmodule AWS.IoT do
 
       create_package_version_response() :: %{
         "attributes" => map(),
-        "description" => String.t() | Atom.t(),
-        "errorReason" => String.t() | Atom.t(),
-        "packageName" => String.t() | Atom.t(),
-        "packageVersionArn" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "errorReason" => String.t() | atom(),
+        "packageName" => String.t() | atom(),
+        "packageVersionArn" => String.t() | atom(),
         "status" => list(any()),
-        "versionName" => String.t() | Atom.t()
+        "versionName" => String.t() | atom()
       }
 
   """
-  @type create_package_version_response() :: %{String.t() | Atom.t() => any()}
+  @type create_package_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8769,11 +8769,11 @@ defmodule AWS.IoT do
 
       version_update_by_jobs_config() :: %{
         "enabled" => boolean(),
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type version_update_by_jobs_config() :: %{String.t() | Atom.t() => any()}
+  @type version_update_by_jobs_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8789,12 +8789,12 @@ defmodule AWS.IoT do
   ## Example:
 
       create_command_response() :: %{
-        "commandArn" => String.t() | Atom.t(),
-        "commandId" => String.t() | Atom.t()
+        "commandArn" => String.t() | atom(),
+        "commandId" => String.t() | atom()
       }
 
   """
-  @type create_command_response() :: %{String.t() | Atom.t() => any()}
+  @type create_command_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8802,12 +8802,12 @@ defmodule AWS.IoT do
 
       audit_mitigation_actions_task_target() :: %{
         "auditCheckToReasonCodeFilter" => map(),
-        "auditTaskId" => String.t() | Atom.t(),
-        "findingIds" => list(String.t() | Atom.t())
+        "auditTaskId" => String.t() | atom(),
+        "findingIds" => list(String.t() | atom())
       }
 
   """
-  @type audit_mitigation_actions_task_target() :: %{String.t() | Atom.t() => any()}
+  @type audit_mitigation_actions_task_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8818,7 +8818,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type package_version_artifact() :: %{String.t() | Atom.t() => any()}
+  @type package_version_artifact() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8827,59 +8827,59 @@ defmodule AWS.IoT do
       get_v2_logging_options_response() :: %{
         "defaultLogLevel" => list(any()),
         "disableAllLogs" => boolean(),
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type get_v2_logging_options_response() :: %{String.t() | Atom.t() => any()}
+  @type get_v2_logging_options_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       topic_rule_destination() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "httpUrlProperties" => http_url_destination_properties(),
         "lastUpdatedAt" => non_neg_integer(),
         "status" => list(any()),
-        "statusReason" => String.t() | Atom.t(),
+        "statusReason" => String.t() | atom(),
         "vpcProperties" => vpc_destination_properties()
       }
 
   """
-  @type topic_rule_destination() :: %{String.t() | Atom.t() => any()}
+  @type topic_rule_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_destination_configuration() :: %{
-        "roleArn" => String.t() | Atom.t(),
-        "securityGroups" => list(String.t() | Atom.t()),
-        "subnetIds" => list(String.t() | Atom.t()),
-        "vpcId" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom(),
+        "securityGroups" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
       }
 
   """
-  @type vpc_destination_configuration() :: %{String.t() | Atom.t() => any()}
+  @type vpc_destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       command_summary() :: %{
-        "commandArn" => String.t() | Atom.t(),
-        "commandId" => String.t() | Atom.t(),
+        "commandArn" => String.t() | atom(),
+        "commandId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "deprecated" => boolean(),
-        "displayName" => String.t() | Atom.t(),
+        "displayName" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "pendingDeletion" => boolean()
       }
 
   """
-  @type command_summary() :: %{String.t() | Atom.t() => any()}
+  @type command_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8887,57 +8887,57 @@ defmodule AWS.IoT do
 
       audit_notification_target() :: %{
         "enabled" => boolean(),
-        "roleArn" => String.t() | Atom.t(),
-        "targetArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom(),
+        "targetArn" => String.t() | atom()
       }
 
   """
-  @type audit_notification_target() :: %{String.t() | Atom.t() => any()}
+  @type audit_notification_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_security_profiles_request() :: %{
-        optional("dimensionName") => String.t() | Atom.t(),
+        optional("dimensionName") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("metricName") => String.t() | Atom.t(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("metricName") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_security_profiles_request() :: %{String.t() | Atom.t() => any()}
+  @type list_security_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_metric_values_request() :: %{
-        optional("dimensionName") => String.t() | Atom.t(),
+        optional("dimensionName") => String.t() | atom(),
         optional("dimensionValueOperator") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("endTime") => non_neg_integer(),
-        required("metricName") => String.t() | Atom.t(),
+        required("metricName") => String.t() | atom(),
         required("startTime") => non_neg_integer(),
-        required("thingName") => String.t() | Atom.t()
+        required("thingName") => String.t() | atom()
       }
 
   """
-  @type list_metric_values_request() :: %{String.t() | Atom.t() => any()}
+  @type list_metric_values_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_job_response() :: %{
-        "description" => String.t() | Atom.t(),
-        "jobArn" => String.t() | Atom.t(),
-        "jobId" => String.t() | Atom.t()
+        "description" => String.t() | atom(),
+        "jobArn" => String.t() | atom(),
+        "jobId" => String.t() | atom()
       }
 
   """
-  @type cancel_job_response() :: %{String.t() | Atom.t() => any()}
+  @type cancel_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8945,11 +8945,11 @@ defmodule AWS.IoT do
 
       maintenance_window() :: %{
         "durationInMinutes" => integer(),
-        "startTime" => String.t() | Atom.t()
+        "startTime" => String.t() | atom()
       }
 
   """
-  @type maintenance_window() :: %{String.t() | Atom.t() => any()}
+  @type maintenance_window() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8960,17 +8960,17 @@ defmodule AWS.IoT do
         optional("authenticationType") => list(any()),
         optional("authorizerConfig") => authorizer_config(),
         optional("clientCertificateConfig") => client_certificate_config(),
-        optional("domainName") => String.t() | Atom.t(),
-        optional("serverCertificateArns") => list(String.t() | Atom.t()),
+        optional("domainName") => String.t() | atom(),
+        optional("serverCertificateArns") => list(String.t() | atom()),
         optional("serverCertificateConfig") => server_certificate_config(),
         optional("serviceType") => list(any()),
         optional("tags") => list(tag()),
         optional("tlsConfig") => tls_config(),
-        optional("validationCertificateArn") => String.t() | Atom.t()
+        optional("validationCertificateArn") => String.t() | atom()
       }
 
   """
-  @type create_domain_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type create_domain_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8986,21 +8986,21 @@ defmodule AWS.IoT do
   ## Example:
 
       update_security_profile_response() :: %{
-        "additionalMetricsToRetain" => list(String.t() | Atom.t()),
+        "additionalMetricsToRetain" => list(String.t() | atom()),
         "additionalMetricsToRetainV2" => list(metric_to_retain()),
         "alertTargets" => map(),
         "behaviors" => list(behavior()),
         "creationDate" => non_neg_integer(),
         "lastModifiedDate" => non_neg_integer(),
         "metricsExportConfig" => metrics_export_config(),
-        "securityProfileArn" => String.t() | Atom.t(),
-        "securityProfileDescription" => String.t() | Atom.t(),
-        "securityProfileName" => String.t() | Atom.t(),
+        "securityProfileArn" => String.t() | atom(),
+        "securityProfileDescription" => String.t() | atom(),
+        "securityProfileName" => String.t() | atom(),
         "version" => float()
       }
 
   """
-  @type update_security_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type update_security_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9008,11 +9008,11 @@ defmodule AWS.IoT do
 
       list_targets_for_security_profile_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_targets_for_security_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type list_targets_for_security_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9046,7 +9046,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type job_execution_summary() :: %{String.t() | Atom.t() => any()}
+  @type job_execution_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9057,7 +9057,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type update_device_certificate_params() :: %{String.t() | Atom.t() => any()}
+  @type update_device_certificate_params() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9065,11 +9065,11 @@ defmodule AWS.IoT do
 
       list_managed_job_templates_response() :: %{
         "managedJobTemplates" => list(managed_job_template_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_managed_job_templates_response() :: %{String.t() | Atom.t() => any()}
+  @type list_managed_job_templates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9078,11 +9078,11 @@ defmodule AWS.IoT do
       update_account_audit_configuration_request() :: %{
         optional("auditCheckConfigurations") => map(),
         optional("auditNotificationTargetConfigurations") => map(),
-        optional("roleArn") => String.t() | Atom.t()
+        optional("roleArn") => String.t() | atom()
       }
 
   """
-  @type update_account_audit_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_account_audit_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9099,12 +9099,12 @@ defmodule AWS.IoT do
 
       list_principal_things_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("principal") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("principal") => String.t() | atom()
       }
 
   """
-  @type list_principal_things_request() :: %{String.t() | Atom.t() => any()}
+  @type list_principal_things_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9115,44 +9115,44 @@ defmodule AWS.IoT do
       }
 
   """
-  @type get_cardinality_response() :: %{String.t() | Atom.t() => any()}
+  @type get_cardinality_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       detach_thing_principal_request() :: %{
-        required("principal") => String.t() | Atom.t()
+        required("principal") => String.t() | atom()
       }
 
   """
-  @type detach_thing_principal_request() :: %{String.t() | Atom.t() => any()}
+  @type detach_thing_principal_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       audit_suppression() :: %{
-        "checkName" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "checkName" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "expirationDate" => non_neg_integer(),
         "resourceIdentifier" => resource_identifier(),
         "suppressIndefinitely" => boolean()
       }
 
   """
-  @type audit_suppression() :: %{String.t() | Atom.t() => any()}
+  @type audit_suppression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_on_demand_audit_task_request() :: %{
-        required("targetCheckNames") => list(String.t() | Atom.t())
+        required("targetCheckNames") => list(String.t() | atom())
       }
 
   """
-  @type start_on_demand_audit_task_request() :: %{String.t() | Atom.t() => any()}
+  @type start_on_demand_audit_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9179,40 +9179,40 @@ defmodule AWS.IoT do
       transfer_data() :: %{
         "acceptDate" => non_neg_integer(),
         "rejectDate" => non_neg_integer(),
-        "rejectReason" => String.t() | Atom.t(),
+        "rejectReason" => String.t() | atom(),
         "transferDate" => non_neg_integer(),
-        "transferMessage" => String.t() | Atom.t()
+        "transferMessage" => String.t() | atom()
       }
 
   """
-  @type transfer_data() :: %{String.t() | Atom.t() => any()}
+  @type transfer_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_packages_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "packageSummaries" => list(package_summary())
       }
 
   """
-  @type list_packages_response() :: %{String.t() | Atom.t() => any()}
+  @type list_packages_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_index_request() :: %{
-        optional("indexName") => String.t() | Atom.t(),
+        optional("indexName") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("queryVersion") => String.t() | Atom.t(),
-        required("queryString") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("queryVersion") => String.t() | atom(),
+        required("queryString") => String.t() | atom()
       }
 
   """
-  @type search_index_request() :: %{String.t() | Atom.t() => any()}
+  @type search_index_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9224,23 +9224,23 @@ defmodule AWS.IoT do
         "D" => float(),
         "I" => integer(),
         "L" => float(),
-        "S" => String.t() | Atom.t(),
-        "UL" => String.t() | Atom.t()
+        "S" => String.t() | atom(),
+        "UL" => String.t() | atom()
       }
 
   """
-  @type command_parameter_value() :: %{String.t() | Atom.t() => any()}
+  @type command_parameter_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       transfer_certificate_response() :: %{
-        "transferredCertificateArn" => String.t() | Atom.t()
+        "transferredCertificateArn" => String.t() | atom()
       }
 
   """
-  @type transfer_certificate_response() :: %{String.t() | Atom.t() => any()}
+  @type transfer_certificate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9248,38 +9248,38 @@ defmodule AWS.IoT do
 
       get_package_response() :: %{
         "creationDate" => non_neg_integer(),
-        "defaultVersionName" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "defaultVersionName" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "lastModifiedDate" => non_neg_integer(),
-        "packageArn" => String.t() | Atom.t(),
-        "packageName" => String.t() | Atom.t()
+        "packageArn" => String.t() | atom(),
+        "packageName" => String.t() | atom()
       }
 
   """
-  @type get_package_response() :: %{String.t() | Atom.t() => any()}
+  @type get_package_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       transfer_conflict_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type transfer_conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type transfer_conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_targets_for_security_profile_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "securityProfileTargets" => list(security_profile_target())
       }
 
   """
-  @type list_targets_for_security_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type list_targets_for_security_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9290,19 +9290,19 @@ defmodule AWS.IoT do
       }
 
   """
-  @type describe_stream_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_custom_metric_response() :: %{
-        "metricArn" => String.t() | Atom.t(),
-        "metricName" => String.t() | Atom.t()
+        "metricArn" => String.t() | atom(),
+        "metricName" => String.t() | atom()
       }
 
   """
-  @type create_custom_metric_response() :: %{String.t() | Atom.t() => any()}
+  @type create_custom_metric_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9329,15 +9329,15 @@ defmodule AWS.IoT do
       audit_check_details() :: %{
         "checkCompliant" => boolean(),
         "checkRunStatus" => list(any()),
-        "errorCode" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
+        "errorCode" => String.t() | atom(),
+        "message" => String.t() | atom(),
         "nonCompliantResourcesCount" => float(),
         "suppressedNonCompliantResourcesCount" => float(),
         "totalResourcesCount" => float()
       }
 
   """
-  @type audit_check_details() :: %{String.t() | Atom.t() => any()}
+  @type audit_check_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9345,11 +9345,11 @@ defmodule AWS.IoT do
 
       list_certificates_by_ca_response() :: %{
         "certificates" => list(certificate()),
-        "nextMarker" => String.t() | Atom.t()
+        "nextMarker" => String.t() | atom()
       }
 
   """
-  @type list_certificates_by_ca_response() :: %{String.t() | Atom.t() => any()}
+  @type list_certificates_by_ca_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9357,12 +9357,12 @@ defmodule AWS.IoT do
 
       thing_type_properties() :: %{
         "mqtt5Configuration" => mqtt5_configuration(),
-        "searchableAttributes" => list(String.t() | Atom.t()),
-        "thingTypeDescription" => String.t() | Atom.t()
+        "searchableAttributes" => list(String.t() | atom()),
+        "thingTypeDescription" => String.t() | atom()
       }
 
   """
-  @type thing_type_properties() :: %{String.t() | Atom.t() => any()}
+  @type thing_type_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9370,27 +9370,27 @@ defmodule AWS.IoT do
 
       list_job_executions_for_job_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("status") => list(any())
       }
 
   """
-  @type list_job_executions_for_job_request() :: %{String.t() | Atom.t() => any()}
+  @type list_job_executions_for_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_authorizer_request() :: %{
-        optional("authorizerFunctionArn") => String.t() | Atom.t(),
+        optional("authorizerFunctionArn") => String.t() | atom(),
         optional("enableCachingForHttp") => boolean(),
         optional("status") => list(any()),
-        optional("tokenKeyName") => String.t() | Atom.t(),
+        optional("tokenKeyName") => String.t() | atom(),
         optional("tokenSigningPublicKeys") => map()
       }
 
   """
-  @type update_authorizer_request() :: %{String.t() | Atom.t() => any()}
+  @type update_authorizer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9401,11 +9401,11 @@ defmodule AWS.IoT do
         "authDecision" => list(any()),
         "authInfo" => auth_info(),
         "denied" => denied(),
-        "missingContextValues" => list(String.t() | Atom.t())
+        "missingContextValues" => list(String.t() | atom())
       }
 
   """
-  @type auth_result() :: %{String.t() | Atom.t() => any()}
+  @type auth_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9421,12 +9421,12 @@ defmodule AWS.IoT do
   ## Example:
 
       update_domain_configuration_response() :: %{
-        "domainConfigurationArn" => String.t() | Atom.t(),
-        "domainConfigurationName" => String.t() | Atom.t()
+        "domainConfigurationArn" => String.t() | atom(),
+        "domainConfigurationName" => String.t() | atom()
       }
 
   """
-  @type update_domain_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type update_domain_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9434,11 +9434,11 @@ defmodule AWS.IoT do
 
       list_certificates_response() :: %{
         "certificates" => list(certificate()),
-        "nextMarker" => String.t() | Atom.t()
+        "nextMarker" => String.t() | atom()
       }
 
   """
-  @type list_certificates_response() :: %{String.t() | Atom.t() => any()}
+  @type list_certificates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9446,44 +9446,44 @@ defmodule AWS.IoT do
 
       list_principal_things_v2_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("thingPrincipalType") => list(any()),
-        required("principal") => String.t() | Atom.t()
+        required("principal") => String.t() | atom()
       }
 
   """
-  @type list_principal_things_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type list_principal_things_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       test_authorization_request() :: %{
-        optional("clientId") => String.t() | Atom.t(),
-        optional("cognitoIdentityPoolId") => String.t() | Atom.t(),
-        optional("policyNamesToAdd") => list(String.t() | Atom.t()),
-        optional("policyNamesToSkip") => list(String.t() | Atom.t()),
-        optional("principal") => String.t() | Atom.t(),
+        optional("clientId") => String.t() | atom(),
+        optional("cognitoIdentityPoolId") => String.t() | atom(),
+        optional("policyNamesToAdd") => list(String.t() | atom()),
+        optional("policyNamesToSkip") => list(String.t() | atom()),
+        optional("principal") => String.t() | atom(),
         required("authInfos") => list(auth_info())
       }
 
   """
-  @type test_authorization_request() :: %{String.t() | Atom.t() => any()}
+  @type test_authorization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_thing_type_response() :: %{
-        "thingTypeArn" => String.t() | Atom.t(),
-        "thingTypeId" => String.t() | Atom.t(),
+        "thingTypeArn" => String.t() | atom(),
+        "thingTypeId" => String.t() | atom(),
         "thingTypeMetadata" => thing_type_metadata(),
-        "thingTypeName" => String.t() | Atom.t(),
+        "thingTypeName" => String.t() | atom(),
         "thingTypeProperties" => thing_type_properties()
       }
 
   """
-  @type describe_thing_type_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_thing_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9495,7 +9495,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type log_target_configuration() :: %{String.t() | Atom.t() => any()}
+  @type log_target_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9503,11 +9503,11 @@ defmodule AWS.IoT do
 
       aggregation_type() :: %{
         "name" => list(any()),
-        "values" => list(String.t() | Atom.t())
+        "values" => list(String.t() | atom())
       }
 
   """
-  @type aggregation_type() :: %{String.t() | Atom.t() => any()}
+  @type aggregation_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9523,29 +9523,29 @@ defmodule AWS.IoT do
   ## Example:
 
       salesforce_action() :: %{
-        "token" => String.t() | Atom.t(),
-        "url" => String.t() | Atom.t()
+        "token" => String.t() | atom(),
+        "url" => String.t() | atom()
       }
 
   """
-  @type salesforce_action() :: %{String.t() | Atom.t() => any()}
+  @type salesforce_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_managed_job_template_response() :: %{
-        "description" => String.t() | Atom.t(),
-        "document" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "document" => String.t() | atom(),
         "documentParameters" => list(document_parameter()),
-        "environments" => list(String.t() | Atom.t()),
-        "templateArn" => String.t() | Atom.t(),
-        "templateName" => String.t() | Atom.t(),
-        "templateVersion" => String.t() | Atom.t()
+        "environments" => list(String.t() | atom()),
+        "templateArn" => String.t() | atom(),
+        "templateName" => String.t() | atom(),
+        "templateVersion" => String.t() | atom()
       }
 
   """
-  @type describe_managed_job_template_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_managed_job_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9557,7 +9557,7 @@ defmodule AWS.IoT do
       }
 
   """
-  @type create_thing_type_request() :: %{String.t() | Atom.t() => any()}
+  @type create_thing_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9574,14 +9574,14 @@ defmodule AWS.IoT do
 
       add_thing_to_thing_group_request() :: %{
         optional("overrideDynamicGroups") => boolean(),
-        optional("thingArn") => String.t() | Atom.t(),
-        optional("thingGroupArn") => String.t() | Atom.t(),
-        optional("thingGroupName") => String.t() | Atom.t(),
-        optional("thingName") => String.t() | Atom.t()
+        optional("thingArn") => String.t() | atom(),
+        optional("thingGroupArn") => String.t() | atom(),
+        optional("thingGroupName") => String.t() | atom(),
+        optional("thingName") => String.t() | atom()
       }
 
   """
-  @type add_thing_to_thing_group_request() :: %{String.t() | Atom.t() => any()}
+  @type add_thing_to_thing_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9589,78 +9589,78 @@ defmodule AWS.IoT do
 
       job_execution_summary_for_job() :: %{
         "jobExecutionSummary" => job_execution_summary(),
-        "thingArn" => String.t() | Atom.t()
+        "thingArn" => String.t() | atom()
       }
 
   """
-  @type job_execution_summary_for_job() :: %{String.t() | Atom.t() => any()}
+  @type job_execution_summary_for_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_package_versions_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "packageVersionSummaries" => list(package_version_summary())
       }
 
   """
-  @type list_package_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_package_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       outgoing_certificate() :: %{
-        "certificateArn" => String.t() | Atom.t(),
-        "certificateId" => String.t() | Atom.t(),
+        "certificateArn" => String.t() | atom(),
+        "certificateId" => String.t() | atom(),
         "creationDate" => non_neg_integer(),
         "transferDate" => non_neg_integer(),
-        "transferMessage" => String.t() | Atom.t(),
-        "transferredTo" => String.t() | Atom.t()
+        "transferMessage" => String.t() | atom(),
+        "transferredTo" => String.t() | atom()
       }
 
   """
-  @type outgoing_certificate() :: %{String.t() | Atom.t() => any()}
+  @type outgoing_certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sqs_action() :: %{
-        "queueUrl" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
+        "queueUrl" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
         "useBase64" => boolean()
       }
 
   """
-  @type sqs_action() :: %{String.t() | Atom.t() => any()}
+  @type sqs_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_topic_rule_destination_request() :: %{
-        required("arn") => String.t() | Atom.t(),
+        required("arn") => String.t() | atom(),
         required("status") => list(any())
       }
 
   """
-  @type update_topic_rule_destination_request() :: %{String.t() | Atom.t() => any()}
+  @type update_topic_rule_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       thing_type_definition() :: %{
-        "thingTypeArn" => String.t() | Atom.t(),
+        "thingTypeArn" => String.t() | atom(),
         "thingTypeMetadata" => thing_type_metadata(),
-        "thingTypeName" => String.t() | Atom.t(),
+        "thingTypeName" => String.t() | atom(),
         "thingTypeProperties" => thing_type_properties()
       }
 
   """
-  @type thing_type_definition() :: %{String.t() | Atom.t() => any()}
+  @type thing_type_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9677,12 +9677,12 @@ defmodule AWS.IoT do
 
       cloudwatch_logs_action() :: %{
         "batchMode" => boolean(),
-        "logGroupName" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "logGroupName" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type cloudwatch_logs_action() :: %{String.t() | Atom.t() => any()}
+  @type cloudwatch_logs_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9690,13 +9690,13 @@ defmodule AWS.IoT do
 
       job_template_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "jobTemplateArn" => String.t() | Atom.t(),
-        "jobTemplateId" => String.t() | Atom.t()
+        "description" => String.t() | atom(),
+        "jobTemplateArn" => String.t() | atom(),
+        "jobTemplateId" => String.t() | atom()
       }
 
   """
-  @type job_template_summary() :: %{String.t() | Atom.t() => any()}
+  @type job_template_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9704,39 +9704,39 @@ defmodule AWS.IoT do
 
       iot_events_action() :: %{
         "batchMode" => boolean(),
-        "inputName" => String.t() | Atom.t(),
-        "messageId" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "inputName" => String.t() | atom(),
+        "messageId" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type iot_events_action() :: %{String.t() | Atom.t() => any()}
+  @type iot_events_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_destination_properties() :: %{
-        "roleArn" => String.t() | Atom.t(),
-        "securityGroups" => list(String.t() | Atom.t()),
-        "subnetIds" => list(String.t() | Atom.t()),
-        "vpcId" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom(),
+        "securityGroups" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
       }
 
   """
-  @type vpc_destination_properties() :: %{String.t() | Atom.t() => any()}
+  @type vpc_destination_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_role_alias_response() :: %{
-        "roleAlias" => String.t() | Atom.t(),
-        "roleAliasArn" => String.t() | Atom.t()
+        "roleAlias" => String.t() | atom(),
+        "roleAliasArn" => String.t() | atom()
       }
 
   """
-  @type create_role_alias_response() :: %{String.t() | Atom.t() => any()}
+  @type create_role_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11628,7 +11628,7 @@ defmodule AWS.IoT do
   """
   @spec accept_certificate_transfer(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           accept_certificate_transfer_request(),
           list()
         ) ::
@@ -11738,8 +11738,8 @@ defmodule AWS.IoT do
   """
   @spec associate_sbom_with_package_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           associate_sbom_with_package_version_request(),
           list()
         ) ::
@@ -11803,7 +11803,7 @@ defmodule AWS.IoT do
   """
   @spec associate_targets_with_job(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           associate_targets_with_job_request(),
           list()
         ) ::
@@ -11845,7 +11845,7 @@ defmodule AWS.IoT do
   [AttachPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec attach_policy(map(), String.t() | Atom.t(), attach_policy_request(), list()) ::
+  @spec attach_policy(map(), String.t() | atom(), attach_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11885,7 +11885,7 @@ defmodule AWS.IoT do
   """
   @spec attach_principal_policy(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           attach_principal_policy_request(),
           list()
         ) ::
@@ -11933,7 +11933,7 @@ defmodule AWS.IoT do
   """
   @spec attach_security_profile(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           attach_security_profile_request(),
           list()
         ) ::
@@ -11979,7 +11979,7 @@ defmodule AWS.IoT do
   """
   @spec attach_thing_principal(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           attach_thing_principal_request(),
           list()
         ) ::
@@ -12032,7 +12032,7 @@ defmodule AWS.IoT do
   """
   @spec cancel_audit_mitigation_actions_task(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           cancel_audit_mitigation_actions_task_request(),
           list()
         ) ::
@@ -12071,7 +12071,7 @@ defmodule AWS.IoT do
   [CancelAuditTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec cancel_audit_task(map(), String.t() | Atom.t(), cancel_audit_task_request(), list()) ::
+  @spec cancel_audit_task(map(), String.t() | atom(), cancel_audit_task_request(), list()) ::
           {:ok, cancel_audit_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12117,7 +12117,7 @@ defmodule AWS.IoT do
   """
   @spec cancel_certificate_transfer(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           cancel_certificate_transfer_request(),
           list()
         ) ::
@@ -12156,7 +12156,7 @@ defmodule AWS.IoT do
   """
   @spec cancel_detect_mitigation_actions_task(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           cancel_detect_mitigation_actions_task_request(),
           list()
         ) ::
@@ -12192,7 +12192,7 @@ defmodule AWS.IoT do
   [CancelJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec cancel_job(map(), String.t() | Atom.t(), cancel_job_request(), list()) ::
+  @spec cancel_job(map(), String.t() | atom(), cancel_job_request(), list()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12232,8 +12232,8 @@ defmodule AWS.IoT do
   """
   @spec cancel_job_execution(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           cancel_job_execution_request(),
           list()
         ) ::
@@ -12315,7 +12315,7 @@ defmodule AWS.IoT do
   [ConfirmTopicRuleDestination](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec confirm_topic_rule_destination(map(), String.t() | Atom.t(), list()) ::
+  @spec confirm_topic_rule_destination(map(), String.t() | atom(), list()) ::
           {:ok, confirm_topic_rule_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12371,7 +12371,7 @@ defmodule AWS.IoT do
   [CreateAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec create_authorizer(map(), String.t() | Atom.t(), create_authorizer_request(), list()) ::
+  @spec create_authorizer(map(), String.t() | atom(), create_authorizer_request(), list()) ::
           {:ok, create_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12410,7 +12410,7 @@ defmodule AWS.IoT do
   [CreateBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec create_billing_group(map(), String.t() | Atom.t(), create_billing_group_request(), list()) ::
+  @spec create_billing_group(map(), String.t() | atom(), create_billing_group_request(), list()) ::
           {:ok, create_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12558,7 +12558,7 @@ defmodule AWS.IoT do
   """
   @spec create_certificate_provider(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_certificate_provider_request(),
           list()
         ) ::
@@ -12598,7 +12598,7 @@ defmodule AWS.IoT do
   A command contains reusable configurations that can be applied
   before they are sent to the devices.
   """
-  @spec create_command(map(), String.t() | Atom.t(), create_command_request(), list()) ::
+  @spec create_command(map(), String.t() | atom(), create_command_request(), list()) ::
           {:ok, create_command_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12634,7 +12634,7 @@ defmodule AWS.IoT do
   [CreateCustomMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec create_custom_metric(map(), String.t() | Atom.t(), create_custom_metric_request(), list()) ::
+  @spec create_custom_metric(map(), String.t() | atom(), create_custom_metric_request(), list()) ::
           {:ok, create_custom_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12672,7 +12672,7 @@ defmodule AWS.IoT do
   [CreateDimension](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec create_dimension(map(), String.t() | Atom.t(), create_dimension_request(), list()) ::
+  @spec create_dimension(map(), String.t() | atom(), create_dimension_request(), list()) ::
           {:ok, create_dimension_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12707,7 +12707,7 @@ defmodule AWS.IoT do
   """
   @spec create_domain_configuration(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_domain_configuration_request(),
           list()
         ) ::
@@ -12750,7 +12750,7 @@ defmodule AWS.IoT do
   """
   @spec create_dynamic_thing_group(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_dynamic_thing_group_request(),
           list()
         ) ::
@@ -12786,7 +12786,7 @@ defmodule AWS.IoT do
   [CreateFleetMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec create_fleet_metric(map(), String.t() | Atom.t(), create_fleet_metric_request(), list()) ::
+  @spec create_fleet_metric(map(), String.t() | atom(), create_fleet_metric_request(), list()) ::
           {:ok, create_fleet_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12819,7 +12819,7 @@ defmodule AWS.IoT do
   [CreateJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec create_job(map(), String.t() | Atom.t(), create_job_request(), list()) ::
+  @spec create_job(map(), String.t() | atom(), create_job_request(), list()) ::
           {:ok, create_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12852,7 +12852,7 @@ defmodule AWS.IoT do
   [CreateJobTemplate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec create_job_template(map(), String.t() | Atom.t(), create_job_template_request(), list()) ::
+  @spec create_job_template(map(), String.t() | atom(), create_job_template_request(), list()) ::
           {:ok, create_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -12937,7 +12937,7 @@ defmodule AWS.IoT do
   """
   @spec create_mitigation_action(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_mitigation_action_request(),
           list()
         ) ::
@@ -12973,7 +12973,7 @@ defmodule AWS.IoT do
   [CreateOTAUpdate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec create_ota_update(map(), String.t() | Atom.t(), create_ota_update_request(), list()) ::
+  @spec create_ota_update(map(), String.t() | atom(), create_ota_update_request(), list()) ::
           {:ok, create_ota_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13007,7 +13007,7 @@ defmodule AWS.IoT do
   [GetIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   actions.
   """
-  @spec create_package(map(), String.t() | Atom.t(), create_package_request(), list()) ::
+  @spec create_package(map(), String.t() | atom(), create_package_request(), list()) ::
           {:ok, create_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13048,8 +13048,8 @@ defmodule AWS.IoT do
   """
   @spec create_package_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_package_version_request(),
           list()
         ) ::
@@ -13097,7 +13097,7 @@ defmodule AWS.IoT do
   [CreatePolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec create_policy(map(), String.t() | Atom.t(), create_policy_request(), list()) ::
+  @spec create_policy(map(), String.t() | atom(), create_policy_request(), list()) ::
           {:ok, create_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13141,12 +13141,7 @@ defmodule AWS.IoT do
   [CreatePolicyVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec create_policy_version(
-          map(),
-          String.t() | Atom.t(),
-          create_policy_version_request(),
-          list()
-        ) ::
+  @spec create_policy_version(map(), String.t() | atom(), create_policy_version_request(), list()) ::
           {:ok, create_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13186,7 +13181,7 @@ defmodule AWS.IoT do
   """
   @spec create_provisioning_claim(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_provisioning_claim_request(),
           list()
         ) ::
@@ -13257,7 +13252,7 @@ defmodule AWS.IoT do
   """
   @spec create_provisioning_template_version(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_provisioning_template_version_request(),
           list()
         ) ::
@@ -13313,7 +13308,7 @@ defmodule AWS.IoT do
   API)](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-api.html#roles-modify_max-session-duration-api)
   from the Amazon Web Services Identity and Access Management User Guide.
   """
-  @spec create_role_alias(map(), String.t() | Atom.t(), create_role_alias_request(), list()) ::
+  @spec create_role_alias(map(), String.t() | atom(), create_role_alias_request(), list()) ::
           {:ok, create_role_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13349,7 +13344,7 @@ defmodule AWS.IoT do
   """
   @spec create_scheduled_audit(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_scheduled_audit_request(),
           list()
         ) ::
@@ -13387,7 +13382,7 @@ defmodule AWS.IoT do
   """
   @spec create_security_profile(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_security_profile_request(),
           list()
         ) ::
@@ -13428,7 +13423,7 @@ defmodule AWS.IoT do
   [CreateStream](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec create_stream(map(), String.t() | Atom.t(), create_stream_request(), list()) ::
+  @spec create_stream(map(), String.t() | atom(), create_stream_request(), list()) ::
           {:ok, create_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13471,7 +13466,7 @@ defmodule AWS.IoT do
   [CreateThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec create_thing(map(), String.t() | Atom.t(), create_thing_request(), list()) ::
+  @spec create_thing(map(), String.t() | atom(), create_thing_request(), list()) ::
           {:ok, create_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13511,7 +13506,7 @@ defmodule AWS.IoT do
   [CreateThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec create_thing_group(map(), String.t() | Atom.t(), create_thing_group_request(), list()) ::
+  @spec create_thing_group(map(), String.t() | atom(), create_thing_group_request(), list()) ::
           {:ok, create_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13550,7 +13545,7 @@ defmodule AWS.IoT do
   [CreateThingType](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec create_thing_type(map(), String.t() | Atom.t(), create_thing_type_request(), list()) ::
+  @spec create_thing_type(map(), String.t() | atom(), create_thing_type_request(), list()) ::
           {:ok, create_thing_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13586,7 +13581,7 @@ defmodule AWS.IoT do
   [CreateTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec create_topic_rule(map(), String.t() | Atom.t(), create_topic_rule_request(), list()) ::
+  @spec create_topic_rule(map(), String.t() | atom(), create_topic_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13740,7 +13735,7 @@ defmodule AWS.IoT do
   [DeleteAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec delete_authorizer(map(), String.t() | Atom.t(), delete_authorizer_request(), list()) ::
+  @spec delete_authorizer(map(), String.t() | atom(), delete_authorizer_request(), list()) ::
           {:ok, delete_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13773,7 +13768,7 @@ defmodule AWS.IoT do
   [DeleteBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec delete_billing_group(map(), String.t() | Atom.t(), delete_billing_group_request(), list()) ::
+  @spec delete_billing_group(map(), String.t() | atom(), delete_billing_group_request(), list()) ::
           {:ok, delete_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13811,12 +13806,7 @@ defmodule AWS.IoT do
   [DeleteCACertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec delete_ca_certificate(
-          map(),
-          String.t() | Atom.t(),
-          delete_ca_certificate_request(),
-          list()
-        ) ::
+  @spec delete_ca_certificate(map(), String.t() | atom(), delete_ca_certificate_request(), list()) ::
           {:ok, delete_ca_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13856,7 +13846,7 @@ defmodule AWS.IoT do
   [DeleteCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec delete_certificate(map(), String.t() | Atom.t(), delete_certificate_request(), list()) ::
+  @spec delete_certificate(map(), String.t() | atom(), delete_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13900,7 +13890,7 @@ defmodule AWS.IoT do
   """
   @spec delete_certificate_provider(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_certificate_provider_request(),
           list()
         ) ::
@@ -13937,7 +13927,7 @@ defmodule AWS.IoT do
   @doc """
   Delete a command resource.
   """
-  @spec delete_command(map(), String.t() | Atom.t(), delete_command_request(), list()) ::
+  @spec delete_command(map(), String.t() | atom(), delete_command_request(), list()) ::
           {:ok, delete_command_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -13971,7 +13961,7 @@ defmodule AWS.IoT do
   """
   @spec delete_command_execution(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_command_execution_request(),
           list()
         ) ::
@@ -14021,7 +14011,7 @@ defmodule AWS.IoT do
   [ListSecurityProfiles](https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfiles.html)
   API with `metricName` set to your custom metric name.
   """
-  @spec delete_custom_metric(map(), String.t() | Atom.t(), delete_custom_metric_request(), list()) ::
+  @spec delete_custom_metric(map(), String.t() | atom(), delete_custom_metric_request(), list()) ::
           {:ok, delete_custom_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14054,7 +14044,7 @@ defmodule AWS.IoT do
   [DeleteDimension](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec delete_dimension(map(), String.t() | Atom.t(), delete_dimension_request(), list()) ::
+  @spec delete_dimension(map(), String.t() | atom(), delete_dimension_request(), list()) ::
           {:ok, delete_dimension_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14089,7 +14079,7 @@ defmodule AWS.IoT do
   """
   @spec delete_domain_configuration(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_domain_configuration_request(),
           list()
         ) ::
@@ -14132,7 +14122,7 @@ defmodule AWS.IoT do
   """
   @spec delete_dynamic_thing_group(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_dynamic_thing_group_request(),
           list()
         ) ::
@@ -14176,7 +14166,7 @@ defmodule AWS.IoT do
   [DeleteFleetMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec delete_fleet_metric(map(), String.t() | Atom.t(), delete_fleet_metric_request(), list()) ::
+  @spec delete_fleet_metric(map(), String.t() | atom(), delete_fleet_metric_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14225,7 +14215,7 @@ defmodule AWS.IoT do
   [DeleteJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec delete_job(map(), String.t() | Atom.t(), delete_job_request(), list()) ::
+  @spec delete_job(map(), String.t() | atom(), delete_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14266,9 +14256,9 @@ defmodule AWS.IoT do
   """
   @spec delete_job_execution(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_job_execution_request(),
           list()
         ) ::
@@ -14315,7 +14305,7 @@ defmodule AWS.IoT do
   @doc """
   Deletes the specified job template.
   """
-  @spec delete_job_template(map(), String.t() | Atom.t(), delete_job_template_request(), list()) ::
+  @spec delete_job_template(map(), String.t() | atom(), delete_job_template_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14350,7 +14340,7 @@ defmodule AWS.IoT do
   """
   @spec delete_mitigation_action(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_mitigation_action_request(),
           list()
         ) ::
@@ -14386,7 +14376,7 @@ defmodule AWS.IoT do
   [DeleteOTAUpdate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec delete_ota_update(map(), String.t() | Atom.t(), delete_ota_update_request(), list()) ::
+  @spec delete_ota_update(map(), String.t() | atom(), delete_ota_update_request(), list()) ::
           {:ok, delete_ota_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14428,7 +14418,7 @@ defmodule AWS.IoT do
   [DeletePackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec delete_package(map(), String.t() | Atom.t(), delete_package_request(), list()) ::
+  @spec delete_package(map(), String.t() | atom(), delete_package_request(), list()) ::
           {:ok, delete_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14467,8 +14457,8 @@ defmodule AWS.IoT do
   """
   @spec delete_package_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_package_version_request(),
           list()
         ) ::
@@ -14528,7 +14518,7 @@ defmodule AWS.IoT do
   [DeletePolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec delete_policy(map(), String.t() | Atom.t(), delete_policy_request(), list()) ::
+  @spec delete_policy(map(), String.t() | atom(), delete_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14569,8 +14559,8 @@ defmodule AWS.IoT do
   """
   @spec delete_policy_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_policy_version_request(),
           list()
         ) ::
@@ -14616,7 +14606,7 @@ defmodule AWS.IoT do
   """
   @spec delete_provisioning_template(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_provisioning_template_request(),
           list()
         ) ::
@@ -14654,8 +14644,8 @@ defmodule AWS.IoT do
   """
   @spec delete_provisioning_template_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_provisioning_template_version_request(),
           list()
         ) ::
@@ -14732,7 +14722,7 @@ defmodule AWS.IoT do
   [DeleteRoleAlias](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec delete_role_alias(map(), String.t() | Atom.t(), delete_role_alias_request(), list()) ::
+  @spec delete_role_alias(map(), String.t() | atom(), delete_role_alias_request(), list()) ::
           {:ok, delete_role_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14767,7 +14757,7 @@ defmodule AWS.IoT do
   """
   @spec delete_scheduled_audit(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_scheduled_audit_request(),
           list()
         ) ::
@@ -14805,7 +14795,7 @@ defmodule AWS.IoT do
   """
   @spec delete_security_profile(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_security_profile_request(),
           list()
         ) ::
@@ -14846,7 +14836,7 @@ defmodule AWS.IoT do
   [DeleteStream](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec delete_stream(map(), String.t() | Atom.t(), delete_stream_request(), list()) ::
+  @spec delete_stream(map(), String.t() | atom(), delete_stream_request(), list()) ::
           {:ok, delete_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14882,7 +14872,7 @@ defmodule AWS.IoT do
   [DeleteThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec delete_thing(map(), String.t() | Atom.t(), delete_thing_request(), list()) ::
+  @spec delete_thing(map(), String.t() | atom(), delete_thing_request(), list()) ::
           {:ok, delete_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14920,7 +14910,7 @@ defmodule AWS.IoT do
   [DeleteThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec delete_thing_group(map(), String.t() | Atom.t(), delete_thing_group_request(), list()) ::
+  @spec delete_thing_group(map(), String.t() | atom(), delete_thing_group_request(), list()) ::
           {:ok, delete_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14964,7 +14954,7 @@ defmodule AWS.IoT do
   [DeleteThingType](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec delete_thing_type(map(), String.t() | Atom.t(), delete_thing_type_request(), list()) ::
+  @spec delete_thing_type(map(), String.t() | atom(), delete_thing_type_request(), list()) ::
           {:ok, delete_thing_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -14997,7 +14987,7 @@ defmodule AWS.IoT do
   [DeleteTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec delete_topic_rule(map(), String.t() | Atom.t(), delete_topic_rule_request(), list()) ::
+  @spec delete_topic_rule(map(), String.t() | atom(), delete_topic_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15032,7 +15022,7 @@ defmodule AWS.IoT do
   """
   @spec delete_topic_rule_destination(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_topic_rule_destination_request(),
           list()
         ) ::
@@ -15110,7 +15100,7 @@ defmodule AWS.IoT do
   [DeprecateThingType](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec deprecate_thing_type(map(), String.t() | Atom.t(), deprecate_thing_type_request(), list()) ::
+  @spec deprecate_thing_type(map(), String.t() | atom(), deprecate_thing_type_request(), list()) ::
           {:ok, deprecate_thing_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15174,7 +15164,7 @@ defmodule AWS.IoT do
   [DescribeAuditFinding](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_audit_finding(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_audit_finding(map(), String.t() | atom(), list()) ::
           {:ok, describe_audit_finding_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15196,7 +15186,7 @@ defmodule AWS.IoT do
   Properties include the actions being applied, the audit checks to which they're
   being applied, the task status, and aggregated task statistics.
   """
-  @spec describe_audit_mitigation_actions_task(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_audit_mitigation_actions_task(map(), String.t() | atom(), list()) ::
           {:ok, describe_audit_mitigation_actions_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15248,7 +15238,7 @@ defmodule AWS.IoT do
   [DescribeAuditTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_audit_task(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_audit_task(map(), String.t() | atom(), list()) ::
           {:ok, describe_audit_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15270,7 +15260,7 @@ defmodule AWS.IoT do
   [DescribeAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_authorizer(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_authorizer(map(), String.t() | atom(), list()) ::
           {:ok, describe_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15292,7 +15282,7 @@ defmodule AWS.IoT do
   [DescribeBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_billing_group(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_billing_group(map(), String.t() | atom(), list()) ::
           {:ok, describe_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15314,7 +15304,7 @@ defmodule AWS.IoT do
   [DescribeCACertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_ca_certificate(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_ca_certificate(map(), String.t() | atom(), list()) ::
           {:ok, describe_ca_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15336,7 +15326,7 @@ defmodule AWS.IoT do
   [DescribeCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_certificate(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_certificate(map(), String.t() | atom(), list()) ::
           {:ok, describe_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15358,7 +15348,7 @@ defmodule AWS.IoT do
   [DescribeCertificateProvider](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_certificate_provider(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_certificate_provider(map(), String.t() | atom(), list()) ::
           {:ok, describe_certificate_provider_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15381,7 +15371,7 @@ defmodule AWS.IoT do
   [DescribeCustomMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_custom_metric(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_custom_metric(map(), String.t() | atom(), list()) ::
           {:ok, describe_custom_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15426,7 +15416,7 @@ defmodule AWS.IoT do
   [DescribeDetectMitigationActionsTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_detect_mitigation_actions_task(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_detect_mitigation_actions_task(map(), String.t() | atom(), list()) ::
           {:ok, describe_detect_mitigation_actions_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15449,7 +15439,7 @@ defmodule AWS.IoT do
   [DescribeDimension](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_dimension(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_dimension(map(), String.t() | atom(), list()) ::
           {:ok, describe_dimension_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15471,7 +15461,7 @@ defmodule AWS.IoT do
   [DescribeDomainConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_domain_configuration(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_domain_configuration(map(), String.t() | atom(), list()) ::
           {:ok, describe_domain_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15498,7 +15488,7 @@ defmodule AWS.IoT do
   [DescribeEndpoint](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_endpoint(map(), String.t() | Atom.t() | nil, list()) ::
+  @spec describe_endpoint(map(), String.t() | atom() | nil, list()) ::
           {:ok, describe_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15549,7 +15539,7 @@ defmodule AWS.IoT do
   [DescribeFleetMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_fleet_metric(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_fleet_metric(map(), String.t() | atom(), list()) ::
           {:ok, describe_fleet_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15571,7 +15561,7 @@ defmodule AWS.IoT do
   [DescribeIndex](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_index(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_index(map(), String.t() | atom(), list()) ::
           {:ok, describe_index_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15593,7 +15583,7 @@ defmodule AWS.IoT do
   [DescribeJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_job(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec describe_job(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, describe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15624,9 +15614,9 @@ defmodule AWS.IoT do
   """
   @spec describe_job_execution(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_job_execution_response(), any()}
@@ -15659,7 +15649,7 @@ defmodule AWS.IoT do
   @doc """
   Returns information about a job template.
   """
-  @spec describe_job_template(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_job_template(map(), String.t() | atom(), list()) ::
           {:ok, describe_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15679,8 +15669,8 @@ defmodule AWS.IoT do
   """
   @spec describe_managed_job_template(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_managed_job_template_response(), any()}
@@ -15716,7 +15706,7 @@ defmodule AWS.IoT do
   [DescribeMitigationAction](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_mitigation_action(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_mitigation_action(map(), String.t() | atom(), list()) ::
           {:ok, describe_mitigation_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15738,7 +15728,7 @@ defmodule AWS.IoT do
   [DescribeProvisioningTemplate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_provisioning_template(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_provisioning_template(map(), String.t() | atom(), list()) ::
           {:ok, describe_provisioning_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15762,8 +15752,8 @@ defmodule AWS.IoT do
   """
   @spec describe_provisioning_template_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, describe_provisioning_template_version_response(), any()}
@@ -15794,7 +15784,7 @@ defmodule AWS.IoT do
   [DescribeRoleAlias](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_role_alias(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_role_alias(map(), String.t() | atom(), list()) ::
           {:ok, describe_role_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15816,7 +15806,7 @@ defmodule AWS.IoT do
   [DescribeScheduledAudit](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_scheduled_audit(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_scheduled_audit(map(), String.t() | atom(), list()) ::
           {:ok, describe_scheduled_audit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15838,7 +15828,7 @@ defmodule AWS.IoT do
   [DescribeSecurityProfile](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_security_profile(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_security_profile(map(), String.t() | atom(), list()) ::
           {:ok, describe_security_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15860,7 +15850,7 @@ defmodule AWS.IoT do
   [DescribeStream](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_stream(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_stream(map(), String.t() | atom(), list()) ::
           {:ok, describe_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15882,7 +15872,7 @@ defmodule AWS.IoT do
   [DescribeThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_thing(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_thing(map(), String.t() | atom(), list()) ::
           {:ok, describe_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15904,7 +15894,7 @@ defmodule AWS.IoT do
   [DescribeThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_thing_group(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_thing_group(map(), String.t() | atom(), list()) ::
           {:ok, describe_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15926,7 +15916,7 @@ defmodule AWS.IoT do
   [DescribeThingRegistrationTask](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_thing_registration_task(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_thing_registration_task(map(), String.t() | atom(), list()) ::
           {:ok, describe_thing_registration_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15948,7 +15938,7 @@ defmodule AWS.IoT do
   [DescribeThingType](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec describe_thing_type(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_thing_type(map(), String.t() | atom(), list()) ::
           {:ok, describe_thing_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15974,7 +15964,7 @@ defmodule AWS.IoT do
   [DetachPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec detach_policy(map(), String.t() | Atom.t(), detach_policy_request(), list()) ::
+  @spec detach_policy(map(), String.t() | atom(), detach_policy_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16013,7 +16003,7 @@ defmodule AWS.IoT do
   """
   @spec detach_principal_policy(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           detach_principal_policy_request(),
           list()
         ) ::
@@ -16058,7 +16048,7 @@ defmodule AWS.IoT do
   """
   @spec detach_security_profile(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           detach_security_profile_request(),
           list()
         ) ::
@@ -16109,7 +16099,7 @@ defmodule AWS.IoT do
   """
   @spec detach_thing_principal(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           detach_thing_principal_request(),
           list()
         ) ::
@@ -16151,7 +16141,7 @@ defmodule AWS.IoT do
   [DisableTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec disable_topic_rule(map(), String.t() | Atom.t(), disable_topic_rule_request(), list()) ::
+  @spec disable_topic_rule(map(), String.t() | atom(), disable_topic_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16187,8 +16177,8 @@ defmodule AWS.IoT do
   """
   @spec disassociate_sbom_from_package_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           disassociate_sbom_from_package_version_request(),
           list()
         ) ::
@@ -16237,7 +16227,7 @@ defmodule AWS.IoT do
   [EnableTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec enable_topic_rule(map(), String.t() | Atom.t(), enable_topic_rule_request(), list()) ::
+  @spec enable_topic_rule(map(), String.t() | atom(), enable_topic_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16273,9 +16263,9 @@ defmodule AWS.IoT do
   """
   @spec get_behavior_model_training_summaries(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_behavior_model_training_summaries_response(), any()}
@@ -16388,7 +16378,7 @@ defmodule AWS.IoT do
   @doc """
   Gets information about the specified command.
   """
-  @spec get_command(map(), String.t() | Atom.t(), list()) ::
+  @spec get_command(map(), String.t() | atom(), list()) ::
           {:ok, get_command_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16408,9 +16398,9 @@ defmodule AWS.IoT do
   """
   @spec get_command_execution(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_command_execution_response(), any()}
@@ -16516,7 +16506,7 @@ defmodule AWS.IoT do
   [GetJobDocument](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec get_job_document(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec get_job_document(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_job_document_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16570,7 +16560,7 @@ defmodule AWS.IoT do
   [GetOTAUpdate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec get_ota_update(map(), String.t() | Atom.t(), list()) ::
+  @spec get_ota_update(map(), String.t() | atom(), list()) ::
           {:ok, get_ota_update_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16592,7 +16582,7 @@ defmodule AWS.IoT do
   [GetPackage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec get_package(map(), String.t() | Atom.t(), list()) ::
+  @spec get_package(map(), String.t() | atom(), list()) ::
           {:ok, get_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16636,7 +16626,7 @@ defmodule AWS.IoT do
   [GetPackageVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec get_package_version(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_package_version(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_package_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16710,7 +16700,7 @@ defmodule AWS.IoT do
   [GetPolicy](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec get_policy(map(), String.t() | Atom.t(), list()) ::
+  @spec get_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16732,7 +16722,7 @@ defmodule AWS.IoT do
   [GetPolicyVersion](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec get_policy_version(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_policy_version(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16818,7 +16808,7 @@ defmodule AWS.IoT do
   """
   @spec get_thing_connectivity_data(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           get_thing_connectivity_data_request(),
           list()
         ) ::
@@ -16854,7 +16844,7 @@ defmodule AWS.IoT do
   [GetTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec get_topic_rule(map(), String.t() | Atom.t(), list()) ::
+  @spec get_topic_rule(map(), String.t() | atom(), list()) ::
           {:ok, get_topic_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16876,7 +16866,7 @@ defmodule AWS.IoT do
   [GetTopicRuleDestination](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec get_topic_rule_destination(map(), String.t() | Atom.t(), list()) ::
+  @spec get_topic_rule_destination(map(), String.t() | atom(), list()) ::
           {:ok, get_topic_rule_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16922,13 +16912,13 @@ defmodule AWS.IoT do
   """
   @spec list_active_violations(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_active_violations_response(), any()}
@@ -17013,7 +17003,7 @@ defmodule AWS.IoT do
   """
   @spec list_attached_policies(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           list_attached_policies_request(),
           list()
         ) ::
@@ -17095,11 +17085,11 @@ defmodule AWS.IoT do
   """
   @spec list_audit_mitigation_actions_executions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_audit_mitigation_actions_executions_response(), any()}
@@ -17168,13 +17158,13 @@ defmodule AWS.IoT do
   """
   @spec list_audit_mitigation_actions_tasks(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_audit_mitigation_actions_tasks_response(), any()}
@@ -17294,12 +17284,12 @@ defmodule AWS.IoT do
   """
   @spec list_audit_tasks(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_audit_tasks_response(), any()}
@@ -17376,10 +17366,10 @@ defmodule AWS.IoT do
   """
   @spec list_authorizers(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_authorizers_response(), any()}
@@ -17440,9 +17430,9 @@ defmodule AWS.IoT do
   """
   @spec list_billing_groups(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_billing_groups_response(), any()}
@@ -17499,10 +17489,10 @@ defmodule AWS.IoT do
   """
   @spec list_ca_certificates(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_ca_certificates_response(), any()}
@@ -17563,8 +17553,8 @@ defmodule AWS.IoT do
   """
   @spec list_certificate_providers(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_certificate_providers_response(), any()}
@@ -17613,9 +17603,9 @@ defmodule AWS.IoT do
   """
   @spec list_certificates(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_certificates_response(), any()}
@@ -17668,10 +17658,10 @@ defmodule AWS.IoT do
   """
   @spec list_certificates_by_ca(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_certificates_by_ca_response(), any()}
@@ -17773,11 +17763,11 @@ defmodule AWS.IoT do
   """
   @spec list_commands(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_commands_response(), any()}
@@ -17845,12 +17835,7 @@ defmodule AWS.IoT do
   [ListCustomMetrics](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec list_custom_metrics(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec list_custom_metrics(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_custom_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17895,13 +17880,13 @@ defmodule AWS.IoT do
   """
   @spec list_detect_mitigation_actions_executions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_detect_mitigation_actions_executions_response(), any()}
@@ -17987,10 +17972,10 @@ defmodule AWS.IoT do
   """
   @spec list_detect_mitigation_actions_tasks(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_detect_mitigation_actions_tasks_response(), any()}
@@ -18050,7 +18035,7 @@ defmodule AWS.IoT do
   [ListDimensions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec list_dimensions(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_dimensions(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_dimensions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18091,9 +18076,9 @@ defmodule AWS.IoT do
   """
   @spec list_domain_configurations(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_domain_configurations_response(), any()}
@@ -18144,12 +18129,7 @@ defmodule AWS.IoT do
   [ListFleetMetrics](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec list_fleet_metrics(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec list_fleet_metrics(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_fleet_metrics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18185,7 +18165,7 @@ defmodule AWS.IoT do
   [ListIndices](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec list_indices(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_indices(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_indices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18223,10 +18203,10 @@ defmodule AWS.IoT do
   """
   @spec list_job_executions_for_job(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_job_executions_for_job_response(), any()}
@@ -18280,12 +18260,12 @@ defmodule AWS.IoT do
   """
   @spec list_job_executions_for_thing(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_job_executions_for_thing_response(), any()}
@@ -18353,12 +18333,7 @@ defmodule AWS.IoT do
   [ListJobTemplates](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec list_job_templates(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec list_job_templates(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_job_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18396,13 +18371,13 @@ defmodule AWS.IoT do
   """
   @spec list_jobs(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_jobs_response(), any()}
@@ -18483,9 +18458,9 @@ defmodule AWS.IoT do
   """
   @spec list_managed_job_templates(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_managed_job_templates_response(), any()}
@@ -18536,14 +18511,14 @@ defmodule AWS.IoT do
   """
   @spec list_metric_values(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_metric_values_response(), any()}
@@ -18636,9 +18611,9 @@ defmodule AWS.IoT do
   """
   @spec list_mitigation_actions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_mitigation_actions_response(), any()}
@@ -18691,9 +18666,9 @@ defmodule AWS.IoT do
   """
   @spec list_ota_updates(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_ota_updates_response(), any()}
@@ -18746,9 +18721,9 @@ defmodule AWS.IoT do
   """
   @spec list_outgoing_certificates(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_outgoing_certificates_response(), any()}
@@ -18801,10 +18776,10 @@ defmodule AWS.IoT do
   """
   @spec list_package_versions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_package_versions_response(), any()}
@@ -18856,7 +18831,7 @@ defmodule AWS.IoT do
   [ListPackages](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec list_packages(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_packages(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_packages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18894,9 +18869,9 @@ defmodule AWS.IoT do
   """
   @spec list_policies(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_policies_response(), any()}
@@ -18953,10 +18928,10 @@ defmodule AWS.IoT do
   """
   @spec list_policy_principals(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_policy_principals_response(), any()}
@@ -19017,7 +18992,7 @@ defmodule AWS.IoT do
   [ListPolicyVersions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec list_policy_versions(map(), String.t() | Atom.t(), list()) ::
+  @spec list_policy_versions(map(), String.t() | atom(), list()) ::
           {:ok, list_policy_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -19048,10 +19023,10 @@ defmodule AWS.IoT do
   """
   @spec list_principal_policies(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_principal_policies_response(), any()}
@@ -19118,9 +19093,9 @@ defmodule AWS.IoT do
   """
   @spec list_principal_things(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_principal_things_response(), any()}
@@ -19177,10 +19152,10 @@ defmodule AWS.IoT do
   """
   @spec list_principal_things_v2(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_principal_things_v2_response(), any()}
@@ -19242,9 +19217,9 @@ defmodule AWS.IoT do
   """
   @spec list_provisioning_template_versions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_provisioning_template_versions_response(), any()}
@@ -19290,8 +19265,8 @@ defmodule AWS.IoT do
   """
   @spec list_provisioning_templates(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_provisioning_templates_response(), any()}
@@ -19370,9 +19345,9 @@ defmodule AWS.IoT do
   """
   @spec list_related_resources_for_audit_finding(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_related_resources_for_audit_finding_response(), any()}
@@ -19425,9 +19400,9 @@ defmodule AWS.IoT do
   """
   @spec list_role_aliases(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_role_aliases_response(), any()}
@@ -19481,11 +19456,11 @@ defmodule AWS.IoT do
   """
   @spec list_sbom_validation_results(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_sbom_validation_results_response(), any()}
@@ -19540,12 +19515,7 @@ defmodule AWS.IoT do
   [ListScheduledAudits](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec list_scheduled_audits(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec list_scheduled_audits(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_scheduled_audits_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -19594,10 +19564,10 @@ defmodule AWS.IoT do
   """
   @spec list_security_profiles(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_security_profiles_response(), any()}
@@ -19658,10 +19628,10 @@ defmodule AWS.IoT do
   """
   @spec list_security_profiles_for_target(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_security_profiles_for_target_response(), any()}
@@ -19722,9 +19692,9 @@ defmodule AWS.IoT do
   """
   @spec list_streams(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_streams_response(), any()}
@@ -19775,7 +19745,7 @@ defmodule AWS.IoT do
   [ListTagsForResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t() | nil, String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom() | nil, String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -19813,7 +19783,7 @@ defmodule AWS.IoT do
   """
   @spec list_targets_for_policy(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           list_targets_for_policy_request(),
           list()
         ) ::
@@ -19858,9 +19828,9 @@ defmodule AWS.IoT do
   """
   @spec list_targets_for_security_profile(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_targets_for_security_profile_response(), any()}
@@ -19906,11 +19876,11 @@ defmodule AWS.IoT do
   """
   @spec list_thing_groups(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_thing_groups_response(), any()}
@@ -19979,9 +19949,9 @@ defmodule AWS.IoT do
   """
   @spec list_thing_groups_for_thing(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_thing_groups_for_thing_response(), any()}
@@ -20032,9 +20002,9 @@ defmodule AWS.IoT do
   """
   @spec list_thing_principals(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_thing_principals_response(), any()}
@@ -20083,10 +20053,10 @@ defmodule AWS.IoT do
   """
   @spec list_thing_principals_v2(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_thing_principals_v2_response(), any()}
@@ -20136,10 +20106,10 @@ defmodule AWS.IoT do
   """
   @spec list_thing_registration_task_reports(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_thing_registration_task_reports_response(), any()}
@@ -20193,9 +20163,9 @@ defmodule AWS.IoT do
   """
   @spec list_thing_registration_tasks(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_thing_registration_tasks_response(), any()}
@@ -20248,9 +20218,9 @@ defmodule AWS.IoT do
   """
   @spec list_thing_types(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_thing_types_response(), any()}
@@ -20316,12 +20286,12 @@ defmodule AWS.IoT do
   """
   @spec list_things(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_things_response(), any()}
@@ -20398,9 +20368,9 @@ defmodule AWS.IoT do
   """
   @spec list_things_in_billing_group(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_things_in_billing_group_response(), any()}
@@ -20446,10 +20416,10 @@ defmodule AWS.IoT do
   """
   @spec list_things_in_thing_group(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_things_in_thing_group_response(), any()}
@@ -20503,8 +20473,8 @@ defmodule AWS.IoT do
   """
   @spec list_topic_rule_destinations(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_topic_rule_destinations_response(), any()}
@@ -20549,10 +20519,10 @@ defmodule AWS.IoT do
   """
   @spec list_topic_rules(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_topic_rules_response(), any()}
@@ -20613,9 +20583,9 @@ defmodule AWS.IoT do
   """
   @spec list_v2_logging_levels(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_v2_logging_levels_response(), any()}
@@ -20673,15 +20643,15 @@ defmodule AWS.IoT do
   """
   @spec list_violation_events(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_violation_events_response(), any()}
@@ -20779,7 +20749,7 @@ defmodule AWS.IoT do
   """
   @spec put_verification_state_on_violation(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           put_verification_state_on_violation_request(),
           list()
         ) ::
@@ -20989,7 +20959,7 @@ defmodule AWS.IoT do
   """
   @spec reject_certificate_transfer(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           reject_certificate_transfer_request(),
           list()
         ) ::
@@ -21104,7 +21074,7 @@ defmodule AWS.IoT do
   [ReplaceTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec replace_topic_rule(map(), String.t() | Atom.t(), replace_topic_rule_request(), list()) ::
+  @spec replace_topic_rule(map(), String.t() | atom(), replace_topic_rule_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21214,8 +21184,8 @@ defmodule AWS.IoT do
   """
   @spec set_default_policy_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           set_default_policy_version_request(),
           list()
         ) ::
@@ -21363,7 +21333,7 @@ defmodule AWS.IoT do
   """
   @spec start_audit_mitigation_actions_task(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           start_audit_mitigation_actions_task_request(),
           list()
         ) ::
@@ -21402,7 +21372,7 @@ defmodule AWS.IoT do
   """
   @spec start_detect_mitigation_actions_task(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           start_detect_mitigation_actions_task_request(),
           list()
         ) ::
@@ -21506,7 +21476,7 @@ defmodule AWS.IoT do
   """
   @spec stop_thing_registration_task(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           stop_thing_registration_task_request(),
           list()
         ) ::
@@ -21627,7 +21597,7 @@ defmodule AWS.IoT do
   """
   @spec test_invoke_authorizer(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           test_invoke_authorizer_request(),
           list()
         ) ::
@@ -21677,7 +21647,7 @@ defmodule AWS.IoT do
   The certificate must not have any policies attached to it. You can use the
   `DetachPolicy` action to detach them.
   """
-  @spec transfer_certificate(map(), String.t() | Atom.t(), transfer_certificate_request(), list()) ::
+  @spec transfer_certificate(map(), String.t() | atom(), transfer_certificate_request(), list()) ::
           {:ok, transfer_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21818,7 +21788,7 @@ defmodule AWS.IoT do
   [UpdateAuthorizer](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec update_authorizer(map(), String.t() | Atom.t(), update_authorizer_request(), list()) ::
+  @spec update_authorizer(map(), String.t() | atom(), update_authorizer_request(), list()) ::
           {:ok, update_authorizer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21851,7 +21821,7 @@ defmodule AWS.IoT do
   [UpdateBillingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec update_billing_group(map(), String.t() | Atom.t(), update_billing_group_request(), list()) ::
+  @spec update_billing_group(map(), String.t() | atom(), update_billing_group_request(), list()) ::
           {:ok, update_billing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21884,12 +21854,7 @@ defmodule AWS.IoT do
   [UpdateCACertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec update_ca_certificate(
-          map(),
-          String.t() | Atom.t(),
-          update_ca_certificate_request(),
-          list()
-        ) ::
+  @spec update_ca_certificate(map(), String.t() | atom(), update_ca_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21940,7 +21905,7 @@ defmodule AWS.IoT do
   Devices cannot
   use a certificate that is not in the ACTIVE state to reconnect.
   """
-  @spec update_certificate(map(), String.t() | Atom.t(), update_certificate_request(), list()) ::
+  @spec update_certificate(map(), String.t() | atom(), update_certificate_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -21980,7 +21945,7 @@ defmodule AWS.IoT do
   """
   @spec update_certificate_provider(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_certificate_provider_request(),
           list()
         ) ::
@@ -22017,7 +21982,7 @@ defmodule AWS.IoT do
   @doc """
   Update information about a command or mark a command for deprecation.
   """
-  @spec update_command(map(), String.t() | Atom.t(), update_command_request(), list()) ::
+  @spec update_command(map(), String.t() | atom(), update_command_request(), list()) ::
           {:ok, update_command_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22051,7 +22016,7 @@ defmodule AWS.IoT do
   [UpdateCustomMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec update_custom_metric(map(), String.t() | Atom.t(), update_custom_metric_request(), list()) ::
+  @spec update_custom_metric(map(), String.t() | atom(), update_custom_metric_request(), list()) ::
           {:ok, update_custom_metric_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22091,7 +22056,7 @@ defmodule AWS.IoT do
   [UpdateDimension](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec update_dimension(map(), String.t() | Atom.t(), update_dimension_request(), list()) ::
+  @spec update_dimension(map(), String.t() | atom(), update_dimension_request(), list()) ::
           {:ok, update_dimension_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22129,7 +22094,7 @@ defmodule AWS.IoT do
   """
   @spec update_domain_configuration(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_domain_configuration_request(),
           list()
         ) ::
@@ -22172,7 +22137,7 @@ defmodule AWS.IoT do
   """
   @spec update_dynamic_thing_group(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_dynamic_thing_group_request(),
           list()
         ) ::
@@ -22241,7 +22206,7 @@ defmodule AWS.IoT do
   [UpdateFleetMetric](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec update_fleet_metric(map(), String.t() | Atom.t(), update_fleet_metric_request(), list()) ::
+  @spec update_fleet_metric(map(), String.t() | atom(), update_fleet_metric_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22307,7 +22272,7 @@ defmodule AWS.IoT do
   [UpdateJob](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec update_job(map(), String.t() | Atom.t(), update_job_request(), list()) ::
+  @spec update_job(map(), String.t() | atom(), update_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22347,7 +22312,7 @@ defmodule AWS.IoT do
   """
   @spec update_mitigation_action(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_mitigation_action_request(),
           list()
         ) ::
@@ -22384,7 +22349,7 @@ defmodule AWS.IoT do
   [GetIndexingConfiguration](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   actions.
   """
-  @spec update_package(map(), String.t() | Atom.t(), update_package_request(), list()) ::
+  @spec update_package(map(), String.t() | atom(), update_package_request(), list()) ::
           {:ok, update_package_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22464,8 +22429,8 @@ defmodule AWS.IoT do
   """
   @spec update_package_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_package_version_request(),
           list()
         ) ::
@@ -22510,7 +22475,7 @@ defmodule AWS.IoT do
   """
   @spec update_provisioning_template(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_provisioning_template_request(),
           list()
         ) ::
@@ -22556,7 +22521,7 @@ defmodule AWS.IoT do
   from the Amazon Web Services
   Identity and Access Management User Guide.
   """
-  @spec update_role_alias(map(), String.t() | Atom.t(), update_role_alias_request(), list()) ::
+  @spec update_role_alias(map(), String.t() | atom(), update_role_alias_request(), list()) ::
           {:ok, update_role_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22592,7 +22557,7 @@ defmodule AWS.IoT do
   """
   @spec update_scheduled_audit(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_scheduled_audit_request(),
           list()
         ) ::
@@ -22630,7 +22595,7 @@ defmodule AWS.IoT do
   """
   @spec update_security_profile(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_security_profile_request(),
           list()
         ) ::
@@ -22673,7 +22638,7 @@ defmodule AWS.IoT do
   [UpdateStream](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec update_stream(map(), String.t() | Atom.t(), update_stream_request(), list()) ::
+  @spec update_stream(map(), String.t() | atom(), update_stream_request(), list()) ::
           {:ok, update_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22706,7 +22671,7 @@ defmodule AWS.IoT do
   [UpdateThing](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec update_thing(map(), String.t() | Atom.t(), update_thing_request(), list()) ::
+  @spec update_thing(map(), String.t() | atom(), update_thing_request(), list()) ::
           {:ok, update_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22739,7 +22704,7 @@ defmodule AWS.IoT do
   [UpdateThingGroup](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions)
   action.
   """
-  @spec update_thing_group(map(), String.t() | Atom.t(), update_thing_group_request(), list()) ::
+  @spec update_thing_group(map(), String.t() | atom(), update_thing_group_request(), list()) ::
           {:ok, update_thing_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -22801,7 +22766,7 @@ defmodule AWS.IoT do
   @doc """
   Updates a thing type.
   """
-  @spec update_thing_type(map(), String.t() | Atom.t(), update_thing_type_request(), list()) ::
+  @spec update_thing_type(map(), String.t() | atom(), update_thing_type_request(), list()) ::
           {:ok, update_thing_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

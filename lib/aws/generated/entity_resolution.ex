@@ -39,12 +39,12 @@ defmodule AWS.EntityResolution do
 
       list_provider_services_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("providerName") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("providerName") => String.t() | atom()
       }
 
   """
-  @type list_provider_services_input() :: %{String.t() | Atom.t() => any()}
+  @type list_provider_services_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -66,20 +66,20 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type id_mapping_techniques() :: %{String.t() | Atom.t() => any()}
+  @type id_mapping_techniques() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       record() :: %{
-        "inputSourceARN" => [String.t() | Atom.t()],
+        "inputSourceARN" => [String.t() | atom()],
         "recordAttributeMap" => map(),
-        "uniqueId" => String.t() | Atom.t()
+        "uniqueId" => String.t() | atom()
       }
 
   """
-  @type record() :: %{String.t() | Atom.t() => any()}
+  @type record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -87,12 +87,12 @@ defmodule AWS.EntityResolution do
 
       input_source() :: %{
         "applyNormalization" => [boolean()],
-        "inputSourceARN" => [String.t() | Atom.t()],
-        "schemaName" => String.t() | Atom.t()
+        "inputSourceARN" => [String.t() | atom()],
+        "schemaName" => String.t() | atom()
       }
 
   """
-  @type input_source() :: %{String.t() | Atom.t() => any()}
+  @type input_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -108,12 +108,12 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       get_match_id_output() :: %{
-        "matchId" => [String.t() | Atom.t()],
-        "matchRule" => [String.t() | Atom.t()]
+        "matchId" => [String.t() | atom()],
+        "matchRule" => [String.t() | atom()]
       }
 
   """
-  @type get_match_id_output() :: %{String.t() | Atom.t() => any()}
+  @type get_match_id_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -126,69 +126,69 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type resolution_techniques() :: %{String.t() | Atom.t() => any()}
+  @type resolution_techniques() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_schema_mapping_output() :: %{
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "mappedInputFields" => list(schema_input_attribute()),
-        "schemaArn" => String.t() | Atom.t(),
-        "schemaName" => String.t() | Atom.t()
+        "schemaArn" => String.t() | atom(),
+        "schemaName" => String.t() | atom()
       }
 
   """
-  @type update_schema_mapping_output() :: %{String.t() | Atom.t() => any()}
+  @type update_schema_mapping_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       deleted_unique_id() :: %{
-        "uniqueId" => String.t() | Atom.t()
+        "uniqueId" => String.t() | atom()
       }
 
   """
-  @type deleted_unique_id() :: %{String.t() | Atom.t() => any()}
+  @type deleted_unique_id() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_id_mapping_workflow_output() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type delete_id_mapping_workflow_output() :: %{String.t() | Atom.t() => any()}
+  @type delete_id_mapping_workflow_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       add_policy_statement_input() :: %{
-        optional("condition") => String.t() | Atom.t(),
-        required("action") => list(String.t() | Atom.t()),
+        optional("condition") => String.t() | atom(),
+        required("action") => list(String.t() | atom()),
         required("effect") => list(any()),
-        required("principal") => list(String.t() | Atom.t())
+        required("principal") => list(String.t() | atom())
       }
 
   """
-  @type add_policy_statement_input() :: %{String.t() | Atom.t() => any()}
+  @type add_policy_statement_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_schema_mapping_input() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         required("mappedInputFields") => list(schema_input_attribute())
       }
 
   """
-  @type update_schema_mapping_input() :: %{String.t() | Atom.t() => any()}
+  @type update_schema_mapping_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -204,43 +204,43 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       update_matching_workflow_input() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("incrementalRunConfig") => incremental_run_config(),
         required("inputSourceConfig") => list(input_source()),
         required("outputSourceConfig") => list(output_source()),
         required("resolutionTechniques") => resolution_techniques(),
-        required("roleArn") => [String.t() | Atom.t()]
+        required("roleArn") => [String.t() | atom()]
       }
 
   """
-  @type update_matching_workflow_input() :: %{String.t() | Atom.t() => any()}
+  @type update_matching_workflow_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       provider_service_summary() :: %{
-        "providerName" => String.t() | Atom.t(),
-        "providerServiceArn" => String.t() | Atom.t(),
-        "providerServiceDisplayName" => String.t() | Atom.t(),
-        "providerServiceName" => String.t() | Atom.t(),
+        "providerName" => String.t() | atom(),
+        "providerServiceArn" => String.t() | atom(),
+        "providerServiceDisplayName" => String.t() | atom(),
+        "providerServiceName" => String.t() | atom(),
         "providerServiceType" => list(any())
       }
 
   """
-  @type provider_service_summary() :: %{String.t() | Atom.t() => any()}
+  @type provider_service_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_schema_mappings_output() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "schemaList" => list(schema_mapping_summary())
       }
 
   """
-  @type list_schema_mappings_output() :: %{String.t() | Atom.t() => any()}
+  @type list_schema_mappings_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -248,35 +248,35 @@ defmodule AWS.EntityResolution do
 
       output_attribute() :: %{
         "hashed" => [boolean()],
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type output_attribute() :: %{String.t() | Atom.t() => any()}
+  @type output_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_matching_job_output() :: %{
-        "jobId" => String.t() | Atom.t()
+        "jobId" => String.t() | atom()
       }
 
   """
-  @type start_matching_job_output() :: %{String.t() | Atom.t() => any()}
+  @type start_matching_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       exceeds_limit_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "quotaName" => [String.t() | Atom.t()],
+        "message" => String.t() | atom(),
+        "quotaName" => [String.t() | atom()],
         "quotaValue" => [integer()]
       }
 
   """
-  @type exceeds_limit_exception() :: %{String.t() | Atom.t() => any()}
+  @type exceeds_limit_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -292,25 +292,25 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       put_policy_input() :: %{
-        optional("token") => String.t() | Atom.t(),
-        required("policy") => String.t() | Atom.t()
+        optional("token") => String.t() | atom(),
+        required("policy") => String.t() | atom()
       }
 
   """
-  @type put_policy_input() :: %{String.t() | Atom.t() => any()}
+  @type put_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_policy_output() :: %{
-        "arn" => String.t() | Atom.t(),
-        "policy" => String.t() | Atom.t(),
-        "token" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "policy" => String.t() | atom(),
+        "token" => String.t() | atom()
       }
 
   """
-  @type put_policy_output() :: %{String.t() | Atom.t() => any()}
+  @type put_policy_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -318,11 +318,11 @@ defmodule AWS.EntityResolution do
 
       list_id_mapping_jobs_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_id_mapping_jobs_input() :: %{String.t() | Atom.t() => any()}
+  @type list_id_mapping_jobs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -339,11 +339,11 @@ defmodule AWS.EntityResolution do
 
       list_id_namespaces_output() :: %{
         "idNamespaceSummaries" => list(id_namespace_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_id_namespaces_output() :: %{String.t() | Atom.t() => any()}
+  @type list_id_namespaces_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -356,38 +356,38 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type id_namespace_id_mapping_workflow_properties() :: %{String.t() | Atom.t() => any()}
+  @type id_namespace_id_mapping_workflow_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_schema_mapping_output() :: %{
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "mappedInputFields" => list(schema_input_attribute()),
-        "schemaArn" => String.t() | Atom.t(),
-        "schemaName" => String.t() | Atom.t()
+        "schemaArn" => String.t() | atom(),
+        "schemaName" => String.t() | atom()
       }
 
   """
-  @type create_schema_mapping_output() :: %{String.t() | Atom.t() => any()}
+  @type create_schema_mapping_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_matching_workflow_output() :: %{
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "incrementalRunConfig" => incremental_run_config(),
         "inputSourceConfig" => list(input_source()),
         "outputSourceConfig" => list(output_source()),
         "resolutionTechniques" => resolution_techniques(),
-        "roleArn" => [String.t() | Atom.t()],
-        "workflowName" => String.t() | Atom.t()
+        "roleArn" => [String.t() | atom()],
+        "workflowName" => String.t() | atom()
       }
 
   """
-  @type update_matching_workflow_output() :: %{String.t() | Atom.t() => any()}
+  @type update_matching_workflow_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -395,11 +395,11 @@ defmodule AWS.EntityResolution do
 
       list_id_mapping_jobs_output() :: %{
         "jobs" => list(job_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_id_mapping_jobs_output() :: %{String.t() | Atom.t() => any()}
+  @type list_id_mapping_jobs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -413,7 +413,7 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type job_metrics() :: %{String.t() | Atom.t() => any()}
+  @type job_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -421,19 +421,19 @@ defmodule AWS.EntityResolution do
 
       get_id_mapping_workflow_output() :: %{
         "createdAt" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "idMappingTechniques" => id_mapping_techniques(),
         "inputSourceConfig" => list(id_mapping_workflow_input_source()),
         "outputSourceConfig" => list(id_mapping_workflow_output_source()),
-        "roleArn" => String.t() | Atom.t(),
+        "roleArn" => String.t() | atom(),
         "tags" => map(),
         "updatedAt" => [non_neg_integer()],
-        "workflowArn" => String.t() | Atom.t(),
-        "workflowName" => String.t() | Atom.t()
+        "workflowArn" => String.t() | atom(),
+        "workflowName" => String.t() | atom()
       }
 
   """
-  @type get_id_mapping_workflow_output() :: %{String.t() | Atom.t() => any()}
+  @type get_id_mapping_workflow_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -444,20 +444,20 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       failed_record() :: %{
-        "errorMessage" => String.t() | Atom.t(),
-        "inputSourceARN" => [String.t() | Atom.t()],
-        "uniqueId" => [String.t() | Atom.t()]
+        "errorMessage" => String.t() | atom(),
+        "inputSourceARN" => [String.t() | atom()],
+        "uniqueId" => [String.t() | atom()]
       }
 
   """
-  @type failed_record() :: %{String.t() | Atom.t() => any()}
+  @type failed_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -465,11 +465,11 @@ defmodule AWS.EntityResolution do
 
       list_id_namespaces_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_id_namespaces_input() :: %{String.t() | Atom.t() => any()}
+  @type list_id_namespaces_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -477,17 +477,17 @@ defmodule AWS.EntityResolution do
 
       get_schema_mapping_output() :: %{
         "createdAt" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "hasWorkflows" => [boolean()],
         "mappedInputFields" => list(schema_input_attribute()),
-        "schemaArn" => String.t() | Atom.t(),
-        "schemaName" => String.t() | Atom.t(),
+        "schemaArn" => String.t() | atom(),
+        "schemaName" => String.t() | atom(),
         "tags" => map(),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type get_schema_mapping_output() :: %{String.t() | Atom.t() => any()}
+  @type get_schema_mapping_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -501,7 +501,7 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type namespace_rule_based_properties() :: %{String.t() | Atom.t() => any()}
+  @type namespace_rule_based_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -509,41 +509,41 @@ defmodule AWS.EntityResolution do
 
       list_matching_workflows_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_matching_workflows_input() :: %{String.t() | Atom.t() => any()}
+  @type list_matching_workflows_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       id_mapping_workflow_output_source() :: %{
-        "KMSArn" => String.t() | Atom.t(),
-        "outputS3Path" => String.t() | Atom.t()
+        "KMSArn" => String.t() | atom(),
+        "outputS3Path" => String.t() | atom()
       }
 
   """
-  @type id_mapping_workflow_output_source() :: %{String.t() | Atom.t() => any()}
+  @type id_mapping_workflow_output_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_matching_workflow_output() :: %{
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "incrementalRunConfig" => incremental_run_config(),
         "inputSourceConfig" => list(input_source()),
         "outputSourceConfig" => list(output_source()),
         "resolutionTechniques" => resolution_techniques(),
-        "roleArn" => [String.t() | Atom.t()],
-        "workflowArn" => String.t() | Atom.t(),
-        "workflowName" => String.t() | Atom.t()
+        "roleArn" => [String.t() | atom()],
+        "workflowArn" => String.t() | atom(),
+        "workflowName" => String.t() | atom()
       }
 
   """
-  @type create_matching_workflow_output() :: %{String.t() | Atom.t() => any()}
+  @type create_matching_workflow_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -551,13 +551,13 @@ defmodule AWS.EntityResolution do
 
       job_summary() :: %{
         "endTime" => [non_neg_integer()],
-        "jobId" => String.t() | Atom.t(),
+        "jobId" => String.t() | atom(),
         "startTime" => [non_neg_integer()],
         "status" => list(any())
       }
 
   """
-  @type job_summary() :: %{String.t() | Atom.t() => any()}
+  @type job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -565,11 +565,11 @@ defmodule AWS.EntityResolution do
 
       namespace_provider_properties() :: %{
         "providerConfiguration" => [any()],
-        "providerServiceArn" => String.t() | Atom.t()
+        "providerServiceArn" => String.t() | atom()
       }
 
   """
-  @type namespace_provider_properties() :: %{String.t() | Atom.t() => any()}
+  @type namespace_provider_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -577,13 +577,13 @@ defmodule AWS.EntityResolution do
 
       batch_delete_unique_id_output() :: %{
         "deleted" => list(deleted_unique_id()),
-        "disconnectedUniqueIds" => list(String.t() | Atom.t()),
+        "disconnectedUniqueIds" => list(String.t() | atom()),
         "errors" => list(delete_unique_id_error()),
         "status" => list(any())
       }
 
   """
-  @type batch_delete_unique_id_output() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_unique_id_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -599,71 +599,71 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       job_output_source() :: %{
-        "KMSArn" => String.t() | Atom.t(),
-        "outputS3Path" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "KMSArn" => String.t() | atom(),
+        "outputS3Path" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type job_output_source() :: %{String.t() | Atom.t() => any()}
+  @type job_output_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       provider_id_name_space_configuration() :: %{
-        "description" => [String.t() | Atom.t()],
+        "description" => [String.t() | atom()],
         "providerSourceConfigurationDefinition" => [any()],
         "providerTargetConfigurationDefinition" => [any()]
       }
 
   """
-  @type provider_id_name_space_configuration() :: %{String.t() | Atom.t() => any()}
+  @type provider_id_name_space_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_unique_id_input() :: %{
-        optional("inputSource") => [String.t() | Atom.t()],
-        required("uniqueIds") => list(String.t() | Atom.t())
+        optional("inputSource") => [String.t() | atom()],
+        required("uniqueIds") => list(String.t() | atom())
       }
 
   """
-  @type batch_delete_unique_id_input() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_unique_id_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       intermediate_source_configuration() :: %{
-        "intermediateS3Path" => String.t() | Atom.t()
+        "intermediateS3Path" => String.t() | atom()
       }
 
   """
-  @type intermediate_source_configuration() :: %{String.t() | Atom.t() => any()}
+  @type intermediate_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -684,19 +684,19 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type generate_match_id_input() :: %{String.t() | Atom.t() => any()}
+  @type generate_match_id_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_id_mapping_workflows_output() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "workflowSummaries" => list(id_mapping_workflow_summary())
       }
 
   """
-  @type list_id_mapping_workflows_output() :: %{String.t() | Atom.t() => any()}
+  @type list_id_mapping_workflows_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -713,65 +713,65 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type id_mapping_job_metrics() :: %{String.t() | Atom.t() => any()}
+  @type id_mapping_job_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_id_mapping_workflow_input() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("outputSourceConfig") => list(id_mapping_workflow_output_source()),
-        optional("roleArn") => String.t() | Atom.t(),
+        optional("roleArn") => String.t() | atom(),
         optional("tags") => map(),
         required("idMappingTechniques") => id_mapping_techniques(),
         required("inputSourceConfig") => list(id_mapping_workflow_input_source()),
-        required("workflowName") => String.t() | Atom.t()
+        required("workflowName") => String.t() | atom()
       }
 
   """
-  @type create_id_mapping_workflow_input() :: %{String.t() | Atom.t() => any()}
+  @type create_id_mapping_workflow_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_matching_workflows_output() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "workflowSummaries" => list(matching_workflow_summary())
       }
 
   """
-  @type list_matching_workflows_output() :: %{String.t() | Atom.t() => any()}
+  @type list_matching_workflows_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_matching_workflow_input() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("incrementalRunConfig") => incremental_run_config(),
         optional("tags") => map(),
         required("inputSourceConfig") => list(input_source()),
         required("outputSourceConfig") => list(output_source()),
         required("resolutionTechniques") => resolution_techniques(),
-        required("roleArn") => [String.t() | Atom.t()],
-        required("workflowName") => String.t() | Atom.t()
+        required("roleArn") => [String.t() | atom()],
+        required("workflowName") => String.t() | atom()
       }
 
   """
-  @type create_matching_workflow_input() :: %{String.t() | Atom.t() => any()}
+  @type create_matching_workflow_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       error_details() :: %{
-        "errorMessage" => String.t() | Atom.t()
+        "errorMessage" => String.t() | atom()
       }
 
   """
-  @type error_details() :: %{String.t() | Atom.t() => any()}
+  @type error_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -781,12 +781,12 @@ defmodule AWS.EntityResolution do
         "createdAt" => [non_neg_integer()],
         "resolutionType" => list(any()),
         "updatedAt" => [non_neg_integer()],
-        "workflowArn" => String.t() | Atom.t(),
-        "workflowName" => String.t() | Atom.t()
+        "workflowArn" => String.t() | atom(),
+        "workflowName" => String.t() | atom()
       }
 
   """
-  @type matching_workflow_summary() :: %{String.t() | Atom.t() => any()}
+  @type matching_workflow_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -795,7 +795,7 @@ defmodule AWS.EntityResolution do
       get_id_mapping_job_output() :: %{
         "endTime" => [non_neg_integer()],
         "errorDetails" => error_details(),
-        "jobId" => String.t() | Atom.t(),
+        "jobId" => String.t() | atom(),
         "metrics" => id_mapping_job_metrics(),
         "outputSourceConfig" => list(id_mapping_job_output_source()),
         "startTime" => [non_neg_integer()],
@@ -803,21 +803,21 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type get_id_mapping_job_output() :: %{String.t() | Atom.t() => any()}
+  @type get_id_mapping_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       provider_schema_attribute() :: %{
-        "fieldName" => String.t() | Atom.t(),
+        "fieldName" => String.t() | atom(),
         "hashing" => [boolean()],
-        "subType" => String.t() | Atom.t(),
+        "subType" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type provider_schema_attribute() :: %{String.t() | Atom.t() => any()}
+  @type provider_schema_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -828,24 +828,24 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type start_id_mapping_job_input() :: %{String.t() | Atom.t() => any()}
+  @type start_id_mapping_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_id_mapping_workflow_output() :: %{
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "idMappingTechniques" => id_mapping_techniques(),
         "inputSourceConfig" => list(id_mapping_workflow_input_source()),
         "outputSourceConfig" => list(id_mapping_workflow_output_source()),
-        "roleArn" => String.t() | Atom.t(),
-        "workflowArn" => String.t() | Atom.t(),
-        "workflowName" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom(),
+        "workflowArn" => String.t() | atom(),
+        "workflowName" => String.t() | atom()
       }
 
   """
-  @type update_id_mapping_workflow_output() :: %{String.t() | Atom.t() => any()}
+  @type update_id_mapping_workflow_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -865,7 +865,7 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type id_namespace_id_mapping_workflow_metadata() :: %{String.t() | Atom.t() => any()}
+  @type id_namespace_id_mapping_workflow_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -873,11 +873,11 @@ defmodule AWS.EntityResolution do
 
       list_schema_mappings_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_schema_mappings_input() :: %{String.t() | Atom.t() => any()}
+  @type list_schema_mappings_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -885,11 +885,11 @@ defmodule AWS.EntityResolution do
 
       list_matching_jobs_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_matching_jobs_input() :: %{String.t() | Atom.t() => any()}
+  @type list_matching_jobs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -918,43 +918,43 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_policy_statement_output() :: %{
-        "arn" => String.t() | Atom.t(),
-        "policy" => String.t() | Atom.t(),
-        "token" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "policy" => String.t() | atom(),
+        "token" => String.t() | atom()
       }
 
   """
-  @type delete_policy_statement_output() :: %{String.t() | Atom.t() => any()}
+  @type delete_policy_statement_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rule() :: %{
-        "matchingKeys" => list(String.t() | Atom.t()),
-        "ruleName" => [String.t() | Atom.t()]
+        "matchingKeys" => list(String.t() | atom()),
+        "ruleName" => [String.t() | atom()]
       }
 
   """
-  @type rule() :: %{String.t() | Atom.t() => any()}
+  @type rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_matching_workflow_output() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type delete_matching_workflow_output() :: %{String.t() | Atom.t() => any()}
+  @type delete_matching_workflow_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -970,24 +970,24 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       match_group() :: %{
-        "matchId" => [String.t() | Atom.t()],
-        "matchRule" => [String.t() | Atom.t()],
+        "matchId" => [String.t() | atom()],
+        "matchRule" => [String.t() | atom()],
         "records" => list(matched_record())
       }
 
   """
-  @type match_group() :: %{String.t() | Atom.t() => any()}
+  @type match_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -995,43 +995,43 @@ defmodule AWS.EntityResolution do
 
       list_id_mapping_workflows_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_id_mapping_workflows_input() :: %{String.t() | Atom.t() => any()}
+  @type list_id_mapping_workflows_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_id_mapping_workflow_output() :: %{
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "idMappingTechniques" => id_mapping_techniques(),
         "inputSourceConfig" => list(id_mapping_workflow_input_source()),
         "outputSourceConfig" => list(id_mapping_workflow_output_source()),
-        "roleArn" => String.t() | Atom.t(),
-        "workflowArn" => String.t() | Atom.t(),
-        "workflowName" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom(),
+        "workflowArn" => String.t() | atom(),
+        "workflowName" => String.t() | atom()
       }
 
   """
-  @type create_id_mapping_workflow_output() :: %{String.t() | Atom.t() => any()}
+  @type create_id_mapping_workflow_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_id_mapping_workflow_input() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("outputSourceConfig") => list(id_mapping_workflow_output_source()),
-        optional("roleArn") => String.t() | Atom.t(),
+        optional("roleArn") => String.t() | atom(),
         required("idMappingTechniques") => id_mapping_techniques(),
         required("inputSourceConfig") => list(id_mapping_workflow_input_source())
       }
 
   """
-  @type update_id_mapping_workflow_input() :: %{String.t() | Atom.t() => any()}
+  @type update_id_mapping_workflow_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1040,13 +1040,13 @@ defmodule AWS.EntityResolution do
       schema_mapping_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "hasWorkflows" => [boolean()],
-        "schemaArn" => String.t() | Atom.t(),
-        "schemaName" => String.t() | Atom.t(),
+        "schemaArn" => String.t() | atom(),
+        "schemaName" => String.t() | atom(),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type schema_mapping_summary() :: %{String.t() | Atom.t() => any()}
+  @type schema_mapping_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1054,62 +1054,62 @@ defmodule AWS.EntityResolution do
 
       get_id_namespace_output() :: %{
         "createdAt" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "idMappingWorkflowProperties" => list(id_namespace_id_mapping_workflow_properties()),
-        "idNamespaceArn" => String.t() | Atom.t(),
-        "idNamespaceName" => String.t() | Atom.t(),
+        "idNamespaceArn" => String.t() | atom(),
+        "idNamespaceName" => String.t() | atom(),
         "inputSourceConfig" => list(id_namespace_input_source()),
-        "roleArn" => String.t() | Atom.t(),
+        "roleArn" => String.t() | atom(),
         "tags" => map(),
         "type" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type get_id_namespace_output() :: %{String.t() | Atom.t() => any()}
+  @type get_id_namespace_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_schema_mapping_input() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("tags") => map(),
         required("mappedInputFields") => list(schema_input_attribute()),
-        required("schemaName") => String.t() | Atom.t()
+        required("schemaName") => String.t() | atom()
       }
 
   """
-  @type create_schema_mapping_input() :: %{String.t() | Atom.t() => any()}
+  @type create_schema_mapping_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_id_namespace_input() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("idMappingWorkflowProperties") => list(id_namespace_id_mapping_workflow_properties()),
         optional("inputSourceConfig") => list(id_namespace_input_source()),
-        optional("roleArn") => String.t() | Atom.t(),
+        optional("roleArn") => String.t() | atom(),
         optional("tags") => map(),
-        required("idNamespaceName") => String.t() | Atom.t(),
+        required("idNamespaceName") => String.t() | atom(),
         required("type") => list(any())
       }
 
   """
-  @type create_id_namespace_input() :: %{String.t() | Atom.t() => any()}
+  @type create_id_namespace_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       provider_intermediate_data_access_configuration() :: %{
-        "awsAccountIds" => list(String.t() | Atom.t()),
-        "requiredBucketActions" => list([String.t() | Atom.t()]())
+        "awsAccountIds" => list(String.t() | atom()),
+        "requiredBucketActions" => list([String.t() | atom()]())
       }
 
   """
-  @type provider_intermediate_data_access_configuration() :: %{String.t() | Atom.t() => any()}
+  @type provider_intermediate_data_access_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1117,22 +1117,22 @@ defmodule AWS.EntityResolution do
 
       delete_unique_id_error() :: %{
         "errorType" => list(any()),
-        "uniqueId" => String.t() | Atom.t()
+        "uniqueId" => String.t() | atom()
       }
 
   """
-  @type delete_unique_id_error() :: %{String.t() | Atom.t() => any()}
+  @type delete_unique_id_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1144,32 +1144,32 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type generate_match_id_output() :: %{String.t() | Atom.t() => any()}
+  @type generate_match_id_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_id_namespace_input() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("idMappingWorkflowProperties") => list(id_namespace_id_mapping_workflow_properties()),
         optional("inputSourceConfig") => list(id_namespace_input_source()),
-        optional("roleArn") => String.t() | Atom.t()
+        optional("roleArn") => String.t() | atom()
       }
 
   """
-  @type update_id_namespace_input() :: %{String.t() | Atom.t() => any()}
+  @type update_id_namespace_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1185,12 +1185,12 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       matched_record() :: %{
-        "inputSourceARN" => [String.t() | Atom.t()],
-        "recordId" => [String.t() | Atom.t()]
+        "inputSourceARN" => [String.t() | atom()],
+        "recordId" => [String.t() | atom()]
       }
 
   """
-  @type matched_record() :: %{String.t() | Atom.t() => any()}
+  @type matched_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1206,22 +1206,22 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       delete_id_namespace_output() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type delete_id_namespace_output() :: %{String.t() | Atom.t() => any()}
+  @type delete_id_namespace_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1245,15 +1245,15 @@ defmodule AWS.EntityResolution do
         "providerIdNameSpaceConfiguration" => provider_id_name_space_configuration(),
         "providerIntermediateDataAccessConfiguration" => provider_intermediate_data_access_configuration(),
         "providerJobConfiguration" => [any()],
-        "providerName" => String.t() | Atom.t(),
-        "providerServiceArn" => String.t() | Atom.t(),
-        "providerServiceDisplayName" => String.t() | Atom.t(),
-        "providerServiceName" => String.t() | Atom.t(),
+        "providerName" => String.t() | atom(),
+        "providerServiceArn" => String.t() | atom(),
+        "providerServiceDisplayName" => String.t() | atom(),
+        "providerServiceName" => String.t() | atom(),
         "providerServiceType" => list(any())
       }
 
   """
-  @type get_provider_service_output() :: %{String.t() | Atom.t() => any()}
+  @type get_provider_service_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1269,13 +1269,13 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       add_policy_statement_output() :: %{
-        "arn" => String.t() | Atom.t(),
-        "policy" => String.t() | Atom.t(),
-        "token" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "policy" => String.t() | atom(),
+        "token" => String.t() | atom()
       }
 
   """
-  @type add_policy_statement_output() :: %{String.t() | Atom.t() => any()}
+  @type add_policy_statement_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1284,37 +1284,37 @@ defmodule AWS.EntityResolution do
       id_mapping_workflow_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "updatedAt" => [non_neg_integer()],
-        "workflowArn" => String.t() | Atom.t(),
-        "workflowName" => String.t() | Atom.t()
+        "workflowArn" => String.t() | atom(),
+        "workflowName" => String.t() | atom()
       }
 
   """
-  @type id_mapping_workflow_summary() :: %{String.t() | Atom.t() => any()}
+  @type id_mapping_workflow_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       output_source() :: %{
-        "KMSArn" => String.t() | Atom.t(),
+        "KMSArn" => String.t() | atom(),
         "applyNormalization" => [boolean()],
         "output" => list(output_attribute()),
-        "outputS3Path" => String.t() | Atom.t()
+        "outputS3Path" => String.t() | atom()
       }
 
   """
-  @type output_source() :: %{String.t() | Atom.t() => any()}
+  @type output_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1323,22 +1323,22 @@ defmodule AWS.EntityResolution do
       provider_properties() :: %{
         "intermediateSourceConfiguration" => intermediate_source_configuration(),
         "providerConfiguration" => [any()],
-        "providerServiceArn" => String.t() | Atom.t()
+        "providerServiceArn" => String.t() | atom()
       }
 
   """
-  @type provider_properties() :: %{String.t() | Atom.t() => any()}
+  @type provider_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_schema_mapping_output() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type delete_schema_mapping_output() :: %{String.t() | Atom.t() => any()}
+  @type delete_schema_mapping_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1346,24 +1346,24 @@ defmodule AWS.EntityResolution do
 
       provider_component_schema() :: %{
         "providerSchemaAttributes" => list(provider_schema_attribute()),
-        "schemas" => list(list([String.t() | Atom.t()]())())
+        "schemas" => list(list([String.t() | atom()]())())
       }
 
   """
-  @type provider_component_schema() :: %{String.t() | Atom.t() => any()}
+  @type provider_component_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       id_mapping_job_output_source() :: %{
-        "KMSArn" => String.t() | Atom.t(),
-        "outputS3Path" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "KMSArn" => String.t() | atom(),
+        "outputS3Path" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type id_mapping_job_output_source() :: %{String.t() | Atom.t() => any()}
+  @type id_mapping_job_output_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1371,28 +1371,28 @@ defmodule AWS.EntityResolution do
 
       id_namespace_summary() :: %{
         "createdAt" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "idMappingWorkflowProperties" => list(id_namespace_id_mapping_workflow_metadata()),
-        "idNamespaceArn" => String.t() | Atom.t(),
-        "idNamespaceName" => String.t() | Atom.t(),
+        "idNamespaceArn" => String.t() | atom(),
+        "idNamespaceName" => String.t() | atom(),
         "type" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type id_namespace_summary() :: %{String.t() | Atom.t() => any()}
+  @type id_namespace_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_id_mapping_job_output() :: %{
-        "jobId" => String.t() | Atom.t(),
+        "jobId" => String.t() | atom(),
         "outputSourceConfig" => list(id_mapping_job_output_source())
       }
 
   """
-  @type start_id_mapping_job_output() :: %{String.t() | Atom.t() => any()}
+  @type start_id_mapping_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1400,62 +1400,62 @@ defmodule AWS.EntityResolution do
 
       get_matching_workflow_output() :: %{
         "createdAt" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "incrementalRunConfig" => incremental_run_config(),
         "inputSourceConfig" => list(input_source()),
         "outputSourceConfig" => list(output_source()),
         "resolutionTechniques" => resolution_techniques(),
-        "roleArn" => [String.t() | Atom.t()],
+        "roleArn" => [String.t() | atom()],
         "tags" => map(),
         "updatedAt" => [non_neg_integer()],
-        "workflowArn" => String.t() | Atom.t(),
-        "workflowName" => String.t() | Atom.t()
+        "workflowArn" => String.t() | atom(),
+        "workflowName" => String.t() | atom()
       }
 
   """
-  @type get_matching_workflow_output() :: %{String.t() | Atom.t() => any()}
+  @type get_matching_workflow_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       schema_input_attribute() :: %{
-        "fieldName" => String.t() | Atom.t(),
-        "groupName" => String.t() | Atom.t(),
+        "fieldName" => String.t() | atom(),
+        "groupName" => String.t() | atom(),
         "hashed" => [boolean()],
-        "matchKey" => String.t() | Atom.t(),
-        "subType" => String.t() | Atom.t(),
+        "matchKey" => String.t() | atom(),
+        "subType" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type schema_input_attribute() :: %{String.t() | Atom.t() => any()}
+  @type schema_input_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       id_namespace_input_source() :: %{
-        "inputSourceARN" => [String.t() | Atom.t()],
-        "schemaName" => String.t() | Atom.t()
+        "inputSourceARN" => [String.t() | atom()],
+        "schemaName" => String.t() | atom()
       }
 
   """
-  @type id_namespace_input_source() :: %{String.t() | Atom.t() => any()}
+  @type id_namespace_input_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       provider_marketplace_configuration() :: %{
-        "assetId" => [String.t() | Atom.t()],
-        "dataSetId" => [String.t() | Atom.t()],
-        "listingId" => [String.t() | Atom.t()],
-        "revisionId" => [String.t() | Atom.t()]
+        "assetId" => [String.t() | atom()],
+        "dataSetId" => [String.t() | atom()],
+        "listingId" => [String.t() | atom()],
+        "revisionId" => [String.t() | atom()]
       }
 
   """
-  @type provider_marketplace_configuration() :: %{String.t() | Atom.t() => any()}
+  @type provider_marketplace_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1464,7 +1464,7 @@ defmodule AWS.EntityResolution do
       get_matching_job_output() :: %{
         "endTime" => [non_neg_integer()],
         "errorDetails" => error_details(),
-        "jobId" => String.t() | Atom.t(),
+        "jobId" => String.t() | atom(),
         "metrics" => job_metrics(),
         "outputSourceConfig" => list(job_output_source()),
         "startTime" => [non_neg_integer()],
@@ -1472,7 +1472,7 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type get_matching_job_output() :: %{String.t() | Atom.t() => any()}
+  @type get_matching_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1485,7 +1485,7 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type rule_based_properties() :: %{String.t() | Atom.t() => any()}
+  @type rule_based_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1493,19 +1493,19 @@ defmodule AWS.EntityResolution do
 
       create_id_namespace_output() :: %{
         "createdAt" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "idMappingWorkflowProperties" => list(id_namespace_id_mapping_workflow_properties()),
-        "idNamespaceArn" => String.t() | Atom.t(),
-        "idNamespaceName" => String.t() | Atom.t(),
+        "idNamespaceArn" => String.t() | atom(),
+        "idNamespaceName" => String.t() | atom(),
         "inputSourceConfig" => list(id_namespace_input_source()),
-        "roleArn" => String.t() | Atom.t(),
+        "roleArn" => String.t() | atom(),
         "tags" => map(),
         "type" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type create_id_namespace_output() :: %{String.t() | Atom.t() => any()}
+  @type create_id_namespace_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1519,7 +1519,7 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type id_mapping_rule_based_properties() :: %{String.t() | Atom.t() => any()}
+  @type id_mapping_rule_based_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1527,31 +1527,31 @@ defmodule AWS.EntityResolution do
 
       update_id_namespace_output() :: %{
         "createdAt" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "idMappingWorkflowProperties" => list(id_namespace_id_mapping_workflow_properties()),
-        "idNamespaceArn" => String.t() | Atom.t(),
-        "idNamespaceName" => String.t() | Atom.t(),
+        "idNamespaceArn" => String.t() | atom(),
+        "idNamespaceName" => String.t() | atom(),
         "inputSourceConfig" => list(id_namespace_input_source()),
-        "roleArn" => String.t() | Atom.t(),
+        "roleArn" => String.t() | atom(),
         "type" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type update_id_namespace_output() :: %{String.t() | Atom.t() => any()}
+  @type update_id_namespace_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       id_mapping_workflow_input_source() :: %{
-        "inputSourceARN" => [String.t() | Atom.t()],
-        "schemaName" => String.t() | Atom.t(),
+        "inputSourceARN" => [String.t() | atom()],
+        "schemaName" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type id_mapping_workflow_input_source() :: %{String.t() | Atom.t() => any()}
+  @type id_mapping_workflow_input_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1563,7 +1563,7 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type get_match_id_input() :: %{String.t() | Atom.t() => any()}
+  @type get_match_id_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1574,7 +1574,7 @@ defmodule AWS.EntityResolution do
       }
 
   """
-  @type incremental_run_config() :: %{String.t() | Atom.t() => any()}
+  @type incremental_run_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1591,36 +1591,36 @@ defmodule AWS.EntityResolution do
 
       list_matching_jobs_output() :: %{
         "jobs" => list(job_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_matching_jobs_output() :: %{String.t() | Atom.t() => any()}
+  @type list_matching_jobs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_provider_services_output() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "providerServiceSummaries" => list(provider_service_summary())
       }
 
   """
-  @type list_provider_services_output() :: %{String.t() | Atom.t() => any()}
+  @type list_provider_services_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_policy_output() :: %{
-        "arn" => String.t() | Atom.t(),
-        "policy" => String.t() | Atom.t(),
-        "token" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "policy" => String.t() | atom(),
+        "token" => String.t() | atom()
       }
 
   """
-  @type get_policy_output() :: %{String.t() | Atom.t() => any()}
+  @type get_policy_output() :: %{(String.t() | atom()) => any()}
 
   @type add_policy_statement_errors() ::
           throttling_exception()
@@ -1900,8 +1900,8 @@ defmodule AWS.EntityResolution do
   """
   @spec add_policy_statement(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           add_policy_statement_input(),
           list()
         ) ::
@@ -1933,12 +1933,7 @@ defmodule AWS.EntityResolution do
   @doc """
   Deletes multiple unique IDs in a matching workflow.
   """
-  @spec batch_delete_unique_id(
-          map(),
-          String.t() | Atom.t(),
-          batch_delete_unique_id_input(),
-          list()
-        ) ::
+  @spec batch_delete_unique_id(map(), String.t() | atom(), batch_delete_unique_id_input(), list()) ::
           {:ok, batch_delete_unique_id_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2112,7 +2107,7 @@ defmodule AWS.EntityResolution do
   """
   @spec delete_id_mapping_workflow(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_id_mapping_workflow_input(),
           list()
         ) ::
@@ -2144,7 +2139,7 @@ defmodule AWS.EntityResolution do
   @doc """
   Deletes the `IdNamespace` with a given name.
   """
-  @spec delete_id_namespace(map(), String.t() | Atom.t(), delete_id_namespace_input(), list()) ::
+  @spec delete_id_namespace(map(), String.t() | atom(), delete_id_namespace_input(), list()) ::
           {:ok, delete_id_namespace_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2178,7 +2173,7 @@ defmodule AWS.EntityResolution do
   """
   @spec delete_matching_workflow(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_matching_workflow_input(),
           list()
         ) ::
@@ -2212,8 +2207,8 @@ defmodule AWS.EntityResolution do
   """
   @spec delete_policy_statement(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_policy_statement_input(),
           list()
         ) ::
@@ -2249,7 +2244,7 @@ defmodule AWS.EntityResolution do
   This operation will fail if there is a `MatchingWorkflow` object that references
   the `SchemaMapping` in the workflow's `InputSourceConfig`.
   """
-  @spec delete_schema_mapping(map(), String.t() | Atom.t(), delete_schema_mapping_input(), list()) ::
+  @spec delete_schema_mapping(map(), String.t() | atom(), delete_schema_mapping_input(), list()) ::
           {:ok, delete_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2290,7 +2285,7 @@ defmodule AWS.EntityResolution do
   rule-based matching workflow must exist and be active before calling this
   operation.
   """
-  @spec generate_match_id(map(), String.t() | Atom.t(), generate_match_id_input(), list()) ::
+  @spec generate_match_id(map(), String.t() | atom(), generate_match_id_input(), list()) ::
           {:ok, generate_match_id_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2320,7 +2315,7 @@ defmodule AWS.EntityResolution do
   Returns the status, metrics, and errors (if there are any) that are associated
   with a job.
   """
-  @spec get_id_mapping_job(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_id_mapping_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_id_mapping_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2340,7 +2335,7 @@ defmodule AWS.EntityResolution do
   @doc """
   Returns the `IdMappingWorkflow` with a given name, if it exists.
   """
-  @spec get_id_mapping_workflow(map(), String.t() | Atom.t(), list()) ::
+  @spec get_id_mapping_workflow(map(), String.t() | atom(), list()) ::
           {:ok, get_id_mapping_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2358,7 +2353,7 @@ defmodule AWS.EntityResolution do
   @doc """
   Returns the `IdNamespace` with a given name, if it exists.
   """
-  @spec get_id_namespace(map(), String.t() | Atom.t(), list()) ::
+  @spec get_id_namespace(map(), String.t() | atom(), list()) ::
           {:ok, get_id_namespace_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2380,7 +2375,7 @@ defmodule AWS.EntityResolution do
   You can call this API as a dry run of an incremental load on the rule-based
   matching workflow.
   """
-  @spec get_match_id(map(), String.t() | Atom.t(), get_match_id_input(), list()) ::
+  @spec get_match_id(map(), String.t() | atom(), get_match_id_input(), list()) ::
           {:ok, get_match_id_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2410,7 +2405,7 @@ defmodule AWS.EntityResolution do
   Returns the status, metrics, and errors (if there are any) that are associated
   with a job.
   """
-  @spec get_matching_job(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_matching_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_matching_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2430,7 +2425,7 @@ defmodule AWS.EntityResolution do
   @doc """
   Returns the `MatchingWorkflow` with a given name, if it exists.
   """
-  @spec get_matching_workflow(map(), String.t() | Atom.t(), list()) ::
+  @spec get_matching_workflow(map(), String.t() | atom(), list()) ::
           {:ok, get_matching_workflow_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2448,7 +2443,7 @@ defmodule AWS.EntityResolution do
   @doc """
   Returns the resource-based policy.
   """
-  @spec get_policy(map(), String.t() | Atom.t(), list()) ::
+  @spec get_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2466,7 +2461,7 @@ defmodule AWS.EntityResolution do
   @doc """
   Returns the `ProviderService` of a given name.
   """
-  @spec get_provider_service(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_provider_service(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_provider_service_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2491,7 +2486,7 @@ defmodule AWS.EntityResolution do
   @doc """
   Returns the SchemaMapping of a given name.
   """
-  @spec get_schema_mapping(map(), String.t() | Atom.t(), list()) ::
+  @spec get_schema_mapping(map(), String.t() | atom(), list()) ::
           {:ok, get_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2511,9 +2506,9 @@ defmodule AWS.EntityResolution do
   """
   @spec list_id_mapping_jobs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_id_mapping_jobs_output(), any()}
@@ -2556,8 +2551,8 @@ defmodule AWS.EntityResolution do
   """
   @spec list_id_mapping_workflows(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_id_mapping_workflows_output(), any()}
@@ -2596,12 +2591,7 @@ defmodule AWS.EntityResolution do
   @doc """
   Returns a list of all ID namespaces.
   """
-  @spec list_id_namespaces(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec list_id_namespaces(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_id_namespaces_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2635,9 +2625,9 @@ defmodule AWS.EntityResolution do
   """
   @spec list_matching_jobs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_matching_jobs_output(), any()}
@@ -2680,8 +2670,8 @@ defmodule AWS.EntityResolution do
   """
   @spec list_matching_workflows(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_matching_workflows_output(), any()}
@@ -2723,9 +2713,9 @@ defmodule AWS.EntityResolution do
   """
   @spec list_provider_services(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_provider_services_output(), any()}
@@ -2773,12 +2763,7 @@ defmodule AWS.EntityResolution do
   Returns a list of all the `SchemaMappings` that have been created for an Amazon
   Web Services account.
   """
-  @spec list_schema_mappings(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec list_schema_mappings(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_schema_mappings_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2817,7 +2802,7 @@ defmodule AWS.EntityResolution do
 
   In Entity Resolution, `SchemaMapping`, and `MatchingWorkflow` can be tagged.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2835,7 +2820,7 @@ defmodule AWS.EntityResolution do
   @doc """
   Updates the resource-based policy.
   """
-  @spec put_policy(map(), String.t() | Atom.t(), put_policy_input(), list()) ::
+  @spec put_policy(map(), String.t() | atom(), put_policy_input(), list()) ::
           {:ok, put_policy_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2867,7 +2852,7 @@ defmodule AWS.EntityResolution do
   The workflow must have previously been created using the
   `CreateIdMappingWorkflow` endpoint.
   """
-  @spec start_id_mapping_job(map(), String.t() | Atom.t(), start_id_mapping_job_input(), list()) ::
+  @spec start_id_mapping_job(map(), String.t() | atom(), start_id_mapping_job_input(), list()) ::
           {:ok, start_id_mapping_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2899,7 +2884,7 @@ defmodule AWS.EntityResolution do
   The workflow must have previously been created using the
   `CreateMatchingWorkflow` endpoint.
   """
-  @spec start_matching_job(map(), String.t() | Atom.t(), start_matching_job_input(), list()) ::
+  @spec start_matching_job(map(), String.t() | atom(), start_matching_job_input(), list()) ::
           {:ok, start_matching_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2939,7 +2924,7 @@ defmodule AWS.EntityResolution do
   resource. If you specify a tag key that is already associated with the resource,
   the new tag value that you specify replaces the previous value for that tag.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2970,7 +2955,7 @@ defmodule AWS.EntityResolution do
 
   In Entity Resolution, `SchemaMapping`, and `MatchingWorkflow` can be tagged.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3010,7 +2995,7 @@ defmodule AWS.EntityResolution do
   """
   @spec update_id_mapping_workflow(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_id_mapping_workflow_input(),
           list()
         ) ::
@@ -3042,7 +3027,7 @@ defmodule AWS.EntityResolution do
   @doc """
   Updates an existing ID namespace.
   """
-  @spec update_id_namespace(map(), String.t() | Atom.t(), update_id_namespace_input(), list()) ::
+  @spec update_id_namespace(map(), String.t() | atom(), update_id_namespace_input(), list()) ::
           {:ok, update_id_namespace_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3077,7 +3062,7 @@ defmodule AWS.EntityResolution do
   """
   @spec update_matching_workflow(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_matching_workflow_input(),
           list()
         ) ::
@@ -3112,7 +3097,7 @@ defmodule AWS.EntityResolution do
   A schema is immutable if it is being used by a workflow. Therefore, you can't
   update a schema mapping if it's associated with a workflow.
   """
-  @spec update_schema_mapping(map(), String.t() | Atom.t(), update_schema_mapping_input(), list()) ::
+  @spec update_schema_mapping(map(), String.t() | atom(), update_schema_mapping_input(), list()) ::
           {:ok, update_schema_mapping_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

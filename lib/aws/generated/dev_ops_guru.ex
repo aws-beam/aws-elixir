@@ -36,13 +36,13 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       anomaly_source_metadata() :: %{
-        "Source" => String.t() | Atom.t(),
-        "SourceResourceName" => String.t() | Atom.t(),
-        "SourceResourceType" => String.t() | Atom.t()
+        "Source" => String.t() | atom(),
+        "SourceResourceName" => String.t() | atom(),
+        "SourceResourceType" => String.t() | atom()
       }
 
   """
-  @type anomaly_source_metadata() :: %{String.t() | Atom.t() => any()}
+  @type anomaly_source_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -55,7 +55,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type service_integration_config() :: %{String.t() | Atom.t() => any()}
+  @type service_integration_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,25 +71,25 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       list_organization_insights_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ProactiveInsights" => list(proactive_organization_insight_summary()),
         "ReactiveInsights" => list(reactive_organization_insight_summary())
       }
 
   """
-  @type list_organization_insights_response() :: %{String.t() | Atom.t() => any()}
+  @type list_organization_insights_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       performance_insights_stat() :: %{
-        "Type" => String.t() | Atom.t(),
+        "Type" => String.t() | atom(),
         "Value" => float()
       }
 
   """
-  @type performance_insights_stat() :: %{String.t() | Atom.t() => any()}
+  @type performance_insights_stat() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -101,7 +101,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type anomaly_time_range() :: %{String.t() | Atom.t() => any()}
+  @type anomaly_time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -112,7 +112,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type put_feedback_request() :: %{String.t() | Atom.t() => any()}
+  @type put_feedback_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -124,7 +124,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type service_insight_health() :: %{String.t() | Atom.t() => any()}
+  @type service_insight_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -136,7 +136,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type list_insights_any_status_filter() :: %{String.t() | Atom.t() => any()}
+  @type list_insights_any_status_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -144,12 +144,12 @@ defmodule AWS.DevOpsGuru do
 
       list_insights_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         required("StatusFilter") => list_insights_status_filter()
       }
 
   """
-  @type list_insights_request() :: %{String.t() | Atom.t() => any()}
+  @type list_insights_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -161,20 +161,20 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type describe_insight_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_insight_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       performance_insights_metric_dimension_group() :: %{
-        "Dimensions" => list(String.t() | Atom.t()),
-        "Group" => String.t() | Atom.t(),
+        "Dimensions" => list(String.t() | atom()),
+        "Group" => String.t() | atom(),
         "Limit" => integer()
       }
 
   """
-  @type performance_insights_metric_dimension_group() :: %{String.t() | Atom.t() => any()}
+  @type performance_insights_metric_dimension_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -185,7 +185,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type add_notification_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type add_notification_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -196,7 +196,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type list_anomalies_for_insight_filters() :: %{String.t() | Atom.t() => any()}
+  @type list_anomalies_for_insight_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -207,21 +207,21 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type performance_insights_reference_scalar() :: %{String.t() | Atom.t() => any()}
+  @type performance_insights_reference_scalar() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_organization_overview_request() :: %{
-        optional("AccountIds") => list(String.t() | Atom.t()),
-        optional("OrganizationalUnitIds") => list(String.t() | Atom.t()),
+        optional("AccountIds") => list(String.t() | atom()),
+        optional("OrganizationalUnitIds") => list(String.t() | atom()),
         optional("ToTime") => non_neg_integer(),
         required("FromTime") => non_neg_integer()
       }
 
   """
-  @type describe_organization_overview_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_organization_overview_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -233,48 +233,48 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type account_insight_health() :: %{String.t() | Atom.t() => any()}
+  @type account_insight_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       recommendation_related_event() :: %{
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Resources" => list(recommendation_related_event_resource())
       }
 
   """
-  @type recommendation_related_event() :: %{String.t() | Atom.t() => any()}
+  @type recommendation_related_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reactive_insight() :: %{
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "InsightTimeRange" => insight_time_range(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "ResourceCollection" => resource_collection(),
         "Severity" => list(any()),
-        "SsmOpsItemId" => String.t() | Atom.t(),
+        "SsmOpsItemId" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type reactive_insight() :: %{String.t() | Atom.t() => any()}
+  @type reactive_insight() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       proactive_organization_insight_summary() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "InsightTimeRange" => insight_time_range(),
-        "Name" => String.t() | Atom.t(),
-        "OrganizationalUnitId" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "OrganizationalUnitId" => String.t() | atom(),
         "PredictionTimeRange" => prediction_time_range(),
         "ResourceCollection" => resource_collection(),
         "ServiceCollection" => service_collection(),
@@ -283,33 +283,32 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type proactive_organization_insight_summary() :: %{String.t() | Atom.t() => any()}
+  @type proactive_organization_insight_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_collection_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ResourceCollection" => resource_collection_filter()
       }
 
   """
-  @type get_resource_collection_response() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_collection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       recommendation_related_cloud_watch_metrics_source_detail() :: %{
-        "MetricName" => String.t() | Atom.t(),
-        "Namespace" => String.t() | Atom.t()
+        "MetricName" => String.t() | atom(),
+        "Namespace" => String.t() | atom()
       }
 
   """
   @type recommendation_related_cloud_watch_metrics_source_detail() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -330,7 +329,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type recommendation_related_anomaly_source_detail() :: %{String.t() | Atom.t() => any()}
+  @type recommendation_related_anomaly_source_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -342,7 +341,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type describe_account_overview_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_account_overview_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -352,9 +351,9 @@ defmodule AWS.DevOpsGuru do
         "AnomalyReportedTimeRange" => anomaly_reported_time_range(),
         "AnomalyResources" => list(anomaly_resource()),
         "AnomalyTimeRange" => anomaly_time_range(),
-        "AssociatedInsightId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "AssociatedInsightId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "Limit" => float(),
         "PredictionTimeRange" => prediction_time_range(),
         "ResourceCollection" => resource_collection(),
@@ -366,7 +365,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type proactive_anomaly() :: %{String.t() | Atom.t() => any()}
+  @type proactive_anomaly() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -382,13 +381,13 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       list_insights_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ProactiveInsights" => list(proactive_insight_summary()),
         "ReactiveInsights" => list(reactive_insight_summary())
       }
 
   """
-  @type list_insights_response() :: %{String.t() | Atom.t() => any()}
+  @type list_insights_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -401,20 +400,20 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type service_health() :: %{String.t() | Atom.t() => any()}
+  @type service_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kms_server_side_encryption_integration() :: %{
-        "KMSKeyId" => String.t() | Atom.t(),
+        "KMSKeyId" => String.t() | atom(),
         "OptInStatus" => list(any()),
         "Type" => list(any())
       }
 
   """
-  @type kms_server_side_encryption_integration() :: %{String.t() | Atom.t() => any()}
+  @type kms_server_side_encryption_integration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -423,41 +422,41 @@ defmodule AWS.DevOpsGuru do
       list_monitored_resources_request() :: %{
         optional("Filters") => list_monitored_resources_filters(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_monitored_resources_request() :: %{String.t() | Atom.t() => any()}
+  @type list_monitored_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       proactive_insight() :: %{
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "InsightTimeRange" => insight_time_range(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "PredictionTimeRange" => prediction_time_range(),
         "ResourceCollection" => resource_collection(),
         "Severity" => list(any()),
-        "SsmOpsItemId" => String.t() | Atom.t(),
+        "SsmOpsItemId" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type proactive_insight() :: %{String.t() | Atom.t() => any()}
+  @type proactive_insight() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_cost_estimation_request() :: %{
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_cost_estimation_request() :: %{String.t() | Atom.t() => any()}
+  @type get_cost_estimation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -467,12 +466,12 @@ defmodule AWS.DevOpsGuru do
         "ImpactEndTime" => non_neg_integer(),
         "ImpactStartTime" => non_neg_integer(),
         "LogAnomalyShowcases" => list(log_anomaly_showcase()),
-        "LogGroupName" => String.t() | Atom.t(),
+        "LogGroupName" => String.t() | atom(),
         "NumberOfLogLinesScanned" => integer()
       }
 
   """
-  @type anomalous_log_group() :: %{String.t() | Atom.t() => any()}
+  @type anomalous_log_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -488,10 +487,10 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       proactive_insight_summary() :: %{
-        "AssociatedResourceArns" => list(String.t() | Atom.t()),
-        "Id" => String.t() | Atom.t(),
+        "AssociatedResourceArns" => list(String.t() | atom()),
+        "Id" => String.t() | atom(),
         "InsightTimeRange" => insight_time_range(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "PredictionTimeRange" => prediction_time_range(),
         "ResourceCollection" => resource_collection(),
         "ServiceCollection" => service_collection(),
@@ -500,7 +499,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type proactive_insight_summary() :: %{String.t() | Atom.t() => any()}
+  @type proactive_insight_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -512,7 +511,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type describe_anomaly_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_anomaly_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -524,7 +523,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type update_resource_collection_filter() :: %{String.t() | Atom.t() => any()}
+  @type update_resource_collection_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -536,7 +535,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type cost_estimation_time_range() :: %{String.t() | Atom.t() => any()}
+  @type cost_estimation_time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -545,27 +544,27 @@ defmodule AWS.DevOpsGuru do
       list_events_filters() :: %{
         "DataSource" => list(any()),
         "EventClass" => list(any()),
-        "EventSource" => String.t() | Atom.t(),
+        "EventSource" => String.t() | atom(),
         "EventTimeRange" => event_time_range(),
-        "InsightId" => String.t() | Atom.t(),
+        "InsightId" => String.t() | atom(),
         "ResourceCollection" => resource_collection()
       }
 
   """
-  @type list_events_filters() :: %{String.t() | Atom.t() => any()}
+  @type list_events_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kms_server_side_encryption_integration_config() :: %{
-        "KMSKeyId" => String.t() | Atom.t(),
+        "KMSKeyId" => String.t() | atom(),
         "OptInStatus" => list(any()),
         "Type" => list(any())
       }
 
   """
-  @type kms_server_side_encryption_integration_config() :: %{String.t() | Atom.t() => any()}
+  @type kms_server_side_encryption_integration_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -579,7 +578,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type search_organization_insights_filters() :: %{String.t() | Atom.t() => any()}
+  @type search_organization_insights_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -590,20 +589,20 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type performance_insights_reference_metric() :: %{String.t() | Atom.t() => any()}
+  @type performance_insights_reference_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_insights_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ProactiveInsights" => list(proactive_insight_summary()),
         "ReactiveInsights" => list(reactive_insight_summary())
       }
 
   """
-  @type search_insights_response() :: %{String.t() | Atom.t() => any()}
+  @type search_insights_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -614,7 +613,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type ops_center_integration_config() :: %{String.t() | Atom.t() => any()}
+  @type ops_center_integration_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -626,33 +625,33 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type cloud_watch_metrics_data_summary() :: %{String.t() | Atom.t() => any()}
+  @type cloud_watch_metrics_data_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_tag_collection_filter() :: %{
-        "AppBoundaryKey" => String.t() | Atom.t(),
-        "TagValues" => list(String.t() | Atom.t())
+        "AppBoundaryKey" => String.t() | atom(),
+        "TagValues" => list(String.t() | atom())
       }
 
   """
-  @type update_tag_collection_filter() :: %{String.t() | Atom.t() => any()}
+  @type update_tag_collection_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_events_request() :: %{
-        optional("AccountId") => String.t() | Atom.t(),
+        optional("AccountId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Filters") => list_events_filters()
       }
 
   """
-  @type list_events_request() :: %{String.t() | Atom.t() => any()}
+  @type list_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -660,11 +659,11 @@ defmodule AWS.DevOpsGuru do
 
       notification_channel() :: %{
         "Config" => notification_channel_config(),
-        "Id" => String.t() | Atom.t()
+        "Id" => String.t() | atom()
       }
 
   """
-  @type notification_channel() :: %{String.t() | Atom.t() => any()}
+  @type notification_channel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -675,19 +674,19 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type update_service_integration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_service_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_collection() :: %{
-        "AppBoundaryKey" => String.t() | Atom.t(),
-        "TagValues" => list(String.t() | Atom.t())
+        "AppBoundaryKey" => String.t() | atom(),
+        "TagValues" => list(String.t() | atom())
       }
 
   """
-  @type tag_collection() :: %{String.t() | Atom.t() => any()}
+  @type tag_collection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -695,7 +694,7 @@ defmodule AWS.DevOpsGuru do
 
       get_cost_estimation_response() :: %{
         "Costs" => list(service_resource_cost()),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ResourceCollection" => cost_estimation_resource_collection_filter(),
         "Status" => list(any()),
         "TimeRange" => cost_estimation_time_range(),
@@ -703,7 +702,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type get_cost_estimation_response() :: %{String.t() | Atom.t() => any()}
+  @type get_cost_estimation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -714,7 +713,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type list_insights_ongoing_status_filter() :: %{String.t() | Atom.t() => any()}
+  @type list_insights_ongoing_status_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -726,7 +725,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type anomaly_reported_time_range() :: %{String.t() | Atom.t() => any()}
+  @type anomaly_reported_time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -735,22 +734,22 @@ defmodule AWS.DevOpsGuru do
       cloud_formation_health() :: %{
         "AnalyzedResourceCount" => float(),
         "Insight" => insight_health(),
-        "StackName" => String.t() | Atom.t()
+        "StackName" => String.t() | atom()
       }
 
   """
-  @type cloud_formation_health() :: %{String.t() | Atom.t() => any()}
+  @type cloud_formation_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reactive_organization_insight_summary() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "InsightTimeRange" => insight_time_range(),
-        "Name" => String.t() | Atom.t(),
-        "OrganizationalUnitId" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "OrganizationalUnitId" => String.t() | atom(),
         "ResourceCollection" => resource_collection(),
         "ServiceCollection" => service_collection(),
         "Severity" => list(any()),
@@ -758,7 +757,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type reactive_organization_insight_summary() :: %{String.t() | Atom.t() => any()}
+  @type reactive_organization_insight_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -769,33 +768,33 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type amazon_code_guru_profiler_integration() :: %{String.t() | Atom.t() => any()}
+  @type amazon_code_guru_profiler_integration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -812,21 +811,21 @@ defmodule AWS.DevOpsGuru do
 
       list_notification_channels_response() :: %{
         "Channels" => list(notification_channel()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_notification_channels_response() :: %{String.t() | Atom.t() => any()}
+  @type list_notification_channels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reactive_insight_summary() :: %{
-        "AssociatedResourceArns" => list(String.t() | Atom.t()),
-        "Id" => String.t() | Atom.t(),
+        "AssociatedResourceArns" => list(String.t() | atom()),
+        "Id" => String.t() | atom(),
         "InsightTimeRange" => insight_time_range(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "ResourceCollection" => resource_collection(),
         "ServiceCollection" => service_collection(),
         "Severity" => list(any()),
@@ -834,7 +833,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type reactive_insight_summary() :: %{String.t() | Atom.t() => any()}
+  @type reactive_insight_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -845,20 +844,19 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type event_sources_config() :: %{String.t() | Atom.t() => any()}
+  @type event_sources_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_formation_cost_estimation_resource_collection_filter() :: %{
-        "StackNames" => list(String.t() | Atom.t())
+        "StackNames" => list(String.t() | atom())
       }
 
   """
   @type cloud_formation_cost_estimation_resource_collection_filter() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -871,7 +869,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type prediction_time_range() :: %{String.t() | Atom.t() => any()}
+  @type prediction_time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -891,7 +889,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type log_anomaly_showcase() :: %{String.t() | Atom.t() => any()}
+  @type log_anomaly_showcase() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -902,29 +900,29 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type service_collection() :: %{String.t() | Atom.t() => any()}
+  @type service_collection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       add_notification_channel_response() :: %{
-        "Id" => String.t() | Atom.t()
+        "Id" => String.t() | atom()
       }
 
   """
-  @type add_notification_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type add_notification_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -932,30 +930,30 @@ defmodule AWS.DevOpsGuru do
 
       describe_resource_collection_health_response() :: %{
         "CloudFormation" => list(cloud_formation_health()),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Service" => list(service_health()),
         "Tags" => list(tag_health())
       }
 
   """
-  @type describe_resource_collection_health_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_resource_collection_health_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       recommendation() :: %{
-        "Category" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "Link" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "Reason" => String.t() | Atom.t(),
+        "Category" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Link" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Reason" => String.t() | atom(),
         "RelatedAnomalies" => list(recommendation_related_anomaly()),
         "RelatedEvents" => list(recommendation_related_event())
       }
 
   """
-  @type recommendation() :: %{String.t() | Atom.t() => any()}
+  @type recommendation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -965,11 +963,11 @@ defmodule AWS.DevOpsGuru do
         "AnomalyReportedTimeRange" => anomaly_reported_time_range(),
         "AnomalyResources" => list(anomaly_resource()),
         "AnomalyTimeRange" => anomaly_time_range(),
-        "AssociatedInsightId" => String.t() | Atom.t(),
-        "CausalAnomalyId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "AssociatedInsightId" => String.t() | atom(),
+        "CausalAnomalyId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ResourceCollection" => resource_collection(),
         "Severity" => list(any()),
         "SourceDetails" => anomaly_source_details(),
@@ -978,7 +976,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type reactive_anomaly() :: %{String.t() | Atom.t() => any()}
+  @type reactive_anomaly() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -987,25 +985,25 @@ defmodule AWS.DevOpsGuru do
       search_organization_insights_request() :: %{
         optional("Filters") => search_organization_insights_filters(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("AccountIds") => list(String.t() | Atom.t()),
+        optional("NextToken") => String.t() | atom(),
+        required("AccountIds") => list(String.t() | atom()),
         required("StartTimeRange") => start_time_range(),
         required("Type") => list(any())
       }
 
   """
-  @type search_organization_insights_request() :: %{String.t() | Atom.t() => any()}
+  @type search_organization_insights_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_cloud_formation_collection_filter() :: %{
-        "StackNames" => list(String.t() | Atom.t())
+        "StackNames" => list(String.t() | atom())
       }
 
   """
-  @type update_cloud_formation_collection_filter() :: %{String.t() | Atom.t() => any()}
+  @type update_cloud_formation_collection_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1017,7 +1015,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type performance_insights_reference_comparison_values() :: %{String.t() | Atom.t() => any()}
+  @type performance_insights_reference_comparison_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1032,7 +1030,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type describe_account_health_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_account_health_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1044,7 +1042,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type anomaly_source_details() :: %{String.t() | Atom.t() => any()}
+  @type anomaly_source_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1056,18 +1054,18 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type timestamp_metric_value_pair() :: %{String.t() | Atom.t() => any()}
+  @type timestamp_metric_value_pair() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_insight_request() :: %{
-        optional("AccountId") => String.t() | Atom.t()
+        optional("AccountId") => String.t() | atom()
       }
 
   """
-  @type describe_insight_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_insight_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1075,11 +1073,11 @@ defmodule AWS.DevOpsGuru do
 
       list_monitored_resources_response() :: %{
         "MonitoredResourceIdentifiers" => list(monitored_resource_identifier()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_monitored_resources_response() :: %{String.t() | Atom.t() => any()}
+  @type list_monitored_resources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1088,37 +1086,37 @@ defmodule AWS.DevOpsGuru do
       search_insights_request() :: %{
         optional("Filters") => search_insights_filters(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         required("StartTimeRange") => start_time_range(),
         required("Type") => list(any())
       }
 
   """
-  @type search_insights_request() :: %{String.t() | Atom.t() => any()}
+  @type search_insights_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_collection_filter() :: %{
-        "AppBoundaryKey" => String.t() | Atom.t(),
-        "TagValues" => list(String.t() | Atom.t())
+        "AppBoundaryKey" => String.t() | atom(),
+        "TagValues" => list(String.t() | atom())
       }
 
   """
-  @type tag_collection_filter() :: %{String.t() | Atom.t() => any()}
+  @type tag_collection_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1126,11 +1124,11 @@ defmodule AWS.DevOpsGuru do
 
       performance_insights_reference_data() :: %{
         "ComparisonValues" => performance_insights_reference_comparison_values(),
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type performance_insights_reference_data() :: %{String.t() | Atom.t() => any()}
+  @type performance_insights_reference_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1143,7 +1141,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type describe_account_overview_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_account_overview_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1153,11 +1151,11 @@ defmodule AWS.DevOpsGuru do
         "AnomalyReportedTimeRange" => anomaly_reported_time_range(),
         "AnomalyResources" => list(anomaly_resource()),
         "AnomalyTimeRange" => anomaly_time_range(),
-        "AssociatedInsightId" => String.t() | Atom.t(),
-        "CausalAnomalyId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "AssociatedInsightId" => String.t() | atom(),
+        "CausalAnomalyId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ResourceCollection" => resource_collection(),
         "Severity" => list(any()),
         "SourceDetails" => anomaly_source_details(),
@@ -1166,7 +1164,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type reactive_anomaly_summary() :: %{String.t() | Atom.t() => any()}
+  @type reactive_anomaly_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1180,7 +1178,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type search_insights_filters() :: %{String.t() | Atom.t() => any()}
+  @type search_insights_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1191,7 +1189,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type describe_event_sources_config_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_event_sources_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1200,64 +1198,64 @@ defmodule AWS.DevOpsGuru do
       cloud_watch_metrics_detail() :: %{
         "Dimensions" => list(cloud_watch_metrics_dimension()),
         "MetricDataSummary" => cloud_watch_metrics_data_summary(),
-        "MetricName" => String.t() | Atom.t(),
-        "Namespace" => String.t() | Atom.t(),
+        "MetricName" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
         "Period" => integer(),
         "Stat" => list(any()),
-        "Unit" => String.t() | Atom.t()
+        "Unit" => String.t() | atom()
       }
 
   """
-  @type cloud_watch_metrics_detail() :: %{String.t() | Atom.t() => any()}
+  @type cloud_watch_metrics_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_organization_insights_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ProactiveInsights" => list(proactive_insight_summary()),
         "ReactiveInsights" => list(reactive_insight_summary())
       }
 
   """
-  @type search_organization_insights_response() :: %{String.t() | Atom.t() => any()}
+  @type search_organization_insights_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_formation_collection_filter() :: %{
-        "StackNames" => list(String.t() | Atom.t())
+        "StackNames" => list(String.t() | atom())
       }
 
   """
-  @type cloud_formation_collection_filter() :: %{String.t() | Atom.t() => any()}
+  @type cloud_formation_collection_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       recommendation_related_anomaly() :: %{
-        "AnomalyId" => String.t() | Atom.t(),
+        "AnomalyId" => String.t() | atom(),
         "Resources" => list(recommendation_related_anomaly_resource()),
         "SourceDetails" => list(recommendation_related_anomaly_source_detail())
       }
 
   """
-  @type recommendation_related_anomaly() :: %{String.t() | Atom.t() => any()}
+  @type recommendation_related_anomaly() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_cost_estimation_resource_collection_filter() :: %{
-        "AppBoundaryKey" => String.t() | Atom.t(),
-        "TagValues" => list(String.t() | Atom.t())
+        "AppBoundaryKey" => String.t() | atom(),
+        "TagValues" => list(String.t() | atom())
       }
 
   """
-  @type tag_cost_estimation_resource_collection_filter() :: %{String.t() | Atom.t() => any()}
+  @type tag_cost_estimation_resource_collection_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1265,12 +1263,12 @@ defmodule AWS.DevOpsGuru do
 
       list_anomalous_log_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("InsightId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("InsightId") => String.t() | atom()
       }
 
   """
-  @type list_anomalous_log_groups_request() :: %{String.t() | Atom.t() => any()}
+  @type list_anomalous_log_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1278,11 +1276,11 @@ defmodule AWS.DevOpsGuru do
 
       list_events_response() :: %{
         "Events" => list(event()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_events_response() :: %{String.t() | Atom.t() => any()}
+  @type list_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1294,60 +1292,60 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type list_insights_closed_status_filter() :: %{String.t() | Atom.t() => any()}
+  @type list_insights_closed_status_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       anomaly_resource() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type anomaly_resource() :: %{String.t() | Atom.t() => any()}
+  @type anomaly_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       recommendation_related_anomaly_resource() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type recommendation_related_anomaly_resource() :: %{String.t() | Atom.t() => any()}
+  @type recommendation_related_anomaly_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       log_anomaly_class() :: %{
-        "Explanation" => String.t() | Atom.t(),
-        "LogAnomalyToken" => String.t() | Atom.t(),
+        "Explanation" => String.t() | atom(),
+        "LogAnomalyToken" => String.t() | atom(),
         "LogAnomalyType" => list(any()),
-        "LogEventId" => String.t() | Atom.t(),
+        "LogEventId" => String.t() | atom(),
         "LogEventTimestamp" => non_neg_integer(),
-        "LogStreamName" => String.t() | Atom.t(),
+        "LogStreamName" => String.t() | atom(),
         "NumberOfLogLinesOccurrences" => integer()
       }
 
   """
-  @type log_anomaly_class() :: %{String.t() | Atom.t() => any()}
+  @type log_anomaly_class() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "RetryAfterSeconds" => integer()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1359,7 +1357,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type insight_time_range() :: %{String.t() | Atom.t() => any()}
+  @type insight_time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1371,7 +1369,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type end_time_range() :: %{String.t() | Atom.t() => any()}
+  @type end_time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1380,15 +1378,14 @@ defmodule AWS.DevOpsGuru do
       describe_organization_resource_collection_health_response() :: %{
         "Account" => list(account_health()),
         "CloudFormation" => list(cloud_formation_health()),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Service" => list(service_health()),
         "Tags" => list(tag_health())
       }
 
   """
   @type describe_organization_resource_collection_health_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1405,13 +1402,13 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       event_resource() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type event_resource() :: %{String.t() | Atom.t() => any()}
+  @type event_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1422,7 +1419,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type logs_anomaly_detection_integration() :: %{String.t() | Atom.t() => any()}
+  @type logs_anomaly_detection_integration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1434,7 +1431,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type describe_organization_overview_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_organization_overview_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1443,16 +1440,16 @@ defmodule AWS.DevOpsGuru do
       event() :: %{
         "DataSource" => list(any()),
         "EventClass" => list(any()),
-        "EventSource" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "EventSource" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ResourceCollection" => resource_collection(),
         "Resources" => list(event_resource()),
         "Time" => non_neg_integer()
       }
 
   """
-  @type event() :: %{String.t() | Atom.t() => any()}
+  @type event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1461,11 +1458,11 @@ defmodule AWS.DevOpsGuru do
       performance_insights_metric_query() :: %{
         "Filter" => map(),
         "GroupBy" => performance_insights_metric_dimension_group(),
-        "Metric" => String.t() | Atom.t()
+        "Metric" => String.t() | atom()
       }
 
   """
-  @type performance_insights_metric_query() :: %{String.t() | Atom.t() => any()}
+  @type performance_insights_metric_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1477,24 +1474,23 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type resource_collection_filter() :: %{String.t() | Atom.t() => any()}
+  @type resource_collection_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_organization_resource_collection_health_request() :: %{
-        optional("AccountIds") => list(String.t() | Atom.t()),
+        optional("AccountIds") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("OrganizationalUnitIds") => list(String.t() | Atom.t()),
+        optional("NextToken") => String.t() | atom(),
+        optional("OrganizationalUnitIds") => list(String.t() | atom()),
         required("OrganizationResourceCollectionType") => list(any())
       }
 
   """
   @type describe_organization_resource_collection_health_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1502,13 +1498,13 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       list_anomalies_for_insight_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ProactiveAnomalies" => list(proactive_anomaly_summary()),
         "ReactiveAnomalies" => list(reactive_anomaly_summary())
       }
 
   """
-  @type list_anomalies_for_insight_response() :: %{String.t() | Atom.t() => any()}
+  @type list_anomalies_for_insight_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1516,13 +1512,13 @@ defmodule AWS.DevOpsGuru do
 
       tag_health() :: %{
         "AnalyzedResourceCount" => float(),
-        "AppBoundaryKey" => String.t() | Atom.t(),
+        "AppBoundaryKey" => String.t() | atom(),
         "Insight" => insight_health(),
-        "TagValue" => String.t() | Atom.t()
+        "TagValue" => String.t() | atom()
       }
 
   """
-  @type tag_health() :: %{String.t() | Atom.t() => any()}
+  @type tag_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1534,7 +1530,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type cost_estimation_resource_collection_filter() :: %{String.t() | Atom.t() => any()}
+  @type cost_estimation_resource_collection_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1550,11 +1546,11 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1575,7 +1571,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type update_resource_collection_request() :: %{String.t() | Atom.t() => any()}
+  @type update_resource_collection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1591,11 +1587,11 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       list_notification_channels_request() :: %{
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_notification_channels_request() :: %{String.t() | Atom.t() => any()}
+  @type list_notification_channels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1606,30 +1602,30 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type update_event_sources_config_request() :: %{String.t() | Atom.t() => any()}
+  @type update_event_sources_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       recommendation_related_event_resource() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type recommendation_related_event_resource() :: %{String.t() | Atom.t() => any()}
+  @type recommendation_related_event_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_formation_collection() :: %{
-        "StackNames" => list(String.t() | Atom.t())
+        "StackNames" => list(String.t() | atom())
       }
 
   """
-  @type cloud_formation_collection() :: %{String.t() | Atom.t() => any()}
+  @type cloud_formation_collection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1637,12 +1633,12 @@ defmodule AWS.DevOpsGuru do
 
       validation_exception() :: %{
         "Fields" => list(validation_exception_field()),
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "Reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1659,23 +1655,23 @@ defmodule AWS.DevOpsGuru do
 
       list_anomalous_log_groups_response() :: %{
         "AnomalousLogGroups" => list(anomalous_log_group()),
-        "InsightId" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t()
+        "InsightId" => String.t() | atom(),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_anomalous_log_groups_response() :: %{String.t() | Atom.t() => any()}
+  @type list_anomalous_log_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sns_channel_config() :: %{
-        "TopicArn" => String.t() | Atom.t()
+        "TopicArn" => String.t() | atom()
       }
 
   """
-  @type sns_channel_config() :: %{String.t() | Atom.t() => any()}
+  @type sns_channel_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1686,19 +1682,19 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type logs_anomaly_detection_integration_config() :: %{String.t() | Atom.t() => any()}
+  @type logs_anomaly_detection_integration_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_watch_metrics_dimension() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type cloud_watch_metrics_dimension() :: %{String.t() | Atom.t() => any()}
+  @type cloud_watch_metrics_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1709,37 +1705,37 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type describe_service_integration_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_service_integration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       performance_insights_metrics_detail() :: %{
-        "MetricDisplayName" => String.t() | Atom.t(),
+        "MetricDisplayName" => String.t() | atom(),
         "MetricQuery" => performance_insights_metric_query(),
         "ReferenceData" => list(performance_insights_reference_data()),
         "StatsAtAnomaly" => list(performance_insights_stat()),
         "StatsAtBaseline" => list(performance_insights_stat()),
-        "Unit" => String.t() | Atom.t()
+        "Unit" => String.t() | atom()
       }
 
   """
-  @type performance_insights_metrics_detail() :: %{String.t() | Atom.t() => any()}
+  @type performance_insights_metrics_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "QuotaCode" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
+        "QuotaCode" => String.t() | atom(),
         "RetryAfterSeconds" => integer(),
-        "ServiceCode" => String.t() | Atom.t()
+        "ServiceCode" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1750,19 +1746,19 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type describe_feedback_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_feedback_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_cost_estimation_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         required("ResourceCollection") => cost_estimation_resource_collection_filter()
       }
 
   """
-  @type start_cost_estimation_request() :: %{String.t() | Atom.t() => any()}
+  @type start_cost_estimation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1778,11 +1774,11 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       get_resource_collection_request() :: %{
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_resource_collection_request() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_collection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1795,18 +1791,18 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type insight_health() :: %{String.t() | Atom.t() => any()}
+  @type insight_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_anomaly_request() :: %{
-        optional("AccountId") => String.t() | Atom.t()
+        optional("AccountId") => String.t() | atom()
       }
 
   """
-  @type describe_anomaly_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_anomaly_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1819,18 +1815,18 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type update_service_integration_config() :: %{String.t() | Atom.t() => any()}
+  @type update_service_integration_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_feedback_request() :: %{
-        optional("InsightId") => String.t() | Atom.t()
+        optional("InsightId") => String.t() | atom()
       }
 
   """
-  @type describe_feedback_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_feedback_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1842,7 +1838,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type start_time_range() :: %{String.t() | Atom.t() => any()}
+  @type start_time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1854,7 +1850,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type notification_channel_config() :: %{String.t() | Atom.t() => any()}
+  @type notification_channel_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1866,7 +1862,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type event_time_range() :: %{String.t() | Atom.t() => any()}
+  @type event_time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1878,22 +1874,22 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type list_monitored_resources_filters() :: %{String.t() | Atom.t() => any()}
+  @type list_monitored_resources_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_organization_insights_request() :: %{
-        optional("AccountIds") => list(String.t() | Atom.t()),
+        optional("AccountIds") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("OrganizationalUnitIds") => list(String.t() | Atom.t()),
+        optional("NextToken") => String.t() | atom(),
+        optional("OrganizationalUnitIds") => list(String.t() | atom()),
         required("StatusFilter") => list_insights_status_filter()
       }
 
   """
-  @type list_organization_insights_request() :: %{String.t() | Atom.t() => any()}
+  @type list_organization_insights_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1905,7 +1901,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type notification_filter_config() :: %{String.t() | Atom.t() => any()}
+  @type notification_filter_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1919,19 +1915,19 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type describe_organization_health_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_organization_health_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_recommendations_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Recommendations" => list(recommendation())
       }
 
   """
-  @type list_recommendations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_recommendations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1944,7 +1940,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type list_insights_status_filter() :: %{String.t() | Atom.t() => any()}
+  @type list_insights_status_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1952,11 +1948,11 @@ defmodule AWS.DevOpsGuru do
 
       insight_feedback() :: %{
         "Feedback" => list(any()),
-        "Id" => String.t() | Atom.t()
+        "Id" => String.t() | atom()
       }
 
   """
-  @type insight_feedback() :: %{String.t() | Atom.t() => any()}
+  @type insight_feedback() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1967,7 +1963,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type ops_center_integration() :: %{String.t() | Atom.t() => any()}
+  @type ops_center_integration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1977,12 +1973,12 @@ defmodule AWS.DevOpsGuru do
         "Cost" => float(),
         "Count" => integer(),
         "State" => list(any()),
-        "Type" => String.t() | Atom.t(),
+        "Type" => String.t() | atom(),
         "UnitCost" => float()
       }
 
   """
-  @type service_resource_cost() :: %{String.t() | Atom.t() => any()}
+  @type service_resource_cost() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1994,7 +1990,7 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type resource_collection() :: %{String.t() | Atom.t() => any()}
+  @type resource_collection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2004,9 +2000,9 @@ defmodule AWS.DevOpsGuru do
         "AnomalyReportedTimeRange" => anomaly_reported_time_range(),
         "AnomalyResources" => list(anomaly_resource()),
         "AnomalyTimeRange" => anomaly_time_range(),
-        "AssociatedInsightId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "AssociatedInsightId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "Limit" => float(),
         "PredictionTimeRange" => prediction_time_range(),
         "ResourceCollection" => resource_collection(),
@@ -2018,71 +2014,71 @@ defmodule AWS.DevOpsGuru do
       }
 
   """
-  @type proactive_anomaly_summary() :: %{String.t() | Atom.t() => any()}
+  @type proactive_anomaly_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_anomalies_for_insight_request() :: %{
-        optional("AccountId") => String.t() | Atom.t(),
+        optional("AccountId") => String.t() | atom(),
         optional("Filters") => list_anomalies_for_insight_filters(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("StartTimeRange") => start_time_range()
       }
 
   """
-  @type list_anomalies_for_insight_request() :: %{String.t() | Atom.t() => any()}
+  @type list_anomalies_for_insight_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account_health() :: %{
-        "AccountId" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
         "Insight" => account_insight_health()
       }
 
   """
-  @type account_health() :: %{String.t() | Atom.t() => any()}
+  @type account_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_organization_health_request() :: %{
-        optional("AccountIds") => list(String.t() | Atom.t()),
-        optional("OrganizationalUnitIds") => list(String.t() | Atom.t())
+        optional("AccountIds") => list(String.t() | atom()),
+        optional("OrganizationalUnitIds") => list(String.t() | atom())
       }
 
   """
-  @type describe_organization_health_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_organization_health_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_recommendations_request() :: %{
-        optional("AccountId") => String.t() | Atom.t(),
+        optional("AccountId") => String.t() | atom(),
         optional("Locale") => list(any()),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("InsightId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("InsightId") => String.t() | atom()
       }
 
   """
-  @type list_recommendations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_recommendations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_resource_collection_health_request() :: %{
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_resource_collection_health_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_resource_collection_health_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2090,14 +2086,14 @@ defmodule AWS.DevOpsGuru do
 
       monitored_resource_identifier() :: %{
         "LastUpdated" => non_neg_integer(),
-        "MonitoredResourceName" => String.t() | Atom.t(),
+        "MonitoredResourceName" => String.t() | atom(),
         "ResourceCollection" => resource_collection(),
         "ResourcePermission" => list(any()),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type monitored_resource_identifier() :: %{String.t() | Atom.t() => any()}
+  @type monitored_resource_identifier() :: %{(String.t() | atom()) => any()}
 
   @type add_notification_channel_errors() ::
           throttling_exception()
@@ -2373,7 +2369,7 @@ defmodule AWS.DevOpsGuru do
   Deletes the insight along with the associated anomalies, events and
   recommendations.
   """
-  @spec delete_insight(map(), String.t() | Atom.t(), delete_insight_request(), list()) ::
+  @spec delete_insight(map(), String.t() | atom(), delete_insight_request(), list()) ::
           {:ok, delete_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2458,7 +2454,7 @@ defmodule AWS.DevOpsGuru do
   @doc """
   Returns details about an anomaly that you specify using its ID.
   """
-  @spec describe_anomaly(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec describe_anomaly(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, describe_anomaly_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2549,7 +2545,7 @@ defmodule AWS.DevOpsGuru do
   @doc """
   Returns details about an insight that you specify using its ID.
   """
-  @spec describe_insight(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec describe_insight(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, describe_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2687,8 +2683,8 @@ defmodule AWS.DevOpsGuru do
   """
   @spec describe_resource_collection_health(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_resource_collection_health_response(), any()}
@@ -2751,7 +2747,7 @@ defmodule AWS.DevOpsGuru do
   and
   [Amazon DevOps Guru pricing](http://aws.amazon.com/devops-guru/pricing/).
   """
-  @spec get_cost_estimation(map(), String.t() | Atom.t() | nil, list()) ::
+  @spec get_cost_estimation(map(), String.t() | atom() | nil, list()) ::
           {:ok, get_cost_estimation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2785,7 +2781,7 @@ defmodule AWS.DevOpsGuru do
   tagged using the same tag *key*. You can specify up to 500 Amazon Web Services
   CloudFormation stacks.
   """
-  @spec get_resource_collection(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec get_resource_collection(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_resource_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2819,7 +2815,7 @@ defmodule AWS.DevOpsGuru do
   """
   @spec list_anomalies_for_insight(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           list_anomalies_for_insight_request(),
           list()
         ) ::
@@ -3110,7 +3106,7 @@ defmodule AWS.DevOpsGuru do
   """
   @spec remove_notification_channel(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           remove_notification_channel_request(),
           list()
         ) ::

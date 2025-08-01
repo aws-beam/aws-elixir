@@ -36,11 +36,11 @@ defmodule AWS.KeyspacesStreams do
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -48,11 +48,11 @@ defmodule AWS.KeyspacesStreams do
       
       get_records_input() :: %{
         optional("maxResults") => [integer()],
-        required("shardIterator") => String.t() | Atom.t()
+        required("shardIterator") => String.t() | atom()
       }
       
   """
-  @type get_records_input() :: %{String.t() | Atom.t() => any()}
+  @type get_records_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -60,36 +60,36 @@ defmodule AWS.KeyspacesStreams do
       
       get_records_output() :: %{
         "changeRecords" => list(record()),
-        "nextShardIterator" => String.t() | Atom.t()
+        "nextShardIterator" => String.t() | atom()
       }
       
   """
-  @type get_records_output() :: %{String.t() | Atom.t() => any()}
+  @type get_records_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_shard_iterator_input() :: %{
-        optional("sequenceNumber") => String.t() | Atom.t(),
-        required("shardId") => String.t() | Atom.t(),
+        optional("sequenceNumber") => String.t() | atom(),
+        required("shardId") => String.t() | atom(),
         required("shardIteratorType") => list(any()),
-        required("streamArn") => String.t() | Atom.t()
+        required("streamArn") => String.t() | atom()
       }
       
   """
-  @type get_shard_iterator_input() :: %{String.t() | Atom.t() => any()}
+  @type get_shard_iterator_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_shard_iterator_output() :: %{
-        "shardIterator" => String.t() | Atom.t()
+        "shardIterator" => String.t() | atom()
       }
       
   """
-  @type get_shard_iterator_output() :: %{String.t() | Atom.t() => any()}
+  @type get_shard_iterator_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -97,13 +97,13 @@ defmodule AWS.KeyspacesStreams do
       
       get_stream_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("shardFilter") => shard_filter(),
-        required("streamArn") => String.t() | Atom.t()
+        required("streamArn") => String.t() | atom()
       }
       
   """
-  @type get_stream_input() :: %{String.t() | Atom.t() => any()}
+  @type get_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -111,29 +111,29 @@ defmodule AWS.KeyspacesStreams do
       
       get_stream_output() :: %{
         "creationRequestDateTime" => non_neg_integer(),
-        "keyspaceName" => String.t() | Atom.t(),
-        "nextToken" => String.t() | Atom.t(),
+        "keyspaceName" => String.t() | atom(),
+        "nextToken" => String.t() | atom(),
         "shards" => list(shard()),
-        "streamArn" => String.t() | Atom.t(),
-        "streamLabel" => [String.t() | Atom.t()],
+        "streamArn" => String.t() | atom(),
+        "streamLabel" => [String.t() | atom()],
         "streamStatus" => list(any()),
         "streamViewType" => list(any()),
-        "tableName" => String.t() | Atom.t()
+        "tableName" => String.t() | atom()
       }
       
   """
-  @type get_stream_output() :: %{String.t() | Atom.t() => any()}
+  @type get_stream_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -145,7 +145,7 @@ defmodule AWS.KeyspacesStreams do
       }
       
   """
-  @type keyspaces_cell() :: %{String.t() | Atom.t() => any()}
+  @type keyspaces_cell() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -158,19 +158,19 @@ defmodule AWS.KeyspacesStreams do
       }
       
   """
-  @type keyspaces_cell_map_definition() :: %{String.t() | Atom.t() => any()}
+  @type keyspaces_cell_map_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       keyspaces_metadata() :: %{
-        "expirationTime" => [String.t() | Atom.t()],
-        "writeTime" => [String.t() | Atom.t()]
+        "expirationTime" => [String.t() | atom()],
+        "writeTime" => [String.t() | atom()]
       }
       
   """
-  @type keyspaces_metadata() :: %{String.t() | Atom.t() => any()}
+  @type keyspaces_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -183,33 +183,33 @@ defmodule AWS.KeyspacesStreams do
       }
       
   """
-  @type keyspaces_row() :: %{String.t() | Atom.t() => any()}
+  @type keyspaces_row() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_streams_input() :: %{
-        optional("keyspaceName") => String.t() | Atom.t(),
+        optional("keyspaceName") => String.t() | atom(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("tableName") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("tableName") => String.t() | atom()
       }
       
   """
-  @type list_streams_input() :: %{String.t() | Atom.t() => any()}
+  @type list_streams_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_streams_output() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "streams" => list(stream())
       }
       
   """
-  @type list_streams_output() :: %{String.t() | Atom.t() => any()}
+  @type list_streams_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -218,89 +218,89 @@ defmodule AWS.KeyspacesStreams do
       record() :: %{
         "clusteringKeys" => map(),
         "createdAt" => non_neg_integer(),
-        "eventVersion" => [String.t() | Atom.t()],
+        "eventVersion" => [String.t() | atom()],
         "newImage" => keyspaces_row(),
         "oldImage" => keyspaces_row(),
         "origin" => list(any()),
         "partitionKeys" => map(),
-        "sequenceNumber" => String.t() | Atom.t()
+        "sequenceNumber" => String.t() | atom()
       }
       
   """
-  @type record() :: %{String.t() | Atom.t() => any()}
+  @type record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sequence_number_range() :: %{
-        "endingSequenceNumber" => String.t() | Atom.t(),
-        "startingSequenceNumber" => String.t() | Atom.t()
+        "endingSequenceNumber" => String.t() | atom(),
+        "startingSequenceNumber" => String.t() | atom()
       }
       
   """
-  @type sequence_number_range() :: %{String.t() | Atom.t() => any()}
+  @type sequence_number_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       shard() :: %{
-        "parentShardIds" => list(String.t() | Atom.t()),
+        "parentShardIds" => list(String.t() | atom()),
         "sequenceNumberRange" => sequence_number_range(),
-        "shardId" => String.t() | Atom.t()
+        "shardId" => String.t() | atom()
       }
       
   """
-  @type shard() :: %{String.t() | Atom.t() => any()}
+  @type shard() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       shard_filter() :: %{
-        "shardId" => String.t() | Atom.t(),
+        "shardId" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type shard_filter() :: %{String.t() | Atom.t() => any()}
+  @type shard_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stream() :: %{
-        "keyspaceName" => String.t() | Atom.t(),
-        "streamArn" => String.t() | Atom.t(),
-        "streamLabel" => [String.t() | Atom.t()],
-        "tableName" => String.t() | Atom.t()
+        "keyspaceName" => String.t() | atom(),
+        "streamArn" => String.t() | atom(),
+        "streamLabel" => [String.t() | atom()],
+        "tableName" => String.t() | atom()
       }
       
   """
-  @type stream() :: %{String.t() | Atom.t() => any()}
+  @type stream() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -308,11 +308,11 @@ defmodule AWS.KeyspacesStreams do
       
       validation_exception() :: %{
         "errorCode" => list(any()),
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type get_records_errors() ::
           validation_exception()

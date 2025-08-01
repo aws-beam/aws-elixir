@@ -51,73 +51,73 @@ defmodule AWS.Pricing do
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attribute_value() :: %{
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type attribute_value() :: %{String.t() | Atom.t() => any()}
+  @type attribute_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_services_request() :: %{
-        optional("FormatVersion") => String.t() | Atom.t(),
+        optional("FormatVersion") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("ServiceCode") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("ServiceCode") => String.t() | atom()
       }
       
   """
-  @type describe_services_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_services_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_services_response() :: %{
-        "FormatVersion" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
+        "FormatVersion" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
         "Services" => list(service())
       }
       
   """
-  @type describe_services_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_services_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       expired_next_token_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type expired_next_token_exception() :: %{String.t() | Atom.t() => any()}
+  @type expired_next_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       filter() :: %{
-        "Field" => String.t() | Atom.t(),
+        "Field" => String.t() | atom(),
         "Type" => list(any()),
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type filter() :: %{String.t() | Atom.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -125,13 +125,13 @@ defmodule AWS.Pricing do
       
       get_attribute_values_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("AttributeName") => String.t() | Atom.t(),
-        required("ServiceCode") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AttributeName") => String.t() | atom(),
+        required("ServiceCode") => String.t() | atom()
       }
       
   """
-  @type get_attribute_values_request() :: %{String.t() | Atom.t() => any()}
+  @type get_attribute_values_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -139,34 +139,34 @@ defmodule AWS.Pricing do
       
       get_attribute_values_response() :: %{
         "AttributeValues" => list(attribute_value()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_attribute_values_response() :: %{String.t() | Atom.t() => any()}
+  @type get_attribute_values_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_price_list_file_url_request() :: %{
-        required("FileFormat") => String.t() | Atom.t(),
-        required("PriceListArn") => String.t() | Atom.t()
+        required("FileFormat") => String.t() | atom(),
+        required("PriceListArn") => String.t() | atom()
       }
       
   """
-  @type get_price_list_file_url_request() :: %{String.t() | Atom.t() => any()}
+  @type get_price_list_file_url_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_price_list_file_url_response() :: %{
-        "Url" => String.t() | Atom.t()
+        "Url" => String.t() | atom()
       }
       
   """
-  @type get_price_list_file_url_response() :: %{String.t() | Atom.t() => any()}
+  @type get_price_list_file_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -174,60 +174,60 @@ defmodule AWS.Pricing do
       
       get_products_request() :: %{
         optional("Filters") => list(filter()),
-        optional("FormatVersion") => String.t() | Atom.t(),
+        optional("FormatVersion") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ServiceCode") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ServiceCode") => String.t() | atom()
       }
       
   """
-  @type get_products_request() :: %{String.t() | Atom.t() => any()}
+  @type get_products_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_products_response() :: %{
-        "FormatVersion" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
-        "PriceList" => list(String.t() | Atom.t())
+        "FormatVersion" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "PriceList" => list(String.t() | atom())
       }
       
   """
-  @type get_products_response() :: %{String.t() | Atom.t() => any()}
+  @type get_products_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_error_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_error_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_next_token_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -235,86 +235,86 @@ defmodule AWS.Pricing do
       
       list_price_lists_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("RegionCode") => String.t() | Atom.t(),
-        required("CurrencyCode") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RegionCode") => String.t() | atom(),
+        required("CurrencyCode") => String.t() | atom(),
         required("EffectiveDate") => non_neg_integer(),
-        required("ServiceCode") => String.t() | Atom.t()
+        required("ServiceCode") => String.t() | atom()
       }
       
   """
-  @type list_price_lists_request() :: %{String.t() | Atom.t() => any()}
+  @type list_price_lists_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_price_lists_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "PriceLists" => list(price_list())
       }
       
   """
-  @type list_price_lists_response() :: %{String.t() | Atom.t() => any()}
+  @type list_price_lists_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       price_list() :: %{
-        "CurrencyCode" => String.t() | Atom.t(),
-        "FileFormats" => list(String.t() | Atom.t()),
-        "PriceListArn" => String.t() | Atom.t(),
-        "RegionCode" => String.t() | Atom.t()
+        "CurrencyCode" => String.t() | atom(),
+        "FileFormats" => list(String.t() | atom()),
+        "PriceListArn" => String.t() | atom(),
+        "RegionCode" => String.t() | atom()
       }
       
   """
-  @type price_list() :: %{String.t() | Atom.t() => any()}
+  @type price_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service() :: %{
-        "AttributeNames" => list(String.t() | Atom.t()),
-        "ServiceCode" => String.t() | Atom.t()
+        "AttributeNames" => list(String.t() | atom()),
+        "ServiceCode" => String.t() | atom()
       }
       
   """
-  @type service() :: %{String.t() | Atom.t() => any()}
+  @type service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @type describe_services_errors() ::
           throttling_exception()

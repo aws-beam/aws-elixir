@@ -78,83 +78,82 @@ defmodule AWS.Health do
       
       describe_events_for_organization_response() :: %{
         "events" => list(organization_event()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type describe_events_for_organization_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_events_for_organization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_locale() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type unsupported_locale() :: %{String.t() | Atom.t() => any()}
+  @type unsupported_locale() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       account_entity_aggregate() :: %{
-        "accountId" => String.t() | Atom.t(),
+        "accountId" => String.t() | atom(),
         "count" => integer(),
         "statuses" => map()
       }
       
   """
-  @type account_entity_aggregate() :: %{String.t() | Atom.t() => any()}
+  @type account_entity_aggregate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_event_filter() :: %{
-        "awsAccountIds" => list(String.t() | Atom.t()),
+        "awsAccountIds" => list(String.t() | atom()),
         "endTime" => date_time_range(),
-        "entityArns" => list(String.t() | Atom.t()),
-        "entityValues" => list(String.t() | Atom.t()),
+        "entityArns" => list(String.t() | atom()),
+        "entityValues" => list(String.t() | atom()),
         "eventStatusCodes" => list(list(any())()),
         "eventTypeCategories" => list(list(any())()),
-        "eventTypeCodes" => list(String.t() | Atom.t()),
+        "eventTypeCodes" => list(String.t() | atom()),
         "lastUpdatedTime" => date_time_range(),
-        "regions" => list(String.t() | Atom.t()),
-        "services" => list(String.t() | Atom.t()),
+        "regions" => list(String.t() | atom()),
+        "services" => list(String.t() | atom()),
         "startTime" => date_time_range()
       }
       
   """
-  @type organization_event_filter() :: %{String.t() | Atom.t() => any()}
+  @type organization_event_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_event_details_for_organization_request() :: %{
-        optional("locale") => String.t() | Atom.t(),
+        optional("locale") => String.t() | atom(),
         required("organizationEventDetailFilters") => list(event_account_filter())
       }
       
   """
-  @type describe_event_details_for_organization_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_event_details_for_organization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_affected_accounts_for_organization_response() :: %{
-        "affectedAccounts" => list(String.t() | Atom.t()),
+        "affectedAccounts" => list(String.t() | atom()),
         "eventScopeCode" => list(any()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
   @type describe_affected_accounts_for_organization_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -162,30 +161,30 @@ defmodule AWS.Health do
   ## Example:
       
       invalid_pagination_token() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_pagination_token() :: %{String.t() | Atom.t() => any()}
+  @type invalid_pagination_token() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       affected_entity() :: %{
-        "awsAccountId" => String.t() | Atom.t(),
-        "entityArn" => String.t() | Atom.t(),
+        "awsAccountId" => String.t() | atom(),
+        "entityArn" => String.t() | atom(),
         "entityMetadata" => map(),
-        "entityUrl" => String.t() | Atom.t(),
-        "entityValue" => String.t() | Atom.t(),
-        "eventArn" => String.t() | Atom.t(),
+        "entityUrl" => String.t() | atom(),
+        "entityValue" => String.t() | atom(),
+        "eventArn" => String.t() | atom(),
         "lastUpdatedTime" => non_neg_integer(),
         "statusCode" => list(any()),
         "tags" => map()
       }
       
   """
-  @type affected_entity() :: %{String.t() | Atom.t() => any()}
+  @type affected_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -196,7 +195,7 @@ defmodule AWS.Health do
       }
       
   """
-  @type describe_entity_aggregates_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_entity_aggregates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -209,77 +208,77 @@ defmodule AWS.Health do
       }
       
   """
-  @type event_details() :: %{String.t() | Atom.t() => any()}
+  @type event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_event_details_error_item() :: %{
-        "awsAccountId" => String.t() | Atom.t(),
-        "errorMessage" => String.t() | Atom.t(),
-        "errorName" => String.t() | Atom.t(),
-        "eventArn" => String.t() | Atom.t()
+        "awsAccountId" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "errorName" => String.t() | atom(),
+        "eventArn" => String.t() | atom()
       }
       
   """
-  @type organization_event_details_error_item() :: %{String.t() | Atom.t() => any()}
+  @type organization_event_details_error_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_event_details() :: %{
-        "awsAccountId" => String.t() | Atom.t(),
+        "awsAccountId" => String.t() | atom(),
         "event" => event(),
         "eventDescription" => event_description(),
         "eventMetadata" => map()
       }
       
   """
-  @type organization_event_details() :: %{String.t() | Atom.t() => any()}
+  @type organization_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       entity_filter() :: %{
-        "entityArns" => list(String.t() | Atom.t()),
-        "entityValues" => list(String.t() | Atom.t()),
-        "eventArns" => list(String.t() | Atom.t()),
+        "entityArns" => list(String.t() | atom()),
+        "entityValues" => list(String.t() | atom()),
+        "eventArns" => list(String.t() | atom()),
         "lastUpdatedTimes" => list(date_time_range()),
         "statusCodes" => list(list(any())()),
         "tags" => list(map())
       }
       
   """
-  @type entity_filter() :: %{String.t() | Atom.t() => any()}
+  @type entity_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_description() :: %{
-        "latestDescription" => String.t() | Atom.t()
+        "latestDescription" => String.t() | atom()
       }
       
   """
-  @type event_description() :: %{String.t() | Atom.t() => any()}
+  @type event_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_affected_entities_for_organization_request() :: %{
-        optional("locale") => String.t() | Atom.t(),
+        optional("locale") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("organizationEntityAccountFilters") => list(entity_account_filter()),
         optional("organizationEntityFilters") => list(event_account_filter())
       }
       
   """
-  @type describe_affected_entities_for_organization_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_affected_entities_for_organization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -288,13 +287,12 @@ defmodule AWS.Health do
       describe_affected_entities_for_organization_response() :: %{
         "entities" => list(affected_entity()),
         "failedSet" => list(organization_affected_entities_error_item()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
   @type describe_affected_entities_for_organization_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -302,12 +300,12 @@ defmodule AWS.Health do
   ## Example:
       
       event_account_filter() :: %{
-        "awsAccountId" => String.t() | Atom.t(),
-        "eventArn" => String.t() | Atom.t()
+        "awsAccountId" => String.t() | atom(),
+        "eventArn" => String.t() | atom()
       }
       
   """
-  @type event_account_filter() :: %{String.t() | Atom.t() => any()}
+  @type event_account_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -319,8 +317,7 @@ defmodule AWS.Health do
       
   """
   @type describe_entity_aggregates_for_organization_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -328,24 +325,24 @@ defmodule AWS.Health do
   ## Example:
       
       describe_entity_aggregates_for_organization_request() :: %{
-        optional("awsAccountIds") => list(String.t() | Atom.t()),
-        required("eventArns") => list(String.t() | Atom.t())
+        optional("awsAccountIds") => list(String.t() | atom()),
+        required("eventArns") => list(String.t() | atom())
       }
       
   """
-  @type describe_entity_aggregates_for_organization_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_entity_aggregates_for_organization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_event_details_request() :: %{
-        optional("locale") => String.t() | Atom.t(),
-        required("eventArns") => list(String.t() | Atom.t())
+        optional("locale") => String.t() | atom(),
+        required("eventArns") => list(String.t() | atom())
       }
       
   """
-  @type describe_event_details_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_event_details_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -353,22 +350,22 @@ defmodule AWS.Health do
       
       describe_event_types_response() :: %{
         "eventTypes" => list(event_type()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type describe_event_types_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_event_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_entity_aggregates_request() :: %{
-        optional("eventArns") => list(String.t() | Atom.t())
+        optional("eventArns") => list(String.t() | atom())
       }
       
   """
-  @type describe_entity_aggregates_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_entity_aggregates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -376,12 +373,12 @@ defmodule AWS.Health do
       
       entity_aggregate() :: %{
         "count" => integer(),
-        "eventArn" => String.t() | Atom.t(),
+        "eventArn" => String.t() | atom(),
         "statuses" => map()
       }
       
   """
-  @type entity_aggregate() :: %{String.t() | Atom.t() => any()}
+  @type entity_aggregate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -389,24 +386,23 @@ defmodule AWS.Health do
       
       describe_affected_entities_response() :: %{
         "entities" => list(affected_entity()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type describe_affected_entities_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_affected_entities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_health_service_status_for_organization_response() :: %{
-        "healthServiceAccessStatusForOrganization" => String.t() | Atom.t()
+        "healthServiceAccessStatusForOrganization" => String.t() | atom()
       }
       
   """
   @type describe_health_service_status_for_organization_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -416,12 +412,12 @@ defmodule AWS.Health do
       organization_entity_aggregate() :: %{
         "accounts" => list(account_entity_aggregate()),
         "count" => integer(),
-        "eventArn" => String.t() | Atom.t(),
+        "eventArn" => String.t() | atom(),
         "statuses" => map()
       }
       
   """
-  @type organization_entity_aggregate() :: %{String.t() | Atom.t() => any()}
+  @type organization_entity_aggregate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -429,39 +425,39 @@ defmodule AWS.Health do
       
       describe_affected_accounts_for_organization_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("eventArn") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("eventArn") => String.t() | atom()
       }
       
   """
-  @type describe_affected_accounts_for_organization_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_affected_accounts_for_organization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       entity_account_filter() :: %{
-        "awsAccountId" => String.t() | Atom.t(),
-        "eventArn" => String.t() | Atom.t(),
+        "awsAccountId" => String.t() | atom(),
+        "eventArn" => String.t() | atom(),
         "statusCodes" => list(list(any())())
       }
       
   """
-  @type entity_account_filter() :: %{String.t() | Atom.t() => any()}
+  @type entity_account_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_affected_entities_error_item() :: %{
-        "awsAccountId" => String.t() | Atom.t(),
-        "errorMessage" => String.t() | Atom.t(),
-        "errorName" => String.t() | Atom.t(),
-        "eventArn" => String.t() | Atom.t()
+        "awsAccountId" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "errorName" => String.t() | atom(),
+        "eventArn" => String.t() | atom()
       }
       
   """
-  @type organization_affected_entities_error_item() :: %{String.t() | Atom.t() => any()}
+  @type organization_affected_entities_error_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -473,30 +469,30 @@ defmodule AWS.Health do
       }
       
   """
-  @type date_time_range() :: %{String.t() | Atom.t() => any()}
+  @type date_time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_filter() :: %{
-        "availabilityZones" => list(String.t() | Atom.t()),
+        "availabilityZones" => list(String.t() | atom()),
         "endTimes" => list(date_time_range()),
-        "entityArns" => list(String.t() | Atom.t()),
-        "entityValues" => list(String.t() | Atom.t()),
-        "eventArns" => list(String.t() | Atom.t()),
+        "entityArns" => list(String.t() | atom()),
+        "entityValues" => list(String.t() | atom()),
+        "eventArns" => list(String.t() | atom()),
         "eventStatusCodes" => list(list(any())()),
         "eventTypeCategories" => list(list(any())()),
-        "eventTypeCodes" => list(String.t() | Atom.t()),
+        "eventTypeCodes" => list(String.t() | atom()),
         "lastUpdatedTimes" => list(date_time_range()),
-        "regions" => list(String.t() | Atom.t()),
-        "services" => list(String.t() | Atom.t()),
+        "regions" => list(String.t() | atom()),
+        "services" => list(String.t() | atom()),
         "startTimes" => list(date_time_range()),
         "tags" => list(map())
       }
       
   """
-  @type event_filter() :: %{String.t() | Atom.t() => any()}
+  @type event_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -505,12 +501,12 @@ defmodule AWS.Health do
       describe_event_aggregates_request() :: %{
         optional("filter") => event_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("aggregateField") => list(any())
       }
       
   """
-  @type describe_event_aggregates_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_event_aggregates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -518,34 +514,34 @@ defmodule AWS.Health do
       
       describe_events_for_organization_request() :: %{
         optional("filter") => organization_event_filter(),
-        optional("locale") => String.t() | Atom.t(),
+        optional("locale") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type describe_events_for_organization_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_events_for_organization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event() :: %{
-        "arn" => String.t() | Atom.t(),
-        "availabilityZone" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
+        "availabilityZone" => String.t() | atom(),
         "endTime" => non_neg_integer(),
         "eventScopeCode" => list(any()),
         "eventTypeCategory" => list(any()),
-        "eventTypeCode" => String.t() | Atom.t(),
+        "eventTypeCode" => String.t() | atom(),
         "lastUpdatedTime" => non_neg_integer(),
-        "region" => String.t() | Atom.t(),
-        "service" => String.t() | Atom.t(),
+        "region" => String.t() | atom(),
+        "service" => String.t() | atom(),
         "startTime" => non_neg_integer(),
         "statusCode" => list(any())
       }
       
   """
-  @type event() :: %{String.t() | Atom.t() => any()}
+  @type event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -553,13 +549,13 @@ defmodule AWS.Health do
       
       describe_events_request() :: %{
         optional("filter") => event_filter(),
-        optional("locale") => String.t() | Atom.t(),
+        optional("locale") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type describe_events_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -567,22 +563,22 @@ defmodule AWS.Health do
       
       describe_event_aggregates_response() :: %{
         "eventAggregates" => list(event_aggregate()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type describe_event_aggregates_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_event_aggregates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       concurrent_modification_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type concurrent_modification_exception() :: %{String.t() | Atom.t() => any()}
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -590,12 +586,12 @@ defmodule AWS.Health do
       
       event_type_filter() :: %{
         "eventTypeCategories" => list(list(any())()),
-        "eventTypeCodes" => list(String.t() | Atom.t()),
-        "services" => list(String.t() | Atom.t())
+        "eventTypeCodes" => list(String.t() | atom()),
+        "services" => list(String.t() | atom())
       }
       
   """
-  @type event_type_filter() :: %{String.t() | Atom.t() => any()}
+  @type event_type_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -607,7 +603,7 @@ defmodule AWS.Health do
       }
       
   """
-  @type describe_event_details_for_organization_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_event_details_for_organization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -615,13 +611,13 @@ defmodule AWS.Health do
       
       describe_event_types_request() :: %{
         optional("filter") => event_type_filter(),
-        optional("locale") => String.t() | Atom.t(),
+        optional("locale") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type describe_event_types_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_event_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -629,32 +625,32 @@ defmodule AWS.Health do
       
       event_type() :: %{
         "category" => list(any()),
-        "code" => String.t() | Atom.t(),
-        "service" => String.t() | Atom.t()
+        "code" => String.t() | atom(),
+        "service" => String.t() | atom()
       }
       
   """
-  @type event_type() :: %{String.t() | Atom.t() => any()}
+  @type event_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_event() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "endTime" => non_neg_integer(),
         "eventScopeCode" => list(any()),
         "eventTypeCategory" => list(any()),
-        "eventTypeCode" => String.t() | Atom.t(),
+        "eventTypeCode" => String.t() | atom(),
         "lastUpdatedTime" => non_neg_integer(),
-        "region" => String.t() | Atom.t(),
-        "service" => String.t() | Atom.t(),
+        "region" => String.t() | atom(),
+        "service" => String.t() | atom(),
         "startTime" => non_neg_integer(),
         "statusCode" => list(any())
       }
       
   """
-  @type organization_event() :: %{String.t() | Atom.t() => any()}
+  @type organization_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -666,32 +662,32 @@ defmodule AWS.Health do
       }
       
   """
-  @type describe_event_details_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_event_details_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_details_error_item() :: %{
-        "errorMessage" => String.t() | Atom.t(),
-        "errorName" => String.t() | Atom.t(),
-        "eventArn" => String.t() | Atom.t()
+        "errorMessage" => String.t() | atom(),
+        "errorName" => String.t() | atom(),
+        "eventArn" => String.t() | atom()
       }
       
   """
-  @type event_details_error_item() :: %{String.t() | Atom.t() => any()}
+  @type event_details_error_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_aggregate() :: %{
-        "aggregateValue" => String.t() | Atom.t(),
+        "aggregateValue" => String.t() | atom(),
         "count" => integer()
       }
       
   """
-  @type event_aggregate() :: %{String.t() | Atom.t() => any()}
+  @type event_aggregate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -699,25 +695,25 @@ defmodule AWS.Health do
       
       describe_events_response() :: %{
         "events" => list(event()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type describe_events_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_affected_entities_request() :: %{
-        optional("locale") => String.t() | Atom.t(),
+        optional("locale") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("filter") => entity_filter()
       }
       
   """
-  @type describe_affected_entities_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_affected_entities_request() :: %{(String.t() | atom()) => any()}
 
   @type describe_affected_accounts_for_organization_errors() :: invalid_pagination_token()
 

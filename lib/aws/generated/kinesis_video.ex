@@ -19,15 +19,15 @@ defmodule AWS.KinesisVideo do
   ## Example:
 
       update_stream_input() :: %{
-        optional("DeviceName") => String.t() | Atom.t(),
-        optional("MediaType") => String.t() | Atom.t(),
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
-        required("CurrentVersion") => String.t() | Atom.t()
+        optional("DeviceName") => String.t() | atom(),
+        optional("MediaType") => String.t() | atom(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
+        required("CurrentVersion") => String.t() | atom()
       }
 
   """
-  @type update_stream_input() :: %{String.t() | Atom.t() => any()}
+  @type update_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -37,23 +37,23 @@ defmodule AWS.KinesisVideo do
         optional("ChannelType") => list(any()),
         optional("SingleMasterConfiguration") => single_master_configuration(),
         optional("Tags") => list(tag()),
-        required("ChannelName") => String.t() | Atom.t()
+        required("ChannelName") => String.t() | atom()
       }
 
   """
-  @type create_signaling_channel_input() :: %{String.t() | Atom.t() => any()}
+  @type create_signaling_channel_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       media_source_config() :: %{
-        "MediaUriSecretArn" => String.t() | Atom.t(),
+        "MediaUriSecretArn" => String.t() | atom(),
         "MediaUriType" => list(any())
       }
 
   """
-  @type media_source_config() :: %{String.t() | Atom.t() => any()}
+  @type media_source_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -69,11 +69,11 @@ defmodule AWS.KinesisVideo do
   ## Example:
 
       resource_in_use_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -84,64 +84,64 @@ defmodule AWS.KinesisVideo do
       }
 
   """
-  @type describe_image_generation_configuration_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_image_generation_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_signaling_channel_output() :: %{
-        "ChannelARN" => String.t() | Atom.t()
+        "ChannelARN" => String.t() | atom()
       }
 
   """
-  @type create_signaling_channel_output() :: %{String.t() | Atom.t() => any()}
+  @type create_signaling_channel_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_stream_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type list_tags_for_stream_output() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_stream_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       version_mismatch_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type version_mismatch_exception() :: %{String.t() | Atom.t() => any()}
+  @type version_mismatch_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_signaling_channel_input() :: %{
-        optional("CurrentVersion") => String.t() | Atom.t(),
-        required("ChannelARN") => String.t() | Atom.t()
+        optional("CurrentVersion") => String.t() | atom(),
+        required("ChannelARN") => String.t() | atom()
       }
 
   """
-  @type delete_signaling_channel_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_signaling_channel_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       no_data_retention_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type no_data_retention_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_data_retention_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -150,15 +150,15 @@ defmodule AWS.KinesisVideo do
       start_edge_configuration_update_output() :: %{
         "CreationTime" => non_neg_integer(),
         "EdgeConfig" => edge_config(),
-        "FailedStatusDetails" => String.t() | Atom.t(),
+        "FailedStatusDetails" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
-        "StreamARN" => String.t() | Atom.t(),
-        "StreamName" => String.t() | Atom.t(),
+        "StreamARN" => String.t() | atom(),
+        "StreamName" => String.t() | atom(),
         "SyncStatus" => list(any())
       }
 
   """
-  @type start_edge_configuration_update_output() :: %{String.t() | Atom.t() => any()}
+  @type start_edge_configuration_update_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -175,23 +175,23 @@ defmodule AWS.KinesisVideo do
 
       list_signaling_channels_output() :: %{
         "ChannelInfoList" => list(channel_info()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_signaling_channels_output() :: %{String.t() | Atom.t() => any()}
+  @type list_signaling_channels_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_stream_input() :: %{
-        optional("CurrentVersion") => String.t() | Atom.t(),
-        required("StreamARN") => String.t() | Atom.t()
+        optional("CurrentVersion") => String.t() | atom(),
+        required("StreamARN") => String.t() | atom()
       }
 
   """
-  @type delete_stream_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -208,37 +208,37 @@ defmodule AWS.KinesisVideo do
 
       channel_name_condition() :: %{
         "ComparisonOperator" => list(any()),
-        "ComparisonValue" => String.t() | Atom.t()
+        "ComparisonValue" => String.t() | atom()
       }
 
   """
-  @type channel_name_condition() :: %{String.t() | Atom.t() => any()}
+  @type channel_name_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       last_uploader_status() :: %{
-        "JobStatusDetails" => String.t() | Atom.t(),
+        "JobStatusDetails" => String.t() | atom(),
         "LastCollectedTime" => non_neg_integer(),
         "LastUpdatedTime" => non_neg_integer(),
         "UploaderStatus" => list(any())
       }
 
   """
-  @type last_uploader_status() :: %{String.t() | Atom.t() => any()}
+  @type last_uploader_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -249,7 +249,7 @@ defmodule AWS.KinesisVideo do
       }
 
   """
-  @type get_signaling_channel_endpoint_output() :: %{String.t() | Atom.t() => any()}
+  @type get_signaling_channel_endpoint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -260,7 +260,7 @@ defmodule AWS.KinesisVideo do
       }
 
   """
-  @type describe_media_storage_configuration_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_media_storage_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -272,56 +272,56 @@ defmodule AWS.KinesisVideo do
       }
 
   """
-  @type local_size_config() :: %{String.t() | Atom.t() => any()}
+  @type local_size_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_stream_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
         required("Tags") => map()
       }
 
   """
-  @type tag_stream_input() :: %{String.t() | Atom.t() => any()}
+  @type tag_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_edge_configuration_update_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
         required("EdgeConfig") => edge_config()
       }
 
   """
-  @type start_edge_configuration_update_input() :: %{String.t() | Atom.t() => any()}
+  @type start_edge_configuration_update_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_streams_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "StreamInfoList" => list(stream_info())
       }
 
   """
-  @type list_streams_output() :: %{String.t() | Atom.t() => any()}
+  @type list_streams_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       notification_destination_config() :: %{
-        "Uri" => String.t() | Atom.t()
+        "Uri" => String.t() | atom()
       }
 
   """
-  @type notification_destination_config() :: %{String.t() | Atom.t() => any()}
+  @type notification_destination_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -331,15 +331,15 @@ defmodule AWS.KinesisVideo do
         "CreationTime" => non_neg_integer(),
         "EdgeAgentStatus" => edge_agent_status(),
         "EdgeConfig" => edge_config(),
-        "FailedStatusDetails" => String.t() | Atom.t(),
+        "FailedStatusDetails" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
-        "StreamARN" => String.t() | Atom.t(),
-        "StreamName" => String.t() | Atom.t(),
+        "StreamARN" => String.t() | atom(),
+        "StreamName" => String.t() | atom(),
         "SyncStatus" => list(any())
       }
 
   """
-  @type describe_edge_configuration_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_edge_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -347,51 +347,51 @@ defmodule AWS.KinesisVideo do
 
       stream_name_condition() :: %{
         "ComparisonOperator" => list(any()),
-        "ComparisonValue" => String.t() | Atom.t()
+        "ComparisonValue" => String.t() | atom()
       }
 
   """
-  @type stream_name_condition() :: %{String.t() | Atom.t() => any()}
+  @type stream_name_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_media_storage_configuration_input() :: %{
-        optional("ChannelARN") => String.t() | Atom.t(),
-        optional("ChannelName") => String.t() | Atom.t()
+        optional("ChannelARN") => String.t() | atom(),
+        optional("ChannelName") => String.t() | atom()
       }
 
   """
-  @type describe_media_storage_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_media_storage_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_device_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_device_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_device_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_info() :: %{
-        "ChannelARN" => String.t() | Atom.t(),
-        "ChannelName" => String.t() | Atom.t(),
+        "ChannelARN" => String.t() | atom(),
+        "ChannelName" => String.t() | atom(),
         "ChannelStatus" => list(any()),
         "ChannelType" => list(any()),
         "CreationTime" => non_neg_integer(),
         "SingleMasterConfiguration" => single_master_configuration(),
-        "Version" => String.t() | Atom.t()
+        "Version" => String.t() | atom()
       }
 
   """
-  @type channel_info() :: %{String.t() | Atom.t() => any()}
+  @type channel_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -399,46 +399,46 @@ defmodule AWS.KinesisVideo do
 
       describe_mapped_resource_configuration_output() :: %{
         "MappedResourceConfigurationList" => list(mapped_resource_configuration_list_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type describe_mapped_resource_configuration_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_mapped_resource_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_media_storage_configuration_input() :: %{
-        required("ChannelARN") => String.t() | Atom.t(),
+        required("ChannelARN") => String.t() | atom(),
         required("MediaStorageConfiguration") => media_storage_configuration()
       }
 
   """
-  @type update_media_storage_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type update_media_storage_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -454,22 +454,22 @@ defmodule AWS.KinesisVideo do
   ## Example:
 
       tags_per_resource_exceeded_limit_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type tags_per_resource_exceeded_limit_exception() :: %{String.t() | Atom.t() => any()}
+  @type tags_per_resource_exceeded_limit_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account_stream_limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type account_stream_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type account_stream_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -480,19 +480,19 @@ defmodule AWS.KinesisVideo do
       }
 
   """
-  @type describe_notification_configuration_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_notification_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       mapped_resource_configuration_list_item() :: %{
-        "ARN" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "ARN" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type mapped_resource_configuration_list_item() :: %{String.t() | Atom.t() => any()}
+  @type mapped_resource_configuration_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -500,12 +500,12 @@ defmodule AWS.KinesisVideo do
 
       update_image_generation_configuration_input() :: %{
         optional("ImageGenerationConfiguration") => image_generation_configuration(),
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t()
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom()
       }
 
   """
-  @type update_image_generation_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type update_image_generation_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -517,42 +517,42 @@ defmodule AWS.KinesisVideo do
       }
 
   """
-  @type single_master_channel_endpoint_configuration() :: %{String.t() | Atom.t() => any()}
+  @type single_master_channel_endpoint_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_edge_configuration_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t()
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom()
       }
 
   """
-  @type describe_edge_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_edge_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_notification_configuration_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t()
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom()
       }
 
   """
-  @type describe_notification_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_notification_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       client_limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type client_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type client_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -563,19 +563,19 @@ defmodule AWS.KinesisVideo do
       }
 
   """
-  @type uploader_config() :: %{String.t() | Atom.t() => any()}
+  @type uploader_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_input() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
+        required("ResourceARN") => String.t() | atom(),
         required("Tags") => list(tag())
       }
 
   """
-  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -586,18 +586,18 @@ defmodule AWS.KinesisVideo do
       }
 
   """
-  @type describe_signaling_channel_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_signaling_channel_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stream_edge_configuration_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type stream_edge_configuration_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type stream_edge_configuration_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -618,7 +618,7 @@ defmodule AWS.KinesisVideo do
       }
 
   """
-  @type notification_configuration() :: %{String.t() | Atom.t() => any()}
+  @type notification_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -626,11 +626,11 @@ defmodule AWS.KinesisVideo do
 
       list_edge_agent_configurations_output() :: %{
         "EdgeConfigs" => list(list_edge_agent_configurations_edge_config()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_edge_agent_configurations_output() :: %{String.t() | Atom.t() => any()}
+  @type list_edge_agent_configurations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -647,12 +647,12 @@ defmodule AWS.KinesisVideo do
 
       update_signaling_channel_input() :: %{
         optional("SingleMasterConfiguration") => single_master_configuration(),
-        required("ChannelARN") => String.t() | Atom.t(),
-        required("CurrentVersion") => String.t() | Atom.t()
+        required("ChannelARN") => String.t() | atom(),
+        required("CurrentVersion") => String.t() | atom()
       }
 
   """
-  @type update_signaling_channel_input() :: %{String.t() | Atom.t() => any()}
+  @type update_signaling_channel_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -660,11 +660,11 @@ defmodule AWS.KinesisVideo do
 
       schedule_config() :: %{
         "DurationInSeconds" => integer(),
-        "ScheduleExpression" => String.t() | Atom.t()
+        "ScheduleExpression" => String.t() | atom()
       }
 
   """
-  @type schedule_config() :: %{String.t() | Atom.t() => any()}
+  @type schedule_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -689,22 +689,22 @@ defmodule AWS.KinesisVideo do
   ## Example:
 
       device_stream_limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type device_stream_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type device_stream_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account_channel_limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type account_channel_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type account_channel_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -712,11 +712,11 @@ defmodule AWS.KinesisVideo do
 
       get_signaling_channel_endpoint_input() :: %{
         optional("SingleMasterChannelEndpointConfiguration") => single_master_channel_endpoint_configuration(),
-        required("ChannelARN") => String.t() | Atom.t()
+        required("ChannelARN") => String.t() | atom()
       }
 
   """
-  @type get_signaling_channel_endpoint_input() :: %{String.t() | Atom.t() => any()}
+  @type get_signaling_channel_endpoint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -727,7 +727,7 @@ defmodule AWS.KinesisVideo do
       }
 
   """
-  @type single_master_configuration() :: %{String.t() | Atom.t() => any()}
+  @type single_master_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -735,23 +735,23 @@ defmodule AWS.KinesisVideo do
 
       list_streams_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("StreamNameCondition") => stream_name_condition()
       }
 
   """
-  @type list_streams_input() :: %{String.t() | Atom.t() => any()}
+  @type list_streams_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_authorized_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type not_authorized_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_authorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -764,19 +764,19 @@ defmodule AWS.KinesisVideo do
       }
 
   """
-  @type deletion_config() :: %{String.t() | Atom.t() => any()}
+  @type deletion_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_edge_configuration_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t()
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom()
       }
 
   """
-  @type delete_edge_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_edge_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -787,7 +787,7 @@ defmodule AWS.KinesisVideo do
       }
 
   """
-  @type describe_stream_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_stream_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -805,43 +805,43 @@ defmodule AWS.KinesisVideo do
       }
 
   """
-  @type image_generation_configuration() :: %{String.t() | Atom.t() => any()}
+  @type image_generation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
-        required("TagKeyList") => list(String.t() | Atom.t())
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeyList") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_stream_input() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_stream_input() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -850,37 +850,37 @@ defmodule AWS.KinesisVideo do
       list_edge_agent_configurations_edge_config() :: %{
         "CreationTime" => non_neg_integer(),
         "EdgeConfig" => edge_config(),
-        "FailedStatusDetails" => String.t() | Atom.t(),
+        "FailedStatusDetails" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
-        "StreamARN" => String.t() | Atom.t(),
-        "StreamName" => String.t() | Atom.t(),
+        "StreamARN" => String.t() | atom(),
+        "StreamName" => String.t() | atom(),
         "SyncStatus" => list(any())
       }
 
   """
-  @type list_edge_agent_configurations_edge_config() :: %{String.t() | Atom.t() => any()}
+  @type list_edge_agent_configurations_edge_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_argument_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_argument_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_data_endpoint_output() :: %{
-        "DataEndpoint" => String.t() | Atom.t()
+        "DataEndpoint" => String.t() | atom()
       }
 
   """
-  @type get_data_endpoint_output() :: %{String.t() | Atom.t() => any()}
+  @type get_data_endpoint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -897,24 +897,24 @@ defmodule AWS.KinesisVideo do
 
       list_edge_agent_configurations_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("HubDeviceArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("HubDeviceArn") => String.t() | atom()
       }
 
   """
-  @type list_edge_agent_configurations_input() :: %{String.t() | Atom.t() => any()}
+  @type list_edge_agent_configurations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_input() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ResourceARN") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceARN") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -932,34 +932,34 @@ defmodule AWS.KinesisVideo do
       list_signaling_channels_input() :: %{
         optional("ChannelNameCondition") => channel_name_condition(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_signaling_channels_input() :: %{String.t() | Atom.t() => any()}
+  @type list_signaling_channels_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_resource_format_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_resource_format_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_resource_format_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_signaling_channel_input() :: %{
-        optional("ChannelARN") => String.t() | Atom.t(),
-        optional("ChannelName") => String.t() | Atom.t()
+        optional("ChannelARN") => String.t() | atom(),
+        optional("ChannelName") => String.t() | atom()
       }
 
   """
-  @type describe_signaling_channel_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_signaling_channel_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -976,13 +976,13 @@ defmodule AWS.KinesisVideo do
 
       edge_config() :: %{
         "DeletionConfig" => deletion_config(),
-        "HubDeviceArn" => String.t() | Atom.t(),
+        "HubDeviceArn" => String.t() | atom(),
         "RecorderConfig" => recorder_config(),
         "UploaderConfig" => uploader_config()
       }
 
   """
-  @type edge_config() :: %{String.t() | Atom.t() => any()}
+  @type edge_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -990,15 +990,15 @@ defmodule AWS.KinesisVideo do
 
       create_stream_input() :: %{
         optional("DataRetentionInHours") => integer(),
-        optional("DeviceName") => String.t() | Atom.t(),
-        optional("KmsKeyId") => String.t() | Atom.t(),
-        optional("MediaType") => String.t() | Atom.t(),
+        optional("DeviceName") => String.t() | atom(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("MediaType") => String.t() | atom(),
         optional("Tags") => map(),
-        required("StreamName") => String.t() | Atom.t()
+        required("StreamName") => String.t() | atom()
       }
 
   """
-  @type create_stream_input() :: %{String.t() | Atom.t() => any()}
+  @type create_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1010,7 +1010,7 @@ defmodule AWS.KinesisVideo do
       }
 
   """
-  @type edge_agent_status() :: %{String.t() | Atom.t() => any()}
+  @type edge_agent_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1018,11 +1018,11 @@ defmodule AWS.KinesisVideo do
 
       resource_endpoint_list_item() :: %{
         "Protocol" => list(any()),
-        "ResourceEndpoint" => String.t() | Atom.t()
+        "ResourceEndpoint" => String.t() | atom()
       }
 
   """
-  @type resource_endpoint_list_item() :: %{String.t() | Atom.t() => any()}
+  @type resource_endpoint_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1030,12 +1030,12 @@ defmodule AWS.KinesisVideo do
 
       update_notification_configuration_input() :: %{
         optional("NotificationConfiguration") => notification_configuration(),
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t()
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom()
       }
 
   """
-  @type update_notification_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type update_notification_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1044,67 +1044,67 @@ defmodule AWS.KinesisVideo do
       stream_info() :: %{
         "CreationTime" => non_neg_integer(),
         "DataRetentionInHours" => integer(),
-        "DeviceName" => String.t() | Atom.t(),
-        "KmsKeyId" => String.t() | Atom.t(),
-        "MediaType" => String.t() | Atom.t(),
+        "DeviceName" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "MediaType" => String.t() | atom(),
         "Status" => list(any()),
-        "StreamARN" => String.t() | Atom.t(),
-        "StreamName" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "StreamARN" => String.t() | atom(),
+        "StreamName" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type stream_info() :: %{String.t() | Atom.t() => any()}
+  @type stream_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_data_endpoint_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
         required("APIName") => list(any())
       }
 
   """
-  @type get_data_endpoint_input() :: %{String.t() | Atom.t() => any()}
+  @type get_data_endpoint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       last_recorder_status() :: %{
-        "JobStatusDetails" => String.t() | Atom.t(),
+        "JobStatusDetails" => String.t() | atom(),
         "LastCollectedTime" => non_neg_integer(),
         "LastUpdatedTime" => non_neg_integer(),
         "RecorderStatus" => list(any())
       }
 
   """
-  @type last_recorder_status() :: %{String.t() | Atom.t() => any()}
+  @type last_recorder_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_stream_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t()
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom()
       }
 
   """
-  @type describe_stream_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_stream_output() :: %{
-        "StreamARN" => String.t() | Atom.t()
+        "StreamARN" => String.t() | atom()
       }
 
   """
-  @type create_stream_output() :: %{String.t() | Atom.t() => any()}
+  @type create_stream_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1116,46 +1116,46 @@ defmodule AWS.KinesisVideo do
       }
 
   """
-  @type recorder_config() :: %{String.t() | Atom.t() => any()}
+  @type recorder_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       image_generation_destination_config() :: %{
-        "DestinationRegion" => String.t() | Atom.t(),
-        "Uri" => String.t() | Atom.t()
+        "DestinationRegion" => String.t() | atom(),
+        "Uri" => String.t() | atom()
       }
 
   """
-  @type image_generation_destination_config() :: %{String.t() | Atom.t() => any()}
+  @type image_generation_destination_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_data_retention_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
-        required("CurrentVersion") => String.t() | Atom.t(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
+        required("CurrentVersion") => String.t() | atom(),
         required("DataRetentionChangeInHours") => integer(),
         required("Operation") => list(any())
       }
 
   """
-  @type update_data_retention_input() :: %{String.t() | Atom.t() => any()}
+  @type update_data_retention_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_image_generation_configuration_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t()
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom()
       }
 
   """
-  @type describe_image_generation_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_image_generation_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1163,26 +1163,26 @@ defmodule AWS.KinesisVideo do
 
       describe_mapped_resource_configuration_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom()
       }
 
   """
-  @type describe_mapped_resource_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_mapped_resource_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_stream_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
-        required("TagKeyList") => list(String.t() | Atom.t())
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
+        required("TagKeyList") => list(String.t() | atom())
       }
 
   """
-  @type untag_stream_input() :: %{String.t() | Atom.t() => any()}
+  @type untag_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1199,11 +1199,11 @@ defmodule AWS.KinesisVideo do
 
       media_storage_configuration() :: %{
         "Status" => list(any()),
-        "StreamARN" => String.t() | Atom.t()
+        "StreamARN" => String.t() | atom()
       }
 
   """
-  @type media_storage_configuration() :: %{String.t() | Atom.t() => any()}
+  @type media_storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @type create_signaling_channel_errors() ::
           invalid_argument_exception()

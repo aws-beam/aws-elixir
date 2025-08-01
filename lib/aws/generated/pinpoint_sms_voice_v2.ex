@@ -52,12 +52,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_spend_limits_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "SpendLimits" => list(spend_limit())
       }
       
   """
-  @type describe_spend_limits_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_spend_limits_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -66,25 +66,25 @@ defmodule AWS.PinpointSMSVoiceV2 do
       update_phone_number_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "MessageType" => String.t() | Atom.t(),
-        "MonthlyLeasingPrice" => [String.t() | Atom.t()],
-        "NumberCapabilities" => list(String.t() | Atom.t()),
-        "NumberType" => String.t() | Atom.t(),
-        "OptOutListName" => String.t() | Atom.t(),
-        "PhoneNumber" => String.t() | Atom.t(),
-        "PhoneNumberArn" => [String.t() | Atom.t()],
-        "PhoneNumberId" => [String.t() | Atom.t()],
-        "RegistrationId" => [String.t() | Atom.t()],
+        "IsoCountryCode" => String.t() | atom(),
+        "MessageType" => String.t() | atom(),
+        "MonthlyLeasingPrice" => [String.t() | atom()],
+        "NumberCapabilities" => list(String.t() | atom()),
+        "NumberType" => String.t() | atom(),
+        "OptOutListName" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "PhoneNumberArn" => [String.t() | atom()],
+        "PhoneNumberId" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
         "SelfManagedOptOutsEnabled" => [boolean()],
-        "Status" => String.t() | Atom.t(),
-        "TwoWayChannelArn" => String.t() | Atom.t(),
-        "TwoWayChannelRole" => String.t() | Atom.t(),
+        "Status" => String.t() | atom(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
         "TwoWayEnabled" => [boolean()]
       }
       
   """
-  @type update_phone_number_result() :: %{String.t() | Atom.t() => any()}
+  @type update_phone_number_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -93,37 +93,37 @@ defmodule AWS.PinpointSMSVoiceV2 do
       spend_limit() :: %{
         "EnforcedLimit" => [float()],
         "MaxLimit" => [float()],
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Overridden" => [boolean()]
       }
       
   """
-  @type spend_limit() :: %{String.t() | Atom.t() => any()}
+  @type spend_limit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_registration_field_definitions_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "RegistrationFieldDefinitions" => list(registration_field_definition()),
-        "RegistrationType" => String.t() | Atom.t()
+        "RegistrationType" => String.t() | atom()
       }
       
   """
-  @type describe_registration_field_definitions_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_registration_field_definitions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       registration_attachment_filter() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type registration_attachment_filter() :: %{String.t() | Atom.t() => any()}
+  @type registration_attachment_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -131,13 +131,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       create_registration_attachment_request() :: %{
         optional("AttachmentBody") => binary(),
-        optional("AttachmentUrl") => String.t() | Atom.t(),
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("AttachmentUrl") => String.t() | atom(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type create_registration_attachment_request() :: %{String.t() | Atom.t() => any()}
+  @type create_registration_attachment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -146,86 +146,86 @@ defmodule AWS.PinpointSMSVoiceV2 do
       phone_number_information() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "MessageType" => String.t() | Atom.t(),
-        "MonthlyLeasingPrice" => [String.t() | Atom.t()],
-        "NumberCapabilities" => list(String.t() | Atom.t()),
-        "NumberType" => String.t() | Atom.t(),
-        "OptOutListName" => String.t() | Atom.t(),
-        "PhoneNumber" => String.t() | Atom.t(),
-        "PhoneNumberArn" => [String.t() | Atom.t()],
-        "PhoneNumberId" => [String.t() | Atom.t()],
-        "PoolId" => [String.t() | Atom.t()],
-        "RegistrationId" => [String.t() | Atom.t()],
+        "IsoCountryCode" => String.t() | atom(),
+        "MessageType" => String.t() | atom(),
+        "MonthlyLeasingPrice" => [String.t() | atom()],
+        "NumberCapabilities" => list(String.t() | atom()),
+        "NumberType" => String.t() | atom(),
+        "OptOutListName" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "PhoneNumberArn" => [String.t() | atom()],
+        "PhoneNumberId" => [String.t() | atom()],
+        "PoolId" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
         "SelfManagedOptOutsEnabled" => [boolean()],
-        "Status" => String.t() | Atom.t(),
-        "TwoWayChannelArn" => String.t() | Atom.t(),
-        "TwoWayChannelRole" => String.t() | Atom.t(),
+        "Status" => String.t() | atom(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
         "TwoWayEnabled" => [boolean()]
       }
       
   """
-  @type phone_number_information() :: %{String.t() | Atom.t() => any()}
+  @type phone_number_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_registration_attachment_result() :: %{
-        "AttachmentStatus" => String.t() | Atom.t(),
+        "AttachmentStatus" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()],
-        "RegistrationAttachmentArn" => [String.t() | Atom.t()],
-        "RegistrationAttachmentId" => [String.t() | Atom.t()],
+        "RegistrationAttachmentArn" => [String.t() | atom()],
+        "RegistrationAttachmentId" => [String.t() | atom()],
         "Tags" => list(tag())
       }
       
   """
-  @type create_registration_attachment_result() :: %{String.t() | Atom.t() => any()}
+  @type create_registration_attachment_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       request_sender_id_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("DeletionProtectionEnabled") => [boolean()],
-        optional("MessageTypes") => list(String.t() | Atom.t()),
+        optional("MessageTypes") => list(String.t() | atom()),
         optional("Tags") => list(tag()),
-        required("IsoCountryCode") => String.t() | Atom.t(),
-        required("SenderId") => String.t() | Atom.t()
+        required("IsoCountryCode") => String.t() | atom(),
+        required("SenderId") => String.t() | atom()
       }
       
   """
-  @type request_sender_id_request() :: %{String.t() | Atom.t() => any()}
+  @type request_sender_id_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_destination_number_verification_code_request() :: %{
-        optional("ConfigurationSetName") => String.t() | Atom.t(),
+        optional("ConfigurationSetName") => String.t() | atom(),
         optional("Context") => map(),
         optional("DestinationCountryParameters") => map(),
-        optional("LanguageCode") => String.t() | Atom.t(),
-        optional("OriginationIdentity") => String.t() | Atom.t(),
-        required("VerificationChannel") => String.t() | Atom.t(),
-        required("VerifiedDestinationNumberId") => String.t() | Atom.t()
+        optional("LanguageCode") => String.t() | atom(),
+        optional("OriginationIdentity") => String.t() | atom(),
+        required("VerificationChannel") => String.t() | atom(),
+        required("VerifiedDestinationNumberId") => String.t() | atom()
       }
       
   """
-  @type send_destination_number_verification_code_request() :: %{String.t() | Atom.t() => any()}
+  @type send_destination_number_verification_code_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -233,11 +233,11 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_account_limits_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_account_limits_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_account_limits_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -245,34 +245,34 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       delete_pool_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
-        "MessageType" => String.t() | Atom.t(),
-        "OptOutListName" => String.t() | Atom.t(),
-        "PoolArn" => [String.t() | Atom.t()],
-        "PoolId" => [String.t() | Atom.t()],
+        "MessageType" => String.t() | atom(),
+        "OptOutListName" => String.t() | atom(),
+        "PoolArn" => [String.t() | atom()],
+        "PoolId" => [String.t() | atom()],
         "SelfManagedOptOutsEnabled" => [boolean()],
         "SharedRoutesEnabled" => [boolean()],
-        "Status" => String.t() | Atom.t(),
-        "TwoWayChannelArn" => String.t() | Atom.t(),
-        "TwoWayChannelRole" => String.t() | Atom.t(),
+        "Status" => String.t() | atom(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
         "TwoWayEnabled" => [boolean()]
       }
       
   """
-  @type delete_pool_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_pool_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_registration_versions_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "RegistrationArn" => [String.t() | Atom.t()],
-        "RegistrationId" => [String.t() | Atom.t()],
+        "NextToken" => String.t() | atom(),
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
         "RegistrationVersions" => list(registration_version_information())
       }
       
   """
-  @type describe_registration_versions_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_registration_versions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -281,20 +281,20 @@ defmodule AWS.PinpointSMSVoiceV2 do
       update_pool_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
-        "MessageType" => String.t() | Atom.t(),
-        "OptOutListName" => String.t() | Atom.t(),
-        "PoolArn" => [String.t() | Atom.t()],
-        "PoolId" => [String.t() | Atom.t()],
+        "MessageType" => String.t() | atom(),
+        "OptOutListName" => String.t() | atom(),
+        "PoolArn" => [String.t() | atom()],
+        "PoolId" => [String.t() | atom()],
         "SelfManagedOptOutsEnabled" => [boolean()],
         "SharedRoutesEnabled" => [boolean()],
-        "Status" => String.t() | Atom.t(),
-        "TwoWayChannelArn" => String.t() | Atom.t(),
-        "TwoWayChannelRole" => String.t() | Atom.t(),
+        "Status" => String.t() | atom(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
         "TwoWayEnabled" => [boolean()]
       }
       
   """
-  @type update_pool_result() :: %{String.t() | Atom.t() => any()}
+  @type update_pool_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -302,14 +302,14 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       verified_destination_number_information() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
-        "DestinationPhoneNumber" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
-        "VerifiedDestinationNumberArn" => [String.t() | Atom.t()],
-        "VerifiedDestinationNumberId" => [String.t() | Atom.t()]
+        "DestinationPhoneNumber" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "VerifiedDestinationNumberArn" => [String.t() | atom()],
+        "VerifiedDestinationNumberId" => [String.t() | atom()]
       }
       
   """
-  @type verified_destination_number_information() :: %{String.t() | Atom.t() => any()}
+  @type verified_destination_number_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -318,27 +318,27 @@ defmodule AWS.PinpointSMSVoiceV2 do
       request_phone_number_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "MessageType" => String.t() | Atom.t(),
-        "MonthlyLeasingPrice" => [String.t() | Atom.t()],
-        "NumberCapabilities" => list(String.t() | Atom.t()),
-        "NumberType" => String.t() | Atom.t(),
-        "OptOutListName" => String.t() | Atom.t(),
-        "PhoneNumber" => String.t() | Atom.t(),
-        "PhoneNumberArn" => [String.t() | Atom.t()],
-        "PhoneNumberId" => [String.t() | Atom.t()],
-        "PoolId" => [String.t() | Atom.t()],
-        "RegistrationId" => [String.t() | Atom.t()],
+        "IsoCountryCode" => String.t() | atom(),
+        "MessageType" => String.t() | atom(),
+        "MonthlyLeasingPrice" => [String.t() | atom()],
+        "NumberCapabilities" => list(String.t() | atom()),
+        "NumberType" => String.t() | atom(),
+        "OptOutListName" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "PhoneNumberArn" => [String.t() | atom()],
+        "PhoneNumberId" => [String.t() | atom()],
+        "PoolId" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
         "SelfManagedOptOutsEnabled" => [boolean()],
-        "Status" => String.t() | Atom.t(),
+        "Status" => String.t() | atom(),
         "Tags" => list(tag()),
-        "TwoWayChannelArn" => String.t() | Atom.t(),
-        "TwoWayChannelRole" => String.t() | Atom.t(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
         "TwoWayEnabled" => [boolean()]
       }
       
   """
-  @type request_phone_number_result() :: %{String.t() | Atom.t() => any()}
+  @type request_phone_number_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -354,12 +354,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_pools_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Pools" => list(pool_information())
       }
       
   """
-  @type describe_pools_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_pools_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -368,27 +368,27 @@ defmodule AWS.PinpointSMSVoiceV2 do
       list_registration_associations_request() :: %{
         optional("Filters") => list(registration_association_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("RegistrationId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("RegistrationId") => String.t() | atom()
       }
       
   """
-  @type list_registration_associations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_registration_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       registration_section_display_hints() :: %{
-        "DocumentationLink" => [String.t() | Atom.t()],
-        "DocumentationTitle" => [String.t() | Atom.t()],
-        "LongDescription" => [String.t() | Atom.t()],
-        "ShortDescription" => [String.t() | Atom.t()],
-        "Title" => [String.t() | Atom.t()]
+        "DocumentationLink" => [String.t() | atom()],
+        "DocumentationTitle" => [String.t() | atom()],
+        "LongDescription" => [String.t() | atom()],
+        "ShortDescription" => [String.t() | atom()],
+        "Title" => [String.t() | atom()]
       }
       
   """
-  @type registration_section_display_hints() :: %{String.t() | Atom.t() => any()}
+  @type registration_section_display_hints() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -397,13 +397,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
       describe_pools_request() :: %{
         optional("Filters") => list(pool_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("Owner") => String.t() | Atom.t(),
-        optional("PoolIds") => list(String.t() | Atom.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("Owner") => String.t() | atom(),
+        optional("PoolIds") => list(String.t() | atom())
       }
       
   """
-  @type describe_pools_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_pools_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -411,13 +411,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       create_opt_out_list_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
-        "OptOutListArn" => [String.t() | Atom.t()],
-        "OptOutListName" => String.t() | Atom.t(),
+        "OptOutListArn" => [String.t() | atom()],
+        "OptOutListName" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type create_opt_out_list_result() :: %{String.t() | Atom.t() => any()}
+  @type create_opt_out_list_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -433,36 +433,36 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       verified_destination_number_filter() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type verified_destination_number_filter() :: %{String.t() | Atom.t() => any()}
+  @type verified_destination_number_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_registration_association_request() :: %{
-        required("RegistrationId") => String.t() | Atom.t(),
-        required("ResourceId") => String.t() | Atom.t()
+        required("RegistrationId") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom()
       }
       
   """
-  @type create_registration_association_request() :: %{String.t() | Atom.t() => any()}
+  @type create_registration_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_default_message_type_request() :: %{
-        required("ConfigurationSetName") => String.t() | Atom.t(),
-        required("MessageType") => String.t() | Atom.t()
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("MessageType") => String.t() | atom()
       }
       
   """
-  @type set_default_message_type_request() :: %{String.t() | Atom.t() => any()}
+  @type set_default_message_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -471,35 +471,35 @@ defmodule AWS.PinpointSMSVoiceV2 do
       pool_information() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
-        "MessageType" => String.t() | Atom.t(),
-        "OptOutListName" => String.t() | Atom.t(),
-        "PoolArn" => [String.t() | Atom.t()],
-        "PoolId" => [String.t() | Atom.t()],
+        "MessageType" => String.t() | atom(),
+        "OptOutListName" => String.t() | atom(),
+        "PoolArn" => [String.t() | atom()],
+        "PoolId" => [String.t() | atom()],
         "SelfManagedOptOutsEnabled" => [boolean()],
         "SharedRoutesEnabled" => [boolean()],
-        "Status" => String.t() | Atom.t(),
-        "TwoWayChannelArn" => String.t() | Atom.t(),
-        "TwoWayChannelRole" => String.t() | Atom.t(),
+        "Status" => String.t() | atom(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
         "TwoWayEnabled" => [boolean()]
       }
       
   """
-  @type pool_information() :: %{String.t() | Atom.t() => any()}
+  @type pool_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       registration_type_display_hints() :: %{
-        "DocumentationLink" => [String.t() | Atom.t()],
-        "DocumentationTitle" => [String.t() | Atom.t()],
-        "LongDescription" => [String.t() | Atom.t()],
-        "ShortDescription" => [String.t() | Atom.t()],
-        "Title" => [String.t() | Atom.t()]
+        "DocumentationLink" => [String.t() | atom()],
+        "DocumentationTitle" => [String.t() | atom()],
+        "LongDescription" => [String.t() | atom()],
+        "ShortDescription" => [String.t() | atom()],
+        "Title" => [String.t() | atom()]
       }
       
   """
-  @type registration_type_display_hints() :: %{String.t() | Atom.t() => any()}
+  @type registration_type_display_hints() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -507,12 +507,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       put_resource_policy_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
-        "Policy" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t()
+        "Policy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
       }
       
   """
-  @type put_resource_policy_result() :: %{String.t() | Atom.t() => any()}
+  @type put_resource_policy_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -520,83 +520,82 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       update_protect_configuration_request() :: %{
         optional("DeletionProtectionEnabled") => [boolean()],
-        required("ProtectConfigurationId") => String.t() | Atom.t()
+        required("ProtectConfigurationId") => String.t() | atom()
       }
       
   """
-  @type update_protect_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_protect_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       registration_association_filter() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type registration_association_filter() :: %{String.t() | Atom.t() => any()}
+  @type registration_association_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kinesis_firehose_destination() :: %{
-        "DeliveryStreamArn" => String.t() | Atom.t(),
-        "IamRoleArn" => String.t() | Atom.t()
+        "DeliveryStreamArn" => String.t() | atom(),
+        "IamRoleArn" => String.t() | atom()
       }
       
   """
-  @type kinesis_firehose_destination() :: %{String.t() | Atom.t() => any()}
+  @type kinesis_firehose_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_protect_configuration_result() :: %{
-        "ConfigurationSetArn" => [String.t() | Atom.t()],
-        "ConfigurationSetName" => String.t() | Atom.t(),
-        "ProtectConfigurationArn" => String.t() | Atom.t(),
-        "ProtectConfigurationId" => String.t() | Atom.t()
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom()
       }
       
   """
-  @type disassociate_protect_configuration_result() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_protect_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       registration_denied_reason_information() :: %{
-        "DocumentationLink" => [String.t() | Atom.t()],
-        "DocumentationTitle" => [String.t() | Atom.t()],
-        "LongDescription" => [String.t() | Atom.t()],
-        "Reason" => [String.t() | Atom.t()],
-        "ShortDescription" => [String.t() | Atom.t()]
+        "DocumentationLink" => [String.t() | atom()],
+        "DocumentationTitle" => [String.t() | atom()],
+        "LongDescription" => [String.t() | atom()],
+        "Reason" => [String.t() | atom()],
+        "ShortDescription" => [String.t() | atom()]
       }
       
   """
-  @type registration_denied_reason_information() :: %{String.t() | Atom.t() => any()}
+  @type registration_denied_reason_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_protect_configuration_rule_set_number_override_result() :: %{
-        "Action" => String.t() | Atom.t(),
+        "Action" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()],
-        "DestinationPhoneNumber" => String.t() | Atom.t(),
+        "DestinationPhoneNumber" => String.t() | atom(),
         "ExpirationTimestamp" => [non_neg_integer()],
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "ProtectConfigurationArn" => String.t() | Atom.t(),
-        "ProtectConfigurationId" => String.t() | Atom.t()
+        "IsoCountryCode" => String.t() | atom(),
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom()
       }
       
   """
   @type put_protect_configuration_rule_set_number_override_result() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -604,26 +603,26 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       protect_configuration_country_rule_set_information() :: %{
-        "ProtectStatus" => String.t() | Atom.t()
+        "ProtectStatus" => String.t() | atom()
       }
       
   """
-  @type protect_configuration_country_rule_set_information() :: %{String.t() | Atom.t() => any()}
+  @type protect_configuration_country_rule_set_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       registration_association_metadata() :: %{
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "PhoneNumber" => String.t() | Atom.t(),
-        "ResourceArn" => [String.t() | Atom.t()],
-        "ResourceId" => [String.t() | Atom.t()],
-        "ResourceType" => [String.t() | Atom.t()]
+        "IsoCountryCode" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "ResourceArn" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
       }
       
   """
-  @type registration_association_metadata() :: %{String.t() | Atom.t() => any()}
+  @type registration_association_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -632,53 +631,53 @@ defmodule AWS.PinpointSMSVoiceV2 do
       describe_registration_type_definitions_request() :: %{
         optional("Filters") => list(registration_type_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("RegistrationTypes") => list(String.t() | Atom.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("RegistrationTypes") => list(String.t() | atom())
       }
       
   """
-  @type describe_registration_type_definitions_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_registration_type_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       submit_registration_version_request() :: %{
-        required("RegistrationId") => String.t() | Atom.t()
+        required("RegistrationId") => String.t() | atom()
       }
       
   """
-  @type submit_registration_version_request() :: %{String.t() | Atom.t() => any()}
+  @type submit_registration_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_watch_logs_destination() :: %{
-        "IamRoleArn" => String.t() | Atom.t(),
-        "LogGroupArn" => String.t() | Atom.t()
+        "IamRoleArn" => String.t() | atom(),
+        "LogGroupArn" => String.t() | atom()
       }
       
   """
-  @type cloud_watch_logs_destination() :: %{String.t() | Atom.t() => any()}
+  @type cloud_watch_logs_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_registration_association_result() :: %{
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "PhoneNumber" => String.t() | Atom.t(),
-        "RegistrationArn" => [String.t() | Atom.t()],
-        "RegistrationId" => [String.t() | Atom.t()],
-        "RegistrationType" => String.t() | Atom.t(),
-        "ResourceArn" => [String.t() | Atom.t()],
-        "ResourceId" => [String.t() | Atom.t()],
-        "ResourceType" => [String.t() | Atom.t()]
+        "IsoCountryCode" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "RegistrationType" => String.t() | atom(),
+        "ResourceArn" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
       }
       
   """
-  @type create_registration_association_result() :: %{String.t() | Atom.t() => any()}
+  @type create_registration_association_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -687,32 +686,32 @@ defmodule AWS.PinpointSMSVoiceV2 do
       create_pool_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
-        "MessageType" => String.t() | Atom.t(),
-        "OptOutListName" => String.t() | Atom.t(),
-        "PoolArn" => [String.t() | Atom.t()],
-        "PoolId" => [String.t() | Atom.t()],
+        "MessageType" => String.t() | atom(),
+        "OptOutListName" => String.t() | atom(),
+        "PoolArn" => [String.t() | atom()],
+        "PoolId" => [String.t() | atom()],
         "SelfManagedOptOutsEnabled" => [boolean()],
         "SharedRoutesEnabled" => [boolean()],
-        "Status" => String.t() | Atom.t(),
+        "Status" => String.t() | atom(),
         "Tags" => list(tag()),
-        "TwoWayChannelArn" => String.t() | Atom.t(),
-        "TwoWayChannelRole" => String.t() | Atom.t(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
         "TwoWayEnabled" => [boolean()]
       }
       
   """
-  @type create_pool_result() :: %{String.t() | Atom.t() => any()}
+  @type create_pool_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_default_message_type_request() :: %{
-        required("ConfigurationSetName") => String.t() | Atom.t()
+        required("ConfigurationSetName") => String.t() | atom()
       }
       
   """
-  @type delete_default_message_type_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_default_message_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -720,80 +719,80 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       release_phone_number_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "MessageType" => String.t() | Atom.t(),
-        "MonthlyLeasingPrice" => [String.t() | Atom.t()],
-        "NumberCapabilities" => list(String.t() | Atom.t()),
-        "NumberType" => String.t() | Atom.t(),
-        "OptOutListName" => String.t() | Atom.t(),
-        "PhoneNumber" => String.t() | Atom.t(),
-        "PhoneNumberArn" => [String.t() | Atom.t()],
-        "PhoneNumberId" => [String.t() | Atom.t()],
-        "RegistrationId" => [String.t() | Atom.t()],
+        "IsoCountryCode" => String.t() | atom(),
+        "MessageType" => String.t() | atom(),
+        "MonthlyLeasingPrice" => [String.t() | atom()],
+        "NumberCapabilities" => list(String.t() | atom()),
+        "NumberType" => String.t() | atom(),
+        "OptOutListName" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "PhoneNumberArn" => [String.t() | atom()],
+        "PhoneNumberId" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
         "SelfManagedOptOutsEnabled" => [boolean()],
-        "Status" => String.t() | Atom.t(),
-        "TwoWayChannelArn" => String.t() | Atom.t(),
-        "TwoWayChannelRole" => String.t() | Atom.t(),
+        "Status" => String.t() | atom(),
+        "TwoWayChannelArn" => String.t() | atom(),
+        "TwoWayChannelRole" => String.t() | atom(),
         "TwoWayEnabled" => [boolean()]
       }
       
   """
-  @type release_phone_number_result() :: %{String.t() | Atom.t() => any()}
+  @type release_phone_number_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_protect_configuration_request() :: %{
-        required("ProtectConfigurationId") => String.t() | Atom.t()
+        required("ProtectConfigurationId") => String.t() | atom()
       }
       
   """
-  @type delete_protect_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_protect_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_event_destination_request() :: %{
-        required("ConfigurationSetName") => String.t() | Atom.t(),
-        required("EventDestinationName") => String.t() | Atom.t()
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("EventDestinationName") => String.t() | atom()
       }
       
   """
-  @type delete_event_destination_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_event_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_protect_configuration_result() :: %{
-        "ConfigurationSetArn" => [String.t() | Atom.t()],
-        "ConfigurationSetName" => String.t() | Atom.t(),
-        "ProtectConfigurationArn" => String.t() | Atom.t(),
-        "ProtectConfigurationId" => String.t() | Atom.t()
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom()
       }
       
   """
-  @type associate_protect_configuration_result() :: %{String.t() | Atom.t() => any()}
+  @type associate_protect_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       configuration_set_information() :: %{
-        "ConfigurationSetArn" => [String.t() | Atom.t()],
-        "ConfigurationSetName" => String.t() | Atom.t(),
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()],
         "DefaultMessageFeedbackEnabled" => [boolean()],
-        "DefaultMessageType" => String.t() | Atom.t(),
-        "DefaultSenderId" => String.t() | Atom.t(),
+        "DefaultMessageType" => String.t() | atom(),
+        "DefaultSenderId" => String.t() | atom(),
         "EventDestinations" => list(event_destination()),
-        "ProtectConfigurationId" => String.t() | Atom.t()
+        "ProtectConfigurationId" => String.t() | atom()
       }
       
   """
-  @type configuration_set_information() :: %{String.t() | Atom.t() => any()}
+  @type configuration_set_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -802,39 +801,39 @@ defmodule AWS.PinpointSMSVoiceV2 do
       text_validation() :: %{
         "MaxLength" => [integer()],
         "MinLength" => [integer()],
-        "Pattern" => [String.t() | Atom.t()]
+        "Pattern" => [String.t() | atom()]
       }
       
   """
-  @type text_validation() :: %{String.t() | Atom.t() => any()}
+  @type text_validation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       release_phone_number_request() :: %{
-        required("PhoneNumberId") => String.t() | Atom.t()
+        required("PhoneNumberId") => String.t() | atom()
       }
       
   """
-  @type release_phone_number_request() :: %{String.t() | Atom.t() => any()}
+  @type release_phone_number_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       release_sender_id_result() :: %{
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "MessageTypes" => list(String.t() | Atom.t()),
-        "MonthlyLeasingPrice" => [String.t() | Atom.t()],
+        "IsoCountryCode" => String.t() | atom(),
+        "MessageTypes" => list(String.t() | atom()),
+        "MonthlyLeasingPrice" => [String.t() | atom()],
         "Registered" => [boolean()],
-        "RegistrationId" => [String.t() | Atom.t()],
-        "SenderId" => String.t() | Atom.t(),
-        "SenderIdArn" => [String.t() | Atom.t()]
+        "RegistrationId" => [String.t() | atom()],
+        "SenderId" => String.t() | atom(),
+        "SenderIdArn" => [String.t() | atom()]
       }
       
   """
-  @type release_sender_id_result() :: %{String.t() | Atom.t() => any()}
+  @type release_sender_id_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -842,23 +841,23 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       update_sender_id_request() :: %{
         optional("DeletionProtectionEnabled") => [boolean()],
-        required("IsoCountryCode") => String.t() | Atom.t(),
-        required("SenderId") => String.t() | Atom.t()
+        required("IsoCountryCode") => String.t() | atom(),
+        required("SenderId") => String.t() | atom()
       }
       
   """
-  @type update_sender_id_request() :: %{String.t() | Atom.t() => any()}
+  @type update_sender_id_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       discard_registration_version_request() :: %{
-        required("RegistrationId") => String.t() | Atom.t()
+        required("RegistrationId") => String.t() | atom()
       }
       
   """
-  @type discard_registration_version_request() :: %{String.t() | Atom.t() => any()}
+  @type discard_registration_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -866,17 +865,17 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       update_pool_request() :: %{
         optional("DeletionProtectionEnabled") => [boolean()],
-        optional("OptOutListName") => String.t() | Atom.t(),
+        optional("OptOutListName") => String.t() | atom(),
         optional("SelfManagedOptOutsEnabled") => [boolean()],
         optional("SharedRoutesEnabled") => [boolean()],
-        optional("TwoWayChannelArn") => String.t() | Atom.t(),
-        optional("TwoWayChannelRole") => String.t() | Atom.t(),
+        optional("TwoWayChannelArn") => String.t() | atom(),
+        optional("TwoWayChannelRole") => String.t() | atom(),
         optional("TwoWayEnabled") => [boolean()],
-        required("PoolId") => String.t() | Atom.t()
+        required("PoolId") => String.t() | atom()
       }
       
   """
-  @type update_pool_request() :: %{String.t() | Atom.t() => any()}
+  @type update_pool_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -887,47 +886,47 @@ defmodule AWS.PinpointSMSVoiceV2 do
       }
       
   """
-  @type set_text_message_spend_limit_override_result() :: %{String.t() | Atom.t() => any()}
+  @type set_text_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_pool_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("DeletionProtectionEnabled") => [boolean()],
         optional("Tags") => list(tag()),
-        required("IsoCountryCode") => String.t() | Atom.t(),
-        required("MessageType") => String.t() | Atom.t(),
-        required("OriginationIdentity") => String.t() | Atom.t()
+        required("IsoCountryCode") => String.t() | atom(),
+        required("MessageType") => String.t() | atom(),
+        required("OriginationIdentity") => String.t() | atom()
       }
       
   """
-  @type create_pool_request() :: %{String.t() | Atom.t() => any()}
+  @type create_pool_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       registration_filter() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type registration_filter() :: %{String.t() | Atom.t() => any()}
+  @type registration_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -938,7 +937,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       }
       
   """
-  @type set_voice_message_spend_limit_override_request() :: %{String.t() | Atom.t() => any()}
+  @type set_voice_message_spend_limit_override_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -946,29 +945,29 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       request_sender_id_result() :: %{
         "DeletionProtectionEnabled" => [boolean()],
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "MessageTypes" => list(String.t() | Atom.t()),
-        "MonthlyLeasingPrice" => [String.t() | Atom.t()],
+        "IsoCountryCode" => String.t() | atom(),
+        "MessageTypes" => list(String.t() | atom()),
+        "MonthlyLeasingPrice" => [String.t() | atom()],
         "Registered" => [boolean()],
-        "SenderId" => String.t() | Atom.t(),
-        "SenderIdArn" => [String.t() | Atom.t()],
+        "SenderId" => String.t() | atom(),
+        "SenderIdArn" => [String.t() | atom()],
         "Tags" => list(tag())
       }
       
   """
-  @type request_sender_id_result() :: %{String.t() | Atom.t() => any()}
+  @type request_sender_id_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_registration_field_value_request() :: %{
-        required("FieldPath") => String.t() | Atom.t(),
-        required("RegistrationId") => String.t() | Atom.t()
+        required("FieldPath") => String.t() | atom(),
+        required("RegistrationId") => String.t() | atom()
       }
       
   """
-  @type delete_registration_field_value_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_registration_field_value_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -976,14 +975,14 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       verify_destination_number_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
-        "DestinationPhoneNumber" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
-        "VerifiedDestinationNumberArn" => [String.t() | Atom.t()],
-        "VerifiedDestinationNumberId" => [String.t() | Atom.t()]
+        "DestinationPhoneNumber" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "VerifiedDestinationNumberArn" => [String.t() | atom()],
+        "VerifiedDestinationNumberId" => [String.t() | atom()]
       }
       
   """
-  @type verify_destination_number_result() :: %{String.t() | Atom.t() => any()}
+  @type verify_destination_number_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -999,39 +998,39 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       delete_configuration_set_request() :: %{
-        required("ConfigurationSetName") => String.t() | Atom.t()
+        required("ConfigurationSetName") => String.t() | atom()
       }
       
   """
-  @type delete_configuration_set_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_configuration_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_registration_section_definitions_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "RegistrationSectionDefinitions" => list(registration_section_definition()),
-        "RegistrationType" => String.t() | Atom.t()
+        "RegistrationType" => String.t() | atom()
       }
       
   """
-  @type describe_registration_section_definitions_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_registration_section_definitions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_registration_version_result() :: %{
-        "RegistrationArn" => [String.t() | Atom.t()],
-        "RegistrationId" => [String.t() | Atom.t()],
-        "RegistrationVersionStatus" => String.t() | Atom.t(),
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "RegistrationVersionStatus" => String.t() | atom(),
         "RegistrationVersionStatusHistory" => registration_version_status_history(),
         "VersionNumber" => float()
       }
       
   """
-  @type create_registration_version_result() :: %{String.t() | Atom.t() => any()}
+  @type create_registration_version_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1048,28 +1047,28 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_keywords_result() :: %{
         "Keywords" => list(keyword_information()),
-        "NextToken" => String.t() | Atom.t(),
-        "OriginationIdentity" => [String.t() | Atom.t()],
-        "OriginationIdentityArn" => [String.t() | Atom.t()]
+        "NextToken" => String.t() | atom(),
+        "OriginationIdentity" => [String.t() | atom()],
+        "OriginationIdentityArn" => [String.t() | atom()]
       }
       
   """
-  @type describe_keywords_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_keywords_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       registration_attachments_information() :: %{
-        "AttachmentStatus" => String.t() | Atom.t(),
-        "AttachmentUploadErrorReason" => String.t() | Atom.t(),
+        "AttachmentStatus" => String.t() | atom(),
+        "AttachmentUploadErrorReason" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()],
-        "RegistrationAttachmentArn" => [String.t() | Atom.t()],
-        "RegistrationAttachmentId" => [String.t() | Atom.t()]
+        "RegistrationAttachmentArn" => [String.t() | atom()],
+        "RegistrationAttachmentId" => [String.t() | atom()]
       }
       
   """
-  @type registration_attachments_information() :: %{String.t() | Atom.t() => any()}
+  @type registration_attachments_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1078,43 +1077,43 @@ defmodule AWS.PinpointSMSVoiceV2 do
       select_validation() :: %{
         "MaxChoices" => [integer()],
         "MinChoices" => [integer()],
-        "Options" => list([String.t() | Atom.t()]())
+        "Options" => list([String.t() | atom()]())
       }
       
   """
-  @type select_validation() :: %{String.t() | Atom.t() => any()}
+  @type select_validation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_origination_identity_result() :: %{
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "OriginationIdentity" => [String.t() | Atom.t()],
-        "OriginationIdentityArn" => [String.t() | Atom.t()],
-        "PoolArn" => [String.t() | Atom.t()],
-        "PoolId" => [String.t() | Atom.t()]
+        "IsoCountryCode" => String.t() | atom(),
+        "OriginationIdentity" => [String.t() | atom()],
+        "OriginationIdentityArn" => [String.t() | atom()],
+        "PoolArn" => [String.t() | atom()],
+        "PoolId" => [String.t() | atom()]
       }
       
   """
-  @type disassociate_origination_identity_result() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_origination_identity_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_event_destination_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("CloudWatchLogsDestination") => cloud_watch_logs_destination(),
         optional("KinesisFirehoseDestination") => kinesis_firehose_destination(),
         optional("SnsDestination") => sns_destination(),
-        required("ConfigurationSetName") => String.t() | Atom.t(),
-        required("EventDestinationName") => String.t() | Atom.t(),
-        required("MatchingEventTypes") => list(String.t() | Atom.t())
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("EventDestinationName") => String.t() | atom(),
+        required("MatchingEventTypes") => list(String.t() | atom())
       }
       
   """
-  @type create_event_destination_request() :: %{String.t() | Atom.t() => any()}
+  @type create_event_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1123,12 +1122,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
       describe_registrations_request() :: %{
         optional("Filters") => list(registration_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("RegistrationIds") => list(String.t() | Atom.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("RegistrationIds") => list(String.t() | atom())
       }
       
   """
-  @type describe_registrations_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_registrations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1137,29 +1136,28 @@ defmodule AWS.PinpointSMSVoiceV2 do
       describe_protect_configurations_request() :: %{
         optional("Filters") => list(protect_configuration_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("ProtectConfigurationIds") => list(String.t() | Atom.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("ProtectConfigurationIds") => list(String.t() | atom())
       }
       
   """
-  @type describe_protect_configurations_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_protect_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_protect_configuration_rule_set_number_override_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("ExpirationTimestamp") => [non_neg_integer()],
-        required("Action") => String.t() | Atom.t(),
-        required("DestinationPhoneNumber") => String.t() | Atom.t(),
-        required("ProtectConfigurationId") => String.t() | Atom.t()
+        required("Action") => String.t() | atom(),
+        required("DestinationPhoneNumber") => String.t() | atom(),
+        required("ProtectConfigurationId") => String.t() | atom()
       }
       
   """
   @type put_protect_configuration_rule_set_number_override_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1170,14 +1168,14 @@ defmodule AWS.PinpointSMSVoiceV2 do
         optional("CloudWatchLogsDestination") => cloud_watch_logs_destination(),
         optional("Enabled") => [boolean()],
         optional("KinesisFirehoseDestination") => kinesis_firehose_destination(),
-        optional("MatchingEventTypes") => list(String.t() | Atom.t()),
+        optional("MatchingEventTypes") => list(String.t() | atom()),
         optional("SnsDestination") => sns_destination(),
-        required("ConfigurationSetName") => String.t() | Atom.t(),
-        required("EventDestinationName") => String.t() | Atom.t()
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("EventDestinationName") => String.t() | atom()
       }
       
   """
-  @type update_event_destination_request() :: %{String.t() | Atom.t() => any()}
+  @type update_event_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1185,15 +1183,14 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       update_protect_configuration_country_rule_set_result() :: %{
         "CountryRuleSet" => map(),
-        "NumberCapability" => String.t() | Atom.t(),
-        "ProtectConfigurationArn" => String.t() | Atom.t(),
-        "ProtectConfigurationId" => String.t() | Atom.t()
+        "NumberCapability" => String.t() | atom(),
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom()
       }
       
   """
   @type update_protect_configuration_country_rule_set_result() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1201,12 +1198,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_verified_destination_numbers_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "VerifiedDestinationNumbers" => list(verified_destination_number_information())
       }
       
   """
-  @type describe_verified_destination_numbers_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_verified_destination_numbers_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1214,14 +1211,14 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       delete_opted_out_number_result() :: %{
         "EndUserOptedOut" => [boolean()],
-        "OptOutListArn" => [String.t() | Atom.t()],
-        "OptOutListName" => String.t() | Atom.t(),
-        "OptedOutNumber" => String.t() | Atom.t(),
+        "OptOutListArn" => [String.t() | atom()],
+        "OptOutListName" => String.t() | atom(),
+        "OptedOutNumber" => String.t() | atom(),
         "OptedOutTimestamp" => [non_neg_integer()]
       }
       
   """
-  @type delete_opted_out_number_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_opted_out_number_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1232,47 +1229,47 @@ defmodule AWS.PinpointSMSVoiceV2 do
       }
       
   """
-  @type set_voice_message_spend_limit_override_result() :: %{String.t() | Atom.t() => any()}
+  @type set_voice_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_protect_configuration_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("DeletionProtectionEnabled") => [boolean()],
         optional("Tags") => list(tag())
       }
       
   """
-  @type create_protect_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type create_protect_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => [String.t() | Atom.t()],
-        "Reason" => String.t() | Atom.t(),
-        "ResourceId" => [String.t() | Atom.t()],
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => [String.t() | atom()],
+        "Reason" => String.t() | atom(),
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => [String.t() | Atom.t()],
-        "ResourceId" => [String.t() | Atom.t()],
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1280,40 +1277,40 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       registration_field_definition() :: %{
         "DisplayHints" => registration_field_display_hints(),
-        "FieldPath" => String.t() | Atom.t(),
-        "FieldRequirement" => String.t() | Atom.t(),
-        "FieldType" => String.t() | Atom.t(),
-        "SectionPath" => String.t() | Atom.t(),
+        "FieldPath" => String.t() | atom(),
+        "FieldRequirement" => String.t() | atom(),
+        "FieldType" => String.t() | atom(),
+        "SectionPath" => String.t() | atom(),
         "SelectValidation" => select_validation(),
         "TextValidation" => text_validation()
       }
       
   """
-  @type registration_field_definition() :: %{String.t() | Atom.t() => any()}
+  @type registration_field_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_account_default_protect_configuration_result() :: %{
-        "DefaultProtectConfigurationArn" => String.t() | Atom.t(),
-        "DefaultProtectConfigurationId" => String.t() | Atom.t()
+        "DefaultProtectConfigurationArn" => String.t() | atom(),
+        "DefaultProtectConfigurationId" => String.t() | atom()
       }
       
   """
-  @type delete_account_default_protect_configuration_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_account_default_protect_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_message_feedback_result() :: %{
-        "MessageFeedbackStatus" => String.t() | Atom.t(),
-        "MessageId" => String.t() | Atom.t()
+        "MessageFeedbackStatus" => String.t() | atom(),
+        "MessageId" => String.t() | atom()
       }
       
   """
-  @type put_message_feedback_result() :: %{String.t() | Atom.t() => any()}
+  @type put_message_feedback_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1321,12 +1318,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       registration_type_definition() :: %{
         "DisplayHints" => registration_type_display_hints(),
-        "RegistrationType" => String.t() | Atom.t(),
+        "RegistrationType" => String.t() | atom(),
         "SupportedAssociations" => list(supported_association())
       }
       
   """
-  @type registration_type_definition() :: %{String.t() | Atom.t() => any()}
+  @type registration_type_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1334,28 +1331,27 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       opted_out_number_information() :: %{
         "EndUserOptedOut" => [boolean()],
-        "OptedOutNumber" => String.t() | Atom.t(),
+        "OptedOutNumber" => String.t() | atom(),
         "OptedOutTimestamp" => [non_neg_integer()]
       }
       
   """
-  @type opted_out_number_information() :: %{String.t() | Atom.t() => any()}
+  @type opted_out_number_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_protect_configuration_rule_set_number_overrides_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "ProtectConfigurationArn" => String.t() | Atom.t(),
-        "ProtectConfigurationId" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom(),
         "RuleSetNumberOverrides" => list(protect_configuration_rule_set_number_override())
       }
       
   """
   @type list_protect_configuration_rule_set_number_overrides_result() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1363,12 +1359,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1377,26 +1373,26 @@ defmodule AWS.PinpointSMSVoiceV2 do
       event_destination() :: %{
         "CloudWatchLogsDestination" => cloud_watch_logs_destination(),
         "Enabled" => [boolean()],
-        "EventDestinationName" => String.t() | Atom.t(),
+        "EventDestinationName" => String.t() | atom(),
         "KinesisFirehoseDestination" => kinesis_firehose_destination(),
-        "MatchingEventTypes" => list(String.t() | Atom.t()),
+        "MatchingEventTypes" => list(String.t() | atom()),
         "SnsDestination" => sns_destination()
       }
       
   """
-  @type event_destination() :: %{String.t() | Atom.t() => any()}
+  @type event_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_opted_out_number_request() :: %{
-        required("OptOutListName") => String.t() | Atom.t(),
-        required("OptedOutNumber") => String.t() | Atom.t()
+        required("OptOutListName") => String.t() | atom(),
+        required("OptedOutNumber") => String.t() | atom()
       }
       
   """
-  @type delete_opted_out_number_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_opted_out_number_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1404,11 +1400,11 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       registration_section_definition() :: %{
         "DisplayHints" => registration_section_display_hints(),
-        "SectionPath" => String.t() | Atom.t()
+        "SectionPath" => String.t() | atom()
       }
       
   """
-  @type registration_section_definition() :: %{String.t() | Atom.t() => any()}
+  @type registration_section_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1416,12 +1412,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       delete_opt_out_list_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
-        "OptOutListArn" => [String.t() | Atom.t()],
-        "OptOutListName" => String.t() | Atom.t()
+        "OptOutListArn" => [String.t() | atom()],
+        "OptOutListName" => String.t() | atom()
       }
       
   """
-  @type delete_opt_out_list_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_opt_out_list_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1429,14 +1425,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       update_protect_configuration_country_rule_set_request() :: %{
         required("CountryRuleSetUpdates") => map(),
-        required("NumberCapability") => String.t() | Atom.t(),
-        required("ProtectConfigurationId") => String.t() | Atom.t()
+        required("NumberCapability") => String.t() | atom(),
+        required("ProtectConfigurationId") => String.t() | atom()
       }
       
   """
   @type update_protect_configuration_country_rule_set_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1449,87 +1444,87 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "CreatedTimestamp" => [non_neg_integer()],
         "CurrentVersionNumber" => float(),
         "LatestDeniedVersionNumber" => float(),
-        "RegistrationArn" => [String.t() | Atom.t()],
-        "RegistrationId" => [String.t() | Atom.t()],
-        "RegistrationStatus" => String.t() | Atom.t(),
-        "RegistrationType" => String.t() | Atom.t()
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "RegistrationStatus" => String.t() | atom(),
+        "RegistrationType" => String.t() | atom()
       }
       
   """
-  @type delete_registration_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_registration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sender_id_filter() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type sender_id_filter() :: %{String.t() | Atom.t() => any()}
+  @type sender_id_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_event_destination_result() :: %{
-        "ConfigurationSetArn" => [String.t() | Atom.t()],
-        "ConfigurationSetName" => String.t() | Atom.t(),
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
         "EventDestination" => event_destination()
       }
       
   """
-  @type delete_event_destination_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_event_destination_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       protect_configuration_filter() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type protect_configuration_filter() :: %{String.t() | Atom.t() => any()}
+  @type protect_configuration_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => [String.t() | Atom.t()],
-        "Reason" => String.t() | Atom.t()
+        "Message" => [String.t() | atom()],
+        "Reason" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_default_sender_id_request() :: %{
-        required("ConfigurationSetName") => String.t() | Atom.t()
+        required("ConfigurationSetName") => String.t() | atom()
       }
       
   """
-  @type delete_default_sender_id_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_default_sender_id_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_default_message_feedback_enabled_result() :: %{
-        "ConfigurationSetArn" => [String.t() | Atom.t()],
-        "ConfigurationSetName" => String.t() | Atom.t(),
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
         "MessageFeedbackEnabled" => [boolean()]
       }
       
   """
-  @type set_default_message_feedback_enabled_result() :: %{String.t() | Atom.t() => any()}
+  @type set_default_message_feedback_enabled_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1540,48 +1535,48 @@ defmodule AWS.PinpointSMSVoiceV2 do
       }
       
   """
-  @type delete_voice_message_spend_limit_override_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_voice_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_origination_identity_result() :: %{
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "OriginationIdentity" => [String.t() | Atom.t()],
-        "OriginationIdentityArn" => [String.t() | Atom.t()],
-        "PoolArn" => [String.t() | Atom.t()],
-        "PoolId" => [String.t() | Atom.t()]
+        "IsoCountryCode" => String.t() | atom(),
+        "OriginationIdentity" => [String.t() | atom()],
+        "OriginationIdentityArn" => [String.t() | atom()],
+        "PoolArn" => [String.t() | atom()],
+        "PoolId" => [String.t() | atom()]
       }
       
   """
-  @type associate_origination_identity_result() :: %{String.t() | Atom.t() => any()}
+  @type associate_origination_identity_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_default_message_feedback_enabled_request() :: %{
-        required("ConfigurationSetName") => String.t() | Atom.t(),
+        required("ConfigurationSetName") => String.t() | atom(),
         required("MessageFeedbackEnabled") => [boolean()]
       }
       
   """
-  @type set_default_message_feedback_enabled_request() :: %{String.t() | Atom.t() => any()}
+  @type set_default_message_feedback_enabled_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_opted_out_numbers_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "OptOutListArn" => [String.t() | Atom.t()],
-        "OptOutListName" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
+        "OptOutListArn" => [String.t() | atom()],
+        "OptOutListName" => String.t() | atom(),
         "OptedOutNumbers" => list(opted_out_number_information())
       }
       
   """
-  @type describe_opted_out_numbers_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_opted_out_numbers_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1600,19 +1595,19 @@ defmodule AWS.PinpointSMSVoiceV2 do
       }
       
   """
-  @type registration_version_status_history() :: %{String.t() | Atom.t() => any()}
+  @type registration_version_status_history() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       phone_number_filter() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type phone_number_filter() :: %{String.t() | Atom.t() => any()}
+  @type phone_number_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1621,12 +1616,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
       list_pool_origination_identities_request() :: %{
         optional("Filters") => list(pool_origination_identities_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("PoolId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("PoolId") => String.t() | atom()
       }
       
   """
-  @type list_pool_origination_identities_request() :: %{String.t() | Atom.t() => any()}
+  @type list_pool_origination_identities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1638,38 +1633,38 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "CreatedTimestamp" => [non_neg_integer()],
         "CurrentVersionNumber" => float(),
         "LatestDeniedVersionNumber" => float(),
-        "RegistrationArn" => [String.t() | Atom.t()],
-        "RegistrationId" => [String.t() | Atom.t()],
-        "RegistrationStatus" => String.t() | Atom.t(),
-        "RegistrationType" => String.t() | Atom.t()
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "RegistrationStatus" => String.t() | atom(),
+        "RegistrationType" => String.t() | atom()
       }
       
   """
-  @type registration_information() :: %{String.t() | Atom.t() => any()}
+  @type registration_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_media_message_result() :: %{
-        "MessageId" => [String.t() | Atom.t()]
+        "MessageId" => [String.t() | atom()]
       }
       
   """
-  @type send_media_message_result() :: %{String.t() | Atom.t() => any()}
+  @type send_media_message_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       select_option_description() :: %{
-        "Description" => [String.t() | Atom.t()],
-        "Option" => [String.t() | Atom.t()],
-        "Title" => [String.t() | Atom.t()]
+        "Description" => [String.t() | atom()],
+        "Option" => [String.t() | atom()],
+        "Title" => [String.t() | atom()]
       }
       
   """
-  @type select_option_description() :: %{String.t() | Atom.t() => any()}
+  @type select_option_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1677,35 +1672,35 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       get_resource_policy_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
-        "Policy" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t()
+        "Policy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
       }
       
   """
-  @type get_resource_policy_result() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_policy_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       keyword_filter() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type keyword_filter() :: %{String.t() | Atom.t() => any()}
+  @type keyword_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_registration_version_request() :: %{
-        required("RegistrationId") => String.t() | Atom.t()
+        required("RegistrationId") => String.t() | atom()
       }
       
   """
-  @type create_registration_version_request() :: %{String.t() | Atom.t() => any()}
+  @type create_registration_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1713,25 +1708,25 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_keywords_request() :: %{
         optional("Filters") => list(keyword_filter()),
-        optional("Keywords") => list(String.t() | Atom.t()),
+        optional("Keywords") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("OriginationIdentity") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("OriginationIdentity") => String.t() | atom()
       }
       
   """
-  @type describe_keywords_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_keywords_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_verified_destination_number_request() :: %{
-        required("VerifiedDestinationNumberId") => String.t() | Atom.t()
+        required("VerifiedDestinationNumberId") => String.t() | atom()
       }
       
   """
-  @type delete_verified_destination_number_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_verified_destination_number_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1739,32 +1734,32 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       account_limit() :: %{
         "Max" => [float()],
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Used" => [float()]
       }
       
   """
-  @type account_limit() :: %{String.t() | Atom.t() => any()}
+  @type account_limit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       request_phone_number_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("DeletionProtectionEnabled") => [boolean()],
-        optional("OptOutListName") => String.t() | Atom.t(),
-        optional("PoolId") => String.t() | Atom.t(),
-        optional("RegistrationId") => String.t() | Atom.t(),
+        optional("OptOutListName") => String.t() | atom(),
+        optional("PoolId") => String.t() | atom(),
+        optional("RegistrationId") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("IsoCountryCode") => String.t() | Atom.t(),
-        required("MessageType") => String.t() | Atom.t(),
-        required("NumberCapabilities") => list(String.t() | Atom.t()),
-        required("NumberType") => String.t() | Atom.t()
+        required("IsoCountryCode") => String.t() | atom(),
+        required("MessageType") => String.t() | atom(),
+        required("NumberCapabilities") => list(String.t() | atom()),
+        required("NumberType") => String.t() | atom()
       }
       
   """
-  @type request_phone_number_request() :: %{String.t() | Atom.t() => any()}
+  @type request_phone_number_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1774,68 +1769,68 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "AccountDefault" => [boolean()],
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
-        "ProtectConfigurationArn" => String.t() | Atom.t(),
-        "ProtectConfigurationId" => String.t() | Atom.t(),
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type create_protect_configuration_result() :: %{String.t() | Atom.t() => any()}
+  @type create_protect_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_registration_field_values_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "RegistrationArn" => [String.t() | Atom.t()],
+        "NextToken" => String.t() | atom(),
+        "RegistrationArn" => [String.t() | atom()],
         "RegistrationFieldValues" => list(registration_field_value_information()),
-        "RegistrationId" => [String.t() | Atom.t()],
+        "RegistrationId" => [String.t() | atom()],
         "VersionNumber" => float()
       }
       
   """
-  @type describe_registration_field_values_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_registration_field_values_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception_field() :: %{
-        "Message" => [String.t() | Atom.t()],
-        "Name" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()],
+        "Name" => [String.t() | atom()]
       }
       
   """
-  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_keyword_request() :: %{
-        required("Keyword") => String.t() | Atom.t(),
-        required("OriginationIdentity") => String.t() | Atom.t()
+        required("Keyword") => String.t() | atom(),
+        required("OriginationIdentity") => String.t() | atom()
       }
       
   """
-  @type delete_keyword_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_keyword_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_registration_field_values_request() :: %{
-        optional("FieldPaths") => list(String.t() | Atom.t()),
+        optional("FieldPaths") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("SectionPath") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SectionPath") => String.t() | atom(),
         optional("VersionNumber") => float(),
-        required("RegistrationId") => String.t() | Atom.t()
+        required("RegistrationId") => String.t() | atom()
       }
       
   """
-  @type describe_registration_field_values_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_registration_field_values_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1843,24 +1838,24 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_opt_out_lists_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("OptOutListNames") => list(String.t() | Atom.t()),
-        optional("Owner") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("OptOutListNames") => list(String.t() | atom()),
+        optional("Owner") => String.t() | atom()
       }
       
   """
-  @type describe_opt_out_lists_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_opt_out_lists_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_policy_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type get_resource_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1870,15 +1865,15 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "AdditionalAttributes" => map(),
         "CreatedTimestamp" => [non_neg_integer()],
         "CurrentVersionNumber" => float(),
-        "RegistrationArn" => [String.t() | Atom.t()],
-        "RegistrationId" => [String.t() | Atom.t()],
-        "RegistrationStatus" => String.t() | Atom.t(),
-        "RegistrationType" => String.t() | Atom.t(),
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "RegistrationStatus" => String.t() | atom(),
+        "RegistrationType" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type create_registration_result() :: %{String.t() | Atom.t() => any()}
+  @type create_registration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1886,50 +1881,50 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       put_opted_out_number_result() :: %{
         "EndUserOptedOut" => [boolean()],
-        "OptOutListArn" => [String.t() | Atom.t()],
-        "OptOutListName" => String.t() | Atom.t(),
-        "OptedOutNumber" => String.t() | Atom.t(),
+        "OptOutListArn" => [String.t() | atom()],
+        "OptOutListName" => String.t() | atom(),
+        "OptedOutNumber" => String.t() | atom(),
         "OptedOutTimestamp" => [non_neg_integer()]
       }
       
   """
-  @type put_opted_out_number_result() :: %{String.t() | Atom.t() => any()}
+  @type put_opted_out_number_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_event_destination_result() :: %{
-        "ConfigurationSetArn" => [String.t() | Atom.t()],
-        "ConfigurationSetName" => String.t() | Atom.t(),
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
         "EventDestination" => event_destination()
       }
       
   """
-  @type update_event_destination_result() :: %{String.t() | Atom.t() => any()}
+  @type update_event_destination_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_opt_out_list_request() :: %{
-        required("OptOutListName") => String.t() | Atom.t()
+        required("OptOutListName") => String.t() | atom()
       }
       
   """
-  @type delete_opt_out_list_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_opt_out_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       pool_filter() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type pool_filter() :: %{String.t() | Atom.t() => any()}
+  @type pool_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1937,11 +1932,11 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_spend_limits_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_spend_limits_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_spend_limits_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1950,27 +1945,26 @@ defmodule AWS.PinpointSMSVoiceV2 do
       describe_sender_ids_request() :: %{
         optional("Filters") => list(sender_id_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("Owner") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Owner") => String.t() | atom(),
         optional("SenderIds") => list(sender_id_and_country())
       }
       
   """
-  @type describe_sender_ids_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_sender_ids_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_protect_configuration_rule_set_number_override_request() :: %{
-        required("DestinationPhoneNumber") => String.t() | Atom.t(),
-        required("ProtectConfigurationId") => String.t() | Atom.t()
+        required("DestinationPhoneNumber") => String.t() | atom(),
+        required("ProtectConfigurationId") => String.t() | atom()
       }
       
   """
   @type delete_protect_configuration_rule_set_number_override_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1978,274 +1972,274 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_registration_attachments_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "RegistrationAttachments" => list(registration_attachments_information())
       }
       
   """
-  @type describe_registration_attachments_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_registration_attachments_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_pool_origination_identities_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "OriginationIdentities" => list(origination_identity_metadata()),
-        "PoolArn" => [String.t() | Atom.t()],
-        "PoolId" => [String.t() | Atom.t()]
+        "PoolArn" => [String.t() | atom()],
+        "PoolId" => [String.t() | atom()]
       }
       
   """
-  @type list_pool_origination_identities_result() :: %{String.t() | Atom.t() => any()}
+  @type list_pool_origination_identities_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_registration_field_value_result() :: %{
-        "FieldPath" => String.t() | Atom.t(),
-        "RegistrationArn" => [String.t() | Atom.t()],
-        "RegistrationAttachmentId" => [String.t() | Atom.t()],
-        "RegistrationId" => [String.t() | Atom.t()],
-        "SelectChoices" => list(String.t() | Atom.t()),
-        "TextValue" => String.t() | Atom.t(),
+        "FieldPath" => String.t() | atom(),
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationAttachmentId" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "SelectChoices" => list(String.t() | atom()),
+        "TextValue" => String.t() | atom(),
         "VersionNumber" => float()
       }
       
   """
-  @type put_registration_field_value_result() :: %{String.t() | Atom.t() => any()}
+  @type put_registration_field_value_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       opted_out_filter() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type opted_out_filter() :: %{String.t() | Atom.t() => any()}
+  @type opted_out_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_destination_number_verification_code_result() :: %{
-        "MessageId" => [String.t() | Atom.t()]
+        "MessageId" => [String.t() | atom()]
       }
       
   """
-  @type send_destination_number_verification_code_result() :: %{String.t() | Atom.t() => any()}
+  @type send_destination_number_verification_code_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_verified_destination_numbers_request() :: %{
-        optional("DestinationPhoneNumbers") => list(String.t() | Atom.t()),
+        optional("DestinationPhoneNumbers") => list(String.t() | atom()),
         optional("Filters") => list(verified_destination_number_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("VerifiedDestinationNumberIds") => list(String.t() | Atom.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("VerifiedDestinationNumberIds") => list(String.t() | atom())
       }
       
   """
-  @type describe_verified_destination_numbers_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_verified_destination_numbers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       registration_field_display_hints() :: %{
-        "DocumentationLink" => [String.t() | Atom.t()],
-        "DocumentationTitle" => [String.t() | Atom.t()],
-        "ExampleTextValue" => [String.t() | Atom.t()],
-        "LongDescription" => [String.t() | Atom.t()],
+        "DocumentationLink" => [String.t() | atom()],
+        "DocumentationTitle" => [String.t() | atom()],
+        "ExampleTextValue" => [String.t() | atom()],
+        "LongDescription" => [String.t() | atom()],
         "SelectOptionDescriptions" => list(select_option_description()),
-        "ShortDescription" => [String.t() | Atom.t()],
-        "TextValidationDescription" => [String.t() | Atom.t()],
-        "Title" => [String.t() | Atom.t()]
+        "ShortDescription" => [String.t() | atom()],
+        "TextValidationDescription" => [String.t() | atom()],
+        "Title" => [String.t() | atom()]
       }
       
   """
-  @type registration_field_display_hints() :: %{String.t() | Atom.t() => any()}
+  @type registration_field_display_hints() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_voice_message_request() :: %{
-        optional("ConfigurationSetName") => String.t() | Atom.t(),
+        optional("ConfigurationSetName") => String.t() | atom(),
         optional("Context") => map(),
         optional("DryRun") => [boolean()],
-        optional("MaxPricePerMinute") => String.t() | Atom.t(),
-        optional("MessageBody") => String.t() | Atom.t(),
-        optional("MessageBodyTextType") => String.t() | Atom.t(),
+        optional("MaxPricePerMinute") => String.t() | atom(),
+        optional("MessageBody") => String.t() | atom(),
+        optional("MessageBodyTextType") => String.t() | atom(),
         optional("MessageFeedbackEnabled") => [boolean()],
-        optional("ProtectConfigurationId") => String.t() | Atom.t(),
+        optional("ProtectConfigurationId") => String.t() | atom(),
         optional("TimeToLive") => integer(),
-        optional("VoiceId") => String.t() | Atom.t(),
-        required("DestinationPhoneNumber") => String.t() | Atom.t(),
-        required("OriginationIdentity") => String.t() | Atom.t()
+        optional("VoiceId") => String.t() | atom(),
+        required("DestinationPhoneNumber") => String.t() | atom(),
+        required("OriginationIdentity") => String.t() | atom()
       }
       
   """
-  @type send_voice_message_request() :: %{String.t() | Atom.t() => any()}
+  @type send_voice_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_message_feedback_request() :: %{
-        required("MessageFeedbackStatus") => String.t() | Atom.t(),
-        required("MessageId") => String.t() | Atom.t()
+        required("MessageFeedbackStatus") => String.t() | atom(),
+        required("MessageId") => String.t() | atom()
       }
       
   """
-  @type put_message_feedback_request() :: %{String.t() | Atom.t() => any()}
+  @type put_message_feedback_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_account_default_protect_configuration_result() :: %{
-        "DefaultProtectConfigurationArn" => String.t() | Atom.t(),
-        "DefaultProtectConfigurationId" => String.t() | Atom.t()
+        "DefaultProtectConfigurationArn" => String.t() | atom(),
+        "DefaultProtectConfigurationId" => String.t() | atom()
       }
       
   """
-  @type set_account_default_protect_configuration_result() :: %{String.t() | Atom.t() => any()}
+  @type set_account_default_protect_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => [String.t() | Atom.t()],
-        "RequestId" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()],
+        "RequestId" => [String.t() | atom()]
       }
       
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       discard_registration_version_result() :: %{
-        "RegistrationArn" => [String.t() | Atom.t()],
-        "RegistrationId" => [String.t() | Atom.t()],
-        "RegistrationVersionStatus" => String.t() | Atom.t(),
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "RegistrationVersionStatus" => String.t() | atom(),
         "RegistrationVersionStatusHistory" => registration_version_status_history(),
         "VersionNumber" => float()
       }
       
   """
-  @type discard_registration_version_result() :: %{String.t() | Atom.t() => any()}
+  @type discard_registration_version_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_registration_associations_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "RegistrationArn" => [String.t() | Atom.t()],
+        "NextToken" => String.t() | atom(),
+        "RegistrationArn" => [String.t() | atom()],
         "RegistrationAssociations" => list(registration_association_metadata()),
-        "RegistrationId" => [String.t() | Atom.t()],
-        "RegistrationType" => String.t() | Atom.t()
+        "RegistrationId" => [String.t() | atom()],
+        "RegistrationType" => String.t() | atom()
       }
       
   """
-  @type list_registration_associations_result() :: %{String.t() | Atom.t() => any()}
+  @type list_registration_associations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       protect_configuration_rule_set_number_override() :: %{
-        "Action" => String.t() | Atom.t(),
+        "Action" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()],
-        "DestinationPhoneNumber" => String.t() | Atom.t(),
+        "DestinationPhoneNumber" => String.t() | atom(),
         "ExpirationTimestamp" => [non_neg_integer()],
-        "IsoCountryCode" => String.t() | Atom.t()
+        "IsoCountryCode" => String.t() | atom()
       }
       
   """
-  @type protect_configuration_rule_set_number_override() :: %{String.t() | Atom.t() => any()}
+  @type protect_configuration_rule_set_number_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_result() :: %{
-        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_result() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       release_sender_id_request() :: %{
-        required("IsoCountryCode") => String.t() | Atom.t(),
-        required("SenderId") => String.t() | Atom.t()
+        required("IsoCountryCode") => String.t() | atom(),
+        required("SenderId") => String.t() | atom()
       }
       
   """
-  @type release_sender_id_request() :: %{String.t() | Atom.t() => any()}
+  @type release_sender_id_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       supported_association() :: %{
-        "AssociationBehavior" => String.t() | Atom.t(),
-        "DisassociationBehavior" => String.t() | Atom.t(),
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "ResourceType" => [String.t() | Atom.t()]
+        "AssociationBehavior" => String.t() | atom(),
+        "DisassociationBehavior" => String.t() | atom(),
+        "IsoCountryCode" => String.t() | atom(),
+        "ResourceType" => [String.t() | atom()]
       }
       
   """
-  @type supported_association() :: %{String.t() | Atom.t() => any()}
+  @type supported_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_protect_configuration_request() :: %{
-        required("ConfigurationSetName") => String.t() | Atom.t(),
-        required("ProtectConfigurationId") => String.t() | Atom.t()
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("ProtectConfigurationId") => String.t() | atom()
       }
       
   """
-  @type disassociate_protect_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_protect_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_text_message_result() :: %{
-        "MessageId" => [String.t() | Atom.t()]
+        "MessageId" => [String.t() | atom()]
       }
       
   """
-  @type send_text_message_result() :: %{String.t() | Atom.t() => any()}
+  @type send_text_message_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_registration_attachment_request() :: %{
-        required("RegistrationAttachmentId") => String.t() | Atom.t()
+        required("RegistrationAttachmentId") => String.t() | atom()
       }
       
   """
-  @type delete_registration_attachment_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_registration_attachment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2253,28 +2247,28 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       sender_id_information() :: %{
         "DeletionProtectionEnabled" => [boolean()],
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "MessageTypes" => list(String.t() | Atom.t()),
-        "MonthlyLeasingPrice" => [String.t() | Atom.t()],
+        "IsoCountryCode" => String.t() | atom(),
+        "MessageTypes" => list(String.t() | atom()),
+        "MonthlyLeasingPrice" => [String.t() | atom()],
         "Registered" => [boolean()],
-        "RegistrationId" => [String.t() | Atom.t()],
-        "SenderId" => String.t() | Atom.t(),
-        "SenderIdArn" => [String.t() | Atom.t()]
+        "RegistrationId" => [String.t() | atom()],
+        "SenderId" => String.t() | atom(),
+        "SenderIdArn" => [String.t() | atom()]
       }
       
   """
-  @type sender_id_information() :: %{String.t() | Atom.t() => any()}
+  @type sender_id_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_pool_request() :: %{
-        required("PoolId") => String.t() | Atom.t()
+        required("PoolId") => String.t() | atom()
       }
       
   """
-  @type delete_pool_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_pool_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2282,120 +2276,120 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_registration_section_definitions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("SectionPaths") => list(String.t() | Atom.t()),
-        required("RegistrationType") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("SectionPaths") => list(String.t() | atom()),
+        required("RegistrationType") => String.t() | atom()
       }
       
   """
-  @type describe_registration_section_definitions_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_registration_section_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_protect_configuration_request() :: %{
-        required("ConfigurationSetName") => String.t() | Atom.t(),
-        required("ProtectConfigurationId") => String.t() | Atom.t()
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("ProtectConfigurationId") => String.t() | atom()
       }
       
   """
-  @type associate_protect_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_protect_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_request() :: %{
-        required("Policy") => String.t() | Atom.t(),
-        required("ResourceArn") => String.t() | Atom.t()
+        required("Policy") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type put_resource_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sender_id_and_country() :: %{
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "SenderId" => String.t() | Atom.t()
+        "IsoCountryCode" => String.t() | atom(),
+        "SenderId" => String.t() | atom()
       }
       
   """
-  @type sender_id_and_country() :: %{String.t() | Atom.t() => any()}
+  @type sender_id_and_country() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_voice_message_result() :: %{
-        "MessageId" => [String.t() | Atom.t()]
+        "MessageId" => [String.t() | atom()]
       }
       
   """
-  @type send_voice_message_result() :: %{String.t() | Atom.t() => any()}
+  @type send_voice_message_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => [String.t() | Atom.t()],
-        "Reason" => String.t() | Atom.t()
+        "Message" => [String.t() | atom()],
+        "Reason" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_default_sender_id_result() :: %{
-        "ConfigurationSetArn" => [String.t() | Atom.t()],
-        "ConfigurationSetName" => String.t() | Atom.t(),
-        "SenderId" => String.t() | Atom.t()
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
+        "SenderId" => String.t() | atom()
       }
       
   """
-  @type delete_default_sender_id_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_default_sender_id_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_text_message_request() :: %{
-        optional("ConfigurationSetName") => String.t() | Atom.t(),
+        optional("ConfigurationSetName") => String.t() | atom(),
         optional("Context") => map(),
         optional("DestinationCountryParameters") => map(),
         optional("DryRun") => [boolean()],
-        optional("Keyword") => String.t() | Atom.t(),
-        optional("MaxPrice") => String.t() | Atom.t(),
-        optional("MessageBody") => String.t() | Atom.t(),
+        optional("Keyword") => String.t() | atom(),
+        optional("MaxPrice") => String.t() | atom(),
+        optional("MessageBody") => String.t() | atom(),
         optional("MessageFeedbackEnabled") => [boolean()],
-        optional("MessageType") => String.t() | Atom.t(),
-        optional("OriginationIdentity") => String.t() | Atom.t(),
-        optional("ProtectConfigurationId") => String.t() | Atom.t(),
+        optional("MessageType") => String.t() | atom(),
+        optional("OriginationIdentity") => String.t() | atom(),
+        optional("ProtectConfigurationId") => String.t() | atom(),
         optional("TimeToLive") => integer(),
-        required("DestinationPhoneNumber") => String.t() | Atom.t()
+        required("DestinationPhoneNumber") => String.t() | atom()
       }
       
   """
-  @type send_text_message_request() :: %{String.t() | Atom.t() => any()}
+  @type send_text_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_sender_ids_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "SenderIds" => list(sender_id_information())
       }
       
   """
-  @type describe_sender_ids_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_sender_ids_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2403,13 +2397,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       get_protect_configuration_country_rule_set_result() :: %{
         "CountryRuleSet" => map(),
-        "NumberCapability" => String.t() | Atom.t(),
-        "ProtectConfigurationArn" => String.t() | Atom.t(),
-        "ProtectConfigurationId" => String.t() | Atom.t()
+        "NumberCapability" => String.t() | atom(),
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom()
       }
       
   """
-  @type get_protect_configuration_country_rule_set_result() :: %{String.t() | Atom.t() => any()}
+  @type get_protect_configuration_country_rule_set_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2417,65 +2411,65 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_account_attributes_result() :: %{
         "AccountAttributes" => list(account_attribute()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_account_attributes_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_account_attributes_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_registration_field_value_request() :: %{
-        optional("RegistrationAttachmentId") => String.t() | Atom.t(),
-        optional("SelectChoices") => list(String.t() | Atom.t()),
-        optional("TextValue") => String.t() | Atom.t(),
-        required("FieldPath") => String.t() | Atom.t(),
-        required("RegistrationId") => String.t() | Atom.t()
+        optional("RegistrationAttachmentId") => String.t() | atom(),
+        optional("SelectChoices") => list(String.t() | atom()),
+        optional("TextValue") => String.t() | atom(),
+        required("FieldPath") => String.t() | atom(),
+        required("RegistrationId") => String.t() | atom()
       }
       
   """
-  @type put_registration_field_value_request() :: %{String.t() | Atom.t() => any()}
+  @type put_registration_field_value_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_registration_field_definitions_request() :: %{
-        optional("FieldPaths") => list(String.t() | Atom.t()),
+        optional("FieldPaths") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("SectionPath") => String.t() | Atom.t(),
-        required("RegistrationType") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("SectionPath") => String.t() | atom(),
+        required("RegistrationType") => String.t() | atom()
       }
       
   """
-  @type describe_registration_field_definitions_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_registration_field_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_registrations_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Registrations" => list(registration_information())
       }
       
   """
-  @type describe_registrations_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_registrations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_opt_out_lists_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "OptOutLists" => list(opt_out_list_information())
       }
       
   """
-  @type describe_opt_out_lists_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_opt_out_lists_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2483,13 +2477,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       delete_verified_destination_number_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
-        "DestinationPhoneNumber" => String.t() | Atom.t(),
-        "VerifiedDestinationNumberArn" => [String.t() | Atom.t()],
-        "VerifiedDestinationNumberId" => [String.t() | Atom.t()]
+        "DestinationPhoneNumber" => String.t() | atom(),
+        "VerifiedDestinationNumberArn" => [String.t() | atom()],
+        "VerifiedDestinationNumberId" => [String.t() | atom()]
       }
       
   """
-  @type delete_verified_destination_number_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_verified_destination_number_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2498,12 +2492,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
       describe_registration_attachments_request() :: %{
         optional("Filters") => list(registration_attachment_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("RegistrationAttachmentIds") => list(String.t() | Atom.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("RegistrationAttachmentIds") => list(String.t() | atom())
       }
       
   """
-  @type describe_registration_attachments_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_registration_attachments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2511,29 +2505,29 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       update_sender_id_result() :: %{
         "DeletionProtectionEnabled" => [boolean()],
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "MessageTypes" => list(String.t() | Atom.t()),
-        "MonthlyLeasingPrice" => [String.t() | Atom.t()],
+        "IsoCountryCode" => String.t() | atom(),
+        "MessageTypes" => list(String.t() | atom()),
+        "MonthlyLeasingPrice" => [String.t() | atom()],
         "Registered" => [boolean()],
-        "RegistrationId" => [String.t() | Atom.t()],
-        "SenderId" => String.t() | Atom.t(),
-        "SenderIdArn" => [String.t() | Atom.t()]
+        "RegistrationId" => [String.t() | atom()],
+        "SenderId" => String.t() | atom(),
+        "SenderIdArn" => [String.t() | atom()]
       }
       
   """
-  @type update_sender_id_result() :: %{String.t() | Atom.t() => any()}
+  @type update_sender_id_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       pool_origination_identities_filter() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type pool_origination_identities_filter() :: %{String.t() | Atom.t() => any()}
+  @type pool_origination_identities_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2541,11 +2535,11 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_account_limits_result() :: %{
         "AccountLimits" => list(account_limit()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_account_limits_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_account_limits_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2553,52 +2547,52 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       validation_exception() :: %{
         "Fields" => list(validation_exception_field()),
-        "Message" => [String.t() | Atom.t()],
-        "Reason" => String.t() | Atom.t()
+        "Message" => [String.t() | atom()],
+        "Reason" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_keyword_result() :: %{
-        "Keyword" => String.t() | Atom.t(),
-        "KeywordAction" => String.t() | Atom.t(),
-        "KeywordMessage" => String.t() | Atom.t(),
-        "OriginationIdentity" => [String.t() | Atom.t()],
-        "OriginationIdentityArn" => [String.t() | Atom.t()]
+        "Keyword" => String.t() | atom(),
+        "KeywordAction" => String.t() | atom(),
+        "KeywordMessage" => String.t() | atom(),
+        "OriginationIdentity" => [String.t() | atom()],
+        "OriginationIdentityArn" => [String.t() | atom()]
       }
       
   """
-  @type put_keyword_result() :: %{String.t() | Atom.t() => any()}
+  @type put_keyword_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_origination_identity_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        required("IsoCountryCode") => String.t() | Atom.t(),
-        required("OriginationIdentity") => String.t() | Atom.t(),
-        required("PoolId") => String.t() | Atom.t()
+        optional("ClientToken") => String.t() | atom(),
+        required("IsoCountryCode") => String.t() | atom(),
+        required("OriginationIdentity") => String.t() | atom(),
+        required("PoolId") => String.t() | atom()
       }
       
   """
-  @type associate_origination_identity_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_origination_identity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2608,37 +2602,36 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "AccountDefault" => [boolean()],
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
-        "ProtectConfigurationArn" => String.t() | Atom.t(),
-        "ProtectConfigurationId" => String.t() | Atom.t()
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom()
       }
       
   """
-  @type update_protect_configuration_result() :: %{String.t() | Atom.t() => any()}
+  @type update_protect_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
       
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       protect_configuration_rule_set_number_override_filter_item() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
   @type protect_configuration_rule_set_number_override_filter_item() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2646,51 +2639,51 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       disassociate_origination_identity_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        required("IsoCountryCode") => String.t() | Atom.t(),
-        required("OriginationIdentity") => String.t() | Atom.t(),
-        required("PoolId") => String.t() | Atom.t()
+        optional("ClientToken") => String.t() | atom(),
+        required("IsoCountryCode") => String.t() | atom(),
+        required("OriginationIdentity") => String.t() | atom(),
+        required("PoolId") => String.t() | atom()
       }
       
   """
-  @type disassociate_origination_identity_request() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_origination_identity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       registration_type_filter() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type registration_type_filter() :: %{String.t() | Atom.t() => any()}
+  @type registration_type_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       account_attribute() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Value" => [String.t() | Atom.t()]
+        "Name" => String.t() | atom(),
+        "Value" => [String.t() | atom()]
       }
       
   """
-  @type account_attribute() :: %{String.t() | Atom.t() => any()}
+  @type account_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_verified_destination_number_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("DestinationPhoneNumber") => String.t() | Atom.t()
+        required("DestinationPhoneNumber") => String.t() | atom()
       }
       
   """
-  @type create_verified_destination_number_request() :: %{String.t() | Atom.t() => any()}
+  @type create_verified_destination_number_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2699,13 +2692,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
       describe_phone_numbers_request() :: %{
         optional("Filters") => list(phone_number_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("Owner") => String.t() | Atom.t(),
-        optional("PhoneNumberIds") => list(String.t() | Atom.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("Owner") => String.t() | atom(),
+        optional("PhoneNumberIds") => list(String.t() | atom())
       }
       
   """
-  @type describe_phone_numbers_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_phone_numbers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2714,71 +2707,71 @@ defmodule AWS.PinpointSMSVoiceV2 do
       describe_opted_out_numbers_request() :: %{
         optional("Filters") => list(opted_out_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("OptedOutNumbers") => list(String.t() | Atom.t()),
-        required("OptOutListName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("OptedOutNumbers") => list(String.t() | atom()),
+        required("OptOutListName") => String.t() | atom()
       }
       
   """
-  @type describe_opted_out_numbers_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_opted_out_numbers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_protect_configurations_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ProtectConfigurations" => list(protect_configuration_information())
       }
       
   """
-  @type describe_protect_configurations_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_protect_configurations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_account_default_protect_configuration_request() :: %{
-        required("ProtectConfigurationId") => String.t() | Atom.t()
+        required("ProtectConfigurationId") => String.t() | atom()
       }
       
   """
-  @type set_account_default_protect_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type set_account_default_protect_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_registration_request() :: %{
-        required("RegistrationId") => String.t() | Atom.t()
+        required("RegistrationId") => String.t() | atom()
       }
       
   """
-  @type delete_registration_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_registration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_registration_type_definitions_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "RegistrationTypeDefinitions" => list(registration_type_definition())
       }
       
   """
-  @type describe_registration_type_definitions_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_registration_type_definitions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_phone_numbers_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "PhoneNumbers" => list(phone_number_information())
       }
       
   """
-  @type describe_phone_numbers_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_phone_numbers_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2794,39 +2787,39 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       configuration_set_filter() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type configuration_set_filter() :: %{String.t() | Atom.t() => any()}
+  @type configuration_set_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_opt_out_list_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("OptOutListName") => String.t() | Atom.t()
+        required("OptOutListName") => String.t() | atom()
       }
       
   """
-  @type create_opt_out_list_request() :: %{String.t() | Atom.t() => any()}
+  @type create_opt_out_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_configuration_set_result() :: %{
-        "ConfigurationSetArn" => [String.t() | Atom.t()],
-        "ConfigurationSetName" => String.t() | Atom.t(),
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()],
         "Tags" => list(tag())
       }
       
   """
-  @type create_configuration_set_result() :: %{String.t() | Atom.t() => any()}
+  @type create_configuration_set_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2842,11 +2835,11 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       delete_resource_policy_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type delete_resource_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2854,24 +2847,24 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_configuration_sets_result() :: %{
         "ConfigurationSets" => list(configuration_set_information()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_configuration_sets_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_configuration_sets_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       keyword_information() :: %{
-        "Keyword" => String.t() | Atom.t(),
-        "KeywordAction" => String.t() | Atom.t(),
-        "KeywordMessage" => String.t() | Atom.t()
+        "Keyword" => String.t() | atom(),
+        "KeywordAction" => String.t() | atom(),
+        "KeywordMessage" => String.t() | atom()
       }
       
   """
-  @type keyword_information() :: %{String.t() | Atom.t() => any()}
+  @type keyword_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2880,14 +2873,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
       list_protect_configuration_rule_set_number_overrides_request() :: %{
         optional("Filters") => list(protect_configuration_rule_set_number_override_filter_item()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ProtectConfigurationId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ProtectConfigurationId") => String.t() | atom()
       }
       
   """
   @type list_protect_configuration_rule_set_number_overrides_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2895,15 +2887,15 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       delete_registration_attachment_result() :: %{
-        "AttachmentStatus" => String.t() | Atom.t(),
-        "AttachmentUploadErrorReason" => String.t() | Atom.t(),
+        "AttachmentStatus" => String.t() | atom(),
+        "AttachmentUploadErrorReason" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()],
-        "RegistrationAttachmentArn" => [String.t() | Atom.t()],
-        "RegistrationAttachmentId" => [String.t() | Atom.t()]
+        "RegistrationAttachmentArn" => [String.t() | atom()],
+        "RegistrationAttachmentId" => [String.t() | atom()]
       }
       
   """
-  @type delete_registration_attachment_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_registration_attachment_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2914,33 +2906,33 @@ defmodule AWS.PinpointSMSVoiceV2 do
       }
       
   """
-  @type set_media_message_spend_limit_override_result() :: %{String.t() | Atom.t() => any()}
+  @type set_media_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_keyword_request() :: %{
-        optional("KeywordAction") => String.t() | Atom.t(),
-        required("Keyword") => String.t() | Atom.t(),
-        required("KeywordMessage") => String.t() | Atom.t(),
-        required("OriginationIdentity") => String.t() | Atom.t()
+        optional("KeywordAction") => String.t() | atom(),
+        required("Keyword") => String.t() | atom(),
+        required("KeywordMessage") => String.t() | atom(),
+        required("OriginationIdentity") => String.t() | atom()
       }
       
   """
-  @type put_keyword_request() :: %{String.t() | Atom.t() => any()}
+  @type put_keyword_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_default_sender_id_request() :: %{
-        required("ConfigurationSetName") => String.t() | Atom.t(),
-        required("SenderId") => String.t() | Atom.t()
+        required("ConfigurationSetName") => String.t() | atom(),
+        required("SenderId") => String.t() | atom()
       }
       
   """
-  @type set_default_sender_id_request() :: %{String.t() | Atom.t() => any()}
+  @type set_default_sender_id_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2951,22 +2943,22 @@ defmodule AWS.PinpointSMSVoiceV2 do
       }
       
   """
-  @type set_text_message_spend_limit_override_request() :: %{String.t() | Atom.t() => any()}
+  @type set_text_message_spend_limit_override_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       submit_registration_version_result() :: %{
-        "RegistrationArn" => [String.t() | Atom.t()],
-        "RegistrationId" => [String.t() | Atom.t()],
-        "RegistrationVersionStatus" => String.t() | Atom.t(),
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "RegistrationVersionStatus" => String.t() | atom(),
         "RegistrationVersionStatusHistory" => registration_version_status_history(),
         "VersionNumber" => float()
       }
       
   """
-  @type submit_registration_version_result() :: %{String.t() | Atom.t() => any()}
+  @type submit_registration_version_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2975,28 +2967,28 @@ defmodule AWS.PinpointSMSVoiceV2 do
       describe_registration_versions_request() :: %{
         optional("Filters") => list(registration_version_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("VersionNumbers") => list(float()),
-        required("RegistrationId") => String.t() | Atom.t()
+        required("RegistrationId") => String.t() | atom()
       }
       
   """
-  @type describe_registration_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_registration_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       registration_field_value_information() :: %{
-        "DeniedReason" => [String.t() | Atom.t()],
-        "FieldPath" => String.t() | Atom.t(),
-        "RegistrationAttachmentId" => String.t() | Atom.t(),
-        "SelectChoices" => list(String.t() | Atom.t()),
-        "TextValue" => String.t() | Atom.t()
+        "DeniedReason" => [String.t() | atom()],
+        "FieldPath" => String.t() | atom(),
+        "RegistrationAttachmentId" => String.t() | atom(),
+        "SelectChoices" => list(String.t() | atom()),
+        "TextValue" => String.t() | atom()
       }
       
   """
-  @type registration_field_value_information() :: %{String.t() | Atom.t() => any()}
+  @type registration_field_value_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3006,37 +2998,37 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "AccountDefault" => [boolean()],
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
-        "ProtectConfigurationArn" => String.t() | Atom.t(),
-        "ProtectConfigurationId" => String.t() | Atom.t()
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom()
       }
       
   """
-  @type protect_configuration_information() :: %{String.t() | Atom.t() => any()}
+  @type protect_configuration_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_default_sender_id_result() :: %{
-        "ConfigurationSetArn" => [String.t() | Atom.t()],
-        "ConfigurationSetName" => String.t() | Atom.t(),
-        "SenderId" => String.t() | Atom.t()
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
+        "SenderId" => String.t() | atom()
       }
       
   """
-  @type set_default_sender_id_result() :: %{String.t() | Atom.t() => any()}
+  @type set_default_sender_id_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_protect_configuration_country_rule_set_request() :: %{
-        required("NumberCapability") => String.t() | Atom.t(),
-        required("ProtectConfigurationId") => String.t() | Atom.t()
+        required("NumberCapability") => String.t() | atom(),
+        required("ProtectConfigurationId") => String.t() | atom()
       }
       
   """
-  @type get_protect_configuration_country_rule_set_request() :: %{String.t() | Atom.t() => any()}
+  @type get_protect_configuration_country_rule_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3044,12 +3036,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       delete_resource_policy_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
-        "Policy" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t()
+        "Policy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
       }
       
   """
-  @type delete_resource_policy_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_resource_policy_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3057,13 +3049,13 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       registration_version_information() :: %{
         "DeniedReasons" => list(registration_denied_reason_information()),
-        "RegistrationVersionStatus" => String.t() | Atom.t(),
+        "RegistrationVersionStatus" => String.t() | atom(),
         "RegistrationVersionStatusHistory" => registration_version_status_history(),
         "VersionNumber" => float()
       }
       
   """
-  @type registration_version_information() :: %{String.t() | Atom.t() => any()}
+  @type registration_version_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3074,19 +3066,19 @@ defmodule AWS.PinpointSMSVoiceV2 do
       }
       
   """
-  @type delete_media_message_spend_limit_override_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_media_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       registration_version_filter() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type registration_version_filter() :: %{String.t() | Atom.t() => any()}
+  @type registration_version_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3094,71 +3086,71 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       update_phone_number_request() :: %{
         optional("DeletionProtectionEnabled") => [boolean()],
-        optional("OptOutListName") => String.t() | Atom.t(),
+        optional("OptOutListName") => String.t() | atom(),
         optional("SelfManagedOptOutsEnabled") => [boolean()],
-        optional("TwoWayChannelArn") => String.t() | Atom.t(),
-        optional("TwoWayChannelRole") => String.t() | Atom.t(),
+        optional("TwoWayChannelArn") => String.t() | atom(),
+        optional("TwoWayChannelRole") => String.t() | atom(),
         optional("TwoWayEnabled") => [boolean()],
-        required("PhoneNumberId") => String.t() | Atom.t()
+        required("PhoneNumberId") => String.t() | atom()
       }
       
   """
-  @type update_phone_number_request() :: %{String.t() | Atom.t() => any()}
+  @type update_phone_number_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       origination_identity_metadata() :: %{
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "NumberCapabilities" => list(String.t() | Atom.t()),
-        "OriginationIdentity" => [String.t() | Atom.t()],
-        "OriginationIdentityArn" => [String.t() | Atom.t()],
-        "PhoneNumber" => String.t() | Atom.t()
+        "IsoCountryCode" => String.t() | atom(),
+        "NumberCapabilities" => list(String.t() | atom()),
+        "OriginationIdentity" => [String.t() | atom()],
+        "OriginationIdentityArn" => [String.t() | atom()],
+        "PhoneNumber" => String.t() | atom()
       }
       
   """
-  @type origination_identity_metadata() :: %{String.t() | Atom.t() => any()}
+  @type origination_identity_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_default_message_type_result() :: %{
-        "ConfigurationSetArn" => [String.t() | Atom.t()],
-        "ConfigurationSetName" => String.t() | Atom.t(),
-        "MessageType" => String.t() | Atom.t()
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
+        "MessageType" => String.t() | atom()
       }
       
   """
-  @type set_default_message_type_result() :: %{String.t() | Atom.t() => any()}
+  @type set_default_message_type_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_configuration_sets_request() :: %{
-        optional("ConfigurationSetNames") => list(String.t() | Atom.t()),
+        optional("ConfigurationSetNames") => list(String.t() | atom()),
         optional("Filters") => list(configuration_set_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_configuration_sets_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_configuration_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_registration_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("RegistrationType") => String.t() | Atom.t()
+        required("RegistrationType") => String.t() | atom()
       }
       
   """
-  @type create_registration_request() :: %{String.t() | Atom.t() => any()}
+  @type create_registration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3166,11 +3158,11 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_account_attributes_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_account_attributes_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_account_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3181,7 +3173,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       }
       
   """
-  @type delete_text_message_spend_limit_override_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_text_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3192,45 +3184,45 @@ defmodule AWS.PinpointSMSVoiceV2 do
       }
       
   """
-  @type set_media_message_spend_limit_override_request() :: %{String.t() | Atom.t() => any()}
+  @type set_media_message_spend_limit_override_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_opted_out_number_request() :: %{
-        required("OptOutListName") => String.t() | Atom.t(),
-        required("OptedOutNumber") => String.t() | Atom.t()
+        required("OptOutListName") => String.t() | atom(),
+        required("OptedOutNumber") => String.t() | atom()
       }
       
   """
-  @type put_opted_out_number_request() :: %{String.t() | Atom.t() => any()}
+  @type put_opted_out_number_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_event_destination_result() :: %{
-        "ConfigurationSetArn" => [String.t() | Atom.t()],
-        "ConfigurationSetName" => String.t() | Atom.t(),
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
         "EventDestination" => event_destination()
       }
       
   """
-  @type create_event_destination_result() :: %{String.t() | Atom.t() => any()}
+  @type create_event_destination_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_configuration_set_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("ConfigurationSetName") => String.t() | Atom.t()
+        required("ConfigurationSetName") => String.t() | atom()
       }
       
   """
-  @type create_configuration_set_request() :: %{String.t() | Atom.t() => any()}
+  @type create_configuration_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3238,104 +3230,103 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       create_verified_destination_number_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
-        "DestinationPhoneNumber" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
+        "DestinationPhoneNumber" => String.t() | atom(),
+        "Status" => String.t() | atom(),
         "Tags" => list(tag()),
-        "VerifiedDestinationNumberArn" => [String.t() | Atom.t()],
-        "VerifiedDestinationNumberId" => [String.t() | Atom.t()]
+        "VerifiedDestinationNumberArn" => [String.t() | atom()],
+        "VerifiedDestinationNumberId" => [String.t() | atom()]
       }
       
   """
-  @type create_verified_destination_number_result() :: %{String.t() | Atom.t() => any()}
+  @type create_verified_destination_number_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_configuration_set_result() :: %{
-        "ConfigurationSetArn" => [String.t() | Atom.t()],
-        "ConfigurationSetName" => String.t() | Atom.t(),
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()],
         "DefaultMessageFeedbackEnabled" => [boolean()],
-        "DefaultMessageType" => String.t() | Atom.t(),
-        "DefaultSenderId" => String.t() | Atom.t(),
+        "DefaultMessageType" => String.t() | atom(),
+        "DefaultSenderId" => String.t() | atom(),
         "EventDestinations" => list(event_destination())
       }
       
   """
-  @type delete_configuration_set_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_configuration_set_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_registration_field_value_result() :: %{
-        "FieldPath" => String.t() | Atom.t(),
-        "RegistrationArn" => [String.t() | Atom.t()],
-        "RegistrationAttachmentId" => [String.t() | Atom.t()],
-        "RegistrationId" => [String.t() | Atom.t()],
-        "SelectChoices" => list(String.t() | Atom.t()),
-        "TextValue" => String.t() | Atom.t(),
+        "FieldPath" => String.t() | atom(),
+        "RegistrationArn" => [String.t() | atom()],
+        "RegistrationAttachmentId" => [String.t() | atom()],
+        "RegistrationId" => [String.t() | atom()],
+        "SelectChoices" => list(String.t() | atom()),
+        "TextValue" => String.t() | atom(),
         "VersionNumber" => float()
       }
       
   """
-  @type delete_registration_field_value_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_registration_field_value_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sns_destination() :: %{
-        "TopicArn" => String.t() | Atom.t()
+        "TopicArn" => String.t() | atom()
       }
       
   """
-  @type sns_destination() :: %{String.t() | Atom.t() => any()}
+  @type sns_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       verify_destination_number_request() :: %{
-        required("VerificationCode") => String.t() | Atom.t(),
-        required("VerifiedDestinationNumberId") => String.t() | Atom.t()
+        required("VerificationCode") => String.t() | atom(),
+        required("VerifiedDestinationNumberId") => String.t() | atom()
       }
       
   """
-  @type verify_destination_number_request() :: %{String.t() | Atom.t() => any()}
+  @type verify_destination_number_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_default_message_type_result() :: %{
-        "ConfigurationSetArn" => [String.t() | Atom.t()],
-        "ConfigurationSetName" => String.t() | Atom.t(),
-        "MessageType" => String.t() | Atom.t()
+        "ConfigurationSetArn" => [String.t() | atom()],
+        "ConfigurationSetName" => String.t() | atom(),
+        "MessageType" => String.t() | atom()
       }
       
   """
-  @type delete_default_message_type_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_default_message_type_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_protect_configuration_rule_set_number_override_result() :: %{
-        "Action" => String.t() | Atom.t(),
+        "Action" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()],
-        "DestinationPhoneNumber" => String.t() | Atom.t(),
+        "DestinationPhoneNumber" => String.t() | atom(),
         "ExpirationTimestamp" => [non_neg_integer()],
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "ProtectConfigurationArn" => String.t() | Atom.t(),
-        "ProtectConfigurationId" => String.t() | Atom.t()
+        "IsoCountryCode" => String.t() | atom(),
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom()
       }
       
   """
   @type delete_protect_configuration_rule_set_number_override_result() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3344,33 +3335,33 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       opt_out_list_information() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
-        "OptOutListArn" => [String.t() | Atom.t()],
-        "OptOutListName" => String.t() | Atom.t()
+        "OptOutListArn" => [String.t() | atom()],
+        "OptOutListName" => String.t() | atom()
       }
       
   """
-  @type opt_out_list_information() :: %{String.t() | Atom.t() => any()}
+  @type opt_out_list_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_media_message_request() :: %{
-        optional("ConfigurationSetName") => String.t() | Atom.t(),
+        optional("ConfigurationSetName") => String.t() | atom(),
         optional("Context") => map(),
         optional("DryRun") => [boolean()],
-        optional("MaxPrice") => String.t() | Atom.t(),
-        optional("MediaUrls") => list(String.t() | Atom.t()),
-        optional("MessageBody") => String.t() | Atom.t(),
+        optional("MaxPrice") => String.t() | atom(),
+        optional("MediaUrls") => list(String.t() | atom()),
+        optional("MessageBody") => String.t() | atom(),
         optional("MessageFeedbackEnabled") => [boolean()],
-        optional("ProtectConfigurationId") => String.t() | Atom.t(),
+        optional("ProtectConfigurationId") => String.t() | atom(),
         optional("TimeToLive") => integer(),
-        required("DestinationPhoneNumber") => String.t() | Atom.t(),
-        required("OriginationIdentity") => String.t() | Atom.t()
+        required("DestinationPhoneNumber") => String.t() | atom(),
+        required("OriginationIdentity") => String.t() | atom()
       }
       
   """
-  @type send_media_message_request() :: %{String.t() | Atom.t() => any()}
+  @type send_media_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3380,27 +3371,27 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "AccountDefault" => [boolean()],
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
-        "ProtectConfigurationArn" => String.t() | Atom.t(),
-        "ProtectConfigurationId" => String.t() | Atom.t()
+        "ProtectConfigurationArn" => String.t() | atom(),
+        "ProtectConfigurationId" => String.t() | atom()
       }
       
   """
-  @type delete_protect_configuration_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_protect_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_keyword_result() :: %{
-        "Keyword" => String.t() | Atom.t(),
-        "KeywordAction" => String.t() | Atom.t(),
-        "KeywordMessage" => String.t() | Atom.t(),
-        "OriginationIdentity" => [String.t() | Atom.t()],
-        "OriginationIdentityArn" => [String.t() | Atom.t()]
+        "Keyword" => String.t() | atom(),
+        "KeywordAction" => String.t() | atom(),
+        "KeywordMessage" => String.t() | atom(),
+        "OriginationIdentity" => [String.t() | atom()],
+        "OriginationIdentityArn" => [String.t() | atom()]
       }
       
   """
-  @type delete_keyword_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_keyword_result() :: %{(String.t() | atom()) => any()}
 
   @type associate_origination_identity_errors() ::
           throttling_exception()

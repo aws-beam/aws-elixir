@@ -21,22 +21,22 @@ defmodule AWS.GroundStation do
 
       list_configs_request() :: %{
         "maxResults" => integer(),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_configs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_configs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_agent_response() :: %{
-        optional("agentId") => String.t() | Atom.t()
+        optional("agentId") => String.t() | atom()
       }
 
   """
-  @type register_agent_response() :: %{String.t() | Atom.t() => any()}
+  @type register_agent_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -49,7 +49,7 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type antenna_downlink_demod_decode_config() :: %{String.t() | Atom.t() => any()}
+  @type antenna_downlink_demod_decode_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -58,15 +58,15 @@ defmodule AWS.GroundStation do
       component_status_data() :: %{
         "bytesReceived" => [float()],
         "bytesSent" => [float()],
-        "capabilityArn" => String.t() | Atom.t(),
-        "componentType" => String.t() | Atom.t(),
-        "dataflowId" => String.t() | Atom.t(),
+        "capabilityArn" => String.t() | atom(),
+        "componentType" => String.t() | atom(),
+        "dataflowId" => String.t() | atom(),
         "packetsDropped" => [float()],
         "status" => list(any())
       }
 
   """
-  @type component_status_data() :: %{String.t() | Atom.t() => any()}
+  @type component_status_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -74,12 +74,12 @@ defmodule AWS.GroundStation do
 
       create_config_request() :: %{
         "configData" => list(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type create_config_request() :: %{String.t() | Atom.t() => any()}
+  @type create_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -91,7 +91,7 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type get_minute_usage_request() :: %{String.t() | Atom.t() => any()}
+  @type get_minute_usage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -99,23 +99,23 @@ defmodule AWS.GroundStation do
 
       list_configs_response() :: %{
         "configList" => list(config_list_item()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_configs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dependency_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "parameterName" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "parameterName" => [String.t() | atom()]
       }
 
   """
-  @type dependency_exception() :: %{String.t() | Atom.t() => any()}
+  @type dependency_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -126,19 +126,19 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dataflow_endpoint_config() :: %{
-        "dataflowEndpointName" => [String.t() | Atom.t()],
-        "dataflowEndpointRegion" => [String.t() | Atom.t()]
+        "dataflowEndpointName" => [String.t() | atom()],
+        "dataflowEndpointRegion" => [String.t() | atom()]
       }
 
   """
-  @type dataflow_endpoint_config() :: %{String.t() | Atom.t() => any()}
+  @type dataflow_endpoint_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -163,12 +163,12 @@ defmodule AWS.GroundStation do
   ## Example:
 
       get_agent_configuration_response() :: %{
-        optional("agentId") => String.t() | Atom.t(),
-        optional("taskingDocument") => [String.t() | Atom.t()]
+        optional("agentId") => String.t() | atom(),
+        optional("taskingDocument") => [String.t() | atom()]
       }
 
   """
-  @type get_agent_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_agent_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -176,12 +176,12 @@ defmodule AWS.GroundStation do
 
       dataflow_detail() :: %{
         "destination" => destination(),
-        "errorMessage" => [String.t() | Atom.t()],
+        "errorMessage" => [String.t() | atom()],
         "source" => source()
       }
 
   """
-  @type dataflow_detail() :: %{String.t() | Atom.t() => any()}
+  @type dataflow_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -206,18 +206,18 @@ defmodule AWS.GroundStation do
   ## Example:
 
       describe_contact_response() :: %{
-        "contactId" => String.t() | Atom.t(),
+        "contactId" => String.t() | atom(),
         "contactStatus" => list(any()),
         "dataflowList" => list(dataflow_detail()),
         "endTime" => [non_neg_integer()],
-        "errorMessage" => [String.t() | Atom.t()],
-        "groundStation" => [String.t() | Atom.t()],
+        "errorMessage" => [String.t() | atom()],
+        "groundStation" => [String.t() | atom()],
         "maximumElevation" => elevation(),
-        "missionProfileArn" => String.t() | Atom.t(),
+        "missionProfileArn" => String.t() | atom(),
         "postPassEndTime" => [non_neg_integer()],
         "prePassStartTime" => [non_neg_integer()],
-        "region" => [String.t() | Atom.t()],
-        "satelliteArn" => String.t() | Atom.t(),
+        "region" => [String.t() | atom()],
+        "satelliteArn" => String.t() | atom(),
         "startTime" => [non_neg_integer()],
         "tags" => map(),
         "visibilityEndTime" => [non_neg_integer()],
@@ -225,7 +225,7 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type describe_contact_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_contact_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -233,11 +233,11 @@ defmodule AWS.GroundStation do
 
       update_config_request() :: %{
         "configData" => list(),
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type update_config_request() :: %{String.t() | Atom.t() => any()}
+  @type update_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -250,7 +250,7 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type register_agent_request() :: %{String.t() | Atom.t() => any()}
+  @type register_agent_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -261,19 +261,19 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type tracking_config() :: %{String.t() | Atom.t() => any()}
+  @type tracking_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ephemeris_description() :: %{
-        "ephemerisData" => String.t() | Atom.t(),
+        "ephemerisData" => String.t() | atom(),
         "sourceS3Object" => s3_object()
       }
 
   """
-  @type ephemeris_description() :: %{String.t() | Atom.t() => any()}
+  @type ephemeris_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -286,19 +286,19 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type spectrum_config() :: %{String.t() | Atom.t() => any()}
+  @type spectrum_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       socket_address() :: %{
-        "name" => [String.t() | Atom.t()],
+        "name" => [String.t() | atom()],
         "port" => [integer()]
       }
 
   """
-  @type socket_address() :: %{String.t() | Atom.t() => any()}
+  @type socket_address() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -313,23 +313,23 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type endpoint_details() :: %{String.t() | Atom.t() => any()}
+  @type endpoint_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_config_response() :: %{
-        "configArn" => String.t() | Atom.t(),
+        "configArn" => String.t() | atom(),
         "configData" => list(),
-        "configId" => [String.t() | Atom.t()],
+        "configId" => [String.t() | atom()],
         "configType" => list(any()),
-        "name" => [String.t() | Atom.t()],
+        "name" => [String.t() | atom()],
         "tags" => map()
       }
 
   """
-  @type get_config_response() :: %{String.t() | Atom.t() => any()}
+  @type get_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -338,27 +338,27 @@ defmodule AWS.GroundStation do
       ephemeris_item() :: %{
         "creationTime" => [non_neg_integer()],
         "enabled" => [boolean()],
-        "ephemerisId" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "ephemerisId" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "priority" => integer(),
         "sourceS3Object" => s3_object(),
         "status" => list(any())
       }
 
   """
-  @type ephemeris_item() :: %{String.t() | Atom.t() => any()}
+  @type ephemeris_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ranged_socket_address() :: %{
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "portRange" => integer_range()
       }
 
   """
-  @type ranged_socket_address() :: %{String.t() | Atom.t() => any()}
+  @type ranged_socket_address() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -371,33 +371,33 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type antenna_uplink_config() :: %{String.t() | Atom.t() => any()}
+  @type antenna_uplink_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ephemeris_meta_data() :: %{
-        "ephemerisId" => String.t() | Atom.t(),
+        "ephemerisId" => String.t() | atom(),
         "epoch" => [non_neg_integer()],
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "source" => list(any())
       }
 
   """
-  @type ephemeris_meta_data() :: %{String.t() | Atom.t() => any()}
+  @type ephemeris_meta_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       uplink_echo_config() :: %{
-        "antennaUplinkConfigArn" => String.t() | Atom.t(),
+        "antennaUplinkConfigArn" => String.t() | atom(),
         "enabled" => [boolean()]
       }
 
   """
-  @type uplink_echo_config() :: %{String.t() | Atom.t() => any()}
+  @type uplink_echo_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -409,34 +409,34 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type ranged_connection_details() :: %{String.t() | Atom.t() => any()}
+  @type ranged_connection_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_object() :: %{
-        "bucket" => String.t() | Atom.t(),
-        "key" => String.t() | Atom.t(),
-        "version" => String.t() | Atom.t()
+        "bucket" => String.t() | atom(),
+        "key" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type s3_object() :: %{String.t() | Atom.t() => any()}
+  @type s3_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       config_list_item() :: %{
-        "configArn" => String.t() | Atom.t(),
-        "configId" => [String.t() | Atom.t()],
+        "configArn" => String.t() | atom(),
+        "configId" => [String.t() | atom()],
         "configType" => list(any()),
-        "name" => [String.t() | Atom.t()]
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type config_list_item() :: %{String.t() | Atom.t() => any()}
+  @type config_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -453,26 +453,26 @@ defmodule AWS.GroundStation do
 
       agent_details() :: %{
         "agentCpuCores" => list([integer()]()),
-        "agentVersion" => String.t() | Atom.t(),
+        "agentVersion" => String.t() | atom(),
         "componentVersions" => list(component_version()),
-        "instanceId" => String.t() | Atom.t(),
-        "instanceType" => String.t() | Atom.t(),
+        "instanceId" => String.t() | atom(),
+        "instanceType" => String.t() | atom(),
         "reservedCpuCores" => list([integer()]())
       }
 
   """
-  @type agent_details() :: %{String.t() | Atom.t() => any()}
+  @type agent_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       decode_config() :: %{
-        "unvalidatedJSON" => String.t() | Atom.t()
+        "unvalidatedJSON" => String.t() | atom()
       }
 
   """
-  @type decode_config() :: %{String.t() | Atom.t() => any()}
+  @type decode_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -480,26 +480,26 @@ defmodule AWS.GroundStation do
 
       reserve_contact_request() :: %{
         "endTime" => [non_neg_integer()],
-        "groundStation" => String.t() | Atom.t(),
-        "missionProfileArn" => String.t() | Atom.t(),
-        "satelliteArn" => String.t() | Atom.t(),
+        "groundStation" => String.t() | atom(),
+        "missionProfileArn" => String.t() | atom(),
+        "satelliteArn" => String.t() | atom(),
         "startTime" => [non_neg_integer()],
         "tags" => map()
       }
 
   """
-  @type reserve_contact_request() :: %{String.t() | Atom.t() => any()}
+  @type reserve_contact_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        "tagKeys" => list(String.t() | Atom.t())
+        "tagKeys" => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -510,11 +510,11 @@ defmodule AWS.GroundStation do
         "auditResults" => list(any()),
         "egressAddress" => connection_details(),
         "ingressAddress" => ranged_connection_details(),
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type aws_ground_station_agent_endpoint() :: %{String.t() | Atom.t() => any()}
+  @type aws_ground_station_agent_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -531,11 +531,11 @@ defmodule AWS.GroundStation do
 
       list_dataflow_endpoint_groups_response() :: %{
         "dataflowEndpointGroupList" => list(dataflow_endpoint_list_item()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_dataflow_endpoint_groups_response() :: %{String.t() | Atom.t() => any()}
+  @type list_dataflow_endpoint_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -543,39 +543,39 @@ defmodule AWS.GroundStation do
 
       satellite_list_item() :: %{
         "currentEphemeris" => ephemeris_meta_data(),
-        "groundStations" => list(String.t() | Atom.t()),
+        "groundStations" => list(String.t() | atom()),
         "noradSatelliteID" => integer(),
-        "satelliteArn" => String.t() | Atom.t(),
-        "satelliteId" => String.t() | Atom.t()
+        "satelliteArn" => String.t() | atom(),
+        "satelliteId" => String.t() | atom()
       }
 
   """
-  @type satellite_list_item() :: %{String.t() | Atom.t() => any()}
+  @type satellite_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       config_id_response() :: %{
-        "configArn" => String.t() | Atom.t(),
-        "configId" => [String.t() | Atom.t()],
+        "configArn" => String.t() | atom(),
+        "configId" => [String.t() | atom()],
         "configType" => list(any())
       }
 
   """
-  @type config_id_response() :: %{String.t() | Atom.t() => any()}
+  @type config_id_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dataflow_endpoint_list_item() :: %{
-        "dataflowEndpointGroupArn" => String.t() | Atom.t(),
-        "dataflowEndpointGroupId" => String.t() | Atom.t()
+        "dataflowEndpointGroupArn" => String.t() | atom(),
+        "dataflowEndpointGroupId" => String.t() | atom()
       }
 
   """
-  @type dataflow_endpoint_list_item() :: %{String.t() | Atom.t() => any()}
+  @type dataflow_endpoint_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -587,7 +587,7 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type frequency() :: %{String.t() | Atom.t() => any()}
+  @type frequency() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -599,29 +599,29 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type integer_range() :: %{String.t() | Atom.t() => any()}
+  @type integer_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       mission_profile_id_response() :: %{
-        "missionProfileId" => String.t() | Atom.t()
+        "missionProfileId" => String.t() | atom()
       }
 
   """
-  @type mission_profile_id_response() :: %{String.t() | Atom.t() => any()}
+  @type mission_profile_id_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -629,11 +629,11 @@ defmodule AWS.GroundStation do
 
       list_mission_profiles_response() :: %{
         "missionProfileList" => list(mission_profile_list_item()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_mission_profiles_response() :: %{String.t() | Atom.t() => any()}
+  @type list_mission_profiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -641,39 +641,39 @@ defmodule AWS.GroundStation do
 
       list_mission_profiles_request() :: %{
         "maxResults" => integer(),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_mission_profiles_request() :: %{String.t() | Atom.t() => any()}
+  @type list_mission_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_agent_status_response() :: %{
-        required("agentId") => String.t() | Atom.t()
+        required("agentId") => String.t() | atom()
       }
 
   """
-  @type update_agent_status_response() :: %{String.t() | Atom.t() => any()}
+  @type update_agent_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       contact_data() :: %{
-        "contactId" => String.t() | Atom.t(),
+        "contactId" => String.t() | atom(),
         "contactStatus" => list(any()),
         "endTime" => [non_neg_integer()],
-        "errorMessage" => [String.t() | Atom.t()],
-        "groundStation" => [String.t() | Atom.t()],
+        "errorMessage" => [String.t() | atom()],
+        "groundStation" => [String.t() | atom()],
         "maximumElevation" => elevation(),
-        "missionProfileArn" => String.t() | Atom.t(),
+        "missionProfileArn" => String.t() | atom(),
         "postPassEndTime" => [non_neg_integer()],
         "prePassStartTime" => [non_neg_integer()],
-        "region" => [String.t() | Atom.t()],
-        "satelliteArn" => String.t() | Atom.t(),
+        "region" => [String.t() | atom()],
+        "satelliteArn" => String.t() | atom(),
         "startTime" => [non_neg_integer()],
         "tags" => map(),
         "visibilityEndTime" => [non_neg_integer()],
@@ -681,20 +681,20 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type contact_data() :: %{String.t() | Atom.t() => any()}
+  @type contact_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ground_station_data() :: %{
-        "groundStationId" => String.t() | Atom.t(),
-        "groundStationName" => String.t() | Atom.t(),
-        "region" => String.t() | Atom.t()
+        "groundStationId" => String.t() | atom(),
+        "groundStationName" => String.t() | atom(),
+        "region" => String.t() | atom()
       }
 
   """
-  @type ground_station_data() :: %{String.t() | Atom.t() => any()}
+  @type ground_station_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -710,34 +710,34 @@ defmodule AWS.GroundStation do
   ## Example:
 
       resource_limit_exceeded_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "parameterName" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "parameterName" => [String.t() | atom()]
       }
 
   """
-  @type resource_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       demodulation_config() :: %{
-        "unvalidatedJSON" => String.t() | Atom.t()
+        "unvalidatedJSON" => String.t() | atom()
       }
 
   """
-  @type demodulation_config() :: %{String.t() | Atom.t() => any()}
+  @type demodulation_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       contact_id_response() :: %{
-        "contactId" => String.t() | Atom.t()
+        "contactId" => String.t() | atom()
       }
 
   """
-  @type contact_id_response() :: %{String.t() | Atom.t() => any()}
+  @type contact_id_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -746,11 +746,11 @@ defmodule AWS.GroundStation do
       update_agent_status_request() :: %{
         required("aggregateStatus") => aggregate_status(),
         required("componentStatuses") => list(component_status_data()),
-        required("taskId") => String.t() | Atom.t()
+        required("taskId") => String.t() | atom()
       }
 
   """
-  @type update_agent_status_request() :: %{String.t() | Atom.t() => any()}
+  @type update_agent_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -759,14 +759,14 @@ defmodule AWS.GroundStation do
       get_dataflow_endpoint_group_response() :: %{
         "contactPostPassDurationSeconds" => integer(),
         "contactPrePassDurationSeconds" => integer(),
-        "dataflowEndpointGroupArn" => String.t() | Atom.t(),
-        "dataflowEndpointGroupId" => String.t() | Atom.t(),
+        "dataflowEndpointGroupArn" => String.t() | atom(),
+        "dataflowEndpointGroupId" => String.t() | atom(),
         "endpointsDetails" => list(endpoint_details()),
         "tags" => map()
       }
 
   """
-  @type get_dataflow_endpoint_group_response() :: %{String.t() | Atom.t() => any()}
+  @type get_dataflow_endpoint_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -778,31 +778,31 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type aggregate_status() :: %{String.t() | Atom.t() => any()}
+  @type aggregate_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_ephemeris_request() :: %{
-        optional("name") => String.t() | Atom.t(),
+        optional("name") => String.t() | atom(),
         optional("priority") => integer(),
         required("enabled") => [boolean()]
       }
 
   """
-  @type update_ephemeris_request() :: %{String.t() | Atom.t() => any()}
+  @type update_ephemeris_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ephemeris_id_response() :: %{
-        optional("ephemerisId") => String.t() | Atom.t()
+        optional("ephemerisId") => String.t() | atom()
       }
 
   """
-  @type ephemeris_id_response() :: %{String.t() | Atom.t() => any()}
+  @type ephemeris_id_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -811,12 +811,12 @@ defmodule AWS.GroundStation do
       dataflow_endpoint() :: %{
         "address" => socket_address(),
         "mtu" => [integer()],
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type dataflow_endpoint() :: %{String.t() | Atom.t() => any()}
+  @type dataflow_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -831,7 +831,7 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type get_minute_usage_response() :: %{String.t() | Atom.t() => any()}
+  @type get_minute_usage_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -842,7 +842,7 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -852,38 +852,38 @@ defmodule AWS.GroundStation do
         optional("enabled") => [boolean()],
         optional("ephemeris") => list(),
         optional("expirationTime") => [non_neg_integer()],
-        optional("kmsKeyArn") => String.t() | Atom.t(),
+        optional("kmsKeyArn") => String.t() | atom(),
         optional("priority") => integer(),
         optional("tags") => map(),
-        required("name") => String.t() | Atom.t(),
-        required("satelliteId") => String.t() | Atom.t()
+        required("name") => String.t() | atom(),
+        required("satelliteId") => String.t() | atom()
       }
 
   """
-  @type create_ephemeris_request() :: %{String.t() | Atom.t() => any()}
+  @type create_ephemeris_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dataflow_endpoint_group_id_response() :: %{
-        "dataflowEndpointGroupId" => String.t() | Atom.t()
+        "dataflowEndpointGroupId" => String.t() | atom()
       }
 
   """
-  @type dataflow_endpoint_group_id_response() :: %{String.t() | Atom.t() => any()}
+  @type dataflow_endpoint_group_id_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       component_version() :: %{
-        "componentType" => String.t() | Atom.t(),
-        "versions" => list(String.t() | Atom.t())
+        "componentType" => String.t() | atom(),
+        "versions" => list(String.t() | atom())
       }
 
   """
-  @type component_version() :: %{String.t() | Atom.t() => any()}
+  @type component_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -891,12 +891,12 @@ defmodule AWS.GroundStation do
 
       list_ground_stations_request() :: %{
         "maxResults" => integer(),
-        "nextToken" => String.t() | Atom.t(),
-        "satelliteId" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom(),
+        "satelliteId" => String.t() | atom()
       }
 
   """
-  @type list_ground_stations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_ground_stations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -904,11 +904,11 @@ defmodule AWS.GroundStation do
 
       list_ephemerides_response() :: %{
         optional("ephemerides") => list(ephemeris_item()),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_ephemerides_response() :: %{String.t() | Atom.t() => any()}
+  @type list_ephemerides_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -916,13 +916,13 @@ defmodule AWS.GroundStation do
 
       source() :: %{
         "configDetails" => list(),
-        "configId" => [String.t() | Atom.t()],
+        "configId" => [String.t() | atom()],
         "configType" => list(any()),
-        "dataflowSourceRegion" => [String.t() | Atom.t()]
+        "dataflowSourceRegion" => [String.t() | atom()]
       }
 
   """
-  @type source() :: %{String.t() | Atom.t() => any()}
+  @type source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -930,17 +930,17 @@ defmodule AWS.GroundStation do
 
       list_contacts_request() :: %{
         "endTime" => [non_neg_integer()],
-        "groundStation" => String.t() | Atom.t(),
+        "groundStation" => String.t() | atom(),
         "maxResults" => integer(),
-        "missionProfileArn" => String.t() | Atom.t(),
-        "nextToken" => String.t() | Atom.t(),
-        "satelliteArn" => String.t() | Atom.t(),
+        "missionProfileArn" => String.t() | atom(),
+        "nextToken" => String.t() | atom(),
+        "satelliteArn" => String.t() | atom(),
         "startTime" => [non_neg_integer()],
         "statusList" => list(list(any())())
       }
 
   """
-  @type list_contacts_request() :: %{String.t() | Atom.t() => any()}
+  @type list_contacts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -956,26 +956,26 @@ defmodule AWS.GroundStation do
   ## Example:
 
       mission_profile_list_item() :: %{
-        "missionProfileArn" => String.t() | Atom.t(),
-        "missionProfileId" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "region" => String.t() | Atom.t()
+        "missionProfileArn" => String.t() | atom(),
+        "missionProfileId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "region" => String.t() | atom()
       }
 
   """
-  @type mission_profile_list_item() :: %{String.t() | Atom.t() => any()}
+  @type mission_profile_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       o_e_m_ephemeris() :: %{
-        "oemData" => String.t() | Atom.t(),
+        "oemData" => String.t() | atom(),
         "s3Object" => s3_object()
       }
 
   """
-  @type o_e_m_ephemeris() :: %{String.t() | Atom.t() => any()}
+  @type o_e_m_ephemeris() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -987,7 +987,7 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type uplink_spectrum_config() :: %{String.t() | Atom.t() => any()}
+  @type uplink_spectrum_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1004,11 +1004,11 @@ defmodule AWS.GroundStation do
 
       list_contacts_response() :: %{
         "contactList" => list(contact_data()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_contacts_response() :: %{String.t() | Atom.t() => any()}
+  @type list_contacts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1029,19 +1029,19 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type time_range() :: %{String.t() | Atom.t() => any()}
+  @type time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "parameterName" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "parameterName" => [String.t() | atom()]
       }
 
   """
-  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1049,14 +1049,14 @@ defmodule AWS.GroundStation do
 
       get_satellite_response() :: %{
         "currentEphemeris" => ephemeris_meta_data(),
-        "groundStations" => list(String.t() | Atom.t()),
+        "groundStations" => list(String.t() | atom()),
         "noradSatelliteID" => integer(),
-        "satelliteArn" => String.t() | Atom.t(),
-        "satelliteId" => String.t() | Atom.t()
+        "satelliteArn" => String.t() | atom(),
+        "satelliteId" => String.t() | atom()
       }
 
   """
-  @type get_satellite_response() :: %{String.t() | Atom.t() => any()}
+  @type get_satellite_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1072,12 +1072,12 @@ defmodule AWS.GroundStation do
   ## Example:
 
       list_satellites_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "satellites" => list(satellite_list_item())
       }
 
   """
-  @type list_satellites_response() :: %{String.t() | Atom.t() => any()}
+  @type list_satellites_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1103,13 +1103,13 @@ defmodule AWS.GroundStation do
 
       destination() :: %{
         "configDetails" => list(),
-        "configId" => String.t() | Atom.t(),
+        "configId" => String.t() | atom(),
         "configType" => list(any()),
-        "dataflowDestinationRegion" => [String.t() | Atom.t()]
+        "dataflowDestinationRegion" => [String.t() | atom()]
       }
 
   """
-  @type destination() :: %{String.t() | Atom.t() => any()}
+  @type destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1121,33 +1121,33 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type t_l_e_ephemeris() :: %{String.t() | Atom.t() => any()}
+  @type t_l_e_ephemeris() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       security_details() :: %{
-        "roleArn" => String.t() | Atom.t(),
-        "securityGroupIds" => list([String.t() | Atom.t()]()),
-        "subnetIds" => list([String.t() | Atom.t()]())
+        "roleArn" => String.t() | atom(),
+        "securityGroupIds" => list([String.t() | atom()]()),
+        "subnetIds" => list([String.t() | atom()]())
       }
 
   """
-  @type security_details() :: %{String.t() | Atom.t() => any()}
+  @type security_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_recording_config() :: %{
-        "bucketArn" => String.t() | Atom.t(),
-        "prefix" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "bucketArn" => String.t() | atom(),
+        "prefix" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type s3_recording_config() :: %{String.t() | Atom.t() => any()}
+  @type s3_recording_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1155,51 +1155,51 @@ defmodule AWS.GroundStation do
 
       list_ephemerides_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("statusList") => list(list(any())()),
         required("endTime") => [non_neg_integer()],
-        required("satelliteId") => String.t() | Atom.t(),
+        required("satelliteId") => String.t() | atom(),
         required("startTime") => [non_neg_integer()]
       }
 
   """
-  @type list_ephemerides_request() :: %{String.t() | Atom.t() => any()}
+  @type list_ephemerides_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_recording_details() :: %{
-        "bucketArn" => String.t() | Atom.t(),
-        "keyTemplate" => [String.t() | Atom.t()]
+        "bucketArn" => String.t() | atom(),
+        "keyTemplate" => [String.t() | atom()]
       }
 
   """
-  @type s3_recording_details() :: %{String.t() | Atom.t() => any()}
+  @type s3_recording_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       antenna_demod_decode_details() :: %{
-        "outputNode" => [String.t() | Atom.t()]
+        "outputNode" => [String.t() | atom()]
       }
 
   """
-  @type antenna_demod_decode_details() :: %{String.t() | Atom.t() => any()}
+  @type antenna_demod_decode_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       t_l_e_data() :: %{
-        "tleLine1" => String.t() | Atom.t(),
-        "tleLine2" => String.t() | Atom.t(),
+        "tleLine1" => String.t() | atom(),
+        "tleLine2" => String.t() | atom(),
         "validTimeRange" => time_range()
       }
 
   """
-  @type t_l_e_data() :: %{String.t() | Atom.t() => any()}
+  @type t_l_e_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1211,7 +1211,7 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type frequency_bandwidth() :: %{String.t() | Atom.t() => any()}
+  @type frequency_bandwidth() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1222,7 +1222,7 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type antenna_downlink_config() :: %{String.t() | Atom.t() => any()}
+  @type antenna_downlink_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1230,11 +1230,11 @@ defmodule AWS.GroundStation do
 
       list_dataflow_endpoint_groups_request() :: %{
         "maxResults" => integer(),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_dataflow_endpoint_groups_request() :: %{String.t() | Atom.t() => any()}
+  @type list_dataflow_endpoint_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1246,7 +1246,7 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type eirp() :: %{String.t() | Atom.t() => any()}
+  @type eirp() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1254,11 +1254,11 @@ defmodule AWS.GroundStation do
 
       list_ground_stations_response() :: %{
         "groundStationList" => list(ground_station_data()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_ground_stations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_ground_stations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1267,20 +1267,20 @@ defmodule AWS.GroundStation do
       get_mission_profile_response() :: %{
         "contactPostPassDurationSeconds" => integer(),
         "contactPrePassDurationSeconds" => integer(),
-        "dataflowEdges" => list(list(String.t() | Atom.t())()),
+        "dataflowEdges" => list(list(String.t() | atom())()),
         "minimumViableContactDurationSeconds" => integer(),
-        "missionProfileArn" => String.t() | Atom.t(),
-        "missionProfileId" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "region" => String.t() | Atom.t(),
+        "missionProfileArn" => String.t() | atom(),
+        "missionProfileId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "region" => String.t() | atom(),
         "streamsKmsKey" => list(),
-        "streamsKmsRole" => String.t() | Atom.t(),
+        "streamsKmsRole" => String.t() | atom(),
         "tags" => map(),
-        "trackingConfigArn" => String.t() | Atom.t()
+        "trackingConfigArn" => String.t() | atom()
       }
 
   """
-  @type get_mission_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type get_mission_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1292,20 +1292,20 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type connection_details() :: %{String.t() | Atom.t() => any()}
+  @type connection_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       discovery_data() :: %{
-        "capabilityArns" => list(String.t() | Atom.t()),
-        "privateIpAddresses" => list(String.t() | Atom.t()),
-        "publicIpAddresses" => list(String.t() | Atom.t())
+        "capabilityArns" => list(String.t() | atom()),
+        "privateIpAddresses" => list(String.t() | atom()),
+        "publicIpAddresses" => list(String.t() | atom())
       }
 
   """
-  @type discovery_data() :: %{String.t() | Atom.t() => any()}
+  @type discovery_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1314,18 +1314,18 @@ defmodule AWS.GroundStation do
       describe_ephemeris_response() :: %{
         "creationTime" => [non_neg_integer()],
         "enabled" => [boolean()],
-        "ephemerisId" => String.t() | Atom.t(),
+        "ephemerisId" => String.t() | atom(),
         "invalidReason" => list(any()),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "priority" => integer(),
-        "satelliteId" => String.t() | Atom.t(),
+        "satelliteId" => String.t() | atom(),
         "status" => list(any()),
         "suppliedData" => list(),
         "tags" => map()
       }
 
   """
-  @type describe_ephemeris_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_ephemeris_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1333,11 +1333,11 @@ defmodule AWS.GroundStation do
 
       list_satellites_request() :: %{
         "maxResults" => integer(),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_satellites_request() :: %{String.t() | Atom.t() => any()}
+  @type list_satellites_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1351,7 +1351,7 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type create_dataflow_endpoint_group_request() :: %{String.t() | Atom.t() => any()}
+  @type create_dataflow_endpoint_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1363,7 +1363,7 @@ defmodule AWS.GroundStation do
       }
 
   """
-  @type elevation() :: %{String.t() | Atom.t() => any()}
+  @type elevation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1390,17 +1390,17 @@ defmodule AWS.GroundStation do
       create_mission_profile_request() :: %{
         "contactPostPassDurationSeconds" => integer(),
         "contactPrePassDurationSeconds" => integer(),
-        "dataflowEdges" => list(list(String.t() | Atom.t())()),
+        "dataflowEdges" => list(list(String.t() | atom())()),
         "minimumViableContactDurationSeconds" => integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "streamsKmsKey" => list(),
-        "streamsKmsRole" => String.t() | Atom.t(),
+        "streamsKmsRole" => String.t() | atom(),
         "tags" => map(),
-        "trackingConfigArn" => String.t() | Atom.t()
+        "trackingConfigArn" => String.t() | atom()
       }
 
   """
-  @type create_mission_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type create_mission_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1409,16 +1409,16 @@ defmodule AWS.GroundStation do
       update_mission_profile_request() :: %{
         "contactPostPassDurationSeconds" => integer(),
         "contactPrePassDurationSeconds" => integer(),
-        "dataflowEdges" => list(list(String.t() | Atom.t())()),
+        "dataflowEdges" => list(list(String.t() | atom())()),
         "minimumViableContactDurationSeconds" => integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "streamsKmsKey" => list(),
-        "streamsKmsRole" => String.t() | Atom.t(),
-        "trackingConfigArn" => String.t() | Atom.t()
+        "streamsKmsRole" => String.t() | atom(),
+        "trackingConfigArn" => String.t() | atom()
       }
 
   """
-  @type update_mission_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type update_mission_profile_request() :: %{(String.t() | atom()) => any()}
 
   @type cancel_contact_errors() ::
           invalid_parameter_exception() | resource_not_found_exception() | dependency_exception()
@@ -1541,7 +1541,7 @@ defmodule AWS.GroundStation do
   @doc """
   Cancels a contact with a specified contact ID.
   """
-  @spec cancel_contact(map(), String.t() | Atom.t(), cancel_contact_request(), list()) ::
+  @spec cancel_contact(map(), String.t() | atom(), cancel_contact_request(), list()) ::
           {:ok, contact_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1701,8 +1701,8 @@ defmodule AWS.GroundStation do
   """
   @spec delete_config(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_config_request(),
           list()
         ) ::
@@ -1736,7 +1736,7 @@ defmodule AWS.GroundStation do
   """
   @spec delete_dataflow_endpoint_group(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_dataflow_endpoint_group_request(),
           list()
         ) ::
@@ -1773,7 +1773,7 @@ defmodule AWS.GroundStation do
   @doc """
   Deletes an ephemeris
   """
-  @spec delete_ephemeris(map(), String.t() | Atom.t(), delete_ephemeris_request(), list()) ::
+  @spec delete_ephemeris(map(), String.t() | atom(), delete_ephemeris_request(), list()) ::
           {:ok, ephemeris_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1804,7 +1804,7 @@ defmodule AWS.GroundStation do
   """
   @spec delete_mission_profile(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_mission_profile_request(),
           list()
         ) ::
@@ -1836,7 +1836,7 @@ defmodule AWS.GroundStation do
   @doc """
   Describes an existing contact.
   """
-  @spec describe_contact(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_contact(map(), String.t() | atom(), list()) ::
           {:ok, describe_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1854,7 +1854,7 @@ defmodule AWS.GroundStation do
   @doc """
   Describes an existing ephemeris.
   """
-  @spec describe_ephemeris(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_ephemeris(map(), String.t() | atom(), list()) ::
           {:ok, describe_ephemeris_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1875,7 +1875,7 @@ defmodule AWS.GroundStation do
 
   Gets the latest configuration information for a registered agent.
   """
-  @spec get_agent_configuration(map(), String.t() | Atom.t(), list()) ::
+  @spec get_agent_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_agent_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1895,7 +1895,7 @@ defmodule AWS.GroundStation do
 
   Only one `Config` response can be returned.
   """
-  @spec get_config(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_config(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1913,7 +1913,7 @@ defmodule AWS.GroundStation do
   @doc """
   Returns the dataflow endpoint group.
   """
-  @spec get_dataflow_endpoint_group(map(), String.t() | Atom.t(), list()) ::
+  @spec get_dataflow_endpoint_group(map(), String.t() | atom(), list()) ::
           {:ok, get_dataflow_endpoint_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1960,7 +1960,7 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a mission profile.
   """
-  @spec get_mission_profile(map(), String.t() | Atom.t(), list()) ::
+  @spec get_mission_profile(map(), String.t() | atom(), list()) ::
           {:ok, get_mission_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1978,7 +1978,7 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a satellite.
   """
-  @spec get_satellite(map(), String.t() | Atom.t(), list()) ::
+  @spec get_satellite(map(), String.t() | atom(), list()) ::
           {:ok, get_satellite_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1996,7 +1996,7 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a list of `Config` objects.
   """
-  @spec list_configs(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_configs(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_configs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2062,8 +2062,8 @@ defmodule AWS.GroundStation do
   """
   @spec list_dataflow_endpoint_groups(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_dataflow_endpoint_groups_response(), any()}
@@ -2139,9 +2139,9 @@ defmodule AWS.GroundStation do
   """
   @spec list_ground_stations(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_ground_stations_response(), any()}
@@ -2188,12 +2188,7 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a list of mission profiles.
   """
-  @spec list_mission_profiles(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec list_mission_profiles(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_mission_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2230,7 +2225,7 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a list of satellites.
   """
-  @spec list_satellites(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_satellites(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_satellites_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2262,7 +2257,7 @@ defmodule AWS.GroundStation do
   @doc """
   Returns a list of tags for a specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2341,7 +2336,7 @@ defmodule AWS.GroundStation do
   @doc """
   Assigns a tag to a resource.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2370,7 +2365,7 @@ defmodule AWS.GroundStation do
   @doc """
   Deassigns a resource tag.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2407,7 +2402,7 @@ defmodule AWS.GroundStation do
 
   Update the status of the agent.
   """
-  @spec update_agent_status(map(), String.t() | Atom.t(), update_agent_status_request(), list()) ::
+  @spec update_agent_status(map(), String.t() | atom(), update_agent_status_request(), list()) ::
           {:ok, update_agent_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2441,8 +2436,8 @@ defmodule AWS.GroundStation do
   """
   @spec update_config(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_config_request(),
           list()
         ) ::
@@ -2474,7 +2469,7 @@ defmodule AWS.GroundStation do
   @doc """
   Updates an existing ephemeris
   """
-  @spec update_ephemeris(map(), String.t() | Atom.t(), update_ephemeris_request(), list()) ::
+  @spec update_ephemeris(map(), String.t() | atom(), update_ephemeris_request(), list()) ::
           {:ok, ephemeris_id_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2508,7 +2503,7 @@ defmodule AWS.GroundStation do
   """
   @spec update_mission_profile(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_mission_profile_request(),
           list()
         ) ::

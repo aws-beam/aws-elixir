@@ -26,7 +26,7 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type function_definition_version() :: %{String.t() | Atom.t() => any()}
+  @type function_definition_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -42,47 +42,47 @@ defmodule AWS.Greengrass do
   ## Example:
 
       update_device_definition_request() :: %{
-        optional("Name") => String.t() | Atom.t()
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_device_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type update_device_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connector() :: %{
-        "ConnectorArn" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "ConnectorArn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "Parameters" => map()
       }
 
   """
-  @type connector() :: %{String.t() | Atom.t() => any()}
+  @type connector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_resource_definition_version_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("Resources") => list(resource())
       }
 
   """
-  @type create_resource_definition_version_request() :: %{String.t() | Atom.t() => any()}
+  @type create_resource_definition_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_role_to_group_response() :: %{
-        "AssociatedAt" => String.t() | Atom.t()
+        "AssociatedAt" => String.t() | atom()
       }
 
   """
-  @type associate_role_to_group_response() :: %{String.t() | Atom.t() => any()}
+  @type associate_role_to_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -94,43 +94,43 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type function_execution_config() :: %{String.t() | Atom.t() => any()}
+  @type function_execution_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       local_volume_resource_data() :: %{
-        "DestinationPath" => String.t() | Atom.t(),
+        "DestinationPath" => String.t() | atom(),
         "GroupOwnerSetting" => group_owner_setting(),
-        "SourcePath" => String.t() | Atom.t()
+        "SourcePath" => String.t() | atom()
       }
 
   """
-  @type local_volume_resource_data() :: %{String.t() | Atom.t() => any()}
+  @type local_volume_resource_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_service_role_from_account_response() :: %{
-        "DisassociatedAt" => String.t() | Atom.t()
+        "DisassociatedAt" => String.t() | atom()
       }
 
   """
-  @type disassociate_service_role_from_account_response() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_service_role_from_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_logger_definitions_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_logger_definitions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_logger_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -141,31 +141,31 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_deployments_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_deployments_request() :: %{String.t() | Atom.t() => any()}
+  @type list_deployments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_connectivity_info_response() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type update_connectivity_info_response() :: %{String.t() | Atom.t() => any()}
+  @type update_connectivity_info_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -208,52 +208,52 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_logger_definition_versions_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Versions" => list(version_information())
       }
 
   """
-  @type list_logger_definition_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_logger_definition_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_resource_definition_request() :: %{
-        optional("Name") => String.t() | Atom.t()
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_resource_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type update_resource_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       version_information() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type version_information() :: %{String.t() | Atom.t() => any()}
+  @type version_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       deployment() :: %{
-        "CreatedAt" => String.t() | Atom.t(),
-        "DeploymentArn" => String.t() | Atom.t(),
-        "DeploymentId" => String.t() | Atom.t(),
+        "CreatedAt" => String.t() | atom(),
+        "DeploymentArn" => String.t() | atom(),
+        "DeploymentId" => String.t() | atom(),
         "DeploymentType" => list(any()),
-        "GroupArn" => String.t() | Atom.t()
+        "GroupArn" => String.t() | atom()
       }
 
   """
-  @type deployment() :: %{String.t() | Atom.t() => any()}
+  @type deployment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -269,43 +269,43 @@ defmodule AWS.Greengrass do
   ## Example:
 
       secrets_manager_secret_resource_data() :: %{
-        "ARN" => String.t() | Atom.t(),
-        "AdditionalStagingLabelsToDownload" => list(String.t() | Atom.t())
+        "ARN" => String.t() | atom(),
+        "AdditionalStagingLabelsToDownload" => list(String.t() | atom())
       }
 
   """
-  @type secrets_manager_secret_resource_data() :: %{String.t() | Atom.t() => any()}
+  @type secrets_manager_secret_resource_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_group_certificate_authority_response() :: %{
-        "GroupCertificateAuthorityArn" => String.t() | Atom.t(),
-        "GroupCertificateAuthorityId" => String.t() | Atom.t(),
-        "PemEncodedCertificate" => String.t() | Atom.t()
+        "GroupCertificateAuthorityArn" => String.t() | atom(),
+        "GroupCertificateAuthorityId" => String.t() | atom(),
+        "PemEncodedCertificate" => String.t() | atom()
       }
 
   """
-  @type get_group_certificate_authority_response() :: %{String.t() | Atom.t() => any()}
+  @type get_group_certificate_authority_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_group_version_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
-        optional("ConnectorDefinitionVersionArn") => String.t() | Atom.t(),
-        optional("CoreDefinitionVersionArn") => String.t() | Atom.t(),
-        optional("DeviceDefinitionVersionArn") => String.t() | Atom.t(),
-        optional("FunctionDefinitionVersionArn") => String.t() | Atom.t(),
-        optional("LoggerDefinitionVersionArn") => String.t() | Atom.t(),
-        optional("ResourceDefinitionVersionArn") => String.t() | Atom.t(),
-        optional("SubscriptionDefinitionVersionArn") => String.t() | Atom.t()
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("ConnectorDefinitionVersionArn") => String.t() | atom(),
+        optional("CoreDefinitionVersionArn") => String.t() | atom(),
+        optional("DeviceDefinitionVersionArn") => String.t() | atom(),
+        optional("FunctionDefinitionVersionArn") => String.t() | atom(),
+        optional("LoggerDefinitionVersionArn") => String.t() | atom(),
+        optional("ResourceDefinitionVersionArn") => String.t() | atom(),
+        optional("SubscriptionDefinitionVersionArn") => String.t() | atom()
       }
 
   """
-  @type create_group_version_request() :: %{String.t() | Atom.t() => any()}
+  @type create_group_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -313,29 +313,29 @@ defmodule AWS.Greengrass do
 
       list_logger_definitions_response() :: %{
         "Definitions" => list(definition_information()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_logger_definitions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_logger_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_subscription_definition_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type get_subscription_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type get_subscription_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -346,61 +346,61 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type update_thing_runtime_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_thing_runtime_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_subscription_definition_version_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
         "Definition" => subscription_definition_version(),
-        "Id" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Id" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type get_subscription_definition_version_response() :: %{String.t() | Atom.t() => any()}
+  @type get_subscription_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resource_definitions_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_resource_definitions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_bulk_deployment_detailed_reports_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_bulk_deployment_detailed_reports_request() :: %{String.t() | Atom.t() => any()}
+  @type list_bulk_deployment_detailed_reports_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_connector_definition_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("InitialVersion") => connector_definition_version(),
-        optional("Name") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
         optional("tags") => map()
       }
 
   """
-  @type create_connector_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type create_connector_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -408,22 +408,22 @@ defmodule AWS.Greengrass do
 
       list_deployments_response() :: %{
         "Deployments" => list(deployment()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_deployments_response() :: %{String.t() | Atom.t() => any()}
+  @type list_deployments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_core_definition_request() :: %{
-        optional("Name") => String.t() | Atom.t()
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_core_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type update_core_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -440,38 +440,38 @@ defmodule AWS.Greengrass do
 
       list_connector_definitions_response() :: %{
         "Definitions" => list(definition_information()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_connector_definitions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_connector_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_function_definition_version_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("DefaultConfig") => function_default_config(),
         optional("Functions") => list(function())
       }
 
   """
-  @type create_function_definition_version_request() :: %{String.t() | Atom.t() => any()}
+  @type create_function_definition_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_core_definition_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("InitialVersion") => core_definition_version(),
-        optional("Name") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
         optional("tags") => map()
       }
 
   """
-  @type create_core_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type create_core_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -491,25 +491,25 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type resource_definition_version() :: %{String.t() | Atom.t() => any()}
+  @type resource_definition_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_logger_definition_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type get_logger_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type get_logger_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -520,23 +520,23 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type function_default_config() :: %{String.t() | Atom.t() => any()}
+  @type function_default_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_function_definition_version_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
         "Definition" => function_definition_version(),
-        "Id" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Id" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type get_function_definition_version_response() :: %{String.t() | Atom.t() => any()}
+  @type get_function_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -544,25 +544,25 @@ defmodule AWS.Greengrass do
 
       group_owner_setting() :: %{
         "AutoAddGroupOwner" => boolean(),
-        "GroupOwner" => String.t() | Atom.t()
+        "GroupOwner" => String.t() | atom()
       }
 
   """
-  @type group_owner_setting() :: %{String.t() | Atom.t() => any()}
+  @type group_owner_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_device_definition_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("InitialVersion") => device_definition_version(),
-        optional("Name") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
         optional("tags") => map()
       }
 
   """
-  @type create_device_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type create_device_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -573,45 +573,45 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type runtime_configuration() :: %{String.t() | Atom.t() => any()}
+  @type runtime_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_subscription_definition_versions_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_subscription_definition_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_subscription_definition_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_deployment_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
-        optional("DeploymentId") => String.t() | Atom.t(),
-        optional("GroupVersionId") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("DeploymentId") => String.t() | atom(),
+        optional("GroupVersionId") => String.t() | atom(),
         required("DeploymentType") => list(any())
       }
 
   """
-  @type create_deployment_request() :: %{String.t() | Atom.t() => any()}
+  @type create_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_device_definition_version_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("Devices") => list(device())
       }
 
   """
-  @type create_device_definition_version_request() :: %{String.t() | Atom.t() => any()}
+  @type create_device_definition_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -623,7 +623,7 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type function_run_as_config() :: %{String.t() | Atom.t() => any()}
+  @type function_run_as_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -634,7 +634,7 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type telemetry_configuration_update() :: %{String.t() | Atom.t() => any()}
+  @type telemetry_configuration_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -651,25 +651,25 @@ defmodule AWS.Greengrass do
 
       list_bulk_deployments_response() :: %{
         "BulkDeployments" => list(bulk_deployment()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_bulk_deployments_response() :: %{String.t() | Atom.t() => any()}
+  @type list_bulk_deployments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_resource_definition_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("InitialVersion") => resource_definition_version(),
-        optional("Name") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
         optional("tags") => map()
       }
 
   """
-  @type create_resource_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type create_resource_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -677,11 +677,11 @@ defmodule AWS.Greengrass do
 
       list_resource_definitions_response() :: %{
         "Definitions" => list(definition_information()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_resource_definitions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -692,18 +692,18 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type subscription_definition_version() :: %{String.t() | Atom.t() => any()}
+  @type subscription_definition_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_group_certificate_configuration_request() :: %{
-        optional("CertificateExpiryInMilliseconds") => String.t() | Atom.t()
+        optional("CertificateExpiryInMilliseconds") => String.t() | atom()
       }
 
   """
-  @type update_group_certificate_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_group_certificate_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -719,54 +719,54 @@ defmodule AWS.Greengrass do
   ## Example:
 
       create_software_update_job_response() :: %{
-        "IotJobArn" => String.t() | Atom.t(),
-        "IotJobId" => String.t() | Atom.t(),
-        "PlatformSoftwareVersion" => String.t() | Atom.t()
+        "IotJobArn" => String.t() | atom(),
+        "IotJobId" => String.t() | atom(),
+        "PlatformSoftwareVersion" => String.t() | atom()
       }
 
   """
-  @type create_software_update_job_response() :: %{String.t() | Atom.t() => any()}
+  @type create_software_update_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       definition_information() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type definition_information() :: %{String.t() | Atom.t() => any()}
+  @type definition_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_deployment_response() :: %{
-        "DeploymentArn" => String.t() | Atom.t(),
-        "DeploymentId" => String.t() | Atom.t()
+        "DeploymentArn" => String.t() | atom(),
+        "DeploymentId" => String.t() | atom()
       }
 
   """
-  @type create_deployment_response() :: %{String.t() | Atom.t() => any()}
+  @type create_deployment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -777,7 +777,7 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type connector_definition_version() :: %{String.t() | Atom.t() => any()}
+  @type connector_definition_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -791,23 +791,23 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type function_configuration_environment() :: %{String.t() | Atom.t() => any()}
+  @type function_configuration_environment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_device_definition_version_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
         "Definition" => device_definition_version(),
-        "Id" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Id" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type get_device_definition_version_response() :: %{String.t() | Atom.t() => any()}
+  @type get_device_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -832,28 +832,28 @@ defmodule AWS.Greengrass do
   ## Example:
 
       update_group_request() :: %{
-        optional("Name") => String.t() | Atom.t()
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_group_request() :: %{String.t() | Atom.t() => any()}
+  @type update_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_function_definition_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_function_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type create_function_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -864,19 +864,19 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type core_definition_version() :: %{String.t() | Atom.t() => any()}
+  @type core_definition_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_associated_role_response() :: %{
-        "AssociatedAt" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t()
+        "AssociatedAt" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
       }
 
   """
-  @type get_associated_role_response() :: %{String.t() | Atom.t() => any()}
+  @type get_associated_role_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -896,7 +896,7 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type update_connectivity_info_request() :: %{String.t() | Atom.t() => any()}
+  @type update_connectivity_info_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -921,58 +921,58 @@ defmodule AWS.Greengrass do
   ## Example:
 
       disassociate_role_from_group_response() :: %{
-        "DisassociatedAt" => String.t() | Atom.t()
+        "DisassociatedAt" => String.t() | atom()
       }
 
   """
-  @type disassociate_role_from_group_response() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_role_from_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_core_definition_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type get_core_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type get_core_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_definition_version_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
         "Definition" => resource_definition_version(),
-        "Id" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type get_resource_definition_version_response() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_core_definition_version_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type create_core_definition_version_response() :: %{String.t() | Atom.t() => any()}
+  @type create_core_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -993,45 +993,45 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type telemetry_configuration() :: %{String.t() | Atom.t() => any()}
+  @type telemetry_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_download_owner_setting() :: %{
-        "GroupOwner" => String.t() | Atom.t(),
+        "GroupOwner" => String.t() | atom(),
         "GroupPermission" => list(any())
       }
 
   """
-  @type resource_download_owner_setting() :: %{String.t() | Atom.t() => any()}
+  @type resource_download_owner_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_core_definition_versions_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Versions" => list(version_information())
       }
 
   """
-  @type list_core_definition_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_core_definition_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_subscription_definition_version_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type create_subscription_definition_version_response() :: %{String.t() | Atom.t() => any()}
+  @type create_subscription_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1039,25 +1039,25 @@ defmodule AWS.Greengrass do
 
       list_bulk_deployment_detailed_reports_response() :: %{
         "Deployments" => list(bulk_deployment_result()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_bulk_deployment_detailed_reports_response() :: %{String.t() | Atom.t() => any()}
+  @type list_bulk_deployment_detailed_reports_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connectivity_info() :: %{
-        "HostAddress" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Metadata" => String.t() | Atom.t(),
+        "HostAddress" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Metadata" => String.t() | atom(),
         "PortNumber" => integer()
       }
 
   """
-  @type connectivity_info() :: %{String.t() | Atom.t() => any()}
+  @type connectivity_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1065,28 +1065,28 @@ defmodule AWS.Greengrass do
 
       get_connectivity_info_response() :: %{
         "ConnectivityInfo" => list(connectivity_info()),
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type get_connectivity_info_response() :: %{String.t() | Atom.t() => any()}
+  @type get_connectivity_info_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_connector_definition_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_connector_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type create_connector_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1097,7 +1097,7 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type device_definition_version() :: %{String.t() | Atom.t() => any()}
+  @type device_definition_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1105,11 +1105,11 @@ defmodule AWS.Greengrass do
 
       list_function_definitions_response() :: %{
         "Definitions" => list(definition_information()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_function_definitions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_function_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1125,61 +1125,61 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_group_versions_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Versions" => list(version_information())
       }
 
   """
-  @type list_group_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_group_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_connector_definition_version_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type create_connector_definition_version_response() :: %{String.t() | Atom.t() => any()}
+  @type create_connector_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_subscription_definition_versions_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Versions" => list(version_information())
       }
 
   """
-  @type list_subscription_definition_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_subscription_definition_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_connector_definitions_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_connector_definitions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_connector_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_logger_definition_request() :: %{
-        optional("Name") => String.t() | Atom.t()
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_logger_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type update_logger_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1203,18 +1203,18 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type resource_data_container() :: %{String.t() | Atom.t() => any()}
+  @type resource_data_container() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_group_certificate_authority_response() :: %{
-        "GroupCertificateAuthorityArn" => String.t() | Atom.t()
+        "GroupCertificateAuthorityArn" => String.t() | atom()
       }
 
   """
-  @type create_group_certificate_authority_response() :: %{String.t() | Atom.t() => any()}
+  @type create_group_certificate_authority_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1230,17 +1230,17 @@ defmodule AWS.Greengrass do
   ## Example:
 
       create_subscription_definition_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_subscription_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type create_subscription_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1256,11 +1256,11 @@ defmodule AWS.Greengrass do
   ## Example:
 
       update_subscription_definition_request() :: %{
-        optional("Name") => String.t() | Atom.t()
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_subscription_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type update_subscription_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1271,7 +1271,7 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type list_group_certificate_authorities_response() :: %{String.t() | Atom.t() => any()}
+  @type list_group_certificate_authorities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1279,11 +1279,11 @@ defmodule AWS.Greengrass do
 
       local_device_resource_data() :: %{
         "GroupOwnerSetting" => group_owner_setting(),
-        "SourcePath" => String.t() | Atom.t()
+        "SourcePath" => String.t() | atom()
       }
 
   """
-  @type local_device_resource_data() :: %{String.t() | Atom.t() => any()}
+  @type local_device_resource_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1299,62 +1299,62 @@ defmodule AWS.Greengrass do
   ## Example:
 
       get_connector_definition_version_request() :: %{
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_connector_definition_version_request() :: %{String.t() | Atom.t() => any()}
+  @type get_connector_definition_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reset_deployments_response() :: %{
-        "DeploymentArn" => String.t() | Atom.t(),
-        "DeploymentId" => String.t() | Atom.t()
+        "DeploymentArn" => String.t() | atom(),
+        "DeploymentId" => String.t() | atom()
       }
 
   """
-  @type reset_deployments_response() :: %{String.t() | Atom.t() => any()}
+  @type reset_deployments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resource_definition_versions_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Versions" => list(version_information())
       }
 
   """
-  @type list_resource_definition_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_definition_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_deployment_status_response() :: %{
-        "DeploymentStatus" => String.t() | Atom.t(),
+        "DeploymentStatus" => String.t() | atom(),
         "DeploymentType" => list(any()),
         "ErrorDetails" => list(error_detail()),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "UpdatedAt" => String.t() | Atom.t()
+        "ErrorMessage" => String.t() | atom(),
+        "UpdatedAt" => String.t() | atom()
       }
 
   """
-  @type get_deployment_status_response() :: %{String.t() | Atom.t() => any()}
+  @type get_deployment_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       group_certificate_authority_properties() :: %{
-        "GroupCertificateAuthorityArn" => String.t() | Atom.t(),
-        "GroupCertificateAuthorityId" => String.t() | Atom.t()
+        "GroupCertificateAuthorityArn" => String.t() | atom(),
+        "GroupCertificateAuthorityId" => String.t() | atom()
       }
 
   """
-  @type group_certificate_authority_properties() :: %{String.t() | Atom.t() => any()}
+  @type group_certificate_authority_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1374,47 +1374,47 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       group_information() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type group_information() :: %{String.t() | Atom.t() => any()}
+  @type group_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_logger_definition_version_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("Loggers") => list(logger())
       }
 
   """
-  @type create_logger_definition_version_request() :: %{String.t() | Atom.t() => any()}
+  @type create_logger_definition_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_function_definition_version_request() :: %{
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_function_definition_version_request() :: %{String.t() | Atom.t() => any()}
+  @type get_function_definition_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1430,51 +1430,51 @@ defmodule AWS.Greengrass do
   ## Example:
 
       bulk_deployment() :: %{
-        "BulkDeploymentArn" => String.t() | Atom.t(),
-        "BulkDeploymentId" => String.t() | Atom.t(),
-        "CreatedAt" => String.t() | Atom.t()
+        "BulkDeploymentArn" => String.t() | atom(),
+        "BulkDeploymentId" => String.t() | atom(),
+        "CreatedAt" => String.t() | atom()
       }
 
   """
-  @type bulk_deployment() :: %{String.t() | Atom.t() => any()}
+  @type bulk_deployment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_connector_definition_request() :: %{
-        optional("Name") => String.t() | Atom.t()
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_connector_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type update_connector_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       greengrass_function() :: %{
-        "FunctionArn" => String.t() | Atom.t(),
+        "FunctionArn" => String.t() | atom(),
         "FunctionConfiguration" => function_configuration(),
-        "Id" => String.t() | Atom.t()
+        "Id" => String.t() | atom()
       }
 
   """
-  @type greengrass_function() :: %{String.t() | Atom.t() => any()}
+  @type greengrass_function() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_group_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("InitialVersion") => group_version(),
         optional("tags") => map(),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_group_request() :: %{String.t() | Atom.t() => any()}
+  @type create_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1490,13 +1490,13 @@ defmodule AWS.Greengrass do
   ## Example:
 
       sage_maker_machine_learning_model_resource_data() :: %{
-        "DestinationPath" => String.t() | Atom.t(),
+        "DestinationPath" => String.t() | atom(),
         "OwnerSetting" => resource_download_owner_setting(),
-        "SageMakerJobArn" => String.t() | Atom.t()
+        "SageMakerJobArn" => String.t() | atom()
       }
 
   """
-  @type sage_maker_machine_learning_model_resource_data() :: %{String.t() | Atom.t() => any()}
+  @type sage_maker_machine_learning_model_resource_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1507,7 +1507,7 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type get_thing_runtime_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_thing_runtime_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1532,91 +1532,91 @@ defmodule AWS.Greengrass do
   ## Example:
 
       create_resource_definition_version_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type create_resource_definition_version_response() :: %{String.t() | Atom.t() => any()}
+  @type create_resource_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_service_role_to_account_request() :: %{
-        required("RoleArn") => String.t() | Atom.t()
+        required("RoleArn") => String.t() | atom()
       }
 
   """
-  @type associate_service_role_to_account_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_service_role_to_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_device_definition_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type get_device_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type get_device_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reset_deployments_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("Force") => boolean()
       }
 
   """
-  @type reset_deployments_request() :: %{String.t() | Atom.t() => any()}
+  @type reset_deployments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_bulk_deployments_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_bulk_deployments_request() :: %{String.t() | Atom.t() => any()}
+  @type list_bulk_deployments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_logger_definition_version_request() :: %{
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_logger_definition_version_request() :: %{String.t() | Atom.t() => any()}
+  @type get_logger_definition_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_group_certificate_configuration_response() :: %{
-        "CertificateAuthorityExpiryInMilliseconds" => String.t() | Atom.t(),
-        "CertificateExpiryInMilliseconds" => String.t() | Atom.t(),
-        "GroupId" => String.t() | Atom.t()
+        "CertificateAuthorityExpiryInMilliseconds" => String.t() | atom(),
+        "CertificateExpiryInMilliseconds" => String.t() | atom(),
+        "GroupId" => String.t() | atom()
       }
 
   """
-  @type update_group_certificate_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type update_group_certificate_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1624,56 +1624,56 @@ defmodule AWS.Greengrass do
 
       list_device_definitions_response() :: %{
         "Definitions" => list(definition_information()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_device_definitions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_device_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_device_definition_versions_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Versions" => list(version_information())
       }
 
   """
-  @type list_device_definition_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_device_definition_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_function_definition_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type get_function_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type get_function_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_group_version_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
         "Definition" => group_version(),
-        "Id" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type get_group_version_response() :: %{String.t() | Atom.t() => any()}
+  @type get_group_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1681,74 +1681,74 @@ defmodule AWS.Greengrass do
 
       logger() :: %{
         "Component" => list(any()),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "Level" => list(any()),
         "Space" => integer(),
         "Type" => list(any())
       }
 
   """
-  @type logger() :: %{String.t() | Atom.t() => any()}
+  @type logger() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_logger_definition_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_logger_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type create_logger_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_function_definition_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("InitialVersion") => function_definition_version(),
-        optional("Name") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
         optional("tags") => map()
       }
 
   """
-  @type create_function_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type create_function_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       group_version() :: %{
-        "ConnectorDefinitionVersionArn" => String.t() | Atom.t(),
-        "CoreDefinitionVersionArn" => String.t() | Atom.t(),
-        "DeviceDefinitionVersionArn" => String.t() | Atom.t(),
-        "FunctionDefinitionVersionArn" => String.t() | Atom.t(),
-        "LoggerDefinitionVersionArn" => String.t() | Atom.t(),
-        "ResourceDefinitionVersionArn" => String.t() | Atom.t(),
-        "SubscriptionDefinitionVersionArn" => String.t() | Atom.t()
+        "ConnectorDefinitionVersionArn" => String.t() | atom(),
+        "CoreDefinitionVersionArn" => String.t() | atom(),
+        "DeviceDefinitionVersionArn" => String.t() | atom(),
+        "FunctionDefinitionVersionArn" => String.t() | atom(),
+        "LoggerDefinitionVersionArn" => String.t() | atom(),
+        "ResourceDefinitionVersionArn" => String.t() | atom(),
+        "SubscriptionDefinitionVersionArn" => String.t() | atom()
       }
 
   """
-  @type group_version() :: %{String.t() | Atom.t() => any()}
+  @type group_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       error_detail() :: %{
-        "DetailedErrorCode" => String.t() | Atom.t(),
-        "DetailedErrorMessage" => String.t() | Atom.t()
+        "DetailedErrorCode" => String.t() | atom(),
+        "DetailedErrorMessage" => String.t() | atom()
       }
 
   """
-  @type error_detail() :: %{String.t() | Atom.t() => any()}
+  @type error_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1760,7 +1760,7 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type function_default_execution_config() :: %{String.t() | Atom.t() => any()}
+  @type function_default_execution_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1771,19 +1771,19 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type logger_definition_version() :: %{String.t() | Atom.t() => any()}
+  @type logger_definition_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_device_definition_versions_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_device_definition_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_device_definition_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1799,14 +1799,14 @@ defmodule AWS.Greengrass do
   ## Example:
 
       core() :: %{
-        "CertificateArn" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "CertificateArn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "SyncShadow" => boolean(),
-        "ThingArn" => String.t() | Atom.t()
+        "ThingArn" => String.t() | atom()
       }
 
   """
-  @type core() :: %{String.t() | Atom.t() => any()}
+  @type core() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1822,52 +1822,52 @@ defmodule AWS.Greengrass do
   ## Example:
 
       create_logger_definition_version_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type create_logger_definition_version_response() :: %{String.t() | Atom.t() => any()}
+  @type create_logger_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_function_definition_version_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type create_function_definition_version_response() :: %{String.t() | Atom.t() => any()}
+  @type create_function_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resource_definition_versions_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_resource_definition_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_definition_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_core_definition_version_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("Cores") => list(core())
       }
 
   """
-  @type create_core_definition_version_request() :: %{String.t() | Atom.t() => any()}
+  @type create_core_definition_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1883,62 +1883,62 @@ defmodule AWS.Greengrass do
   ## Example:
 
       create_subscription_definition_version_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("Subscriptions") => list(subscription())
       }
 
   """
-  @type create_subscription_definition_version_request() :: %{String.t() | Atom.t() => any()}
+  @type create_subscription_definition_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_connector_definition_versions_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Versions" => list(version_information())
       }
 
   """
-  @type list_connector_definition_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_connector_definition_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_logger_definition_versions_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_logger_definition_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_logger_definition_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_logger_definition_version_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
         "Definition" => logger_definition_version(),
-        "Id" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type get_logger_definition_version_response() :: %{String.t() | Atom.t() => any()}
+  @type get_logger_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_function_definition_request() :: %{
-        optional("Name") => String.t() | Atom.t()
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_function_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type update_function_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1954,13 +1954,13 @@ defmodule AWS.Greengrass do
   ## Example:
 
       get_group_certificate_configuration_response() :: %{
-        "CertificateAuthorityExpiryInMilliseconds" => String.t() | Atom.t(),
-        "CertificateExpiryInMilliseconds" => String.t() | Atom.t(),
-        "GroupId" => String.t() | Atom.t()
+        "CertificateAuthorityExpiryInMilliseconds" => String.t() | atom(),
+        "CertificateExpiryInMilliseconds" => String.t() | atom(),
+        "GroupId" => String.t() | atom()
       }
 
   """
-  @type get_group_certificate_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_group_certificate_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1969,41 +1969,41 @@ defmodule AWS.Greengrass do
       function_configuration() :: %{
         "EncodingType" => list(any()),
         "Environment" => function_configuration_environment(),
-        "ExecArgs" => String.t() | Atom.t(),
-        "Executable" => String.t() | Atom.t(),
-        "FunctionRuntimeOverride" => String.t() | Atom.t(),
+        "ExecArgs" => String.t() | atom(),
+        "Executable" => String.t() | atom(),
+        "FunctionRuntimeOverride" => String.t() | atom(),
         "MemorySize" => integer(),
         "Pinned" => boolean(),
         "Timeout" => integer()
       }
 
   """
-  @type function_configuration() :: %{String.t() | Atom.t() => any()}
+  @type function_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_bulk_deployment_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("tags") => map(),
-        required("ExecutionRoleArn") => String.t() | Atom.t(),
-        required("InputFileUri") => String.t() | Atom.t()
+        required("ExecutionRoleArn") => String.t() | atom(),
+        required("InputFileUri") => String.t() | atom()
       }
 
   """
-  @type start_bulk_deployment_request() :: %{String.t() | Atom.t() => any()}
+  @type start_bulk_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_group_certificate_authority_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t()
+        optional("AmznClientToken") => String.t() | atom()
       }
 
   """
-  @type create_group_certificate_authority_request() :: %{String.t() | Atom.t() => any()}
+  @type create_group_certificate_authority_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2020,23 +2020,23 @@ defmodule AWS.Greengrass do
 
       internal_server_error_exception() :: %{
         "ErrorDetails" => list(error_detail()),
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_error_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_bulk_deployment_response() :: %{
-        "BulkDeploymentArn" => String.t() | Atom.t(),
-        "BulkDeploymentId" => String.t() | Atom.t()
+        "BulkDeploymentArn" => String.t() | atom(),
+        "BulkDeploymentId" => String.t() | atom()
       }
 
   """
-  @type start_bulk_deployment_response() :: %{String.t() | Atom.t() => any()}
+  @type start_bulk_deployment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2052,73 +2052,73 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_function_definition_versions_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_function_definition_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_function_definition_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_group_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type get_group_response() :: %{String.t() | Atom.t() => any()}
+  @type get_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_connector_definition_versions_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_connector_definition_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_connector_definition_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       subscription() :: %{
-        "Id" => String.t() | Atom.t(),
-        "Source" => String.t() | Atom.t(),
-        "Subject" => String.t() | Atom.t(),
-        "Target" => String.t() | Atom.t()
+        "Id" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "Subject" => String.t() | atom(),
+        "Target" => String.t() | atom()
       }
 
   """
-  @type subscription() :: %{String.t() | Atom.t() => any()}
+  @type subscription() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_device_definition_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_device_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type create_device_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2134,40 +2134,40 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_group_versions_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_group_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_group_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_group_version_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type create_group_version_response() :: %{String.t() | Atom.t() => any()}
+  @type create_group_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_device_definition_version_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type create_device_definition_version_response() :: %{String.t() | Atom.t() => any()}
+  @type create_device_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2192,35 +2192,35 @@ defmodule AWS.Greengrass do
   ## Example:
 
       bulk_deployment_result() :: %{
-        "CreatedAt" => String.t() | Atom.t(),
-        "DeploymentArn" => String.t() | Atom.t(),
-        "DeploymentId" => String.t() | Atom.t(),
-        "DeploymentStatus" => String.t() | Atom.t(),
+        "CreatedAt" => String.t() | atom(),
+        "DeploymentArn" => String.t() | atom(),
+        "DeploymentId" => String.t() | atom(),
+        "DeploymentStatus" => String.t() | atom(),
         "DeploymentType" => list(any()),
         "ErrorDetails" => list(error_detail()),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "GroupArn" => String.t() | Atom.t()
+        "ErrorMessage" => String.t() | atom(),
+        "GroupArn" => String.t() | atom()
       }
 
   """
-  @type bulk_deployment_result() :: %{String.t() | Atom.t() => any()}
+  @type bulk_deployment_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_resource_definition_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_resource_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type create_resource_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2228,22 +2228,22 @@ defmodule AWS.Greengrass do
 
       list_core_definitions_response() :: %{
         "Definitions" => list(definition_information()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_core_definitions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_core_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_device_definition_version_request() :: %{
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_device_definition_version_request() :: %{String.t() | Atom.t() => any()}
+  @type get_device_definition_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2256,7 +2256,7 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type bulk_deployment_metrics() :: %{String.t() | Atom.t() => any()}
+  @type bulk_deployment_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2264,11 +2264,11 @@ defmodule AWS.Greengrass do
 
       bad_request_exception() :: %{
         "ErrorDetails" => list(error_detail()),
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2285,38 +2285,38 @@ defmodule AWS.Greengrass do
 
       list_subscription_definitions_response() :: %{
         "Definitions" => list(definition_information()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_subscription_definitions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_subscription_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_core_definition_version_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
         "Definition" => core_definition_version(),
-        "Id" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Id" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type get_core_definition_version_response() :: %{String.t() | Atom.t() => any()}
+  @type get_core_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_subscription_definition_version_request() :: %{
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_subscription_definition_version_request() :: %{String.t() | Atom.t() => any()}
+  @type get_subscription_definition_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2332,32 +2332,32 @@ defmodule AWS.Greengrass do
   ## Example:
 
       get_connector_definition_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type get_connector_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type get_connector_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       device() :: %{
-        "CertificateArn" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "CertificateArn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "SyncShadow" => boolean(),
-        "ThingArn" => String.t() | Atom.t()
+        "ThingArn" => String.t() | atom()
       }
 
   """
-  @type device() :: %{String.t() | Atom.t() => any()}
+  @type device() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2373,17 +2373,17 @@ defmodule AWS.Greengrass do
   ## Example:
 
       create_core_definition_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_core_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type create_core_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2399,29 +2399,29 @@ defmodule AWS.Greengrass do
   ## Example:
 
       create_software_update_job_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("UpdateAgentLogLevel") => list(any()),
-        required("S3UrlSignerRole") => String.t() | Atom.t(),
+        required("S3UrlSignerRole") => String.t() | atom(),
         required("SoftwareToUpdate") => list(any()),
-        required("UpdateTargets") => list(String.t() | Atom.t()),
+        required("UpdateTargets") => list(String.t() | atom()),
         required("UpdateTargetsArchitecture") => list(any()),
         required("UpdateTargetsOperatingSystem") => list(any())
       }
 
   """
-  @type create_software_update_job_request() :: %{String.t() | Atom.t() => any()}
+  @type create_software_update_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_connector_definition_version_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("Connectors") => list(connector())
       }
 
   """
-  @type create_connector_definition_version_request() :: %{String.t() | Atom.t() => any()}
+  @type create_connector_definition_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2429,11 +2429,11 @@ defmodule AWS.Greengrass do
 
       list_groups_response() :: %{
         "Groups" => list(group_information()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_groups_response() :: %{String.t() | Atom.t() => any()}
+  @type list_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2449,36 +2449,36 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_subscription_definitions_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_subscription_definitions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_subscription_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_service_role_for_account_response() :: %{
-        "AssociatedAt" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t()
+        "AssociatedAt" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
       }
 
   """
-  @type get_service_role_for_account_response() :: %{String.t() | Atom.t() => any()}
+  @type get_service_role_for_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_core_definitions_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_core_definitions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_core_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2494,24 +2494,24 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_function_definitions_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_function_definitions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_function_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_core_definition_versions_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_core_definition_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_core_definition_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2527,42 +2527,42 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_groups_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_groups_request() :: %{String.t() | Atom.t() => any()}
+  @type list_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_function_definition_versions_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Versions" => list(version_information())
       }
 
   """
-  @type list_function_definition_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_function_definition_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_definition_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type get_resource_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2571,14 +2571,14 @@ defmodule AWS.Greengrass do
       get_bulk_deployment_status_response() :: %{
         "BulkDeploymentMetrics" => bulk_deployment_metrics(),
         "BulkDeploymentStatus" => list(any()),
-        "CreatedAt" => String.t() | Atom.t(),
+        "CreatedAt" => String.t() | atom(),
         "ErrorDetails" => list(error_detail()),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type get_bulk_deployment_status_response() :: %{String.t() | Atom.t() => any()}
+  @type get_bulk_deployment_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2603,11 +2603,11 @@ defmodule AWS.Greengrass do
   ## Example:
 
       associate_service_role_to_account_response() :: %{
-        "AssociatedAt" => String.t() | Atom.t()
+        "AssociatedAt" => String.t() | atom()
       }
 
   """
-  @type associate_service_role_to_account_response() :: %{String.t() | Atom.t() => any()}
+  @type associate_service_role_to_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2615,25 +2615,25 @@ defmodule AWS.Greengrass do
 
       resource_access_policy() :: %{
         "Permission" => list(any()),
-        "ResourceId" => String.t() | Atom.t()
+        "ResourceId" => String.t() | atom()
       }
 
   """
-  @type resource_access_policy() :: %{String.t() | Atom.t() => any()}
+  @type resource_access_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_subscription_definition_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("InitialVersion") => subscription_definition_version(),
-        optional("Name") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
         optional("tags") => map()
       }
 
   """
-  @type create_subscription_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type create_subscription_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2649,29 +2649,29 @@ defmodule AWS.Greengrass do
   ## Example:
 
       s3_machine_learning_model_resource_data() :: %{
-        "DestinationPath" => String.t() | Atom.t(),
+        "DestinationPath" => String.t() | atom(),
         "OwnerSetting" => resource_download_owner_setting(),
-        "S3Uri" => String.t() | Atom.t()
+        "S3Uri" => String.t() | atom()
       }
 
   """
-  @type s3_machine_learning_model_resource_data() :: %{String.t() | Atom.t() => any()}
+  @type s3_machine_learning_model_resource_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_connector_definition_version_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
         "Definition" => connector_definition_version(),
-        "Id" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Id" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type get_connector_definition_version_response() :: %{String.t() | Atom.t() => any()}
+  @type get_connector_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2696,17 +2696,17 @@ defmodule AWS.Greengrass do
   ## Example:
 
       create_group_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationTimestamp" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastUpdatedTimestamp" => String.t() | Atom.t(),
-        "LatestVersion" => String.t() | Atom.t(),
-        "LatestVersionArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_group_response() :: %{String.t() | Atom.t() => any()}
+  @type create_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2722,11 +2722,11 @@ defmodule AWS.Greengrass do
   ## Example:
 
       associate_role_to_group_request() :: %{
-        required("RoleArn") => String.t() | Atom.t()
+        required("RoleArn") => String.t() | atom()
       }
 
   """
-  @type associate_role_to_group_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_role_to_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2742,12 +2742,12 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_device_definitions_request() :: %{
-        optional("MaxResults") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_device_definitions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_device_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2763,27 +2763,27 @@ defmodule AWS.Greengrass do
   ## Example:
 
       create_logger_definition_request() :: %{
-        optional("AmznClientToken") => String.t() | Atom.t(),
+        optional("AmznClientToken") => String.t() | atom(),
         optional("InitialVersion") => logger_definition_version(),
-        optional("Name") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
         optional("tags") => map()
       }
 
   """
-  @type create_logger_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type create_logger_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource() :: %{
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ResourceDataContainer" => resource_data_container()
       }
 
   """
-  @type resource() :: %{String.t() | Atom.t() => any()}
+  @type resource() :: %{(String.t() | atom()) => any()}
 
   @type associate_role_to_group_errors() ::
           bad_request_exception() | internal_server_error_exception()
@@ -2992,7 +2992,7 @@ defmodule AWS.Greengrass do
   """
   @spec associate_role_to_group(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           associate_role_to_group_request(),
           list()
         ) ::
@@ -3102,7 +3102,7 @@ defmodule AWS.Greengrass do
   """
   @spec create_connector_definition_version(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_connector_definition_version_request(),
           list()
         ) ::
@@ -3189,7 +3189,7 @@ defmodule AWS.Greengrass do
   """
   @spec create_core_definition_version(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_core_definition_version_request(),
           list()
         ) ::
@@ -3230,7 +3230,7 @@ defmodule AWS.Greengrass do
   ''CreateDeployment'' requests are idempotent with respect to the
   ''X-Amzn-Client-Token'' token and the request parameters.
   """
-  @spec create_deployment(map(), String.t() | Atom.t(), create_deployment_request(), list()) ::
+  @spec create_deployment(map(), String.t() | atom(), create_deployment_request(), list()) ::
           {:ok, create_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3305,7 +3305,7 @@ defmodule AWS.Greengrass do
   """
   @spec create_device_definition_version(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_device_definition_version_request(),
           list()
         ) ::
@@ -3391,7 +3391,7 @@ defmodule AWS.Greengrass do
   """
   @spec create_function_definition_version(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_function_definition_version_request(),
           list()
         ) ::
@@ -3479,7 +3479,7 @@ defmodule AWS.Greengrass do
   """
   @spec create_group_certificate_authority(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_group_certificate_authority_request(),
           list()
         ) ::
@@ -3517,7 +3517,7 @@ defmodule AWS.Greengrass do
   @doc """
   Creates a version of a group which has already been defined.
   """
-  @spec create_group_version(map(), String.t() | Atom.t(), create_group_version_request(), list()) ::
+  @spec create_group_version(map(), String.t() | atom(), create_group_version_request(), list()) ::
           {:ok, create_group_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3592,7 +3592,7 @@ defmodule AWS.Greengrass do
   """
   @spec create_logger_definition_version(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_logger_definition_version_request(),
           list()
         ) ::
@@ -3677,7 +3677,7 @@ defmodule AWS.Greengrass do
   """
   @spec create_resource_definition_version(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_resource_definition_version_request(),
           list()
         ) ::
@@ -3801,7 +3801,7 @@ defmodule AWS.Greengrass do
   """
   @spec create_subscription_definition_version(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_subscription_definition_version_request(),
           list()
         ) ::
@@ -3847,7 +3847,7 @@ defmodule AWS.Greengrass do
   """
   @spec delete_connector_definition(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_connector_definition_request(),
           list()
         ) ::
@@ -3886,7 +3886,7 @@ defmodule AWS.Greengrass do
   """
   @spec delete_core_definition(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_core_definition_request(),
           list()
         ) ::
@@ -3920,7 +3920,7 @@ defmodule AWS.Greengrass do
   """
   @spec delete_device_definition(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_device_definition_request(),
           list()
         ) ::
@@ -3954,7 +3954,7 @@ defmodule AWS.Greengrass do
   """
   @spec delete_function_definition(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_function_definition_request(),
           list()
         ) ::
@@ -3986,7 +3986,7 @@ defmodule AWS.Greengrass do
   @doc """
   Deletes a group.
   """
-  @spec delete_group(map(), String.t() | Atom.t(), delete_group_request(), list()) ::
+  @spec delete_group(map(), String.t() | atom(), delete_group_request(), list()) ::
           {:ok, delete_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4017,7 +4017,7 @@ defmodule AWS.Greengrass do
   """
   @spec delete_logger_definition(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_logger_definition_request(),
           list()
         ) ::
@@ -4051,7 +4051,7 @@ defmodule AWS.Greengrass do
   """
   @spec delete_resource_definition(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_resource_definition_request(),
           list()
         ) ::
@@ -4085,7 +4085,7 @@ defmodule AWS.Greengrass do
   """
   @spec delete_subscription_definition(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_subscription_definition_request(),
           list()
         ) ::
@@ -4126,7 +4126,7 @@ defmodule AWS.Greengrass do
   """
   @spec disassociate_role_from_group(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           disassociate_role_from_group_request(),
           list()
         ) ::
@@ -4193,7 +4193,7 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves the role associated with a particular group.
   """
-  @spec get_associated_role(map(), String.t() | Atom.t(), list()) ::
+  @spec get_associated_role(map(), String.t() | atom(), list()) ::
           {:ok, get_associated_role_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4211,7 +4211,7 @@ defmodule AWS.Greengrass do
   @doc """
   Returns the status of a bulk deployment.
   """
-  @spec get_bulk_deployment_status(map(), String.t() | Atom.t(), list()) ::
+  @spec get_bulk_deployment_status(map(), String.t() | atom(), list()) ::
           {:ok, get_bulk_deployment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4229,7 +4229,7 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves the connectivity information for a core.
   """
-  @spec get_connectivity_info(map(), String.t() | Atom.t(), list()) ::
+  @spec get_connectivity_info(map(), String.t() | atom(), list()) ::
           {:ok, get_connectivity_info_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4247,7 +4247,7 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a connector definition.
   """
-  @spec get_connector_definition(map(), String.t() | Atom.t(), list()) ::
+  @spec get_connector_definition(map(), String.t() | atom(), list()) ::
           {:ok, get_connector_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4271,9 +4271,9 @@ defmodule AWS.Greengrass do
   """
   @spec get_connector_definition_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_connector_definition_version_response(), any()}
@@ -4308,7 +4308,7 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a core definition version.
   """
-  @spec get_core_definition(map(), String.t() | Atom.t(), list()) ::
+  @spec get_core_definition(map(), String.t() | atom(), list()) ::
           {:ok, get_core_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4326,7 +4326,7 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a core definition version.
   """
-  @spec get_core_definition_version(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_core_definition_version(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_core_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4351,7 +4351,7 @@ defmodule AWS.Greengrass do
   @doc """
   Returns the status of a deployment.
   """
-  @spec get_deployment_status(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_deployment_status(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_deployment_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4371,7 +4371,7 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a device definition.
   """
-  @spec get_device_definition(map(), String.t() | Atom.t(), list()) ::
+  @spec get_device_definition(map(), String.t() | atom(), list()) ::
           {:ok, get_device_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4391,9 +4391,9 @@ defmodule AWS.Greengrass do
   """
   @spec get_device_definition_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_device_definition_version_response(), any()}
@@ -4429,7 +4429,7 @@ defmodule AWS.Greengrass do
   Retrieves information about a Lambda function definition, including its creation
   time and latest version.
   """
-  @spec get_function_definition(map(), String.t() | Atom.t(), list()) ::
+  @spec get_function_definition(map(), String.t() | atom(), list()) ::
           {:ok, get_function_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4450,9 +4450,9 @@ defmodule AWS.Greengrass do
   """
   @spec get_function_definition_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_function_definition_version_response(), any()}
@@ -4487,7 +4487,7 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a group.
   """
-  @spec get_group(map(), String.t() | Atom.t(), list()) ::
+  @spec get_group(map(), String.t() | atom(), list()) ::
           {:ok, get_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4507,12 +4507,7 @@ defmodule AWS.Greengrass do
 
   Returns the public key of the CA.
   """
-  @spec get_group_certificate_authority(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec get_group_certificate_authority(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_group_certificate_authority_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4537,7 +4532,7 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves the current configuration for the CA used by the group.
   """
-  @spec get_group_certificate_configuration(map(), String.t() | Atom.t(), list()) ::
+  @spec get_group_certificate_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_group_certificate_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4557,7 +4552,7 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a group version.
   """
-  @spec get_group_version(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_group_version(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_group_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4577,7 +4572,7 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a logger definition.
   """
-  @spec get_logger_definition(map(), String.t() | Atom.t(), list()) ::
+  @spec get_logger_definition(map(), String.t() | atom(), list()) ::
           {:ok, get_logger_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4597,9 +4592,9 @@ defmodule AWS.Greengrass do
   """
   @spec get_logger_definition_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_logger_definition_version_response(), any()}
@@ -4635,7 +4630,7 @@ defmodule AWS.Greengrass do
   Retrieves information about a resource definition, including its creation time
   and latest version.
   """
-  @spec get_resource_definition(map(), String.t() | Atom.t(), list()) ::
+  @spec get_resource_definition(map(), String.t() | atom(), list()) ::
           {:ok, get_resource_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4654,12 +4649,7 @@ defmodule AWS.Greengrass do
   Retrieves information about a resource definition version, including which
   resources are included in the version.
   """
-  @spec get_resource_definition_version(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec get_resource_definition_version(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_resource_definition_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4702,7 +4692,7 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves information about a subscription definition.
   """
-  @spec get_subscription_definition(map(), String.t() | Atom.t(), list()) ::
+  @spec get_subscription_definition(map(), String.t() | atom(), list()) ::
           {:ok, get_subscription_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4724,9 +4714,9 @@ defmodule AWS.Greengrass do
   """
   @spec get_subscription_definition_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_subscription_definition_version_response(), any()}
@@ -4761,7 +4751,7 @@ defmodule AWS.Greengrass do
   @doc """
   Get the runtime configuration of a thing.
   """
-  @spec get_thing_runtime_configuration(map(), String.t() | Atom.t(), list()) ::
+  @spec get_thing_runtime_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_thing_runtime_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4782,9 +4772,9 @@ defmodule AWS.Greengrass do
   """
   @spec list_bulk_deployment_detailed_reports(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_bulk_deployment_detailed_reports_response(), any()}
@@ -4826,12 +4816,7 @@ defmodule AWS.Greengrass do
   @doc """
   Returns a list of bulk deployments.
   """
-  @spec list_bulk_deployments(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec list_bulk_deployments(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_bulk_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4874,9 +4859,9 @@ defmodule AWS.Greengrass do
   """
   @spec list_connector_definition_versions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_connector_definition_versions_response(), any()}
@@ -4920,8 +4905,8 @@ defmodule AWS.Greengrass do
   """
   @spec list_connector_definitions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_connector_definitions_response(), any()}
@@ -4961,9 +4946,9 @@ defmodule AWS.Greengrass do
   """
   @spec list_core_definition_versions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_core_definition_versions_response(), any()}
@@ -5003,12 +4988,7 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves a list of core definitions.
   """
-  @spec list_core_definitions(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec list_core_definitions(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_core_definitions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5046,9 +5026,9 @@ defmodule AWS.Greengrass do
   """
   @spec list_deployments(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_deployments_response(), any()}
@@ -5090,9 +5070,9 @@ defmodule AWS.Greengrass do
   """
   @spec list_device_definition_versions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_device_definition_versions_response(), any()}
@@ -5136,8 +5116,8 @@ defmodule AWS.Greengrass do
   """
   @spec list_device_definitions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_device_definitions_response(), any()}
@@ -5177,9 +5157,9 @@ defmodule AWS.Greengrass do
   """
   @spec list_function_definition_versions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_function_definition_versions_response(), any()}
@@ -5223,8 +5203,8 @@ defmodule AWS.Greengrass do
   """
   @spec list_function_definitions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_function_definitions_response(), any()}
@@ -5262,7 +5242,7 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves the current CAs for a group.
   """
-  @spec list_group_certificate_authorities(map(), String.t() | Atom.t(), list()) ::
+  @spec list_group_certificate_authorities(map(), String.t() | atom(), list()) ::
           {:ok, list_group_certificate_authorities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5282,9 +5262,9 @@ defmodule AWS.Greengrass do
   """
   @spec list_group_versions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_group_versions_response(), any()}
@@ -5324,7 +5304,7 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves a list of groups.
   """
-  @spec list_groups(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_groups(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5357,9 +5337,9 @@ defmodule AWS.Greengrass do
   """
   @spec list_logger_definition_versions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_logger_definition_versions_response(), any()}
@@ -5403,8 +5383,8 @@ defmodule AWS.Greengrass do
   """
   @spec list_logger_definitions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_logger_definitions_response(), any()}
@@ -5444,9 +5424,9 @@ defmodule AWS.Greengrass do
   """
   @spec list_resource_definition_versions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_resource_definition_versions_response(), any()}
@@ -5490,8 +5470,8 @@ defmodule AWS.Greengrass do
   """
   @spec list_resource_definitions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_resource_definitions_response(), any()}
@@ -5531,9 +5511,9 @@ defmodule AWS.Greengrass do
   """
   @spec list_subscription_definition_versions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_subscription_definition_versions_response(), any()}
@@ -5577,8 +5557,8 @@ defmodule AWS.Greengrass do
   """
   @spec list_subscription_definitions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_subscription_definitions_response(), any()}
@@ -5616,7 +5596,7 @@ defmodule AWS.Greengrass do
   @doc """
   Retrieves a list of resource tags for a resource arn.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5634,7 +5614,7 @@ defmodule AWS.Greengrass do
   @doc """
   Resets a group's deployments.
   """
-  @spec reset_deployments(map(), String.t() | Atom.t(), reset_deployments_request(), list()) ::
+  @spec reset_deployments(map(), String.t() | atom(), reset_deployments_request(), list()) ::
           {:ok, reset_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5715,7 +5695,7 @@ defmodule AWS.Greengrass do
   ''Stopping'' state. This action doesn't rollback completed deployments or cancel
   pending deployments.
   """
-  @spec stop_bulk_deployment(map(), String.t() | Atom.t(), stop_bulk_deployment_request(), list()) ::
+  @spec stop_bulk_deployment(map(), String.t() | atom(), stop_bulk_deployment_request(), list()) ::
           {:ok, stop_bulk_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5748,7 +5728,7 @@ defmodule AWS.Greengrass do
   'DeviceDefinition', 'FunctionDefinition', 'LoggerDefinition',
   'SubscriptionDefinition', 'ResourceDefinition', and 'BulkDeployment'.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5777,7 +5757,7 @@ defmodule AWS.Greengrass do
   @doc """
   Remove resource tags from a Greengrass Resource.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5816,7 +5796,7 @@ defmodule AWS.Greengrass do
   """
   @spec update_connectivity_info(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_connectivity_info_request(),
           list()
         ) ::
@@ -5850,7 +5830,7 @@ defmodule AWS.Greengrass do
   """
   @spec update_connector_definition(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_connector_definition_request(),
           list()
         ) ::
@@ -5889,7 +5869,7 @@ defmodule AWS.Greengrass do
   """
   @spec update_core_definition(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_core_definition_request(),
           list()
         ) ::
@@ -5923,7 +5903,7 @@ defmodule AWS.Greengrass do
   """
   @spec update_device_definition(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_device_definition_request(),
           list()
         ) ::
@@ -5957,7 +5937,7 @@ defmodule AWS.Greengrass do
   """
   @spec update_function_definition(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_function_definition_request(),
           list()
         ) ::
@@ -5989,7 +5969,7 @@ defmodule AWS.Greengrass do
   @doc """
   Updates a group.
   """
-  @spec update_group(map(), String.t() | Atom.t(), update_group_request(), list()) ::
+  @spec update_group(map(), String.t() | atom(), update_group_request(), list()) ::
           {:ok, update_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6020,7 +6000,7 @@ defmodule AWS.Greengrass do
   """
   @spec update_group_certificate_configuration(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_group_certificate_configuration_request(),
           list()
         ) ::
@@ -6056,7 +6036,7 @@ defmodule AWS.Greengrass do
   """
   @spec update_logger_definition(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_logger_definition_request(),
           list()
         ) ::
@@ -6090,7 +6070,7 @@ defmodule AWS.Greengrass do
   """
   @spec update_resource_definition(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_resource_definition_request(),
           list()
         ) ::
@@ -6124,7 +6104,7 @@ defmodule AWS.Greengrass do
   """
   @spec update_subscription_definition(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_subscription_definition_request(),
           list()
         ) ::
@@ -6165,7 +6145,7 @@ defmodule AWS.Greengrass do
   """
   @spec update_thing_runtime_configuration(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_thing_runtime_configuration_request(),
           list()
         ) ::

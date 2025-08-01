@@ -26,23 +26,23 @@ defmodule AWS.PaymentCryptographyData do
   ## Example:
 
       session_key_amex() :: %{
-        "PanSequenceNumber" => String.t() | Atom.t(),
-        "PrimaryAccountNumber" => String.t() | Atom.t()
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom()
       }
 
   """
-  @type session_key_amex() :: %{String.t() | Atom.t() => any()}
+  @type session_key_amex() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       amex_card_security_code_version1() :: %{
-        "CardExpiryDate" => String.t() | Atom.t()
+        "CardExpiryDate" => String.t() | atom()
       }
 
   """
-  @type amex_card_security_code_version1() :: %{String.t() | Atom.t() => any()}
+  @type amex_card_security_code_version1() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -53,69 +53,69 @@ defmodule AWS.PaymentCryptographyData do
       }
 
   """
-  @type asymmetric_encryption_attributes() :: %{String.t() | Atom.t() => any()}
+  @type asymmetric_encryption_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       discover_dynamic_card_verification_code() :: %{
-        "ApplicationTransactionCounter" => String.t() | Atom.t(),
-        "CardExpiryDate" => String.t() | Atom.t(),
-        "UnpredictableNumber" => String.t() | Atom.t()
+        "ApplicationTransactionCounter" => String.t() | atom(),
+        "CardExpiryDate" => String.t() | atom(),
+        "UnpredictableNumber" => String.t() | atom()
       }
 
   """
-  @type discover_dynamic_card_verification_code() :: %{String.t() | Atom.t() => any()}
+  @type discover_dynamic_card_verification_code() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       current_pin_attributes() :: %{
-        "CurrentEncryptedPinBlock" => String.t() | Atom.t(),
-        "CurrentPinPekIdentifier" => String.t() | Atom.t()
+        "CurrentEncryptedPinBlock" => String.t() | atom(),
+        "CurrentPinPekIdentifier" => String.t() | atom()
       }
 
   """
-  @type current_pin_attributes() :: %{String.t() | Atom.t() => any()}
+  @type current_pin_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       visa_pin_verification_value() :: %{
-        "EncryptedPinBlock" => String.t() | Atom.t(),
+        "EncryptedPinBlock" => String.t() | atom(),
         "PinVerificationKeyIndex" => integer()
       }
 
   """
-  @type visa_pin_verification_value() :: %{String.t() | Atom.t() => any()}
+  @type visa_pin_verification_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ibm3624_pin_offset() :: %{
-        "DecimalizationTable" => String.t() | Atom.t(),
-        "EncryptedPinBlock" => String.t() | Atom.t(),
-        "PinValidationData" => String.t() | Atom.t(),
-        "PinValidationDataPadCharacter" => String.t() | Atom.t()
+        "DecimalizationTable" => String.t() | atom(),
+        "EncryptedPinBlock" => String.t() | atom(),
+        "PinValidationData" => String.t() | atom(),
+        "PinValidationDataPadCharacter" => String.t() | atom()
       }
 
   """
-  @type ibm3624_pin_offset() :: %{String.t() | Atom.t() => any()}
+  @type ibm3624_pin_offset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       translation_pin_data_iso_format034() :: %{
-        "PrimaryAccountNumber" => String.t() | Atom.t()
+        "PrimaryAccountNumber" => String.t() | atom()
       }
 
   """
-  @type translation_pin_data_iso_format034() :: %{String.t() | Atom.t() => any()}
+  @type translation_pin_data_iso_format034() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -126,106 +126,106 @@ defmodule AWS.PaymentCryptographyData do
         optional("IncomingWrappedKey") => wrapped_key(),
         optional("OutgoingDukptAttributes") => dukpt_derivation_attributes(),
         optional("OutgoingWrappedKey") => wrapped_key(),
-        required("EncryptedPinBlock") => String.t() | Atom.t(),
-        required("IncomingKeyIdentifier") => String.t() | Atom.t(),
+        required("EncryptedPinBlock") => String.t() | atom(),
+        required("IncomingKeyIdentifier") => String.t() | atom(),
         required("IncomingTranslationAttributes") => list(),
-        required("OutgoingKeyIdentifier") => String.t() | Atom.t(),
+        required("OutgoingKeyIdentifier") => String.t() | atom(),
         required("OutgoingTranslationAttributes") => list()
       }
 
   """
-  @type translate_pin_data_input() :: %{String.t() | Atom.t() => any()}
+  @type translate_pin_data_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       encrypt_data_output() :: %{
-        "CipherText" => String.t() | Atom.t(),
-        "KeyArn" => String.t() | Atom.t(),
-        "KeyCheckValue" => String.t() | Atom.t()
+        "CipherText" => String.t() | atom(),
+        "KeyArn" => String.t() | atom(),
+        "KeyCheckValue" => String.t() | atom()
       }
 
   """
-  @type encrypt_data_output() :: %{String.t() | Atom.t() => any()}
+  @type encrypt_data_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       verify_mac_output() :: %{
-        "KeyArn" => String.t() | Atom.t(),
-        "KeyCheckValue" => String.t() | Atom.t()
+        "KeyArn" => String.t() | atom(),
+        "KeyCheckValue" => String.t() | atom()
       }
 
   """
-  @type verify_mac_output() :: %{String.t() | Atom.t() => any()}
+  @type verify_mac_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       visa_attributes() :: %{
-        "ApplicationTransactionCounter" => String.t() | Atom.t(),
-        "AuthorizationRequestKeyIdentifier" => String.t() | Atom.t(),
+        "ApplicationTransactionCounter" => String.t() | atom(),
+        "AuthorizationRequestKeyIdentifier" => String.t() | atom(),
         "CurrentPinAttributes" => current_pin_attributes(),
         "MajorKeyDerivationMode" => list(any()),
-        "PanSequenceNumber" => String.t() | Atom.t(),
-        "PrimaryAccountNumber" => String.t() | Atom.t()
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom()
       }
 
   """
-  @type visa_attributes() :: %{String.t() | Atom.t() => any()}
+  @type visa_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cryptogram_verification_arpc_method1() :: %{
-        "AuthResponseCode" => String.t() | Atom.t()
+        "AuthResponseCode" => String.t() | atom()
       }
 
   """
-  @type cryptogram_verification_arpc_method1() :: %{String.t() | Atom.t() => any()}
+  @type cryptogram_verification_arpc_method1() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dynamic_card_verification_value() :: %{
-        "ApplicationTransactionCounter" => String.t() | Atom.t(),
-        "CardExpiryDate" => String.t() | Atom.t(),
-        "PanSequenceNumber" => String.t() | Atom.t(),
-        "ServiceCode" => String.t() | Atom.t()
+        "ApplicationTransactionCounter" => String.t() | atom(),
+        "CardExpiryDate" => String.t() | atom(),
+        "PanSequenceNumber" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
       }
 
   """
-  @type dynamic_card_verification_value() :: %{String.t() | Atom.t() => any()}
+  @type dynamic_card_verification_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       wrapped_key() :: %{
-        "KeyCheckValueAlgorithm" => String.t() | Atom.t(),
+        "KeyCheckValueAlgorithm" => String.t() | atom(),
         "WrappedKeyMaterial" => list()
       }
 
   """
-  @type wrapped_key() :: %{String.t() | Atom.t() => any()}
+  @type wrapped_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       card_holder_verification_value() :: %{
-        "ApplicationTransactionCounter" => String.t() | Atom.t(),
-        "PanSequenceNumber" => String.t() | Atom.t(),
-        "UnpredictableNumber" => String.t() | Atom.t()
+        "ApplicationTransactionCounter" => String.t() | atom(),
+        "PanSequenceNumber" => String.t() | atom(),
+        "UnpredictableNumber" => String.t() | atom()
       }
 
   """
-  @type card_holder_verification_value() :: %{String.t() | Atom.t() => any()}
+  @type card_holder_verification_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -234,92 +234,92 @@ defmodule AWS.PaymentCryptographyData do
       mac_algorithm_dukpt() :: %{
         "DukptDerivationType" => list(any()),
         "DukptKeyVariant" => list(any()),
-        "KeySerialNumber" => String.t() | Atom.t()
+        "KeySerialNumber" => String.t() | atom()
       }
 
   """
-  @type mac_algorithm_dukpt() :: %{String.t() | Atom.t() => any()}
+  @type mac_algorithm_dukpt() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ecdh_derivation_attributes() :: %{
-        "CertificateAuthorityPublicKeyIdentifier" => String.t() | Atom.t(),
+        "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
         "KeyAlgorithm" => list(any()),
         "KeyDerivationFunction" => list(any()),
         "KeyDerivationHashAlgorithm" => list(any()),
-        "PublicKeyCertificate" => String.t() | Atom.t(),
-        "SharedInformation" => String.t() | Atom.t()
+        "PublicKeyCertificate" => String.t() | atom(),
+        "SharedInformation" => String.t() | atom()
       }
 
   """
-  @type ecdh_derivation_attributes() :: %{String.t() | Atom.t() => any()}
+  @type ecdh_derivation_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       amex_attributes() :: %{
-        "ApplicationTransactionCounter" => String.t() | Atom.t(),
-        "AuthorizationRequestKeyIdentifier" => String.t() | Atom.t(),
+        "ApplicationTransactionCounter" => String.t() | atom(),
+        "AuthorizationRequestKeyIdentifier" => String.t() | atom(),
         "CurrentPinAttributes" => current_pin_attributes(),
         "MajorKeyDerivationMode" => list(any()),
-        "PanSequenceNumber" => String.t() | Atom.t(),
-        "PrimaryAccountNumber" => String.t() | Atom.t()
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom()
       }
 
   """
-  @type amex_attributes() :: %{String.t() | Atom.t() => any()}
+  @type amex_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cryptogram_verification_arpc_method2() :: %{
-        "CardStatusUpdate" => String.t() | Atom.t(),
-        "ProprietaryAuthenticationData" => String.t() | Atom.t()
+        "CardStatusUpdate" => String.t() | atom(),
+        "ProprietaryAuthenticationData" => String.t() | atom()
       }
 
   """
-  @type cryptogram_verification_arpc_method2() :: %{String.t() | Atom.t() => any()}
+  @type cryptogram_verification_arpc_method2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       verify_card_validation_data_input() :: %{
-        required("KeyIdentifier") => String.t() | Atom.t(),
-        required("PrimaryAccountNumber") => String.t() | Atom.t(),
-        required("ValidationData") => String.t() | Atom.t(),
+        required("KeyIdentifier") => String.t() | atom(),
+        required("PrimaryAccountNumber") => String.t() | atom(),
+        required("ValidationData") => String.t() | atom(),
         required("VerificationAttributes") => list()
       }
 
   """
-  @type verify_card_validation_data_input() :: %{String.t() | Atom.t() => any()}
+  @type verify_card_validation_data_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       amex_card_security_code_version2() :: %{
-        "CardExpiryDate" => String.t() | Atom.t(),
-        "ServiceCode" => String.t() | Atom.t()
+        "CardExpiryDate" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
       }
 
   """
-  @type amex_card_security_code_version2() :: %{String.t() | Atom.t() => any()}
+  @type amex_card_security_code_version2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "ResourceId" => [String.t() | Atom.t()]
+        "ResourceId" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -328,25 +328,25 @@ defmodule AWS.PaymentCryptographyData do
       encrypt_data_input() :: %{
         optional("WrappedKey") => wrapped_key(),
         required("EncryptionAttributes") => list(),
-        required("PlainText") => String.t() | Atom.t()
+        required("PlainText") => String.t() | atom()
       }
 
   """
-  @type encrypt_data_input() :: %{String.t() | Atom.t() => any()}
+  @type encrypt_data_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dynamic_card_verification_code() :: %{
-        "ApplicationTransactionCounter" => String.t() | Atom.t(),
-        "PanSequenceNumber" => String.t() | Atom.t(),
-        "TrackData" => String.t() | Atom.t(),
-        "UnpredictableNumber" => String.t() | Atom.t()
+        "ApplicationTransactionCounter" => String.t() | atom(),
+        "PanSequenceNumber" => String.t() | atom(),
+        "TrackData" => String.t() | atom(),
+        "UnpredictableNumber" => String.t() | atom()
       }
 
   """
-  @type dynamic_card_verification_code() :: %{String.t() | Atom.t() => any()}
+  @type dynamic_card_verification_code() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -354,27 +354,27 @@ defmodule AWS.PaymentCryptographyData do
 
       dukpt_attributes() :: %{
         "DukptDerivationType" => list(any()),
-        "KeySerialNumber" => String.t() | Atom.t()
+        "KeySerialNumber" => String.t() | atom()
       }
 
   """
-  @type dukpt_attributes() :: %{String.t() | Atom.t() => any()}
+  @type dukpt_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       emv_encryption_attributes() :: %{
-        "InitializationVector" => String.t() | Atom.t(),
+        "InitializationVector" => String.t() | atom(),
         "MajorKeyDerivationMode" => list(any()),
         "Mode" => list(any()),
-        "PanSequenceNumber" => String.t() | Atom.t(),
-        "PrimaryAccountNumber" => String.t() | Atom.t(),
-        "SessionDerivationData" => String.t() | Atom.t()
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom(),
+        "SessionDerivationData" => String.t() | atom()
       }
 
   """
-  @type emv_encryption_attributes() :: %{String.t() | Atom.t() => any()}
+  @type emv_encryption_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -382,14 +382,14 @@ defmodule AWS.PaymentCryptographyData do
 
       verify_mac_input() :: %{
         optional("MacLength") => integer(),
-        required("KeyIdentifier") => String.t() | Atom.t(),
-        required("Mac") => String.t() | Atom.t(),
-        required("MessageData") => String.t() | Atom.t(),
+        required("KeyIdentifier") => String.t() | atom(),
+        required("Mac") => String.t() | atom(),
+        required("MessageData") => String.t() | atom(),
         required("VerificationAttributes") => list()
       }
 
   """
-  @type verify_mac_input() :: %{String.t() | Atom.t() => any()}
+  @type verify_mac_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -398,15 +398,15 @@ defmodule AWS.PaymentCryptographyData do
       generate_pin_data_input() :: %{
         optional("EncryptionWrappedKey") => wrapped_key(),
         optional("PinDataLength") => integer(),
-        required("EncryptionKeyIdentifier") => String.t() | Atom.t(),
+        required("EncryptionKeyIdentifier") => String.t() | atom(),
         required("GenerationAttributes") => list(),
-        required("GenerationKeyIdentifier") => String.t() | Atom.t(),
+        required("GenerationKeyIdentifier") => String.t() | atom(),
         required("PinBlockFormat") => list(any()),
-        required("PrimaryAccountNumber") => String.t() | Atom.t()
+        required("PrimaryAccountNumber") => String.t() | atom()
       }
 
   """
-  @type generate_pin_data_input() :: %{String.t() | Atom.t() => any()}
+  @type generate_pin_data_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -415,36 +415,36 @@ defmodule AWS.PaymentCryptographyData do
       generate_mac_input() :: %{
         optional("MacLength") => integer(),
         required("GenerationAttributes") => list(),
-        required("KeyIdentifier") => String.t() | Atom.t(),
-        required("MessageData") => String.t() | Atom.t()
+        required("KeyIdentifier") => String.t() | atom(),
+        required("MessageData") => String.t() | atom()
       }
 
   """
-  @type generate_mac_input() :: %{String.t() | Atom.t() => any()}
+  @type generate_mac_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       card_verification_value2() :: %{
-        "CardExpiryDate" => String.t() | Atom.t()
+        "CardExpiryDate" => String.t() | atom()
       }
 
   """
-  @type card_verification_value2() :: %{String.t() | Atom.t() => any()}
+  @type card_verification_value2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       verify_auth_request_cryptogram_output() :: %{
-        "AuthResponseValue" => String.t() | Atom.t(),
-        "KeyArn" => String.t() | Atom.t(),
-        "KeyCheckValue" => String.t() | Atom.t()
+        "AuthResponseValue" => String.t() | atom(),
+        "KeyArn" => String.t() | atom(),
+        "KeyCheckValue" => String.t() | atom()
       }
 
   """
-  @type verify_auth_request_cryptogram_output() :: %{String.t() | Atom.t() => any()}
+  @type verify_auth_request_cryptogram_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -455,7 +455,7 @@ defmodule AWS.PaymentCryptographyData do
       }
 
   """
-  @type visa_pin() :: %{String.t() | Atom.t() => any()}
+  @type visa_pin() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -463,26 +463,26 @@ defmodule AWS.PaymentCryptographyData do
 
       mac_algorithm_emv() :: %{
         "MajorKeyDerivationMode" => list(any()),
-        "PanSequenceNumber" => String.t() | Atom.t(),
-        "PrimaryAccountNumber" => String.t() | Atom.t(),
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom(),
         "SessionKeyDerivationMode" => list(any()),
         "SessionKeyDerivationValue" => list()
       }
 
   """
-  @type mac_algorithm_emv() :: %{String.t() | Atom.t() => any()}
+  @type mac_algorithm_emv() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t() | Atom.t()],
-        "path" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "path" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -490,30 +490,30 @@ defmodule AWS.PaymentCryptographyData do
 
       generate_mac_emv_pin_change_input() :: %{
         required("DerivationMethodAttributes") => list(),
-        required("MessageData") => String.t() | Atom.t(),
-        required("NewEncryptedPinBlock") => String.t() | Atom.t(),
-        required("NewPinPekIdentifier") => String.t() | Atom.t(),
+        required("MessageData") => String.t() | atom(),
+        required("NewEncryptedPinBlock") => String.t() | atom(),
+        required("NewPinPekIdentifier") => String.t() | atom(),
         required("PinBlockFormat") => list(any()),
-        required("SecureMessagingConfidentialityKeyIdentifier") => String.t() | Atom.t(),
-        required("SecureMessagingIntegrityKeyIdentifier") => String.t() | Atom.t()
+        required("SecureMessagingConfidentialityKeyIdentifier") => String.t() | atom(),
+        required("SecureMessagingIntegrityKeyIdentifier") => String.t() | atom()
       }
 
   """
-  @type generate_mac_emv_pin_change_input() :: %{String.t() | Atom.t() => any()}
+  @type generate_mac_emv_pin_change_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ibm3624_pin_verification() :: %{
-        "DecimalizationTable" => String.t() | Atom.t(),
-        "PinOffset" => String.t() | Atom.t(),
-        "PinValidationData" => String.t() | Atom.t(),
-        "PinValidationDataPadCharacter" => String.t() | Atom.t()
+        "DecimalizationTable" => String.t() | atom(),
+        "PinOffset" => String.t() | atom(),
+        "PinValidationData" => String.t() | atom(),
+        "PinValidationDataPadCharacter" => String.t() | atom()
       }
 
   """
-  @type ibm3624_pin_verification() :: %{String.t() | Atom.t() => any()}
+  @type ibm3624_pin_verification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -521,173 +521,173 @@ defmodule AWS.PaymentCryptographyData do
 
       visa_pin_verification() :: %{
         "PinVerificationKeyIndex" => integer(),
-        "VerificationValue" => String.t() | Atom.t()
+        "VerificationValue" => String.t() | atom()
       }
 
   """
-  @type visa_pin_verification() :: %{String.t() | Atom.t() => any()}
+  @type visa_pin_verification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       session_key_emv_common() :: %{
-        "ApplicationTransactionCounter" => String.t() | Atom.t(),
-        "PanSequenceNumber" => String.t() | Atom.t(),
-        "PrimaryAccountNumber" => String.t() | Atom.t()
+        "ApplicationTransactionCounter" => String.t() | atom(),
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom()
       }
 
   """
-  @type session_key_emv_common() :: %{String.t() | Atom.t() => any()}
+  @type session_key_emv_common() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       generate_mac_emv_pin_change_output() :: %{
-        "EncryptedPinBlock" => String.t() | Atom.t(),
-        "Mac" => String.t() | Atom.t(),
-        "NewPinPekArn" => String.t() | Atom.t(),
-        "NewPinPekKeyCheckValue" => String.t() | Atom.t(),
-        "SecureMessagingConfidentialityKeyArn" => String.t() | Atom.t(),
-        "SecureMessagingConfidentialityKeyCheckValue" => String.t() | Atom.t(),
-        "SecureMessagingIntegrityKeyArn" => String.t() | Atom.t(),
-        "SecureMessagingIntegrityKeyCheckValue" => String.t() | Atom.t(),
+        "EncryptedPinBlock" => String.t() | atom(),
+        "Mac" => String.t() | atom(),
+        "NewPinPekArn" => String.t() | atom(),
+        "NewPinPekKeyCheckValue" => String.t() | atom(),
+        "SecureMessagingConfidentialityKeyArn" => String.t() | atom(),
+        "SecureMessagingConfidentialityKeyCheckValue" => String.t() | atom(),
+        "SecureMessagingIntegrityKeyArn" => String.t() | atom(),
+        "SecureMessagingIntegrityKeyCheckValue" => String.t() | atom(),
         "VisaAmexDerivationOutputs" => visa_amex_derivation_outputs()
       }
 
   """
-  @type generate_mac_emv_pin_change_output() :: %{String.t() | Atom.t() => any()}
+  @type generate_mac_emv_pin_change_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       master_card_attributes() :: %{
-        "ApplicationCryptogram" => String.t() | Atom.t(),
+        "ApplicationCryptogram" => String.t() | atom(),
         "MajorKeyDerivationMode" => list(any()),
-        "PanSequenceNumber" => String.t() | Atom.t(),
-        "PrimaryAccountNumber" => String.t() | Atom.t()
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom()
       }
 
   """
-  @type master_card_attributes() :: %{String.t() | Atom.t() => any()}
+  @type master_card_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       emv2000_attributes() :: %{
-        "ApplicationTransactionCounter" => String.t() | Atom.t(),
+        "ApplicationTransactionCounter" => String.t() | atom(),
         "MajorKeyDerivationMode" => list(any()),
-        "PanSequenceNumber" => String.t() | Atom.t(),
-        "PrimaryAccountNumber" => String.t() | Atom.t()
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom()
       }
 
   """
-  @type emv2000_attributes() :: %{String.t() | Atom.t() => any()}
+  @type emv2000_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ibm3624_natural_pin() :: %{
-        "DecimalizationTable" => String.t() | Atom.t(),
-        "PinValidationData" => String.t() | Atom.t(),
-        "PinValidationDataPadCharacter" => String.t() | Atom.t()
+        "DecimalizationTable" => String.t() | atom(),
+        "PinValidationData" => String.t() | atom(),
+        "PinValidationDataPadCharacter" => String.t() | atom()
       }
 
   """
-  @type ibm3624_natural_pin() :: %{String.t() | Atom.t() => any()}
+  @type ibm3624_natural_pin() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       session_key_emv2000() :: %{
-        "ApplicationTransactionCounter" => String.t() | Atom.t(),
-        "PanSequenceNumber" => String.t() | Atom.t(),
-        "PrimaryAccountNumber" => String.t() | Atom.t()
+        "ApplicationTransactionCounter" => String.t() | atom(),
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom()
       }
 
   """
-  @type session_key_emv2000() :: %{String.t() | Atom.t() => any()}
+  @type session_key_emv2000() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       symmetric_encryption_attributes() :: %{
-        "InitializationVector" => String.t() | Atom.t(),
+        "InitializationVector" => String.t() | atom(),
         "Mode" => list(any()),
         "PaddingType" => list(any())
       }
 
   """
-  @type symmetric_encryption_attributes() :: %{String.t() | Atom.t() => any()}
+  @type symmetric_encryption_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       verify_card_validation_data_output() :: %{
-        "KeyArn" => String.t() | Atom.t(),
-        "KeyCheckValue" => String.t() | Atom.t()
+        "KeyArn" => String.t() | atom(),
+        "KeyCheckValue" => String.t() | atom()
       }
 
   """
-  @type verify_card_validation_data_output() :: %{String.t() | Atom.t() => any()}
+  @type verify_card_validation_data_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       emv_common_attributes() :: %{
-        "ApplicationCryptogram" => String.t() | Atom.t(),
+        "ApplicationCryptogram" => String.t() | atom(),
         "MajorKeyDerivationMode" => list(any()),
         "Mode" => list(any()),
-        "PanSequenceNumber" => String.t() | Atom.t(),
+        "PanSequenceNumber" => String.t() | atom(),
         "PinBlockLengthPosition" => list(any()),
         "PinBlockPaddingType" => list(any()),
-        "PrimaryAccountNumber" => String.t() | Atom.t()
+        "PrimaryAccountNumber" => String.t() | atom()
       }
 
   """
-  @type emv_common_attributes() :: %{String.t() | Atom.t() => any()}
+  @type emv_common_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       verification_failed_exception() :: %{
-        "Message" => [String.t() | Atom.t()],
-        "Reason" => String.t() | Atom.t()
+        "Message" => [String.t() | atom()],
+        "Reason" => String.t() | atom()
       }
 
   """
-  @type verification_failed_exception() :: %{String.t() | Atom.t() => any()}
+  @type verification_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -697,43 +697,43 @@ defmodule AWS.PaymentCryptographyData do
         optional("DukptAttributes") => dukpt_attributes(),
         optional("EncryptionWrappedKey") => wrapped_key(),
         optional("PinDataLength") => integer(),
-        required("EncryptedPinBlock") => String.t() | Atom.t(),
-        required("EncryptionKeyIdentifier") => String.t() | Atom.t(),
+        required("EncryptedPinBlock") => String.t() | atom(),
+        required("EncryptionKeyIdentifier") => String.t() | atom(),
         required("PinBlockFormat") => list(any()),
-        required("PrimaryAccountNumber") => String.t() | Atom.t(),
+        required("PrimaryAccountNumber") => String.t() | atom(),
         required("VerificationAttributes") => list(),
-        required("VerificationKeyIdentifier") => String.t() | Atom.t()
+        required("VerificationKeyIdentifier") => String.t() | atom()
       }
 
   """
-  @type verify_pin_data_input() :: %{String.t() | Atom.t() => any()}
+  @type verify_pin_data_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       session_key_mastercard() :: %{
-        "ApplicationTransactionCounter" => String.t() | Atom.t(),
-        "PanSequenceNumber" => String.t() | Atom.t(),
-        "PrimaryAccountNumber" => String.t() | Atom.t(),
-        "UnpredictableNumber" => String.t() | Atom.t()
+        "ApplicationTransactionCounter" => String.t() | atom(),
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom(),
+        "UnpredictableNumber" => String.t() | atom()
       }
 
   """
-  @type session_key_mastercard() :: %{String.t() | Atom.t() => any()}
+  @type session_key_mastercard() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       decrypt_data_output() :: %{
-        "KeyArn" => String.t() | Atom.t(),
-        "KeyCheckValue" => String.t() | Atom.t(),
-        "PlainText" => String.t() | Atom.t()
+        "KeyArn" => String.t() | atom(),
+        "KeyCheckValue" => String.t() | atom(),
+        "PlainText" => String.t() | atom()
       }
 
   """
-  @type decrypt_data_output() :: %{String.t() | Atom.t() => any()}
+  @type decrypt_data_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -742,68 +742,68 @@ defmodule AWS.PaymentCryptographyData do
       re_encrypt_data_input() :: %{
         optional("IncomingWrappedKey") => wrapped_key(),
         optional("OutgoingWrappedKey") => wrapped_key(),
-        required("CipherText") => String.t() | Atom.t(),
+        required("CipherText") => String.t() | atom(),
         required("IncomingEncryptionAttributes") => list(),
         required("OutgoingEncryptionAttributes") => list(),
-        required("OutgoingKeyIdentifier") => String.t() | Atom.t()
+        required("OutgoingKeyIdentifier") => String.t() | atom()
       }
 
   """
-  @type re_encrypt_data_input() :: %{String.t() | Atom.t() => any()}
+  @type re_encrypt_data_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       generate_card_validation_data_output() :: %{
-        "KeyArn" => String.t() | Atom.t(),
-        "KeyCheckValue" => String.t() | Atom.t(),
-        "ValidationData" => String.t() | Atom.t()
+        "KeyArn" => String.t() | atom(),
+        "KeyCheckValue" => String.t() | atom(),
+        "ValidationData" => String.t() | atom()
       }
 
   """
-  @type generate_card_validation_data_output() :: %{String.t() | Atom.t() => any()}
+  @type generate_card_validation_data_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       re_encrypt_data_output() :: %{
-        "CipherText" => String.t() | Atom.t(),
-        "KeyArn" => String.t() | Atom.t(),
-        "KeyCheckValue" => String.t() | Atom.t()
+        "CipherText" => String.t() | atom(),
+        "KeyArn" => String.t() | atom(),
+        "KeyCheckValue" => String.t() | atom()
       }
 
   """
-  @type re_encrypt_data_output() :: %{String.t() | Atom.t() => any()}
+  @type re_encrypt_data_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       generate_pin_data_output() :: %{
-        "EncryptedPinBlock" => String.t() | Atom.t(),
-        "EncryptionKeyArn" => String.t() | Atom.t(),
-        "EncryptionKeyCheckValue" => String.t() | Atom.t(),
-        "GenerationKeyArn" => String.t() | Atom.t(),
-        "GenerationKeyCheckValue" => String.t() | Atom.t(),
+        "EncryptedPinBlock" => String.t() | atom(),
+        "EncryptionKeyArn" => String.t() | atom(),
+        "EncryptionKeyCheckValue" => String.t() | atom(),
+        "GenerationKeyArn" => String.t() | atom(),
+        "GenerationKeyCheckValue" => String.t() | atom(),
         "PinData" => list()
       }
 
   """
-  @type generate_pin_data_output() :: %{String.t() | Atom.t() => any()}
+  @type generate_pin_data_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       card_verification_value1() :: %{
-        "CardExpiryDate" => String.t() | Atom.t(),
-        "ServiceCode" => String.t() | Atom.t()
+        "CardExpiryDate" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
       }
 
   """
-  @type card_verification_value1() :: %{String.t() | Atom.t() => any()}
+  @type card_verification_value1() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -811,12 +811,12 @@ defmodule AWS.PaymentCryptographyData do
 
       decrypt_data_input() :: %{
         optional("WrappedKey") => wrapped_key(),
-        required("CipherText") => String.t() | Atom.t(),
+        required("CipherText") => String.t() | atom(),
         required("DecryptionAttributes") => list()
       }
 
   """
-  @type decrypt_data_input() :: %{String.t() | Atom.t() => any()}
+  @type decrypt_data_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -824,11 +824,11 @@ defmodule AWS.PaymentCryptographyData do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -836,26 +836,26 @@ defmodule AWS.PaymentCryptographyData do
 
       verify_auth_request_cryptogram_input() :: %{
         optional("AuthResponseAttributes") => list(),
-        required("AuthRequestCryptogram") => String.t() | Atom.t(),
-        required("KeyIdentifier") => String.t() | Atom.t(),
+        required("AuthRequestCryptogram") => String.t() | atom(),
+        required("KeyIdentifier") => String.t() | atom(),
         required("MajorKeyDerivationMode") => list(any()),
         required("SessionKeyDerivationAttributes") => list(),
-        required("TransactionData") => String.t() | Atom.t()
+        required("TransactionData") => String.t() | atom()
       }
 
   """
-  @type verify_auth_request_cryptogram_input() :: %{String.t() | Atom.t() => any()}
+  @type verify_auth_request_cryptogram_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -864,92 +864,92 @@ defmodule AWS.PaymentCryptographyData do
       generate_card_validation_data_input() :: %{
         optional("ValidationDataLength") => integer(),
         required("GenerationAttributes") => list(),
-        required("KeyIdentifier") => String.t() | Atom.t(),
-        required("PrimaryAccountNumber") => String.t() | Atom.t()
+        required("KeyIdentifier") => String.t() | atom(),
+        required("PrimaryAccountNumber") => String.t() | atom()
       }
 
   """
-  @type generate_card_validation_data_input() :: %{String.t() | Atom.t() => any()}
+  @type generate_card_validation_data_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       visa_amex_derivation_outputs() :: %{
-        "AuthorizationRequestKeyArn" => String.t() | Atom.t(),
-        "AuthorizationRequestKeyCheckValue" => String.t() | Atom.t(),
-        "CurrentPinPekArn" => String.t() | Atom.t(),
-        "CurrentPinPekKeyCheckValue" => String.t() | Atom.t()
+        "AuthorizationRequestKeyArn" => String.t() | atom(),
+        "AuthorizationRequestKeyCheckValue" => String.t() | atom(),
+        "CurrentPinPekArn" => String.t() | atom(),
+        "CurrentPinPekKeyCheckValue" => String.t() | atom()
       }
 
   """
-  @type visa_amex_derivation_outputs() :: %{String.t() | Atom.t() => any()}
+  @type visa_amex_derivation_outputs() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ibm3624_random_pin() :: %{
-        "DecimalizationTable" => String.t() | Atom.t(),
-        "PinValidationData" => String.t() | Atom.t(),
-        "PinValidationDataPadCharacter" => String.t() | Atom.t()
+        "DecimalizationTable" => String.t() | atom(),
+        "PinValidationData" => String.t() | atom(),
+        "PinValidationDataPadCharacter" => String.t() | atom()
       }
 
   """
-  @type ibm3624_random_pin() :: %{String.t() | Atom.t() => any()}
+  @type ibm3624_random_pin() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       translate_pin_data_output() :: %{
-        "KeyArn" => String.t() | Atom.t(),
-        "KeyCheckValue" => String.t() | Atom.t(),
-        "PinBlock" => String.t() | Atom.t()
+        "KeyArn" => String.t() | atom(),
+        "KeyCheckValue" => String.t() | atom(),
+        "PinBlock" => String.t() | atom()
       }
 
   """
-  @type translate_pin_data_output() :: %{String.t() | Atom.t() => any()}
+  @type translate_pin_data_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       session_key_visa() :: %{
-        "PanSequenceNumber" => String.t() | Atom.t(),
-        "PrimaryAccountNumber" => String.t() | Atom.t()
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom()
       }
 
   """
-  @type session_key_visa() :: %{String.t() | Atom.t() => any()}
+  @type session_key_visa() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       verify_pin_data_output() :: %{
-        "EncryptionKeyArn" => String.t() | Atom.t(),
-        "EncryptionKeyCheckValue" => String.t() | Atom.t(),
-        "VerificationKeyArn" => String.t() | Atom.t(),
-        "VerificationKeyCheckValue" => String.t() | Atom.t()
+        "EncryptionKeyArn" => String.t() | atom(),
+        "EncryptionKeyCheckValue" => String.t() | atom(),
+        "VerificationKeyArn" => String.t() | atom(),
+        "VerificationKeyCheckValue" => String.t() | atom()
       }
 
   """
-  @type verify_pin_data_output() :: %{String.t() | Atom.t() => any()}
+  @type verify_pin_data_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ibm3624_pin_from_offset() :: %{
-        "DecimalizationTable" => String.t() | Atom.t(),
-        "PinOffset" => String.t() | Atom.t(),
-        "PinValidationData" => String.t() | Atom.t(),
-        "PinValidationDataPadCharacter" => String.t() | Atom.t()
+        "DecimalizationTable" => String.t() | atom(),
+        "PinOffset" => String.t() | atom(),
+        "PinValidationData" => String.t() | atom(),
+        "PinValidationDataPadCharacter" => String.t() | atom()
       }
 
   """
-  @type ibm3624_pin_from_offset() :: %{String.t() | Atom.t() => any()}
+  @type ibm3624_pin_from_offset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -965,13 +965,13 @@ defmodule AWS.PaymentCryptographyData do
   ## Example:
 
       generate_mac_output() :: %{
-        "KeyArn" => String.t() | Atom.t(),
-        "KeyCheckValue" => String.t() | Atom.t(),
-        "Mac" => String.t() | Atom.t()
+        "KeyArn" => String.t() | atom(),
+        "KeyCheckValue" => String.t() | atom(),
+        "Mac" => String.t() | atom()
       }
 
   """
-  @type generate_mac_output() :: %{String.t() | Atom.t() => any()}
+  @type generate_mac_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -980,11 +980,11 @@ defmodule AWS.PaymentCryptographyData do
       dukpt_derivation_attributes() :: %{
         "DukptKeyDerivationType" => list(any()),
         "DukptKeyVariant" => list(any()),
-        "KeySerialNumber" => String.t() | Atom.t()
+        "KeySerialNumber" => String.t() | atom()
       }
 
   """
-  @type dukpt_derivation_attributes() :: %{String.t() | Atom.t() => any()}
+  @type dukpt_derivation_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -993,13 +993,13 @@ defmodule AWS.PaymentCryptographyData do
       dukpt_encryption_attributes() :: %{
         "DukptKeyDerivationType" => list(any()),
         "DukptKeyVariant" => list(any()),
-        "InitializationVector" => String.t() | Atom.t(),
-        "KeySerialNumber" => String.t() | Atom.t(),
+        "InitializationVector" => String.t() | atom(),
+        "KeySerialNumber" => String.t() | atom(),
         "Mode" => list(any())
       }
 
   """
-  @type dukpt_encryption_attributes() :: %{String.t() | Atom.t() => any()}
+  @type dukpt_encryption_attributes() :: %{(String.t() | atom()) => any()}
 
   @type decrypt_data_errors() ::
           throttling_exception()
@@ -1156,7 +1156,7 @@ defmodule AWS.PaymentCryptographyData do
   [GetPublicCertificate](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetPublicKeyCertificate.html)     *
   [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html)
   """
-  @spec decrypt_data(map(), String.t() | Atom.t(), decrypt_data_input(), list()) ::
+  @spec decrypt_data(map(), String.t() | atom(), decrypt_data_input(), list()) ::
           {:ok, decrypt_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1242,7 +1242,7 @@ defmodule AWS.PaymentCryptographyData do
 
     * `ReEncryptData`
   """
-  @spec encrypt_data(map(), String.t() | Atom.t(), encrypt_data_input(), list()) ::
+  @spec encrypt_data(map(), String.t() | atom(), encrypt_data_input(), list()) ::
           {:ok, encrypt_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1550,7 +1550,7 @@ defmodule AWS.PaymentCryptographyData do
   [GetPublicCertificate](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetPublicKeyCertificate.html)     *
   [ImportKey](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html)
   """
-  @spec re_encrypt_data(map(), String.t() | Atom.t(), re_encrypt_data_input(), list()) ::
+  @spec re_encrypt_data(map(), String.t() | atom(), re_encrypt_data_input(), list()) ::
           {:ok, re_encrypt_data_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

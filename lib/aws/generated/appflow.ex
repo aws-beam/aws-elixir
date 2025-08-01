@@ -64,52 +64,52 @@ defmodule AWS.Appflow do
 
       event_bridge_destination_properties() :: %{
         "errorHandlingConfig" => error_handling_config(),
-        "object" => String.t() | Atom.t()
+        "object" => String.t() | atom()
       }
 
   """
-  @type event_bridge_destination_properties() :: %{String.t() | Atom.t() => any()}
+  @type event_bridge_destination_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_flow_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("metadataCatalogConfig") => metadata_catalog_config(),
         required("destinationFlowConfigList") => list(destination_flow_config()),
-        required("flowName") => String.t() | Atom.t(),
+        required("flowName") => String.t() | atom(),
         required("sourceFlowConfig") => source_flow_config(),
         required("tasks") => list(task()),
         required("triggerConfig") => trigger_config()
       }
 
   """
-  @type update_flow_request() :: %{String.t() | Atom.t() => any()}
+  @type update_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       basic_auth_credentials() :: %{
-        "password" => String.t() | Atom.t(),
-        "username" => String.t() | Atom.t()
+        "password" => String.t() | atom(),
+        "username" => String.t() | atom()
       }
 
   """
-  @type basic_auth_credentials() :: %{String.t() | Atom.t() => any()}
+  @type basic_auth_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dynatrace_source_properties() :: %{
-        "object" => String.t() | Atom.t()
+        "object" => String.t() | atom()
       }
 
   """
-  @type dynatrace_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type dynatrace_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -117,19 +117,19 @@ defmodule AWS.Appflow do
 
       connector_profile() :: %{
         "connectionMode" => list(any()),
-        "connectorLabel" => String.t() | Atom.t(),
-        "connectorProfileArn" => String.t() | Atom.t(),
-        "connectorProfileName" => String.t() | Atom.t(),
+        "connectorLabel" => String.t() | atom(),
+        "connectorProfileArn" => String.t() | atom(),
+        "connectorProfileName" => String.t() | atom(),
         "connectorProfileProperties" => connector_profile_properties(),
         "connectorType" => list(any()),
         "createdAt" => non_neg_integer(),
-        "credentialsArn" => String.t() | Atom.t(),
+        "credentialsArn" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
         "privateConnectionProvisioningState" => private_connection_provisioning_state()
       }
 
   """
-  @type connector_profile() :: %{String.t() | Atom.t() => any()}
+  @type connector_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -137,14 +137,14 @@ defmodule AWS.Appflow do
 
       task() :: %{
         "connectorOperator" => connector_operator(),
-        "destinationField" => String.t() | Atom.t(),
-        "sourceFields" => list(String.t() | Atom.t()),
+        "destinationField" => String.t() | atom(),
+        "sourceFields" => list(String.t() | atom()),
         "taskProperties" => map(),
         "taskType" => list(any())
       }
 
   """
-  @type task() :: %{String.t() | Atom.t() => any()}
+  @type task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -155,7 +155,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -166,14 +166,14 @@ defmodule AWS.Appflow do
         "firstExecutionFrom" => non_neg_integer(),
         "flowErrorDeactivationThreshold" => integer(),
         "scheduleEndTime" => non_neg_integer(),
-        "scheduleExpression" => String.t() | Atom.t(),
+        "scheduleExpression" => String.t() | atom(),
         "scheduleOffset" => float(),
         "scheduleStartTime" => non_neg_integer(),
-        "timezone" => String.t() | Atom.t()
+        "timezone" => String.t() | atom()
       }
 
   """
-  @type scheduled_trigger_properties() :: %{String.t() | Atom.t() => any()}
+  @type scheduled_trigger_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -194,88 +194,88 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type range() :: %{String.t() | Atom.t() => any()}
+  @type range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       snowflake_metadata() :: %{
-        "supportedRegions" => list(String.t() | Atom.t())
+        "supportedRegions" => list(String.t() | atom())
       }
 
   """
-  @type snowflake_metadata() :: %{String.t() | Atom.t() => any()}
+  @type snowflake_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s_a_p_o_data_source_properties() :: %{
-        "objectPath" => String.t() | Atom.t(),
+        "objectPath" => String.t() | atom(),
         "paginationConfig" => s_a_p_o_data_pagination_config(),
         "parallelismConfig" => s_a_p_o_data_parallelism_config()
       }
 
   """
-  @type s_a_p_o_data_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type s_a_p_o_data_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       honeycode_metadata() :: %{
-        "oAuthScopes" => list(String.t() | Atom.t())
+        "oAuthScopes" => list(String.t() | atom())
       }
 
   """
-  @type honeycode_metadata() :: %{String.t() | Atom.t() => any()}
+  @type honeycode_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       snowflake_connector_profile_credentials() :: %{
-        "password" => String.t() | Atom.t(),
-        "username" => String.t() | Atom.t()
+        "password" => String.t() | atom(),
+        "username" => String.t() | atom()
       }
 
   """
-  @type snowflake_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type snowflake_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       redshift_connector_profile_credentials() :: %{
-        "password" => String.t() | Atom.t(),
-        "username" => String.t() | Atom.t()
+        "password" => String.t() | atom(),
+        "username" => String.t() | atom()
       }
 
   """
-  @type redshift_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type redshift_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       marketo_source_properties() :: %{
-        "object" => String.t() | Atom.t()
+        "object" => String.t() | atom()
       }
 
   """
-  @type marketo_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type marketo_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unsupported_operation_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type unsupported_operation_exception() :: %{String.t() | Atom.t() => any()}
+  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -301,22 +301,22 @@ defmodule AWS.Appflow do
 
       list_connectors_response() :: %{
         "connectors" => list(connector_detail()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_connectors_response() :: %{String.t() | Atom.t() => any()}
+  @type list_connectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pardot_source_properties() :: %{
-        "object" => String.t() | Atom.t()
+        "object" => String.t() | atom()
       }
 
   """
-  @type pardot_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type pardot_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -339,18 +339,18 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type destination_connector_properties() :: %{String.t() | Atom.t() => any()}
+  @type destination_connector_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       slack_source_properties() :: %{
-        "object" => String.t() | Atom.t()
+        "object" => String.t() | atom()
       }
 
   """
-  @type slack_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type slack_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -366,20 +366,20 @@ defmodule AWS.Appflow do
   ## Example:
 
       create_flow_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
-        optional("kmsArn") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("kmsArn") => String.t() | atom(),
         optional("metadataCatalogConfig") => metadata_catalog_config(),
         optional("tags") => map(),
         required("destinationFlowConfigList") => list(destination_flow_config()),
-        required("flowName") => String.t() | Atom.t(),
+        required("flowName") => String.t() | atom(),
         required("sourceFlowConfig") => source_flow_config(),
         required("tasks") => list(task()),
         required("triggerConfig") => trigger_config()
       }
 
   """
-  @type create_flow_request() :: %{String.t() | Atom.t() => any()}
+  @type create_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -387,13 +387,13 @@ defmodule AWS.Appflow do
 
       zendesk_destination_properties() :: %{
         "errorHandlingConfig" => error_handling_config(),
-        "idFieldNames" => list(String.t() | Atom.t()),
-        "object" => String.t() | Atom.t(),
+        "idFieldNames" => list(String.t() | atom()),
+        "object" => String.t() | atom(),
         "writeOperationType" => list(any())
       }
 
   """
-  @type zendesk_destination_properties() :: %{String.t() | Atom.t() => any()}
+  @type zendesk_destination_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -401,11 +401,11 @@ defmodule AWS.Appflow do
 
       list_connector_entities_response() :: %{
         "connectorEntityMap" => map(),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_connector_entities_response() :: %{String.t() | Atom.t() => any()}
+  @type list_connector_entities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -421,13 +421,13 @@ defmodule AWS.Appflow do
   ## Example:
 
       execution_details() :: %{
-        "mostRecentExecutionMessage" => String.t() | Atom.t(),
+        "mostRecentExecutionMessage" => String.t() | atom(),
         "mostRecentExecutionStatus" => list(any()),
         "mostRecentExecutionTime" => non_neg_integer()
       }
 
   """
-  @type execution_details() :: %{String.t() | Atom.t() => any()}
+  @type execution_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -443,27 +443,27 @@ defmodule AWS.Appflow do
   ## Example:
 
       amplitude_source_properties() :: %{
-        "object" => String.t() | Atom.t()
+        "object" => String.t() | atom()
       }
 
   """
-  @type amplitude_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type amplitude_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_connector_entities_request() :: %{
-        optional("apiVersion") => String.t() | Atom.t(),
-        optional("connectorProfileName") => String.t() | Atom.t(),
+        optional("apiVersion") => String.t() | atom(),
+        optional("connectorProfileName") => String.t() | atom(),
         optional("connectorType") => list(any()),
-        optional("entitiesPath") => String.t() | Atom.t(),
+        optional("entitiesPath") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_connector_entities_request() :: %{String.t() | Atom.t() => any()}
+  @type list_connector_entities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -474,36 +474,36 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type describe_connector_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       o_auth2_defaults() :: %{
-        "authCodeUrls" => list(String.t() | Atom.t()),
+        "authCodeUrls" => list(String.t() | atom()),
         "oauth2CustomProperties" => list(o_auth2_custom_parameter()),
         "oauth2GrantTypesSupported" => list(list(any())()),
-        "oauthScopes" => list(String.t() | Atom.t()),
-        "tokenUrls" => list(String.t() | Atom.t())
+        "oauthScopes" => list(String.t() | atom()),
+        "tokenUrls" => list(String.t() | atom())
       }
 
   """
-  @type o_auth2_defaults() :: %{String.t() | Atom.t() => any()}
+  @type o_auth2_defaults() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       snowflake_destination_properties() :: %{
-        "bucketPrefix" => String.t() | Atom.t(),
+        "bucketPrefix" => String.t() | atom(),
         "errorHandlingConfig" => error_handling_config(),
-        "intermediateBucketName" => String.t() | Atom.t(),
-        "object" => String.t() | Atom.t()
+        "intermediateBucketName" => String.t() | atom(),
+        "object" => String.t() | atom()
       }
 
   """
-  @type snowflake_destination_properties() :: %{String.t() | Atom.t() => any()}
+  @type snowflake_destination_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -519,13 +519,13 @@ defmodule AWS.Appflow do
   ## Example:
 
       s3_source_properties() :: %{
-        "bucketName" => String.t() | Atom.t(),
-        "bucketPrefix" => String.t() | Atom.t(),
+        "bucketName" => String.t() | atom(),
+        "bucketPrefix" => String.t() | atom(),
         "s3InputFormatConfig" => s3_input_format_config()
       }
 
   """
-  @type s3_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type s3_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -537,7 +537,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type aggregation_config() :: %{String.t() | Atom.t() => any()}
+  @type aggregation_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -566,7 +566,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -577,7 +577,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type describe_connector_entity_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_connector_entity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -585,11 +585,11 @@ defmodule AWS.Appflow do
 
       describe_connector_profiles_response() :: %{
         "connectorProfileDetails" => list(connector_profile()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type describe_connector_profiles_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_connector_profiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -600,7 +600,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type s3_input_format_config() :: %{String.t() | Atom.t() => any()}
+  @type s3_input_format_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -611,7 +611,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type connector_provisioning_config() :: %{String.t() | Atom.t() => any()}
+  @type connector_provisioning_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -624,32 +624,32 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type upsolver_s3_output_format_config() :: %{String.t() | Atom.t() => any()}
+  @type upsolver_s3_output_format_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       destination_flow_config() :: %{
-        "apiVersion" => String.t() | Atom.t(),
-        "connectorProfileName" => String.t() | Atom.t(),
+        "apiVersion" => String.t() | atom(),
+        "connectorProfileName" => String.t() | atom(),
         "connectorType" => list(any()),
         "destinationConnectorProperties" => destination_connector_properties()
       }
 
   """
-  @type destination_flow_config() :: %{String.t() | Atom.t() => any()}
+  @type destination_flow_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       google_analytics_metadata() :: %{
-        "oAuthScopes" => list(String.t() | Atom.t())
+        "oAuthScopes" => list(String.t() | atom())
       }
 
   """
-  @type google_analytics_metadata() :: %{String.t() | Atom.t() => any()}
+  @type google_analytics_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -657,11 +657,11 @@ defmodule AWS.Appflow do
 
       delete_flow_request() :: %{
         optional("forceDelete") => boolean(),
-        required("flowName") => String.t() | Atom.t()
+        required("flowName") => String.t() | atom()
       }
 
   """
-  @type delete_flow_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -677,41 +677,41 @@ defmodule AWS.Appflow do
   ## Example:
 
       s3_destination_properties() :: %{
-        "bucketName" => String.t() | Atom.t(),
-        "bucketPrefix" => String.t() | Atom.t(),
+        "bucketName" => String.t() | atom(),
+        "bucketPrefix" => String.t() | atom(),
         "s3OutputFormatConfig" => s3_output_format_config()
       }
 
   """
-  @type s3_destination_properties() :: %{String.t() | Atom.t() => any()}
+  @type s3_destination_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       infor_nexus_connector_profile_credentials() :: %{
-        "accessKeyId" => String.t() | Atom.t(),
-        "datakey" => String.t() | Atom.t(),
-        "secretAccessKey" => String.t() | Atom.t(),
-        "userId" => String.t() | Atom.t()
+        "accessKeyId" => String.t() | atom(),
+        "datakey" => String.t() | atom(),
+        "secretAccessKey" => String.t() | atom(),
+        "userId" => String.t() | atom()
       }
 
   """
-  @type infor_nexus_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type infor_nexus_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       redshift_destination_properties() :: %{
-        "bucketPrefix" => String.t() | Atom.t(),
+        "bucketPrefix" => String.t() | atom(),
         "errorHandlingConfig" => error_handling_config(),
-        "intermediateBucketName" => String.t() | Atom.t(),
-        "object" => String.t() | Atom.t()
+        "intermediateBucketName" => String.t() | atom(),
+        "object" => String.t() | atom()
       }
 
   """
-  @type redshift_destination_properties() :: %{String.t() | Atom.t() => any()}
+  @type redshift_destination_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -722,7 +722,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type s_a_p_o_data_pagination_config() :: %{String.t() | Atom.t() => any()}
+  @type s_a_p_o_data_pagination_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -738,7 +738,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type destination_field_properties() :: %{String.t() | Atom.t() => any()}
+  @type destination_field_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -746,38 +746,38 @@ defmodule AWS.Appflow do
 
       flow_definition() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "destinationConnectorLabel" => String.t() | Atom.t(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "destinationConnectorLabel" => String.t() | atom(),
         "destinationConnectorType" => list(any()),
-        "flowArn" => String.t() | Atom.t(),
-        "flowName" => String.t() | Atom.t(),
+        "flowArn" => String.t() | atom(),
+        "flowName" => String.t() | atom(),
         "flowStatus" => list(any()),
         "lastRunExecutionDetails" => execution_details(),
         "lastUpdatedAt" => non_neg_integer(),
-        "lastUpdatedBy" => String.t() | Atom.t(),
-        "sourceConnectorLabel" => String.t() | Atom.t(),
+        "lastUpdatedBy" => String.t() | atom(),
+        "sourceConnectorLabel" => String.t() | atom(),
         "sourceConnectorType" => list(any()),
         "tags" => map(),
         "triggerType" => list(any())
       }
 
   """
-  @type flow_definition() :: %{String.t() | Atom.t() => any()}
+  @type flow_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       slack_connector_profile_credentials() :: %{
-        "accessToken" => String.t() | Atom.t(),
-        "clientId" => String.t() | Atom.t(),
-        "clientSecret" => String.t() | Atom.t(),
+        "accessToken" => String.t() | atom(),
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
         "oAuthRequest" => connector_o_auth_request()
       }
 
   """
-  @type slack_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type slack_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -795,73 +795,73 @@ defmodule AWS.Appflow do
       describe_connectors_response() :: %{
         "connectorConfigurations" => map(),
         "connectors" => list(connector_detail()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type describe_connectors_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_connectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       zendesk_connector_profile_properties() :: %{
-        "instanceUrl" => String.t() | Atom.t()
+        "instanceUrl" => String.t() | atom()
       }
 
   """
-  @type zendesk_connector_profile_properties() :: %{String.t() | Atom.t() => any()}
+  @type zendesk_connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       o_auth_credentials() :: %{
-        "accessToken" => String.t() | Atom.t(),
-        "clientId" => String.t() | Atom.t(),
-        "clientSecret" => String.t() | Atom.t(),
+        "accessToken" => String.t() | atom(),
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
         "oAuthRequest" => connector_o_auth_request(),
-        "refreshToken" => String.t() | Atom.t()
+        "refreshToken" => String.t() | atom()
       }
 
   """
-  @type o_auth_credentials() :: %{String.t() | Atom.t() => any()}
+  @type o_auth_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       infor_nexus_source_properties() :: %{
-        "object" => String.t() | Atom.t()
+        "object" => String.t() | atom()
       }
 
   """
-  @type infor_nexus_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type infor_nexus_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_now_connector_profile_properties() :: %{
-        "instanceUrl" => String.t() | Atom.t()
+        "instanceUrl" => String.t() | atom()
       }
 
   """
-  @type service_now_connector_profile_properties() :: %{String.t() | Atom.t() => any()}
+  @type service_now_connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_connector_entity_request() :: %{
-        optional("apiVersion") => String.t() | Atom.t(),
-        optional("connectorProfileName") => String.t() | Atom.t(),
+        optional("apiVersion") => String.t() | atom(),
+        optional("connectorProfileName") => String.t() | atom(),
         optional("connectorType") => list(any()),
-        required("connectorEntityName") => String.t() | Atom.t()
+        required("connectorEntityName") => String.t() | atom()
       }
 
   """
-  @type describe_connector_entity_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_connector_entity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -870,13 +870,13 @@ defmodule AWS.Appflow do
       salesforce_destination_properties() :: %{
         "dataTransferApi" => list(any()),
         "errorHandlingConfig" => error_handling_config(),
-        "idFieldNames" => list(String.t() | Atom.t()),
-        "object" => String.t() | Atom.t(),
+        "idFieldNames" => list(String.t() | atom()),
+        "object" => String.t() | atom(),
         "writeOperationType" => list(any())
       }
 
   """
-  @type salesforce_destination_properties() :: %{String.t() | Atom.t() => any()}
+  @type salesforce_destination_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -884,11 +884,11 @@ defmodule AWS.Appflow do
 
       list_connectors_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_connectors_request() :: %{String.t() | Atom.t() => any()}
+  @type list_connectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -901,34 +901,34 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type source_field_properties() :: %{String.t() | Atom.t() => any()}
+  @type source_field_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_connector_profile_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         required("connectionMode") => list(any()),
         required("connectorProfileConfig") => connector_profile_config(),
-        required("connectorProfileName") => String.t() | Atom.t()
+        required("connectorProfileName") => String.t() | atom()
       }
 
   """
-  @type update_connector_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type update_connector_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       salesforce_connector_profile_properties() :: %{
-        "instanceUrl" => String.t() | Atom.t(),
+        "instanceUrl" => String.t() | atom(),
         "isSandboxEnvironment" => boolean(),
         "usePrivateLinkForMetadataAndAuthorization" => boolean()
       }
 
   """
-  @type salesforce_connector_profile_properties() :: %{String.t() | Atom.t() => any()}
+  @type salesforce_connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -937,49 +937,49 @@ defmodule AWS.Appflow do
       metadata_catalog_detail() :: %{
         "catalogType" => list(any()),
         "partitionRegistrationOutput" => registration_output(),
-        "tableName" => String.t() | Atom.t(),
+        "tableName" => String.t() | atom(),
         "tableRegistrationOutput" => registration_output()
       }
 
   """
-  @type metadata_catalog_detail() :: %{String.t() | Atom.t() => any()}
+  @type metadata_catalog_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       api_key_credentials() :: %{
-        "apiKey" => String.t() | Atom.t(),
-        "apiSecretKey" => String.t() | Atom.t()
+        "apiKey" => String.t() | atom(),
+        "apiSecretKey" => String.t() | atom()
       }
 
   """
-  @type api_key_credentials() :: %{String.t() | Atom.t() => any()}
+  @type api_key_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_flow_response() :: %{
-        "flowArn" => String.t() | Atom.t(),
+        "flowArn" => String.t() | atom(),
         "flowStatus" => list(any())
       }
 
   """
-  @type create_flow_response() :: %{String.t() | Atom.t() => any()}
+  @type create_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       honeycode_connector_profile_credentials() :: %{
-        "accessToken" => String.t() | Atom.t(),
+        "accessToken" => String.t() | atom(),
         "oAuthRequest" => connector_o_auth_request(),
-        "refreshToken" => String.t() | Atom.t()
+        "refreshToken" => String.t() | atom()
       }
 
   """
-  @type honeycode_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type honeycode_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -995,23 +995,23 @@ defmodule AWS.Appflow do
   ## Example:
 
       error_info() :: %{
-        "executionMessage" => String.t() | Atom.t(),
+        "executionMessage" => String.t() | atom(),
         "putFailuresCount" => float()
       }
 
   """
-  @type error_info() :: %{String.t() | Atom.t() => any()}
+  @type error_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1019,49 +1019,49 @@ defmodule AWS.Appflow do
 
       connector_entity_field() :: %{
         "customProperties" => map(),
-        "defaultValue" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "defaultValue" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "destinationProperties" => destination_field_properties(),
-        "identifier" => String.t() | Atom.t(),
+        "identifier" => String.t() | atom(),
         "isDeprecated" => boolean(),
         "isPrimaryKey" => boolean(),
-        "label" => String.t() | Atom.t(),
-        "parentIdentifier" => String.t() | Atom.t(),
+        "label" => String.t() | atom(),
+        "parentIdentifier" => String.t() | atom(),
         "sourceProperties" => source_field_properties(),
         "supportedFieldTypeDetails" => supported_field_type_details()
       }
 
   """
-  @type connector_entity_field() :: %{String.t() | Atom.t() => any()}
+  @type connector_entity_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_authentication_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type connector_authentication_exception() :: %{String.t() | Atom.t() => any()}
+  @type connector_authentication_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s_a_p_o_data_connector_profile_properties() :: %{
-        "applicationHostUrl" => String.t() | Atom.t(),
-        "applicationServicePath" => String.t() | Atom.t(),
-        "clientNumber" => String.t() | Atom.t(),
+        "applicationHostUrl" => String.t() | atom(),
+        "applicationServicePath" => String.t() | atom(),
+        "clientNumber" => String.t() | atom(),
         "disableSSO" => boolean(),
-        "logonLanguage" => String.t() | Atom.t(),
+        "logonLanguage" => String.t() | atom(),
         "oAuthProperties" => o_auth_properties(),
         "portNumber" => integer(),
-        "privateLinkServiceName" => String.t() | Atom.t()
+        "privateLinkServiceName" => String.t() | atom()
       }
 
   """
-  @type s_a_p_o_data_connector_profile_properties() :: %{String.t() | Atom.t() => any()}
+  @type s_a_p_o_data_connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1069,12 +1069,12 @@ defmodule AWS.Appflow do
 
       private_connection_provisioning_state() :: %{
         "failureCause" => list(any()),
-        "failureMessage" => String.t() | Atom.t(),
+        "failureMessage" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type private_connection_provisioning_state() :: %{String.t() | Atom.t() => any()}
+  @type private_connection_provisioning_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1090,11 +1090,11 @@ defmodule AWS.Appflow do
   ## Example:
 
       zendesk_source_properties() :: %{
-        "object" => String.t() | Atom.t()
+        "object" => String.t() | atom()
       }
 
   """
-  @type zendesk_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type zendesk_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1105,7 +1105,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type trigger_properties() :: %{String.t() | Atom.t() => any()}
+  @type trigger_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1119,21 +1119,21 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type s3_output_format_config() :: %{String.t() | Atom.t() => any()}
+  @type s3_output_format_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       marketo_connector_profile_credentials() :: %{
-        "accessToken" => String.t() | Atom.t(),
-        "clientId" => String.t() | Atom.t(),
-        "clientSecret" => String.t() | Atom.t(),
+        "accessToken" => String.t() | atom(),
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
         "oAuthRequest" => connector_o_auth_request()
       }
 
   """
-  @type marketo_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type marketo_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1141,22 +1141,22 @@ defmodule AWS.Appflow do
 
       marketo_destination_properties() :: %{
         "errorHandlingConfig" => error_handling_config(),
-        "object" => String.t() | Atom.t()
+        "object" => String.t() | atom()
       }
 
   """
-  @type marketo_destination_properties() :: %{String.t() | Atom.t() => any()}
+  @type marketo_destination_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       trendmicro_source_properties() :: %{
-        "object" => String.t() | Atom.t()
+        "object" => String.t() | atom()
       }
 
   """
-  @type trendmicro_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type trendmicro_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1172,11 +1172,11 @@ defmodule AWS.Appflow do
   ## Example:
 
       singular_source_properties() :: %{
-        "object" => String.t() | Atom.t()
+        "object" => String.t() | atom()
       }
 
   """
-  @type singular_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type singular_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1184,49 +1184,49 @@ defmodule AWS.Appflow do
 
       custom_auth_config() :: %{
         "authParameters" => list(auth_parameter()),
-        "customAuthenticationType" => String.t() | Atom.t()
+        "customAuthenticationType" => String.t() | atom()
       }
 
   """
-  @type custom_auth_config() :: %{String.t() | Atom.t() => any()}
+  @type custom_auth_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_connector_registration_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("connectorProvisioningConfig") => connector_provisioning_config(),
-        optional("description") => String.t() | Atom.t(),
-        required("connectorLabel") => String.t() | Atom.t()
+        optional("description") => String.t() | atom(),
+        required("connectorLabel") => String.t() | atom()
       }
 
   """
-  @type update_connector_registration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_connector_registration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_flow_executions_response() :: %{
-        "invalidExecutions" => list(String.t() | Atom.t())
+        "invalidExecutions" => list(String.t() | atom())
       }
 
   """
-  @type cancel_flow_executions_response() :: %{String.t() | Atom.t() => any()}
+  @type cancel_flow_executions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       o_auth_properties() :: %{
-        "authCodeUrl" => String.t() | Atom.t(),
-        "oAuthScopes" => list(String.t() | Atom.t()),
-        "tokenUrl" => String.t() | Atom.t()
+        "authCodeUrl" => String.t() | atom(),
+        "oAuthScopes" => list(String.t() | atom()),
+        "tokenUrl" => String.t() | atom()
       }
 
   """
-  @type o_auth_properties() :: %{String.t() | Atom.t() => any()}
+  @type o_auth_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1235,27 +1235,27 @@ defmodule AWS.Appflow do
       describe_connectors_request() :: %{
         optional("connectorTypes") => list(list(any())()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type describe_connectors_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_connectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       salesforce_connector_profile_credentials() :: %{
-        "accessToken" => String.t() | Atom.t(),
-        "clientCredentialsArn" => String.t() | Atom.t(),
-        "jwtToken" => String.t() | Atom.t(),
+        "accessToken" => String.t() | atom(),
+        "clientCredentialsArn" => String.t() | atom(),
+        "jwtToken" => String.t() | atom(),
         "oAuth2GrantType" => list(any()),
         "oAuthRequest" => connector_o_auth_request(),
-        "refreshToken" => String.t() | Atom.t()
+        "refreshToken" => String.t() | atom()
       }
 
   """
-  @type salesforce_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type salesforce_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1263,11 +1263,11 @@ defmodule AWS.Appflow do
 
       list_flows_response() :: %{
         "flows" => list(flow_definition()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_flows_response() :: %{String.t() | Atom.t() => any()}
+  @type list_flows_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1283,11 +1283,11 @@ defmodule AWS.Appflow do
   ## Example:
 
       zendesk_metadata() :: %{
-        "oAuthScopes" => list(String.t() | Atom.t())
+        "oAuthScopes" => list(String.t() | atom())
       }
 
   """
-  @type zendesk_metadata() :: %{String.t() | Atom.t() => any()}
+  @type zendesk_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1300,7 +1300,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type prefix_config() :: %{String.t() | Atom.t() => any()}
+  @type prefix_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1316,7 +1316,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type execution_result() :: %{String.t() | Atom.t() => any()}
+  @type execution_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1332,14 +1332,14 @@ defmodule AWS.Appflow do
   ## Example:
 
       pardot_connector_profile_credentials() :: %{
-        "accessToken" => String.t() | Atom.t(),
-        "clientCredentialsArn" => String.t() | Atom.t(),
+        "accessToken" => String.t() | atom(),
+        "clientCredentialsArn" => String.t() | atom(),
         "oAuthRequest" => connector_o_auth_request(),
-        "refreshToken" => String.t() | Atom.t()
+        "refreshToken" => String.t() | atom()
       }
 
   """
-  @type pardot_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type pardot_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1347,82 +1347,82 @@ defmodule AWS.Appflow do
 
       custom_auth_credentials() :: %{
         "credentialsMap" => map(),
-        "customAuthenticationType" => String.t() | Atom.t()
+        "customAuthenticationType" => String.t() | atom()
       }
 
   """
-  @type custom_auth_credentials() :: %{String.t() | Atom.t() => any()}
+  @type custom_auth_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_flow_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        required("flowName") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom(),
+        required("flowName") => String.t() | atom()
       }
 
   """
-  @type start_flow_request() :: %{String.t() | Atom.t() => any()}
+  @type start_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       slack_connector_profile_properties() :: %{
-        "instanceUrl" => String.t() | Atom.t()
+        "instanceUrl" => String.t() | atom()
       }
 
   """
-  @type slack_connector_profile_properties() :: %{String.t() | Atom.t() => any()}
+  @type slack_connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       datadog_source_properties() :: %{
-        "object" => String.t() | Atom.t()
+        "object" => String.t() | atom()
       }
 
   """
-  @type datadog_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type datadog_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_connector_profiles_request() :: %{
-        optional("connectorLabel") => String.t() | Atom.t(),
-        optional("connectorProfileNames") => list(String.t() | Atom.t()),
+        optional("connectorLabel") => String.t() | atom(),
+        optional("connectorProfileNames") => list(String.t() | atom()),
         optional("connectorType") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type describe_connector_profiles_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_connector_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1430,35 +1430,35 @@ defmodule AWS.Appflow do
 
       service_now_connector_profile_credentials() :: %{
         "oAuth2Credentials" => o_auth2_credentials(),
-        "password" => String.t() | Atom.t(),
-        "username" => String.t() | Atom.t()
+        "password" => String.t() | atom(),
+        "username" => String.t() | atom()
       }
 
   """
-  @type service_now_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type service_now_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       veeva_connector_profile_credentials() :: %{
-        "password" => String.t() | Atom.t(),
-        "username" => String.t() | Atom.t()
+        "password" => String.t() | atom(),
+        "username" => String.t() | atom()
       }
 
   """
-  @type veeva_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type veeva_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       datadog_connector_profile_properties() :: %{
-        "instanceUrl" => String.t() | Atom.t()
+        "instanceUrl" => String.t() | atom()
       }
 
   """
-  @type datadog_connector_profile_properties() :: %{String.t() | Atom.t() => any()}
+  @type datadog_connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1466,14 +1466,14 @@ defmodule AWS.Appflow do
 
       s_a_p_o_data_destination_properties() :: %{
         "errorHandlingConfig" => error_handling_config(),
-        "idFieldNames" => list(String.t() | Atom.t()),
-        "objectPath" => String.t() | Atom.t(),
+        "idFieldNames" => list(String.t() | atom()),
+        "objectPath" => String.t() | atom(),
         "successResponseHandlingConfig" => success_response_handling_config(),
         "writeOperationType" => list(any())
       }
 
   """
-  @type s_a_p_o_data_destination_properties() :: %{String.t() | Atom.t() => any()}
+  @type s_a_p_o_data_destination_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1481,22 +1481,22 @@ defmodule AWS.Appflow do
 
       honeycode_destination_properties() :: %{
         "errorHandlingConfig" => error_handling_config(),
-        "object" => String.t() | Atom.t()
+        "object" => String.t() | atom()
       }
 
   """
-  @type honeycode_destination_properties() :: %{String.t() | Atom.t() => any()}
+  @type honeycode_destination_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1504,71 +1504,71 @@ defmodule AWS.Appflow do
 
       unregister_connector_request() :: %{
         optional("forceDelete") => boolean(),
-        required("connectorLabel") => String.t() | Atom.t()
+        required("connectorLabel") => String.t() | atom()
       }
 
   """
-  @type unregister_connector_request() :: %{String.t() | Atom.t() => any()}
+  @type unregister_connector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       registration_output() :: %{
-        "message" => String.t() | Atom.t(),
-        "result" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
+        "result" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type registration_output() :: %{String.t() | Atom.t() => any()}
+  @type registration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       singular_connector_profile_credentials() :: %{
-        "apiKey" => String.t() | Atom.t()
+        "apiKey" => String.t() | atom()
       }
 
   """
-  @type singular_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type singular_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       glue_data_catalog_config() :: %{
-        "databaseName" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
-        "tablePrefix" => String.t() | Atom.t()
+        "databaseName" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "tablePrefix" => String.t() | atom()
       }
 
   """
-  @type glue_data_catalog_config() :: %{String.t() | Atom.t() => any()}
+  @type glue_data_catalog_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       amplitude_connector_profile_credentials() :: %{
-        "apiKey" => String.t() | Atom.t(),
-        "secretKey" => String.t() | Atom.t()
+        "apiKey" => String.t() | atom(),
+        "secretKey" => String.t() | atom()
       }
 
   """
-  @type amplitude_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type amplitude_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       trendmicro_connector_profile_credentials() :: %{
-        "apiSecretKey" => String.t() | Atom.t()
+        "apiSecretKey" => String.t() | atom()
       }
 
   """
-  @type trendmicro_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type trendmicro_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1584,11 +1584,11 @@ defmodule AWS.Appflow do
   ## Example:
 
       describe_flow_request() :: %{
-        required("flowName") => String.t() | Atom.t()
+        required("flowName") => String.t() | atom()
       }
 
   """
-  @type describe_flow_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1596,49 +1596,49 @@ defmodule AWS.Appflow do
 
       connector_entity() :: %{
         "hasNestedEntities" => boolean(),
-        "label" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "label" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type connector_entity() :: %{String.t() | Atom.t() => any()}
+  @type connector_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_flow_response() :: %{
-        "executionId" => String.t() | Atom.t(),
-        "flowArn" => String.t() | Atom.t(),
+        "executionId" => String.t() | atom(),
+        "flowArn" => String.t() | atom(),
         "flowStatus" => list(any())
       }
 
   """
-  @type start_flow_response() :: %{String.t() | Atom.t() => any()}
+  @type start_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_flow_response() :: %{
-        "flowArn" => String.t() | Atom.t(),
+        "flowArn" => String.t() | atom(),
         "flowStatus" => list(any())
       }
 
   """
-  @type stop_flow_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_transfer_api() :: %{
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type data_transfer_api() :: %{String.t() | Atom.t() => any()}
+  @type data_transfer_api() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1649,7 +1649,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type metadata_catalog_config() :: %{String.t() | Atom.t() => any()}
+  @type metadata_catalog_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1657,11 +1657,11 @@ defmodule AWS.Appflow do
 
       describe_flow_execution_records_response() :: %{
         "flowExecutions" => list(execution_record()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type describe_flow_execution_records_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_flow_execution_records_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1681,7 +1681,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1708,7 +1708,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type source_connector_properties() :: %{String.t() | Atom.t() => any()}
+  @type source_connector_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1740,7 +1740,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type connector_metadata() :: %{String.t() | Atom.t() => any()}
+  @type connector_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1756,39 +1756,39 @@ defmodule AWS.Appflow do
   ## Example:
 
       create_connector_profile_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("connectorLabel") => String.t() | Atom.t(),
-        optional("kmsArn") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("connectorLabel") => String.t() | atom(),
+        optional("kmsArn") => String.t() | atom(),
         required("connectionMode") => list(any()),
         required("connectorProfileConfig") => connector_profile_config(),
-        required("connectorProfileName") => String.t() | Atom.t(),
+        required("connectorProfileName") => String.t() | atom(),
         required("connectorType") => list(any())
       }
 
   """
-  @type create_connector_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type create_connector_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_detail() :: %{
-        "applicationType" => String.t() | Atom.t(),
-        "connectorDescription" => String.t() | Atom.t(),
-        "connectorLabel" => String.t() | Atom.t(),
-        "connectorModes" => list(String.t() | Atom.t()),
-        "connectorName" => String.t() | Atom.t(),
-        "connectorOwner" => String.t() | Atom.t(),
+        "applicationType" => String.t() | atom(),
+        "connectorDescription" => String.t() | atom(),
+        "connectorLabel" => String.t() | atom(),
+        "connectorModes" => list(String.t() | atom()),
+        "connectorName" => String.t() | atom(),
+        "connectorOwner" => String.t() | atom(),
         "connectorProvisioningType" => list(any()),
         "connectorType" => list(any()),
-        "connectorVersion" => String.t() | Atom.t(),
+        "connectorVersion" => String.t() | atom(),
         "registeredAt" => non_neg_integer(),
-        "registeredBy" => String.t() | Atom.t(),
+        "registeredBy" => String.t() | atom(),
         "supportedDataTransferTypes" => list(list(any())())
       }
 
   """
-  @type connector_detail() :: %{String.t() | Atom.t() => any()}
+  @type connector_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1796,12 +1796,12 @@ defmodule AWS.Appflow do
 
       describe_flow_execution_records_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("flowName") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("flowName") => String.t() | atom()
       }
 
   """
-  @type describe_flow_execution_records_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_flow_execution_records_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1809,23 +1809,23 @@ defmodule AWS.Appflow do
 
       list_flows_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_flows_request() :: %{String.t() | Atom.t() => any()}
+  @type list_flows_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_connector_request() :: %{
-        optional("connectorLabel") => String.t() | Atom.t(),
+        optional("connectorLabel") => String.t() | atom(),
         required("connectorType") => list(any())
       }
 
   """
-  @type describe_connector_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_connector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1849,33 +1849,33 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type custom_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type custom_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_server_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type connector_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type connector_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_connector_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("connectorLabel") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("connectorLabel") => String.t() | atom(),
         optional("connectorProvisioningConfig") => connector_provisioning_config(),
         optional("connectorProvisioningType") => list(any()),
-        optional("description") => String.t() | Atom.t()
+        optional("description") => String.t() | atom()
       }
 
   """
-  @type register_connector_request() :: %{String.t() | Atom.t() => any()}
+  @type register_connector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1883,78 +1883,78 @@ defmodule AWS.Appflow do
 
       custom_connector_destination_properties() :: %{
         "customProperties" => map(),
-        "entityName" => String.t() | Atom.t(),
+        "entityName" => String.t() | atom(),
         "errorHandlingConfig" => error_handling_config(),
-        "idFieldNames" => list(String.t() | Atom.t()),
+        "idFieldNames" => list(String.t() | atom()),
         "writeOperationType" => list(any())
       }
 
   """
-  @type custom_connector_destination_properties() :: %{String.t() | Atom.t() => any()}
+  @type custom_connector_destination_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       auth_parameter() :: %{
-        "connectorSuppliedValues" => list(String.t() | Atom.t()),
-        "description" => String.t() | Atom.t(),
+        "connectorSuppliedValues" => list(String.t() | atom()),
+        "description" => String.t() | atom(),
         "isRequired" => boolean(),
         "isSensitiveField" => boolean(),
-        "key" => String.t() | Atom.t(),
-        "label" => String.t() | Atom.t()
+        "key" => String.t() | atom(),
+        "label" => String.t() | atom()
       }
 
   """
-  @type auth_parameter() :: %{String.t() | Atom.t() => any()}
+  @type auth_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       source_flow_config() :: %{
-        "apiVersion" => String.t() | Atom.t(),
-        "connectorProfileName" => String.t() | Atom.t(),
+        "apiVersion" => String.t() | atom(),
+        "connectorProfileName" => String.t() | atom(),
         "connectorType" => list(any()),
         "incrementalPullConfig" => incremental_pull_config(),
         "sourceConnectorProperties" => source_connector_properties()
       }
 
   """
-  @type source_flow_config() :: %{String.t() | Atom.t() => any()}
+  @type source_flow_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_connector_profile_response() :: %{
-        "connectorProfileArn" => String.t() | Atom.t()
+        "connectorProfileArn" => String.t() | atom()
       }
 
   """
-  @type update_connector_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type update_connector_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       slack_metadata() :: %{
-        "oAuthScopes" => list(String.t() | Atom.t())
+        "oAuthScopes" => list(String.t() | atom())
       }
 
   """
-  @type slack_metadata() :: %{String.t() | Atom.t() => any()}
+  @type slack_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1970,26 +1970,26 @@ defmodule AWS.Appflow do
   ## Example:
 
       register_connector_response() :: %{
-        "connectorArn" => String.t() | Atom.t()
+        "connectorArn" => String.t() | atom()
       }
 
   """
-  @type register_connector_response() :: %{String.t() | Atom.t() => any()}
+  @type register_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       o_auth2_credentials() :: %{
-        "accessToken" => String.t() | Atom.t(),
-        "clientId" => String.t() | Atom.t(),
-        "clientSecret" => String.t() | Atom.t(),
+        "accessToken" => String.t() | atom(),
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
         "oAuthRequest" => connector_o_auth_request(),
-        "refreshToken" => String.t() | Atom.t()
+        "refreshToken" => String.t() | atom()
       }
 
   """
-  @type o_auth2_credentials() :: %{String.t() | Atom.t() => any()}
+  @type o_auth2_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1999,53 +1999,53 @@ defmodule AWS.Appflow do
         "dataTransferApi" => list(any()),
         "enableDynamicFieldUpdate" => boolean(),
         "includeDeletedRecords" => boolean(),
-        "object" => String.t() | Atom.t()
+        "object" => String.t() | atom()
       }
 
   """
-  @type salesforce_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type salesforce_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       datadog_connector_profile_credentials() :: %{
-        "apiKey" => String.t() | Atom.t(),
-        "applicationKey" => String.t() | Atom.t()
+        "apiKey" => String.t() | atom(),
+        "applicationKey" => String.t() | atom()
       }
 
   """
-  @type datadog_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type datadog_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reset_connector_metadata_cache_request() :: %{
-        optional("apiVersion") => String.t() | Atom.t(),
-        optional("connectorEntityName") => String.t() | Atom.t(),
-        optional("connectorProfileName") => String.t() | Atom.t(),
+        optional("apiVersion") => String.t() | atom(),
+        optional("connectorEntityName") => String.t() | atom(),
+        optional("connectorProfileName") => String.t() | atom(),
         optional("connectorType") => list(any()),
-        optional("entitiesPath") => String.t() | Atom.t()
+        optional("entitiesPath") => String.t() | atom()
       }
 
   """
-  @type reset_connector_metadata_cache_request() :: %{String.t() | Atom.t() => any()}
+  @type reset_connector_metadata_cache_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       veeva_source_properties() :: %{
-        "documentType" => String.t() | Atom.t(),
+        "documentType" => String.t() | atom(),
         "includeAllVersions" => boolean(),
         "includeRenditions" => boolean(),
         "includeSourceFiles" => boolean(),
-        "object" => String.t() | Atom.t()
+        "object" => String.t() | atom()
       }
 
   """
-  @type veeva_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type veeva_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2062,11 +2062,11 @@ defmodule AWS.Appflow do
 
       delete_connector_profile_request() :: %{
         optional("forceDelete") => boolean(),
-        required("connectorProfileName") => String.t() | Atom.t()
+        required("connectorProfileName") => String.t() | atom()
       }
 
   """
-  @type delete_connector_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_connector_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2078,33 +2078,33 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type connector_profile_config() :: %{String.t() | Atom.t() => any()}
+  @type connector_profile_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_o_auth_request() :: %{
-        "authCode" => String.t() | Atom.t(),
-        "redirectUri" => String.t() | Atom.t()
+        "authCode" => String.t() | atom(),
+        "redirectUri" => String.t() | atom()
       }
 
   """
-  @type connector_o_auth_request() :: %{String.t() | Atom.t() => any()}
+  @type connector_o_auth_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       zendesk_connector_profile_credentials() :: %{
-        "accessToken" => String.t() | Atom.t(),
-        "clientId" => String.t() | Atom.t(),
-        "clientSecret" => String.t() | Atom.t(),
+        "accessToken" => String.t() | atom(),
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
         "oAuthRequest" => connector_o_auth_request()
       }
 
   """
-  @type zendesk_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type zendesk_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2113,7 +2113,7 @@ defmodule AWS.Appflow do
       execution_record() :: %{
         "dataPullEndTime" => non_neg_integer(),
         "dataPullStartTime" => non_neg_integer(),
-        "executionId" => String.t() | Atom.t(),
+        "executionId" => String.t() | atom(),
         "executionResult" => execution_result(),
         "executionStatus" => list(any()),
         "lastUpdatedAt" => non_neg_integer(),
@@ -2122,61 +2122,61 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type execution_record() :: %{String.t() | Atom.t() => any()}
+  @type execution_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       google_analytics_connector_profile_credentials() :: %{
-        "accessToken" => String.t() | Atom.t(),
-        "clientId" => String.t() | Atom.t(),
-        "clientSecret" => String.t() | Atom.t(),
+        "accessToken" => String.t() | atom(),
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
         "oAuthRequest" => connector_o_auth_request(),
-        "refreshToken" => String.t() | Atom.t()
+        "refreshToken" => String.t() | atom()
       }
 
   """
-  @type google_analytics_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type google_analytics_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       o_auth2_custom_parameter() :: %{
-        "connectorSuppliedValues" => list(String.t() | Atom.t()),
-        "description" => String.t() | Atom.t(),
+        "connectorSuppliedValues" => list(String.t() | atom()),
+        "description" => String.t() | atom(),
         "isRequired" => boolean(),
         "isSensitiveField" => boolean(),
-        "key" => String.t() | Atom.t(),
-        "label" => String.t() | Atom.t(),
+        "key" => String.t() | atom(),
+        "label" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type o_auth2_custom_parameter() :: %{String.t() | Atom.t() => any()}
+  @type o_auth2_custom_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_connector_profile_response() :: %{
-        "connectorProfileArn" => String.t() | Atom.t()
+        "connectorProfileArn" => String.t() | atom()
       }
 
   """
-  @type create_connector_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type create_connector_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2188,7 +2188,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type custom_connector_profile_properties() :: %{String.t() | Atom.t() => any()}
+  @type custom_connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2213,34 +2213,34 @@ defmodule AWS.Appflow do
   ## Example:
 
       veeva_connector_profile_properties() :: %{
-        "instanceUrl" => String.t() | Atom.t()
+        "instanceUrl" => String.t() | atom()
       }
 
   """
-  @type veeva_connector_profile_properties() :: %{String.t() | Atom.t() => any()}
+  @type veeva_connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       success_response_handling_config() :: %{
-        "bucketName" => String.t() | Atom.t(),
-        "bucketPrefix" => String.t() | Atom.t()
+        "bucketName" => String.t() | atom(),
+        "bucketPrefix" => String.t() | atom()
       }
 
   """
-  @type success_response_handling_config() :: %{String.t() | Atom.t() => any()}
+  @type success_response_handling_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2256,70 +2256,70 @@ defmodule AWS.Appflow do
   ## Example:
 
       dynatrace_connector_profile_credentials() :: %{
-        "apiToken" => String.t() | Atom.t()
+        "apiToken" => String.t() | atom()
       }
 
   """
-  @type dynatrace_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type dynatrace_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       error_handling_config() :: %{
-        "bucketName" => String.t() | Atom.t(),
-        "bucketPrefix" => String.t() | Atom.t(),
+        "bucketName" => String.t() | atom(),
+        "bucketPrefix" => String.t() | atom(),
         "failOnFirstDestinationError" => boolean()
       }
 
   """
-  @type error_handling_config() :: %{String.t() | Atom.t() => any()}
+  @type error_handling_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_connector_registration_response() :: %{
-        "connectorArn" => String.t() | Atom.t()
+        "connectorArn" => String.t() | atom()
       }
 
   """
-  @type update_connector_registration_response() :: %{String.t() | Atom.t() => any()}
+  @type update_connector_registration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       google_analytics_source_properties() :: %{
-        "object" => String.t() | Atom.t()
+        "object" => String.t() | atom()
       }
 
   """
-  @type google_analytics_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type google_analytics_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       upsolver_destination_properties() :: %{
-        "bucketName" => String.t() | Atom.t(),
-        "bucketPrefix" => String.t() | Atom.t(),
+        "bucketName" => String.t() | atom(),
+        "bucketPrefix" => String.t() | atom(),
         "s3OutputFormatConfig" => upsolver_s3_output_format_config()
       }
 
   """
-  @type upsolver_destination_properties() :: %{String.t() | Atom.t() => any()}
+  @type upsolver_destination_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2330,7 +2330,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type s_a_p_o_data_parallelism_config() :: %{String.t() | Atom.t() => any()}
+  @type s_a_p_o_data_parallelism_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2341,31 +2341,31 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type supported_field_type_details() :: %{String.t() | Atom.t() => any()}
+  @type supported_field_type_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pardot_connector_profile_properties() :: %{
-        "businessUnitId" => String.t() | Atom.t(),
-        "instanceUrl" => String.t() | Atom.t(),
+        "businessUnitId" => String.t() | atom(),
+        "instanceUrl" => String.t() | atom(),
         "isSandboxEnvironment" => boolean()
       }
 
   """
-  @type pardot_connector_profile_properties() :: %{String.t() | Atom.t() => any()}
+  @type pardot_connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dynatrace_connector_profile_properties() :: %{
-        "instanceUrl" => String.t() | Atom.t()
+        "instanceUrl" => String.t() | atom()
       }
 
   """
-  @type dynatrace_connector_profile_properties() :: %{String.t() | Atom.t() => any()}
+  @type dynatrace_connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2377,7 +2377,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type s_a_p_o_data_connector_profile_credentials() :: %{String.t() | Atom.t() => any()}
+  @type s_a_p_o_data_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2386,11 +2386,11 @@ defmodule AWS.Appflow do
       custom_connector_source_properties() :: %{
         "customProperties" => map(),
         "dataTransferApi" => data_transfer_api(),
-        "entityName" => String.t() | Atom.t()
+        "entityName" => String.t() | atom()
       }
 
   """
-  @type custom_connector_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type custom_connector_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2398,23 +2398,23 @@ defmodule AWS.Appflow do
 
       o_auth2_properties() :: %{
         "oAuth2GrantType" => list(any()),
-        "tokenUrl" => String.t() | Atom.t(),
+        "tokenUrl" => String.t() | atom(),
         "tokenUrlCustomProperties" => map()
       }
 
   """
-  @type o_auth2_properties() :: %{String.t() | Atom.t() => any()}
+  @type o_auth2_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       marketo_connector_profile_properties() :: %{
-        "instanceUrl" => String.t() | Atom.t()
+        "instanceUrl" => String.t() | atom()
       }
 
   """
-  @type marketo_connector_profile_properties() :: %{String.t() | Atom.t() => any()}
+  @type marketo_connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2422,16 +2422,16 @@ defmodule AWS.Appflow do
 
       field_type_details() :: %{
         "fieldLengthRange" => range(),
-        "fieldType" => String.t() | Atom.t(),
+        "fieldType" => String.t() | atom(),
         "fieldValueRange" => range(),
         "filterOperators" => list(list(any())()),
-        "supportedDateFormat" => String.t() | Atom.t(),
-        "supportedValues" => list(String.t() | Atom.t()),
-        "valueRegexPattern" => String.t() | Atom.t()
+        "supportedDateFormat" => String.t() | atom(),
+        "supportedValues" => list(String.t() | atom()),
+        "valueRegexPattern" => String.t() | atom()
       }
 
   """
-  @type field_type_details() :: %{String.t() | Atom.t() => any()}
+  @type field_type_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2467,7 +2467,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type connector_operator() :: %{String.t() | Atom.t() => any()}
+  @type connector_operator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2478,47 +2478,47 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type update_flow_response() :: %{String.t() | Atom.t() => any()}
+  @type update_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       snowflake_connector_profile_properties() :: %{
-        "accountName" => String.t() | Atom.t(),
-        "bucketName" => String.t() | Atom.t(),
-        "bucketPrefix" => String.t() | Atom.t(),
-        "privateLinkServiceName" => String.t() | Atom.t(),
-        "region" => String.t() | Atom.t(),
-        "stage" => String.t() | Atom.t(),
-        "warehouse" => String.t() | Atom.t()
+        "accountName" => String.t() | atom(),
+        "bucketName" => String.t() | atom(),
+        "bucketPrefix" => String.t() | atom(),
+        "privateLinkServiceName" => String.t() | atom(),
+        "region" => String.t() | atom(),
+        "stage" => String.t() | atom(),
+        "warehouse" => String.t() | atom()
       }
 
   """
-  @type snowflake_connector_profile_properties() :: %{String.t() | Atom.t() => any()}
+  @type snowflake_connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       infor_nexus_connector_profile_properties() :: %{
-        "instanceUrl" => String.t() | Atom.t()
+        "instanceUrl" => String.t() | atom()
       }
 
   """
-  @type infor_nexus_connector_profile_properties() :: %{String.t() | Atom.t() => any()}
+  @type infor_nexus_connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_flow_executions_request() :: %{
-        optional("executionIds") => list(String.t() | Atom.t()),
-        required("flowName") => String.t() | Atom.t()
+        optional("executionIds") => list(String.t() | atom()),
+        required("flowName") => String.t() | atom()
       }
 
   """
-  @type cancel_flow_executions_request() :: %{String.t() | Atom.t() => any()}
+  @type cancel_flow_executions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2526,18 +2526,18 @@ defmodule AWS.Appflow do
 
       describe_flow_response() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "destinationFlowConfigList" => list(destination_flow_config()),
-        "flowArn" => String.t() | Atom.t(),
-        "flowName" => String.t() | Atom.t(),
+        "flowArn" => String.t() | atom(),
+        "flowName" => String.t() | atom(),
         "flowStatus" => list(any()),
-        "flowStatusMessage" => String.t() | Atom.t(),
-        "kmsArn" => String.t() | Atom.t(),
+        "flowStatusMessage" => String.t() | atom(),
+        "kmsArn" => String.t() | atom(),
         "lastRunExecutionDetails" => execution_details(),
         "lastRunMetadataCatalogDetails" => list(metadata_catalog_detail()),
         "lastUpdatedAt" => non_neg_integer(),
-        "lastUpdatedBy" => String.t() | Atom.t(),
+        "lastUpdatedBy" => String.t() | atom(),
         "metadataCatalogConfig" => metadata_catalog_config(),
         "schemaVersion" => float(),
         "sourceFlowConfig" => source_flow_config(),
@@ -2547,18 +2547,18 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type describe_flow_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lambda_connector_provisioning_config() :: %{
-        "lambdaArn" => String.t() | Atom.t()
+        "lambdaArn" => String.t() | atom()
       }
 
   """
-  @type lambda_connector_provisioning_config() :: %{String.t() | Atom.t() => any()}
+  @type lambda_connector_provisioning_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2574,19 +2574,19 @@ defmodule AWS.Appflow do
   ## Example:
 
       redshift_connector_profile_properties() :: %{
-        "bucketName" => String.t() | Atom.t(),
-        "bucketPrefix" => String.t() | Atom.t(),
-        "clusterIdentifier" => String.t() | Atom.t(),
-        "dataApiRoleArn" => String.t() | Atom.t(),
-        "databaseName" => String.t() | Atom.t(),
-        "databaseUrl" => String.t() | Atom.t(),
+        "bucketName" => String.t() | atom(),
+        "bucketPrefix" => String.t() | atom(),
+        "clusterIdentifier" => String.t() | atom(),
+        "dataApiRoleArn" => String.t() | atom(),
+        "databaseName" => String.t() | atom(),
+        "databaseUrl" => String.t() | atom(),
         "isRedshiftServerless" => boolean(),
-        "roleArn" => String.t() | Atom.t(),
-        "workgroupName" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom(),
+        "workgroupName" => String.t() | atom()
       }
 
   """
-  @type redshift_connector_profile_properties() :: %{String.t() | Atom.t() => any()}
+  @type redshift_connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2620,12 +2620,12 @@ defmodule AWS.Appflow do
   ## Example:
 
       customer_profiles_destination_properties() :: %{
-        "domainName" => String.t() | Atom.t(),
-        "objectTypeName" => String.t() | Atom.t()
+        "domainName" => String.t() | atom(),
+        "objectTypeName" => String.t() | atom()
       }
 
   """
-  @type customer_profiles_destination_properties() :: %{String.t() | Atom.t() => any()}
+  @type customer_profiles_destination_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2633,23 +2633,23 @@ defmodule AWS.Appflow do
 
       salesforce_metadata() :: %{
         "dataTransferApis" => list(list(any())()),
-        "oAuthScopes" => list(String.t() | Atom.t()),
+        "oAuthScopes" => list(String.t() | atom()),
         "oauth2GrantTypesSupported" => list(list(any())())
       }
 
   """
-  @type salesforce_metadata() :: %{String.t() | Atom.t() => any()}
+  @type salesforce_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_now_source_properties() :: %{
-        "object" => String.t() | Atom.t()
+        "object" => String.t() | atom()
       }
 
   """
-  @type service_now_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type service_now_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2678,46 +2678,46 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type connector_profile_properties() :: %{String.t() | Atom.t() => any()}
+  @type connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       incremental_pull_config() :: %{
-        "datetimeTypeFieldName" => String.t() | Atom.t()
+        "datetimeTypeFieldName" => String.t() | atom()
       }
 
   """
-  @type incremental_pull_config() :: %{String.t() | Atom.t() => any()}
+  @type incremental_pull_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_flow_request() :: %{
-        required("flowName") => String.t() | Atom.t()
+        required("flowName") => String.t() | atom()
       }
 
   """
-  @type stop_flow_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_runtime_setting() :: %{
-        "connectorSuppliedValueOptions" => list(String.t() | Atom.t()),
-        "dataType" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "connectorSuppliedValueOptions" => list(String.t() | atom()),
+        "dataType" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "isRequired" => boolean(),
-        "key" => String.t() | Atom.t(),
-        "label" => String.t() | Atom.t(),
-        "scope" => String.t() | Atom.t()
+        "key" => String.t() | atom(),
+        "label" => String.t() | atom(),
+        "scope" => String.t() | atom()
       }
 
   """
-  @type connector_runtime_setting() :: %{String.t() | Atom.t() => any()}
+  @type connector_runtime_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2729,7 +2729,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type trigger_config() :: %{String.t() | Atom.t() => any()}
+  @type trigger_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2745,7 +2745,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type authentication_config() :: %{String.t() | Atom.t() => any()}
+  @type authentication_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2764,24 +2764,24 @@ defmodule AWS.Appflow do
         "authenticationConfig" => authentication_config(),
         "canUseAsDestination" => boolean(),
         "canUseAsSource" => boolean(),
-        "connectorArn" => String.t() | Atom.t(),
-        "connectorDescription" => String.t() | Atom.t(),
-        "connectorLabel" => String.t() | Atom.t(),
+        "connectorArn" => String.t() | atom(),
+        "connectorDescription" => String.t() | atom(),
+        "connectorLabel" => String.t() | atom(),
         "connectorMetadata" => connector_metadata(),
-        "connectorModes" => list(String.t() | Atom.t()),
-        "connectorName" => String.t() | Atom.t(),
-        "connectorOwner" => String.t() | Atom.t(),
+        "connectorModes" => list(String.t() | atom()),
+        "connectorName" => String.t() | atom(),
+        "connectorOwner" => String.t() | atom(),
         "connectorProvisioningConfig" => connector_provisioning_config(),
         "connectorProvisioningType" => list(any()),
         "connectorRuntimeSettings" => list(connector_runtime_setting()),
         "connectorType" => list(any()),
-        "connectorVersion" => String.t() | Atom.t(),
+        "connectorVersion" => String.t() | atom(),
         "isPrivateLinkEnabled" => boolean(),
         "isPrivateLinkEndpointUrlRequired" => boolean(),
-        "logoURL" => String.t() | Atom.t(),
+        "logoURL" => String.t() | atom(),
         "registeredAt" => non_neg_integer(),
-        "registeredBy" => String.t() | Atom.t(),
-        "supportedApiVersions" => list(String.t() | Atom.t()),
+        "registeredBy" => String.t() | atom(),
+        "supportedApiVersions" => list(String.t() | atom()),
         "supportedDataTransferApis" => list(data_transfer_api()),
         "supportedDataTransferTypes" => list(list(any())()),
         "supportedDestinationConnectors" => list(list(any())()),
@@ -2792,7 +2792,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type connector_configuration() :: %{String.t() | Atom.t() => any()}
+  @type connector_configuration() :: %{(String.t() | atom()) => any()}
 
   @type cancel_flow_executions_errors() ::
           throttling_exception()
@@ -3432,7 +3432,7 @@ defmodule AWS.Appflow do
   @doc """
   Retrieves the tags that are associated with a specified flow.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3591,7 +3591,7 @@ defmodule AWS.Appflow do
   @doc """
   Applies a tag to the specified flow.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3651,7 +3651,7 @@ defmodule AWS.Appflow do
   @doc """
   Removes a tag from the specified flow.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

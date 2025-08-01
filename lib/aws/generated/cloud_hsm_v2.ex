@@ -15,14 +15,14 @@ defmodule AWS.CloudHSMV2 do
   ## Example:
       
       delete_hsm_request() :: %{
-        optional("EniId") => String.t() | Atom.t(),
-        optional("EniIp") => String.t() | Atom.t(),
-        optional("HsmId") => String.t() | Atom.t(),
-        required("ClusterId") => String.t() | Atom.t()
+        optional("EniId") => String.t() | atom(),
+        optional("EniIp") => String.t() | atom(),
+        optional("HsmId") => String.t() | atom(),
+        required("ClusterId") => String.t() | atom()
       }
       
   """
-  @type delete_hsm_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_hsm_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -33,31 +33,31 @@ defmodule AWS.CloudHSMV2 do
       }
       
   """
-  @type create_hsm_response() :: %{String.t() | Atom.t() => any()}
+  @type create_hsm_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceId") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | atom(),
         required("TagList") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_policy_response() :: %{
-        "Policy" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t()
+        "Policy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
       }
       
   """
-  @type delete_resource_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -77,18 +77,18 @@ defmodule AWS.CloudHSMV2 do
       }
       
   """
-  @type create_cluster_response() :: %{String.t() | Atom.t() => any()}
+  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_hsm_resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type cloud_hsm_resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type cloud_hsm_resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -99,53 +99,53 @@ defmodule AWS.CloudHSMV2 do
       }
       
   """
-  @type modify_backup_attributes_response() :: %{String.t() | Atom.t() => any()}
+  @type modify_backup_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "TagList" => list(tag())
       }
       
   """
-  @type list_tags_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_policy_response() :: %{
-        "Policy" => String.t() | Atom.t()
+        "Policy" => String.t() | atom()
       }
       
   """
-  @type get_resource_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_hsm_access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type cloud_hsm_access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type cloud_hsm_access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceId") => String.t() | Atom.t(),
-        required("TagKeyList") => list(String.t() | Atom.t())
+        required("ResourceId") => String.t() | atom(),
+        required("TagKeyList") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -156,41 +156,41 @@ defmodule AWS.CloudHSMV2 do
       }
       
   """
-  @type restore_backup_response() :: %{String.t() | Atom.t() => any()}
+  @type restore_backup_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       modify_backup_attributes_request() :: %{
-        required("BackupId") => String.t() | Atom.t(),
+        required("BackupId") => String.t() | atom(),
         required("NeverExpires") => boolean()
       }
       
   """
-  @type modify_backup_attributes_request() :: %{String.t() | Atom.t() => any()}
+  @type modify_backup_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_hsm_response() :: %{
-        "HsmId" => String.t() | Atom.t()
+        "HsmId" => String.t() | atom()
       }
       
   """
-  @type delete_hsm_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_hsm_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_hsm_resource_limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type cloud_hsm_resource_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type cloud_hsm_resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -201,7 +201,7 @@ defmodule AWS.CloudHSMV2 do
       }
       
   """
-  @type modify_cluster_response() :: %{String.t() | Atom.t() => any()}
+  @type modify_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -209,24 +209,24 @@ defmodule AWS.CloudHSMV2 do
       
       destination_backup() :: %{
         "CreateTimestamp" => non_neg_integer(),
-        "SourceBackup" => String.t() | Atom.t(),
-        "SourceCluster" => String.t() | Atom.t(),
-        "SourceRegion" => String.t() | Atom.t()
+        "SourceBackup" => String.t() | atom(),
+        "SourceCluster" => String.t() | atom(),
+        "SourceRegion" => String.t() | atom()
       }
       
   """
-  @type destination_backup() :: %{String.t() | Atom.t() => any()}
+  @type destination_backup() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_hsm_internal_failure_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type cloud_hsm_internal_failure_exception() :: %{String.t() | Atom.t() => any()}
+  @type cloud_hsm_internal_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -236,14 +236,14 @@ defmodule AWS.CloudHSMV2 do
         optional("BackupRetentionPolicy") => backup_retention_policy(),
         optional("Mode") => list(any()),
         optional("NetworkType") => list(any()),
-        optional("SourceBackupId") => String.t() | Atom.t(),
+        optional("SourceBackupId") => String.t() | atom(),
         optional("TagList") => list(tag()),
-        required("HsmType") => String.t() | Atom.t(),
-        required("SubnetIds") => list(String.t() | Atom.t())
+        required("HsmType") => String.t() | atom(),
+        required("SubnetIds") => list(String.t() | atom())
       }
       
   """
-  @type create_cluster_request() :: %{String.t() | Atom.t() => any()}
+  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -252,25 +252,25 @@ defmodule AWS.CloudHSMV2 do
       describe_backups_request() :: %{
         optional("Filters") => map(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Shared") => boolean(),
         optional("SortAscending") => boolean()
       }
       
   """
-  @type describe_backups_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_backups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -280,38 +280,38 @@ defmodule AWS.CloudHSMV2 do
         "BackupPolicy" => list(any()),
         "BackupRetentionPolicy" => backup_retention_policy(),
         "Certificates" => certificates(),
-        "ClusterId" => String.t() | Atom.t(),
+        "ClusterId" => String.t() | atom(),
         "CreateTimestamp" => non_neg_integer(),
-        "HsmType" => String.t() | Atom.t(),
+        "HsmType" => String.t() | atom(),
         "HsmTypeRollbackExpiration" => non_neg_integer(),
         "Hsms" => list(hsm()),
         "Mode" => list(any()),
         "NetworkType" => list(any()),
-        "PreCoPassword" => String.t() | Atom.t(),
-        "SecurityGroup" => String.t() | Atom.t(),
-        "SourceBackupId" => String.t() | Atom.t(),
+        "PreCoPassword" => String.t() | atom(),
+        "SecurityGroup" => String.t() | atom(),
+        "SourceBackupId" => String.t() | atom(),
         "State" => list(any()),
-        "StateMessage" => String.t() | Atom.t(),
+        "StateMessage" => String.t() | atom(),
         "SubnetMapping" => map(),
         "TagList" => list(tag()),
-        "VpcId" => String.t() | Atom.t()
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type cluster() :: %{String.t() | Atom.t() => any()}
+  @type cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_hsm_request() :: %{
-        optional("IpAddress") => String.t() | Atom.t(),
-        required("AvailabilityZone") => String.t() | Atom.t(),
-        required("ClusterId") => String.t() | Atom.t()
+        optional("IpAddress") => String.t() | atom(),
+        required("AvailabilityZone") => String.t() | atom(),
+        required("ClusterId") => String.t() | atom()
       }
       
   """
-  @type create_hsm_request() :: %{String.t() | Atom.t() => any()}
+  @type create_hsm_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -322,7 +322,7 @@ defmodule AWS.CloudHSMV2 do
       }
       
   """
-  @type delete_backup_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_backup_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -330,23 +330,23 @@ defmodule AWS.CloudHSMV2 do
       
       copy_backup_to_region_request() :: %{
         optional("TagList") => list(tag()),
-        required("BackupId") => String.t() | Atom.t(),
-        required("DestinationRegion") => String.t() | Atom.t()
+        required("BackupId") => String.t() | atom(),
+        required("DestinationRegion") => String.t() | atom()
       }
       
   """
-  @type copy_backup_to_region_request() :: %{String.t() | Atom.t() => any()}
+  @type copy_backup_to_region_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_policy_request() :: %{
-        optional("ResourceArn") => String.t() | Atom.t()
+        optional("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type get_resource_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -357,7 +357,7 @@ defmodule AWS.CloudHSMV2 do
       }
       
   """
-  @type delete_cluster_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -365,36 +365,36 @@ defmodule AWS.CloudHSMV2 do
       
       modify_cluster_request() :: %{
         optional("BackupRetentionPolicy") => backup_retention_policy(),
-        optional("HsmType") => String.t() | Atom.t(),
-        required("ClusterId") => String.t() | Atom.t()
+        optional("HsmType") => String.t() | atom(),
+        required("ClusterId") => String.t() | atom()
       }
       
   """
-  @type modify_cluster_request() :: %{String.t() | Atom.t() => any()}
+  @type modify_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       backup() :: %{
-        "BackupArn" => String.t() | Atom.t(),
-        "BackupId" => String.t() | Atom.t(),
+        "BackupArn" => String.t() | atom(),
+        "BackupId" => String.t() | atom(),
         "BackupState" => list(any()),
-        "ClusterId" => String.t() | Atom.t(),
+        "ClusterId" => String.t() | atom(),
         "CopyTimestamp" => non_neg_integer(),
         "CreateTimestamp" => non_neg_integer(),
         "DeleteTimestamp" => non_neg_integer(),
-        "HsmType" => String.t() | Atom.t(),
+        "HsmType" => String.t() | atom(),
         "Mode" => list(any()),
         "NeverExpires" => boolean(),
-        "SourceBackup" => String.t() | Atom.t(),
-        "SourceCluster" => String.t() | Atom.t(),
-        "SourceRegion" => String.t() | Atom.t(),
+        "SourceBackup" => String.t() | atom(),
+        "SourceCluster" => String.t() | atom(),
+        "SourceRegion" => String.t() | atom(),
         "TagList" => list(tag())
       }
       
   """
-  @type backup() :: %{String.t() | Atom.t() => any()}
+  @type backup() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -402,76 +402,76 @@ defmodule AWS.CloudHSMV2 do
       
       initialize_cluster_response() :: %{
         "State" => list(any()),
-        "StateMessage" => String.t() | Atom.t()
+        "StateMessage" => String.t() | atom()
       }
       
   """
-  @type initialize_cluster_response() :: %{String.t() | Atom.t() => any()}
+  @type initialize_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cluster_request() :: %{
-        required("ClusterId") => String.t() | Atom.t()
+        required("ClusterId") => String.t() | atom()
       }
       
   """
-  @type delete_cluster_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       restore_backup_request() :: %{
-        required("BackupId") => String.t() | Atom.t()
+        required("BackupId") => String.t() | atom()
       }
       
   """
-  @type restore_backup_request() :: %{String.t() | Atom.t() => any()}
+  @type restore_backup_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_hsm_invalid_request_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type cloud_hsm_invalid_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type cloud_hsm_invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_request() :: %{
-        optional("Policy") => String.t() | Atom.t(),
-        optional("ResourceArn") => String.t() | Atom.t()
+        optional("Policy") => String.t() | atom(),
+        optional("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type put_resource_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       hsm() :: %{
-        "AvailabilityZone" => String.t() | Atom.t(),
-        "ClusterId" => String.t() | Atom.t(),
-        "EniId" => String.t() | Atom.t(),
-        "EniIp" => String.t() | Atom.t(),
-        "EniIpV6" => String.t() | Atom.t(),
-        "HsmId" => String.t() | Atom.t(),
-        "HsmType" => String.t() | Atom.t(),
+        "AvailabilityZone" => String.t() | atom(),
+        "ClusterId" => String.t() | atom(),
+        "EniId" => String.t() | atom(),
+        "EniIp" => String.t() | atom(),
+        "EniIpV6" => String.t() | atom(),
+        "HsmId" => String.t() | atom(),
+        "HsmType" => String.t() | atom(),
         "State" => list(any()),
-        "StateMessage" => String.t() | Atom.t(),
-        "SubnetId" => String.t() | Atom.t()
+        "StateMessage" => String.t() | atom(),
+        "SubnetId" => String.t() | atom()
       }
       
   """
-  @type hsm() :: %{String.t() | Atom.t() => any()}
+  @type hsm() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -488,22 +488,22 @@ defmodule AWS.CloudHSMV2 do
       
       describe_clusters_response() :: %{
         "Clusters" => list(cluster()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_clusters_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_clusters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_hsm_service_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type cloud_hsm_service_exception() :: %{String.t() | Atom.t() => any()}
+  @type cloud_hsm_service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -514,58 +514,58 @@ defmodule AWS.CloudHSMV2 do
       }
       
   """
-  @type copy_backup_to_region_response() :: %{String.t() | Atom.t() => any()}
+  @type copy_backup_to_region_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       certificates() :: %{
-        "AwsHardwareCertificate" => String.t() | Atom.t(),
-        "ClusterCertificate" => String.t() | Atom.t(),
-        "ClusterCsr" => String.t() | Atom.t(),
-        "HsmCertificate" => String.t() | Atom.t(),
-        "ManufacturerHardwareCertificate" => String.t() | Atom.t()
+        "AwsHardwareCertificate" => String.t() | atom(),
+        "ClusterCertificate" => String.t() | atom(),
+        "ClusterCsr" => String.t() | atom(),
+        "HsmCertificate" => String.t() | atom(),
+        "ManufacturerHardwareCertificate" => String.t() | atom()
       }
       
   """
-  @type certificates() :: %{String.t() | Atom.t() => any()}
+  @type certificates() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_response() :: %{
-        "Policy" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t()
+        "Policy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
       }
       
   """
-  @type put_resource_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       initialize_cluster_request() :: %{
-        required("ClusterId") => String.t() | Atom.t(),
-        required("SignedCert") => String.t() | Atom.t(),
-        required("TrustAnchor") => String.t() | Atom.t()
+        required("ClusterId") => String.t() | atom(),
+        required("SignedCert") => String.t() | atom(),
+        required("TrustAnchor") => String.t() | atom()
       }
       
   """
-  @type initialize_cluster_request() :: %{String.t() | Atom.t() => any()}
+  @type initialize_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_policy_request() :: %{
-        optional("ResourceArn") => String.t() | Atom.t()
+        optional("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type delete_resource_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -573,22 +573,22 @@ defmodule AWS.CloudHSMV2 do
       
       describe_backups_response() :: %{
         "Backups" => list(backup()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_backups_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_backups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_backup_request() :: %{
-        required("BackupId") => String.t() | Atom.t()
+        required("BackupId") => String.t() | atom()
       }
       
   """
-  @type delete_backup_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_backup_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -596,12 +596,12 @@ defmodule AWS.CloudHSMV2 do
       
       list_tags_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ResourceId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom()
       }
       
   """
-  @type list_tags_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -609,22 +609,22 @@ defmodule AWS.CloudHSMV2 do
       
       backup_retention_policy() :: %{
         "Type" => list(any()),
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type backup_retention_policy() :: %{String.t() | Atom.t() => any()}
+  @type backup_retention_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_hsm_tag_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type cloud_hsm_tag_exception() :: %{String.t() | Atom.t() => any()}
+  @type cloud_hsm_tag_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -633,11 +633,11 @@ defmodule AWS.CloudHSMV2 do
       describe_clusters_request() :: %{
         optional("Filters") => map(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_clusters_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_clusters_request() :: %{(String.t() | atom()) => any()}
 
   @type copy_backup_to_region_errors() ::
           cloud_hsm_tag_exception()

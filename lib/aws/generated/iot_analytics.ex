@@ -62,19 +62,19 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type sample_channel_data_request() :: %{String.t() | Atom.t() => any()}
+  @type sample_channel_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("resourceArn") => String.t() | Atom.t(),
+        required("resourceArn") => String.t() | atom(),
         required("tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -85,18 +85,18 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type query_filter() :: %{String.t() | Atom.t() => any()}
+  @type query_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_failure_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_failure_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -107,30 +107,30 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type datastore_iot_site_wise_multi_layer_storage_summary() :: %{String.t() | Atom.t() => any()}
+  @type datastore_iot_site_wise_multi_layer_storage_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_pipelines_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "pipelineSummaries" => list(pipeline_summary())
       }
 
   """
-  @type list_pipelines_response() :: %{String.t() | Atom.t() => any()}
+  @type list_pipelines_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       output_file_uri_value() :: %{
-        "fileName" => String.t() | Atom.t()
+        "fileName" => String.t() | atom()
       }
 
   """
-  @type output_file_uri_value() :: %{String.t() | Atom.t() => any()}
+  @type output_file_uri_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -141,20 +141,20 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type sample_channel_data_response() :: %{String.t() | Atom.t() => any()}
+  @type sample_channel_data_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       customer_managed_channel_s3_storage_summary() :: %{
-        "bucket" => String.t() | Atom.t(),
-        "keyPrefix" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "bucket" => String.t() | atom(),
+        "keyPrefix" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type customer_managed_channel_s3_storage_summary() :: %{String.t() | Atom.t() => any()}
+  @type customer_managed_channel_s3_storage_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -162,24 +162,24 @@ defmodule AWS.IoTAnalytics do
 
       list_pipelines_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_pipelines_request() :: %{String.t() | Atom.t() => any()}
+  @type list_pipelines_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_channel_response() :: %{
-        "channelArn" => String.t() | Atom.t(),
-        "channelName" => String.t() | Atom.t(),
+        "channelArn" => String.t() | atom(),
+        "channelName" => String.t() | atom(),
         "retentionPeriod" => retention_period()
       }
 
   """
-  @type create_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type create_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -187,23 +187,23 @@ defmodule AWS.IoTAnalytics do
 
       late_data_rule() :: %{
         "ruleConfiguration" => late_data_rule_configuration(),
-        "ruleName" => String.t() | Atom.t()
+        "ruleName" => String.t() | atom()
       }
 
   """
-  @type late_data_rule() :: %{String.t() | Atom.t() => any()}
+  @type late_data_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dataset_entry() :: %{
-        "dataURI" => String.t() | Atom.t(),
-        "entryName" => String.t() | Atom.t()
+        "dataURI" => String.t() | atom(),
+        "entryName" => String.t() | atom()
       }
 
   """
-  @type dataset_entry() :: %{String.t() | Atom.t() => any()}
+  @type dataset_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -211,13 +211,13 @@ defmodule AWS.IoTAnalytics do
 
       lambda_activity() :: %{
         "batchSize" => integer(),
-        "lambdaName" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "next" => String.t() | Atom.t()
+        "lambdaName" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "next" => String.t() | atom()
       }
 
   """
-  @type lambda_activity() :: %{String.t() | Atom.t() => any()}
+  @type lambda_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -229,7 +229,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type versioning_configuration() :: %{String.t() | Atom.t() => any()}
+  @type versioning_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -240,7 +240,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type schema_definition() :: %{String.t() | Atom.t() => any()}
+  @type schema_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -256,23 +256,23 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       create_dataset_content_response() :: %{
-        "versionId" => String.t() | Atom.t()
+        "versionId" => String.t() | atom()
       }
 
   """
-  @type create_dataset_content_response() :: %{String.t() | Atom.t() => any()}
+  @type create_dataset_content_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       iot_site_wise_customer_managed_datastore_s3_storage() :: %{
-        "bucket" => String.t() | Atom.t(),
-        "keyPrefix" => String.t() | Atom.t()
+        "bucket" => String.t() | atom(),
+        "keyPrefix" => String.t() | atom()
       }
 
   """
-  @type iot_site_wise_customer_managed_datastore_s3_storage() :: %{String.t() | Atom.t() => any()}
+  @type iot_site_wise_customer_managed_datastore_s3_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -288,24 +288,24 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       create_pipeline_response() :: %{
-        "pipelineArn" => String.t() | Atom.t(),
-        "pipelineName" => String.t() | Atom.t()
+        "pipelineArn" => String.t() | atom(),
+        "pipelineName" => String.t() | atom()
       }
 
   """
-  @type create_pipeline_response() :: %{String.t() | Atom.t() => any()}
+  @type create_pipeline_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       timestamp_partition() :: %{
-        "attributeName" => String.t() | Atom.t(),
-        "timestampFormat" => String.t() | Atom.t()
+        "attributeName" => String.t() | atom(),
+        "timestampFormat" => String.t() | atom()
       }
 
   """
-  @type timestamp_partition() :: %{String.t() | Atom.t() => any()}
+  @type timestamp_partition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -313,24 +313,24 @@ defmodule AWS.IoTAnalytics do
 
       reprocessing_summary() :: %{
         "creationTime" => non_neg_integer(),
-        "id" => String.t() | Atom.t(),
+        "id" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type reprocessing_summary() :: %{String.t() | Atom.t() => any()}
+  @type reprocessing_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       column() :: %{
-        "name" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type column() :: %{String.t() | Atom.t() => any()}
+  @type column() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -343,7 +343,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type datastore_storage_summary() :: %{String.t() | Atom.t() => any()}
+  @type datastore_storage_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -355,7 +355,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type dataset_trigger() :: %{String.t() | Atom.t() => any()}
+  @type dataset_trigger() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -367,35 +367,35 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type dataset_content_delivery_destination() :: %{String.t() | Atom.t() => any()}
+  @type dataset_content_delivery_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       device_shadow_enrich_activity() :: %{
-        "attribute" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "next" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
-        "thingName" => String.t() | Atom.t()
+        "attribute" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "next" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "thingName" => String.t() | atom()
       }
 
   """
-  @type device_shadow_enrich_activity() :: %{String.t() | Atom.t() => any()}
+  @type device_shadow_enrich_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filter_activity() :: %{
-        "filter" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "next" => String.t() | Atom.t()
+        "filter" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "next" => String.t() | atom()
       }
 
   """
-  @type filter_activity() :: %{String.t() | Atom.t() => any()}
+  @type filter_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -403,15 +403,15 @@ defmodule AWS.IoTAnalytics do
 
       pipeline() :: %{
         "activities" => list(pipeline_activity()),
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
         "lastUpdateTime" => non_neg_integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "reprocessingSummaries" => list(reprocessing_summary())
       }
 
   """
-  @type pipeline() :: %{String.t() | Atom.t() => any()}
+  @type pipeline() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -423,7 +423,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type retention_period() :: %{String.t() | Atom.t() => any()}
+  @type retention_period() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -434,7 +434,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type datastore_partitions() :: %{String.t() | Atom.t() => any()}
+  @type datastore_partitions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -446,19 +446,19 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type file_format_configuration() :: %{String.t() | Atom.t() => any()}
+  @type file_format_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       run_pipeline_activity_response() :: %{
-        "logResult" => String.t() | Atom.t(),
+        "logResult" => String.t() | atom(),
         "payloads" => list(binary())
       }
 
   """
-  @type run_pipeline_activity_response() :: %{String.t() | Atom.t() => any()}
+  @type run_pipeline_activity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -466,11 +466,11 @@ defmodule AWS.IoTAnalytics do
 
       list_datasets_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_datasets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -482,7 +482,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type describe_datastore_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_datastore_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -493,22 +493,22 @@ defmodule AWS.IoTAnalytics do
         "creationTime" => non_neg_integer(),
         "scheduleTime" => non_neg_integer(),
         "status" => dataset_content_status(),
-        "version" => String.t() | Atom.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type dataset_content_summary() :: %{String.t() | Atom.t() => any()}
+  @type dataset_content_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       partition() :: %{
-        "attributeName" => String.t() | Atom.t()
+        "attributeName" => String.t() | atom()
       }
 
   """
-  @type partition() :: %{String.t() | Atom.t() => any()}
+  @type partition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -519,7 +519,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type describe_logging_options_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_logging_options_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -530,42 +530,42 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type datastore_iot_site_wise_multi_layer_storage() :: %{String.t() | Atom.t() => any()}
+  @type datastore_iot_site_wise_multi_layer_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("resourceArn") => String.t() | Atom.t(),
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       triggering_dataset() :: %{
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type triggering_dataset() :: %{String.t() | Atom.t() => any()}
+  @type triggering_dataset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_put_message_request() :: %{
-        required("channelName") => String.t() | Atom.t(),
+        required("channelName") => String.t() | atom(),
         required("messages") => list(message())
       }
 
   """
-  @type batch_put_message_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -578,7 +578,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type start_pipeline_reprocessing_request() :: %{String.t() | Atom.t() => any()}
+  @type start_pipeline_reprocessing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -590,7 +590,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type run_pipeline_activity_request() :: %{String.t() | Atom.t() => any()}
+  @type run_pipeline_activity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -598,11 +598,11 @@ defmodule AWS.IoTAnalytics do
 
       delta_time() :: %{
         "offsetSeconds" => integer(),
-        "timeExpression" => String.t() | Atom.t()
+        "timeExpression" => String.t() | atom()
       }
 
   """
-  @type delta_time() :: %{String.t() | Atom.t() => any()}
+  @type delta_time() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -610,12 +610,12 @@ defmodule AWS.IoTAnalytics do
 
       dataset() :: %{
         "actions" => list(dataset_action()),
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "contentDeliveryRules" => list(dataset_content_delivery_rule()),
         "creationTime" => non_neg_integer(),
         "lastUpdateTime" => non_neg_integer(),
         "lateDataRules" => list(late_data_rule()),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "retentionPeriod" => retention_period(),
         "status" => list(any()),
         "triggers" => list(dataset_trigger()),
@@ -623,20 +623,20 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type dataset() :: %{String.t() | Atom.t() => any()}
+  @type dataset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_dataset_response() :: %{
-        "datasetArn" => String.t() | Atom.t(),
-        "datasetName" => String.t() | Atom.t(),
+        "datasetArn" => String.t() | atom(),
+        "datasetName" => String.t() | atom(),
         "retentionPeriod" => retention_period()
       }
 
   """
-  @type create_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -647,40 +647,40 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type datastore_statistics() :: %{String.t() | Atom.t() => any()}
+  @type datastore_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       glue_configuration() :: %{
-        "databaseName" => String.t() | Atom.t(),
-        "tableName" => String.t() | Atom.t()
+        "databaseName" => String.t() | atom(),
+        "tableName" => String.t() | atom()
       }
 
   """
-  @type glue_configuration() :: %{String.t() | Atom.t() => any()}
+  @type glue_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       math_activity() :: %{
-        "attribute" => String.t() | Atom.t(),
-        "math" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "next" => String.t() | Atom.t()
+        "attribute" => String.t() | atom(),
+        "math" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "next" => String.t() | atom()
       }
 
   """
-  @type math_activity() :: %{String.t() | Atom.t() => any()}
+  @type math_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_summary() :: %{
-        "channelName" => String.t() | Atom.t(),
+        "channelName" => String.t() | atom(),
         "channelStorage" => channel_storage_summary(),
         "creationTime" => non_neg_integer(),
         "lastMessageArrivalTime" => non_neg_integer(),
@@ -689,38 +689,38 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type channel_summary() :: %{String.t() | Atom.t() => any()}
+  @type channel_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       datastore() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
         "datastorePartitions" => datastore_partitions(),
         "fileFormatConfiguration" => file_format_configuration(),
         "lastMessageArrivalTime" => non_neg_integer(),
         "lastUpdateTime" => non_neg_integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "retentionPeriod" => retention_period(),
         "status" => list(any()),
         "storage" => list()
       }
 
   """
-  @type datastore() :: %{String.t() | Atom.t() => any()}
+  @type datastore() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dataset_content_version_value() :: %{
-        "datasetName" => String.t() | Atom.t()
+        "datasetName" => String.t() | atom()
       }
 
   """
-  @type dataset_content_version_value() :: %{String.t() | Atom.t() => any()}
+  @type dataset_content_version_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -732,18 +732,18 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type channel_storage() :: %{String.t() | Atom.t() => any()}
+  @type channel_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -752,51 +752,51 @@ defmodule AWS.IoTAnalytics do
       dataset_summary() :: %{
         "actions" => list(dataset_action_summary()),
         "creationTime" => non_neg_integer(),
-        "datasetName" => String.t() | Atom.t(),
+        "datasetName" => String.t() | atom(),
         "lastUpdateTime" => non_neg_integer(),
         "status" => list(any()),
         "triggers" => list(dataset_trigger())
       }
 
   """
-  @type dataset_summary() :: %{String.t() | Atom.t() => any()}
+  @type dataset_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "key" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       container_dataset_action() :: %{
-        "executionRoleArn" => String.t() | Atom.t(),
-        "image" => String.t() | Atom.t(),
+        "executionRoleArn" => String.t() | atom(),
+        "image" => String.t() | atom(),
         "resourceConfiguration" => resource_configuration(),
         "variables" => list(variable())
       }
 
   """
-  @type container_dataset_action() :: %{String.t() | Atom.t() => any()}
+  @type container_dataset_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -805,11 +805,11 @@ defmodule AWS.IoTAnalytics do
       create_pipeline_request() :: %{
         optional("tags") => list(tag()),
         required("pipelineActivities") => list(pipeline_activity()),
-        required("pipelineName") => String.t() | Atom.t()
+        required("pipelineName") => String.t() | atom()
       }
 
   """
-  @type create_pipeline_request() :: %{String.t() | Atom.t() => any()}
+  @type create_pipeline_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -820,7 +820,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type update_pipeline_request() :: %{String.t() | Atom.t() => any()}
+  @type update_pipeline_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -828,11 +828,11 @@ defmodule AWS.IoTAnalytics do
 
       list_dataset_contents_response() :: %{
         "datasetContentSummaries" => list(dataset_content_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_dataset_contents_response() :: %{String.t() | Atom.t() => any()}
+  @type list_dataset_contents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -844,7 +844,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type describe_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -870,11 +870,11 @@ defmodule AWS.IoTAnalytics do
 
       dataset_content_delivery_rule() :: %{
         "destination" => dataset_content_delivery_destination(),
-        "entryName" => String.t() | Atom.t()
+        "entryName" => String.t() | atom()
       }
 
   """
-  @type dataset_content_delivery_rule() :: %{String.t() | Atom.t() => any()}
+  @type dataset_content_delivery_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -890,14 +890,14 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       s3_destination_configuration() :: %{
-        "bucket" => String.t() | Atom.t(),
+        "bucket" => String.t() | atom(),
         "glueConfiguration" => glue_configuration(),
-        "key" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "key" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type s3_destination_configuration() :: %{String.t() | Atom.t() => any()}
+  @type s3_destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -908,7 +908,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type describe_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -916,11 +916,11 @@ defmodule AWS.IoTAnalytics do
 
       list_datastores_response() :: %{
         "datastoreSummaries" => list(datastore_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_datastores_response() :: %{String.t() | Atom.t() => any()}
+  @type list_datastores_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -933,7 +933,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type get_dataset_content_response() :: %{String.t() | Atom.t() => any()}
+  @type get_dataset_content_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -943,11 +943,11 @@ defmodule AWS.IoTAnalytics do
         optional("channelStorage") => channel_storage(),
         optional("retentionPeriod") => retention_period(),
         optional("tags") => list(tag()),
-        required("channelName") => String.t() | Atom.t()
+        required("channelName") => String.t() | atom()
       }
 
   """
-  @type create_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type create_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -956,12 +956,12 @@ defmodule AWS.IoTAnalytics do
       pipeline_summary() :: %{
         "creationTime" => non_neg_integer(),
         "lastUpdateTime" => non_neg_integer(),
-        "pipelineName" => String.t() | Atom.t(),
+        "pipelineName" => String.t() | atom(),
         "reprocessingSummaries" => list(reprocessing_summary())
       }
 
   """
-  @type pipeline_summary() :: %{String.t() | Atom.t() => any()}
+  @type pipeline_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -972,7 +972,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type describe_pipeline_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_pipeline_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -983,32 +983,32 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dataset_action() :: %{
-        "actionName" => String.t() | Atom.t(),
+        "actionName" => String.t() | atom(),
         "containerAction" => container_dataset_action(),
         "queryAction" => sql_query_dataset_action()
       }
 
   """
-  @type dataset_action() :: %{String.t() | Atom.t() => any()}
+  @type dataset_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       datastore_activity() :: %{
-        "datastoreName" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "datastoreName" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type datastore_activity() :: %{String.t() | Atom.t() => any()}
+  @type datastore_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1021,7 +1021,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type update_datastore_request() :: %{String.t() | Atom.t() => any()}
+  @type update_datastore_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1029,22 +1029,22 @@ defmodule AWS.IoTAnalytics do
 
       list_datastores_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_datastores_request() :: %{String.t() | Atom.t() => any()}
+  @type list_datastores_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1053,13 +1053,13 @@ defmodule AWS.IoTAnalytics do
       variable() :: %{
         "datasetContentVersionValue" => dataset_content_version_value(),
         "doubleValue" => float(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "outputFileUriValue" => output_file_uri_value(),
-        "stringValue" => String.t() | Atom.t()
+        "stringValue" => String.t() | atom()
       }
 
   """
-  @type variable() :: %{String.t() | Atom.t() => any()}
+  @type variable() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1075,7 +1075,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type update_dataset_request() :: %{String.t() | Atom.t() => any()}
+  @type update_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1083,24 +1083,24 @@ defmodule AWS.IoTAnalytics do
 
       list_channels_response() :: %{
         "channelSummaries" => list(channel_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_channels_response() :: %{String.t() | Atom.t() => any()}
+  @type list_channels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       customer_managed_datastore_s3_storage() :: %{
-        "bucket" => String.t() | Atom.t(),
-        "keyPrefix" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "bucket" => String.t() | atom(),
+        "keyPrefix" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type customer_managed_datastore_s3_storage() :: %{String.t() | Atom.t() => any()}
+  @type customer_managed_datastore_s3_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1112,20 +1112,20 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type datastore_partition() :: %{String.t() | Atom.t() => any()}
+  @type datastore_partition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       customer_managed_channel_s3_storage() :: %{
-        "bucket" => String.t() | Atom.t(),
-        "keyPrefix" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "bucket" => String.t() | atom(),
+        "keyPrefix" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type customer_managed_channel_s3_storage() :: %{String.t() | Atom.t() => any()}
+  @type customer_managed_channel_s3_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1137,7 +1137,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type update_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type update_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1148,7 +1148,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type delta_time_session_window_configuration() :: %{String.t() | Atom.t() => any()}
+  @type delta_time_session_window_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1165,11 +1165,11 @@ defmodule AWS.IoTAnalytics do
 
       sql_query_dataset_action() :: %{
         "filters" => list(query_filter()),
-        "sqlQuery" => String.t() | Atom.t()
+        "sqlQuery" => String.t() | atom()
       }
 
   """
-  @type sql_query_dataset_action() :: %{String.t() | Atom.t() => any()}
+  @type sql_query_dataset_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1177,26 +1177,26 @@ defmodule AWS.IoTAnalytics do
 
       list_dataset_contents_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("scheduledBefore") => non_neg_integer(),
         optional("scheduledOnOrAfter") => non_neg_integer()
       }
 
   """
-  @type list_dataset_contents_request() :: %{String.t() | Atom.t() => any()}
+  @type list_dataset_contents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_attributes_activity() :: %{
-        "attributes" => list(String.t() | Atom.t()),
-        "name" => String.t() | Atom.t(),
-        "next" => String.t() | Atom.t()
+        "attributes" => list(String.t() | atom()),
+        "name" => String.t() | atom(),
+        "next" => String.t() | atom()
       }
 
   """
-  @type remove_attributes_activity() :: %{String.t() | Atom.t() => any()}
+  @type remove_attributes_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1204,12 +1204,12 @@ defmodule AWS.IoTAnalytics do
 
       add_attributes_activity() :: %{
         "attributes" => map(),
-        "name" => String.t() | Atom.t(),
-        "next" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "next" => String.t() | atom()
       }
 
   """
-  @type add_attributes_activity() :: %{String.t() | Atom.t() => any()}
+  @type add_attributes_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1225,13 +1225,13 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       customer_managed_datastore_s3_storage_summary() :: %{
-        "bucket" => String.t() | Atom.t(),
-        "keyPrefix" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "bucket" => String.t() | atom(),
+        "keyPrefix" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type customer_managed_datastore_s3_storage_summary() :: %{String.t() | Atom.t() => any()}
+  @type customer_managed_datastore_s3_storage_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1239,7 +1239,7 @@ defmodule AWS.IoTAnalytics do
 
       datastore_summary() :: %{
         "creationTime" => non_neg_integer(),
-        "datastoreName" => String.t() | Atom.t(),
+        "datastoreName" => String.t() | atom(),
         "datastorePartitions" => datastore_partitions(),
         "datastoreStorage" => datastore_storage_summary(),
         "fileFormatType" => list(any()),
@@ -1249,45 +1249,45 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type datastore_summary() :: %{String.t() | Atom.t() => any()}
+  @type datastore_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       iot_events_destination_configuration() :: %{
-        "inputName" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "inputName" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type iot_events_destination_configuration() :: %{String.t() | Atom.t() => any()}
+  @type iot_events_destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       device_registry_enrich_activity() :: %{
-        "attribute" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "next" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
-        "thingName" => String.t() | Atom.t()
+        "attribute" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "next" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "thingName" => String.t() | atom()
       }
 
   """
-  @type device_registry_enrich_activity() :: %{String.t() | Atom.t() => any()}
+  @type device_registry_enrich_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       schedule() :: %{
-        "expression" => String.t() | Atom.t()
+        "expression" => String.t() | atom()
       }
 
   """
-  @type schedule() :: %{String.t() | Atom.t() => any()}
+  @type schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1307,19 +1307,19 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type pipeline_activity() :: %{String.t() | Atom.t() => any()}
+  @type pipeline_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dataset_action_summary() :: %{
-        "actionName" => String.t() | Atom.t(),
+        "actionName" => String.t() | atom(),
         "actionType" => list(any())
       }
 
   """
-  @type dataset_action_summary() :: %{String.t() | Atom.t() => any()}
+  @type dataset_action_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1340,20 +1340,20 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type resource_configuration() :: %{String.t() | Atom.t() => any()}
+  @type resource_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_activity() :: %{
-        "channelName" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "next" => String.t() | Atom.t()
+        "channelName" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "next" => String.t() | atom()
       }
 
   """
-  @type channel_activity() :: %{String.t() | Atom.t() => any()}
+  @type channel_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1373,7 +1373,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type late_data_rule_configuration() :: %{String.t() | Atom.t() => any()}
+  @type late_data_rule_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1389,11 +1389,11 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       create_dataset_content_request() :: %{
-        optional("versionId") => String.t() | Atom.t()
+        optional("versionId") => String.t() | atom()
       }
 
   """
-  @type create_dataset_content_request() :: %{String.t() | Atom.t() => any()}
+  @type create_dataset_content_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1404,7 +1404,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type put_logging_options_request() :: %{String.t() | Atom.t() => any()}
+  @type put_logging_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1415,18 +1415,18 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type describe_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t() | Atom.t()
+        required("resourceArn") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1440,25 +1440,24 @@ defmodule AWS.IoTAnalytics do
         optional("triggers") => list(dataset_trigger()),
         optional("versioningConfiguration") => versioning_configuration(),
         required("actions") => list(dataset_action()),
-        required("datasetName") => String.t() | Atom.t()
+        required("datasetName") => String.t() | atom()
       }
 
   """
-  @type create_dataset_request() :: %{String.t() | Atom.t() => any()}
+  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       iot_site_wise_customer_managed_datastore_s3_storage_summary() :: %{
-        "bucket" => String.t() | Atom.t(),
-        "keyPrefix" => String.t() | Atom.t()
+        "bucket" => String.t() | atom(),
+        "keyPrefix" => String.t() | atom()
       }
 
   """
   @type iot_site_wise_customer_managed_datastore_s3_storage_summary() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1466,42 +1465,42 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       select_attributes_activity() :: %{
-        "attributes" => list(String.t() | Atom.t()),
-        "name" => String.t() | Atom.t(),
-        "next" => String.t() | Atom.t()
+        "attributes" => list(String.t() | atom()),
+        "name" => String.t() | atom(),
+        "next" => String.t() | atom()
       }
 
   """
-  @type select_attributes_activity() :: %{String.t() | Atom.t() => any()}
+  @type select_attributes_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       channel() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
         "lastMessageArrivalTime" => non_neg_integer(),
         "lastUpdateTime" => non_neg_integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "retentionPeriod" => retention_period(),
         "status" => list(any()),
         "storage" => channel_storage()
       }
 
   """
-  @type channel() :: %{String.t() | Atom.t() => any()}
+  @type channel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1513,47 +1512,47 @@ defmodule AWS.IoTAnalytics do
         optional("fileFormatConfiguration") => file_format_configuration(),
         optional("retentionPeriod") => retention_period(),
         optional("tags") => list(tag()),
-        required("datastoreName") => String.t() | Atom.t()
+        required("datastoreName") => String.t() | atom()
       }
 
   """
-  @type create_datastore_request() :: %{String.t() | Atom.t() => any()}
+  @type create_datastore_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_put_message_error_entry() :: %{
-        "errorCode" => String.t() | Atom.t(),
-        "errorMessage" => String.t() | Atom.t(),
-        "messageId" => String.t() | Atom.t()
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "messageId" => String.t() | atom()
       }
 
   """
-  @type batch_put_message_error_entry() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_message_error_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dataset_content_status() :: %{
-        "reason" => String.t() | Atom.t(),
+        "reason" => String.t() | atom(),
         "state" => list(any())
       }
 
   """
-  @type dataset_content_status() :: %{String.t() | Atom.t() => any()}
+  @type dataset_content_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1565,7 +1564,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type channel_storage_summary() :: %{String.t() | Atom.t() => any()}
+  @type channel_storage_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1574,35 +1573,35 @@ defmodule AWS.IoTAnalytics do
       logging_options() :: %{
         "enabled" => boolean(),
         "level" => list(any()),
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type logging_options() :: %{String.t() | Atom.t() => any()}
+  @type logging_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_messages() :: %{
-        "s3Paths" => list(String.t() | Atom.t())
+        "s3Paths" => list(String.t() | atom())
       }
 
   """
-  @type channel_messages() :: %{String.t() | Atom.t() => any()}
+  @type channel_messages() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_datastore_response() :: %{
-        "datastoreArn" => String.t() | Atom.t(),
-        "datastoreName" => String.t() | Atom.t(),
+        "datastoreArn" => String.t() | atom(),
+        "datastoreName" => String.t() | atom(),
         "retentionPeriod" => retention_period()
       }
 
   """
-  @type create_datastore_response() :: %{String.t() | Atom.t() => any()}
+  @type create_datastore_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1628,24 +1627,24 @@ defmodule AWS.IoTAnalytics do
 
       list_datasets_response() :: %{
         "datasetSummaries" => list(dataset_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_datasets_response() :: %{String.t() | Atom.t() => any()}
+  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_already_exists_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceArn" => String.t() | Atom.t(),
-        "resourceId" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "resourceId" => String.t() | atom()
       }
 
   """
-  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1661,33 +1660,33 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       delete_dataset_content_request() :: %{
-        optional("versionId") => String.t() | Atom.t()
+        optional("versionId") => String.t() | atom()
       }
 
   """
-  @type delete_dataset_content_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_dataset_content_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_dataset_content_request() :: %{
-        optional("versionId") => String.t() | Atom.t()
+        optional("versionId") => String.t() | atom()
       }
 
   """
-  @type get_dataset_content_request() :: %{String.t() | Atom.t() => any()}
+  @type get_dataset_content_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_pipeline_reprocessing_response() :: %{
-        "reprocessingId" => String.t() | Atom.t()
+        "reprocessingId" => String.t() | atom()
       }
 
   """
-  @type start_pipeline_reprocessing_response() :: %{String.t() | Atom.t() => any()}
+  @type start_pipeline_reprocessing_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1695,11 +1694,11 @@ defmodule AWS.IoTAnalytics do
 
       list_channels_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_channels_request() :: %{String.t() | Atom.t() => any()}
+  @type list_channels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1710,7 +1709,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type batch_put_message_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_message_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1721,7 +1720,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type parquet_configuration() :: %{String.t() | Atom.t() => any()}
+  @type parquet_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1741,7 +1740,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type describe_datastore_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_datastore_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1752,7 +1751,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type channel_statistics() :: %{String.t() | Atom.t() => any()}
+  @type channel_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1768,12 +1767,12 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       message() :: %{
-        "messageId" => String.t() | Atom.t(),
+        "messageId" => String.t() | atom(),
         "payload" => binary()
       }
 
   """
-  @type message() :: %{String.t() | Atom.t() => any()}
+  @type message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1785,7 +1784,7 @@ defmodule AWS.IoTAnalytics do
       }
 
   """
-  @type estimated_resource_size() :: %{String.t() | Atom.t() => any()}
+  @type estimated_resource_size() :: %{(String.t() | atom()) => any()}
 
   @type batch_put_message_errors() ::
           throttling_exception()
@@ -2078,8 +2077,8 @@ defmodule AWS.IoTAnalytics do
   """
   @spec cancel_pipeline_reprocessing(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           cancel_pipeline_reprocessing_request(),
           list()
         ) ::
@@ -2191,7 +2190,7 @@ defmodule AWS.IoTAnalytics do
   """
   @spec create_dataset_content(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_dataset_content_request(),
           list()
         ) ::
@@ -2288,7 +2287,7 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Deletes the specified channel.
   """
-  @spec delete_channel(map(), String.t() | Atom.t(), delete_channel_request(), list()) ::
+  @spec delete_channel(map(), String.t() | atom(), delete_channel_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2320,7 +2319,7 @@ defmodule AWS.IoTAnalytics do
   You do not have to delete the content of the dataset before you perform this
   operation.
   """
-  @spec delete_dataset(map(), String.t() | Atom.t(), delete_dataset_request(), list()) ::
+  @spec delete_dataset(map(), String.t() | atom(), delete_dataset_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2351,7 +2350,7 @@ defmodule AWS.IoTAnalytics do
   """
   @spec delete_dataset_content(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_dataset_content_request(),
           list()
         ) ::
@@ -2388,7 +2387,7 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Deletes the specified data store.
   """
-  @spec delete_datastore(map(), String.t() | Atom.t(), delete_datastore_request(), list()) ::
+  @spec delete_datastore(map(), String.t() | atom(), delete_datastore_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2417,7 +2416,7 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Deletes the specified pipeline.
   """
-  @spec delete_pipeline(map(), String.t() | Atom.t(), delete_pipeline_request(), list()) ::
+  @spec delete_pipeline(map(), String.t() | atom(), delete_pipeline_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2446,7 +2445,7 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves information about a channel.
   """
-  @spec describe_channel(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec describe_channel(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, describe_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2471,7 +2470,7 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves information about a dataset.
   """
-  @spec describe_dataset(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_dataset(map(), String.t() | atom(), list()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2489,7 +2488,7 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves information about a data store.
   """
-  @spec describe_datastore(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec describe_datastore(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, describe_datastore_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2537,7 +2536,7 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves information about a pipeline.
   """
-  @spec describe_pipeline(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_pipeline(map(), String.t() | atom(), list()) ::
           {:ok, describe_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2555,7 +2554,7 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves the contents of a dataset as presigned URIs.
   """
-  @spec get_dataset_content(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec get_dataset_content(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_dataset_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2580,7 +2579,7 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves a list of channels.
   """
-  @spec list_channels(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_channels(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2614,11 +2613,11 @@ defmodule AWS.IoTAnalytics do
   """
   @spec list_dataset_contents(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_dataset_contents_response(), any()}
@@ -2674,7 +2673,7 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves information about datasets.
   """
-  @spec list_datasets(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_datasets(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2706,7 +2705,7 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves a list of data stores.
   """
-  @spec list_datastores(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_datastores(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_datastores_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2738,7 +2737,7 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Retrieves a list of pipelines.
   """
-  @spec list_pipelines(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_pipelines(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2770,7 +2769,7 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Lists the tags (metadata) that you have assigned to the resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2865,10 +2864,10 @@ defmodule AWS.IoTAnalytics do
   """
   @spec sample_channel_data(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, sample_channel_data_response(), any()}
@@ -2918,7 +2917,7 @@ defmodule AWS.IoTAnalytics do
   """
   @spec start_pipeline_reprocessing(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           start_pipeline_reprocessing_request(),
           list()
         ) ::
@@ -3022,7 +3021,7 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Used to update the settings of a channel.
   """
-  @spec update_channel(map(), String.t() | Atom.t(), update_channel_request(), list()) ::
+  @spec update_channel(map(), String.t() | atom(), update_channel_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3051,7 +3050,7 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Updates the settings of a dataset.
   """
-  @spec update_dataset(map(), String.t() | Atom.t(), update_dataset_request(), list()) ::
+  @spec update_dataset(map(), String.t() | atom(), update_dataset_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3080,7 +3079,7 @@ defmodule AWS.IoTAnalytics do
   @doc """
   Used to update the settings of a data store.
   """
-  @spec update_datastore(map(), String.t() | Atom.t(), update_datastore_request(), list()) ::
+  @spec update_datastore(map(), String.t() | atom(), update_datastore_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3113,7 +3112,7 @@ defmodule AWS.IoTAnalytics do
   `datastore` activity and, optionally, as many as 23 additional activities in the
   `pipelineActivities` array.
   """
-  @spec update_pipeline(map(), String.t() | Atom.t(), update_pipeline_request(), list()) ::
+  @spec update_pipeline(map(), String.t() | atom(), update_pipeline_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

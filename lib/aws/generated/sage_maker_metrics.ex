@@ -25,7 +25,7 @@ defmodule AWS.SageMakerMetrics do
       }
 
   """
-  @type batch_get_metrics_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_metrics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -36,7 +36,7 @@ defmodule AWS.SageMakerMetrics do
       }
 
   """
-  @type batch_get_metrics_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_metrics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -48,7 +48,7 @@ defmodule AWS.SageMakerMetrics do
       }
 
   """
-  @type batch_put_metrics_error() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_metrics_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -56,11 +56,11 @@ defmodule AWS.SageMakerMetrics do
 
       batch_put_metrics_request() :: %{
         required("MetricData") => list(raw_metric_data()),
-        required("TrialComponentName") => String.t() | Atom.t()
+        required("TrialComponentName") => String.t() | atom()
       }
 
   """
-  @type batch_put_metrics_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_metrics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,7 +71,7 @@ defmodule AWS.SageMakerMetrics do
       }
 
   """
-  @type batch_put_metrics_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_metrics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -79,44 +79,44 @@ defmodule AWS.SageMakerMetrics do
 
       metric_query() :: %{
         "End" => float(),
-        "MetricName" => String.t() | Atom.t(),
+        "MetricName" => String.t() | atom(),
         "MetricStat" => list(any()),
         "Period" => list(any()),
-        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | atom(),
         "Start" => float(),
         "XAxisType" => list(any())
       }
 
   """
-  @type metric_query() :: %{String.t() | Atom.t() => any()}
+  @type metric_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metric_query_result() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "MetricValues" => list(float()),
         "Status" => list(any()),
         "XAxisValues" => list(float())
       }
 
   """
-  @type metric_query_result() :: %{String.t() | Atom.t() => any()}
+  @type metric_query_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       raw_metric_data() :: %{
-        "MetricName" => String.t() | Atom.t(),
+        "MetricName" => String.t() | atom(),
         "Step" => integer(),
         "Timestamp" => non_neg_integer(),
         "Value" => float()
       }
 
   """
-  @type raw_metric_data() :: %{String.t() | Atom.t() => any()}
+  @type raw_metric_data() :: %{(String.t() | atom()) => any()}
 
   def metadata do
     %{

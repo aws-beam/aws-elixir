@@ -123,11 +123,11 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       describe_hub_request() :: %{
-        optional("HubArn") => String.t() | Atom.t()
+        optional("HubArn") => String.t() | atom()
       }
 
   """
-  @type describe_hub_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_hub_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -138,18 +138,18 @@ defmodule AWS.SecurityHub do
         "CacheTtlInSeconds" => integer(),
         "CachingEnabled" => boolean(),
         "DataTraceEnabled" => boolean(),
-        "HttpMethod" => String.t() | Atom.t(),
-        "LoggingLevel" => String.t() | Atom.t(),
+        "HttpMethod" => String.t() | atom(),
+        "LoggingLevel" => String.t() | atom(),
         "MetricsEnabled" => boolean(),
         "RequireAuthorizationForCacheControl" => boolean(),
-        "ResourcePath" => String.t() | Atom.t(),
+        "ResourcePath" => String.t() | atom(),
         "ThrottlingBurstLimit" => integer(),
         "ThrottlingRateLimit" => float(),
-        "UnauthorizedCacheControlHeaderStrategy" => String.t() | Atom.t()
+        "UnauthorizedCacheControlHeaderStrategy" => String.t() | atom()
       }
 
   """
-  @type aws_api_gateway_method_settings() :: %{String.t() | Atom.t() => any()}
+  @type aws_api_gateway_method_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -166,23 +166,23 @@ defmodule AWS.SecurityHub do
 
       update_standards_control_request() :: %{
         optional("ControlStatus") => list(any()),
-        optional("DisabledReason") => String.t() | Atom.t()
+        optional("DisabledReason") => String.t() | atom()
       }
 
   """
-  @type update_standards_control_request() :: %{String.t() | Atom.t() => any()}
+  @type update_standards_control_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       standards_managed_by() :: %{
-        "Company" => String.t() | Atom.t(),
-        "Product" => String.t() | Atom.t()
+        "Company" => String.t() | atom(),
+        "Product" => String.t() | atom()
       }
 
   """
-  @type standards_managed_by() :: %{String.t() | Atom.t() => any()}
+  @type standards_managed_by() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -194,8 +194,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_open_search_service_domain_cluster_config_zone_awareness_config_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -203,19 +202,19 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       get_connector_v2_response() :: %{
-        "ConnectorArn" => String.t() | Atom.t(),
-        "ConnectorId" => String.t() | Atom.t(),
+        "ConnectorArn" => String.t() | atom(),
+        "ConnectorId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "Health" => health_check(),
-        "KmsKeyArn" => String.t() | Atom.t(),
+        "KmsKeyArn" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "ProviderDetail" => list()
       }
 
   """
-  @type get_connector_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type get_connector_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -329,36 +328,35 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_security_finding_filters() :: %{String.t() | Atom.t() => any()}
+  @type aws_security_finding_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_finding_aggregator_response() :: %{
-        "FindingAggregationRegion" => String.t() | Atom.t(),
-        "FindingAggregatorArn" => String.t() | Atom.t(),
-        "RegionLinkingMode" => String.t() | Atom.t(),
-        "Regions" => list(String.t() | Atom.t())
+        "FindingAggregationRegion" => String.t() | atom(),
+        "FindingAggregatorArn" => String.t() | atom(),
+        "RegionLinkingMode" => String.t() | atom(),
+        "Regions" => list(String.t() | atom())
       }
 
   """
-  @type get_finding_aggregator_response() :: %{String.t() | Atom.t() => any()}
+  @type get_finding_aggregator_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_cluster_configuration_execute_command_configuration_details() :: %{
-        "KmsKeyId" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
         "LogConfiguration" => aws_ecs_cluster_configuration_execute_command_configuration_log_configuration_details(),
-        "Logging" => String.t() | Atom.t()
+        "Logging" => String.t() | atom()
       }
 
   """
   @type aws_ecs_cluster_configuration_execute_command_configuration_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -366,13 +364,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ec2_launch_template_data_elastic_gpu_specification_set_details() :: %{
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
   @type aws_ec2_launch_template_data_elastic_gpu_specification_set_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -380,27 +377,27 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_dynamo_db_table_local_secondary_index() :: %{
-        "IndexArn" => String.t() | Atom.t(),
-        "IndexName" => String.t() | Atom.t(),
+        "IndexArn" => String.t() | atom(),
+        "IndexName" => String.t() | atom(),
         "KeySchema" => list(aws_dynamo_db_table_key_schema()),
         "Projection" => aws_dynamo_db_table_projection()
       }
 
   """
-  @type aws_dynamo_db_table_local_secondary_index() :: %{String.t() | Atom.t() => any()}
+  @type aws_dynamo_db_table_local_secondary_index() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       import_findings_error() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t()
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom()
       }
 
   """
-  @type import_findings_error() :: %{String.t() | Atom.t() => any()}
+  @type import_findings_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -412,7 +409,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_elasticsearch_domain_elasticsearch_cluster_config_zone_awareness_config_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -420,26 +417,25 @@ defmodule AWS.SecurityHub do
 
       rule_group_source() :: %{
         "RulesSourceList" => rule_group_source_list_details(),
-        "RulesString" => String.t() | Atom.t(),
+        "RulesString" => String.t() | atom(),
         "StatefulRules" => list(rule_group_source_stateful_rules_details()),
         "StatelessRulesAndCustomActions" => rule_group_source_stateless_rules_and_custom_actions_details()
       }
 
   """
-  @type rule_group_source() :: %{String.t() | Atom.t() => any()}
+  @type rule_group_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_client_vpn_endpoint_authentication_options_mutual_authentication_details() :: %{
-        "ClientRootCertificateChain" => String.t() | Atom.t()
+        "ClientRootCertificateChain" => String.t() | atom()
       }
 
   """
   @type aws_ec2_client_vpn_endpoint_authentication_options_mutual_authentication_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -447,25 +443,25 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_api_gateway_access_log_settings() :: %{
-        "DestinationArn" => String.t() | Atom.t(),
-        "Format" => String.t() | Atom.t()
+        "DestinationArn" => String.t() | atom(),
+        "Format" => String.t() | atom()
       }
 
   """
-  @type aws_api_gateway_access_log_settings() :: %{String.t() | Atom.t() => any()}
+  @type aws_api_gateway_access_log_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_redshift_cluster_cluster_node() :: %{
-        "NodeRole" => String.t() | Atom.t(),
-        "PrivateIpAddress" => String.t() | Atom.t(),
-        "PublicIpAddress" => String.t() | Atom.t()
+        "NodeRole" => String.t() | atom(),
+        "PrivateIpAddress" => String.t() | atom(),
+        "PublicIpAddress" => String.t() | atom()
       }
 
   """
-  @type aws_redshift_cluster_cluster_node() :: %{String.t() | Atom.t() => any()}
+  @type aws_redshift_cluster_cluster_node() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -473,35 +469,35 @@ defmodule AWS.SecurityHub do
 
       aws_redshift_cluster_resize_info() :: %{
         "AllowCancelResize" => boolean(),
-        "ResizeType" => String.t() | Atom.t()
+        "ResizeType" => String.t() | atom()
       }
 
   """
-  @type aws_redshift_cluster_resize_info() :: %{String.t() | Atom.t() => any()}
+  @type aws_redshift_cluster_resize_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_definition_container_definitions_linux_parameters_capabilities_details() :: %{
-        "Add" => list(String.t() | Atom.t()),
-        "Drop" => list(String.t() | Atom.t())
+        "Add" => list(String.t() | atom()),
+        "Drop" => list(String.t() | atom())
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_linux_parameters_capabilities_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_lambda_function_dead_letter_config() :: %{
-        "TargetArn" => String.t() | Atom.t()
+        "TargetArn" => String.t() | atom()
       }
 
   """
-  @type aws_lambda_function_dead_letter_config() :: %{String.t() | Atom.t() => any()}
+  @type aws_lambda_function_dead_letter_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -521,19 +517,19 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type boolean_configuration_options() :: %{String.t() | Atom.t() => any()}
+  @type boolean_configuration_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       record() :: %{
-        "JsonPath" => String.t() | Atom.t(),
+        "JsonPath" => String.t() | atom(),
         "RecordIndex" => float()
       }
 
   """
-  @type record() :: %{String.t() | Atom.t() => any()}
+  @type record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -541,13 +537,13 @@ defmodule AWS.SecurityHub do
 
       aws_route53_hosted_zone_details() :: %{
         "HostedZone" => aws_route53_hosted_zone_object_details(),
-        "NameServers" => list(String.t() | Atom.t()),
+        "NameServers" => list(String.t() | atom()),
         "QueryLoggingConfig" => aws_route53_query_logging_config_details(),
         "Vpcs" => list(aws_route53_hosted_zone_vpc_details())
       }
 
   """
-  @type aws_route53_hosted_zone_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_route53_hosted_zone_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -555,14 +551,14 @@ defmodule AWS.SecurityHub do
 
       aws_wafv2_rules_details() :: %{
         "Action" => aws_wafv2_rules_action_details(),
-        "Name" => String.t() | Atom.t(),
-        "OverrideAction" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "OverrideAction" => String.t() | atom(),
         "Priority" => integer(),
         "VisibilityConfig" => aws_wafv2_visibility_config_details()
       }
 
   """
-  @type aws_wafv2_rules_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_wafv2_rules_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -576,7 +572,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type integer_list_configuration_options() :: %{String.t() | Atom.t() => any()}
+  @type integer_list_configuration_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -588,7 +584,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type ocsf_number_filter() :: %{String.t() | Atom.t() => any()}
+  @type ocsf_number_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -596,34 +592,34 @@ defmodule AWS.SecurityHub do
 
       aws_iam_user_details() :: %{
         "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()),
-        "CreateDate" => String.t() | Atom.t(),
-        "GroupList" => list(String.t() | Atom.t()),
-        "Path" => String.t() | Atom.t(),
+        "CreateDate" => String.t() | atom(),
+        "GroupList" => list(String.t() | atom()),
+        "Path" => String.t() | atom(),
         "PermissionsBoundary" => aws_iam_permissions_boundary(),
-        "UserId" => String.t() | Atom.t(),
-        "UserName" => String.t() | Atom.t(),
+        "UserId" => String.t() | atom(),
+        "UserName" => String.t() | atom(),
         "UserPolicyList" => list(aws_iam_user_policy())
       }
 
   """
-  @type aws_iam_user_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_iam_user_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       container_details() :: %{
-        "ContainerRuntime" => String.t() | Atom.t(),
-        "ImageId" => String.t() | Atom.t(),
-        "ImageName" => String.t() | Atom.t(),
-        "LaunchedAt" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "ContainerRuntime" => String.t() | atom(),
+        "ImageId" => String.t() | atom(),
+        "ImageName" => String.t() | atom(),
+        "LaunchedAt" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Privileged" => boolean(),
         "VolumeMounts" => list(volume_mount())
       }
 
   """
-  @type container_details() :: %{String.t() | Atom.t() => any()}
+  @type container_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -634,40 +630,40 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_iam_instance_profile_role() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "AssumeRolePolicyDocument" => String.t() | Atom.t(),
-        "CreateDate" => String.t() | Atom.t(),
-        "Path" => String.t() | Atom.t(),
-        "RoleId" => String.t() | Atom.t(),
-        "RoleName" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "AssumeRolePolicyDocument" => String.t() | atom(),
+        "CreateDate" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "RoleId" => String.t() | atom(),
+        "RoleName" => String.t() | atom()
       }
 
   """
-  @type aws_iam_instance_profile_role() :: %{String.t() | Atom.t() => any()}
+  @type aws_iam_instance_profile_role() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_rds_db_security_group_details() :: %{
-        "DbSecurityGroupArn" => String.t() | Atom.t(),
-        "DbSecurityGroupDescription" => String.t() | Atom.t(),
-        "DbSecurityGroupName" => String.t() | Atom.t(),
+        "DbSecurityGroupArn" => String.t() | atom(),
+        "DbSecurityGroupDescription" => String.t() | atom(),
+        "DbSecurityGroupName" => String.t() | atom(),
         "Ec2SecurityGroups" => list(aws_rds_db_security_group_ec2_security_group()),
         "IpRanges" => list(aws_rds_db_security_group_ip_range()),
-        "OwnerId" => String.t() | Atom.t(),
-        "VpcId" => String.t() | Atom.t()
+        "OwnerId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_security_group_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_security_group_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -675,23 +671,23 @@ defmodule AWS.SecurityHub do
 
       describe_standards_controls_response() :: %{
         "Controls" => list(standards_control()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type describe_standards_controls_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_standards_controls_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_service_placement_constraints_details() :: %{
-        "Expression" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Expression" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_ecs_service_placement_constraints_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_service_placement_constraints_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -704,52 +700,52 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type range() :: %{String.t() | Atom.t() => any()}
+  @type range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_rds_db_security_group_ip_range() :: %{
-        "CidrIp" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "CidrIp" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_security_group_ip_range() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_security_group_ip_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_lambda_layer_version_details() :: %{
-        "CompatibleRuntimes" => list(String.t() | Atom.t()),
-        "CreatedDate" => String.t() | Atom.t(),
+        "CompatibleRuntimes" => list(String.t() | atom()),
+        "CreatedDate" => String.t() | atom(),
         "Version" => float()
       }
 
   """
-  @type aws_lambda_layer_version_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_lambda_layer_version_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_api_gateway_v2_api_details() :: %{
-        "ApiEndpoint" => String.t() | Atom.t(),
-        "ApiId" => String.t() | Atom.t(),
-        "ApiKeySelectionExpression" => String.t() | Atom.t(),
+        "ApiEndpoint" => String.t() | atom(),
+        "ApiId" => String.t() | atom(),
+        "ApiKeySelectionExpression" => String.t() | atom(),
         "CorsConfiguration" => aws_cors_configuration(),
-        "CreatedDate" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "ProtocolType" => String.t() | Atom.t(),
-        "RouteSelectionExpression" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "CreatedDate" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ProtocolType" => String.t() | atom(),
+        "RouteSelectionExpression" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type aws_api_gateway_v2_api_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_api_gateway_v2_api_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -760,7 +756,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type decline_invitations_response() :: %{String.t() | Atom.t() => any()}
+  @type decline_invitations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -768,28 +764,28 @@ defmodule AWS.SecurityHub do
 
       configuration_policy_association_summary() :: %{
         "AssociationStatus" => list(any()),
-        "AssociationStatusMessage" => String.t() | Atom.t(),
+        "AssociationStatusMessage" => String.t() | atom(),
         "AssociationType" => list(any()),
-        "ConfigurationPolicyId" => String.t() | Atom.t(),
-        "TargetId" => String.t() | Atom.t(),
+        "ConfigurationPolicyId" => String.t() | atom(),
+        "TargetId" => String.t() | atom(),
         "TargetType" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type configuration_policy_association_summary() :: %{String.t() | Atom.t() => any()}
+  @type configuration_policy_association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_redshift_cluster_endpoint() :: %{
-        "Address" => String.t() | Atom.t(),
+        "Address" => String.t() | atom(),
         "Port" => integer()
       }
 
   """
-  @type aws_redshift_cluster_endpoint() :: %{String.t() | Atom.t() => any()}
+  @type aws_redshift_cluster_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -800,7 +796,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_dynamo_db_table_provisioned_throughput_override() :: %{String.t() | Atom.t() => any()}
+  @type aws_dynamo_db_table_provisioned_throughput_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -809,25 +805,25 @@ defmodule AWS.SecurityHub do
       firewall_policy_details() :: %{
         "StatefulRuleGroupReferences" => list(firewall_policy_stateful_rule_group_references_details()),
         "StatelessCustomActions" => list(firewall_policy_stateless_custom_actions_details()),
-        "StatelessDefaultActions" => list(String.t() | Atom.t()),
-        "StatelessFragmentDefaultActions" => list(String.t() | Atom.t()),
+        "StatelessDefaultActions" => list(String.t() | atom()),
+        "StatelessFragmentDefaultActions" => list(String.t() | atom()),
         "StatelessRuleGroupReferences" => list(firewall_policy_stateless_rule_group_references_details())
       }
 
   """
-  @type firewall_policy_details() :: %{String.t() | Atom.t() => any()}
+  @type firewall_policy_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_iam_access_key_session_context_attributes() :: %{
-        "CreationDate" => String.t() | Atom.t(),
+        "CreationDate" => String.t() | atom(),
         "MfaAuthenticated" => boolean()
       }
 
   """
-  @type aws_iam_access_key_session_context_attributes() :: %{String.t() | Atom.t() => any()}
+  @type aws_iam_access_key_session_context_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -843,43 +839,43 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_cloud_front_distribution_default_cache_behavior() :: %{
-        "ViewerProtocolPolicy" => String.t() | Atom.t()
+        "ViewerProtocolPolicy" => String.t() | atom()
       }
 
   """
-  @type aws_cloud_front_distribution_default_cache_behavior() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_front_distribution_default_cache_behavior() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_elbv2_load_balancer_attribute() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type aws_elbv2_load_balancer_attribute() :: %{String.t() | Atom.t() => any()}
+  @type aws_elbv2_load_balancer_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       security_control() :: %{
-        "Description" => String.t() | Atom.t(),
-        "LastUpdateReason" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "LastUpdateReason" => String.t() | atom(),
         "Parameters" => map(),
-        "RemediationUrl" => String.t() | Atom.t(),
-        "SecurityControlArn" => String.t() | Atom.t(),
-        "SecurityControlId" => String.t() | Atom.t(),
+        "RemediationUrl" => String.t() | atom(),
+        "SecurityControlArn" => String.t() | atom(),
+        "SecurityControlId" => String.t() | atom(),
         "SecurityControlStatus" => list(any()),
         "SeverityRating" => list(any()),
-        "Title" => String.t() | Atom.t(),
+        "Title" => String.t() | atom(),
         "UpdateStatus" => list(any())
       }
 
   """
-  @type security_control() :: %{String.t() | Atom.t() => any()}
+  @type security_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -893,7 +889,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_s3_account_public_access_block_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_s3_account_public_access_block_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -909,12 +905,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       classification_status() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Reason" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Reason" => String.t() | atom()
       }
 
   """
-  @type classification_status() :: %{String.t() | Atom.t() => any()}
+  @type classification_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -926,44 +922,44 @@ defmodule AWS.SecurityHub do
         "EpssScore" => float(),
         "ExploitAvailable" => list(any()),
         "FixAvailable" => list(any()),
-        "Id" => String.t() | Atom.t(),
-        "LastKnownExploitAt" => String.t() | Atom.t(),
-        "ReferenceUrls" => list(String.t() | Atom.t()),
-        "RelatedVulnerabilities" => list(String.t() | Atom.t()),
+        "Id" => String.t() | atom(),
+        "LastKnownExploitAt" => String.t() | atom(),
+        "ReferenceUrls" => list(String.t() | atom()),
+        "RelatedVulnerabilities" => list(String.t() | atom()),
         "Vendor" => vulnerability_vendor(),
         "VulnerablePackages" => list(software_package())
       }
 
   """
-  @type vulnerability() :: %{String.t() | Atom.t() => any()}
+  @type vulnerability() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_elastic_beanstalk_environment_environment_link() :: %{
-        "EnvironmentName" => String.t() | Atom.t(),
-        "LinkName" => String.t() | Atom.t()
+        "EnvironmentName" => String.t() | atom(),
+        "LinkName" => String.t() | atom()
       }
 
   """
-  @type aws_elastic_beanstalk_environment_environment_link() :: %{String.t() | Atom.t() => any()}
+  @type aws_elastic_beanstalk_environment_environment_link() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecr_repository_details() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "ImageScanningConfiguration" => aws_ecr_repository_image_scanning_configuration_details(),
-        "ImageTagMutability" => String.t() | Atom.t(),
+        "ImageTagMutability" => String.t() | atom(),
         "LifecyclePolicy" => aws_ecr_repository_lifecycle_policy_details(),
-        "RepositoryName" => String.t() | Atom.t(),
-        "RepositoryPolicyText" => String.t() | Atom.t()
+        "RepositoryName" => String.t() | atom(),
+        "RepositoryPolicyText" => String.t() | atom()
       }
 
   """
-  @type aws_ecr_repository_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecr_repository_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -971,37 +967,37 @@ defmodule AWS.SecurityHub do
 
       network_header() :: %{
         "Destination" => network_path_component_details(),
-        "Protocol" => String.t() | Atom.t(),
+        "Protocol" => String.t() | atom(),
         "Source" => network_path_component_details()
       }
 
   """
-  @type network_header() :: %{String.t() | Atom.t() => any()}
+  @type network_header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_insights_request() :: %{
-        optional("InsightArns") => list(String.t() | Atom.t()),
+        optional("InsightArns") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_insights_request() :: %{String.t() | Atom.t() => any()}
+  @type get_insights_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       availability_zone() :: %{
-        "SubnetId" => String.t() | Atom.t(),
-        "ZoneName" => String.t() | Atom.t()
+        "SubnetId" => String.t() | atom(),
+        "ZoneName" => String.t() | atom()
       }
 
   """
-  @type availability_zone() :: %{String.t() | Atom.t() => any()}
+  @type availability_zone() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1022,7 +1018,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type ocsf_string_filter() :: %{String.t() | Atom.t() => any()}
+  @type ocsf_string_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1030,13 +1026,12 @@ defmodule AWS.SecurityHub do
 
       aws_guard_duty_detector_data_sources_malware_protection_details() :: %{
         "ScanEc2InstanceWithFindings" => aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_details(),
-        "ServiceRole" => String.t() | Atom.t()
+        "ServiceRole" => String.t() | atom()
       }
 
   """
   @type aws_guard_duty_detector_data_sources_malware_protection_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1044,14 +1039,14 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_details() :: %{
-        "Prefix" => String.t() | Atom.t(),
+        "Prefix" => String.t() | atom(),
         "Tag" => aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_tag_details(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1060,20 +1055,19 @@ defmodule AWS.SecurityHub do
       aws_open_search_service_domain_cluster_config_details() :: %{
         "DedicatedMasterCount" => integer(),
         "DedicatedMasterEnabled" => boolean(),
-        "DedicatedMasterType" => String.t() | Atom.t(),
+        "DedicatedMasterType" => String.t() | atom(),
         "InstanceCount" => integer(),
-        "InstanceType" => String.t() | Atom.t(),
+        "InstanceType" => String.t() | atom(),
         "WarmCount" => integer(),
         "WarmEnabled" => boolean(),
-        "WarmType" => String.t() | Atom.t(),
+        "WarmType" => String.t() | atom(),
         "ZoneAwarenessConfig" => aws_open_search_service_domain_cluster_config_zone_awareness_config_details(),
         "ZoneAwarenessEnabled" => boolean()
       }
 
   """
   @type aws_open_search_service_domain_cluster_config_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1081,14 +1075,14 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       network_path_component() :: %{
-        "ComponentId" => String.t() | Atom.t(),
-        "ComponentType" => String.t() | Atom.t(),
+        "ComponentId" => String.t() | atom(),
+        "ComponentType" => String.t() | atom(),
         "Egress" => network_header(),
         "Ingress" => network_header()
       }
 
   """
-  @type network_path_component() :: %{String.t() | Atom.t() => any()}
+  @type network_path_component() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1096,35 +1090,35 @@ defmodule AWS.SecurityHub do
 
       aws_redshift_cluster_cluster_parameter_group() :: %{
         "ClusterParameterStatusList" => list(aws_redshift_cluster_cluster_parameter_status()),
-        "ParameterApplyStatus" => String.t() | Atom.t(),
-        "ParameterGroupName" => String.t() | Atom.t()
+        "ParameterApplyStatus" => String.t() | atom(),
+        "ParameterGroupName" => String.t() | atom()
       }
 
   """
-  @type aws_redshift_cluster_cluster_parameter_group() :: %{String.t() | Atom.t() => any()}
+  @type aws_redshift_cluster_cluster_parameter_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_waf_regional_web_acl_rules_list_action_details() :: %{
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_waf_regional_web_acl_rules_list_action_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_regional_web_acl_rules_list_action_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       association_state_details() :: %{
-        "State" => String.t() | Atom.t(),
-        "StatusMessage" => String.t() | Atom.t()
+        "State" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type association_state_details() :: %{String.t() | Atom.t() => any()}
+  @type association_state_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1137,8 +1131,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_ec2_launch_template_data_instance_requirements_v_cpu_count_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1151,30 +1144,30 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type get_members_response() :: %{String.t() | Atom.t() => any()}
+  @type get_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       waf_action() :: %{
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type waf_action() :: %{String.t() | Atom.t() => any()}
+  @type waf_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       status_reason() :: %{
-        "Description" => String.t() | Atom.t(),
-        "ReasonCode" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "ReasonCode" => String.t() | atom()
       }
 
   """
-  @type status_reason() :: %{String.t() | Atom.t() => any()}
+  @type status_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1182,11 +1175,11 @@ defmodule AWS.SecurityHub do
 
       action_local_port_details() :: %{
         "Port" => integer(),
-        "PortName" => String.t() | Atom.t()
+        "PortName" => String.t() | atom()
       }
 
   """
-  @type action_local_port_details() :: %{String.t() | Atom.t() => any()}
+  @type action_local_port_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1200,8 +1193,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_msk_cluster_cluster_info_client_authentication_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1209,23 +1201,23 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       waf_excluded_rule() :: %{
-        "RuleId" => String.t() | Atom.t()
+        "RuleId" => String.t() | atom()
       }
 
   """
-  @type waf_excluded_rule() :: %{String.t() | Atom.t() => any()}
+  @type waf_excluded_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_mount_point() :: %{
-        "ContainerPath" => String.t() | Atom.t(),
-        "SourceVolume" => String.t() | Atom.t()
+        "ContainerPath" => String.t() | atom(),
+        "SourceVolume" => String.t() | atom()
       }
 
   """
-  @type aws_mount_point() :: %{String.t() | Atom.t() => any()}
+  @type aws_mount_point() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1238,8 +1230,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type rule_group_source_stateless_rule_match_attributes_destination_ports() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1247,12 +1238,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       admin_account() :: %{
-        "AccountId" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type admin_account() :: %{String.t() | Atom.t() => any()}
+  @type admin_account() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1263,11 +1254,11 @@ defmodule AWS.SecurityHub do
         "Endpoints" => list(network_endpoint()),
         "SequenceIndicators" => list(indicator()),
         "Signals" => list(signal()),
-        "Uid" => String.t() | Atom.t()
+        "Uid" => String.t() | atom()
       }
 
   """
-  @type sequence() :: %{String.t() | Atom.t() => any()}
+  @type sequence() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1278,7 +1269,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type remediation() :: %{String.t() | Atom.t() => any()}
+  @type remediation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1286,15 +1277,14 @@ defmodule AWS.SecurityHub do
 
       aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_details() :: %{
         "Operands" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_details()),
-        "Prefix" => String.t() | Atom.t(),
+        "Prefix" => String.t() | atom(),
         "Tag" => aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_tag_details(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1302,11 +1292,11 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_certificate_manager_certificate_options() :: %{
-        "CertificateTransparencyLoggingPreference" => String.t() | Atom.t()
+        "CertificateTransparencyLoggingPreference" => String.t() | atom()
       }
 
   """
-  @type aws_certificate_manager_certificate_options() :: %{String.t() | Atom.t() => any()}
+  @type aws_certificate_manager_certificate_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1314,15 +1304,15 @@ defmodule AWS.SecurityHub do
 
       aws_msk_cluster_cluster_info_details() :: %{
         "ClientAuthentication" => aws_msk_cluster_cluster_info_client_authentication_details(),
-        "ClusterName" => String.t() | Atom.t(),
-        "CurrentVersion" => String.t() | Atom.t(),
+        "ClusterName" => String.t() | atom(),
+        "CurrentVersion" => String.t() | atom(),
         "EncryptionInfo" => aws_msk_cluster_cluster_info_encryption_info_details(),
-        "EnhancedMonitoring" => String.t() | Atom.t(),
+        "EnhancedMonitoring" => String.t() | atom(),
         "NumberOfBrokerNodes" => integer()
       }
 
   """
-  @type aws_msk_cluster_cluster_info_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_msk_cluster_cluster_info_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1339,13 +1329,12 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_task_definition_container_definitions_volumes_from_details() :: %{
         "ReadOnly" => boolean(),
-        "SourceContainer" => String.t() | Atom.t()
+        "SourceContainer" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_volumes_from_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1353,28 +1342,28 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       accept_administrator_invitation_request() :: %{
-        required("AdministratorId") => String.t() | Atom.t(),
-        required("InvitationId") => String.t() | Atom.t()
+        required("AdministratorId") => String.t() | atom(),
+        required("InvitationId") => String.t() | atom()
       }
 
   """
-  @type accept_administrator_invitation_request() :: %{String.t() | Atom.t() => any()}
+  @type accept_administrator_invitation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rule_group_source_stateful_rules_header_details() :: %{
-        "Destination" => String.t() | Atom.t(),
-        "DestinationPort" => String.t() | Atom.t(),
-        "Direction" => String.t() | Atom.t(),
-        "Protocol" => String.t() | Atom.t(),
-        "Source" => String.t() | Atom.t(),
-        "SourcePort" => String.t() | Atom.t()
+        "Destination" => String.t() | atom(),
+        "DestinationPort" => String.t() | atom(),
+        "Direction" => String.t() | atom(),
+        "Protocol" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "SourcePort" => String.t() | atom()
       }
 
   """
-  @type rule_group_source_stateful_rules_header_details() :: %{String.t() | Atom.t() => any()}
+  @type rule_group_source_stateful_rules_header_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1386,8 +1375,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type batch_update_standards_control_associations_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1397,28 +1385,27 @@ defmodule AWS.SecurityHub do
       classification_result() :: %{
         "AdditionalOccurrences" => boolean(),
         "CustomDataIdentifiers" => custom_data_identifiers_result(),
-        "MimeType" => String.t() | Atom.t(),
+        "MimeType" => String.t() | atom(),
         "SensitiveData" => list(sensitive_data_result()),
         "SizeClassified" => float(),
         "Status" => classification_status()
       }
 
   """
-  @type classification_result() :: %{String.t() | Atom.t() => any()}
+  @type classification_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_certificate_manager_certificate_extended_key_usage() :: %{
-        "Name" => String.t() | Atom.t(),
-        "OId" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "OId" => String.t() | atom()
       }
 
   """
   @type aws_certificate_manager_certificate_extended_key_usage() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1426,15 +1413,14 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ecs_task_definition_container_definitions_mount_points_details() :: %{
-        "ContainerPath" => String.t() | Atom.t(),
+        "ContainerPath" => String.t() | atom(),
         "ReadOnly" => boolean(),
-        "SourceVolume" => String.t() | Atom.t()
+        "SourceVolume" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_mount_points_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1442,13 +1428,13 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       ipv6_cidr_block_association() :: %{
-        "AssociationId" => String.t() | Atom.t(),
-        "CidrBlockState" => String.t() | Atom.t(),
-        "Ipv6CidrBlock" => String.t() | Atom.t()
+        "AssociationId" => String.t() | atom(),
+        "CidrBlockState" => String.t() | atom(),
+        "Ipv6CidrBlock" => String.t() | atom()
       }
 
   """
-  @type ipv6_cidr_block_association() :: %{String.t() | Atom.t() => any()}
+  @type ipv6_cidr_block_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1461,19 +1447,19 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type severity_update() :: %{String.t() | Atom.t() => any()}
+  @type severity_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_registrations_v2_response() :: %{
-        "ConnectorArn" => String.t() | Atom.t(),
-        "ConnectorId" => String.t() | Atom.t()
+        "ConnectorArn" => String.t() | atom(),
+        "ConnectorId" => String.t() | atom()
       }
 
   """
-  @type connector_registrations_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type connector_registrations_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1481,11 +1467,11 @@ defmodule AWS.SecurityHub do
 
       action_remote_port_details() :: %{
         "Port" => integer(),
-        "PortName" => String.t() | Atom.t()
+        "PortName" => String.t() | atom()
       }
 
   """
-  @type action_remote_port_details() :: %{String.t() | Atom.t() => any()}
+  @type action_remote_port_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1493,26 +1479,26 @@ defmodule AWS.SecurityHub do
 
       aws_s3_bucket_bucket_lifecycle_configuration_rules_noncurrent_version_transitions_details() :: %{
         "Days" => integer(),
-        "StorageClass" => String.t() | Atom.t()
+        "StorageClass" => String.t() | atom()
       }
 
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_noncurrent_version_transitions_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_waf_regional_rule_group_details() :: %{
-        "MetricName" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "RuleGroupId" => String.t() | Atom.t(),
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RuleGroupId" => String.t() | atom(),
         "Rules" => list(aws_waf_regional_rule_group_rules_details())
       }
 
   """
-  @type aws_waf_regional_rule_group_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_regional_rule_group_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1524,8 +1510,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_guard_duty_detector_data_sources_kubernetes_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1533,26 +1518,26 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_kinesis_stream_details() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "RetentionPeriodHours" => integer(),
         "ShardCount" => integer(),
         "StreamEncryption" => aws_kinesis_stream_stream_encryption_details()
       }
 
   """
-  @type aws_kinesis_stream_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_kinesis_stream_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_volume_host_details() :: %{
-        "SourcePath" => String.t() | Atom.t()
+        "SourcePath" => String.t() | atom()
       }
 
   """
-  @type aws_ecs_task_volume_host_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_task_volume_host_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1561,27 +1546,27 @@ defmodule AWS.SecurityHub do
       aws_auto_scaling_launch_configuration_details() :: %{
         "AssociatePublicIpAddress" => boolean(),
         "BlockDeviceMappings" => list(aws_auto_scaling_launch_configuration_block_device_mappings_details()),
-        "ClassicLinkVpcId" => String.t() | Atom.t(),
-        "ClassicLinkVpcSecurityGroups" => list(String.t() | Atom.t()),
-        "CreatedTime" => String.t() | Atom.t(),
+        "ClassicLinkVpcId" => String.t() | atom(),
+        "ClassicLinkVpcSecurityGroups" => list(String.t() | atom()),
+        "CreatedTime" => String.t() | atom(),
         "EbsOptimized" => boolean(),
-        "IamInstanceProfile" => String.t() | Atom.t(),
-        "ImageId" => String.t() | Atom.t(),
+        "IamInstanceProfile" => String.t() | atom(),
+        "ImageId" => String.t() | atom(),
         "InstanceMonitoring" => aws_auto_scaling_launch_configuration_instance_monitoring_details(),
-        "InstanceType" => String.t() | Atom.t(),
-        "KernelId" => String.t() | Atom.t(),
-        "KeyName" => String.t() | Atom.t(),
-        "LaunchConfigurationName" => String.t() | Atom.t(),
+        "InstanceType" => String.t() | atom(),
+        "KernelId" => String.t() | atom(),
+        "KeyName" => String.t() | atom(),
+        "LaunchConfigurationName" => String.t() | atom(),
         "MetadataOptions" => aws_auto_scaling_launch_configuration_metadata_options(),
-        "PlacementTenancy" => String.t() | Atom.t(),
-        "RamdiskId" => String.t() | Atom.t(),
-        "SecurityGroups" => list(String.t() | Atom.t()),
-        "SpotPrice" => String.t() | Atom.t(),
-        "UserData" => String.t() | Atom.t()
+        "PlacementTenancy" => String.t() | atom(),
+        "RamdiskId" => String.t() | atom(),
+        "SecurityGroups" => list(String.t() | atom()),
+        "SpotPrice" => String.t() | atom(),
+        "UserData" => String.t() | atom()
       }
 
   """
-  @type aws_auto_scaling_launch_configuration_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_auto_scaling_launch_configuration_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1597,16 +1582,16 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       process_details() :: %{
-        "LaunchedAt" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "LaunchedAt" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ParentPid" => integer(),
-        "Path" => String.t() | Atom.t(),
+        "Path" => String.t() | atom(),
         "Pid" => integer(),
-        "TerminatedAt" => String.t() | Atom.t()
+        "TerminatedAt" => String.t() | atom()
       }
 
   """
-  @type process_details() :: %{String.t() | Atom.t() => any()}
+  @type process_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1622,13 +1607,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_auto_scaling_auto_scaling_group_availability_zones_list_details() :: %{
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
 
   """
   @type aws_auto_scaling_auto_scaling_group_availability_zones_list_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1636,13 +1620,13 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       sensitive_data_result() :: %{
-        "Category" => String.t() | Atom.t(),
+        "Category" => String.t() | atom(),
         "Detections" => list(sensitive_data_detections()),
         "TotalCount" => float()
       }
 
   """
-  @type sensitive_data_result() :: %{String.t() | Atom.t() => any()}
+  @type sensitive_data_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1658,16 +1642,15 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ec2_launch_template_data_block_device_mapping_set_details() :: %{
-        "DeviceName" => String.t() | Atom.t(),
+        "DeviceName" => String.t() | atom(),
         "Ebs" => aws_ec2_launch_template_data_block_device_mapping_set_ebs_details(),
-        "NoDevice" => String.t() | Atom.t(),
-        "VirtualName" => String.t() | Atom.t()
+        "NoDevice" => String.t() | atom(),
+        "VirtualName" => String.t() | atom()
       }
 
   """
   @type aws_ec2_launch_template_data_block_device_mapping_set_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1675,11 +1658,11 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_cloud_formation_stack_drift_information_details() :: %{
-        "StackDriftStatus" => String.t() | Atom.t()
+        "StackDriftStatus" => String.t() | atom()
       }
 
   """
-  @type aws_cloud_formation_stack_drift_information_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_formation_stack_drift_information_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1687,32 +1670,31 @@ defmodule AWS.SecurityHub do
 
       network_connection_action() :: %{
         "Blocked" => boolean(),
-        "ConnectionDirection" => String.t() | Atom.t(),
+        "ConnectionDirection" => String.t() | atom(),
         "LocalPortDetails" => action_local_port_details(),
-        "Protocol" => String.t() | Atom.t(),
+        "Protocol" => String.t() | atom(),
         "RemoteIpDetails" => action_remote_ip_details(),
         "RemotePortDetails" => action_remote_port_details()
       }
 
   """
-  @type network_connection_action() :: %{String.t() | Atom.t() => any()}
+  @type network_connection_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_s3_bucket_website_configuration_routing_rule_redirect() :: %{
-        "Hostname" => String.t() | Atom.t(),
-        "HttpRedirectCode" => String.t() | Atom.t(),
-        "Protocol" => String.t() | Atom.t(),
-        "ReplaceKeyPrefixWith" => String.t() | Atom.t(),
-        "ReplaceKeyWith" => String.t() | Atom.t()
+        "Hostname" => String.t() | atom(),
+        "HttpRedirectCode" => String.t() | atom(),
+        "Protocol" => String.t() | atom(),
+        "ReplaceKeyPrefixWith" => String.t() | atom(),
+        "ReplaceKeyWith" => String.t() | atom()
       }
 
   """
   @type aws_s3_bucket_website_configuration_routing_rule_redirect() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1720,23 +1702,23 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       create_action_target_response() :: %{
-        "ActionTargetArn" => String.t() | Atom.t()
+        "ActionTargetArn" => String.t() | atom()
       }
 
   """
-  @type create_action_target_response() :: %{String.t() | Atom.t() => any()}
+  @type create_action_target_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_kinesis_stream_stream_encryption_details() :: %{
-        "EncryptionType" => String.t() | Atom.t(),
-        "KeyId" => String.t() | Atom.t()
+        "EncryptionType" => String.t() | atom(),
+        "KeyId" => String.t() | atom()
       }
 
   """
-  @type aws_kinesis_stream_stream_encryption_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_kinesis_stream_stream_encryption_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1744,36 +1726,36 @@ defmodule AWS.SecurityHub do
 
       aws_rds_db_snapshot_details() :: %{
         "AllocatedStorage" => integer(),
-        "AvailabilityZone" => String.t() | Atom.t(),
-        "DbInstanceIdentifier" => String.t() | Atom.t(),
-        "DbSnapshotIdentifier" => String.t() | Atom.t(),
-        "DbiResourceId" => String.t() | Atom.t(),
+        "AvailabilityZone" => String.t() | atom(),
+        "DbInstanceIdentifier" => String.t() | atom(),
+        "DbSnapshotIdentifier" => String.t() | atom(),
+        "DbiResourceId" => String.t() | atom(),
         "Encrypted" => boolean(),
-        "Engine" => String.t() | Atom.t(),
-        "EngineVersion" => String.t() | Atom.t(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "IamDatabaseAuthenticationEnabled" => boolean(),
-        "InstanceCreateTime" => String.t() | Atom.t(),
+        "InstanceCreateTime" => String.t() | atom(),
         "Iops" => integer(),
-        "KmsKeyId" => String.t() | Atom.t(),
-        "LicenseModel" => String.t() | Atom.t(),
-        "MasterUsername" => String.t() | Atom.t(),
-        "OptionGroupName" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
+        "LicenseModel" => String.t() | atom(),
+        "MasterUsername" => String.t() | atom(),
+        "OptionGroupName" => String.t() | atom(),
         "PercentProgress" => integer(),
         "Port" => integer(),
         "ProcessorFeatures" => list(aws_rds_db_processor_feature()),
-        "SnapshotCreateTime" => String.t() | Atom.t(),
-        "SnapshotType" => String.t() | Atom.t(),
-        "SourceDbSnapshotIdentifier" => String.t() | Atom.t(),
-        "SourceRegion" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
-        "StorageType" => String.t() | Atom.t(),
-        "TdeCredentialArn" => String.t() | Atom.t(),
-        "Timezone" => String.t() | Atom.t(),
-        "VpcId" => String.t() | Atom.t()
+        "SnapshotCreateTime" => String.t() | atom(),
+        "SnapshotType" => String.t() | atom(),
+        "SourceDbSnapshotIdentifier" => String.t() | atom(),
+        "SourceRegion" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StorageType" => String.t() | atom(),
+        "TdeCredentialArn" => String.t() | atom(),
+        "Timezone" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_snapshot_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_snapshot_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1784,7 +1766,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type batch_enable_standards_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_enable_standards_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1792,11 +1774,11 @@ defmodule AWS.SecurityHub do
 
       aws_elasticsearch_domain_domain_endpoint_options() :: %{
         "EnforceHTTPS" => boolean(),
-        "TLSSecurityPolicy" => String.t() | Atom.t()
+        "TLSSecurityPolicy" => String.t() | atom()
       }
 
   """
-  @type aws_elasticsearch_domain_domain_endpoint_options() :: %{String.t() | Atom.t() => any()}
+  @type aws_elasticsearch_domain_domain_endpoint_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1804,29 +1786,29 @@ defmodule AWS.SecurityHub do
 
       compliance() :: %{
         "AssociatedStandards" => list(associated_standard()),
-        "RelatedRequirements" => list(String.t() | Atom.t()),
-        "SecurityControlId" => String.t() | Atom.t(),
+        "RelatedRequirements" => list(String.t() | atom()),
+        "SecurityControlId" => String.t() | atom(),
         "SecurityControlParameters" => list(security_control_parameter()),
         "Status" => list(any()),
         "StatusReasons" => list(status_reason())
       }
 
   """
-  @type compliance() :: %{String.t() | Atom.t() => any()}
+  @type compliance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       file_paths() :: %{
-        "FileName" => String.t() | Atom.t(),
-        "FilePath" => String.t() | Atom.t(),
-        "Hash" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t()
+        "FileName" => String.t() | atom(),
+        "FilePath" => String.t() | atom(),
+        "Hash" => String.t() | atom(),
+        "ResourceId" => String.t() | atom()
       }
 
   """
-  @type file_paths() :: %{String.t() | Atom.t() => any()}
+  @type file_paths() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1835,11 +1817,11 @@ defmodule AWS.SecurityHub do
       sensitive_data_detections() :: %{
         "Count" => float(),
         "Occurrences" => occurrences(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type sensitive_data_detections() :: %{String.t() | Atom.t() => any()}
+  @type sensitive_data_detections() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1855,98 +1837,98 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ecs_task_details() :: %{
-        "ClusterArn" => String.t() | Atom.t(),
+        "ClusterArn" => String.t() | atom(),
         "Containers" => list(aws_ecs_container_details()),
-        "CreatedAt" => String.t() | Atom.t(),
-        "Group" => String.t() | Atom.t(),
-        "StartedAt" => String.t() | Atom.t(),
-        "StartedBy" => String.t() | Atom.t(),
-        "TaskDefinitionArn" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t(),
+        "CreatedAt" => String.t() | atom(),
+        "Group" => String.t() | atom(),
+        "StartedAt" => String.t() | atom(),
+        "StartedBy" => String.t() | atom(),
+        "TaskDefinitionArn" => String.t() | atom(),
+        "Version" => String.t() | atom(),
         "Volumes" => list(aws_ecs_task_volume_details())
       }
 
   """
-  @type aws_ecs_task_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_task_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_in_use_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_rds_db_instance_associated_role() :: %{
-        "FeatureName" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "FeatureName" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_instance_associated_role() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_instance_associated_role() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_configuration_policy_response() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "ConfigurationPolicy" => list(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type create_configuration_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type create_configuration_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_s3_access_point_vpc_configuration_details() :: %{
-        "VpcId" => String.t() | Atom.t()
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_s3_access_point_vpc_configuration_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_s3_access_point_vpc_configuration_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_iam_attached_managed_policy() :: %{
-        "PolicyArn" => String.t() | Atom.t(),
-        "PolicyName" => String.t() | Atom.t()
+        "PolicyArn" => String.t() | atom(),
+        "PolicyName" => String.t() | atom()
       }
 
   """
-  @type aws_iam_attached_managed_policy() :: %{String.t() | Atom.t() => any()}
+  @type aws_iam_attached_managed_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_sqs_queue_details() :: %{
-        "DeadLetterTargetArn" => String.t() | Atom.t(),
+        "DeadLetterTargetArn" => String.t() | atom(),
         "KmsDataKeyReusePeriodSeconds" => integer(),
-        "KmsMasterKeyId" => String.t() | Atom.t(),
-        "QueueName" => String.t() | Atom.t()
+        "KmsMasterKeyId" => String.t() | atom(),
+        "QueueName" => String.t() | atom()
       }
 
   """
-  @type aws_sqs_queue_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_sqs_queue_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1994,31 +1976,31 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type automation_rules_finding_filters() :: %{String.t() | Atom.t() => any()}
+  @type automation_rules_finding_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network_autonomous_system() :: %{
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Number" => integer()
       }
 
   """
-  @type network_autonomous_system() :: %{String.t() | Atom.t() => any()}
+  @type network_autonomous_system() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_network_interface_private_ip_address_detail() :: %{
-        "PrivateDnsName" => String.t() | Atom.t(),
-        "PrivateIpAddress" => String.t() | Atom.t()
+        "PrivateDnsName" => String.t() | atom(),
+        "PrivateIpAddress" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_network_interface_private_ip_address_detail() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_network_interface_private_ip_address_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2026,32 +2008,32 @@ defmodule AWS.SecurityHub do
 
       aws_app_sync_graph_ql_api_details() :: %{
         "AdditionalAuthenticationProviders" => list(aws_app_sync_graph_ql_api_additional_authentication_providers_details()),
-        "ApiId" => String.t() | Atom.t(),
-        "Arn" => String.t() | Atom.t(),
-        "AuthenticationType" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "ApiId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "AuthenticationType" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "LambdaAuthorizerConfig" => aws_app_sync_graph_ql_api_lambda_authorizer_config_details(),
         "LogConfig" => aws_app_sync_graph_ql_api_log_config_details(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "OpenIdConnectConfig" => aws_app_sync_graph_ql_api_open_id_connect_config_details(),
         "UserPoolConfig" => aws_app_sync_graph_ql_api_user_pool_config_details(),
-        "WafWebAclArn" => String.t() | Atom.t(),
+        "WafWebAclArn" => String.t() | atom(),
         "XrayEnabled" => boolean()
       }
 
   """
-  @type aws_app_sync_graph_ql_api_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_app_sync_graph_ql_api_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rule_group_variables_ip_sets_details() :: %{
-        "Definition" => list(String.t() | Atom.t())
+        "Definition" => list(String.t() | atom())
       }
 
   """
-  @type rule_group_variables_ip_sets_details() :: %{String.t() | Atom.t() => any()}
+  @type rule_group_variables_ip_sets_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2062,19 +2044,19 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type batch_update_standards_control_associations_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_standards_control_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_rds_pending_cloud_watch_logs_exports() :: %{
-        "LogTypesToDisable" => list(String.t() | Atom.t()),
-        "LogTypesToEnable" => list(String.t() | Atom.t())
+        "LogTypesToDisable" => list(String.t() | atom()),
+        "LogTypesToEnable" => list(String.t() | atom())
       }
 
   """
-  @type aws_rds_pending_cloud_watch_logs_exports() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_pending_cloud_watch_logs_exports() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2087,8 +2069,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type batch_get_configuration_policy_associations_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2097,29 +2078,28 @@ defmodule AWS.SecurityHub do
 
       list_aggregators_v2_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_aggregators_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type list_aggregators_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_certificate_manager_certificate_domain_validation_option() :: %{
-        "DomainName" => String.t() | Atom.t(),
+        "DomainName" => String.t() | atom(),
         "ResourceRecord" => aws_certificate_manager_certificate_resource_record(),
-        "ValidationDomain" => String.t() | Atom.t(),
-        "ValidationEmails" => list(String.t() | Atom.t()),
-        "ValidationMethod" => String.t() | Atom.t(),
-        "ValidationStatus" => String.t() | Atom.t()
+        "ValidationDomain" => String.t() | atom(),
+        "ValidationEmails" => list(String.t() | atom()),
+        "ValidationMethod" => String.t() | atom(),
+        "ValidationStatus" => String.t() | atom()
       }
 
   """
   @type aws_certificate_manager_certificate_domain_validation_option() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2129,11 +2109,11 @@ defmodule AWS.SecurityHub do
       organization_configuration() :: %{
         "ConfigurationType" => list(any()),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type organization_configuration() :: %{String.t() | Atom.t() => any()}
+  @type organization_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2145,7 +2125,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_wafv2_web_acl_action_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_wafv2_web_acl_action_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2157,8 +2137,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2167,15 +2146,15 @@ defmodule AWS.SecurityHub do
 
       aws_iam_group_details() :: %{
         "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()),
-        "CreateDate" => String.t() | Atom.t(),
-        "GroupId" => String.t() | Atom.t(),
-        "GroupName" => String.t() | Atom.t(),
+        "CreateDate" => String.t() | atom(),
+        "GroupId" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
         "GroupPolicyList" => list(aws_iam_group_policy()),
-        "Path" => String.t() | Atom.t()
+        "Path" => String.t() | atom()
       }
 
   """
-  @type aws_iam_group_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_iam_group_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2191,14 +2170,14 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       resource_findings_summary() :: %{
-        "FindingType" => String.t() | Atom.t(),
-        "ProductName" => String.t() | Atom.t(),
+        "FindingType" => String.t() | atom(),
+        "ProductName" => String.t() | atom(),
         "Severities" => resource_severity_breakdown(),
         "TotalFindings" => integer()
       }
 
   """
-  @type resource_findings_summary() :: %{String.t() | Atom.t() => any()}
+  @type resource_findings_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2206,63 +2185,63 @@ defmodule AWS.SecurityHub do
 
       automation_rules_metadata() :: %{
         "CreatedAt" => non_neg_integer(),
-        "CreatedBy" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "IsTerminal" => boolean(),
-        "RuleArn" => String.t() | Atom.t(),
-        "RuleName" => String.t() | Atom.t(),
+        "RuleArn" => String.t() | atom(),
+        "RuleName" => String.t() | atom(),
         "RuleOrder" => integer(),
         "RuleStatus" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type automation_rules_metadata() :: %{String.t() | Atom.t() => any()}
+  @type automation_rules_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details() :: %{
-        "LogGroupArn" => String.t() | Atom.t()
+        "LogGroupArn" => String.t() | atom()
       }
 
   """
   @type aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_rds_db_instance_endpoint() :: %{
-        "Address" => String.t() | Atom.t(),
-        "HostedZoneId" => String.t() | Atom.t(),
+        "Address" => String.t() | atom(),
+        "HostedZoneId" => String.t() | atom(),
         "Port" => integer()
       }
 
   """
-  @type aws_rds_db_instance_endpoint() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_instance_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_rds_event_subscription_details() :: %{
-        "CustSubscriptionId" => String.t() | Atom.t(),
-        "CustomerAwsId" => String.t() | Atom.t(),
+        "CustSubscriptionId" => String.t() | atom(),
+        "CustomerAwsId" => String.t() | atom(),
         "Enabled" => boolean(),
-        "EventCategoriesList" => list(String.t() | Atom.t()),
-        "EventSubscriptionArn" => String.t() | Atom.t(),
-        "SnsTopicArn" => String.t() | Atom.t(),
-        "SourceIdsList" => list(String.t() | Atom.t()),
-        "SourceType" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
-        "SubscriptionCreationTime" => String.t() | Atom.t()
+        "EventCategoriesList" => list(String.t() | atom()),
+        "EventSubscriptionArn" => String.t() | atom(),
+        "SnsTopicArn" => String.t() | atom(),
+        "SourceIdsList" => list(String.t() | atom()),
+        "SourceType" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "SubscriptionCreationTime" => String.t() | atom()
       }
 
   """
-  @type aws_rds_event_subscription_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_event_subscription_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2270,22 +2249,22 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_subnet_details() :: %{
         "AssignIpv6AddressOnCreation" => boolean(),
-        "AvailabilityZone" => String.t() | Atom.t(),
-        "AvailabilityZoneId" => String.t() | Atom.t(),
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "AvailableIpAddressCount" => integer(),
-        "CidrBlock" => String.t() | Atom.t(),
+        "CidrBlock" => String.t() | atom(),
         "DefaultForAz" => boolean(),
         "Ipv6CidrBlockAssociationSet" => list(ipv6_cidr_block_association()),
         "MapPublicIpOnLaunch" => boolean(),
-        "OwnerId" => String.t() | Atom.t(),
-        "State" => String.t() | Atom.t(),
-        "SubnetArn" => String.t() | Atom.t(),
-        "SubnetId" => String.t() | Atom.t(),
-        "VpcId" => String.t() | Atom.t()
+        "OwnerId" => String.t() | atom(),
+        "State" => String.t() | atom(),
+        "SubnetArn" => String.t() | atom(),
+        "SubnetId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_subnet_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_subnet_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2293,31 +2272,30 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_launch_template_details() :: %{
         "DefaultVersionNumber" => float(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "LatestVersionNumber" => float(),
         "LaunchTemplateData" => aws_ec2_launch_template_data_details(),
-        "LaunchTemplateName" => String.t() | Atom.t()
+        "LaunchTemplateName" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_launch_template_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_launch_template_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_launch_template_data_metadata_options_details() :: %{
-        "HttpEndpoint" => String.t() | Atom.t(),
-        "HttpProtocolIpv6" => String.t() | Atom.t(),
+        "HttpEndpoint" => String.t() | atom(),
+        "HttpProtocolIpv6" => String.t() | atom(),
         "HttpPutResponseHopLimit" => integer(),
-        "HttpTokens" => String.t() | Atom.t(),
-        "InstanceMetadataTags" => String.t() | Atom.t()
+        "HttpTokens" => String.t() | atom(),
+        "InstanceMetadataTags" => String.t() | atom()
       }
 
   """
   @type aws_ec2_launch_template_data_metadata_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2325,48 +2303,48 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_rds_db_cluster_details() :: %{
-        "Status" => String.t() | Atom.t(),
-        "Engine" => String.t() | Atom.t(),
+        "Status" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
         "VpcSecurityGroups" => list(aws_rds_db_instance_vpc_security_group()),
-        "DatabaseName" => String.t() | Atom.t(),
-        "PreferredMaintenanceWindow" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | atom(),
+        "PreferredMaintenanceWindow" => String.t() | atom(),
         "IamDatabaseAuthenticationEnabled" => boolean(),
-        "PreferredBackupWindow" => String.t() | Atom.t(),
+        "PreferredBackupWindow" => String.t() | atom(),
         "BackupRetentionPeriod" => integer(),
-        "KmsKeyId" => String.t() | Atom.t(),
-        "ReadReplicaIdentifiers" => list(String.t() | Atom.t()),
+        "KmsKeyId" => String.t() | atom(),
+        "ReadReplicaIdentifiers" => list(String.t() | atom()),
         "CopyTagsToSnapshot" => boolean(),
-        "DbClusterIdentifier" => String.t() | Atom.t(),
-        "DbClusterParameterGroup" => String.t() | Atom.t(),
+        "DbClusterIdentifier" => String.t() | atom(),
+        "DbClusterParameterGroup" => String.t() | atom(),
         "HttpEndpointEnabled" => boolean(),
         "AutoMinorVersionUpgrade" => boolean(),
-        "ClusterCreateTime" => String.t() | Atom.t(),
+        "ClusterCreateTime" => String.t() | atom(),
         "Port" => integer(),
-        "AvailabilityZones" => list(String.t() | Atom.t()),
+        "AvailabilityZones" => list(String.t() | atom()),
         "CrossAccountClone" => boolean(),
         "DbClusterOptionGroupMemberships" => list(aws_rds_db_cluster_option_group_membership()),
-        "MasterUsername" => String.t() | Atom.t(),
-        "DbClusterResourceId" => String.t() | Atom.t(),
-        "ReaderEndpoint" => String.t() | Atom.t(),
-        "EnabledCloudWatchLogsExports" => list(String.t() | Atom.t()),
-        "CustomEndpoints" => list(String.t() | Atom.t()),
+        "MasterUsername" => String.t() | atom(),
+        "DbClusterResourceId" => String.t() | atom(),
+        "ReaderEndpoint" => String.t() | atom(),
+        "EnabledCloudWatchLogsExports" => list(String.t() | atom()),
+        "CustomEndpoints" => list(String.t() | atom()),
         "DeletionProtection" => boolean(),
         "DomainMemberships" => list(aws_rds_db_domain_membership()),
         "MultiAz" => boolean(),
-        "EngineMode" => String.t() | Atom.t(),
-        "ActivityStreamStatus" => String.t() | Atom.t(),
-        "EngineVersion" => String.t() | Atom.t(),
+        "EngineMode" => String.t() | atom(),
+        "ActivityStreamStatus" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "AllocatedStorage" => integer(),
-        "HostedZoneId" => String.t() | Atom.t(),
+        "HostedZoneId" => String.t() | atom(),
         "AssociatedRoles" => list(aws_rds_db_cluster_associated_role()),
-        "DbSubnetGroup" => String.t() | Atom.t(),
+        "DbSubnetGroup" => String.t() | atom(),
         "StorageEncrypted" => boolean(),
-        "Endpoint" => String.t() | Atom.t(),
+        "Endpoint" => String.t() | atom(),
         "DbClusterMembers" => list(aws_rds_db_cluster_member())
       }
 
   """
-  @type aws_rds_db_cluster_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_cluster_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2374,11 +2352,11 @@ defmodule AWS.SecurityHub do
 
       describe_standards_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_standards_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_standards_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2389,21 +2367,21 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_wafv2_action_block_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_wafv2_action_block_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invitation() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "InvitationId" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "InvitationId" => String.t() | atom(),
         "InvitedAt" => non_neg_integer(),
-        "MemberStatus" => String.t() | Atom.t()
+        "MemberStatus" => String.t() | atom()
       }
 
   """
-  @type invitation() :: %{String.t() | Atom.t() => any()}
+  @type invitation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2428,55 +2406,55 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_iam_access_key_details() :: %{
-        "AccessKeyId" => String.t() | Atom.t(),
-        "AccountId" => String.t() | Atom.t(),
-        "CreatedAt" => String.t() | Atom.t(),
-        "PrincipalId" => String.t() | Atom.t(),
-        "PrincipalName" => String.t() | Atom.t(),
-        "PrincipalType" => String.t() | Atom.t(),
+        "AccessKeyId" => String.t() | atom(),
+        "AccountId" => String.t() | atom(),
+        "CreatedAt" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
+        "PrincipalName" => String.t() | atom(),
+        "PrincipalType" => String.t() | atom(),
         "SessionContext" => aws_iam_access_key_session_context(),
         "Status" => list(any()),
-        "UserName" => String.t() | Atom.t()
+        "UserName" => String.t() | atom()
       }
 
   """
-  @type aws_iam_access_key_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_iam_access_key_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_dynamo_db_table_key_schema() :: %{
-        "AttributeName" => String.t() | Atom.t(),
-        "KeyType" => String.t() | Atom.t()
+        "AttributeName" => String.t() | atom(),
+        "KeyType" => String.t() | atom()
       }
 
   """
-  @type aws_dynamo_db_table_key_schema() :: %{String.t() | Atom.t() => any()}
+  @type aws_dynamo_db_table_key_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       related_finding() :: %{
-        "Id" => String.t() | Atom.t(),
-        "ProductArn" => String.t() | Atom.t()
+        "Id" => String.t() | atom(),
+        "ProductArn" => String.t() | atom()
       }
 
   """
-  @type related_finding() :: %{String.t() | Atom.t() => any()}
+  @type related_finding() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_update_automation_rules_response() :: %{
-        "ProcessedAutomationRules" => list(String.t() | Atom.t()),
+        "ProcessedAutomationRules" => list(String.t() | atom()),
         "UnprocessedAutomationRules" => list(unprocessed_automation_rule())
       }
 
   """
-  @type batch_update_automation_rules_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_automation_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2484,12 +2462,12 @@ defmodule AWS.SecurityHub do
 
       describe_products_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("ProductArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("ProductArn") => String.t() | atom()
       }
 
   """
-  @type describe_products_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_products_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2501,21 +2479,20 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_iam_access_key_session_context() :: %{String.t() | Atom.t() => any()}
+  @type aws_iam_access_key_session_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_definition_proxy_configuration_proxy_configuration_properties_details() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_proxy_configuration_proxy_configuration_properties_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2526,10 +2503,10 @@ defmodule AWS.SecurityHub do
         "AssociateCarrierIpAddress" => boolean(),
         "AssociatePublicIpAddress" => boolean(),
         "DeleteOnTermination" => boolean(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "DeviceIndex" => integer(),
-        "Groups" => list(String.t() | Atom.t()),
-        "InterfaceType" => String.t() | Atom.t(),
+        "Groups" => list(String.t() | atom()),
+        "InterfaceType" => String.t() | atom(),
         "Ipv4PrefixCount" => integer(),
         "Ipv4Prefixes" => list(aws_ec2_launch_template_data_network_interface_set_ipv4_prefixes_details()),
         "Ipv6AddressCount" => integer(),
@@ -2537,17 +2514,16 @@ defmodule AWS.SecurityHub do
         "Ipv6PrefixCount" => integer(),
         "Ipv6Prefixes" => list(aws_ec2_launch_template_data_network_interface_set_ipv6_prefixes_details()),
         "NetworkCardIndex" => integer(),
-        "NetworkInterfaceId" => String.t() | Atom.t(),
-        "PrivateIpAddress" => String.t() | Atom.t(),
+        "NetworkInterfaceId" => String.t() | atom(),
+        "PrivateIpAddress" => String.t() | atom(),
         "PrivateIpAddresses" => list(aws_ec2_launch_template_data_network_interface_set_private_ip_addresses_details()),
         "SecondaryPrivateIpAddressCount" => integer(),
-        "SubnetId" => String.t() | Atom.t()
+        "SubnetId" => String.t() | atom()
       }
 
   """
   @type aws_ec2_launch_template_data_network_interface_set_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2555,14 +2531,14 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_rds_db_status_info() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "Normal" => boolean(),
-        "Status" => String.t() | Atom.t(),
-        "StatusType" => String.t() | Atom.t()
+        "Status" => String.t() | atom(),
+        "StatusType" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_status_info() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_status_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2570,28 +2546,28 @@ defmodule AWS.SecurityHub do
 
       aws_backup_recovery_point_details() :: %{
         "BackupSizeInBytes" => float(),
-        "BackupVaultArn" => String.t() | Atom.t(),
-        "BackupVaultName" => String.t() | Atom.t(),
+        "BackupVaultArn" => String.t() | atom(),
+        "BackupVaultName" => String.t() | atom(),
         "CalculatedLifecycle" => aws_backup_recovery_point_calculated_lifecycle_details(),
-        "CompletionDate" => String.t() | Atom.t(),
+        "CompletionDate" => String.t() | atom(),
         "CreatedBy" => aws_backup_recovery_point_created_by_details(),
-        "CreationDate" => String.t() | Atom.t(),
-        "EncryptionKeyArn" => String.t() | Atom.t(),
-        "IamRoleArn" => String.t() | Atom.t(),
+        "CreationDate" => String.t() | atom(),
+        "EncryptionKeyArn" => String.t() | atom(),
+        "IamRoleArn" => String.t() | atom(),
         "IsEncrypted" => boolean(),
-        "LastRestoreTime" => String.t() | Atom.t(),
+        "LastRestoreTime" => String.t() | atom(),
         "Lifecycle" => aws_backup_recovery_point_lifecycle_details(),
-        "RecoveryPointArn" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t(),
-        "SourceBackupVaultArn" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
-        "StatusMessage" => String.t() | Atom.t(),
-        "StorageClass" => String.t() | Atom.t()
+        "RecoveryPointArn" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "SourceBackupVaultArn" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
+        "StorageClass" => String.t() | atom()
       }
 
   """
-  @type aws_backup_recovery_point_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_backup_recovery_point_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2599,21 +2575,21 @@ defmodule AWS.SecurityHub do
 
       aws_cloud_front_distribution_origin_item() :: %{
         "CustomOriginConfig" => aws_cloud_front_distribution_origin_custom_origin_config(),
-        "DomainName" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "OriginPath" => String.t() | Atom.t(),
+        "DomainName" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "OriginPath" => String.t() | atom(),
         "S3OriginConfig" => aws_cloud_front_distribution_origin_s3_origin_config()
       }
 
   """
-  @type aws_cloud_front_distribution_origin_item() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_front_distribution_origin_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_definition_container_definitions_health_check_details() :: %{
-        "Command" => list(String.t() | Atom.t()),
+        "Command" => list(String.t() | atom()),
         "Interval" => integer(),
         "Retries" => integer(),
         "StartPeriod" => integer(),
@@ -2622,8 +2598,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_ecs_task_definition_container_definitions_health_check_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2633,12 +2608,12 @@ defmodule AWS.SecurityHub do
       aws_elb_load_balancer_access_log() :: %{
         "EmitInterval" => integer(),
         "Enabled" => boolean(),
-        "S3BucketName" => String.t() | Atom.t(),
-        "S3BucketPrefix" => String.t() | Atom.t()
+        "S3BucketName" => String.t() | atom(),
+        "S3BucketPrefix" => String.t() | atom()
       }
 
   """
-  @type aws_elb_load_balancer_access_log() :: %{String.t() | Atom.t() => any()}
+  @type aws_elb_load_balancer_access_log() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2646,25 +2621,25 @@ defmodule AWS.SecurityHub do
 
       list_standards_control_associations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("SecurityControlId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("SecurityControlId") => String.t() | atom()
       }
 
   """
-  @type list_standards_control_associations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_standards_control_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_network_acl_association() :: %{
-        "NetworkAclAssociationId" => String.t() | Atom.t(),
-        "NetworkAclId" => String.t() | Atom.t(),
-        "SubnetId" => String.t() | Atom.t()
+        "NetworkAclAssociationId" => String.t() | atom(),
+        "NetworkAclId" => String.t() | atom(),
+        "SubnetId" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_network_acl_association() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_network_acl_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2672,11 +2647,11 @@ defmodule AWS.SecurityHub do
 
       list_aggregators_v2_response() :: %{
         "AggregatorsV2" => list(aggregator_v2()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_aggregators_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type list_aggregators_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2684,11 +2659,11 @@ defmodule AWS.SecurityHub do
 
       insight_result_value() :: %{
         "Count" => integer(),
-        "GroupByAttributeValue" => String.t() | Atom.t()
+        "GroupByAttributeValue" => String.t() | atom()
       }
 
   """
-  @type insight_result_value() :: %{String.t() | Atom.t() => any()}
+  @type insight_result_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2700,7 +2675,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type resources_filters() :: %{String.t() | Atom.t() => any()}
+  @type resources_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2711,30 +2686,30 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type batch_disable_standards_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_disable_standards_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_iam_user_policy() :: %{
-        "PolicyName" => String.t() | Atom.t()
+        "PolicyName" => String.t() | atom()
       }
 
   """
-  @type aws_iam_user_policy() :: %{String.t() | Atom.t() => any()}
+  @type aws_iam_user_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_security_finding_identifier() :: %{
-        "Id" => String.t() | Atom.t(),
-        "ProductArn" => String.t() | Atom.t()
+        "Id" => String.t() | atom(),
+        "ProductArn" => String.t() | atom()
       }
 
   """
-  @type aws_security_finding_identifier() :: %{String.t() | Atom.t() => any()}
+  @type aws_security_finding_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2745,19 +2720,19 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_cloud_front_distribution_origin_groups() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_front_distribution_origin_groups() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_rds_db_cluster_option_group_membership() :: %{
-        "DbClusterOptionGroupName" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "DbClusterOptionGroupName" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_cluster_option_group_membership() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_cluster_option_group_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2767,49 +2742,49 @@ defmodule AWS.SecurityHub do
         "Associations" => list(aws_ec2_network_acl_association()),
         "Entries" => list(aws_ec2_network_acl_entry()),
         "IsDefault" => boolean(),
-        "NetworkAclId" => String.t() | Atom.t(),
-        "OwnerId" => String.t() | Atom.t(),
-        "VpcId" => String.t() | Atom.t()
+        "NetworkAclId" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_network_acl_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_network_acl_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_instance_network_interfaces_details() :: %{
-        "NetworkInterfaceId" => String.t() | Atom.t()
+        "NetworkInterfaceId" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_instance_network_interfaces_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_instance_network_interfaces_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network_geo_location() :: %{
-        "City" => String.t() | Atom.t(),
-        "Country" => String.t() | Atom.t(),
+        "City" => String.t() | atom(),
+        "Country" => String.t() | atom(),
         "Lat" => float(),
         "Lon" => float()
       }
 
   """
-  @type network_geo_location() :: %{String.t() | Atom.t() => any()}
+  @type network_geo_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_events_endpoint_replication_config_details() :: %{
-        "State" => String.t() | Atom.t()
+        "State" => String.t() | atom()
       }
 
   """
-  @type aws_events_endpoint_replication_config_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_events_endpoint_replication_config_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2820,7 +2795,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_cloud_front_distribution_origin_group() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_front_distribution_origin_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2828,11 +2803,11 @@ defmodule AWS.SecurityHub do
 
       parameter_definition() :: %{
         "ConfigurationOptions" => list(),
-        "Description" => String.t() | Atom.t()
+        "Description" => String.t() | atom()
       }
 
   """
-  @type parameter_definition() :: %{String.t() | Atom.t() => any()}
+  @type parameter_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2840,10 +2815,10 @@ defmodule AWS.SecurityHub do
 
       aws_dynamo_db_table_global_secondary_index() :: %{
         "Backfilling" => boolean(),
-        "IndexArn" => String.t() | Atom.t(),
-        "IndexName" => String.t() | Atom.t(),
+        "IndexArn" => String.t() | atom(),
+        "IndexName" => String.t() | atom(),
         "IndexSizeBytes" => float(),
-        "IndexStatus" => String.t() | Atom.t(),
+        "IndexStatus" => String.t() | atom(),
         "ItemCount" => integer(),
         "KeySchema" => list(aws_dynamo_db_table_key_schema()),
         "Projection" => aws_dynamo_db_table_projection(),
@@ -2851,7 +2826,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_dynamo_db_table_global_secondary_index() :: %{String.t() | Atom.t() => any()}
+  @type aws_dynamo_db_table_global_secondary_index() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2860,45 +2835,45 @@ defmodule AWS.SecurityHub do
       get_finding_history_request() :: %{
         optional("EndTime") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("StartTime") => non_neg_integer(),
         required("FindingIdentifier") => aws_security_finding_identifier()
       }
 
   """
-  @type get_finding_history_request() :: %{String.t() | Atom.t() => any()}
+  @type get_finding_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_eks_cluster_details() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CertificateAuthorityData" => String.t() | Atom.t(),
-        "ClusterStatus" => String.t() | Atom.t(),
-        "Endpoint" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CertificateAuthorityData" => String.t() | atom(),
+        "ClusterStatus" => String.t() | atom(),
+        "Endpoint" => String.t() | atom(),
         "Logging" => aws_eks_cluster_logging_details(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "ResourcesVpcConfig" => aws_eks_cluster_resources_vpc_config_details(),
-        "RoleArn" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "RoleArn" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type aws_eks_cluster_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_eks_cluster_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_redshift_cluster_deferred_maintenance_window() :: %{
-        "DeferMaintenanceEndTime" => String.t() | Atom.t(),
-        "DeferMaintenanceIdentifier" => String.t() | Atom.t(),
-        "DeferMaintenanceStartTime" => String.t() | Atom.t()
+        "DeferMaintenanceEndTime" => String.t() | atom(),
+        "DeferMaintenanceIdentifier" => String.t() | atom(),
+        "DeferMaintenanceStartTime" => String.t() | atom()
       }
 
   """
-  @type aws_redshift_cluster_deferred_maintenance_window() :: %{String.t() | Atom.t() => any()}
+  @type aws_redshift_cluster_deferred_maintenance_window() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2906,20 +2881,20 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_vpc_endpoint_service_details() :: %{
         "AcceptanceRequired" => boolean(),
-        "AvailabilityZones" => list(String.t() | Atom.t()),
-        "BaseEndpointDnsNames" => list(String.t() | Atom.t()),
-        "GatewayLoadBalancerArns" => list(String.t() | Atom.t()),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "BaseEndpointDnsNames" => list(String.t() | atom()),
+        "GatewayLoadBalancerArns" => list(String.t() | atom()),
         "ManagesVpcEndpoints" => boolean(),
-        "NetworkLoadBalancerArns" => list(String.t() | Atom.t()),
-        "PrivateDnsName" => String.t() | Atom.t(),
-        "ServiceId" => String.t() | Atom.t(),
-        "ServiceName" => String.t() | Atom.t(),
-        "ServiceState" => String.t() | Atom.t(),
+        "NetworkLoadBalancerArns" => list(String.t() | atom()),
+        "PrivateDnsName" => String.t() | atom(),
+        "ServiceId" => String.t() | atom(),
+        "ServiceName" => String.t() | atom(),
+        "ServiceState" => String.t() | atom(),
         "ServiceType" => list(aws_ec2_vpc_endpoint_service_service_type_details())
       }
 
   """
-  @type aws_ec2_vpc_endpoint_service_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_vpc_endpoint_service_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2930,7 +2905,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_elb_load_balancer_connection_settings() :: %{String.t() | Atom.t() => any()}
+  @type aws_elb_load_balancer_connection_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2951,14 +2926,14 @@ defmodule AWS.SecurityHub do
         "Note" => note_update(),
         "RelatedFindings" => list(related_finding()),
         "Severity" => severity_update(),
-        "Types" => list(String.t() | Atom.t()),
+        "Types" => list(String.t() | atom()),
         "UserDefinedFields" => map(),
         "VerificationState" => list(any()),
         "Workflow" => workflow_update()
       }
 
   """
-  @type automation_rules_finding_fields_update() :: %{String.t() | Atom.t() => any()}
+  @type automation_rules_finding_fields_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2969,7 +2944,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_s3_bucket_notification_configuration_filter() :: %{String.t() | Atom.t() => any()}
+  @type aws_s3_bucket_notification_configuration_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2982,7 +2957,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_ecs_service_deployment_configuration_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_service_deployment_configuration_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2994,8 +2969,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_ec2_launch_template_data_enclave_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3012,49 +2986,48 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       ocsf_finding_identifier() :: %{
-        "CloudAccountUid" => String.t() | Atom.t(),
-        "FindingInfoUid" => String.t() | Atom.t(),
-        "MetadataProductUid" => String.t() | Atom.t()
+        "CloudAccountUid" => String.t() | atom(),
+        "FindingInfoUid" => String.t() | atom(),
+        "MetadataProductUid" => String.t() | atom()
       }
 
   """
-  @type ocsf_finding_identifier() :: %{String.t() | Atom.t() => any()}
+  @type ocsf_finding_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stateless_custom_publish_metric_action_dimension() :: %{
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type stateless_custom_publish_metric_action_dimension() :: %{String.t() | Atom.t() => any()}
+  @type stateless_custom_publish_metric_action_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_redshift_cluster_cluster_security_group() :: %{
-        "ClusterSecurityGroupName" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "ClusterSecurityGroupName" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_redshift_cluster_cluster_security_group() :: %{String.t() | Atom.t() => any()}
+  @type aws_redshift_cluster_cluster_security_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_client_vpn_endpoint_authentication_options_active_directory_details() :: %{
-        "DirectoryId" => String.t() | Atom.t()
+        "DirectoryId" => String.t() | atom()
       }
 
   """
   @type aws_ec2_client_vpn_endpoint_authentication_options_active_directory_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3062,14 +3035,14 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       cell() :: %{
-        "CellReference" => String.t() | Atom.t(),
+        "CellReference" => String.t() | atom(),
         "Column" => float(),
-        "ColumnName" => String.t() | Atom.t(),
+        "ColumnName" => String.t() | atom(),
         "Row" => float()
       }
 
   """
-  @type cell() :: %{String.t() | Atom.t() => any()}
+  @type cell() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3082,8 +3055,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_ec2_launch_template_data_instance_requirements_memory_gi_b_per_v_cpu_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3091,36 +3063,36 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_backup_backup_vault_notifications_details() :: %{
-        "BackupVaultEvents" => list(String.t() | Atom.t()),
-        "SnsTopicArn" => String.t() | Atom.t()
+        "BackupVaultEvents" => list(String.t() | atom()),
+        "SnsTopicArn" => String.t() | atom()
       }
 
   """
-  @type aws_backup_backup_vault_notifications_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_backup_backup_vault_notifications_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       standards_control_association_id() :: %{
-        "SecurityControlId" => String.t() | Atom.t(),
-        "StandardsArn" => String.t() | Atom.t()
+        "SecurityControlId" => String.t() | atom(),
+        "StandardsArn" => String.t() | atom()
       }
 
   """
-  @type standards_control_association_id() :: %{String.t() | Atom.t() => any()}
+  @type standards_control_association_id() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_s3_bucket_logging_configuration() :: %{
-        "DestinationBucketName" => String.t() | Atom.t(),
-        "LogFilePrefix" => String.t() | Atom.t()
+        "DestinationBucketName" => String.t() | atom(),
+        "LogFilePrefix" => String.t() | atom()
       }
 
   """
-  @type aws_s3_bucket_logging_configuration() :: %{String.t() | Atom.t() => any()}
+  @type aws_s3_bucket_logging_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3128,23 +3100,23 @@ defmodule AWS.SecurityHub do
 
       describe_action_targets_response() :: %{
         "ActionTargets" => list(action_target()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type describe_action_targets_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_action_targets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_rds_db_option_group_membership() :: %{
-        "OptionGroupName" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "OptionGroupName" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_option_group_membership() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_option_group_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3155,7 +3127,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_ecs_cluster_configuration_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_cluster_configuration_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3166,7 +3138,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type get_insight_results_response() :: %{String.t() | Atom.t() => any()}
+  @type get_insight_results_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3177,22 +3149,22 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_s3_bucket_notification_configuration() :: %{String.t() | Atom.t() => any()}
+  @type aws_s3_bucket_notification_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_instance_metadata_options() :: %{
-        "HttpEndpoint" => String.t() | Atom.t(),
-        "HttpProtocolIpv6" => String.t() | Atom.t(),
+        "HttpEndpoint" => String.t() | atom(),
+        "HttpProtocolIpv6" => String.t() | atom(),
         "HttpPutResponseHopLimit" => integer(),
-        "HttpTokens" => String.t() | Atom.t(),
-        "InstanceMetadataTags" => String.t() | Atom.t()
+        "HttpTokens" => String.t() | atom(),
+        "InstanceMetadataTags" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_instance_metadata_options() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_instance_metadata_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3200,15 +3172,15 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_cluster_configuration_execute_command_configuration_log_configuration_details() :: %{
         "CloudWatchEncryptionEnabled" => boolean(),
-        "CloudWatchLogGroupName" => String.t() | Atom.t(),
-        "S3BucketName" => String.t() | Atom.t(),
+        "CloudWatchLogGroupName" => String.t() | atom(),
+        "S3BucketName" => String.t() | atom(),
         "S3EncryptionEnabled" => boolean(),
-        "S3KeyPrefix" => String.t() | Atom.t()
+        "S3KeyPrefix" => String.t() | atom()
       }
 
   """
   @type aws_ecs_cluster_configuration_execute_command_configuration_log_configuration_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3216,11 +3188,11 @@ defmodule AWS.SecurityHub do
 
       firewall_policy_stateless_custom_actions_details() :: %{
         "ActionDefinition" => stateless_custom_action_definition(),
-        "ActionName" => String.t() | Atom.t()
+        "ActionName" => String.t() | atom()
       }
 
   """
-  @type firewall_policy_stateless_custom_actions_details() :: %{String.t() | Atom.t() => any()}
+  @type firewall_policy_stateless_custom_actions_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3228,11 +3200,11 @@ defmodule AWS.SecurityHub do
 
       describe_products_v2_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_products_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_products_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3243,31 +3215,31 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_msk_cluster_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_msk_cluster_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_launch_template_data_license_set_details() :: %{
-        "LicenseConfigurationArn" => String.t() | Atom.t()
+        "LicenseConfigurationArn" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_launch_template_data_license_set_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_launch_template_data_license_set_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rule_group_source_list_details() :: %{
-        "GeneratedRulesType" => String.t() | Atom.t(),
-        "TargetTypes" => list(String.t() | Atom.t()),
-        "Targets" => list(String.t() | Atom.t())
+        "GeneratedRulesType" => String.t() | atom(),
+        "TargetTypes" => list(String.t() | atom()),
+        "Targets" => list(String.t() | atom())
       }
 
   """
-  @type rule_group_source_list_details() :: %{String.t() | Atom.t() => any()}
+  @type rule_group_source_list_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3275,34 +3247,33 @@ defmodule AWS.SecurityHub do
 
       aws_redshift_cluster_pending_modified_values() :: %{
         "AutomatedSnapshotRetentionPeriod" => integer(),
-        "ClusterIdentifier" => String.t() | Atom.t(),
-        "ClusterType" => String.t() | Atom.t(),
-        "ClusterVersion" => String.t() | Atom.t(),
-        "EncryptionType" => String.t() | Atom.t(),
+        "ClusterIdentifier" => String.t() | atom(),
+        "ClusterType" => String.t() | atom(),
+        "ClusterVersion" => String.t() | atom(),
+        "EncryptionType" => String.t() | atom(),
         "EnhancedVpcRouting" => boolean(),
-        "MaintenanceTrackName" => String.t() | Atom.t(),
-        "MasterUserPassword" => String.t() | Atom.t(),
-        "NodeType" => String.t() | Atom.t(),
+        "MaintenanceTrackName" => String.t() | atom(),
+        "MasterUserPassword" => String.t() | atom(),
+        "NodeType" => String.t() | atom(),
         "NumberOfNodes" => integer(),
         "PubliclyAccessible" => boolean()
       }
 
   """
-  @type aws_redshift_cluster_pending_modified_values() :: %{String.t() | Atom.t() => any()}
+  @type aws_redshift_cluster_pending_modified_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_definition_container_definitions_resource_requirements_details() :: %{
-        "Type" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_resource_requirements_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3315,7 +3286,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_code_build_project_logs_config_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_code_build_project_logs_config_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3327,7 +3298,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_elb_load_balancer_connection_draining() :: %{String.t() | Atom.t() => any()}
+  @type aws_elb_load_balancer_connection_draining() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3335,16 +3306,15 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_task_definition_volumes_docker_volume_configuration_details() :: %{
         "Autoprovision" => boolean(),
-        "Driver" => String.t() | Atom.t(),
+        "Driver" => String.t() | atom(),
         "DriverOpts" => map(),
         "Labels" => map(),
-        "Scope" => String.t() | Atom.t()
+        "Scope" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_volumes_docker_volume_configuration_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3352,23 +3322,23 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_waf_regional_rule_group_rules_action_details() :: %{
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_waf_regional_rule_group_rules_action_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_regional_rule_group_rules_action_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_action_target_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_action_target_request() :: %{String.t() | Atom.t() => any()}
+  @type update_action_target_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3377,12 +3347,12 @@ defmodule AWS.SecurityHub do
       get_findings_request() :: %{
         optional("Filters") => aws_security_finding_filters(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortCriteria") => list(sort_criterion())
       }
 
   """
-  @type get_findings_request() :: %{String.t() | Atom.t() => any()}
+  @type get_findings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3390,13 +3360,12 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_launch_template_data_network_interface_set_private_ip_addresses_details() :: %{
         "Primary" => boolean(),
-        "PrivateIpAddress" => String.t() | Atom.t()
+        "PrivateIpAddress" => String.t() | atom()
       }
 
   """
   @type aws_ec2_launch_template_data_network_interface_set_private_ip_addresses_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3404,37 +3373,37 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       update_aggregator_v2_request() :: %{
-        optional("LinkedRegions") => list(String.t() | Atom.t()),
-        required("RegionLinkingMode") => String.t() | Atom.t()
+        optional("LinkedRegions") => list(String.t() | atom()),
+        required("RegionLinkingMode") => String.t() | atom()
       }
 
   """
-  @type update_aggregator_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type update_aggregator_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_vpn_connection_routes_details() :: %{
-        "DestinationCidrBlock" => String.t() | Atom.t(),
-        "State" => String.t() | Atom.t()
+        "DestinationCidrBlock" => String.t() | atom(),
+        "State" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_vpn_connection_routes_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_vpn_connection_routes_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_app_sync_graph_ql_api_log_config_details() :: %{
-        "CloudWatchLogsRoleArn" => String.t() | Atom.t(),
+        "CloudWatchLogsRoleArn" => String.t() | atom(),
         "ExcludeVerboseContent" => boolean(),
-        "FieldLogLevel" => String.t() | Atom.t()
+        "FieldLogLevel" => String.t() | atom()
       }
 
   """
-  @type aws_app_sync_graph_ql_api_log_config_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_app_sync_graph_ql_api_log_config_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3442,58 +3411,58 @@ defmodule AWS.SecurityHub do
 
       aws_backup_backup_plan_backup_plan_details() :: %{
         "AdvancedBackupSettings" => list(aws_backup_backup_plan_advanced_backup_settings_details()),
-        "BackupPlanName" => String.t() | Atom.t(),
+        "BackupPlanName" => String.t() | atom(),
         "BackupPlanRule" => list(aws_backup_backup_plan_rule_details())
       }
 
   """
-  @type aws_backup_backup_plan_backup_plan_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_backup_backup_plan_backup_plan_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_waf_regional_rule_predicate_list_details() :: %{
-        "DataId" => String.t() | Atom.t(),
+        "DataId" => String.t() | atom(),
         "Negated" => boolean(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_waf_regional_rule_predicate_list_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_regional_rule_predicate_list_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_sns_topic_details() :: %{
-        "ApplicationSuccessFeedbackRoleArn" => String.t() | Atom.t(),
-        "FirehoseFailureFeedbackRoleArn" => String.t() | Atom.t(),
-        "FirehoseSuccessFeedbackRoleArn" => String.t() | Atom.t(),
-        "HttpFailureFeedbackRoleArn" => String.t() | Atom.t(),
-        "HttpSuccessFeedbackRoleArn" => String.t() | Atom.t(),
-        "KmsMasterKeyId" => String.t() | Atom.t(),
-        "Owner" => String.t() | Atom.t(),
-        "SqsFailureFeedbackRoleArn" => String.t() | Atom.t(),
-        "SqsSuccessFeedbackRoleArn" => String.t() | Atom.t(),
+        "ApplicationSuccessFeedbackRoleArn" => String.t() | atom(),
+        "FirehoseFailureFeedbackRoleArn" => String.t() | atom(),
+        "FirehoseSuccessFeedbackRoleArn" => String.t() | atom(),
+        "HttpFailureFeedbackRoleArn" => String.t() | atom(),
+        "HttpSuccessFeedbackRoleArn" => String.t() | atom(),
+        "KmsMasterKeyId" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "SqsFailureFeedbackRoleArn" => String.t() | atom(),
+        "SqsSuccessFeedbackRoleArn" => String.t() | atom(),
         "Subscription" => list(aws_sns_topic_subscription()),
-        "TopicName" => String.t() | Atom.t()
+        "TopicName" => String.t() | atom()
       }
 
   """
-  @type aws_sns_topic_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_sns_topic_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       country() :: %{
-        "CountryCode" => String.t() | Atom.t(),
-        "CountryName" => String.t() | Atom.t()
+        "CountryCode" => String.t() | atom(),
+        "CountryName" => String.t() | atom()
       }
 
   """
-  @type country() :: %{String.t() | Atom.t() => any()}
+  @type country() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3501,11 +3470,11 @@ defmodule AWS.SecurityHub do
 
       describe_standards_controls_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_standards_controls_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_standards_controls_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3514,16 +3483,16 @@ defmodule AWS.SecurityHub do
       security_control_definition() :: %{
         "CurrentRegionAvailability" => list(any()),
         "CustomizableProperties" => list(list(any())()),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "ParameterDefinitions" => map(),
-        "RemediationUrl" => String.t() | Atom.t(),
-        "SecurityControlId" => String.t() | Atom.t(),
+        "RemediationUrl" => String.t() | atom(),
+        "SecurityControlId" => String.t() | atom(),
         "SeverityRating" => list(any()),
-        "Title" => String.t() | Atom.t()
+        "Title" => String.t() | atom()
       }
 
   """
-  @type security_control_definition() :: %{String.t() | Atom.t() => any()}
+  @type security_control_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3532,14 +3501,14 @@ defmodule AWS.SecurityHub do
       update_automation_rule_v2_request() :: %{
         optional("Actions") => list(automation_rules_action_v2()),
         optional("Criteria") => list(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("RuleName") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("RuleName") => String.t() | atom(),
         optional("RuleOrder") => float(),
         optional("RuleStatus") => list(any())
       }
 
   """
-  @type update_automation_rule_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type update_automation_rule_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3549,12 +3518,12 @@ defmodule AWS.SecurityHub do
         "City" => city(),
         "Country" => country(),
         "GeoLocation" => geo_location(),
-        "IpAddressV4" => String.t() | Atom.t(),
+        "IpAddressV4" => String.t() | atom(),
         "Organization" => ip_organization_details()
       }
 
   """
-  @type action_remote_ip_details() :: %{String.t() | Atom.t() => any()}
+  @type action_remote_ip_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3562,36 +3531,35 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_transit_gateway_details() :: %{
         "AmazonSideAsn" => integer(),
-        "AssociationDefaultRouteTableId" => String.t() | Atom.t(),
-        "AutoAcceptSharedAttachments" => String.t() | Atom.t(),
-        "DefaultRouteTableAssociation" => String.t() | Atom.t(),
-        "DefaultRouteTablePropagation" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "DnsSupport" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "MulticastSupport" => String.t() | Atom.t(),
-        "PropagationDefaultRouteTableId" => String.t() | Atom.t(),
-        "TransitGatewayCidrBlocks" => list(String.t() | Atom.t()),
-        "VpnEcmpSupport" => String.t() | Atom.t()
+        "AssociationDefaultRouteTableId" => String.t() | atom(),
+        "AutoAcceptSharedAttachments" => String.t() | atom(),
+        "DefaultRouteTableAssociation" => String.t() | atom(),
+        "DefaultRouteTablePropagation" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "DnsSupport" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "MulticastSupport" => String.t() | atom(),
+        "PropagationDefaultRouteTableId" => String.t() | atom(),
+        "TransitGatewayCidrBlocks" => list(String.t() | atom()),
+        "VpnEcmpSupport" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_transit_gateway_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_transit_gateway_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_auto_scaling_auto_scaling_group_launch_template_launch_template_specification() :: %{
-        "LaunchTemplateId" => String.t() | Atom.t(),
-        "LaunchTemplateName" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "LaunchTemplateId" => String.t() | atom(),
+        "LaunchTemplateName" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
   @type aws_auto_scaling_auto_scaling_group_launch_template_launch_template_specification() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3599,29 +3567,29 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_s3_access_point_details() :: %{
-        "AccessPointArn" => String.t() | Atom.t(),
-        "Alias" => String.t() | Atom.t(),
-        "Bucket" => String.t() | Atom.t(),
-        "BucketAccountId" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "NetworkOrigin" => String.t() | Atom.t(),
+        "AccessPointArn" => String.t() | atom(),
+        "Alias" => String.t() | atom(),
+        "Bucket" => String.t() | atom(),
+        "BucketAccountId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NetworkOrigin" => String.t() | atom(),
         "PublicAccessBlockConfiguration" => aws_s3_account_public_access_block_details(),
         "VpcConfiguration" => aws_s3_access_point_vpc_configuration_details()
       }
 
   """
-  @type aws_s3_access_point_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_s3_access_point_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3629,26 +3597,25 @@ defmodule AWS.SecurityHub do
 
       code_vulnerabilities_file_path() :: %{
         "EndLine" => integer(),
-        "FileName" => String.t() | Atom.t(),
-        "FilePath" => String.t() | Atom.t(),
+        "FileName" => String.t() | atom(),
+        "FilePath" => String.t() | atom(),
         "StartLine" => integer()
       }
 
   """
-  @type code_vulnerabilities_file_path() :: %{String.t() | Atom.t() => any()}
+  @type code_vulnerabilities_file_path() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_guard_duty_detector_data_sources_flow_logs_details() :: %{
-        "Status" => String.t() | Atom.t()
+        "Status" => String.t() | atom()
       }
 
   """
   @type aws_guard_duty_detector_data_sources_flow_logs_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3656,12 +3623,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ecr_repository_lifecycle_policy_details() :: %{
-        "LifecyclePolicyText" => String.t() | Atom.t(),
-        "RegistryId" => String.t() | Atom.t()
+        "LifecyclePolicyText" => String.t() | atom(),
+        "RegistryId" => String.t() | atom()
       }
 
   """
-  @type aws_ecr_repository_lifecycle_policy_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecr_repository_lifecycle_policy_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3673,87 +3640,87 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type ocsf_map_filter() :: %{String.t() | Atom.t() => any()}
+  @type ocsf_map_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_wafv2_web_acl_details() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "Capacity" => float(),
         "CaptchaConfig" => aws_wafv2_web_acl_captcha_config_details(),
         "DefaultAction" => aws_wafv2_web_acl_action_details(),
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "ManagedbyFirewallManager" => boolean(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Rules" => list(aws_wafv2_rules_details()),
         "VisibilityConfig" => aws_wafv2_visibility_config_details()
       }
 
   """
-  @type aws_wafv2_web_acl_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_wafv2_web_acl_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_iam_role_details() :: %{
-        "AssumeRolePolicyDocument" => String.t() | Atom.t(),
+        "AssumeRolePolicyDocument" => String.t() | atom(),
         "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()),
-        "CreateDate" => String.t() | Atom.t(),
+        "CreateDate" => String.t() | atom(),
         "InstanceProfileList" => list(aws_iam_instance_profile()),
         "MaxSessionDuration" => integer(),
-        "Path" => String.t() | Atom.t(),
+        "Path" => String.t() | atom(),
         "PermissionsBoundary" => aws_iam_permissions_boundary(),
-        "RoleId" => String.t() | Atom.t(),
-        "RoleName" => String.t() | Atom.t(),
+        "RoleId" => String.t() | atom(),
+        "RoleName" => String.t() | atom(),
         "RolePolicyList" => list(aws_iam_role_policy())
       }
 
   """
-  @type aws_iam_role_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_iam_role_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_elastic_beanstalk_environment_option_setting() :: %{
-        "Namespace" => String.t() | Atom.t(),
-        "OptionName" => String.t() | Atom.t(),
-        "ResourceName" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Namespace" => String.t() | atom(),
+        "OptionName" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type aws_elastic_beanstalk_environment_option_setting() :: %{String.t() | Atom.t() => any()}
+  @type aws_elastic_beanstalk_environment_option_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_backup_recovery_point_created_by_details() :: %{
-        "BackupPlanArn" => String.t() | Atom.t(),
-        "BackupPlanId" => String.t() | Atom.t(),
-        "BackupPlanVersion" => String.t() | Atom.t(),
-        "BackupRuleId" => String.t() | Atom.t()
+        "BackupPlanArn" => String.t() | atom(),
+        "BackupPlanId" => String.t() | atom(),
+        "BackupPlanVersion" => String.t() | atom(),
+        "BackupRuleId" => String.t() | atom()
       }
 
   """
-  @type aws_backup_recovery_point_created_by_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_backup_recovery_point_created_by_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       finding_history_update_source() :: %{
-        "Identity" => String.t() | Atom.t(),
+        "Identity" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type finding_history_update_source() :: %{String.t() | Atom.t() => any()}
+  @type finding_history_update_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3763,17 +3730,17 @@ defmodule AWS.SecurityHub do
         "Actions" => list(automation_rules_action_v2()),
         "CreatedAt" => non_neg_integer(),
         "Criteria" => list(),
-        "Description" => String.t() | Atom.t(),
-        "RuleArn" => String.t() | Atom.t(),
-        "RuleId" => String.t() | Atom.t(),
-        "RuleName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "RuleArn" => String.t() | atom(),
+        "RuleId" => String.t() | atom(),
+        "RuleName" => String.t() | atom(),
         "RuleOrder" => float(),
         "RuleStatus" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type get_automation_rule_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type get_automation_rule_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3781,43 +3748,43 @@ defmodule AWS.SecurityHub do
 
       disable_organization_admin_account_request() :: %{
         optional("Feature") => list(any()),
-        required("AdminAccountId") => String.t() | Atom.t()
+        required("AdminAccountId") => String.t() | atom()
       }
 
   """
-  @type disable_organization_admin_account_request() :: %{String.t() | Atom.t() => any()}
+  @type disable_organization_admin_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_eip_details() :: %{
-        "AllocationId" => String.t() | Atom.t(),
-        "AssociationId" => String.t() | Atom.t(),
-        "Domain" => String.t() | Atom.t(),
-        "InstanceId" => String.t() | Atom.t(),
-        "NetworkBorderGroup" => String.t() | Atom.t(),
-        "NetworkInterfaceId" => String.t() | Atom.t(),
-        "NetworkInterfaceOwnerId" => String.t() | Atom.t(),
-        "PrivateIpAddress" => String.t() | Atom.t(),
-        "PublicIp" => String.t() | Atom.t(),
-        "PublicIpv4Pool" => String.t() | Atom.t()
+        "AllocationId" => String.t() | atom(),
+        "AssociationId" => String.t() | atom(),
+        "Domain" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "NetworkBorderGroup" => String.t() | atom(),
+        "NetworkInterfaceId" => String.t() | atom(),
+        "NetworkInterfaceOwnerId" => String.t() | atom(),
+        "PrivateIpAddress" => String.t() | atom(),
+        "PublicIp" => String.t() | atom(),
+        "PublicIpv4Pool" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_eip_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_eip_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_security_control_definitions_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "SecurityControlDefinitions" => list(security_control_definition())
       }
 
   """
-  @type list_security_control_definitions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_security_control_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3828,7 +3795,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type batch_update_automation_rules_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_automation_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3841,8 +3808,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_ec2_launch_template_data_instance_requirements_total_local_storage_g_b_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3855,7 +3821,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type resources_number_filter() :: %{String.t() | Atom.t() => any()}
+  @type resources_number_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3863,27 +3829,26 @@ defmodule AWS.SecurityHub do
 
       unprocessed_standards_control_association() :: %{
         "ErrorCode" => list(any()),
-        "ErrorReason" => String.t() | Atom.t(),
+        "ErrorReason" => String.t() | atom(),
         "StandardsControlAssociationId" => standards_control_association_id()
       }
 
   """
-  @type unprocessed_standards_control_association() :: %{String.t() | Atom.t() => any()}
+  @type unprocessed_standards_control_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_client_vpn_endpoint_connection_log_options_details() :: %{
-        "CloudwatchLogGroup" => String.t() | Atom.t(),
-        "CloudwatchLogStream" => String.t() | Atom.t(),
+        "CloudwatchLogGroup" => String.t() | atom(),
+        "CloudwatchLogStream" => String.t() | atom(),
         "Enabled" => boolean()
       }
 
   """
   @type aws_ec2_client_vpn_endpoint_connection_log_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3897,8 +3862,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type rule_group_source_stateless_rule_match_attributes_source_ports() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3910,34 +3874,34 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type delete_members_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       finding_history_update() :: %{
-        "NewValue" => String.t() | Atom.t(),
-        "OldValue" => String.t() | Atom.t(),
-        "UpdatedField" => String.t() | Atom.t()
+        "NewValue" => String.t() | atom(),
+        "OldValue" => String.t() | atom(),
+        "UpdatedField" => String.t() | atom()
       }
 
   """
-  @type finding_history_update() :: %{String.t() | Atom.t() => any()}
+  @type finding_history_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_dynamo_db_table_restore_summary() :: %{
-        "RestoreDateTime" => String.t() | Atom.t(),
+        "RestoreDateTime" => String.t() | atom(),
         "RestoreInProgress" => boolean(),
-        "SourceBackupArn" => String.t() | Atom.t(),
-        "SourceTableArn" => String.t() | Atom.t()
+        "SourceBackupArn" => String.t() | atom(),
+        "SourceTableArn" => String.t() | atom()
       }
 
   """
-  @type aws_dynamo_db_table_restore_summary() :: %{String.t() | Atom.t() => any()}
+  @type aws_dynamo_db_table_restore_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3949,31 +3913,31 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type parameter_configuration() :: %{String.t() | Atom.t() => any()}
+  @type parameter_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invite_members_request() :: %{
-        required("AccountIds") => list(String.t() | Atom.t())
+        required("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type invite_members_request() :: %{String.t() | Atom.t() => any()}
+  @type invite_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       insight_results() :: %{
-        "GroupByAttribute" => String.t() | Atom.t(),
-        "InsightArn" => String.t() | Atom.t(),
+        "GroupByAttribute" => String.t() | atom(),
+        "InsightArn" => String.t() | atom(),
         "ResultValues" => list(insight_result_value())
       }
 
   """
-  @type insight_results() :: %{String.t() | Atom.t() => any()}
+  @type insight_results() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3986,8 +3950,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_msk_cluster_cluster_info_encryption_info_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -4005,55 +3968,55 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_service_details() :: %{
         "CapacityProviderStrategy" => list(aws_ecs_service_capacity_provider_strategy_details()),
-        "Cluster" => String.t() | Atom.t(),
+        "Cluster" => String.t() | atom(),
         "DeploymentConfiguration" => aws_ecs_service_deployment_configuration_details(),
         "DeploymentController" => aws_ecs_service_deployment_controller_details(),
         "DesiredCount" => integer(),
         "EnableEcsManagedTags" => boolean(),
         "EnableExecuteCommand" => boolean(),
         "HealthCheckGracePeriodSeconds" => integer(),
-        "LaunchType" => String.t() | Atom.t(),
+        "LaunchType" => String.t() | atom(),
         "LoadBalancers" => list(aws_ecs_service_load_balancers_details()),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "NetworkConfiguration" => aws_ecs_service_network_configuration_details(),
         "PlacementConstraints" => list(aws_ecs_service_placement_constraints_details()),
         "PlacementStrategies" => list(aws_ecs_service_placement_strategies_details()),
-        "PlatformVersion" => String.t() | Atom.t(),
-        "PropagateTags" => String.t() | Atom.t(),
-        "Role" => String.t() | Atom.t(),
-        "SchedulingStrategy" => String.t() | Atom.t(),
-        "ServiceArn" => String.t() | Atom.t(),
-        "ServiceName" => String.t() | Atom.t(),
+        "PlatformVersion" => String.t() | atom(),
+        "PropagateTags" => String.t() | atom(),
+        "Role" => String.t() | atom(),
+        "SchedulingStrategy" => String.t() | atom(),
+        "ServiceArn" => String.t() | atom(),
+        "ServiceName" => String.t() | atom(),
         "ServiceRegistries" => list(aws_ecs_service_service_registries_details()),
-        "TaskDefinition" => String.t() | Atom.t()
+        "TaskDefinition" => String.t() | atom()
       }
 
   """
-  @type aws_ecs_service_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_service_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_standards_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Standards" => list(standard())
       }
 
   """
-  @type describe_standards_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_standards_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       user_account() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Uid" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Uid" => String.t() | atom()
       }
 
   """
-  @type user_account() :: %{String.t() | Atom.t() => any()}
+  @type user_account() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4061,13 +4024,13 @@ defmodule AWS.SecurityHub do
 
       ip_organization_details() :: %{
         "Asn" => integer(),
-        "AsnOrg" => String.t() | Atom.t(),
-        "Isp" => String.t() | Atom.t(),
-        "Org" => String.t() | Atom.t()
+        "AsnOrg" => String.t() | atom(),
+        "Isp" => String.t() | atom(),
+        "Org" => String.t() | atom()
       }
 
   """
-  @type ip_organization_details() :: %{String.t() | Atom.t() => any()}
+  @type ip_organization_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4080,8 +4043,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_cloud_front_distribution_origin_group_failover_status_codes() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -4089,12 +4051,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       rule_group_source_stateless_rule_definition() :: %{
-        "Actions" => list(String.t() | Atom.t()),
+        "Actions" => list(String.t() | atom()),
         "MatchAttributes" => rule_group_source_stateless_rule_match_attributes()
       }
 
   """
-  @type rule_group_source_stateless_rule_definition() :: %{String.t() | Atom.t() => any()}
+  @type rule_group_source_stateless_rule_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4105,7 +4067,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type standards_status_reason() :: %{String.t() | Atom.t() => any()}
+  @type standards_status_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4113,77 +4075,77 @@ defmodule AWS.SecurityHub do
 
       aws_cors_configuration() :: %{
         "AllowCredentials" => boolean(),
-        "AllowHeaders" => list(String.t() | Atom.t()),
-        "AllowMethods" => list(String.t() | Atom.t()),
-        "AllowOrigins" => list(String.t() | Atom.t()),
-        "ExposeHeaders" => list(String.t() | Atom.t()),
+        "AllowHeaders" => list(String.t() | atom()),
+        "AllowMethods" => list(String.t() | atom()),
+        "AllowOrigins" => list(String.t() | atom()),
+        "ExposeHeaders" => list(String.t() | atom()),
         "MaxAge" => integer()
       }
 
   """
-  @type aws_cors_configuration() :: %{String.t() | Atom.t() => any()}
+  @type aws_cors_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_automation_rules_v2_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Rules" => list(automation_rules_metadata_v2())
       }
 
   """
-  @type list_automation_rules_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type list_automation_rules_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_cloud_formation_stack_details() :: %{
-        "Capabilities" => list(String.t() | Atom.t()),
-        "CreationTime" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "Capabilities" => list(String.t() | atom()),
+        "CreationTime" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "DisableRollback" => boolean(),
         "DriftInformation" => aws_cloud_formation_stack_drift_information_details(),
         "EnableTerminationProtection" => boolean(),
-        "LastUpdatedTime" => String.t() | Atom.t(),
-        "NotificationArns" => list(String.t() | Atom.t()),
+        "LastUpdatedTime" => String.t() | atom(),
+        "NotificationArns" => list(String.t() | atom()),
         "Outputs" => list(aws_cloud_formation_stack_outputs_details()),
-        "RoleArn" => String.t() | Atom.t(),
-        "StackId" => String.t() | Atom.t(),
-        "StackName" => String.t() | Atom.t(),
-        "StackStatus" => String.t() | Atom.t(),
-        "StackStatusReason" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
+        "StackName" => String.t() | atom(),
+        "StackStatus" => String.t() | atom(),
+        "StackStatusReason" => String.t() | atom(),
         "TimeoutInMinutes" => integer()
       }
 
   """
-  @type aws_cloud_formation_stack_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_formation_stack_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associated_standard() :: %{
-        "StandardsId" => String.t() | Atom.t()
+        "StandardsId" => String.t() | atom()
       }
 
   """
-  @type associated_standard() :: %{String.t() | Atom.t() => any()}
+  @type associated_standard() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_redshift_cluster_cluster_snapshot_copy_status() :: %{
-        "DestinationRegion" => String.t() | Atom.t(),
+        "DestinationRegion" => String.t() | atom(),
         "ManualSnapshotRetentionPeriod" => integer(),
         "RetentionPeriod" => integer(),
-        "SnapshotCopyGrantName" => String.t() | Atom.t()
+        "SnapshotCopyGrantName" => String.t() | atom()
       }
 
   """
-  @type aws_redshift_cluster_cluster_snapshot_copy_status() :: %{String.t() | Atom.t() => any()}
+  @type aws_redshift_cluster_cluster_snapshot_copy_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4192,12 +4154,12 @@ defmodule AWS.SecurityHub do
       severity() :: %{
         "Label" => list(any()),
         "Normalized" => integer(),
-        "Original" => String.t() | Atom.t(),
+        "Original" => String.t() | atom(),
         "Product" => float()
       }
 
   """
-  @type severity() :: %{String.t() | Atom.t() => any()}
+  @type severity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4208,31 +4170,31 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type network_connection() :: %{String.t() | Atom.t() => any()}
+  @type network_connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_redshift_cluster_iam_role() :: %{
-        "ApplyStatus" => String.t() | Atom.t(),
-        "IamRoleArn" => String.t() | Atom.t()
+        "ApplyStatus" => String.t() | atom(),
+        "IamRoleArn" => String.t() | atom()
       }
 
   """
-  @type aws_redshift_cluster_iam_role() :: %{String.t() | Atom.t() => any()}
+  @type aws_redshift_cluster_iam_role() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_amazon_mq_broker_users_details() :: %{
-        "PendingChange" => String.t() | Atom.t(),
-        "Username" => String.t() | Atom.t()
+        "PendingChange" => String.t() | atom(),
+        "Username" => String.t() | atom()
       }
 
   """
-  @type aws_amazon_mq_broker_users_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_amazon_mq_broker_users_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4240,22 +4202,21 @@ defmodule AWS.SecurityHub do
 
       aws_s3_bucket_bucket_lifecycle_configuration_rules_details() :: %{
         "AbortIncompleteMultipartUpload" => aws_s3_bucket_bucket_lifecycle_configuration_rules_abort_incomplete_multipart_upload_details(),
-        "ExpirationDate" => String.t() | Atom.t(),
+        "ExpirationDate" => String.t() | atom(),
         "ExpirationInDays" => integer(),
         "ExpiredObjectDeleteMarker" => boolean(),
         "Filter" => aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_details(),
-        "ID" => String.t() | Atom.t(),
+        "ID" => String.t() | atom(),
         "NoncurrentVersionExpirationInDays" => integer(),
         "NoncurrentVersionTransitions" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_noncurrent_version_transitions_details()),
-        "Prefix" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
+        "Prefix" => String.t() | atom(),
+        "Status" => String.t() | atom(),
         "Transitions" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_transitions_details())
       }
 
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -4268,7 +4229,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_lambda_function_environment() :: %{String.t() | Atom.t() => any()}
+  @type aws_lambda_function_environment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4276,45 +4237,45 @@ defmodule AWS.SecurityHub do
 
       aws_backup_backup_plan_details() :: %{
         "BackupPlan" => aws_backup_backup_plan_backup_plan_details(),
-        "BackupPlanArn" => String.t() | Atom.t(),
-        "BackupPlanId" => String.t() | Atom.t(),
-        "VersionId" => String.t() | Atom.t()
+        "BackupPlanArn" => String.t() | atom(),
+        "BackupPlanId" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
       }
 
   """
-  @type aws_backup_backup_plan_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_backup_backup_plan_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_configuration_policy_response() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "ConfigurationPolicy" => list(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type get_configuration_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type get_configuration_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       standard() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "EnabledByDefault" => boolean(),
-        "Name" => String.t() | Atom.t(),
-        "StandardsArn" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "StandardsArn" => String.t() | atom(),
         "StandardsManagedBy" => standards_managed_by()
       }
 
   """
-  @type standard() :: %{String.t() | Atom.t() => any()}
+  @type standard() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4326,8 +4287,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_ec2_launch_template_data_hibernation_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -4335,11 +4295,11 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_delete_automation_rules_request() :: %{
-        required("AutomationRulesArns") => list(String.t() | Atom.t())
+        required("AutomationRulesArns") => list(String.t() | atom())
       }
 
   """
-  @type batch_delete_automation_rules_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_automation_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4348,28 +4308,28 @@ defmodule AWS.SecurityHub do
       aws_elb_load_balancer_health_check() :: %{
         "HealthyThreshold" => integer(),
         "Interval" => integer(),
-        "Target" => String.t() | Atom.t(),
+        "Target" => String.t() | atom(),
         "Timeout" => integer(),
         "UnhealthyThreshold" => integer()
       }
 
   """
-  @type aws_elb_load_balancer_health_check() :: %{String.t() | Atom.t() => any()}
+  @type aws_elb_load_balancer_health_check() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_waf_regional_web_acl_details() :: %{
-        "DefaultAction" => String.t() | Atom.t(),
-        "MetricName" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "DefaultAction" => String.t() | atom(),
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "RulesList" => list(aws_waf_regional_web_acl_rules_list_details()),
-        "WebAclId" => String.t() | Atom.t()
+        "WebAclId" => String.t() | atom()
       }
 
   """
-  @type aws_waf_regional_web_acl_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_regional_web_acl_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4380,33 +4340,33 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type batch_get_standards_control_associations_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_standards_control_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_elasticsearch_domain_vpc_options() :: %{
-        "AvailabilityZones" => list(String.t() | Atom.t()),
-        "SecurityGroupIds" => list(String.t() | Atom.t()),
-        "SubnetIds" => list(String.t() | Atom.t()),
-        "VPCId" => String.t() | Atom.t()
+        "AvailabilityZones" => list(String.t() | atom()),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "VPCId" => String.t() | atom()
       }
 
   """
-  @type aws_elasticsearch_domain_vpc_options() :: %{String.t() | Atom.t() => any()}
+  @type aws_elasticsearch_domain_vpc_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_wafv2_custom_http_header() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type aws_wafv2_custom_http_header() :: %{String.t() | Atom.t() => any()}
+  @type aws_wafv2_custom_http_header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4414,14 +4374,14 @@ defmodule AWS.SecurityHub do
 
       aws_amazon_mq_broker_logs_details() :: %{
         "Audit" => boolean(),
-        "AuditLogGroup" => String.t() | Atom.t(),
+        "AuditLogGroup" => String.t() | atom(),
         "General" => boolean(),
-        "GeneralLogGroup" => String.t() | Atom.t(),
+        "GeneralLogGroup" => String.t() | atom(),
         "Pending" => aws_amazon_mq_broker_logs_pending_details()
       }
 
   """
-  @type aws_amazon_mq_broker_logs_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_amazon_mq_broker_logs_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4434,22 +4394,22 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type double_configuration_options() :: %{String.t() | Atom.t() => any()}
+  @type double_configuration_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vulnerability_vendor() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Url" => String.t() | Atom.t(),
-        "VendorCreatedAt" => String.t() | Atom.t(),
-        "VendorSeverity" => String.t() | Atom.t(),
-        "VendorUpdatedAt" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Url" => String.t() | atom(),
+        "VendorCreatedAt" => String.t() | atom(),
+        "VendorSeverity" => String.t() | atom(),
+        "VendorUpdatedAt" => String.t() | atom()
       }
 
   """
-  @type vulnerability_vendor() :: %{String.t() | Atom.t() => any()}
+  @type vulnerability_vendor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4457,11 +4417,11 @@ defmodule AWS.SecurityHub do
 
       aws_eks_cluster_logging_cluster_logging_details() :: %{
         "Enabled" => boolean(),
-        "Types" => list(String.t() | Atom.t())
+        "Types" => list(String.t() | atom())
       }
 
   """
-  @type aws_eks_cluster_logging_cluster_logging_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_eks_cluster_logging_cluster_logging_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4469,11 +4429,11 @@ defmodule AWS.SecurityHub do
 
       list_connectors_v2_response() :: %{
         "Connectors" => list(connector_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_connectors_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type list_connectors_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4482,43 +4442,42 @@ defmodule AWS.SecurityHub do
       aws_code_build_project_source() :: %{
         "GitCloneDepth" => integer(),
         "InsecureSsl" => boolean(),
-        "Location" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Location" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_code_build_project_source() :: %{String.t() | Atom.t() => any()}
+  @type aws_code_build_project_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_launch_template_data_placement_details() :: %{
-        "Affinity" => String.t() | Atom.t(),
-        "AvailabilityZone" => String.t() | Atom.t(),
-        "GroupName" => String.t() | Atom.t(),
-        "HostId" => String.t() | Atom.t(),
-        "HostResourceGroupArn" => String.t() | Atom.t(),
+        "Affinity" => String.t() | atom(),
+        "AvailabilityZone" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "HostId" => String.t() | atom(),
+        "HostResourceGroupArn" => String.t() | atom(),
         "PartitionNumber" => integer(),
-        "SpreadDomain" => String.t() | Atom.t(),
-        "Tenancy" => String.t() | Atom.t()
+        "SpreadDomain" => String.t() | atom(),
+        "Tenancy" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_launch_template_data_placement_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_launch_template_data_placement_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rule_group_source_stateless_rule_match_attributes_sources() :: %{
-        "AddressDefinition" => String.t() | Atom.t()
+        "AddressDefinition" => String.t() | atom()
       }
 
   """
   @type rule_group_source_stateless_rule_match_attributes_sources() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -4532,58 +4491,58 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_ec2_launch_template_data_instance_requirements_accelerator_total_memory_mi_b_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_elastic_beanstalk_environment_details() :: %{
-        "ApplicationName" => String.t() | Atom.t(),
-        "Cname" => String.t() | Atom.t(),
-        "DateCreated" => String.t() | Atom.t(),
-        "DateUpdated" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "EndpointUrl" => String.t() | Atom.t(),
-        "EnvironmentArn" => String.t() | Atom.t(),
-        "EnvironmentId" => String.t() | Atom.t(),
+        "ApplicationName" => String.t() | atom(),
+        "Cname" => String.t() | atom(),
+        "DateCreated" => String.t() | atom(),
+        "DateUpdated" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "EndpointUrl" => String.t() | atom(),
+        "EnvironmentArn" => String.t() | atom(),
+        "EnvironmentId" => String.t() | atom(),
         "EnvironmentLinks" => list(aws_elastic_beanstalk_environment_environment_link()),
-        "EnvironmentName" => String.t() | Atom.t(),
+        "EnvironmentName" => String.t() | atom(),
         "OptionSettings" => list(aws_elastic_beanstalk_environment_option_setting()),
-        "PlatformArn" => String.t() | Atom.t(),
-        "SolutionStackName" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
+        "PlatformArn" => String.t() | atom(),
+        "SolutionStackName" => String.t() | atom(),
+        "Status" => String.t() | atom(),
         "Tier" => aws_elastic_beanstalk_environment_tier(),
-        "VersionLabel" => String.t() | Atom.t()
+        "VersionLabel" => String.t() | atom()
       }
 
   """
-  @type aws_elastic_beanstalk_environment_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_elastic_beanstalk_environment_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_registrations_v2_request() :: %{
-        required("AuthCode") => String.t() | Atom.t(),
-        required("AuthState") => String.t() | Atom.t()
+        required("AuthCode") => String.t() | atom(),
+        required("AuthState") => String.t() | atom()
       }
 
   """
-  @type connector_registrations_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type connector_registrations_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rule_group_source_stateful_rules_details() :: %{
-        "Action" => String.t() | Atom.t(),
+        "Action" => String.t() | atom(),
         "Header" => rule_group_source_stateful_rules_header_details(),
         "RuleOptions" => list(rule_group_source_stateful_rules_options_details())
       }
 
   """
-  @type rule_group_source_stateful_rules_details() :: %{String.t() | Atom.t() => any()}
+  @type rule_group_source_stateful_rules_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4603,7 +4562,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type batch_enable_standards_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_enable_standards_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4616,7 +4575,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_elasticsearch_domain_log_publishing_options() :: %{String.t() | Atom.t() => any()}
+  @type aws_elasticsearch_domain_log_publishing_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4624,18 +4583,18 @@ defmodule AWS.SecurityHub do
 
       standards_control_association_summary() :: %{
         "AssociationStatus" => list(any()),
-        "RelatedRequirements" => list(String.t() | Atom.t()),
-        "SecurityControlArn" => String.t() | Atom.t(),
-        "SecurityControlId" => String.t() | Atom.t(),
-        "StandardsArn" => String.t() | Atom.t(),
-        "StandardsControlDescription" => String.t() | Atom.t(),
-        "StandardsControlTitle" => String.t() | Atom.t(),
+        "RelatedRequirements" => list(String.t() | atom()),
+        "SecurityControlArn" => String.t() | atom(),
+        "SecurityControlId" => String.t() | atom(),
+        "StandardsArn" => String.t() | atom(),
+        "StandardsControlDescription" => String.t() | atom(),
+        "StandardsControlTitle" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer(),
-        "UpdatedReason" => String.t() | Atom.t()
+        "UpdatedReason" => String.t() | atom()
       }
 
   """
-  @type standards_control_association_summary() :: %{String.t() | Atom.t() => any()}
+  @type standards_control_association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4646,33 +4605,33 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_ecs_service_network_configuration_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_service_network_configuration_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rule_group_source_stateful_rules_options_details() :: %{
-        "Keyword" => String.t() | Atom.t(),
-        "Settings" => list(String.t() | Atom.t())
+        "Keyword" => String.t() | atom(),
+        "Settings" => list(String.t() | atom())
       }
 
   """
-  @type rule_group_source_stateful_rules_options_details() :: %{String.t() | Atom.t() => any()}
+  @type rule_group_source_stateful_rules_options_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_cloud_front_distribution_logging() :: %{
-        "Bucket" => String.t() | Atom.t(),
+        "Bucket" => String.t() | atom(),
         "Enabled" => boolean(),
         "IncludeCookies" => boolean(),
-        "Prefix" => String.t() | Atom.t()
+        "Prefix" => String.t() | atom()
       }
 
   """
-  @type aws_cloud_front_distribution_logging() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_front_distribution_logging() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4682,15 +4641,14 @@ defmodule AWS.SecurityHub do
         "DeleteOnTermination" => boolean(),
         "Encrypted" => boolean(),
         "Iops" => integer(),
-        "SnapshotId" => String.t() | Atom.t(),
+        "SnapshotId" => String.t() | atom(),
         "VolumeSize" => integer(),
-        "VolumeType" => String.t() | Atom.t()
+        "VolumeType" => String.t() | atom()
       }
 
   """
   @type aws_auto_scaling_launch_configuration_block_device_mappings_ebs_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -4698,28 +4656,28 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_rds_db_subnet_group() :: %{
-        "DbSubnetGroupArn" => String.t() | Atom.t(),
-        "DbSubnetGroupDescription" => String.t() | Atom.t(),
-        "DbSubnetGroupName" => String.t() | Atom.t(),
-        "SubnetGroupStatus" => String.t() | Atom.t(),
+        "DbSubnetGroupArn" => String.t() | atom(),
+        "DbSubnetGroupDescription" => String.t() | atom(),
+        "DbSubnetGroupName" => String.t() | atom(),
+        "SubnetGroupStatus" => String.t() | atom(),
         "Subnets" => list(aws_rds_db_subnet_group_subnet()),
-        "VpcId" => String.t() | Atom.t()
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_subnet_group() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_subnet_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_classification_details() :: %{
-        "DetailedResultsLocation" => String.t() | Atom.t(),
+        "DetailedResultsLocation" => String.t() | atom(),
         "Result" => classification_result()
       }
 
   """
-  @type data_classification_details() :: %{String.t() | Atom.t() => any()}
+  @type data_classification_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4731,7 +4689,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type rule_group_source_stateless_rules_details() :: %{String.t() | Atom.t() => any()}
+  @type rule_group_source_stateless_rules_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4739,16 +4697,15 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_task_definition_volumes_efs_volume_configuration_details() :: %{
         "AuthorizationConfig" => aws_ecs_task_definition_volumes_efs_volume_configuration_authorization_config_details(),
-        "FilesystemId" => String.t() | Atom.t(),
-        "RootDirectory" => String.t() | Atom.t(),
-        "TransitEncryption" => String.t() | Atom.t(),
+        "FilesystemId" => String.t() | atom(),
+        "RootDirectory" => String.t() | atom(),
+        "TransitEncryption" => String.t() | atom(),
         "TransitEncryptionPort" => integer()
       }
 
   """
   @type aws_ecs_task_definition_volumes_efs_volume_configuration_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -4765,14 +4722,13 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_s3_bucket_website_configuration_routing_rule_condition() :: %{
-        "HttpErrorCodeReturnedEquals" => String.t() | Atom.t(),
-        "KeyPrefixEquals" => String.t() | Atom.t()
+        "HttpErrorCodeReturnedEquals" => String.t() | atom(),
+        "KeyPrefixEquals" => String.t() | atom()
       }
 
   """
   @type aws_s3_bucket_website_configuration_routing_rule_condition() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -4781,24 +4737,24 @@ defmodule AWS.SecurityHub do
 
       group_by_value() :: %{
         "Count" => integer(),
-        "FieldValue" => String.t() | Atom.t()
+        "FieldValue" => String.t() | atom()
       }
 
   """
-  @type group_by_value() :: %{String.t() | Atom.t() => any()}
+  @type group_by_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_redshift_cluster_hsm_status() :: %{
-        "HsmClientCertificateIdentifier" => String.t() | Atom.t(),
-        "HsmConfigurationIdentifier" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "HsmClientCertificateIdentifier" => String.t() | atom(),
+        "HsmConfigurationIdentifier" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_redshift_cluster_hsm_status() :: %{String.t() | Atom.t() => any()}
+  @type aws_redshift_cluster_hsm_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4806,13 +4762,12 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_launch_template_data_elastic_inference_accelerator_set_details() :: %{
         "Count" => integer(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
   @type aws_ec2_launch_template_data_elastic_inference_accelerator_set_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -4820,15 +4775,14 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ecs_service_network_configuration_aws_vpc_configuration_details() :: %{
-        "AssignPublicIp" => String.t() | Atom.t(),
-        "SecurityGroups" => list(String.t() | Atom.t()),
-        "Subnets" => list(String.t() | Atom.t())
+        "AssignPublicIp" => String.t() | atom(),
+        "SecurityGroups" => list(String.t() | atom()),
+        "Subnets" => list(String.t() | atom())
       }
 
   """
   @type aws_ecs_service_network_configuration_aws_vpc_configuration_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -4844,79 +4798,79 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type occurrences() :: %{String.t() | Atom.t() => any()}
+  @type occurrences() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_waf_regional_rule_details() :: %{
-        "MetricName" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "PredicateList" => list(aws_waf_regional_rule_predicate_list_details()),
-        "RuleId" => String.t() | Atom.t()
+        "RuleId" => String.t() | atom()
       }
 
   """
-  @type aws_waf_regional_rule_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_regional_rule_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_security_group_ip_range() :: %{
-        "CidrIp" => String.t() | Atom.t()
+        "CidrIp" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_security_group_ip_range() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_security_group_ip_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_waf_web_acl_details() :: %{
-        "DefaultAction" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "DefaultAction" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Rules" => list(aws_waf_web_acl_rule()),
-        "WebAclId" => String.t() | Atom.t()
+        "WebAclId" => String.t() | atom()
       }
 
   """
-  @type aws_waf_web_acl_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_web_acl_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_aggregator_v2_response() :: %{
-        "AggregationRegion" => String.t() | Atom.t(),
-        "AggregatorV2Arn" => String.t() | Atom.t(),
-        "LinkedRegions" => list(String.t() | Atom.t()),
-        "RegionLinkingMode" => String.t() | Atom.t()
+        "AggregationRegion" => String.t() | atom(),
+        "AggregatorV2Arn" => String.t() | atom(),
+        "LinkedRegions" => list(String.t() | atom()),
+        "RegionLinkingMode" => String.t() | atom()
       }
 
   """
-  @type update_aggregator_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type update_aggregator_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_code_build_project_artifacts_details() :: %{
-        "ArtifactIdentifier" => String.t() | Atom.t(),
+        "ArtifactIdentifier" => String.t() | atom(),
         "EncryptionDisabled" => boolean(),
-        "Location" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "NamespaceType" => String.t() | Atom.t(),
+        "Location" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NamespaceType" => String.t() | atom(),
         "OverrideArtifactName" => boolean(),
-        "Packaging" => String.t() | Atom.t(),
-        "Path" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Packaging" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_code_build_project_artifacts_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_code_build_project_artifacts_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4927,7 +4881,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type boolean_filter() :: %{String.t() | Atom.t() => any()}
+  @type boolean_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4945,7 +4899,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type resource_severity_breakdown() :: %{String.t() | Atom.t() => any()}
+  @type resource_severity_breakdown() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4961,14 +4915,13 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ec2_client_vpn_endpoint_client_connect_options_status_details() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
   @type aws_ec2_client_vpn_endpoint_client_connect_options_status_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -4983,45 +4936,45 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type describe_organization_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_organization_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_rds_db_cluster_associated_role() :: %{
-        "RoleArn" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "RoleArn" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_cluster_associated_role() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_cluster_associated_role() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_backup_backup_plan_rule_copy_actions_details() :: %{
-        "DestinationBackupVaultArn" => String.t() | Atom.t(),
+        "DestinationBackupVaultArn" => String.t() | atom(),
         "Lifecycle" => aws_backup_backup_plan_lifecycle_details()
       }
 
   """
-  @type aws_backup_backup_plan_rule_copy_actions_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_backup_backup_plan_rule_copy_actions_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_launch_template_specification() :: %{
-        "LaunchTemplateId" => String.t() | Atom.t(),
-        "LaunchTemplateName" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "LaunchTemplateId" => String.t() | atom(),
+        "LaunchTemplateName" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
   @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_launch_template_specification() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5030,58 +4983,58 @@ defmodule AWS.SecurityHub do
       aws_api_gateway_stage_details() :: %{
         "AccessLogSettings" => aws_api_gateway_access_log_settings(),
         "CacheClusterEnabled" => boolean(),
-        "CacheClusterSize" => String.t() | Atom.t(),
-        "CacheClusterStatus" => String.t() | Atom.t(),
+        "CacheClusterSize" => String.t() | atom(),
+        "CacheClusterStatus" => String.t() | atom(),
         "CanarySettings" => aws_api_gateway_canary_settings(),
-        "ClientCertificateId" => String.t() | Atom.t(),
-        "CreatedDate" => String.t() | Atom.t(),
-        "DeploymentId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "DocumentationVersion" => String.t() | Atom.t(),
-        "LastUpdatedDate" => String.t() | Atom.t(),
+        "ClientCertificateId" => String.t() | atom(),
+        "CreatedDate" => String.t() | atom(),
+        "DeploymentId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "DocumentationVersion" => String.t() | atom(),
+        "LastUpdatedDate" => String.t() | atom(),
         "MethodSettings" => list(aws_api_gateway_method_settings()),
-        "StageName" => String.t() | Atom.t(),
+        "StageName" => String.t() | atom(),
         "TracingEnabled" => boolean(),
         "Variables" => map(),
-        "WebAclArn" => String.t() | Atom.t()
+        "WebAclArn" => String.t() | atom()
       }
 
   """
-  @type aws_api_gateway_stage_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_api_gateway_stage_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       standards_control() :: %{
-        "ControlId" => String.t() | Atom.t(),
+        "ControlId" => String.t() | atom(),
         "ControlStatus" => list(any()),
         "ControlStatusUpdatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisabledReason" => String.t() | Atom.t(),
-        "RelatedRequirements" => list(String.t() | Atom.t()),
-        "RemediationUrl" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisabledReason" => String.t() | atom(),
+        "RelatedRequirements" => list(String.t() | atom()),
+        "RemediationUrl" => String.t() | atom(),
         "SeverityRating" => list(any()),
-        "StandardsControlArn" => String.t() | Atom.t(),
-        "Title" => String.t() | Atom.t()
+        "StandardsControlArn" => String.t() | atom(),
+        "Title" => String.t() | atom()
       }
 
   """
-  @type standards_control() :: %{String.t() | Atom.t() => any()}
+  @type standards_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_rds_db_domain_membership() :: %{
-        "Domain" => String.t() | Atom.t(),
-        "Fqdn" => String.t() | Atom.t(),
-        "IamRoleName" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "Domain" => String.t() | atom(),
+        "Fqdn" => String.t() | atom(),
+        "IamRoleName" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_domain_membership() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_domain_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5089,13 +5042,13 @@ defmodule AWS.SecurityHub do
 
       aws_certificate_manager_certificate_renewal_summary() :: %{
         "DomainValidationOptions" => list(aws_certificate_manager_certificate_domain_validation_option()),
-        "RenewalStatus" => String.t() | Atom.t(),
-        "RenewalStatusReason" => String.t() | Atom.t(),
-        "UpdatedAt" => String.t() | Atom.t()
+        "RenewalStatus" => String.t() | atom(),
+        "RenewalStatusReason" => String.t() | atom(),
+        "UpdatedAt" => String.t() | atom()
       }
 
   """
-  @type aws_certificate_manager_certificate_renewal_summary() :: %{String.t() | Atom.t() => any()}
+  @type aws_certificate_manager_certificate_renewal_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5107,7 +5060,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_abort_incomplete_multipart_upload_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5124,27 +5077,27 @@ defmodule AWS.SecurityHub do
 
       aws_dynamo_db_table_replica() :: %{
         "GlobalSecondaryIndexes" => list(aws_dynamo_db_table_replica_global_secondary_index()),
-        "KmsMasterKeyId" => String.t() | Atom.t(),
+        "KmsMasterKeyId" => String.t() | atom(),
         "ProvisionedThroughputOverride" => aws_dynamo_db_table_provisioned_throughput_override(),
-        "RegionName" => String.t() | Atom.t(),
-        "ReplicaStatus" => String.t() | Atom.t(),
-        "ReplicaStatusDescription" => String.t() | Atom.t()
+        "RegionName" => String.t() | atom(),
+        "ReplicaStatus" => String.t() | atom(),
+        "ReplicaStatusDescription" => String.t() | atom()
       }
 
   """
-  @type aws_dynamo_db_table_replica() :: %{String.t() | Atom.t() => any()}
+  @type aws_dynamo_db_table_replica() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_security_hub_v2_response() :: %{
-        "HubV2Arn" => String.t() | Atom.t(),
-        "SubscribedAt" => String.t() | Atom.t()
+        "HubV2Arn" => String.t() | atom(),
+        "SubscribedAt" => String.t() | atom()
       }
 
   """
-  @type describe_security_hub_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_security_hub_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5153,32 +5106,32 @@ defmodule AWS.SecurityHub do
       aws_dms_replication_instance_details() :: %{
         "AllocatedStorage" => integer(),
         "AutoMinorVersionUpgrade" => boolean(),
-        "AvailabilityZone" => String.t() | Atom.t(),
-        "EngineVersion" => String.t() | Atom.t(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "AvailabilityZone" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "MultiAZ" => boolean(),
-        "PreferredMaintenanceWindow" => String.t() | Atom.t(),
+        "PreferredMaintenanceWindow" => String.t() | atom(),
         "PubliclyAccessible" => boolean(),
-        "ReplicationInstanceClass" => String.t() | Atom.t(),
-        "ReplicationInstanceIdentifier" => String.t() | Atom.t(),
+        "ReplicationInstanceClass" => String.t() | atom(),
+        "ReplicationInstanceIdentifier" => String.t() | atom(),
         "ReplicationSubnetGroup" => aws_dms_replication_instance_replication_subnet_group_details(),
         "VpcSecurityGroups" => list(aws_dms_replication_instance_vpc_security_groups_details())
       }
 
   """
-  @type aws_dms_replication_instance_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_dms_replication_instance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_access_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_access_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_access_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5186,24 +5139,23 @@ defmodule AWS.SecurityHub do
 
       aws_elb_lb_cookie_stickiness_policy() :: %{
         "CookieExpirationPeriod" => float(),
-        "PolicyName" => String.t() | Atom.t()
+        "PolicyName" => String.t() | atom()
       }
 
   """
-  @type aws_elb_lb_cookie_stickiness_policy() :: %{String.t() | Atom.t() => any()}
+  @type aws_elb_lb_cookie_stickiness_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_launch_template_data_network_interface_set_ipv6_prefixes_details() :: %{
-        "Ipv6Prefix" => String.t() | Atom.t()
+        "Ipv6Prefix" => String.t() | atom()
       }
 
   """
   @type aws_ec2_launch_template_data_network_interface_set_ipv6_prefixes_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -5211,13 +5163,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ec2_launch_template_data_network_interface_set_ipv4_prefixes_details() :: %{
-        "Ipv4Prefix" => String.t() | Atom.t()
+        "Ipv4Prefix" => String.t() | atom()
       }
 
   """
   @type aws_ec2_launch_template_data_network_interface_set_ipv4_prefixes_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -5230,8 +5181,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_step_function_state_machine_logging_configuration_destinations_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -5241,17 +5191,16 @@ defmodule AWS.SecurityHub do
       aws_elasticsearch_domain_elasticsearch_cluster_config_details() :: %{
         "DedicatedMasterCount" => integer(),
         "DedicatedMasterEnabled" => boolean(),
-        "DedicatedMasterType" => String.t() | Atom.t(),
+        "DedicatedMasterType" => String.t() | atom(),
         "InstanceCount" => integer(),
-        "InstanceType" => String.t() | Atom.t(),
+        "InstanceType" => String.t() | atom(),
         "ZoneAwarenessConfig" => aws_elasticsearch_domain_elasticsearch_cluster_config_zone_awareness_config_details(),
         "ZoneAwarenessEnabled" => boolean()
       }
 
   """
   @type aws_elasticsearch_domain_elasticsearch_cluster_config_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -5265,8 +5214,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type rule_group_source_stateless_rules_and_custom_actions_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -5278,120 +5226,120 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_s3_bucket_server_side_encryption_rule() :: %{String.t() | Atom.t() => any()}
+  @type aws_s3_bucket_server_side_encryption_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       configuration_policy_summary() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ServiceEnabled" => boolean(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type configuration_policy_summary() :: %{String.t() | Atom.t() => any()}
+  @type configuration_policy_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_certificate_manager_certificate_details() :: %{
-        "CertificateAuthorityArn" => String.t() | Atom.t(),
-        "CreatedAt" => String.t() | Atom.t(),
-        "DomainName" => String.t() | Atom.t(),
+        "CertificateAuthorityArn" => String.t() | atom(),
+        "CreatedAt" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
         "DomainValidationOptions" => list(aws_certificate_manager_certificate_domain_validation_option()),
         "ExtendedKeyUsages" => list(aws_certificate_manager_certificate_extended_key_usage()),
-        "FailureReason" => String.t() | Atom.t(),
-        "ImportedAt" => String.t() | Atom.t(),
-        "InUseBy" => list(String.t() | Atom.t()),
-        "IssuedAt" => String.t() | Atom.t(),
-        "Issuer" => String.t() | Atom.t(),
-        "KeyAlgorithm" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | atom(),
+        "ImportedAt" => String.t() | atom(),
+        "InUseBy" => list(String.t() | atom()),
+        "IssuedAt" => String.t() | atom(),
+        "Issuer" => String.t() | atom(),
+        "KeyAlgorithm" => String.t() | atom(),
         "KeyUsages" => list(aws_certificate_manager_certificate_key_usage()),
-        "NotAfter" => String.t() | Atom.t(),
-        "NotBefore" => String.t() | Atom.t(),
+        "NotAfter" => String.t() | atom(),
+        "NotBefore" => String.t() | atom(),
         "Options" => aws_certificate_manager_certificate_options(),
-        "RenewalEligibility" => String.t() | Atom.t(),
+        "RenewalEligibility" => String.t() | atom(),
         "RenewalSummary" => aws_certificate_manager_certificate_renewal_summary(),
-        "Serial" => String.t() | Atom.t(),
-        "SignatureAlgorithm" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
-        "Subject" => String.t() | Atom.t(),
-        "SubjectAlternativeNames" => list(String.t() | Atom.t()),
-        "Type" => String.t() | Atom.t()
+        "Serial" => String.t() | atom(),
+        "SignatureAlgorithm" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "Subject" => String.t() | atom(),
+        "SubjectAlternativeNames" => list(String.t() | atom()),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_certificate_manager_certificate_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_certificate_manager_certificate_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_enabled_standards_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "StandardsSubscriptions" => list(standards_subscription())
       }
 
   """
-  @type get_enabled_standards_response() :: %{String.t() | Atom.t() => any()}
+  @type get_enabled_standards_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_route53_hosted_zone_vpc_details() :: %{
-        "Id" => String.t() | Atom.t(),
-        "Region" => String.t() | Atom.t()
+        "Id" => String.t() | atom(),
+        "Region" => String.t() | atom()
       }
 
   """
-  @type aws_route53_hosted_zone_vpc_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_route53_hosted_zone_vpc_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_iam_instance_profile() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreateDate" => String.t() | Atom.t(),
-        "InstanceProfileId" => String.t() | Atom.t(),
-        "InstanceProfileName" => String.t() | Atom.t(),
-        "Path" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreateDate" => String.t() | atom(),
+        "InstanceProfileId" => String.t() | atom(),
+        "InstanceProfileName" => String.t() | atom(),
+        "Path" => String.t() | atom(),
         "Roles" => list(aws_iam_instance_profile_role())
       }
 
   """
-  @type aws_iam_instance_profile() :: %{String.t() | Atom.t() => any()}
+  @type aws_iam_instance_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5399,12 +5347,12 @@ defmodule AWS.SecurityHub do
 
       dns_request_action() :: %{
         "Blocked" => boolean(),
-        "Domain" => String.t() | Atom.t(),
-        "Protocol" => String.t() | Atom.t()
+        "Domain" => String.t() | atom(),
+        "Protocol" => String.t() | atom()
       }
 
   """
-  @type dns_request_action() :: %{String.t() | Atom.t() => any()}
+  @type dns_request_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5419,20 +5367,20 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type resources_composite_filter() :: %{String.t() | Atom.t() => any()}
+  @type resources_composite_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       security_controls_configuration() :: %{
-        "DisabledSecurityControlIdentifiers" => list(String.t() | Atom.t()),
-        "EnabledSecurityControlIdentifiers" => list(String.t() | Atom.t()),
+        "DisabledSecurityControlIdentifiers" => list(String.t() | atom()),
+        "EnabledSecurityControlIdentifiers" => list(String.t() | atom()),
         "SecurityControlCustomParameters" => list(security_control_custom_parameter())
       }
 
   """
-  @type security_controls_configuration() :: %{String.t() | Atom.t() => any()}
+  @type security_controls_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5444,7 +5392,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5456,42 +5404,42 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type update_security_hub_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_security_hub_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_members_request() :: %{
-        required("AccountIds") => list(String.t() | Atom.t())
+        required("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type get_members_request() :: %{String.t() | Atom.t() => any()}
+  @type get_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rule_group_variables_port_sets_details() :: %{
-        "Definition" => list(String.t() | Atom.t())
+        "Definition" => list(String.t() | atom())
       }
 
   """
-  @type rule_group_variables_port_sets_details() :: %{String.t() | Atom.t() => any()}
+  @type rule_group_variables_port_sets_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_launch_template_data_capacity_reservation_specification_capacity_reservation_target_details() :: %{
-        "CapacityReservationId" => String.t() | Atom.t(),
-        "CapacityReservationResourceGroupArn" => String.t() | Atom.t()
+        "CapacityReservationId" => String.t() | atom(),
+        "CapacityReservationResourceGroupArn" => String.t() | atom()
       }
 
   """
   @type aws_ec2_launch_template_data_capacity_reservation_specification_capacity_reservation_target_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5502,20 +5450,19 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type create_members_request() :: %{String.t() | Atom.t() => any()}
+  @type create_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_events_endpoint_routing_config_failover_config_primary_details() :: %{
-        "HealthCheck" => String.t() | Atom.t()
+        "HealthCheck" => String.t() | atom()
       }
 
   """
   @type aws_events_endpoint_routing_config_failover_config_primary_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -5525,54 +5472,54 @@ defmodule AWS.SecurityHub do
       aws_elb_load_balancer_policies() :: %{
         "AppCookieStickinessPolicies" => list(aws_elb_app_cookie_stickiness_policy()),
         "LbCookieStickinessPolicies" => list(aws_elb_lb_cookie_stickiness_policy()),
-        "OtherPolicies" => list(String.t() | Atom.t())
+        "OtherPolicies" => list(String.t() | atom())
       }
 
   """
-  @type aws_elb_load_balancer_policies() :: %{String.t() | Atom.t() => any()}
+  @type aws_elb_load_balancer_policies() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_ticket_v2_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        required("ConnectorId") => String.t() | Atom.t(),
-        required("FindingMetadataUid") => String.t() | Atom.t()
+        optional("ClientToken") => String.t() | atom(),
+        required("ConnectorId") => String.t() | atom(),
+        required("FindingMetadataUid") => String.t() | atom()
       }
 
   """
-  @type create_ticket_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type create_ticket_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_dynamo_db_table_replica_global_secondary_index() :: %{
-        "IndexName" => String.t() | Atom.t(),
+        "IndexName" => String.t() | atom(),
         "ProvisionedThroughputOverride" => aws_dynamo_db_table_provisioned_throughput_override()
       }
 
   """
-  @type aws_dynamo_db_table_replica_global_secondary_index() :: %{String.t() | Atom.t() => any()}
+  @type aws_dynamo_db_table_replica_global_secondary_index() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_automation_rule_v2_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("RuleStatus") => list(any()),
         optional("Tags") => map(),
         required("Actions") => list(automation_rules_action_v2()),
         required("Criteria") => list(),
-        required("Description") => String.t() | Atom.t(),
-        required("RuleName") => String.t() | Atom.t(),
+        required("Description") => String.t() | atom(),
+        required("RuleName") => String.t() | atom(),
         required("RuleOrder") => float()
       }
 
   """
-  @type create_automation_rule_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type create_automation_rule_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5584,7 +5531,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type icmp_type_code() :: %{String.t() | Atom.t() => any()}
+  @type icmp_type_code() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5596,21 +5543,20 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_backup_recovery_point_lifecycle_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_backup_recovery_point_lifecycle_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_launch_template_data_instance_market_options_details() :: %{
-        "MarketType" => String.t() | Atom.t(),
+        "MarketType" => String.t() | atom(),
         "SpotOptions" => aws_ec2_launch_template_data_instance_market_options_spot_options_details()
       }
 
   """
   @type aws_ec2_launch_template_data_instance_market_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -5618,30 +5564,30 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_athena_work_group_configuration_result_configuration_encryption_configuration_details() :: %{
-        "EncryptionOption" => String.t() | Atom.t(),
-        "KmsKey" => String.t() | Atom.t()
+        "EncryptionOption" => String.t() | atom(),
+        "KmsKey" => String.t() | atom()
       }
 
   """
   @type aws_athena_work_group_configuration_result_configuration_encryption_configuration_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_network_interface_attachment() :: %{
-        "AttachTime" => String.t() | Atom.t(),
-        "AttachmentId" => String.t() | Atom.t(),
+        "AttachTime" => String.t() | atom(),
+        "AttachmentId" => String.t() | atom(),
         "DeleteOnTermination" => boolean(),
         "DeviceIndex" => integer(),
-        "InstanceId" => String.t() | Atom.t(),
-        "InstanceOwnerId" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "InstanceId" => String.t() | atom(),
+        "InstanceOwnerId" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_network_interface_attachment() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_network_interface_attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5653,33 +5599,33 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type rule_group_variables() :: %{String.t() | Atom.t() => any()}
+  @type rule_group_variables() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_iam_access_key_session_context_session_issuer() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "Arn" => String.t() | Atom.t(),
-        "PrincipalId" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t(),
-        "UserName" => String.t() | Atom.t()
+        "AccountId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "UserName" => String.t() | atom()
       }
 
   """
-  @type aws_iam_access_key_session_context_session_issuer() :: %{String.t() | Atom.t() => any()}
+  @type aws_iam_access_key_session_context_session_issuer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_members_request() :: %{
-        required("AccountIds") => list(String.t() | Atom.t())
+        required("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type disassociate_members_request() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5688,13 +5634,13 @@ defmodule AWS.SecurityHub do
       aws_api_gateway_v2_route_settings() :: %{
         "DataTraceEnabled" => boolean(),
         "DetailedMetricsEnabled" => boolean(),
-        "LoggingLevel" => String.t() | Atom.t(),
+        "LoggingLevel" => String.t() | atom(),
         "ThrottlingBurstLimit" => integer(),
         "ThrottlingRateLimit" => float()
       }
 
   """
-  @type aws_api_gateway_v2_route_settings() :: %{String.t() | Atom.t() => any()}
+  @type aws_api_gateway_v2_route_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5702,20 +5648,20 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_volume_details() :: %{
         "Attachments" => list(aws_ec2_volume_attachment()),
-        "CreateTime" => String.t() | Atom.t(),
-        "DeviceName" => String.t() | Atom.t(),
+        "CreateTime" => String.t() | atom(),
+        "DeviceName" => String.t() | atom(),
         "Encrypted" => boolean(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
         "Size" => integer(),
-        "SnapshotId" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
-        "VolumeId" => String.t() | Atom.t(),
-        "VolumeScanStatus" => String.t() | Atom.t(),
-        "VolumeType" => String.t() | Atom.t()
+        "SnapshotId" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "VolumeId" => String.t() | atom(),
+        "VolumeScanStatus" => String.t() | atom(),
+        "VolumeType" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_volume_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_volume_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5723,11 +5669,11 @@ defmodule AWS.SecurityHub do
 
       get_findings_response() :: %{
         "Findings" => list(aws_security_finding()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_findings_response() :: %{String.t() | Atom.t() => any()}
+  @type get_findings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5740,8 +5686,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_ec2_launch_template_data_instance_requirements_network_interface_count_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -5749,14 +5694,14 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_waf_rule_group_details() :: %{
-        "MetricName" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "RuleGroupId" => String.t() | Atom.t(),
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RuleGroupId" => String.t() | atom(),
         "Rules" => list(aws_waf_rule_group_rules_details())
       }
 
   """
-  @type aws_waf_rule_group_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_rule_group_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5765,89 +5710,88 @@ defmodule AWS.SecurityHub do
       aws_cloud_front_distribution_details() :: %{
         "CacheBehaviors" => aws_cloud_front_distribution_cache_behaviors(),
         "DefaultCacheBehavior" => aws_cloud_front_distribution_default_cache_behavior(),
-        "DefaultRootObject" => String.t() | Atom.t(),
-        "DomainName" => String.t() | Atom.t(),
-        "ETag" => String.t() | Atom.t(),
-        "LastModifiedTime" => String.t() | Atom.t(),
+        "DefaultRootObject" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
+        "ETag" => String.t() | atom(),
+        "LastModifiedTime" => String.t() | atom(),
         "Logging" => aws_cloud_front_distribution_logging(),
         "OriginGroups" => aws_cloud_front_distribution_origin_groups(),
         "Origins" => aws_cloud_front_distribution_origins(),
-        "Status" => String.t() | Atom.t(),
+        "Status" => String.t() | atom(),
         "ViewerCertificate" => aws_cloud_front_distribution_viewer_certificate(),
-        "WebAclId" => String.t() | Atom.t()
+        "WebAclId" => String.t() | atom()
       }
 
   """
-  @type aws_cloud_front_distribution_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_front_distribution_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_cloud_front_distribution_cache_behavior() :: %{
-        "ViewerProtocolPolicy" => String.t() | Atom.t()
+        "ViewerProtocolPolicy" => String.t() | atom()
       }
 
   """
-  @type aws_cloud_front_distribution_cache_behavior() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_front_distribution_cache_behavior() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_security_group_details() :: %{
-        "GroupId" => String.t() | Atom.t(),
-        "GroupName" => String.t() | Atom.t(),
+        "GroupId" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
         "IpPermissions" => list(aws_ec2_security_group_ip_permission()),
         "IpPermissionsEgress" => list(aws_ec2_security_group_ip_permission()),
-        "OwnerId" => String.t() | Atom.t(),
-        "VpcId" => String.t() | Atom.t()
+        "OwnerId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_security_group_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_security_group_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_container_details() :: %{
-        "Image" => String.t() | Atom.t(),
+        "Image" => String.t() | atom(),
         "MountPoints" => list(aws_mount_point()),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Privileged" => boolean()
       }
 
   """
-  @type aws_ecs_container_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_container_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_service_service_registries_details() :: %{
-        "ContainerName" => String.t() | Atom.t(),
+        "ContainerName" => String.t() | atom(),
         "ContainerPort" => integer(),
         "Port" => integer(),
-        "RegistryArn" => String.t() | Atom.t()
+        "RegistryArn" => String.t() | atom()
       }
 
   """
-  @type aws_ecs_service_service_registries_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_service_service_registries_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_definition_container_definitions_environment_details() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_environment_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -5855,13 +5799,13 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       vulnerability_code_vulnerabilities() :: %{
-        "Cwes" => list(String.t() | Atom.t()),
+        "Cwes" => list(String.t() | atom()),
         "FilePath" => code_vulnerabilities_file_path(),
-        "SourceArn" => String.t() | Atom.t()
+        "SourceArn" => String.t() | atom()
       }
 
   """
-  @type vulnerability_code_vulnerabilities() :: %{String.t() | Atom.t() => any()}
+  @type vulnerability_code_vulnerabilities() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5877,70 +5821,69 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_dms_endpoint_details() :: %{
-        "CertificateArn" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t(),
-        "EndpointArn" => String.t() | Atom.t(),
-        "EndpointIdentifier" => String.t() | Atom.t(),
-        "EndpointType" => String.t() | Atom.t(),
-        "EngineName" => String.t() | Atom.t(),
-        "ExternalId" => String.t() | Atom.t(),
-        "ExtraConnectionAttributes" => String.t() | Atom.t(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "CertificateArn" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "EndpointArn" => String.t() | atom(),
+        "EndpointIdentifier" => String.t() | atom(),
+        "EndpointType" => String.t() | atom(),
+        "EngineName" => String.t() | atom(),
+        "ExternalId" => String.t() | atom(),
+        "ExtraConnectionAttributes" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "Port" => integer(),
-        "ServerName" => String.t() | Atom.t(),
-        "SslMode" => String.t() | Atom.t(),
-        "Username" => String.t() | Atom.t()
+        "ServerName" => String.t() | atom(),
+        "SslMode" => String.t() | atom(),
+        "Username" => String.t() | atom()
       }
 
   """
-  @type aws_dms_endpoint_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_dms_endpoint_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       recommendation() :: %{
-        "Text" => String.t() | Atom.t(),
-        "Url" => String.t() | Atom.t()
+        "Text" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type recommendation() :: %{String.t() | Atom.t() => any()}
+  @type recommendation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       finding_aggregator() :: %{
-        "FindingAggregatorArn" => String.t() | Atom.t()
+        "FindingAggregatorArn" => String.t() | atom()
       }
 
   """
-  @type finding_aggregator() :: %{String.t() | Atom.t() => any()}
+  @type finding_aggregator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_members_request() :: %{
-        required("AccountIds") => list(String.t() | Atom.t())
+        required("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type delete_members_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_guard_duty_detector_data_sources_dns_logs_details() :: %{
-        "Status" => String.t() | Atom.t()
+        "Status" => String.t() | atom()
       }
 
   """
   @type aws_guard_duty_detector_data_sources_dns_logs_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -5952,7 +5895,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type invite_members_response() :: %{String.t() | Atom.t() => any()}
+  @type invite_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5964,8 +5907,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_s3_bucket_notification_configuration_s3_key_filter() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -5973,25 +5915,24 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_redshift_cluster_vpc_security_group() :: %{
-        "Status" => String.t() | Atom.t(),
-        "VpcSecurityGroupId" => String.t() | Atom.t()
+        "Status" => String.t() | atom(),
+        "VpcSecurityGroupId" => String.t() | atom()
       }
 
   """
-  @type aws_redshift_cluster_vpc_security_group() :: %{String.t() | Atom.t() => any()}
+  @type aws_redshift_cluster_vpc_security_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_sage_maker_notebook_instance_metadata_service_configuration_details() :: %{
-        "MinimumInstanceMetadataServiceVersion" => String.t() | Atom.t()
+        "MinimumInstanceMetadataServiceVersion" => String.t() | atom()
       }
 
   """
   @type aws_sage_maker_notebook_instance_metadata_service_configuration_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -6000,15 +5941,15 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_vpn_connection_vgw_telemetry_details() :: %{
         "AcceptedRouteCount" => integer(),
-        "CertificateArn" => String.t() | Atom.t(),
-        "LastStatusChange" => String.t() | Atom.t(),
-        "OutsideIpAddress" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
-        "StatusMessage" => String.t() | Atom.t()
+        "CertificateArn" => String.t() | atom(),
+        "LastStatusChange" => String.t() | atom(),
+        "OutsideIpAddress" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_vpn_connection_vgw_telemetry_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_vpn_connection_vgw_telemetry_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6020,20 +5961,19 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type batch_update_findings_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_findings_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_guard_duty_detector_data_sources_kubernetes_audit_logs_details() :: %{
-        "Status" => String.t() | Atom.t()
+        "Status" => String.t() | atom()
       }
 
   """
   @type aws_guard_duty_detector_data_sources_kubernetes_audit_logs_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -6041,23 +5981,23 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       vpc_info_cidr_block_set_details() :: %{
-        "CidrBlock" => String.t() | Atom.t()
+        "CidrBlock" => String.t() | atom()
       }
 
   """
-  @type vpc_info_cidr_block_set_details() :: %{String.t() | Atom.t() => any()}
+  @type vpc_info_cidr_block_set_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_dynamo_db_table_billing_mode_summary() :: %{
-        "BillingMode" => String.t() | Atom.t(),
-        "LastUpdateToPayPerRequestDateTime" => String.t() | Atom.t()
+        "BillingMode" => String.t() | atom(),
+        "LastUpdateToPayPerRequestDateTime" => String.t() | atom()
       }
 
   """
-  @type aws_dynamo_db_table_billing_mode_summary() :: %{String.t() | Atom.t() => any()}
+  @type aws_dynamo_db_table_billing_mode_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6066,31 +6006,30 @@ defmodule AWS.SecurityHub do
       automation_rules_metadata_v2() :: %{
         "Actions" => list(automation_rules_action_type_object_v2()),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "RuleArn" => String.t() | Atom.t(),
-        "RuleId" => String.t() | Atom.t(),
-        "RuleName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "RuleArn" => String.t() | atom(),
+        "RuleId" => String.t() | atom(),
+        "RuleName" => String.t() | atom(),
         "RuleOrder" => float(),
         "RuleStatus" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type automation_rules_metadata_v2() :: %{String.t() | Atom.t() => any()}
+  @type automation_rules_metadata_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_tag_details() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_tag_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -6098,37 +6037,37 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       signal() :: %{
-        "ActorIds" => list(String.t() | Atom.t()),
+        "ActorIds" => list(String.t() | atom()),
         "Count" => integer(),
         "CreatedAt" => float(),
-        "EndpointIds" => list(String.t() | Atom.t()),
+        "EndpointIds" => list(String.t() | atom()),
         "FirstSeenAt" => float(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "LastSeenAt" => float(),
-        "Name" => String.t() | Atom.t(),
-        "ProductArn" => String.t() | Atom.t(),
-        "ResourceIds" => list(String.t() | Atom.t()),
+        "Name" => String.t() | atom(),
+        "ProductArn" => String.t() | atom(),
+        "ResourceIds" => list(String.t() | atom()),
         "Severity" => float(),
         "SignalIndicators" => list(indicator()),
-        "Title" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t(),
+        "Title" => String.t() | atom(),
+        "Type" => String.t() | atom(),
         "UpdatedAt" => float()
       }
 
   """
-  @type signal() :: %{String.t() | Atom.t() => any()}
+  @type signal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account_details() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "Email" => String.t() | Atom.t()
+        "AccountId" => String.t() | atom(),
+        "Email" => String.t() | atom()
       }
 
   """
-  @type account_details() :: %{String.t() | Atom.t() => any()}
+  @type account_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6141,8 +6080,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_ec2_launch_template_data_instance_requirements_memory_mi_b_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -6150,26 +6088,25 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_wafv2_custom_response_details() :: %{
-        "CustomResponseBodyKey" => String.t() | Atom.t(),
+        "CustomResponseBodyKey" => String.t() | atom(),
         "ResponseCode" => integer(),
         "ResponseHeaders" => list(aws_wafv2_custom_http_header())
       }
 
   """
-  @type aws_wafv2_custom_response_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_wafv2_custom_response_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_events_endpoint_routing_config_failover_config_secondary_details() :: %{
-        "Route" => String.t() | Atom.t()
+        "Route" => String.t() | atom()
       }
 
   """
   @type aws_events_endpoint_routing_config_failover_config_secondary_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -6179,38 +6116,37 @@ defmodule AWS.SecurityHub do
       aws_waf_rule_group_rules_details() :: %{
         "Action" => aws_waf_rule_group_rules_action_details(),
         "Priority" => integer(),
-        "RuleId" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "RuleId" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_waf_rule_group_rules_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_rule_group_rules_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_ebs_volumes_details() :: %{
-        "Reason" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "Reason" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
   @type aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_ebs_volumes_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_guard_duty_detector_data_sources_cloud_trail_details() :: %{
-        "Status" => String.t() | Atom.t()
+        "Status" => String.t() | atom()
       }
 
   """
   @type aws_guard_duty_detector_data_sources_cloud_trail_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -6218,13 +6154,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_cloud_front_distribution_origin_s3_origin_config() :: %{
-        "OriginAccessIdentity" => String.t() | Atom.t()
+        "OriginAccessIdentity" => String.t() | atom()
       }
 
   """
   @type aws_cloud_front_distribution_origin_s3_origin_config() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -6232,15 +6167,15 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_update_findings_v2_request() :: %{
-        optional("Comment") => String.t() | Atom.t(),
+        optional("Comment") => String.t() | atom(),
         optional("FindingIdentifiers") => list(ocsf_finding_identifier()),
-        optional("MetadataUids") => list(String.t() | Atom.t()),
+        optional("MetadataUids") => list(String.t() | atom()),
         optional("SeverityId") => integer(),
         optional("StatusId") => integer()
       }
 
   """
-  @type batch_update_findings_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_findings_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6252,60 +6187,59 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type batch_get_automation_rules_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_automation_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       load_balancer_state() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Reason" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Reason" => String.t() | atom()
       }
 
   """
-  @type load_balancer_state() :: %{String.t() | Atom.t() => any()}
+  @type load_balancer_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       string_list_configuration_options() :: %{
-        "DefaultValue" => list(String.t() | Atom.t()),
-        "ExpressionDescription" => String.t() | Atom.t(),
+        "DefaultValue" => list(String.t() | atom()),
+        "ExpressionDescription" => String.t() | atom(),
         "MaxItems" => integer(),
-        "Re2Expression" => String.t() | Atom.t()
+        "Re2Expression" => String.t() | atom()
       }
 
   """
-  @type string_list_configuration_options() :: %{String.t() | Atom.t() => any()}
+  @type string_list_configuration_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_event_schemas_registry_details() :: %{
-        "Description" => String.t() | Atom.t(),
-        "RegistryArn" => String.t() | Atom.t(),
-        "RegistryName" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "RegistryArn" => String.t() | atom(),
+        "RegistryName" => String.t() | atom()
       }
 
   """
-  @type aws_event_schemas_registry_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_event_schemas_registry_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_rds_db_cluster_snapshot_db_cluster_snapshot_attribute() :: %{
-        "AttributeName" => String.t() | Atom.t(),
-        "AttributeValues" => list(String.t() | Atom.t())
+        "AttributeName" => String.t() | atom(),
+        "AttributeValues" => list(String.t() | atom())
       }
 
   """
   @type aws_rds_db_cluster_snapshot_db_cluster_snapshot_attribute() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -6313,23 +6247,23 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_get_automation_rules_request() :: %{
-        required("AutomationRulesArns") => list(String.t() | Atom.t())
+        required("AutomationRulesArns") => list(String.t() | atom())
       }
 
   """
-  @type batch_get_automation_rules_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_automation_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       result() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "ProcessingResult" => String.t() | Atom.t()
+        "AccountId" => String.t() | atom(),
+        "ProcessingResult" => String.t() | atom()
       }
 
   """
-  @type result() :: %{String.t() | Atom.t() => any()}
+  @type result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6354,7 +6288,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_guard_duty_detector_data_sources_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_guard_duty_detector_data_sources_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6365,30 +6299,30 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type workflow() :: %{String.t() | Atom.t() => any()}
+  @type workflow() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_insight_response() :: %{
-        "InsightArn" => String.t() | Atom.t()
+        "InsightArn" => String.t() | atom()
       }
 
   """
-  @type create_insight_response() :: %{String.t() | Atom.t() => any()}
+  @type create_insight_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sort_criterion() :: %{
-        "Field" => String.t() | Atom.t(),
+        "Field" => String.t() | atom(),
         "SortOrder" => list(any())
       }
 
   """
-  @type sort_criterion() :: %{String.t() | Atom.t() => any()}
+  @type sort_criterion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6397,33 +6331,32 @@ defmodule AWS.SecurityHub do
       automation_rules_config() :: %{
         "Actions" => list(automation_rules_action()),
         "CreatedAt" => non_neg_integer(),
-        "CreatedBy" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | atom(),
         "Criteria" => automation_rules_finding_filters(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "IsTerminal" => boolean(),
-        "RuleArn" => String.t() | Atom.t(),
-        "RuleName" => String.t() | Atom.t(),
+        "RuleArn" => String.t() | atom(),
+        "RuleName" => String.t() | atom(),
         "RuleOrder" => integer(),
         "RuleStatus" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type automation_rules_config() :: %{String.t() | Atom.t() => any()}
+  @type automation_rules_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_code_build_project_environment_registry_credential() :: %{
-        "Credential" => String.t() | Atom.t(),
-        "CredentialProvider" => String.t() | Atom.t()
+        "Credential" => String.t() | atom(),
+        "CredentialProvider" => String.t() | atom()
       }
 
   """
   @type aws_code_build_project_environment_registry_credential() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -6435,45 +6368,45 @@ defmodule AWS.SecurityHub do
         "CopyActions" => list(aws_backup_backup_plan_rule_copy_actions_details()),
         "EnableContinuousBackup" => boolean(),
         "Lifecycle" => aws_backup_backup_plan_lifecycle_details(),
-        "RuleId" => String.t() | Atom.t(),
-        "RuleName" => String.t() | Atom.t(),
-        "ScheduleExpression" => String.t() | Atom.t(),
+        "RuleId" => String.t() | atom(),
+        "RuleName" => String.t() | atom(),
+        "ScheduleExpression" => String.t() | atom(),
         "StartWindowMinutes" => float(),
-        "TargetBackupVault" => String.t() | Atom.t()
+        "TargetBackupVault" => String.t() | atom()
       }
 
   """
-  @type aws_backup_backup_plan_rule_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_backup_backup_plan_rule_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       keyword_filter() :: %{
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type keyword_filter() :: %{String.t() | Atom.t() => any()}
+  @type keyword_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       product() :: %{
-        "ActivationUrl" => String.t() | Atom.t(),
-        "Categories" => list(String.t() | Atom.t()),
-        "CompanyName" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "ActivationUrl" => String.t() | atom(),
+        "Categories" => list(String.t() | atom()),
+        "CompanyName" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "IntegrationTypes" => list(list(any())()),
-        "MarketplaceUrl" => String.t() | Atom.t(),
-        "ProductArn" => String.t() | Atom.t(),
-        "ProductName" => String.t() | Atom.t(),
-        "ProductSubscriptionResourcePolicy" => String.t() | Atom.t()
+        "MarketplaceUrl" => String.t() | atom(),
+        "ProductArn" => String.t() | atom(),
+        "ProductName" => String.t() | atom(),
+        "ProductSubscriptionResourcePolicy" => String.t() | atom()
       }
 
   """
-  @type product() :: %{String.t() | Atom.t() => any()}
+  @type product() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6484,19 +6417,19 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_route53_query_logging_config_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_route53_query_logging_config_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_s3_bucket_object_lock_configuration() :: %{
-        "ObjectLockEnabled" => String.t() | Atom.t(),
+        "ObjectLockEnabled" => String.t() | atom(),
         "Rule" => aws_s3_bucket_object_lock_configuration_rule_details()
       }
 
   """
-  @type aws_s3_bucket_object_lock_configuration() :: %{String.t() | Atom.t() => any()}
+  @type aws_s3_bucket_object_lock_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6504,26 +6437,25 @@ defmodule AWS.SecurityHub do
 
       aws_route53_hosted_zone_object_details() :: %{
         "Config" => aws_route53_hosted_zone_config_details(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type aws_route53_hosted_zone_object_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_route53_hosted_zone_object_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_launch_template_data_capacity_reservation_specification_details() :: %{
-        "CapacityReservationPreference" => String.t() | Atom.t(),
+        "CapacityReservationPreference" => String.t() | atom(),
         "CapacityReservationTarget" => aws_ec2_launch_template_data_capacity_reservation_specification_capacity_reservation_target_details()
       }
 
   """
   @type aws_ec2_launch_template_data_capacity_reservation_specification_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -6532,61 +6464,61 @@ defmodule AWS.SecurityHub do
 
       aws_rds_db_cluster_snapshot_details() :: %{
         "AllocatedStorage" => integer(),
-        "AvailabilityZones" => list(String.t() | Atom.t()),
-        "ClusterCreateTime" => String.t() | Atom.t(),
-        "DbClusterIdentifier" => String.t() | Atom.t(),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "ClusterCreateTime" => String.t() | atom(),
+        "DbClusterIdentifier" => String.t() | atom(),
         "DbClusterSnapshotAttributes" => list(aws_rds_db_cluster_snapshot_db_cluster_snapshot_attribute()),
-        "DbClusterSnapshotIdentifier" => String.t() | Atom.t(),
-        "Engine" => String.t() | Atom.t(),
-        "EngineVersion" => String.t() | Atom.t(),
+        "DbClusterSnapshotIdentifier" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "IamDatabaseAuthenticationEnabled" => boolean(),
-        "KmsKeyId" => String.t() | Atom.t(),
-        "LicenseModel" => String.t() | Atom.t(),
-        "MasterUsername" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
+        "LicenseModel" => String.t() | atom(),
+        "MasterUsername" => String.t() | atom(),
         "PercentProgress" => integer(),
         "Port" => integer(),
-        "SnapshotCreateTime" => String.t() | Atom.t(),
-        "SnapshotType" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
+        "SnapshotCreateTime" => String.t() | atom(),
+        "SnapshotType" => String.t() | atom(),
+        "Status" => String.t() | atom(),
         "StorageEncrypted" => boolean(),
-        "VpcId" => String.t() | Atom.t()
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_cluster_snapshot_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_cluster_snapshot_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       software_package() :: %{
-        "Architecture" => String.t() | Atom.t(),
-        "Epoch" => String.t() | Atom.t(),
-        "FilePath" => String.t() | Atom.t(),
-        "FixedInVersion" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "PackageManager" => String.t() | Atom.t(),
-        "Release" => String.t() | Atom.t(),
-        "Remediation" => String.t() | Atom.t(),
-        "SourceLayerArn" => String.t() | Atom.t(),
-        "SourceLayerHash" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Architecture" => String.t() | atom(),
+        "Epoch" => String.t() | atom(),
+        "FilePath" => String.t() | atom(),
+        "FixedInVersion" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PackageManager" => String.t() | atom(),
+        "Release" => String.t() | atom(),
+        "Remediation" => String.t() | atom(),
+        "SourceLayerArn" => String.t() | atom(),
+        "SourceLayerHash" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type software_package() :: %{String.t() | Atom.t() => any()}
+  @type software_package() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_input_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_input_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6594,12 +6526,12 @@ defmodule AWS.SecurityHub do
 
       service_now_detail() :: %{
         "AuthStatus" => list(any()),
-        "ClientId" => String.t() | Atom.t(),
-        "InstanceName" => String.t() | Atom.t()
+        "ClientId" => String.t() | atom(),
+        "InstanceName" => String.t() | atom()
       }
 
   """
-  @type service_now_detail() :: %{String.t() | Atom.t() => any()}
+  @type service_now_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6611,19 +6543,19 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type port_range_from_to() :: %{String.t() | Atom.t() => any()}
+  @type port_range_from_to() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       volume_mount() :: %{
-        "MountPath" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "MountPath" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type volume_mount() :: %{String.t() | Atom.t() => any()}
+  @type volume_mount() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6636,7 +6568,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_ec2_launch_template_data_instance_requirements_baseline_ebs_bandwidth_mbps_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6648,11 +6580,11 @@ defmodule AWS.SecurityHub do
         "EstimatedTimeToCompletionInSeconds" => float(),
         "ProgressInMegaBytes" => float(),
         "SnapshotSizeInMegaBytes" => float(),
-        "Status" => String.t() | Atom.t()
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_redshift_cluster_restore_status() :: %{String.t() | Atom.t() => any()}
+  @type aws_redshift_cluster_restore_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6660,11 +6592,11 @@ defmodule AWS.SecurityHub do
 
       start_configuration_policy_disassociation_request() :: %{
         optional("Target") => list(),
-        required("ConfigurationPolicyIdentifier") => String.t() | Atom.t()
+        required("ConfigurationPolicyIdentifier") => String.t() | atom()
       }
 
   """
-  @type start_configuration_policy_disassociation_request() :: %{String.t() | Atom.t() => any()}
+  @type start_configuration_policy_disassociation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6685,7 +6617,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type resource_group_by_rule() :: %{String.t() | Atom.t() => any()}
+  @type resource_group_by_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6693,25 +6625,25 @@ defmodule AWS.SecurityHub do
 
       unprocessed_standards_control_association_update() :: %{
         "ErrorCode" => list(any()),
-        "ErrorReason" => String.t() | Atom.t(),
+        "ErrorReason" => String.t() | atom(),
         "StandardsControlAssociationUpdate" => standards_control_association_update()
       }
 
   """
-  @type unprocessed_standards_control_association_update() :: %{String.t() | Atom.t() => any()}
+  @type unprocessed_standards_control_association_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_finding_aggregator_request() :: %{
-        optional("Regions") => list(String.t() | Atom.t()),
-        required("FindingAggregatorArn") => String.t() | Atom.t(),
-        required("RegionLinkingMode") => String.t() | Atom.t()
+        optional("Regions") => list(String.t() | atom()),
+        required("FindingAggregatorArn") => String.t() | atom(),
+        required("RegionLinkingMode") => String.t() | atom()
       }
 
   """
-  @type update_finding_aggregator_request() :: %{String.t() | Atom.t() => any()}
+  @type update_finding_aggregator_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6722,46 +6654,46 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_lambda_function_code() :: %{
-        "S3Bucket" => String.t() | Atom.t(),
-        "S3Key" => String.t() | Atom.t(),
-        "S3ObjectVersion" => String.t() | Atom.t(),
-        "ZipFile" => String.t() | Atom.t()
+        "S3Bucket" => String.t() | atom(),
+        "S3Key" => String.t() | atom(),
+        "S3ObjectVersion" => String.t() | atom(),
+        "ZipFile" => String.t() | atom()
       }
 
   """
-  @type aws_lambda_function_code() :: %{String.t() | Atom.t() => any()}
+  @type aws_lambda_function_code() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_certificate_manager_certificate_resource_record() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type aws_certificate_manager_certificate_resource_record() :: %{String.t() | Atom.t() => any()}
+  @type aws_certificate_manager_certificate_resource_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_cloud_front_distribution_origin_ssl_protocols() :: %{
-        "Items" => list(String.t() | Atom.t()),
+        "Items" => list(String.t() | atom()),
         "Quantity" => integer()
       }
 
   """
-  @type aws_cloud_front_distribution_origin_ssl_protocols() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_front_distribution_origin_ssl_protocols() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6769,12 +6701,12 @@ defmodule AWS.SecurityHub do
 
       date_filter() :: %{
         "DateRange" => date_range(),
-        "End" => String.t() | Atom.t(),
-        "Start" => String.t() | Atom.t()
+        "End" => String.t() | atom(),
+        "Start" => String.t() | atom()
       }
 
   """
-  @type date_filter() :: %{String.t() | Atom.t() => any()}
+  @type date_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6787,8 +6719,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -6798,13 +6729,12 @@ defmodule AWS.SecurityHub do
       aws_ec2_launch_template_data_private_dns_name_options_details() :: %{
         "EnableResourceNameDnsAAAARecord" => boolean(),
         "EnableResourceNameDnsARecord" => boolean(),
-        "HostnameType" => String.t() | Atom.t()
+        "HostnameType" => String.t() | atom()
       }
 
   """
   @type aws_ec2_launch_template_data_private_dns_name_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -6813,26 +6743,25 @@ defmodule AWS.SecurityHub do
 
       list_configuration_policy_associations_response() :: %{
         "ConfigurationPolicyAssociationSummaries" => list(configuration_policy_association_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_configuration_policy_associations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_configuration_policy_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_definition_container_definitions_linux_parameters_tmpfs_details() :: %{
-        "ContainerPath" => String.t() | Atom.t(),
-        "MountOptions" => list(String.t() | Atom.t()),
+        "ContainerPath" => String.t() | atom(),
+        "MountOptions" => list(String.t() | atom()),
         "Size" => integer()
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_linux_parameters_tmpfs_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -6840,30 +6769,30 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_sage_maker_notebook_instance_details() :: %{
-        "AcceleratorTypes" => list(String.t() | Atom.t()),
-        "AdditionalCodeRepositories" => list(String.t() | Atom.t()),
-        "DefaultCodeRepository" => String.t() | Atom.t(),
-        "DirectInternetAccess" => String.t() | Atom.t(),
-        "FailureReason" => String.t() | Atom.t(),
+        "AcceleratorTypes" => list(String.t() | atom()),
+        "AdditionalCodeRepositories" => list(String.t() | atom()),
+        "DefaultCodeRepository" => String.t() | atom(),
+        "DirectInternetAccess" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "InstanceMetadataServiceConfiguration" => aws_sage_maker_notebook_instance_metadata_service_configuration_details(),
-        "InstanceType" => String.t() | Atom.t(),
-        "KmsKeyId" => String.t() | Atom.t(),
-        "NetworkInterfaceId" => String.t() | Atom.t(),
-        "NotebookInstanceArn" => String.t() | Atom.t(),
-        "NotebookInstanceLifecycleConfigName" => String.t() | Atom.t(),
-        "NotebookInstanceName" => String.t() | Atom.t(),
-        "NotebookInstanceStatus" => String.t() | Atom.t(),
-        "PlatformIdentifier" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
-        "RootAccess" => String.t() | Atom.t(),
-        "SecurityGroups" => list(String.t() | Atom.t()),
-        "SubnetId" => String.t() | Atom.t(),
-        "Url" => String.t() | Atom.t(),
+        "InstanceType" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "NetworkInterfaceId" => String.t() | atom(),
+        "NotebookInstanceArn" => String.t() | atom(),
+        "NotebookInstanceLifecycleConfigName" => String.t() | atom(),
+        "NotebookInstanceName" => String.t() | atom(),
+        "NotebookInstanceStatus" => String.t() | atom(),
+        "PlatformIdentifier" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "RootAccess" => String.t() | atom(),
+        "SecurityGroups" => list(String.t() | atom()),
+        "SubnetId" => String.t() | atom(),
+        "Url" => String.t() | atom(),
         "VolumeSizeInGB" => integer()
       }
 
   """
-  @type aws_sage_maker_notebook_instance_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_sage_maker_notebook_instance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6874,7 +6803,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type get_configuration_policy_association_request() :: %{String.t() | Atom.t() => any()}
+  @type get_configuration_policy_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6892,40 +6821,40 @@ defmodule AWS.SecurityHub do
       network_endpoint() :: %{
         "AutonomousSystem" => network_autonomous_system(),
         "Connection" => network_connection(),
-        "Domain" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Ip" => String.t() | Atom.t(),
+        "Domain" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Ip" => String.t() | atom(),
         "Location" => network_geo_location(),
         "Port" => integer()
       }
 
   """
-  @type network_endpoint() :: %{String.t() | Atom.t() => any()}
+  @type network_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_cloud_trail_trail_details() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t() | Atom.t(),
-        "CloudWatchLogsRoleArn" => String.t() | Atom.t(),
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
+        "CloudWatchLogsRoleArn" => String.t() | atom(),
         "HasCustomEventSelectors" => boolean(),
-        "HomeRegion" => String.t() | Atom.t(),
+        "HomeRegion" => String.t() | atom(),
         "IncludeGlobalServiceEvents" => boolean(),
         "IsMultiRegionTrail" => boolean(),
         "IsOrganizationTrail" => boolean(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
         "LogFileValidationEnabled" => boolean(),
-        "Name" => String.t() | Atom.t(),
-        "S3BucketName" => String.t() | Atom.t(),
-        "S3KeyPrefix" => String.t() | Atom.t(),
-        "SnsTopicArn" => String.t() | Atom.t(),
-        "SnsTopicName" => String.t() | Atom.t(),
-        "TrailArn" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "S3BucketName" => String.t() | atom(),
+        "S3KeyPrefix" => String.t() | atom(),
+        "SnsTopicArn" => String.t() | atom(),
+        "SnsTopicName" => String.t() | atom(),
+        "TrailArn" => String.t() | atom()
       }
 
   """
-  @type aws_cloud_trail_trail_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_trail_trail_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6933,27 +6862,26 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_vpn_connection_options_tunnel_options_details() :: %{
         "DpdTimeoutSeconds" => integer(),
-        "IkeVersions" => list(String.t() | Atom.t()),
-        "OutsideIpAddress" => String.t() | Atom.t(),
+        "IkeVersions" => list(String.t() | atom()),
+        "OutsideIpAddress" => String.t() | atom(),
         "Phase1DhGroupNumbers" => list(integer()),
-        "Phase1EncryptionAlgorithms" => list(String.t() | Atom.t()),
-        "Phase1IntegrityAlgorithms" => list(String.t() | Atom.t()),
+        "Phase1EncryptionAlgorithms" => list(String.t() | atom()),
+        "Phase1IntegrityAlgorithms" => list(String.t() | atom()),
         "Phase1LifetimeSeconds" => integer(),
         "Phase2DhGroupNumbers" => list(integer()),
-        "Phase2EncryptionAlgorithms" => list(String.t() | Atom.t()),
-        "Phase2IntegrityAlgorithms" => list(String.t() | Atom.t()),
+        "Phase2EncryptionAlgorithms" => list(String.t() | atom()),
+        "Phase2IntegrityAlgorithms" => list(String.t() | atom()),
         "Phase2LifetimeSeconds" => integer(),
-        "PreSharedKey" => String.t() | Atom.t(),
+        "PreSharedKey" => String.t() | atom(),
         "RekeyFuzzPercentage" => integer(),
         "RekeyMarginTimeSeconds" => integer(),
         "ReplayWindowSize" => integer(),
-        "TunnelInsideCidr" => String.t() | Atom.t()
+        "TunnelInsideCidr" => String.t() | atom()
       }
 
   """
   @type aws_ec2_vpn_connection_options_tunnel_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -6961,14 +6889,13 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ecs_task_definition_container_definitions_system_controls_details() :: %{
-        "Namespace" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Namespace" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_system_controls_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -6976,11 +6903,11 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ec2_security_group_prefix_list_id() :: %{
-        "PrefixListId" => String.t() | Atom.t()
+        "PrefixListId" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_security_group_prefix_list_id() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_security_group_prefix_list_id() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6988,25 +6915,25 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_client_vpn_endpoint_details() :: %{
         "AuthenticationOptions" => list(aws_ec2_client_vpn_endpoint_authentication_options_details()),
-        "ClientCidrBlock" => String.t() | Atom.t(),
+        "ClientCidrBlock" => String.t() | atom(),
         "ClientConnectOptions" => aws_ec2_client_vpn_endpoint_client_connect_options_details(),
         "ClientLoginBannerOptions" => aws_ec2_client_vpn_endpoint_client_login_banner_options_details(),
-        "ClientVpnEndpointId" => String.t() | Atom.t(),
+        "ClientVpnEndpointId" => String.t() | atom(),
         "ConnectionLogOptions" => aws_ec2_client_vpn_endpoint_connection_log_options_details(),
-        "Description" => String.t() | Atom.t(),
-        "DnsServer" => list(String.t() | Atom.t()),
-        "SecurityGroupIdSet" => list(String.t() | Atom.t()),
-        "SelfServicePortalUrl" => String.t() | Atom.t(),
-        "ServerCertificateArn" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DnsServer" => list(String.t() | atom()),
+        "SecurityGroupIdSet" => list(String.t() | atom()),
+        "SelfServicePortalUrl" => String.t() | atom(),
+        "ServerCertificateArn" => String.t() | atom(),
         "SessionTimeoutHours" => integer(),
         "SplitTunnel" => boolean(),
-        "TransportProtocol" => String.t() | Atom.t(),
-        "VpcId" => String.t() | Atom.t(),
+        "TransportProtocol" => String.t() | atom(),
+        "VpcId" => String.t() | atom(),
         "VpnPort" => integer()
       }
 
   """
-  @type aws_ec2_client_vpn_endpoint_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_client_vpn_endpoint_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7014,14 +6941,14 @@ defmodule AWS.SecurityHub do
 
       jira_cloud_detail() :: %{
         "AuthStatus" => list(any()),
-        "AuthUrl" => String.t() | Atom.t(),
-        "CloudId" => String.t() | Atom.t(),
-        "Domain" => String.t() | Atom.t(),
-        "ProjectKey" => String.t() | Atom.t()
+        "AuthUrl" => String.t() | atom(),
+        "CloudId" => String.t() | atom(),
+        "Domain" => String.t() | atom(),
+        "ProjectKey" => String.t() | atom()
       }
 
   """
-  @type jira_cloud_detail() :: %{String.t() | Atom.t() => any()}
+  @type jira_cloud_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7032,7 +6959,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_cloud_front_distribution_origin_group_failover() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_front_distribution_origin_group_failover() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7040,17 +6967,17 @@ defmodule AWS.SecurityHub do
 
       aws_secrets_manager_secret_details() :: %{
         "Deleted" => boolean(),
-        "Description" => String.t() | Atom.t(),
-        "KmsKeyId" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "RotationEnabled" => boolean(),
-        "RotationLambdaArn" => String.t() | Atom.t(),
+        "RotationLambdaArn" => String.t() | atom(),
         "RotationOccurredWithinFrequency" => boolean(),
         "RotationRules" => aws_secrets_manager_secret_rotation_rules()
       }
 
   """
-  @type aws_secrets_manager_secret_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_secrets_manager_secret_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7058,16 +6985,16 @@ defmodule AWS.SecurityHub do
 
       aws_network_firewall_rule_group_details() :: %{
         "Capacity" => integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "RuleGroup" => rule_group_details(),
-        "RuleGroupArn" => String.t() | Atom.t(),
-        "RuleGroupId" => String.t() | Atom.t(),
-        "RuleGroupName" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "RuleGroupArn" => String.t() | atom(),
+        "RuleGroupId" => String.t() | atom(),
+        "RuleGroupName" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_network_firewall_rule_group_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_network_firewall_rule_group_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7085,8 +7012,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_ecs_task_definition_container_definitions_linux_parameters_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -7094,24 +7020,24 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       create_finding_aggregator_request() :: %{
-        optional("Regions") => list(String.t() | Atom.t()),
-        required("RegionLinkingMode") => String.t() | Atom.t()
+        optional("Regions") => list(String.t() | atom()),
+        required("RegionLinkingMode") => String.t() | atom()
       }
 
   """
-  @type create_finding_aggregator_request() :: %{String.t() | Atom.t() => any()}
+  @type create_finding_aggregator_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_finding_history_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Records" => list(finding_history_record())
       }
 
   """
-  @type get_finding_history_response() :: %{String.t() | Atom.t() => any()}
+  @type get_finding_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7120,32 +7046,32 @@ defmodule AWS.SecurityHub do
       update_automation_rules_request_item() :: %{
         "Actions" => list(automation_rules_action()),
         "Criteria" => automation_rules_finding_filters(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "IsTerminal" => boolean(),
-        "RuleArn" => String.t() | Atom.t(),
-        "RuleName" => String.t() | Atom.t(),
+        "RuleArn" => String.t() | atom(),
+        "RuleName" => String.t() | atom(),
         "RuleOrder" => integer(),
         "RuleStatus" => list(any())
       }
 
   """
-  @type update_automation_rules_request_item() :: %{String.t() | Atom.t() => any()}
+  @type update_automation_rules_request_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_s3_object_details() :: %{
-        "ContentType" => String.t() | Atom.t(),
-        "ETag" => String.t() | Atom.t(),
-        "LastModified" => String.t() | Atom.t(),
-        "SSEKMSKeyId" => String.t() | Atom.t(),
-        "ServerSideEncryption" => String.t() | Atom.t(),
-        "VersionId" => String.t() | Atom.t()
+        "ContentType" => String.t() | atom(),
+        "ETag" => String.t() | atom(),
+        "LastModified" => String.t() | atom(),
+        "SSEKMSKeyId" => String.t() | atom(),
+        "ServerSideEncryption" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
       }
 
   """
-  @type aws_s3_object_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_s3_object_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7153,26 +7079,25 @@ defmodule AWS.SecurityHub do
 
       aws_elasticsearch_domain_encryption_at_rest_options() :: %{
         "Enabled" => boolean(),
-        "KmsKeyId" => String.t() | Atom.t()
+        "KmsKeyId" => String.t() | atom()
       }
 
   """
-  @type aws_elasticsearch_domain_encryption_at_rest_options() :: %{String.t() | Atom.t() => any()}
+  @type aws_elasticsearch_domain_encryption_at_rest_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_code_build_project_logs_config_cloud_watch_logs_details() :: %{
-        "GroupName" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
-        "StreamName" => String.t() | Atom.t()
+        "GroupName" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StreamName" => String.t() | atom()
       }
 
   """
   @type aws_code_build_project_logs_config_cloud_watch_logs_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -7182,11 +7107,11 @@ defmodule AWS.SecurityHub do
       health_check() :: %{
         "ConnectorStatus" => list(any()),
         "LastCheckedAt" => non_neg_integer(),
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type health_check() :: %{String.t() | Atom.t() => any()}
+  @type health_check() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7202,15 +7127,14 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ecs_task_definition_container_definitions_log_configuration_details() :: %{
-        "LogDriver" => String.t() | Atom.t(),
+        "LogDriver" => String.t() | atom(),
         "Options" => map(),
         "SecretOptions" => list(aws_ecs_task_definition_container_definitions_log_configuration_secret_options_details())
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_log_configuration_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -7237,12 +7161,12 @@ defmodule AWS.SecurityHub do
 
       unprocessed_security_control() :: %{
         "ErrorCode" => list(any()),
-        "ErrorReason" => String.t() | Atom.t(),
-        "SecurityControlId" => String.t() | Atom.t()
+        "ErrorReason" => String.t() | atom(),
+        "SecurityControlId" => String.t() | atom()
       }
 
   """
-  @type unprocessed_security_control() :: %{String.t() | Atom.t() => any()}
+  @type unprocessed_security_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7250,38 +7174,38 @@ defmodule AWS.SecurityHub do
 
       aws_elb_load_balancer_listener_description() :: %{
         "Listener" => aws_elb_load_balancer_listener(),
-        "PolicyNames" => list(String.t() | Atom.t())
+        "PolicyNames" => list(String.t() | atom())
       }
 
   """
-  @type aws_elb_load_balancer_listener_description() :: %{String.t() | Atom.t() => any()}
+  @type aws_elb_load_balancer_listener_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       action_target() :: %{
-        "ActionTargetArn" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "ActionTargetArn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type action_target() :: %{String.t() | Atom.t() => any()}
+  @type action_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_volume_attachment() :: %{
-        "AttachTime" => String.t() | Atom.t(),
+        "AttachTime" => String.t() | atom(),
         "DeleteOnTermination" => boolean(),
-        "InstanceId" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "InstanceId" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_volume_attachment() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_volume_attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7293,7 +7217,7 @@ defmodule AWS.SecurityHub do
         optional("Note") => note_update(),
         optional("RelatedFindings") => list(related_finding()),
         optional("Severity") => severity_update(),
-        optional("Types") => list(String.t() | Atom.t()),
+        optional("Types") => list(String.t() | atom()),
         optional("UserDefinedFields") => map(),
         optional("VerificationState") => list(any()),
         optional("Workflow") => workflow_update(),
@@ -7301,7 +7225,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type batch_update_findings_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_findings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7309,26 +7233,26 @@ defmodule AWS.SecurityHub do
 
       batch_update_findings_v2_unprocessed_finding() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | atom(),
         "FindingIdentifier" => ocsf_finding_identifier(),
-        "MetadataUid" => String.t() | Atom.t()
+        "MetadataUid" => String.t() | atom()
       }
 
   """
-  @type batch_update_findings_v2_unprocessed_finding() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_findings_v2_unprocessed_finding() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       generator_details() :: %{
-        "Description" => String.t() | Atom.t(),
-        "Labels" => list(String.t() | Atom.t()),
-        "Name" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "Labels" => list(String.t() | atom()),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type generator_details() :: %{String.t() | Atom.t() => any()}
+  @type generator_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7339,30 +7263,30 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type detection() :: %{String.t() | Atom.t() => any()}
+  @type detection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_elb_app_cookie_stickiness_policy() :: %{
-        "CookieName" => String.t() | Atom.t(),
-        "PolicyName" => String.t() | Atom.t()
+        "CookieName" => String.t() | atom(),
+        "PolicyName" => String.t() | atom()
       }
 
   """
-  @type aws_elb_app_cookie_stickiness_policy() :: %{String.t() | Atom.t() => any()}
+  @type aws_elb_app_cookie_stickiness_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_info_ipv6_cidr_block_set_details() :: %{
-        "Ipv6CidrBlock" => String.t() | Atom.t()
+        "Ipv6CidrBlock" => String.t() | atom()
       }
 
   """
-  @type vpc_info_ipv6_cidr_block_set_details() :: %{String.t() | Atom.t() => any()}
+  @type vpc_info_ipv6_cidr_block_set_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7374,56 +7298,55 @@ defmodule AWS.SecurityHub do
         optional("Tags") => map(),
         required("Actions") => list(automation_rules_action()),
         required("Criteria") => automation_rules_finding_filters(),
-        required("Description") => String.t() | Atom.t(),
-        required("RuleName") => String.t() | Atom.t(),
+        required("Description") => String.t() | atom(),
+        required("RuleName") => String.t() | atom(),
         required("RuleOrder") => integer()
       }
 
   """
-  @type create_automation_rule_request() :: %{String.t() | Atom.t() => any()}
+  @type create_automation_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_vpc_peering_connection_status_details() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_vpc_peering_connection_status_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_vpc_peering_connection_status_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_step_function_state_machine_details() :: %{
-        "Label" => String.t() | Atom.t(),
+        "Label" => String.t() | atom(),
         "LoggingConfiguration" => aws_step_function_state_machine_logging_configuration_details(),
-        "Name" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
-        "StateMachineArn" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "StateMachineArn" => String.t() | atom(),
+        "Status" => String.t() | atom(),
         "TracingConfiguration" => aws_step_function_state_machine_tracing_configuration_details(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_step_function_state_machine_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_step_function_state_machine_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rule_group_source_stateless_rule_match_attributes_destinations() :: %{
-        "AddressDefinition" => String.t() | Atom.t()
+        "AddressDefinition" => String.t() | atom()
       }
 
   """
   @type rule_group_source_stateless_rule_match_attributes_destinations() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -7432,26 +7355,25 @@ defmodule AWS.SecurityHub do
 
       get_insights_response() :: %{
         "Insights" => list(insight()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_insights_response() :: %{String.t() | Atom.t() => any()}
+  @type get_insights_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_auto_scaling_launch_configuration_metadata_options() :: %{
-        "HttpEndpoint" => String.t() | Atom.t(),
+        "HttpEndpoint" => String.t() | atom(),
         "HttpPutResponseHopLimit" => integer(),
-        "HttpTokens" => String.t() | Atom.t()
+        "HttpTokens" => String.t() | atom()
       }
 
   """
   @type aws_auto_scaling_launch_configuration_metadata_options() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -7459,54 +7381,54 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       waf_override_action() :: %{
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type waf_override_action() :: %{String.t() | Atom.t() => any()}
+  @type waf_override_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_api_gateway_rest_api_details() :: %{
-        "ApiKeySource" => String.t() | Atom.t(),
-        "BinaryMediaTypes" => list(String.t() | Atom.t()),
-        "CreatedDate" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "ApiKeySource" => String.t() | atom(),
+        "BinaryMediaTypes" => list(String.t() | atom()),
+        "CreatedDate" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "EndpointConfiguration" => aws_api_gateway_endpoint_configuration(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "MinimumCompressionSize" => integer(),
-        "Name" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type aws_api_gateway_rest_api_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_api_gateway_rest_api_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_iam_group_policy() :: %{
-        "PolicyName" => String.t() | Atom.t()
+        "PolicyName" => String.t() | atom()
       }
 
   """
-  @type aws_iam_group_policy() :: %{String.t() | Atom.t() => any()}
+  @type aws_iam_group_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_waf_rate_based_rule_match_predicate() :: %{
-        "DataId" => String.t() | Atom.t(),
+        "DataId" => String.t() | atom(),
         "Negated" => boolean(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_waf_rate_based_rule_match_predicate() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_rate_based_rule_match_predicate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7514,14 +7436,14 @@ defmodule AWS.SecurityHub do
 
       actor_user() :: %{
         "Account" => user_account(),
-        "CredentialUid" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t(),
-        "Uid" => String.t() | Atom.t()
+        "CredentialUid" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Uid" => String.t() | atom()
       }
 
   """
-  @type actor_user() :: %{String.t() | Atom.t() => any()}
+  @type actor_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7530,12 +7452,12 @@ defmodule AWS.SecurityHub do
       get_resources_v2_request() :: %{
         optional("Filters") => resources_filters(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortCriteria") => list(sort_criterion())
       }
 
   """
-  @type get_resources_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type get_resources_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7546,7 +7468,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_eks_cluster_logging_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_eks_cluster_logging_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7555,12 +7477,12 @@ defmodule AWS.SecurityHub do
       aws_waf_regional_rule_group_rules_details() :: %{
         "Action" => aws_waf_regional_rule_group_rules_action_details(),
         "Priority" => integer(),
-        "RuleId" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "RuleId" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_waf_regional_rule_group_rules_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_regional_rule_group_rules_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7568,34 +7490,33 @@ defmodule AWS.SecurityHub do
 
       standards_control_association_detail() :: %{
         "AssociationStatus" => list(any()),
-        "RelatedRequirements" => list(String.t() | Atom.t()),
-        "SecurityControlArn" => String.t() | Atom.t(),
-        "SecurityControlId" => String.t() | Atom.t(),
-        "StandardsArn" => String.t() | Atom.t(),
-        "StandardsControlArns" => list(String.t() | Atom.t()),
-        "StandardsControlDescription" => String.t() | Atom.t(),
-        "StandardsControlTitle" => String.t() | Atom.t(),
+        "RelatedRequirements" => list(String.t() | atom()),
+        "SecurityControlArn" => String.t() | atom(),
+        "SecurityControlId" => String.t() | atom(),
+        "StandardsArn" => String.t() | atom(),
+        "StandardsControlArns" => list(String.t() | atom()),
+        "StandardsControlDescription" => String.t() | atom(),
+        "StandardsControlTitle" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer(),
-        "UpdatedReason" => String.t() | Atom.t()
+        "UpdatedReason" => String.t() | atom()
       }
 
   """
-  @type standards_control_association_detail() :: %{String.t() | Atom.t() => any()}
+  @type standards_control_association_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_efs_access_point_root_directory_creation_info_details() :: %{
-        "OwnerGid" => String.t() | Atom.t(),
-        "OwnerUid" => String.t() | Atom.t(),
-        "Permissions" => String.t() | Atom.t()
+        "OwnerGid" => String.t() | atom(),
+        "OwnerUid" => String.t() | atom(),
+        "Permissions" => String.t() | atom()
       }
 
   """
   @type aws_efs_access_point_root_directory_creation_info_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -7612,63 +7533,63 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       decline_invitations_request() :: %{
-        required("AccountIds") => list(String.t() | Atom.t())
+        required("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type decline_invitations_request() :: %{String.t() | Atom.t() => any()}
+  @type decline_invitations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_code_build_project_vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t() | Atom.t()),
-        "Subnets" => list(String.t() | Atom.t()),
-        "VpcId" => String.t() | Atom.t()
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "Subnets" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_code_build_project_vpc_config() :: %{String.t() | Atom.t() => any()}
+  @type aws_code_build_project_vpc_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_rds_db_cluster_member() :: %{
-        "DbClusterParameterGroupStatus" => String.t() | Atom.t(),
-        "DbInstanceIdentifier" => String.t() | Atom.t(),
+        "DbClusterParameterGroupStatus" => String.t() | atom(),
+        "DbInstanceIdentifier" => String.t() | atom(),
         "IsClusterWriter" => boolean(),
         "PromotionTier" => integer()
       }
 
   """
-  @type aws_rds_db_cluster_member() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_cluster_member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_action_target_request() :: %{
-        required("Description") => String.t() | Atom.t(),
-        required("Id") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        required("Description") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_action_target_request() :: %{String.t() | Atom.t() => any()}
+  @type create_action_target_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_service_placement_strategies_details() :: %{
-        "Field" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Field" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_ecs_service_placement_strategies_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_service_placement_strategies_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7676,15 +7597,15 @@ defmodule AWS.SecurityHub do
 
       aws_waf_rate_based_rule_details() :: %{
         "MatchPredicates" => list(aws_waf_rate_based_rule_match_predicate()),
-        "MetricName" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "RateKey" => String.t() | Atom.t(),
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RateKey" => String.t() | atom(),
         "RateLimit" => float(),
-        "RuleId" => String.t() | Atom.t()
+        "RuleId" => String.t() | atom()
       }
 
   """
-  @type aws_waf_rate_based_rule_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_rate_based_rule_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7695,7 +7616,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type get_master_account_response() :: %{String.t() | Atom.t() => any()}
+  @type get_master_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7703,11 +7624,11 @@ defmodule AWS.SecurityHub do
 
       list_automation_rules_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_automation_rules_request() :: %{String.t() | Atom.t() => any()}
+  @type list_automation_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7719,8 +7640,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_step_function_state_machine_tracing_configuration_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -7728,14 +7648,13 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ecs_task_definition_container_definitions_environment_files_details() :: %{
-        "Type" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_environment_files_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -7743,14 +7662,14 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_api_gateway_canary_settings() :: %{
-        "DeploymentId" => String.t() | Atom.t(),
+        "DeploymentId" => String.t() | atom(),
         "PercentTraffic" => float(),
         "StageVariableOverrides" => map(),
         "UseStageCache" => boolean()
       }
 
   """
-  @type aws_api_gateway_canary_settings() :: %{String.t() | Atom.t() => any()}
+  @type aws_api_gateway_canary_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7762,8 +7681,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_wafv2_web_acl_captcha_config_immunity_time_property_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -7772,23 +7690,23 @@ defmodule AWS.SecurityHub do
 
       list_enabled_products_for_import_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_enabled_products_for_import_request() :: %{String.t() | Atom.t() => any()}
+  @type list_enabled_products_for_import_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_products_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Products" => list(product())
       }
 
   """
-  @type describe_products_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_products_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7799,42 +7717,42 @@ defmodule AWS.SecurityHub do
         "ExcludedRules" => list(waf_excluded_rule()),
         "OverrideAction" => waf_override_action(),
         "Priority" => integer(),
-        "RuleId" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "RuleId" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_waf_web_acl_rule() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_web_acl_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cidr_block_association() :: %{
-        "AssociationId" => String.t() | Atom.t(),
-        "CidrBlock" => String.t() | Atom.t(),
-        "CidrBlockState" => String.t() | Atom.t()
+        "AssociationId" => String.t() | atom(),
+        "CidrBlock" => String.t() | atom(),
+        "CidrBlockState" => String.t() | atom()
       }
 
   """
-  @type cidr_block_association() :: %{String.t() | Atom.t() => any()}
+  @type cidr_block_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_vpc_peering_connection_vpc_info_details() :: %{
-        "CidrBlock" => String.t() | Atom.t(),
+        "CidrBlock" => String.t() | atom(),
         "CidrBlockSet" => list(vpc_info_cidr_block_set_details()),
         "Ipv6CidrBlockSet" => list(vpc_info_ipv6_cidr_block_set_details()),
-        "OwnerId" => String.t() | Atom.t(),
+        "OwnerId" => String.t() | atom(),
         "PeeringOptions" => vpc_info_peering_options_details(),
-        "Region" => String.t() | Atom.t(),
-        "VpcId" => String.t() | Atom.t()
+        "Region" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_vpc_peering_connection_vpc_info_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_vpc_peering_connection_vpc_info_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7842,82 +7760,82 @@ defmodule AWS.SecurityHub do
 
       aws_api_call_action() :: %{
         "AffectedResources" => map(),
-        "Api" => String.t() | Atom.t(),
-        "CallerType" => String.t() | Atom.t(),
+        "Api" => String.t() | atom(),
+        "CallerType" => String.t() | atom(),
         "DomainDetails" => aws_api_call_action_domain_details(),
-        "FirstSeen" => String.t() | Atom.t(),
-        "LastSeen" => String.t() | Atom.t(),
+        "FirstSeen" => String.t() | atom(),
+        "LastSeen" => String.t() | atom(),
         "RemoteIpDetails" => action_remote_ip_details(),
-        "ServiceName" => String.t() | Atom.t()
+        "ServiceName" => String.t() | atom()
       }
 
   """
-  @type aws_api_call_action() :: %{String.t() | Atom.t() => any()}
+  @type aws_api_call_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_rds_db_instance_vpc_security_group() :: %{
-        "Status" => String.t() | Atom.t(),
-        "VpcSecurityGroupId" => String.t() | Atom.t()
+        "Status" => String.t() | atom(),
+        "VpcSecurityGroupId" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_instance_vpc_security_group() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_instance_vpc_security_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_rds_db_instance_details() :: %{
-        "LatestRestorableTime" => String.t() | Atom.t(),
-        "DBName" => String.t() | Atom.t(),
+        "LatestRestorableTime" => String.t() | atom(),
+        "DBName" => String.t() | atom(),
         "StatusInfos" => list(aws_rds_db_status_info()),
-        "Engine" => String.t() | Atom.t(),
+        "Engine" => String.t() | atom(),
         "VpcSecurityGroups" => list(aws_rds_db_instance_vpc_security_group()),
-        "PerformanceInsightsKmsKeyId" => String.t() | Atom.t(),
-        "CACertificateIdentifier" => String.t() | Atom.t(),
-        "Timezone" => String.t() | Atom.t(),
-        "PreferredMaintenanceWindow" => String.t() | Atom.t(),
+        "PerformanceInsightsKmsKeyId" => String.t() | atom(),
+        "CACertificateIdentifier" => String.t() | atom(),
+        "Timezone" => String.t() | atom(),
+        "PreferredMaintenanceWindow" => String.t() | atom(),
         "Iops" => integer(),
         "MonitoringInterval" => integer(),
-        "ReadReplicaDBInstanceIdentifiers" => list(String.t() | Atom.t()),
+        "ReadReplicaDBInstanceIdentifiers" => list(String.t() | atom()),
         "OptionGroupMemberships" => list(aws_rds_db_option_group_membership()),
-        "PreferredBackupWindow" => String.t() | Atom.t(),
+        "PreferredBackupWindow" => String.t() | atom(),
         "PendingModifiedValues" => aws_rds_db_pending_modified_values(),
         "PerformanceInsightsEnabled" => boolean(),
         "PromotionTier" => integer(),
-        "ReadReplicaSourceDBInstanceIdentifier" => String.t() | Atom.t(),
+        "ReadReplicaSourceDBInstanceIdentifier" => String.t() | atom(),
         "BackupRetentionPeriod" => integer(),
-        "KmsKeyId" => String.t() | Atom.t(),
-        "DbInstanceStatus" => String.t() | Atom.t(),
-        "DbSecurityGroups" => list(String.t() | Atom.t()),
-        "AvailabilityZone" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
+        "DbInstanceStatus" => String.t() | atom(),
+        "DbSecurityGroups" => list(String.t() | atom()),
+        "AvailabilityZone" => String.t() | atom(),
         "CopyTagsToSnapshot" => boolean(),
         "ProcessorFeatures" => list(aws_rds_db_processor_feature()),
-        "DBInstanceClass" => String.t() | Atom.t(),
-        "ReadReplicaDBClusterIdentifiers" => list(String.t() | Atom.t()),
-        "EnhancedMonitoringResourceArn" => String.t() | Atom.t(),
+        "DBInstanceClass" => String.t() | atom(),
+        "ReadReplicaDBClusterIdentifiers" => list(String.t() | atom()),
+        "EnhancedMonitoringResourceArn" => String.t() | atom(),
         "DbParameterGroups" => list(aws_rds_db_parameter_group()),
         "AutoMinorVersionUpgrade" => boolean(),
-        "DbiResourceId" => String.t() | Atom.t(),
-        "TdeCredentialArn" => String.t() | Atom.t(),
-        "MasterUsername" => String.t() | Atom.t(),
-        "LicenseModel" => String.t() | Atom.t(),
-        "EnabledCloudWatchLogsExports" => list(String.t() | Atom.t()),
-        "DBInstanceIdentifier" => String.t() | Atom.t(),
-        "DBClusterIdentifier" => String.t() | Atom.t(),
+        "DbiResourceId" => String.t() | atom(),
+        "TdeCredentialArn" => String.t() | atom(),
+        "MasterUsername" => String.t() | atom(),
+        "LicenseModel" => String.t() | atom(),
+        "EnabledCloudWatchLogsExports" => list(String.t() | atom()),
+        "DBInstanceIdentifier" => String.t() | atom(),
+        "DBClusterIdentifier" => String.t() | atom(),
         "DeletionProtection" => boolean(),
-        "StorageType" => String.t() | Atom.t(),
+        "StorageType" => String.t() | atom(),
         "PerformanceInsightsRetentionPeriod" => integer(),
-        "InstanceCreateTime" => String.t() | Atom.t(),
+        "InstanceCreateTime" => String.t() | atom(),
         "DomainMemberships" => list(aws_rds_db_domain_membership()),
         "MultiAz" => boolean(),
         "DbInstancePort" => integer(),
-        "SecondaryAvailabilityZone" => String.t() | Atom.t(),
+        "SecondaryAvailabilityZone" => String.t() | atom(),
         "PubliclyAccessible" => boolean(),
-        "EngineVersion" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | atom(),
         "AllocatedStorage" => integer(),
         "AssociatedRoles" => list(aws_rds_db_instance_associated_role()),
         "DbSubnetGroup" => aws_rds_db_subnet_group(),
@@ -7925,13 +7843,13 @@ defmodule AWS.SecurityHub do
         "StorageEncrypted" => boolean(),
         "Endpoint" => aws_rds_db_instance_endpoint(),
         "IAMDatabaseAuthenticationEnabled" => boolean(),
-        "CharacterSetName" => String.t() | Atom.t(),
-        "MonitoringRoleArn" => String.t() | Atom.t(),
+        "CharacterSetName" => String.t() | atom(),
+        "MonitoringRoleArn" => String.t() | atom(),
         "ListenerEndpoint" => aws_rds_db_instance_endpoint()
       }
 
   """
-  @type aws_rds_db_instance_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_instance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7951,21 +7869,20 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type get_security_control_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type get_security_control_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_definition_inference_accelerators_details() :: %{
-        "DeviceName" => String.t() | Atom.t(),
-        "DeviceType" => String.t() | Atom.t()
+        "DeviceName" => String.t() | atom(),
+        "DeviceType" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_inference_accelerators_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -7973,46 +7890,46 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       delete_invitations_request() :: %{
-        required("AccountIds") => list(String.t() | Atom.t())
+        required("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type delete_invitations_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_invitations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_auto_scaling_auto_scaling_group_mixed_instances_policy_instances_distribution_details() :: %{
-        "OnDemandAllocationStrategy" => String.t() | Atom.t(),
+        "OnDemandAllocationStrategy" => String.t() | atom(),
         "OnDemandBaseCapacity" => integer(),
         "OnDemandPercentageAboveBaseCapacity" => integer(),
-        "SpotAllocationStrategy" => String.t() | Atom.t(),
+        "SpotAllocationStrategy" => String.t() | atom(),
         "SpotInstancePools" => integer(),
-        "SpotMaxPrice" => String.t() | Atom.t()
+        "SpotMaxPrice" => String.t() | atom()
       }
 
   """
   @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_instances_distribution_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_kms_key_details() :: %{
-        "AWSAccountId" => String.t() | Atom.t(),
+        "AWSAccountId" => String.t() | atom(),
         "CreationDate" => float(),
-        "Description" => String.t() | Atom.t(),
-        "KeyId" => String.t() | Atom.t(),
-        "KeyManager" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "KeyId" => String.t() | atom(),
+        "KeyManager" => String.t() | atom(),
         "KeyRotationStatus" => boolean(),
-        "KeyState" => String.t() | Atom.t(),
-        "Origin" => String.t() | Atom.t()
+        "KeyState" => String.t() | atom(),
+        "Origin" => String.t() | atom()
       }
 
   """
-  @type aws_kms_key_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_kms_key_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8025,8 +7942,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -8034,14 +7950,13 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_msk_cluster_cluster_info_client_authentication_tls_details() :: %{
-        "CertificateAuthorityArnList" => list(String.t() | Atom.t()),
+        "CertificateAuthorityArnList" => list(String.t() | atom()),
         "Enabled" => boolean()
       }
 
   """
   @type aws_msk_cluster_cluster_info_client_authentication_tls_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -8058,24 +7973,24 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_s3_bucket_details() :: %{
-        "AccessControlList" => String.t() | Atom.t(),
+        "AccessControlList" => String.t() | atom(),
         "BucketLifecycleConfiguration" => aws_s3_bucket_bucket_lifecycle_configuration_details(),
         "BucketLoggingConfiguration" => aws_s3_bucket_logging_configuration(),
         "BucketNotificationConfiguration" => aws_s3_bucket_notification_configuration(),
         "BucketVersioningConfiguration" => aws_s3_bucket_bucket_versioning_configuration(),
         "BucketWebsiteConfiguration" => aws_s3_bucket_website_configuration(),
-        "CreatedAt" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "CreatedAt" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ObjectLockConfiguration" => aws_s3_bucket_object_lock_configuration(),
-        "OwnerAccountId" => String.t() | Atom.t(),
-        "OwnerId" => String.t() | Atom.t(),
-        "OwnerName" => String.t() | Atom.t(),
+        "OwnerAccountId" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "OwnerName" => String.t() | atom(),
         "PublicAccessBlockConfiguration" => aws_s3_account_public_access_block_details(),
         "ServerSideEncryptionConfiguration" => aws_s3_bucket_server_side_encryption_configuration()
       }
 
   """
-  @type aws_s3_bucket_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_s3_bucket_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8088,46 +8003,46 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type automation_rules_action_v2() :: %{String.t() | Atom.t() => any()}
+  @type automation_rules_action_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_network_firewall_firewall_policy_details() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "FirewallPolicy" => firewall_policy_details(),
-        "FirewallPolicyArn" => String.t() | Atom.t(),
-        "FirewallPolicyId" => String.t() | Atom.t(),
-        "FirewallPolicyName" => String.t() | Atom.t()
+        "FirewallPolicyArn" => String.t() | atom(),
+        "FirewallPolicyId" => String.t() | atom(),
+        "FirewallPolicyName" => String.t() | atom()
       }
 
   """
-  @type aws_network_firewall_firewall_policy_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_network_firewall_firewall_policy_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       group_by_result() :: %{
-        "GroupByField" => String.t() | Atom.t(),
+        "GroupByField" => String.t() | atom(),
         "GroupByValues" => list(group_by_value())
       }
 
   """
-  @type group_by_result() :: %{String.t() | Atom.t() => any()}
+  @type group_by_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8135,24 +8050,24 @@ defmodule AWS.SecurityHub do
 
       aws_eks_cluster_resources_vpc_config_details() :: %{
         "EndpointPublicAccess" => boolean(),
-        "SecurityGroupIds" => list(String.t() | Atom.t()),
-        "SubnetIds" => list(String.t() | Atom.t())
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
       }
 
   """
-  @type aws_eks_cluster_resources_vpc_config_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_eks_cluster_resources_vpc_config_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_enabled_products_for_import_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "ProductSubscriptions" => list(String.t() | Atom.t())
+        "NextToken" => String.t() | atom(),
+        "ProductSubscriptions" => list(String.t() | atom())
       }
 
   """
-  @type list_enabled_products_for_import_response() :: %{String.t() | Atom.t() => any()}
+  @type list_enabled_products_for_import_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8164,24 +8079,23 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type resources_map_filter() :: %{String.t() | Atom.t() => any()}
+  @type resources_map_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_open_search_service_domain_domain_endpoint_options_details() :: %{
-        "CustomEndpoint" => String.t() | Atom.t(),
-        "CustomEndpointCertificateArn" => String.t() | Atom.t(),
+        "CustomEndpoint" => String.t() | atom(),
+        "CustomEndpointCertificateArn" => String.t() | atom(),
         "CustomEndpointEnabled" => boolean(),
         "EnforceHTTPS" => boolean(),
-        "TLSSecurityPolicy" => String.t() | Atom.t()
+        "TLSSecurityPolicy" => String.t() | atom()
       }
 
   """
   @type aws_open_search_service_domain_domain_endpoint_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -8189,52 +8103,52 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ecs_task_definition_volumes_efs_volume_configuration_authorization_config_details() :: %{
-        "AccessPointId" => String.t() | Atom.t(),
-        "Iam" => String.t() | Atom.t()
+        "AccessPointId" => String.t() | atom(),
+        "Iam" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_volumes_efs_volume_configuration_authorization_config_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_waf_regional_rate_based_rule_match_predicate() :: %{
-        "DataId" => String.t() | Atom.t(),
+        "DataId" => String.t() | atom(),
         "Negated" => boolean(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_waf_regional_rate_based_rule_match_predicate() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_regional_rate_based_rule_match_predicate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_efs_access_point_posix_user_details() :: %{
-        "Gid" => String.t() | Atom.t(),
-        "SecondaryGids" => list(String.t() | Atom.t()),
-        "Uid" => String.t() | Atom.t()
+        "Gid" => String.t() | atom(),
+        "SecondaryGids" => list(String.t() | atom()),
+        "Uid" => String.t() | atom()
       }
 
   """
-  @type aws_efs_access_point_posix_user_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_efs_access_point_posix_user_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_waf_rule_predicate_list_details() :: %{
-        "DataId" => String.t() | Atom.t(),
+        "DataId" => String.t() | atom(),
         "Negated" => boolean(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_waf_rule_predicate_list_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_rule_predicate_list_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8246,7 +8160,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type port_range() :: %{String.t() | Atom.t() => any()}
+  @type port_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8254,31 +8168,31 @@ defmodule AWS.SecurityHub do
 
       list_configuration_policies_response() :: %{
         "ConfigurationPolicySummaries" => list(configuration_policy_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_configuration_policies_response() :: %{String.t() | Atom.t() => any()}
+  @type list_configuration_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_amazon_mq_broker_ldap_server_metadata_details() :: %{
-        "Hosts" => list(String.t() | Atom.t()),
-        "RoleBase" => String.t() | Atom.t(),
-        "RoleName" => String.t() | Atom.t(),
-        "RoleSearchMatching" => String.t() | Atom.t(),
+        "Hosts" => list(String.t() | atom()),
+        "RoleBase" => String.t() | atom(),
+        "RoleName" => String.t() | atom(),
+        "RoleSearchMatching" => String.t() | atom(),
         "RoleSearchSubtree" => boolean(),
-        "ServiceAccountUsername" => String.t() | Atom.t(),
-        "UserBase" => String.t() | Atom.t(),
-        "UserRoleName" => String.t() | Atom.t(),
-        "UserSearchMatching" => String.t() | Atom.t(),
+        "ServiceAccountUsername" => String.t() | atom(),
+        "UserBase" => String.t() | atom(),
+        "UserRoleName" => String.t() | atom(),
+        "UserSearchMatching" => String.t() | atom(),
         "UserSearchSubtree" => boolean()
       }
 
   """
-  @type aws_amazon_mq_broker_ldap_server_metadata_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_amazon_mq_broker_ldap_server_metadata_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8289,23 +8203,23 @@ defmodule AWS.SecurityHub do
         "Criticality" => integer(),
         "RelatedFindings" => list(related_finding()),
         "Severity" => finding_provider_severity(),
-        "Types" => list(String.t() | Atom.t())
+        "Types" => list(String.t() | atom())
       }
 
   """
-  @type finding_provider_fields() :: %{String.t() | Atom.t() => any()}
+  @type finding_provider_fields() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type resource_tag() :: %{String.t() | Atom.t() => any()}
+  @type resource_tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8318,7 +8232,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type update_organization_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_organization_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8326,24 +8240,23 @@ defmodule AWS.SecurityHub do
 
       enable_organization_admin_account_request() :: %{
         optional("Feature") => list(any()),
-        required("AdminAccountId") => String.t() | Atom.t()
+        required("AdminAccountId") => String.t() | atom()
       }
 
   """
-  @type enable_organization_admin_account_request() :: %{String.t() | Atom.t() => any()}
+  @type enable_organization_admin_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_dms_replication_instance_replication_subnet_group_details() :: %{
-        "ReplicationSubnetGroupIdentifier" => String.t() | Atom.t()
+        "ReplicationSubnetGroupIdentifier" => String.t() | atom()
       }
 
   """
   @type aws_dms_replication_instance_replication_subnet_group_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -8351,47 +8264,47 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_sns_topic_subscription() :: %{
-        "Endpoint" => String.t() | Atom.t(),
-        "Protocol" => String.t() | Atom.t()
+        "Endpoint" => String.t() | atom(),
+        "Protocol" => String.t() | atom()
       }
 
   """
-  @type aws_sns_topic_subscription() :: %{String.t() | Atom.t() => any()}
+  @type aws_sns_topic_subscription() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_route53_hosted_zone_config_details() :: %{
-        "Comment" => String.t() | Atom.t()
+        "Comment" => String.t() | atom()
       }
 
   """
-  @type aws_route53_hosted_zone_config_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_route53_hosted_zone_config_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       external_integration_configuration() :: %{
-        "ConnectorArn" => String.t() | Atom.t()
+        "ConnectorArn" => String.t() | atom()
       }
 
   """
-  @type external_integration_configuration() :: %{String.t() | Atom.t() => any()}
+  @type external_integration_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_cloud_formation_stack_outputs_details() :: %{
-        "Description" => String.t() | Atom.t(),
-        "OutputKey" => String.t() | Atom.t(),
-        "OutputValue" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "OutputKey" => String.t() | atom(),
+        "OutputValue" => String.t() | atom()
       }
 
   """
-  @type aws_cloud_formation_stack_outputs_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_formation_stack_outputs_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8399,15 +8312,15 @@ defmodule AWS.SecurityHub do
 
       threat_intel_indicator() :: %{
         "Category" => list(any()),
-        "LastObservedAt" => String.t() | Atom.t(),
-        "Source" => String.t() | Atom.t(),
-        "SourceUrl" => String.t() | Atom.t(),
+        "LastObservedAt" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "SourceUrl" => String.t() | atom(),
         "Type" => list(any()),
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type threat_intel_indicator() :: %{String.t() | Atom.t() => any()}
+  @type threat_intel_indicator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8419,7 +8332,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type batch_update_findings_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_findings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8431,7 +8344,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type geo_location() :: %{String.t() | Atom.t() => any()}
+  @type geo_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8444,14 +8357,14 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type get_finding_statistics_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type get_finding_statistics_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       action() :: %{
-        "ActionType" => String.t() | Atom.t(),
+        "ActionType" => String.t() | atom(),
         "AwsApiCallAction" => aws_api_call_action(),
         "DnsRequestAction" => dns_request_action(),
         "NetworkConnectionAction" => network_connection_action(),
@@ -8459,21 +8372,20 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type action() :: %{String.t() | Atom.t() => any()}
+  @type action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_open_search_service_domain_log_publishing_option() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t() | Atom.t(),
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
         "Enabled" => boolean()
       }
 
   """
   @type aws_open_search_service_domain_log_publishing_option() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -8481,7 +8393,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_app_sync_graph_ql_api_additional_authentication_providers_details() :: %{
-        "AuthenticationType" => String.t() | Atom.t(),
+        "AuthenticationType" => String.t() | atom(),
         "LambdaAuthorizerConfig" => aws_app_sync_graph_ql_api_lambda_authorizer_config_details(),
         "OpenIdConnectConfig" => aws_app_sync_graph_ql_api_open_id_connect_config_details(),
         "UserPoolConfig" => aws_app_sync_graph_ql_api_user_pool_config_details()
@@ -8489,8 +8401,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_app_sync_graph_ql_api_additional_authentication_providers_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -8500,40 +8411,40 @@ defmodule AWS.SecurityHub do
       list_connectors_v2_request() :: %{
         optional("ConnectorStatus") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ProviderName") => list(any())
       }
 
   """
-  @type list_connectors_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type list_connectors_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_data_identifiers_detections() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "Count" => float(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Occurrences" => occurrences()
       }
 
   """
-  @type custom_data_identifiers_detections() :: %{String.t() | Atom.t() => any()}
+  @type custom_data_identifiers_detections() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_finding_aggregator_response() :: %{
-        "FindingAggregationRegion" => String.t() | Atom.t(),
-        "FindingAggregatorArn" => String.t() | Atom.t(),
-        "RegionLinkingMode" => String.t() | Atom.t(),
-        "Regions" => list(String.t() | Atom.t())
+        "FindingAggregationRegion" => String.t() | atom(),
+        "FindingAggregatorArn" => String.t() | atom(),
+        "RegionLinkingMode" => String.t() | atom(),
+        "Regions" => list(String.t() | atom())
       }
 
   """
-  @type create_finding_aggregator_response() :: %{String.t() | Atom.t() => any()}
+  @type create_finding_aggregator_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8542,43 +8453,42 @@ defmodule AWS.SecurityHub do
       aws_guard_duty_detector_details() :: %{
         "DataSources" => aws_guard_duty_detector_data_sources_details(),
         "Features" => list(aws_guard_duty_detector_features_details()),
-        "FindingPublishingFrequency" => String.t() | Atom.t(),
-        "ServiceRole" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "FindingPublishingFrequency" => String.t() | atom(),
+        "ServiceRole" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_guard_duty_detector_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_guard_duty_detector_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_elasticsearch_domain_service_software_options() :: %{
-        "AutomatedUpdateDate" => String.t() | Atom.t(),
+        "AutomatedUpdateDate" => String.t() | atom(),
         "Cancellable" => boolean(),
-        "CurrentVersion" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "NewVersion" => String.t() | Atom.t(),
+        "CurrentVersion" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "NewVersion" => String.t() | atom(),
         "UpdateAvailable" => boolean(),
-        "UpdateStatus" => String.t() | Atom.t()
+        "UpdateStatus" => String.t() | atom()
       }
 
   """
-  @type aws_elasticsearch_domain_service_software_options() :: %{String.t() | Atom.t() => any()}
+  @type aws_elasticsearch_domain_service_software_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       firewall_policy_stateful_rule_group_references_details() :: %{
-        "ResourceArn" => String.t() | Atom.t()
+        "ResourceArn" => String.t() | atom()
       }
 
   """
   @type firewall_policy_stateful_rule_group_references_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -8586,51 +8496,51 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_iam_permissions_boundary() :: %{
-        "PermissionsBoundaryArn" => String.t() | Atom.t(),
-        "PermissionsBoundaryType" => String.t() | Atom.t()
+        "PermissionsBoundaryArn" => String.t() | atom(),
+        "PermissionsBoundaryType" => String.t() | atom()
       }
 
   """
-  @type aws_iam_permissions_boundary() :: %{String.t() | Atom.t() => any()}
+  @type aws_iam_permissions_boundary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_backup_backup_vault_details() :: %{
-        "AccessPolicy" => String.t() | Atom.t(),
-        "BackupVaultArn" => String.t() | Atom.t(),
-        "BackupVaultName" => String.t() | Atom.t(),
-        "EncryptionKeyArn" => String.t() | Atom.t(),
+        "AccessPolicy" => String.t() | atom(),
+        "BackupVaultArn" => String.t() | atom(),
+        "BackupVaultName" => String.t() | atom(),
+        "EncryptionKeyArn" => String.t() | atom(),
         "Notifications" => aws_backup_backup_vault_notifications_details()
       }
 
   """
-  @type aws_backup_backup_vault_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_backup_backup_vault_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_client_vpn_endpoint_authentication_options_federated_authentication_details() :: %{
-        "SamlProviderArn" => String.t() | Atom.t(),
-        "SelfServiceSamlProviderArn" => String.t() | Atom.t()
+        "SamlProviderArn" => String.t() | atom(),
+        "SelfServiceSamlProviderArn" => String.t() | atom()
       }
 
   """
   @type aws_ec2_client_vpn_endpoint_authentication_options_federated_authentication_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       propagating_vgw_set_details() :: %{
-        "GatewayId" => String.t() | Atom.t()
+        "GatewayId" => String.t() | atom()
       }
 
   """
-  @type propagating_vgw_set_details() :: %{String.t() | Atom.t() => any()}
+  @type propagating_vgw_set_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8641,7 +8551,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type delete_invitations_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_invitations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8654,7 +8564,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type batch_import_findings_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_import_findings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8666,7 +8576,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type port_probe_action() :: %{String.t() | Atom.t() => any()}
+  @type port_probe_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8677,20 +8587,20 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_wafv2_rules_action_count_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_wafv2_rules_action_count_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_xray_encryption_config_details() :: %{
-        "KeyId" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "KeyId" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_xray_encryption_config_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_xray_encryption_config_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8699,11 +8609,11 @@ defmodule AWS.SecurityHub do
       list_organization_admin_accounts_request() :: %{
         optional("Feature") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_organization_admin_accounts_request() :: %{String.t() | Atom.t() => any()}
+  @type list_organization_admin_accounts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8715,7 +8625,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type ocsf_date_filter() :: %{String.t() | Atom.t() => any()}
+  @type ocsf_date_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8730,7 +8640,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_elb_load_balancer_attributes() :: %{String.t() | Atom.t() => any()}
+  @type aws_elb_load_balancer_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8742,8 +8652,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_msk_cluster_cluster_info_client_authentication_sasl_iam_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -8752,13 +8661,13 @@ defmodule AWS.SecurityHub do
 
       standards_control_association_update() :: %{
         "AssociationStatus" => list(any()),
-        "SecurityControlId" => String.t() | Atom.t(),
-        "StandardsArn" => String.t() | Atom.t(),
-        "UpdatedReason" => String.t() | Atom.t()
+        "SecurityControlId" => String.t() | atom(),
+        "StandardsArn" => String.t() | atom(),
+        "UpdatedReason" => String.t() | atom()
       }
 
   """
-  @type standards_control_association_update() :: %{String.t() | Atom.t() => any()}
+  @type standards_control_association_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8770,8 +8679,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_msk_cluster_cluster_info_client_authentication_unauthenticated_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -8784,7 +8692,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type rule_group_details() :: %{String.t() | Atom.t() => any()}
+  @type rule_group_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8792,40 +8700,40 @@ defmodule AWS.SecurityHub do
 
       update_configuration_policy_request() :: %{
         optional("ConfigurationPolicy") => list(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("UpdatedReason") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("UpdatedReason") => String.t() | atom()
       }
 
   """
-  @type update_configuration_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type update_configuration_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_elb_load_balancer_details() :: %{
-        "AvailabilityZones" => list(String.t() | Atom.t()),
+        "AvailabilityZones" => list(String.t() | atom()),
         "BackendServerDescriptions" => list(aws_elb_load_balancer_backend_server_description()),
-        "CanonicalHostedZoneName" => String.t() | Atom.t(),
-        "CanonicalHostedZoneNameID" => String.t() | Atom.t(),
-        "CreatedTime" => String.t() | Atom.t(),
-        "DnsName" => String.t() | Atom.t(),
+        "CanonicalHostedZoneName" => String.t() | atom(),
+        "CanonicalHostedZoneNameID" => String.t() | atom(),
+        "CreatedTime" => String.t() | atom(),
+        "DnsName" => String.t() | atom(),
         "HealthCheck" => aws_elb_load_balancer_health_check(),
         "Instances" => list(aws_elb_load_balancer_instance()),
         "ListenerDescriptions" => list(aws_elb_load_balancer_listener_description()),
         "LoadBalancerAttributes" => aws_elb_load_balancer_attributes(),
-        "LoadBalancerName" => String.t() | Atom.t(),
+        "LoadBalancerName" => String.t() | atom(),
         "Policies" => aws_elb_load_balancer_policies(),
-        "Scheme" => String.t() | Atom.t(),
-        "SecurityGroups" => list(String.t() | Atom.t()),
+        "Scheme" => String.t() | atom(),
+        "SecurityGroups" => list(String.t() | atom()),
         "SourceSecurityGroup" => aws_elb_load_balancer_source_security_group(),
-        "Subnets" => list(String.t() | Atom.t()),
-        "VpcId" => String.t() | Atom.t()
+        "Subnets" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_elb_load_balancer_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_elb_load_balancer_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8834,12 +8742,12 @@ defmodule AWS.SecurityHub do
       threat() :: %{
         "FilePaths" => list(file_paths()),
         "ItemCount" => integer(),
-        "Name" => String.t() | Atom.t(),
-        "Severity" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Severity" => String.t() | atom()
       }
 
   """
-  @type threat() :: %{String.t() | Atom.t() => any()}
+  @type threat() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8850,7 +8758,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_ssm_patch_compliance_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ssm_patch_compliance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8859,74 +8767,74 @@ defmodule AWS.SecurityHub do
       describe_hub_response() :: %{
         "AutoEnableControls" => boolean(),
         "ControlFindingGenerator" => list(any()),
-        "HubArn" => String.t() | Atom.t(),
-        "SubscribedAt" => String.t() | Atom.t()
+        "HubArn" => String.t() | atom(),
+        "SubscribedAt" => String.t() | atom()
       }
 
   """
-  @type describe_hub_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_hub_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_service_deployment_controller_details() :: %{
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_ecs_service_deployment_controller_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_service_deployment_controller_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_instance_details() :: %{
-        "IamInstanceProfileArn" => String.t() | Atom.t(),
-        "ImageId" => String.t() | Atom.t(),
-        "IpV4Addresses" => list(String.t() | Atom.t()),
-        "IpV6Addresses" => list(String.t() | Atom.t()),
-        "KeyName" => String.t() | Atom.t(),
-        "LaunchedAt" => String.t() | Atom.t(),
+        "IamInstanceProfileArn" => String.t() | atom(),
+        "ImageId" => String.t() | atom(),
+        "IpV4Addresses" => list(String.t() | atom()),
+        "IpV6Addresses" => list(String.t() | atom()),
+        "KeyName" => String.t() | atom(),
+        "LaunchedAt" => String.t() | atom(),
         "MetadataOptions" => aws_ec2_instance_metadata_options(),
         "Monitoring" => aws_ec2_instance_monitoring_details(),
         "NetworkInterfaces" => list(aws_ec2_instance_network_interfaces_details()),
-        "SubnetId" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t(),
-        "VirtualizationType" => String.t() | Atom.t(),
-        "VpcId" => String.t() | Atom.t()
+        "SubnetId" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "VirtualizationType" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_instance_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_instance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_security_group_user_id_group_pair() :: %{
-        "GroupId" => String.t() | Atom.t(),
-        "GroupName" => String.t() | Atom.t(),
-        "PeeringStatus" => String.t() | Atom.t(),
-        "UserId" => String.t() | Atom.t(),
-        "VpcId" => String.t() | Atom.t(),
-        "VpcPeeringConnectionId" => String.t() | Atom.t()
+        "GroupId" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "PeeringStatus" => String.t() | atom(),
+        "UserId" => String.t() | atom(),
+        "VpcId" => String.t() | atom(),
+        "VpcPeeringConnectionId" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_security_group_user_id_group_pair() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_security_group_user_id_group_pair() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8937,31 +8845,31 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type batch_import_findings_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_import_findings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_dynamo_db_table_projection() :: %{
-        "NonKeyAttributes" => list(String.t() | Atom.t()),
-        "ProjectionType" => String.t() | Atom.t()
+        "NonKeyAttributes" => list(String.t() | atom()),
+        "ProjectionType" => String.t() | atom()
       }
 
   """
-  @type aws_dynamo_db_table_projection() :: %{String.t() | Atom.t() => any()}
+  @type aws_dynamo_db_table_projection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8977,12 +8885,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_open_search_service_domain_vpc_options_details() :: %{
-        "SecurityGroupIds" => list(String.t() | Atom.t()),
-        "SubnetIds" => list(String.t() | Atom.t())
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
       }
 
   """
-  @type aws_open_search_service_domain_vpc_options_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_open_search_service_domain_vpc_options_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8998,18 +8906,18 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type composite_filter() :: %{String.t() | Atom.t() => any()}
+  @type composite_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_insight_response() :: %{
-        "InsightArn" => String.t() | Atom.t()
+        "InsightArn" => String.t() | atom()
       }
 
   """
-  @type delete_insight_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_insight_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9025,12 +8933,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       get_resources_v2_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Resources" => list(resource_result())
       }
 
   """
-  @type get_resources_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type get_resources_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9044,7 +8952,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_wafv2_rules_action_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_wafv2_rules_action_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9056,7 +8964,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type batch_get_security_controls_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_security_controls_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9066,25 +8974,25 @@ defmodule AWS.SecurityHub do
         "DockerVolumeConfiguration" => aws_ecs_task_definition_volumes_docker_volume_configuration_details(),
         "EfsVolumeConfiguration" => aws_ecs_task_definition_volumes_efs_volume_configuration_details(),
         "Host" => aws_ecs_task_definition_volumes_host_details(),
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type aws_ecs_task_definition_volumes_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_task_definition_volumes_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_app_sync_graph_ql_api_user_pool_config_details() :: %{
-        "AppIdClientRegex" => String.t() | Atom.t(),
-        "AwsRegion" => String.t() | Atom.t(),
-        "DefaultAction" => String.t() | Atom.t(),
-        "UserPoolId" => String.t() | Atom.t()
+        "AppIdClientRegex" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom(),
+        "DefaultAction" => String.t() | atom(),
+        "UserPoolId" => String.t() | atom()
       }
 
   """
-  @type aws_app_sync_graph_ql_api_user_pool_config_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_app_sync_graph_ql_api_user_pool_config_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9096,70 +9004,69 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_backup_backup_plan_lifecycle_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_backup_backup_plan_lifecycle_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_rds_db_processor_feature() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_processor_feature() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_processor_feature() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_definition_container_definitions_details() :: %{
-        "Command" => list(String.t() | Atom.t()),
+        "Command" => list(String.t() | atom()),
         "MemoryReservation" => integer(),
         "StartTimeout" => integer(),
         "LinuxParameters" => aws_ecs_task_definition_container_definitions_linux_parameters_details(),
         "PortMappings" => list(aws_ecs_task_definition_container_definitions_port_mappings_details()),
-        "Hostname" => String.t() | Atom.t(),
+        "Hostname" => String.t() | atom(),
         "Privileged" => boolean(),
-        "WorkingDirectory" => String.t() | Atom.t(),
-        "Image" => String.t() | Atom.t(),
+        "WorkingDirectory" => String.t() | atom(),
+        "Image" => String.t() | atom(),
         "EnvironmentFiles" => list(aws_ecs_task_definition_container_definitions_environment_files_details()),
         "Ulimits" => list(aws_ecs_task_definition_container_definitions_ulimits_details()),
         "StopTimeout" => integer(),
         "ExtraHosts" => list(aws_ecs_task_definition_container_definitions_extra_hosts_details()),
         "LogConfiguration" => aws_ecs_task_definition_container_definitions_log_configuration_details(),
         "Secrets" => list(aws_ecs_task_definition_container_definitions_secrets_details()),
-        "DockerSecurityOptions" => list(String.t() | Atom.t()),
+        "DockerSecurityOptions" => list(String.t() | atom()),
         "SystemControls" => list(aws_ecs_task_definition_container_definitions_system_controls_details()),
         "HealthCheck" => aws_ecs_task_definition_container_definitions_health_check_details(),
-        "DnsServers" => list(String.t() | Atom.t()),
+        "DnsServers" => list(String.t() | atom()),
         "PseudoTerminal" => boolean(),
         "RepositoryCredentials" => aws_ecs_task_definition_container_definitions_repository_credentials_details(),
         "DockerLabels" => map(),
         "DisableNetworking" => boolean(),
-        "User" => String.t() | Atom.t(),
+        "User" => String.t() | atom(),
         "Environment" => list(aws_ecs_task_definition_container_definitions_environment_details()),
         "FirelensConfiguration" => aws_ecs_task_definition_container_definitions_firelens_configuration_details(),
         "MountPoints" => list(aws_ecs_task_definition_container_definitions_mount_points_details()),
         "VolumesFrom" => list(aws_ecs_task_definition_container_definitions_volumes_from_details()),
         "DependsOn" => list(aws_ecs_task_definition_container_definitions_depends_on_details()),
-        "DnsSearchDomains" => list(String.t() | Atom.t()),
+        "DnsSearchDomains" => list(String.t() | atom()),
         "Interactive" => boolean(),
-        "Links" => list(String.t() | Atom.t()),
+        "Links" => list(String.t() | atom()),
         "ResourceRequirements" => list(aws_ecs_task_definition_container_definitions_resource_requirements_details()),
         "Essential" => boolean(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "ReadonlyRootFilesystem" => boolean(),
-        "EntryPoint" => list(String.t() | Atom.t()),
+        "EntryPoint" => list(String.t() | atom()),
         "Cpu" => integer(),
         "Memory" => integer()
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -9172,8 +9079,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_open_search_service_domain_node_to_node_encryption_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -9181,23 +9087,23 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       city() :: %{
-        "CityName" => String.t() | Atom.t()
+        "CityName" => String.t() | atom()
       }
 
   """
-  @type city() :: %{String.t() | Atom.t() => any()}
+  @type city() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       accept_invitation_request() :: %{
-        required("InvitationId") => String.t() | Atom.t(),
-        required("MasterId") => String.t() | Atom.t()
+        required("InvitationId") => String.t() | atom(),
+        required("MasterId") => String.t() | atom()
       }
 
   """
-  @type accept_invitation_request() :: %{String.t() | Atom.t() => any()}
+  @type accept_invitation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9215,11 +9121,11 @@ defmodule AWS.SecurityHub do
       association_filters() :: %{
         "AssociationStatus" => list(any()),
         "AssociationType" => list(any()),
-        "ConfigurationPolicyId" => String.t() | Atom.t()
+        "ConfigurationPolicyId" => String.t() | atom()
       }
 
   """
-  @type association_filters() :: %{String.t() | Atom.t() => any()}
+  @type association_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9227,16 +9133,15 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_launch_template_data_instance_market_options_spot_options_details() :: %{
         "BlockDurationMinutes" => integer(),
-        "InstanceInterruptionBehavior" => String.t() | Atom.t(),
-        "MaxPrice" => String.t() | Atom.t(),
-        "SpotInstanceType" => String.t() | Atom.t(),
-        "ValidUntil" => String.t() | Atom.t()
+        "InstanceInterruptionBehavior" => String.t() | atom(),
+        "MaxPrice" => String.t() | atom(),
+        "SpotInstanceType" => String.t() | atom(),
+        "ValidUntil" => String.t() | atom()
       }
 
   """
   @type aws_ec2_launch_template_data_instance_market_options_spot_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -9245,18 +9150,18 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_launch_template_data_instance_requirements_details() :: %{
         "AcceleratorCount" => aws_ec2_launch_template_data_instance_requirements_accelerator_count_details(),
-        "AcceleratorManufacturers" => list(String.t() | Atom.t()),
-        "AcceleratorNames" => list(String.t() | Atom.t()),
+        "AcceleratorManufacturers" => list(String.t() | atom()),
+        "AcceleratorNames" => list(String.t() | atom()),
         "AcceleratorTotalMemoryMiB" => aws_ec2_launch_template_data_instance_requirements_accelerator_total_memory_mi_b_details(),
-        "AcceleratorTypes" => list(String.t() | Atom.t()),
-        "BareMetal" => String.t() | Atom.t(),
+        "AcceleratorTypes" => list(String.t() | atom()),
+        "BareMetal" => String.t() | atom(),
         "BaselineEbsBandwidthMbps" => aws_ec2_launch_template_data_instance_requirements_baseline_ebs_bandwidth_mbps_details(),
-        "BurstablePerformance" => String.t() | Atom.t(),
-        "CpuManufacturers" => list(String.t() | Atom.t()),
-        "ExcludedInstanceTypes" => list(String.t() | Atom.t()),
-        "InstanceGenerations" => list(String.t() | Atom.t()),
-        "LocalStorage" => String.t() | Atom.t(),
-        "LocalStorageTypes" => list(String.t() | Atom.t()),
+        "BurstablePerformance" => String.t() | atom(),
+        "CpuManufacturers" => list(String.t() | atom()),
+        "ExcludedInstanceTypes" => list(String.t() | atom()),
+        "InstanceGenerations" => list(String.t() | atom()),
+        "LocalStorage" => String.t() | atom(),
+        "LocalStorageTypes" => list(String.t() | atom()),
         "MemoryGiBPerVCpu" => aws_ec2_launch_template_data_instance_requirements_memory_gi_b_per_v_cpu_details(),
         "MemoryMiB" => aws_ec2_launch_template_data_instance_requirements_memory_mi_b_details(),
         "NetworkInterfaceCount" => aws_ec2_launch_template_data_instance_requirements_network_interface_count_details(),
@@ -9269,8 +9174,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_ec2_launch_template_data_instance_requirements_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -9279,12 +9183,12 @@ defmodule AWS.SecurityHub do
 
       list_members_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("OnlyAssociated") => boolean()
       }
 
   """
-  @type list_members_request() :: %{String.t() | Atom.t() => any()}
+  @type list_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9292,24 +9196,24 @@ defmodule AWS.SecurityHub do
 
       list_members_response() :: %{
         "Members" => list(member()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_members_response() :: %{String.t() | Atom.t() => any()}
+  @type list_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       automation_rules_finding_fields_update_v2() :: %{
-        "Comment" => String.t() | Atom.t(),
+        "Comment" => String.t() | atom(),
         "SeverityId" => integer(),
         "StatusId" => integer()
       }
 
   """
-  @type automation_rules_finding_fields_update_v2() :: %{String.t() | Atom.t() => any()}
+  @type automation_rules_finding_fields_update_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9317,7 +9221,7 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_security_group_ip_permission() :: %{
         "FromPort" => integer(),
-        "IpProtocol" => String.t() | Atom.t(),
+        "IpProtocol" => String.t() | atom(),
         "IpRanges" => list(aws_ec2_security_group_ip_range()),
         "Ipv6Ranges" => list(aws_ec2_security_group_ipv6_range()),
         "PrefixListIds" => list(aws_ec2_security_group_prefix_list_id()),
@@ -9326,7 +9230,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_ec2_security_group_ip_permission() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_security_group_ip_permission() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9335,13 +9239,12 @@ defmodule AWS.SecurityHub do
       aws_step_function_state_machine_logging_configuration_details() :: %{
         "Destinations" => list(aws_step_function_state_machine_logging_configuration_destinations_details()),
         "IncludeExecutionData" => boolean(),
-        "Level" => String.t() | Atom.t()
+        "Level" => String.t() | atom()
       }
 
   """
   @type aws_step_function_state_machine_logging_configuration_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -9349,21 +9252,21 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ec2_vpn_connection_details() :: %{
-        "Category" => String.t() | Atom.t(),
-        "CustomerGatewayConfiguration" => String.t() | Atom.t(),
-        "CustomerGatewayId" => String.t() | Atom.t(),
+        "Category" => String.t() | atom(),
+        "CustomerGatewayConfiguration" => String.t() | atom(),
+        "CustomerGatewayId" => String.t() | atom(),
         "Options" => aws_ec2_vpn_connection_options_details(),
         "Routes" => list(aws_ec2_vpn_connection_routes_details()),
-        "State" => String.t() | Atom.t(),
-        "TransitGatewayId" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t(),
+        "State" => String.t() | atom(),
+        "TransitGatewayId" => String.t() | atom(),
+        "Type" => String.t() | atom(),
         "VgwTelemetry" => list(aws_ec2_vpn_connection_vgw_telemetry_details()),
-        "VpnConnectionId" => String.t() | Atom.t(),
-        "VpnGatewayId" => String.t() | Atom.t()
+        "VpnConnectionId" => String.t() | atom(),
+        "VpnGatewayId" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_vpn_connection_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_vpn_connection_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9374,7 +9277,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type get_resources_statistics_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type get_resources_statistics_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9382,13 +9285,12 @@ defmodule AWS.SecurityHub do
 
       firewall_policy_stateless_rule_group_references_details() :: %{
         "Priority" => integer(),
-        "ResourceArn" => String.t() | Atom.t()
+        "ResourceArn" => String.t() | atom()
       }
 
   """
   @type firewall_policy_stateless_rule_group_references_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -9401,7 +9303,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type ocsf_boolean_filter() :: %{String.t() | Atom.t() => any()}
+  @type ocsf_boolean_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9414,8 +9316,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_ecs_service_deployment_configuration_deployment_circuit_breaker_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -9424,12 +9325,12 @@ defmodule AWS.SecurityHub do
 
       get_enabled_standards_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("StandardsSubscriptionArns") => list(String.t() | Atom.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("StandardsSubscriptionArns") => list(String.t() | atom())
       }
 
   """
-  @type get_enabled_standards_request() :: %{String.t() | Atom.t() => any()}
+  @type get_enabled_standards_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9438,14 +9339,14 @@ defmodule AWS.SecurityHub do
       finding_history_record() :: %{
         "FindingCreated" => boolean(),
         "FindingIdentifier" => aws_security_finding_identifier(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "UpdateSource" => finding_history_update_source(),
         "UpdateTime" => non_neg_integer(),
         "Updates" => list(finding_history_update())
       }
 
   """
-  @type finding_history_record() :: %{String.t() | Atom.t() => any()}
+  @type finding_history_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9453,14 +9354,13 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_cluster_default_capacity_provider_strategy_details() :: %{
         "Base" => integer(),
-        "CapacityProvider" => String.t() | Atom.t(),
+        "CapacityProvider" => String.t() | atom(),
         "Weight" => integer()
       }
 
   """
   @type aws_ecs_cluster_default_capacity_provider_strategy_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -9468,22 +9368,22 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       jira_cloud_provider_configuration() :: %{
-        "ProjectKey" => String.t() | Atom.t()
+        "ProjectKey" => String.t() | atom()
       }
 
   """
-  @type jira_cloud_provider_configuration() :: %{String.t() | Atom.t() => any()}
+  @type jira_cloud_provider_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_waf_rule_group_rules_action_details() :: %{
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_waf_rule_group_rules_action_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_rule_group_rules_action_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9491,18 +9391,18 @@ defmodule AWS.SecurityHub do
 
       aws_code_build_project_details() :: %{
         "Artifacts" => list(aws_code_build_project_artifacts_details()),
-        "EncryptionKey" => String.t() | Atom.t(),
+        "EncryptionKey" => String.t() | atom(),
         "Environment" => aws_code_build_project_environment(),
         "LogsConfig" => aws_code_build_project_logs_config_details(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "SecondaryArtifacts" => list(aws_code_build_project_artifacts_details()),
-        "ServiceRole" => String.t() | Atom.t(),
+        "ServiceRole" => String.t() | atom(),
         "Source" => aws_code_build_project_source(),
         "VpcConfig" => aws_code_build_project_vpc_config()
       }
 
   """
-  @type aws_code_build_project_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_code_build_project_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9514,7 +9414,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type resources_date_filter() :: %{String.t() | Atom.t() => any()}
+  @type resources_date_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9526,8 +9426,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_auto_scaling_launch_configuration_instance_monitoring_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -9535,26 +9434,26 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       standards_subscription_request() :: %{
-        "StandardsArn" => String.t() | Atom.t(),
+        "StandardsArn" => String.t() | atom(),
         "StandardsInput" => map()
       }
 
   """
-  @type standards_subscription_request() :: %{String.t() | Atom.t() => any()}
+  @type standards_subscription_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_elasticsearch_domain_details() :: %{
-        "AccessPolicies" => String.t() | Atom.t(),
+        "AccessPolicies" => String.t() | atom(),
         "DomainEndpointOptions" => aws_elasticsearch_domain_domain_endpoint_options(),
-        "DomainId" => String.t() | Atom.t(),
-        "DomainName" => String.t() | Atom.t(),
+        "DomainId" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
         "ElasticsearchClusterConfig" => aws_elasticsearch_domain_elasticsearch_cluster_config_details(),
-        "ElasticsearchVersion" => String.t() | Atom.t(),
+        "ElasticsearchVersion" => String.t() | atom(),
         "EncryptionAtRestOptions" => aws_elasticsearch_domain_encryption_at_rest_options(),
-        "Endpoint" => String.t() | Atom.t(),
+        "Endpoint" => String.t() | atom(),
         "Endpoints" => map(),
         "LogPublishingOptions" => aws_elasticsearch_domain_log_publishing_options(),
         "NodeToNodeEncryptionOptions" => aws_elasticsearch_domain_node_to_node_encryption_options(),
@@ -9563,7 +9462,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_elasticsearch_domain_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_elasticsearch_domain_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9574,30 +9473,30 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_ec2_launch_template_data_monitoring_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_launch_template_data_monitoring_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_vpc_endpoint_service_service_type_details() :: %{
-        "ServiceType" => String.t() | Atom.t()
+        "ServiceType" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_vpc_endpoint_service_service_type_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_vpc_endpoint_service_service_type_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_network_interface_security_group() :: %{
-        "GroupId" => String.t() | Atom.t(),
-        "GroupName" => String.t() | Atom.t()
+        "GroupId" => String.t() | atom(),
+        "GroupName" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_network_interface_security_group() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_network_interface_security_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9608,7 +9507,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_secrets_manager_secret_rotation_rules() :: %{String.t() | Atom.t() => any()}
+  @type aws_secrets_manager_secret_rotation_rules() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9618,13 +9517,12 @@ defmodule AWS.SecurityHub do
         "ActiveDirectory" => aws_ec2_client_vpn_endpoint_authentication_options_active_directory_details(),
         "FederatedAuthentication" => aws_ec2_client_vpn_endpoint_authentication_options_federated_authentication_details(),
         "MutualAuthentication" => aws_ec2_client_vpn_endpoint_authentication_options_mutual_authentication_details(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
   @type aws_ec2_client_vpn_endpoint_authentication_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -9632,58 +9530,58 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_s3_bucket_server_side_encryption_by_default() :: %{
-        "KMSMasterKeyID" => String.t() | Atom.t(),
-        "SSEAlgorithm" => String.t() | Atom.t()
+        "KMSMasterKeyID" => String.t() | atom(),
+        "SSEAlgorithm" => String.t() | atom()
       }
 
   """
-  @type aws_s3_bucket_server_side_encryption_by_default() :: %{String.t() | Atom.t() => any()}
+  @type aws_s3_bucket_server_side_encryption_by_default() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_products_v2_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ProductsV2" => list(product_v2())
       }
 
   """
-  @type describe_products_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_products_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_wafv2_rule_group_details() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "Capacity" => float(),
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Rules" => list(aws_wafv2_rules_details()),
-        "Scope" => String.t() | Atom.t(),
+        "Scope" => String.t() | atom(),
         "VisibilityConfig" => aws_wafv2_visibility_config_details()
       }
 
   """
-  @type aws_wafv2_rule_group_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_wafv2_rule_group_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_summary() :: %{
-        "ConnectorArn" => String.t() | Atom.t(),
-        "ConnectorId" => String.t() | Atom.t(),
+        "ConnectorArn" => String.t() | atom(),
+        "ConnectorId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ProviderSummary" => provider_summary()
       }
 
   """
-  @type connector_summary() :: %{String.t() | Atom.t() => any()}
+  @type connector_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9691,16 +9589,16 @@ defmodule AWS.SecurityHub do
 
       start_configuration_policy_association_response() :: %{
         "AssociationStatus" => list(any()),
-        "AssociationStatusMessage" => String.t() | Atom.t(),
+        "AssociationStatusMessage" => String.t() | atom(),
         "AssociationType" => list(any()),
-        "ConfigurationPolicyId" => String.t() | Atom.t(),
-        "TargetId" => String.t() | Atom.t(),
+        "ConfigurationPolicyId" => String.t() | atom(),
+        "TargetId" => String.t() | atom(),
         "TargetType" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type start_configuration_policy_association_response() :: %{String.t() | Atom.t() => any()}
+  @type start_configuration_policy_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9711,7 +9609,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type stateless_custom_publish_metric_action() :: %{String.t() | Atom.t() => any()}
+  @type stateless_custom_publish_metric_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9722,7 +9620,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_cloud_front_distribution_origins() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_front_distribution_origins() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9730,33 +9628,33 @@ defmodule AWS.SecurityHub do
 
       list_finding_aggregators_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_finding_aggregators_request() :: %{String.t() | Atom.t() => any()}
+  @type list_finding_aggregators_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network() :: %{
-        "DestinationDomain" => String.t() | Atom.t(),
-        "DestinationIpV4" => String.t() | Atom.t(),
-        "DestinationIpV6" => String.t() | Atom.t(),
+        "DestinationDomain" => String.t() | atom(),
+        "DestinationIpV4" => String.t() | atom(),
+        "DestinationIpV6" => String.t() | atom(),
         "DestinationPort" => integer(),
         "Direction" => list(any()),
         "OpenPortRange" => port_range(),
-        "Protocol" => String.t() | Atom.t(),
-        "SourceDomain" => String.t() | Atom.t(),
-        "SourceIpV4" => String.t() | Atom.t(),
-        "SourceIpV6" => String.t() | Atom.t(),
-        "SourceMac" => String.t() | Atom.t(),
+        "Protocol" => String.t() | atom(),
+        "SourceDomain" => String.t() | atom(),
+        "SourceIpV4" => String.t() | atom(),
+        "SourceIpV6" => String.t() | atom(),
+        "SourceMac" => String.t() | atom(),
         "SourcePort" => integer()
       }
 
   """
-  @type network() :: %{String.t() | Atom.t() => any()}
+  @type network() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9764,11 +9662,11 @@ defmodule AWS.SecurityHub do
 
       aws_dynamo_db_table_stream_specification() :: %{
         "StreamEnabled" => boolean(),
-        "StreamViewType" => String.t() | Atom.t()
+        "StreamViewType" => String.t() | atom()
       }
 
   """
-  @type aws_dynamo_db_table_stream_specification() :: %{String.t() | Atom.t() => any()}
+  @type aws_dynamo_db_table_stream_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9776,26 +9674,26 @@ defmodule AWS.SecurityHub do
 
       aws_rds_db_subnet_group_subnet() :: %{
         "SubnetAvailabilityZone" => aws_rds_db_subnet_group_subnet_availability_zone(),
-        "SubnetIdentifier" => String.t() | Atom.t(),
-        "SubnetStatus" => String.t() | Atom.t()
+        "SubnetIdentifier" => String.t() | atom(),
+        "SubnetStatus" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_subnet_group_subnet() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_subnet_group_subnet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_s3_bucket_notification_configuration_detail() :: %{
-        "Destination" => String.t() | Atom.t(),
-        "Events" => list(String.t() | Atom.t()),
+        "Destination" => String.t() | atom(),
+        "Events" => list(String.t() | atom()),
         "Filter" => aws_s3_bucket_notification_configuration_filter(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_s3_bucket_notification_configuration_detail() :: %{String.t() | Atom.t() => any()}
+  @type aws_s3_bucket_notification_configuration_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9812,23 +9710,23 @@ defmodule AWS.SecurityHub do
 
       list_automation_rules_v2_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_automation_rules_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type list_automation_rules_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9853,11 +9751,11 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_api_gateway_endpoint_configuration() :: %{
-        "Types" => list(String.t() | Atom.t())
+        "Types" => list(String.t() | atom())
       }
 
   """
-  @type aws_api_gateway_endpoint_configuration() :: %{String.t() | Atom.t() => any()}
+  @type aws_api_gateway_endpoint_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9869,8 +9767,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_ecr_repository_image_scanning_configuration_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -9888,39 +9785,38 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_vpc_peering_connection_details() :: %{
         "AccepterVpcInfo" => aws_ec2_vpc_peering_connection_vpc_info_details(),
-        "ExpirationTime" => String.t() | Atom.t(),
+        "ExpirationTime" => String.t() | atom(),
         "RequesterVpcInfo" => aws_ec2_vpc_peering_connection_vpc_info_details(),
         "Status" => aws_ec2_vpc_peering_connection_status_details(),
-        "VpcPeeringConnectionId" => String.t() | Atom.t()
+        "VpcPeeringConnectionId" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_vpc_peering_connection_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_vpc_peering_connection_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_iam_role_policy() :: %{
-        "PolicyName" => String.t() | Atom.t()
+        "PolicyName" => String.t() | atom()
       }
 
   """
-  @type aws_iam_role_policy() :: %{String.t() | Atom.t() => any()}
+  @type aws_iam_role_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_launch_template_data_iam_instance_profile_details() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
   @type aws_ec2_launch_template_data_iam_instance_profile_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -9928,20 +9824,19 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_open_search_service_domain_service_software_options_details() :: %{
-        "AutomatedUpdateDate" => String.t() | Atom.t(),
+        "AutomatedUpdateDate" => String.t() | atom(),
         "Cancellable" => boolean(),
-        "CurrentVersion" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "NewVersion" => String.t() | Atom.t(),
+        "CurrentVersion" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "NewVersion" => String.t() | atom(),
         "OptionalDeployment" => boolean(),
         "UpdateAvailable" => boolean(),
-        "UpdateStatus" => String.t() | Atom.t()
+        "UpdateStatus" => String.t() | atom()
       }
 
   """
   @type aws_open_search_service_domain_service_software_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -9949,15 +9844,14 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_open_search_service_domain_master_user_options_details() :: %{
-        "MasterUserArn" => String.t() | Atom.t(),
-        "MasterUserName" => String.t() | Atom.t(),
-        "MasterUserPassword" => String.t() | Atom.t()
+        "MasterUserArn" => String.t() | atom(),
+        "MasterUserName" => String.t() | atom(),
+        "MasterUserPassword" => String.t() | atom()
       }
 
   """
   @type aws_open_search_service_domain_master_user_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -9966,12 +9860,12 @@ defmodule AWS.SecurityHub do
 
       aws_code_build_project_logs_config_s3_logs_details() :: %{
         "EncryptionDisabled" => boolean(),
-        "Location" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "Location" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_code_build_project_logs_config_s3_logs_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_code_build_project_logs_config_s3_logs_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9983,7 +9877,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type automation_rules_action() :: %{String.t() | Atom.t() => any()}
+  @type automation_rules_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9995,8 +9889,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_msk_cluster_cluster_info_client_authentication_sasl_scram_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -10005,19 +9898,19 @@ defmodule AWS.SecurityHub do
 
       aws_network_firewall_firewall_details() :: %{
         "DeleteProtection" => boolean(),
-        "Description" => String.t() | Atom.t(),
-        "FirewallArn" => String.t() | Atom.t(),
-        "FirewallId" => String.t() | Atom.t(),
-        "FirewallName" => String.t() | Atom.t(),
-        "FirewallPolicyArn" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "FirewallArn" => String.t() | atom(),
+        "FirewallId" => String.t() | atom(),
+        "FirewallName" => String.t() | atom(),
+        "FirewallPolicyArn" => String.t() | atom(),
         "FirewallPolicyChangeProtection" => boolean(),
         "SubnetChangeProtection" => boolean(),
         "SubnetMappings" => list(aws_network_firewall_firewall_subnet_mappings_details()),
-        "VpcId" => String.t() | Atom.t()
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_network_firewall_firewall_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_network_firewall_firewall_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10025,14 +9918,13 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_task_definition_container_definitions_ulimits_details() :: %{
         "HardLimit" => integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "SoftLimit" => integer()
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_ulimits_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -10046,19 +9938,19 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type update_findings_request() :: %{String.t() | Atom.t() => any()}
+  @type update_findings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_standards_control_associations_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "StandardsControlAssociationSummaries" => list(standards_control_association_summary())
       }
 
   """
-  @type list_standards_control_associations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_standards_control_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10074,35 +9966,35 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type rule_group_source_stateless_rule_match_attributes() :: %{String.t() | Atom.t() => any()}
+  @type rule_group_source_stateless_rule_match_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ssm_compliance_summary() :: %{
-        "ComplianceType" => String.t() | Atom.t(),
+        "ComplianceType" => String.t() | atom(),
         "CompliantCriticalCount" => integer(),
         "CompliantHighCount" => integer(),
         "CompliantInformationalCount" => integer(),
         "CompliantLowCount" => integer(),
         "CompliantMediumCount" => integer(),
         "CompliantUnspecifiedCount" => integer(),
-        "ExecutionType" => String.t() | Atom.t(),
+        "ExecutionType" => String.t() | atom(),
         "NonCompliantCriticalCount" => integer(),
         "NonCompliantHighCount" => integer(),
         "NonCompliantInformationalCount" => integer(),
         "NonCompliantLowCount" => integer(),
         "NonCompliantMediumCount" => integer(),
         "NonCompliantUnspecifiedCount" => integer(),
-        "OverallSeverity" => String.t() | Atom.t(),
-        "PatchBaselineId" => String.t() | Atom.t(),
-        "PatchGroup" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "OverallSeverity" => String.t() | atom(),
+        "PatchBaselineId" => String.t() | atom(),
+        "PatchGroup" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_ssm_compliance_summary() :: %{String.t() | Atom.t() => any()}
+  @type aws_ssm_compliance_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10110,13 +10002,12 @@ defmodule AWS.SecurityHub do
 
       aws_s3_bucket_notification_configuration_s3_key_filter_rule() :: %{
         "Name" => list(any()),
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
 
   """
   @type aws_s3_bucket_notification_configuration_s3_key_filter_rule() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -10124,120 +10015,120 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_certificate_manager_certificate_key_usage() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type aws_certificate_manager_certificate_key_usage() :: %{String.t() | Atom.t() => any()}
+  @type aws_certificate_manager_certificate_key_usage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_security_control_request() :: %{
-        optional("LastUpdateReason") => String.t() | Atom.t(),
+        optional("LastUpdateReason") => String.t() | atom(),
         required("Parameters") => map(),
-        required("SecurityControlId") => String.t() | Atom.t()
+        required("SecurityControlId") => String.t() | atom()
       }
 
   """
-  @type update_security_control_request() :: %{String.t() | Atom.t() => any()}
+  @type update_security_control_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_rds_db_security_group_ec2_security_group() :: %{
-        "Ec2SecurityGroupId" => String.t() | Atom.t(),
-        "Ec2SecurityGroupName" => String.t() | Atom.t(),
-        "Ec2SecurityGroupOwnerId" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "Ec2SecurityGroupId" => String.t() | atom(),
+        "Ec2SecurityGroupName" => String.t() | atom(),
+        "Ec2SecurityGroupOwnerId" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_security_group_ec2_security_group() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_security_group_ec2_security_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_configuration_policy_response() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "ConfigurationPolicy" => list(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type update_configuration_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type update_configuration_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_redshift_cluster_details() :: %{
-        "DBName" => String.t() | Atom.t(),
+        "DBName" => String.t() | atom(),
         "AutomatedSnapshotRetentionPeriod" => integer(),
         "VpcSecurityGroups" => list(aws_redshift_cluster_vpc_security_group()),
         "Encrypted" => boolean(),
-        "PendingActions" => list(String.t() | Atom.t()),
+        "PendingActions" => list(String.t() | atom()),
         "EnhancedVpcRouting" => boolean(),
-        "PreferredMaintenanceWindow" => String.t() | Atom.t(),
-        "ClusterAvailabilityStatus" => String.t() | Atom.t(),
-        "ClusterRevisionNumber" => String.t() | Atom.t(),
+        "PreferredMaintenanceWindow" => String.t() | atom(),
+        "ClusterAvailabilityStatus" => String.t() | atom(),
+        "ClusterRevisionNumber" => String.t() | atom(),
         "RestoreStatus" => aws_redshift_cluster_restore_status(),
         "PendingModifiedValues" => aws_redshift_cluster_pending_modified_values(),
-        "KmsKeyId" => String.t() | Atom.t(),
-        "VpcId" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
+        "VpcId" => String.t() | atom(),
         "ClusterSecurityGroups" => list(aws_redshift_cluster_cluster_security_group()),
-        "AvailabilityZone" => String.t() | Atom.t(),
+        "AvailabilityZone" => String.t() | atom(),
         "ManualSnapshotRetentionPeriod" => integer(),
-        "SnapshotScheduleState" => String.t() | Atom.t(),
-        "ExpectedNextSnapshotScheduleTimeStatus" => String.t() | Atom.t(),
+        "SnapshotScheduleState" => String.t() | atom(),
+        "ExpectedNextSnapshotScheduleTimeStatus" => String.t() | atom(),
         "ResizeInfo" => aws_redshift_cluster_resize_info(),
-        "ClusterCreateTime" => String.t() | Atom.t(),
+        "ClusterCreateTime" => String.t() | atom(),
         "AllowVersionUpgrade" => boolean(),
         "ClusterSnapshotCopyStatus" => aws_redshift_cluster_cluster_snapshot_copy_status(),
-        "NodeType" => String.t() | Atom.t(),
+        "NodeType" => String.t() | atom(),
         "HsmStatus" => aws_redshift_cluster_hsm_status(),
-        "MaintenanceTrackName" => String.t() | Atom.t(),
-        "ClusterSubnetGroupName" => String.t() | Atom.t(),
+        "MaintenanceTrackName" => String.t() | atom(),
+        "ClusterSubnetGroupName" => String.t() | atom(),
         "ClusterNodes" => list(aws_redshift_cluster_cluster_node()),
-        "ClusterStatus" => String.t() | Atom.t(),
-        "MasterUsername" => String.t() | Atom.t(),
-        "ClusterVersion" => String.t() | Atom.t(),
-        "ClusterIdentifier" => String.t() | Atom.t(),
-        "ClusterPublicKey" => String.t() | Atom.t(),
+        "ClusterStatus" => String.t() | atom(),
+        "MasterUsername" => String.t() | atom(),
+        "ClusterVersion" => String.t() | atom(),
+        "ClusterIdentifier" => String.t() | atom(),
+        "ClusterPublicKey" => String.t() | atom(),
         "NumberOfNodes" => integer(),
         "IamRoles" => list(aws_redshift_cluster_iam_role()),
-        "NextMaintenanceWindowStartTime" => String.t() | Atom.t(),
+        "NextMaintenanceWindowStartTime" => String.t() | atom(),
         "PubliclyAccessible" => boolean(),
-        "ElasticResizeNumberOfNodeOptions" => String.t() | Atom.t(),
+        "ElasticResizeNumberOfNodeOptions" => String.t() | atom(),
         "Endpoint" => aws_redshift_cluster_endpoint(),
-        "SnapshotScheduleIdentifier" => String.t() | Atom.t(),
+        "SnapshotScheduleIdentifier" => String.t() | atom(),
         "ElasticIpStatus" => aws_redshift_cluster_elastic_ip_status(),
         "DeferredMaintenanceWindows" => list(aws_redshift_cluster_deferred_maintenance_window()),
         "ClusterParameterGroups" => list(aws_redshift_cluster_cluster_parameter_group()),
-        "ExpectedNextSnapshotScheduleTime" => String.t() | Atom.t(),
+        "ExpectedNextSnapshotScheduleTime" => String.t() | atom(),
         "LoggingStatus" => aws_redshift_cluster_logging_status()
       }
 
   """
-  @type aws_redshift_cluster_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_redshift_cluster_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_action_target_response() :: %{
-        "ActionTargetArn" => String.t() | Atom.t()
+        "ActionTargetArn" => String.t() | atom()
       }
 
   """
-  @type delete_action_target_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_action_target_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10248,7 +10139,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_s3_bucket_server_side_encryption_configuration() :: %{String.t() | Atom.t() => any()}
+  @type aws_s3_bucket_server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10259,7 +10150,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type get_invitations_count_response() :: %{String.t() | Atom.t() => any()}
+  @type get_invitations_count_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10268,24 +10159,24 @@ defmodule AWS.SecurityHub do
       get_findings_v2_request() :: %{
         optional("Filters") => ocsf_finding_filters(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortCriteria") => list(sort_criterion())
       }
 
   """
-  @type get_findings_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type get_findings_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10296,7 +10187,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_wafv2_action_allow_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_wafv2_action_allow_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10307,7 +10198,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_athena_work_group_configuration_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_athena_work_group_configuration_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10315,25 +10206,25 @@ defmodule AWS.SecurityHub do
 
       aws_wafv2_visibility_config_details() :: %{
         "CloudWatchMetricsEnabled" => boolean(),
-        "MetricName" => String.t() | Atom.t(),
+        "MetricName" => String.t() | atom(),
         "SampledRequestsEnabled" => boolean()
       }
 
   """
-  @type aws_wafv2_visibility_config_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_wafv2_visibility_config_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_events_eventbus_details() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "Policy" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Policy" => String.t() | atom()
       }
 
   """
-  @type aws_events_eventbus_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_events_eventbus_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10345,32 +10236,32 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type group_by_rule() :: %{String.t() | Atom.t() => any()}
+  @type group_by_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_lambda_function_layer() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CodeSize" => integer()
       }
 
   """
-  @type aws_lambda_function_layer() :: %{String.t() | Atom.t() => any()}
+  @type aws_lambda_function_layer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_connector_v2_request() :: %{
-        optional("ClientSecret") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("ClientSecret") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Provider") => list()
       }
 
   """
-  @type update_connector_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type update_connector_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10378,11 +10269,11 @@ defmodule AWS.SecurityHub do
 
       list_invitations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_invitations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_invitations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10393,31 +10284,31 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_cloud_front_distribution_cache_behaviors() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_front_distribution_cache_behaviors() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_configuration_policy_association_request() :: %{
-        required("ConfigurationPolicyIdentifier") => String.t() | Atom.t(),
+        required("ConfigurationPolicyIdentifier") => String.t() | atom(),
         required("Target") => list()
       }
 
   """
-  @type start_configuration_policy_association_request() :: %{String.t() | Atom.t() => any()}
+  @type start_configuration_policy_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       security_control_parameter() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Value" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Value" => list(String.t() | atom())
       }
 
   """
-  @type security_control_parameter() :: %{String.t() | Atom.t() => any()}
+  @type security_control_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10426,13 +10317,12 @@ defmodule AWS.SecurityHub do
       aws_ecs_task_definition_container_definitions_port_mappings_details() :: %{
         "ContainerPort" => integer(),
         "HostPort" => integer(),
-        "Protocol" => String.t() | Atom.t()
+        "Protocol" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_port_mappings_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -10440,13 +10330,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_waf_regional_web_acl_rules_list_override_action_details() :: %{
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
   @type aws_waf_regional_web_acl_rules_list_override_action_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -10454,27 +10343,26 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_events_endpoint_event_buses_details() :: %{
-        "EventBusArn" => String.t() | Atom.t()
+        "EventBusArn" => String.t() | atom()
       }
 
   """
-  @type aws_events_endpoint_event_buses_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_events_endpoint_event_buses_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_auto_scaling_launch_configuration_block_device_mappings_details() :: %{
-        "DeviceName" => String.t() | Atom.t(),
+        "DeviceName" => String.t() | atom(),
         "Ebs" => aws_auto_scaling_launch_configuration_block_device_mappings_ebs_details(),
         "NoDevice" => boolean(),
-        "VirtualName" => String.t() | Atom.t()
+        "VirtualName" => String.t() | atom()
       }
 
   """
   @type aws_auto_scaling_launch_configuration_block_device_mappings_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -10482,49 +10370,48 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ec2_network_interface_ip_v6_address_detail() :: %{
-        "IpV6Address" => String.t() | Atom.t()
+        "IpV6Address" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_network_interface_ip_v6_address_detail() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_network_interface_ip_v6_address_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_elb_load_balancer_instance() :: %{
-        "InstanceId" => String.t() | Atom.t()
+        "InstanceId" => String.t() | atom()
       }
 
   """
-  @type aws_elb_load_balancer_instance() :: %{String.t() | Atom.t() => any()}
+  @type aws_elb_load_balancer_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enum_configuration_options() :: %{
-        "AllowedValues" => list(String.t() | Atom.t()),
-        "DefaultValue" => String.t() | Atom.t()
+        "AllowedValues" => list(String.t() | atom()),
+        "DefaultValue" => String.t() | atom()
       }
 
   """
-  @type enum_configuration_options() :: %{String.t() | Atom.t() => any()}
+  @type enum_configuration_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_s3_bucket_bucket_lifecycle_configuration_rules_transitions_details() :: %{
-        "Date" => String.t() | Atom.t(),
+        "Date" => String.t() | atom(),
         "Days" => integer(),
-        "StorageClass" => String.t() | Atom.t()
+        "StorageClass" => String.t() | atom()
       }
 
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_transitions_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -10537,32 +10424,31 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type custom_data_identifiers_result() :: %{String.t() | Atom.t() => any()}
+  @type custom_data_identifiers_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_amazon_mq_broker_encryption_options_details() :: %{
-        "KmsKeyId" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
         "UseAwsOwnedKey" => boolean()
       }
 
   """
-  @type aws_amazon_mq_broker_encryption_options_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_amazon_mq_broker_encryption_options_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_msk_cluster_cluster_info_encryption_info_encryption_at_rest_details() :: %{
-        "DataVolumeKMSKeyId" => String.t() | Atom.t()
+        "DataVolumeKMSKeyId" => String.t() | atom()
       }
 
   """
   @type aws_msk_cluster_cluster_info_encryption_info_encryption_at_rest_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -10570,12 +10456,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_redshift_cluster_elastic_ip_status() :: %{
-        "ElasticIp" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "ElasticIp" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_redshift_cluster_elastic_ip_status() :: %{String.t() | Atom.t() => any()}
+  @type aws_redshift_cluster_elastic_ip_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10583,11 +10469,11 @@ defmodule AWS.SecurityHub do
 
       batch_update_findings_v2_processed_finding() :: %{
         "FindingIdentifier" => ocsf_finding_identifier(),
-        "MetadataUid" => String.t() | Atom.t()
+        "MetadataUid" => String.t() | atom()
       }
 
   """
-  @type batch_update_findings_v2_processed_finding() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_findings_v2_processed_finding() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10598,46 +10484,46 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type get_finding_statistics_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type get_finding_statistics_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_set_details() :: %{
-        "CarrierGatewayId" => String.t() | Atom.t(),
-        "CoreNetworkArn" => String.t() | Atom.t(),
-        "DestinationCidrBlock" => String.t() | Atom.t(),
-        "DestinationIpv6CidrBlock" => String.t() | Atom.t(),
-        "DestinationPrefixListId" => String.t() | Atom.t(),
-        "EgressOnlyInternetGatewayId" => String.t() | Atom.t(),
-        "GatewayId" => String.t() | Atom.t(),
-        "InstanceId" => String.t() | Atom.t(),
-        "InstanceOwnerId" => String.t() | Atom.t(),
-        "LocalGatewayId" => String.t() | Atom.t(),
-        "NatGatewayId" => String.t() | Atom.t(),
-        "NetworkInterfaceId" => String.t() | Atom.t(),
-        "Origin" => String.t() | Atom.t(),
-        "State" => String.t() | Atom.t(),
-        "TransitGatewayId" => String.t() | Atom.t(),
-        "VpcPeeringConnectionId" => String.t() | Atom.t()
+        "CarrierGatewayId" => String.t() | atom(),
+        "CoreNetworkArn" => String.t() | atom(),
+        "DestinationCidrBlock" => String.t() | atom(),
+        "DestinationIpv6CidrBlock" => String.t() | atom(),
+        "DestinationPrefixListId" => String.t() | atom(),
+        "EgressOnlyInternetGatewayId" => String.t() | atom(),
+        "GatewayId" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "InstanceOwnerId" => String.t() | atom(),
+        "LocalGatewayId" => String.t() | atom(),
+        "NatGatewayId" => String.t() | atom(),
+        "NetworkInterfaceId" => String.t() | atom(),
+        "Origin" => String.t() | atom(),
+        "State" => String.t() | atom(),
+        "TransitGatewayId" => String.t() | atom(),
+        "VpcPeeringConnectionId" => String.t() | atom()
       }
 
   """
-  @type route_set_details() :: %{String.t() | Atom.t() => any()}
+  @type route_set_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       actor() :: %{
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "Session" => actor_session(),
         "User" => actor_user()
       }
 
   """
-  @type actor() :: %{String.t() | Atom.t() => any()}
+  @type actor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10645,11 +10531,11 @@ defmodule AWS.SecurityHub do
 
       get_findings_v2_response() :: %{
         "Findings" => list(any()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_findings_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type get_findings_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10661,8 +10547,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_athena_work_group_configuration_result_configuration_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -10670,33 +10555,33 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       create_connector_v2_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("KmsKeyArn") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("KmsKeyArn") => String.t() | atom(),
         optional("Tags") => map(),
-        required("Name") => String.t() | Atom.t(),
+        required("Name") => String.t() | atom(),
         required("Provider") => list()
       }
 
   """
-  @type create_connector_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type create_connector_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       member() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "AdministratorId" => String.t() | Atom.t(),
-        "Email" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "AdministratorId" => String.t() | atom(),
+        "Email" => String.t() | atom(),
         "InvitedAt" => non_neg_integer(),
-        "MasterId" => String.t() | Atom.t(),
-        "MemberStatus" => String.t() | Atom.t(),
+        "MasterId" => String.t() | atom(),
+        "MemberStatus" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type member() :: %{String.t() | Atom.t() => any()}
+  @type member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10708,43 +10593,43 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_s3_bucket_website_configuration_routing_rule() :: %{String.t() | Atom.t() => any()}
+  @type aws_s3_bucket_website_configuration_routing_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_dms_replication_task_details() :: %{
-        "CdcStartPosition" => String.t() | Atom.t(),
-        "CdcStartTime" => String.t() | Atom.t(),
-        "CdcStopPosition" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "MigrationType" => String.t() | Atom.t(),
-        "ReplicationInstanceArn" => String.t() | Atom.t(),
-        "ReplicationTaskIdentifier" => String.t() | Atom.t(),
-        "ReplicationTaskSettings" => String.t() | Atom.t(),
-        "ResourceIdentifier" => String.t() | Atom.t(),
-        "SourceEndpointArn" => String.t() | Atom.t(),
-        "TableMappings" => String.t() | Atom.t(),
-        "TargetEndpointArn" => String.t() | Atom.t(),
-        "TaskData" => String.t() | Atom.t()
+        "CdcStartPosition" => String.t() | atom(),
+        "CdcStartTime" => String.t() | atom(),
+        "CdcStopPosition" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "MigrationType" => String.t() | atom(),
+        "ReplicationInstanceArn" => String.t() | atom(),
+        "ReplicationTaskIdentifier" => String.t() | atom(),
+        "ReplicationTaskSettings" => String.t() | atom(),
+        "ResourceIdentifier" => String.t() | atom(),
+        "SourceEndpointArn" => String.t() | atom(),
+        "TableMappings" => String.t() | atom(),
+        "TargetEndpointArn" => String.t() | atom(),
+        "TaskData" => String.t() | atom()
       }
 
   """
-  @type aws_dms_replication_task_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_dms_replication_task_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_tag_details() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_tag_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10752,11 +10637,11 @@ defmodule AWS.SecurityHub do
 
       string_filter() :: %{
         "Comparison" => list(any()),
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type string_filter() :: %{String.t() | Atom.t() => any()}
+  @type string_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10764,23 +10649,23 @@ defmodule AWS.SecurityHub do
 
       list_finding_aggregators_response() :: %{
         "FindingAggregators" => list(finding_aggregator()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_finding_aggregators_response() :: %{String.t() | Atom.t() => any()}
+  @type list_finding_aggregators_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10788,43 +10673,43 @@ defmodule AWS.SecurityHub do
 
       aws_iam_policy_details() :: %{
         "AttachmentCount" => integer(),
-        "CreateDate" => String.t() | Atom.t(),
-        "DefaultVersionId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "CreateDate" => String.t() | atom(),
+        "DefaultVersionId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "IsAttachable" => boolean(),
-        "Path" => String.t() | Atom.t(),
+        "Path" => String.t() | atom(),
         "PermissionsBoundaryUsageCount" => integer(),
-        "PolicyId" => String.t() | Atom.t(),
-        "PolicyName" => String.t() | Atom.t(),
+        "PolicyId" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
         "PolicyVersionList" => list(aws_iam_policy_version()),
-        "UpdateDate" => String.t() | Atom.t()
+        "UpdateDate" => String.t() | atom()
       }
 
   """
-  @type aws_iam_policy_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_iam_policy_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_security_controls_request() :: %{
-        required("SecurityControlIds") => list(String.t() | Atom.t())
+        required("SecurityControlIds") => list(String.t() | atom())
       }
 
   """
-  @type batch_get_security_controls_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_security_controls_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enable_organization_admin_account_response() :: %{
-        "AdminAccountId" => String.t() | Atom.t(),
+        "AdminAccountId" => String.t() | atom(),
         "Feature" => list(any())
       }
 
   """
-  @type enable_organization_admin_account_response() :: %{String.t() | Atom.t() => any()}
+  @type enable_organization_admin_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10832,23 +10717,23 @@ defmodule AWS.SecurityHub do
 
       unprocessed_automation_rule() :: %{
         "ErrorCode" => integer(),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "RuleArn" => String.t() | Atom.t()
+        "ErrorMessage" => String.t() | atom(),
+        "RuleArn" => String.t() | atom()
       }
 
   """
-  @type unprocessed_automation_rule() :: %{String.t() | Atom.t() => any()}
+  @type unprocessed_automation_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_automation_rule_response() :: %{
-        "RuleArn" => String.t() | Atom.t()
+        "RuleArn" => String.t() | atom()
       }
 
   """
-  @type create_automation_rule_response() :: %{String.t() | Atom.t() => any()}
+  @type create_automation_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10856,38 +10741,38 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_task_volume_details() :: %{
         "Host" => aws_ecs_task_volume_host_details(),
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type aws_ecs_task_volume_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_task_volume_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_redshift_cluster_cluster_parameter_status() :: %{
-        "ParameterApplyErrorDescription" => String.t() | Atom.t(),
-        "ParameterApplyStatus" => String.t() | Atom.t(),
-        "ParameterName" => String.t() | Atom.t()
+        "ParameterApplyErrorDescription" => String.t() | atom(),
+        "ParameterApplyStatus" => String.t() | atom(),
+        "ParameterName" => String.t() | atom()
       }
 
   """
-  @type aws_redshift_cluster_cluster_parameter_status() :: %{String.t() | Atom.t() => any()}
+  @type aws_redshift_cluster_cluster_parameter_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_dynamo_db_table_sse_description() :: %{
-        "InaccessibleEncryptionDateTime" => String.t() | Atom.t(),
-        "KmsMasterKeyArn" => String.t() | Atom.t(),
-        "SseType" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "InaccessibleEncryptionDateTime" => String.t() | atom(),
+        "KmsMasterKeyArn" => String.t() | atom(),
+        "SseType" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_dynamo_db_table_sse_description() :: %{String.t() | Atom.t() => any()}
+  @type aws_dynamo_db_table_sse_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10907,32 +10792,32 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type configuration_policy_association() :: %{String.t() | Atom.t() => any()}
+  @type configuration_policy_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       adjustment() :: %{
-        "Metric" => String.t() | Atom.t(),
-        "Reason" => String.t() | Atom.t()
+        "Metric" => String.t() | atom(),
+        "Reason" => String.t() | atom()
       }
 
   """
-  @type adjustment() :: %{String.t() | Atom.t() => any()}
+  @type adjustment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_watch_logs_log_group_arn_config_details() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t() | Atom.t(),
-        "HostedZoneId" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t()
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
+        "HostedZoneId" => String.t() | atom(),
+        "Id" => String.t() | atom()
       }
 
   """
-  @type cloud_watch_logs_log_group_arn_config_details() :: %{String.t() | Atom.t() => any()}
+  @type cloud_watch_logs_log_group_arn_config_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10944,19 +10829,19 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_amazon_mq_broker_logs_pending_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_amazon_mq_broker_logs_pending_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       note_update() :: %{
-        "Text" => String.t() | Atom.t(),
-        "UpdatedBy" => String.t() | Atom.t()
+        "Text" => String.t() | atom(),
+        "UpdatedBy" => String.t() | atom()
       }
 
   """
-  @type note_update() :: %{String.t() | Atom.t() => any()}
+  @type note_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10964,11 +10849,11 @@ defmodule AWS.SecurityHub do
 
       aws_efs_access_point_root_directory_details() :: %{
         "CreationInfo" => aws_efs_access_point_root_directory_creation_info_details(),
-        "Path" => String.t() | Atom.t()
+        "Path" => String.t() | atom()
       }
 
   """
-  @type aws_efs_access_point_root_directory_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_efs_access_point_root_directory_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10981,7 +10866,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type vpc_info_peering_options_details() :: %{String.t() | Atom.t() => any()}
+  @type vpc_info_peering_options_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10993,7 +10878,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type ocsf_finding_filters() :: %{String.t() | Atom.t() => any()}
+  @type ocsf_finding_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11006,8 +10891,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_ec2_launch_template_data_instance_requirements_accelerator_count_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11015,13 +10899,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ec2_launch_template_data_maintenance_options_details() :: %{
-        "AutoRecovery" => String.t() | Atom.t()
+        "AutoRecovery" => String.t() | atom()
       }
 
   """
   @type aws_ec2_launch_template_data_maintenance_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11033,38 +10916,38 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type workflow_update() :: %{String.t() | Atom.t() => any()}
+  @type workflow_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_action_targets_request() :: %{
-        optional("ActionTargetArns") => list(String.t() | Atom.t()),
+        optional("ActionTargetArns") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_action_targets_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_action_targets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_network_acl_entry() :: %{
-        "CidrBlock" => String.t() | Atom.t(),
+        "CidrBlock" => String.t() | atom(),
         "Egress" => boolean(),
         "IcmpTypeCode" => icmp_type_code(),
-        "Ipv6CidrBlock" => String.t() | Atom.t(),
+        "Ipv6CidrBlock" => String.t() | atom(),
         "PortRange" => port_range_from_to(),
-        "Protocol" => String.t() | Atom.t(),
-        "RuleAction" => String.t() | Atom.t(),
+        "Protocol" => String.t() | atom(),
+        "RuleAction" => String.t() | atom(),
         "RuleNumber" => integer()
       }
 
   """
-  @type aws_ec2_network_acl_entry() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_network_acl_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11083,13 +10966,13 @@ defmodule AWS.SecurityHub do
         "EnclaveOptions" => aws_ec2_launch_template_data_enclave_options_details(),
         "HibernationOptions" => aws_ec2_launch_template_data_hibernation_options_details(),
         "IamInstanceProfile" => aws_ec2_launch_template_data_iam_instance_profile_details(),
-        "ImageId" => String.t() | Atom.t(),
-        "InstanceInitiatedShutdownBehavior" => String.t() | Atom.t(),
+        "ImageId" => String.t() | atom(),
+        "InstanceInitiatedShutdownBehavior" => String.t() | atom(),
         "InstanceMarketOptions" => aws_ec2_launch_template_data_instance_market_options_details(),
         "InstanceRequirements" => aws_ec2_launch_template_data_instance_requirements_details(),
-        "InstanceType" => String.t() | Atom.t(),
-        "KernelId" => String.t() | Atom.t(),
-        "KeyName" => String.t() | Atom.t(),
+        "InstanceType" => String.t() | atom(),
+        "KernelId" => String.t() | atom(),
+        "KeyName" => String.t() | atom(),
         "LicenseSet" => list(aws_ec2_launch_template_data_license_set_details()),
         "MaintenanceOptions" => aws_ec2_launch_template_data_maintenance_options_details(),
         "MetadataOptions" => aws_ec2_launch_template_data_metadata_options_details(),
@@ -11097,27 +10980,27 @@ defmodule AWS.SecurityHub do
         "NetworkInterfaceSet" => list(aws_ec2_launch_template_data_network_interface_set_details()),
         "Placement" => aws_ec2_launch_template_data_placement_details(),
         "PrivateDnsNameOptions" => aws_ec2_launch_template_data_private_dns_name_options_details(),
-        "RamDiskId" => String.t() | Atom.t(),
-        "SecurityGroupIdSet" => list(String.t() | Atom.t()),
-        "SecurityGroupSet" => list(String.t() | Atom.t()),
-        "UserData" => String.t() | Atom.t()
+        "RamDiskId" => String.t() | atom(),
+        "SecurityGroupIdSet" => list(String.t() | atom()),
+        "SecurityGroupSet" => list(String.t() | atom()),
+        "UserData" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_launch_template_data_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_launch_template_data_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_now_provider_configuration() :: %{
-        "ClientId" => String.t() | Atom.t(),
-        "ClientSecret" => String.t() | Atom.t(),
-        "InstanceName" => String.t() | Atom.t()
+        "ClientId" => String.t() | atom(),
+        "ClientSecret" => String.t() | atom(),
+        "InstanceName" => String.t() | atom()
       }
 
   """
-  @type service_now_provider_configuration() :: %{String.t() | Atom.t() => any()}
+  @type service_now_provider_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11125,15 +11008,15 @@ defmodule AWS.SecurityHub do
 
       association_set_details() :: %{
         "AssociationState" => association_state_details(),
-        "GatewayId" => String.t() | Atom.t(),
+        "GatewayId" => String.t() | atom(),
         "Main" => boolean(),
-        "RouteTableAssociationId" => String.t() | Atom.t(),
-        "RouteTableId" => String.t() | Atom.t(),
-        "SubnetId" => String.t() | Atom.t()
+        "RouteTableAssociationId" => String.t() | atom(),
+        "RouteTableId" => String.t() | atom(),
+        "SubnetId" => String.t() | atom()
       }
 
   """
-  @type association_set_details() :: %{String.t() | Atom.t() => any()}
+  @type association_set_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11141,11 +11024,11 @@ defmodule AWS.SecurityHub do
 
       aws_s3_bucket_bucket_versioning_configuration() :: %{
         "IsMfaDeleteEnabled" => boolean(),
-        "Status" => String.t() | Atom.t()
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_s3_bucket_bucket_versioning_configuration() :: %{String.t() | Atom.t() => any()}
+  @type aws_s3_bucket_bucket_versioning_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11155,15 +11038,14 @@ defmodule AWS.SecurityHub do
         "HttpPort" => integer(),
         "HttpsPort" => integer(),
         "OriginKeepaliveTimeout" => integer(),
-        "OriginProtocolPolicy" => String.t() | Atom.t(),
+        "OriginProtocolPolicy" => String.t() | atom(),
         "OriginReadTimeout" => integer(),
         "OriginSslProtocols" => aws_cloud_front_distribution_origin_ssl_protocols()
       }
 
   """
   @type aws_cloud_front_distribution_origin_custom_origin_config() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11171,17 +11053,17 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_open_search_service_domain_details() :: %{
-        "AccessPolicies" => String.t() | Atom.t(),
+        "AccessPolicies" => String.t() | atom(),
         "AdvancedSecurityOptions" => aws_open_search_service_domain_advanced_security_options_details(),
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "ClusterConfig" => aws_open_search_service_domain_cluster_config_details(),
-        "DomainEndpoint" => String.t() | Atom.t(),
+        "DomainEndpoint" => String.t() | atom(),
         "DomainEndpointOptions" => aws_open_search_service_domain_domain_endpoint_options_details(),
         "DomainEndpoints" => map(),
-        "DomainName" => String.t() | Atom.t(),
+        "DomainName" => String.t() | atom(),
         "EncryptionAtRestOptions" => aws_open_search_service_domain_encryption_at_rest_options_details(),
-        "EngineVersion" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "LogPublishingOptions" => aws_open_search_service_domain_log_publishing_options_details(),
         "NodeToNodeEncryptionOptions" => aws_open_search_service_domain_node_to_node_encryption_options_details(),
         "ServiceSoftwareOptions" => aws_open_search_service_domain_service_software_options_details(),
@@ -11189,20 +11071,19 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_open_search_service_domain_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_open_search_service_domain_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_launch_template_data_credit_specification_details() :: %{
-        "CpuCredits" => String.t() | Atom.t()
+        "CpuCredits" => String.t() | atom()
       }
 
   """
   @type aws_ec2_launch_template_data_credit_specification_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11216,8 +11097,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_msk_cluster_cluster_info_client_authentication_sasl_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11231,19 +11111,19 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type get_resources_statistics_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type get_resources_statistics_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_cloud_watch_alarm_dimensions_details() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type aws_cloud_watch_alarm_dimensions_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_watch_alarm_dimensions_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11251,47 +11131,46 @@ defmodule AWS.SecurityHub do
 
       patch_summary() :: %{
         "FailedCount" => integer(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "InstalledCount" => integer(),
         "InstalledOtherCount" => integer(),
         "InstalledPendingReboot" => integer(),
         "InstalledRejectedCount" => integer(),
         "MissingCount" => integer(),
-        "Operation" => String.t() | Atom.t(),
-        "OperationEndTime" => String.t() | Atom.t(),
-        "OperationStartTime" => String.t() | Atom.t(),
-        "RebootOption" => String.t() | Atom.t()
+        "Operation" => String.t() | atom(),
+        "OperationEndTime" => String.t() | atom(),
+        "OperationStartTime" => String.t() | atom(),
+        "RebootOption" => String.t() | atom()
       }
 
   """
-  @type patch_summary() :: %{String.t() | Atom.t() => any()}
+  @type patch_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_cluster_cluster_settings_details() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type aws_ecs_cluster_cluster_settings_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_cluster_cluster_settings_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_definition_container_definitions_linux_parameters_devices_details() :: %{
-        "ContainerPath" => String.t() | Atom.t(),
-        "HostPath" => String.t() | Atom.t(),
-        "Permissions" => list(String.t() | Atom.t())
+        "ContainerPath" => String.t() | atom(),
+        "HostPath" => String.t() | atom(),
+        "Permissions" => list(String.t() | atom())
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_linux_parameters_devices_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11299,25 +11178,24 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ec2_security_group_ipv6_range() :: %{
-        "CidrIpv6" => String.t() | Atom.t()
+        "CidrIpv6" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_security_group_ipv6_range() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_security_group_ipv6_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_definition_container_definitions_extra_hosts_details() :: %{
-        "Hostname" => String.t() | Atom.t(),
-        "IpAddress" => String.t() | Atom.t()
+        "Hostname" => String.t() | atom(),
+        "IpAddress" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_extra_hosts_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11334,13 +11212,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_network_firewall_firewall_subnet_mappings_details() :: %{
-        "SubnetId" => String.t() | Atom.t()
+        "SubnetId" => String.t() | atom()
       }
 
   """
   @type aws_network_firewall_firewall_subnet_mappings_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11353,8 +11230,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_s3_bucket_object_lock_configuration_rule_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11371,14 +11247,14 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       create_aggregator_v2_response() :: %{
-        "AggregationRegion" => String.t() | Atom.t(),
-        "AggregatorV2Arn" => String.t() | Atom.t(),
-        "LinkedRegions" => list(String.t() | Atom.t()),
-        "RegionLinkingMode" => String.t() | Atom.t()
+        "AggregationRegion" => String.t() | atom(),
+        "AggregatorV2Arn" => String.t() | atom(),
+        "LinkedRegions" => list(String.t() | atom()),
+        "RegionLinkingMode" => String.t() | atom()
       }
 
   """
-  @type create_aggregator_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type create_aggregator_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11394,13 +11270,13 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_update_findings_unprocessed_finding() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
         "FindingIdentifier" => aws_security_finding_identifier()
       }
 
   """
-  @type batch_update_findings_unprocessed_finding() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_findings_unprocessed_finding() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11409,22 +11285,22 @@ defmodule AWS.SecurityHub do
       list_configuration_policy_associations_request() :: %{
         optional("Filters") => association_filters(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_configuration_policy_associations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_configuration_policy_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enable_import_findings_for_product_response() :: %{
-        "ProductSubscriptionArn" => String.t() | Atom.t()
+        "ProductSubscriptionArn" => String.t() | atom()
       }
 
   """
-  @type enable_import_findings_for_product_response() :: %{String.t() | Atom.t() => any()}
+  @type enable_import_findings_for_product_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11438,8 +11314,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_open_search_service_domain_log_publishing_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11448,34 +11323,34 @@ defmodule AWS.SecurityHub do
 
       list_security_control_definitions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("StandardsArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("StandardsArn") => String.t() | atom()
       }
 
   """
-  @type list_security_control_definitions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_security_control_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_result() :: %{
-        "AccountId" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
         "FindingsSummary" => list(resource_findings_summary()),
-        "Region" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t(),
+        "Region" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
         "ResourceCategory" => list(any()),
         "ResourceConfig" => any(),
-        "ResourceCreationTimeDt" => String.t() | Atom.t(),
-        "ResourceDetailCaptureTimeDt" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceName" => String.t() | Atom.t(),
+        "ResourceCreationTimeDt" => String.t() | atom(),
+        "ResourceDetailCaptureTimeDt" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
         "ResourceTags" => list(resource_tag()),
-        "ResourceType" => String.t() | Atom.t()
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type resource_result() :: %{String.t() | Atom.t() => any()}
+  @type resource_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11485,12 +11360,12 @@ defmodule AWS.SecurityHub do
         "Action" => aws_waf_regional_web_acl_rules_list_action_details(),
         "OverrideAction" => aws_waf_regional_web_acl_rules_list_override_action_details(),
         "Priority" => integer(),
-        "RuleId" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "RuleId" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_waf_regional_web_acl_rules_list_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_regional_web_acl_rules_list_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11502,7 +11377,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type resources_string_filter() :: %{String.t() | Atom.t() => any()}
+  @type resources_string_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11514,8 +11389,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_s3_bucket_bucket_lifecycle_configuration_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11523,14 +11397,14 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       malware() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Path" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "Path" => String.t() | atom(),
         "State" => list(any()),
         "Type" => list(any())
       }
 
   """
-  @type malware() :: %{String.t() | Atom.t() => any()}
+  @type malware() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11541,7 +11415,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_elb_load_balancer_cross_zone_load_balancing() :: %{String.t() | Atom.t() => any()}
+  @type aws_elb_load_balancer_cross_zone_load_balancing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11552,7 +11426,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_wafv2_web_acl_captcha_config_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_wafv2_web_acl_captcha_config_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11566,8 +11440,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_open_search_service_domain_advanced_security_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11575,14 +11448,13 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_msk_cluster_cluster_info_encryption_info_encryption_in_transit_details() :: %{
-        "ClientBroker" => String.t() | Atom.t(),
+        "ClientBroker" => String.t() | atom(),
         "InCluster" => boolean()
       }
 
   """
   @type aws_msk_cluster_cluster_info_encryption_info_encryption_in_transit_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11591,13 +11463,13 @@ defmodule AWS.SecurityHub do
 
       aws_athena_work_group_details() :: %{
         "Configuration" => aws_athena_work_group_configuration_details(),
-        "Description" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "State" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "State" => String.t() | atom()
       }
 
   """
-  @type aws_athena_work_group_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_athena_work_group_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11606,13 +11478,13 @@ defmodule AWS.SecurityHub do
       cvss() :: %{
         "Adjustments" => list(adjustment()),
         "BaseScore" => float(),
-        "BaseVector" => String.t() | Atom.t(),
-        "Source" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "BaseVector" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type cvss() :: %{String.t() | Atom.t() => any()}
+  @type cvss() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11620,13 +11492,12 @@ defmodule AWS.SecurityHub do
 
       aws_open_search_service_domain_encryption_at_rest_options_details() :: %{
         "Enabled" => boolean(),
-        "KmsKeyId" => String.t() | Atom.t()
+        "KmsKeyId" => String.t() | atom()
       }
 
   """
   @type aws_open_search_service_domain_encryption_at_rest_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11634,47 +11505,47 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_security_finding() :: %{
-        "Region" => String.t() | Atom.t(),
+        "Region" => String.t() | atom(),
         "GeneratorDetails" => generator_details(),
-        "CompanyName" => String.t() | Atom.t(),
-        "Types" => list(String.t() | Atom.t()),
+        "CompanyName" => String.t() | atom(),
+        "Types" => list(String.t() | atom()),
         "Compliance" => compliance(),
         "Vulnerabilities" => list(vulnerability()),
         "UserDefinedFields" => map(),
         "Network" => network(),
-        "ProcessedAt" => String.t() | Atom.t(),
+        "ProcessedAt" => String.t() | atom(),
         "Malware" => list(malware()),
         "Severity" => severity(),
         "NetworkPath" => list(network_path_component()),
         "WorkflowState" => list(any()),
-        "ProductName" => String.t() | Atom.t(),
+        "ProductName" => String.t() | atom(),
         "Confidence" => integer(),
-        "CreatedAt" => String.t() | Atom.t(),
+        "CreatedAt" => String.t() | atom(),
         "Remediation" => remediation(),
         "ThreatIntelIndicators" => list(threat_intel_indicator()),
-        "UpdatedAt" => String.t() | Atom.t(),
-        "AwsAccountId" => String.t() | Atom.t(),
+        "UpdatedAt" => String.t() | atom(),
+        "AwsAccountId" => String.t() | atom(),
         "Resources" => list(resource()),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "Detection" => detection(),
-        "ProductArn" => String.t() | Atom.t(),
-        "SchemaVersion" => String.t() | Atom.t(),
-        "SourceUrl" => String.t() | Atom.t(),
+        "ProductArn" => String.t() | atom(),
+        "SchemaVersion" => String.t() | atom(),
+        "SourceUrl" => String.t() | atom(),
         "FindingProviderFields" => finding_provider_fields(),
-        "AwsAccountName" => String.t() | Atom.t(),
-        "FirstObservedAt" => String.t() | Atom.t(),
+        "AwsAccountName" => String.t() | atom(),
+        "FirstObservedAt" => String.t() | atom(),
         "Workflow" => workflow(),
-        "GeneratorId" => String.t() | Atom.t(),
+        "GeneratorId" => String.t() | atom(),
         "Note" => note(),
         "RecordState" => list(any()),
-        "Title" => String.t() | Atom.t(),
+        "Title" => String.t() | atom(),
         "Threats" => list(threat()),
         "Sample" => boolean(),
         "Criticality" => integer(),
-        "LastObservedAt" => String.t() | Atom.t(),
+        "LastObservedAt" => String.t() | atom(),
         "Action" => action(),
         "PatchSummary" => patch_summary(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "RelatedFindings" => list(related_finding()),
         "ProductFields" => map(),
         "VerificationState" => list(any()),
@@ -11682,7 +11553,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_security_finding() :: %{String.t() | Atom.t() => any()}
+  @type aws_security_finding() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11695,8 +11566,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_events_endpoint_routing_config_failover_config_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11704,11 +11574,11 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ec2_instance_monitoring_details() :: %{
-        "State" => String.t() | Atom.t()
+        "State" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_instance_monitoring_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_instance_monitoring_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11724,22 +11594,22 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_lambda_function_tracing_config() :: %{
-        "Mode" => String.t() | Atom.t()
+        "Mode" => String.t() | atom()
       }
 
   """
-  @type aws_lambda_function_tracing_config() :: %{String.t() | Atom.t() => any()}
+  @type aws_lambda_function_tracing_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enable_security_hub_v2_response() :: %{
-        "HubV2Arn" => String.t() | Atom.t()
+        "HubV2Arn" => String.t() | atom()
       }
 
   """
-  @type enable_security_hub_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type enable_security_hub_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11748,29 +11618,29 @@ defmodule AWS.SecurityHub do
       aws_auto_scaling_auto_scaling_group_details() :: %{
         "AvailabilityZones" => list(aws_auto_scaling_auto_scaling_group_availability_zones_list_details()),
         "CapacityRebalance" => boolean(),
-        "CreatedTime" => String.t() | Atom.t(),
+        "CreatedTime" => String.t() | atom(),
         "HealthCheckGracePeriod" => integer(),
-        "HealthCheckType" => String.t() | Atom.t(),
-        "LaunchConfigurationName" => String.t() | Atom.t(),
+        "HealthCheckType" => String.t() | atom(),
+        "LaunchConfigurationName" => String.t() | atom(),
         "LaunchTemplate" => aws_auto_scaling_auto_scaling_group_launch_template_launch_template_specification(),
-        "LoadBalancerNames" => list(String.t() | Atom.t()),
+        "LoadBalancerNames" => list(String.t() | atom()),
         "MixedInstancesPolicy" => aws_auto_scaling_auto_scaling_group_mixed_instances_policy_details()
       }
 
   """
-  @type aws_auto_scaling_auto_scaling_group_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_auto_scaling_auto_scaling_group_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_elb_load_balancer_source_security_group() :: %{
-        "GroupName" => String.t() | Atom.t(),
-        "OwnerAlias" => String.t() | Atom.t()
+        "GroupName" => String.t() | atom(),
+        "OwnerAlias" => String.t() | atom()
       }
 
   """
-  @type aws_elb_load_balancer_source_security_group() :: %{String.t() | Atom.t() => any()}
+  @type aws_elb_load_balancer_source_security_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11778,14 +11648,13 @@ defmodule AWS.SecurityHub do
 
       aws_app_sync_graph_ql_api_lambda_authorizer_config_details() :: %{
         "AuthorizerResultTtlInSeconds" => integer(),
-        "AuthorizerUri" => String.t() | Atom.t(),
-        "IdentityValidationExpression" => String.t() | Atom.t()
+        "AuthorizerUri" => String.t() | atom(),
+        "IdentityValidationExpression" => String.t() | atom()
       }
 
   """
   @type aws_app_sync_graph_ql_api_lambda_authorizer_config_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11794,26 +11663,26 @@ defmodule AWS.SecurityHub do
 
       actor_session() :: %{
         "CreatedTime" => float(),
-        "Issuer" => String.t() | Atom.t(),
+        "Issuer" => String.t() | atom(),
         "MfaStatus" => list(any()),
-        "Uid" => String.t() | Atom.t()
+        "Uid" => String.t() | atom()
       }
 
   """
-  @type actor_session() :: %{String.t() | Atom.t() => any()}
+  @type actor_session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_iam_policy_version() :: %{
-        "CreateDate" => String.t() | Atom.t(),
+        "CreateDate" => String.t() | atom(),
         "IsDefaultVersion" => boolean(),
-        "VersionId" => String.t() | Atom.t()
+        "VersionId" => String.t() | atom()
       }
 
   """
-  @type aws_iam_policy_version() :: %{String.t() | Atom.t() => any()}
+  @type aws_iam_policy_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11821,13 +11690,12 @@ defmodule AWS.SecurityHub do
 
       aws_backup_backup_plan_advanced_backup_settings_details() :: %{
         "BackupOptions" => map(),
-        "ResourceType" => String.t() | Atom.t()
+        "ResourceType" => String.t() | atom()
       }
 
   """
   @type aws_backup_backup_plan_advanced_backup_settings_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11835,27 +11703,27 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_overrides_list_details() :: %{
-        "InstanceType" => String.t() | Atom.t(),
-        "WeightedCapacity" => String.t() | Atom.t()
+        "InstanceType" => String.t() | atom(),
+        "WeightedCapacity" => String.t() | atom()
       }
 
   """
   @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_overrides_list_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_aggregator_v2_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("LinkedRegions") => list(String.t() | Atom.t()),
+        optional("ClientToken") => String.t() | atom(),
+        optional("LinkedRegions") => list(String.t() | atom()),
         optional("Tags") => map(),
-        required("RegionLinkingMode") => String.t() | Atom.t()
+        required("RegionLinkingMode") => String.t() | atom()
       }
 
   """
-  @type create_aggregator_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type create_aggregator_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11863,14 +11731,13 @@ defmodule AWS.SecurityHub do
 
       aws_s3_bucket_object_lock_configuration_rule_default_retention_details() :: %{
         "Days" => integer(),
-        "Mode" => String.t() | Atom.t(),
+        "Mode" => String.t() | atom(),
         "Years" => integer()
       }
 
   """
   @type aws_s3_bucket_object_lock_configuration_rule_default_retention_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -11878,34 +11745,34 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_s3_bucket_website_configuration_redirect_to() :: %{
-        "Hostname" => String.t() | Atom.t(),
-        "Protocol" => String.t() | Atom.t()
+        "Hostname" => String.t() | atom(),
+        "Protocol" => String.t() | atom()
       }
 
   """
-  @type aws_s3_bucket_website_configuration_redirect_to() :: %{String.t() | Atom.t() => any()}
+  @type aws_s3_bucket_website_configuration_redirect_to() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_api_call_action_domain_details() :: %{
-        "Domain" => String.t() | Atom.t()
+        "Domain" => String.t() | atom()
       }
 
   """
-  @type aws_api_call_action_domain_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_api_call_action_domain_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enable_import_findings_for_product_request() :: %{
-        required("ProductArn") => String.t() | Atom.t()
+        required("ProductArn") => String.t() | atom()
       }
 
   """
-  @type enable_import_findings_for_product_request() :: %{String.t() | Atom.t() => any()}
+  @type enable_import_findings_for_product_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11917,7 +11784,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type date_range() :: %{String.t() | Atom.t() => any()}
+  @type date_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12026,7 +11893,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type resource_details() :: %{String.t() | Atom.t() => any()}
+  @type resource_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12034,25 +11901,25 @@ defmodule AWS.SecurityHub do
 
       create_insight_request() :: %{
         required("Filters") => aws_security_finding_filters(),
-        required("GroupByAttribute") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        required("GroupByAttribute") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_insight_request() :: %{String.t() | Atom.t() => any()}
+  @type create_insight_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_definition_proxy_configuration_details() :: %{
-        "ContainerName" => String.t() | Atom.t(),
+        "ContainerName" => String.t() | atom(),
         "ProxyConfigurationProperties" => list(aws_ecs_task_definition_proxy_configuration_proxy_configuration_properties_details()),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_ecs_task_definition_proxy_configuration_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_task_definition_proxy_configuration_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12060,39 +11927,38 @@ defmodule AWS.SecurityHub do
 
       insight() :: %{
         "Filters" => aws_security_finding_filters(),
-        "GroupByAttribute" => String.t() | Atom.t(),
-        "InsightArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "GroupByAttribute" => String.t() | atom(),
+        "InsightArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type insight() :: %{String.t() | Atom.t() => any()}
+  @type insight() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network_path_component_details() :: %{
-        "Address" => list(String.t() | Atom.t()),
+        "Address" => list(String.t() | atom()),
         "PortRanges" => list(port_range())
       }
 
   """
-  @type network_path_component_details() :: %{String.t() | Atom.t() => any()}
+  @type network_path_component_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_definition_placement_constraints_details() :: %{
-        "Expression" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Expression" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_placement_constraints_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -12100,14 +11966,14 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       create_configuration_policy_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
         required("ConfigurationPolicy") => list(),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_configuration_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type create_configuration_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12115,11 +11981,11 @@ defmodule AWS.SecurityHub do
 
       aws_elb_load_balancer_backend_server_description() :: %{
         "InstancePort" => integer(),
-        "PolicyNames" => list(String.t() | Atom.t())
+        "PolicyNames" => list(String.t() | atom())
       }
 
   """
-  @type aws_elb_load_balancer_backend_server_description() :: %{String.t() | Atom.t() => any()}
+  @type aws_elb_load_balancer_backend_server_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12127,19 +11993,19 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_cluster_details() :: %{
         "ActiveServicesCount" => integer(),
-        "CapacityProviders" => list(String.t() | Atom.t()),
-        "ClusterArn" => String.t() | Atom.t(),
-        "ClusterName" => String.t() | Atom.t(),
+        "CapacityProviders" => list(String.t() | atom()),
+        "ClusterArn" => String.t() | atom(),
+        "ClusterName" => String.t() | atom(),
         "ClusterSettings" => list(aws_ecs_cluster_cluster_settings_details()),
         "Configuration" => aws_ecs_cluster_configuration_details(),
         "DefaultCapacityProviderStrategy" => list(aws_ecs_cluster_default_capacity_provider_strategy_details()),
         "RegisteredContainerInstancesCount" => integer(),
         "RunningTasksCount" => integer(),
-        "Status" => String.t() | Atom.t()
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_ecs_cluster_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_cluster_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12156,24 +12022,24 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_task_definition_details() :: %{
         "ContainerDefinitions" => list(aws_ecs_task_definition_container_definitions_details()),
-        "Cpu" => String.t() | Atom.t(),
-        "ExecutionRoleArn" => String.t() | Atom.t(),
-        "Family" => String.t() | Atom.t(),
+        "Cpu" => String.t() | atom(),
+        "ExecutionRoleArn" => String.t() | atom(),
+        "Family" => String.t() | atom(),
         "InferenceAccelerators" => list(aws_ecs_task_definition_inference_accelerators_details()),
-        "IpcMode" => String.t() | Atom.t(),
-        "Memory" => String.t() | Atom.t(),
-        "NetworkMode" => String.t() | Atom.t(),
-        "PidMode" => String.t() | Atom.t(),
+        "IpcMode" => String.t() | atom(),
+        "Memory" => String.t() | atom(),
+        "NetworkMode" => String.t() | atom(),
+        "PidMode" => String.t() | atom(),
         "PlacementConstraints" => list(aws_ecs_task_definition_placement_constraints_details()),
         "ProxyConfiguration" => aws_ecs_task_definition_proxy_configuration_details(),
-        "RequiresCompatibilities" => list(String.t() | Atom.t()),
-        "Status" => String.t() | Atom.t(),
-        "TaskRoleArn" => String.t() | Atom.t(),
+        "RequiresCompatibilities" => list(String.t() | atom()),
+        "Status" => String.t() | atom(),
+        "TaskRoleArn" => String.t() | atom(),
         "Volumes" => list(aws_ecs_task_definition_volumes_details())
       }
 
   """
-  @type aws_ecs_task_definition_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_task_definition_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12184,19 +12050,19 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type stateless_custom_action_definition() :: %{String.t() | Atom.t() => any()}
+  @type stateless_custom_action_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_guard_duty_detector_features_details() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
 
   """
-  @type aws_guard_duty_detector_features_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_guard_duty_detector_features_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12216,20 +12082,20 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_events_endpoint_routing_config_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_events_endpoint_routing_config_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       security_hub_policy() :: %{
-        "EnabledStandardIdentifiers" => list(String.t() | Atom.t()),
+        "EnabledStandardIdentifiers" => list(String.t() | atom()),
         "SecurityControlsConfiguration" => security_controls_configuration(),
         "ServiceEnabled" => boolean()
       }
 
   """
-  @type security_hub_policy() :: %{String.t() | Atom.t() => any()}
+  @type security_hub_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12242,48 +12108,47 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type enable_security_hub_request() :: %{String.t() | Atom.t() => any()}
+  @type enable_security_hub_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_elb_load_balancer_additional_attribute() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type aws_elb_load_balancer_additional_attribute() :: %{String.t() | Atom.t() => any()}
+  @type aws_elb_load_balancer_additional_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_dynamo_db_table_provisioned_throughput() :: %{
-        "LastDecreaseDateTime" => String.t() | Atom.t(),
-        "LastIncreaseDateTime" => String.t() | Atom.t(),
+        "LastDecreaseDateTime" => String.t() | atom(),
+        "LastIncreaseDateTime" => String.t() | atom(),
         "NumberOfDecreasesToday" => integer(),
         "ReadCapacityUnits" => integer(),
         "WriteCapacityUnits" => integer()
       }
 
   """
-  @type aws_dynamo_db_table_provisioned_throughput() :: %{String.t() | Atom.t() => any()}
+  @type aws_dynamo_db_table_provisioned_throughput() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_definition_container_definitions_secrets_details() :: %{
-        "Name" => String.t() | Atom.t(),
-        "ValueFrom" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "ValueFrom" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_secrets_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -12291,11 +12156,11 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_rds_db_subnet_group_subnet_availability_zone() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_subnet_group_subnet_availability_zone() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_subnet_group_subnet_availability_zone() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12320,16 +12185,16 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ecr_container_image_details() :: %{
-        "Architecture" => String.t() | Atom.t(),
-        "ImageDigest" => String.t() | Atom.t(),
-        "ImagePublishedAt" => String.t() | Atom.t(),
-        "ImageTags" => list(String.t() | Atom.t()),
-        "RegistryId" => String.t() | Atom.t(),
-        "RepositoryName" => String.t() | Atom.t()
+        "Architecture" => String.t() | atom(),
+        "ImageDigest" => String.t() | atom(),
+        "ImagePublishedAt" => String.t() | atom(),
+        "ImageTags" => list(String.t() | atom()),
+        "RegistryId" => String.t() | atom(),
+        "RepositoryName" => String.t() | atom()
       }
 
   """
-  @type aws_ecr_container_image_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecr_container_image_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12338,45 +12203,45 @@ defmodule AWS.SecurityHub do
       aws_ec2_network_interface_details() :: %{
         "Attachment" => aws_ec2_network_interface_attachment(),
         "IpV6Addresses" => list(aws_ec2_network_interface_ip_v6_address_detail()),
-        "NetworkInterfaceId" => String.t() | Atom.t(),
+        "NetworkInterfaceId" => String.t() | atom(),
         "PrivateIpAddresses" => list(aws_ec2_network_interface_private_ip_address_detail()),
-        "PublicDnsName" => String.t() | Atom.t(),
-        "PublicIp" => String.t() | Atom.t(),
+        "PublicDnsName" => String.t() | atom(),
+        "PublicIp" => String.t() | atom(),
         "SecurityGroups" => list(aws_ec2_network_interface_security_group()),
         "SourceDestCheck" => boolean()
       }
 
   """
-  @type aws_ec2_network_interface_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_network_interface_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_redshift_cluster_logging_status() :: %{
-        "BucketName" => String.t() | Atom.t(),
-        "LastFailureMessage" => String.t() | Atom.t(),
-        "LastFailureTime" => String.t() | Atom.t(),
-        "LastSuccessfulDeliveryTime" => String.t() | Atom.t(),
+        "BucketName" => String.t() | atom(),
+        "LastFailureMessage" => String.t() | atom(),
+        "LastFailureTime" => String.t() | atom(),
+        "LastSuccessfulDeliveryTime" => String.t() | atom(),
         "LoggingEnabled" => boolean(),
-        "S3KeyPrefix" => String.t() | Atom.t()
+        "S3KeyPrefix" => String.t() | atom()
       }
 
   """
-  @type aws_redshift_cluster_logging_status() :: %{String.t() | Atom.t() => any()}
+  @type aws_redshift_cluster_logging_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_definition_container_definitions_log_configuration_secret_options_details() :: %{
-        "Name" => String.t() | Atom.t(),
-        "ValueFrom" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "ValueFrom" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_log_configuration_secret_options_details() ::
-          %{String.t() | Atom.t() => any()}
+          %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12384,26 +12249,25 @@ defmodule AWS.SecurityHub do
 
       security_control_custom_parameter() :: %{
         "Parameters" => map(),
-        "SecurityControlId" => String.t() | Atom.t()
+        "SecurityControlId" => String.t() | atom()
       }
 
   """
-  @type security_control_custom_parameter() :: %{String.t() | Atom.t() => any()}
+  @type security_control_custom_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_amazon_mq_broker_maintenance_window_start_time_details() :: %{
-        "DayOfWeek" => String.t() | Atom.t(),
-        "TimeOfDay" => String.t() | Atom.t(),
-        "TimeZone" => String.t() | Atom.t()
+        "DayOfWeek" => String.t() | atom(),
+        "TimeOfDay" => String.t() | atom(),
+        "TimeZone" => String.t() | atom()
       }
 
   """
   @type aws_amazon_mq_broker_maintenance_window_start_time_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -12412,12 +12276,12 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_service_capacity_provider_strategy_details() :: %{
         "Base" => integer(),
-        "CapacityProvider" => String.t() | Atom.t(),
+        "CapacityProvider" => String.t() | atom(),
         "Weight" => integer()
       }
 
   """
-  @type aws_ecs_service_capacity_provider_strategy_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_service_capacity_provider_strategy_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12428,20 +12292,19 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_wafv2_custom_request_handling_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_wafv2_custom_request_handling_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_guard_duty_detector_data_sources_s3_logs_details() :: %{
-        "Status" => String.t() | Atom.t()
+        "Status" => String.t() | atom()
       }
 
   """
   @type aws_guard_duty_detector_data_sources_s3_logs_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -12449,26 +12312,26 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_waf_rule_details() :: %{
-        "MetricName" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "PredicateList" => list(aws_waf_rule_predicate_list_details()),
-        "RuleId" => String.t() | Atom.t()
+        "RuleId" => String.t() | atom()
       }
 
   """
-  @type aws_waf_rule_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_rule_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_automation_rule_v2_response() :: %{
-        "RuleArn" => String.t() | Atom.t(),
-        "RuleId" => String.t() | Atom.t()
+        "RuleArn" => String.t() | atom(),
+        "RuleId" => String.t() | atom()
       }
 
   """
-  @type create_automation_rule_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type create_automation_rule_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12477,28 +12340,28 @@ defmodule AWS.SecurityHub do
       list_organization_admin_accounts_response() :: %{
         "AdminAccounts" => list(admin_account()),
         "Feature" => list(any()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_organization_admin_accounts_response() :: %{String.t() | Atom.t() => any()}
+  @type list_organization_admin_accounts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       product_v2() :: %{
-        "ActivationUrl" => String.t() | Atom.t(),
-        "Categories" => list(String.t() | Atom.t()),
-        "CompanyName" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "ActivationUrl" => String.t() | atom(),
+        "Categories" => list(String.t() | atom()),
+        "CompanyName" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "IntegrationV2Types" => list(list(any())()),
-        "MarketplaceUrl" => String.t() | Atom.t(),
-        "ProductV2Name" => String.t() | Atom.t()
+        "MarketplaceUrl" => String.t() | atom(),
+        "ProductV2Name" => String.t() | atom()
       }
 
   """
-  @type product_v2() :: %{String.t() | Atom.t() => any()}
+  @type product_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12514,11 +12377,11 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_disable_standards_request() :: %{
-        required("StandardsSubscriptionArns") => list(String.t() | Atom.t())
+        required("StandardsSubscriptionArns") => list(String.t() | atom())
       }
 
   """
-  @type batch_disable_standards_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_disable_standards_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12531,7 +12394,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type port_probe_detail() :: %{String.t() | Atom.t() => any()}
+  @type port_probe_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12548,29 +12411,29 @@ defmodule AWS.SecurityHub do
 
       aws_waf_regional_rate_based_rule_details() :: %{
         "MatchPredicates" => list(aws_waf_regional_rate_based_rule_match_predicate()),
-        "MetricName" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "RateKey" => String.t() | Atom.t(),
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RateKey" => String.t() | atom(),
         "RateLimit" => float(),
-        "RuleId" => String.t() | Atom.t()
+        "RuleId" => String.t() | atom()
       }
 
   """
-  @type aws_waf_regional_rate_based_rule_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_waf_regional_rate_based_rule_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_s3_bucket_website_configuration() :: %{
-        "ErrorDocument" => String.t() | Atom.t(),
-        "IndexDocumentSuffix" => String.t() | Atom.t(),
+        "ErrorDocument" => String.t() | atom(),
+        "IndexDocumentSuffix" => String.t() | atom(),
         "RedirectAllRequestsTo" => aws_s3_bucket_website_configuration_redirect_to(),
         "RoutingRules" => list(aws_s3_bucket_website_configuration_routing_rule())
       }
 
   """
-  @type aws_s3_bucket_website_configuration() :: %{String.t() | Atom.t() => any()}
+  @type aws_s3_bucket_website_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12578,26 +12441,26 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_vpc_details() :: %{
         "CidrBlockAssociationSet" => list(cidr_block_association()),
-        "DhcpOptionsId" => String.t() | Atom.t(),
+        "DhcpOptionsId" => String.t() | atom(),
         "Ipv6CidrBlockAssociationSet" => list(ipv6_cidr_block_association()),
-        "State" => String.t() | Atom.t()
+        "State" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_vpc_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_vpc_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enum_list_configuration_options() :: %{
-        "AllowedValues" => list(String.t() | Atom.t()),
-        "DefaultValue" => list(String.t() | Atom.t()),
+        "AllowedValues" => list(String.t() | atom()),
+        "DefaultValue" => list(String.t() | atom()),
         "MaxItems" => integer()
       }
 
   """
-  @type enum_list_configuration_options() :: %{String.t() | Atom.t() => any()}
+  @type enum_list_configuration_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12613,25 +12476,24 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aggregator_v2() :: %{
-        "AggregatorV2Arn" => String.t() | Atom.t()
+        "AggregatorV2Arn" => String.t() | atom()
       }
 
   """
-  @type aggregator_v2() :: %{String.t() | Atom.t() => any()}
+  @type aggregator_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_definition_container_definitions_depends_on_details() :: %{
-        "Condition" => String.t() | Atom.t(),
-        "ContainerName" => String.t() | Atom.t()
+        "Condition" => String.t() | atom(),
+        "ContainerName" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_depends_on_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -12644,19 +12506,19 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type provider_summary() :: %{String.t() | Atom.t() => any()}
+  @type provider_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_dynamo_db_table_attribute_definition() :: %{
-        "AttributeName" => String.t() | Atom.t(),
-        "AttributeType" => String.t() | Atom.t()
+        "AttributeName" => String.t() | atom(),
+        "AttributeType" => String.t() | atom()
       }
 
   """
-  @type aws_dynamo_db_table_attribute_definition() :: %{String.t() | Atom.t() => any()}
+  @type aws_dynamo_db_table_attribute_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12664,26 +12526,25 @@ defmodule AWS.SecurityHub do
 
       rule_group_source_custom_actions_details() :: %{
         "ActionDefinition" => stateless_custom_action_definition(),
-        "ActionName" => String.t() | Atom.t()
+        "ActionName" => String.t() | atom()
       }
 
   """
-  @type rule_group_source_custom_actions_details() :: %{String.t() | Atom.t() => any()}
+  @type rule_group_source_custom_actions_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_code_build_project_environment_environment_variables_details() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
   @type aws_code_build_project_environment_environment_variables_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -12691,29 +12552,28 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       standards_subscription() :: %{
-        "StandardsArn" => String.t() | Atom.t(),
+        "StandardsArn" => String.t() | atom(),
         "StandardsControlsUpdatable" => list(any()),
         "StandardsInput" => map(),
         "StandardsStatus" => list(any()),
         "StandardsStatusReason" => standards_status_reason(),
-        "StandardsSubscriptionArn" => String.t() | Atom.t()
+        "StandardsSubscriptionArn" => String.t() | atom()
       }
 
   """
-  @type standards_subscription() :: %{String.t() | Atom.t() => any()}
+  @type standards_subscription() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_definition_container_definitions_repository_credentials_details() :: %{
-        "CredentialsParameter" => String.t() | Atom.t()
+        "CredentialsParameter" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_repository_credentials_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -12721,100 +12581,99 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       get_aggregator_v2_response() :: %{
-        "AggregationRegion" => String.t() | Atom.t(),
-        "AggregatorV2Arn" => String.t() | Atom.t(),
-        "LinkedRegions" => list(String.t() | Atom.t()),
-        "RegionLinkingMode" => String.t() | Atom.t()
+        "AggregationRegion" => String.t() | atom(),
+        "AggregatorV2Arn" => String.t() | atom(),
+        "LinkedRegions" => list(String.t() | atom()),
+        "RegionLinkingMode" => String.t() | atom()
       }
 
   """
-  @type get_aggregator_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type get_aggregator_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_lambda_function_details() :: %{
-        "Architectures" => list(String.t() | Atom.t()),
+        "Architectures" => list(String.t() | atom()),
         "Code" => aws_lambda_function_code(),
-        "CodeSha256" => String.t() | Atom.t(),
+        "CodeSha256" => String.t() | atom(),
         "DeadLetterConfig" => aws_lambda_function_dead_letter_config(),
         "Environment" => aws_lambda_function_environment(),
-        "FunctionName" => String.t() | Atom.t(),
-        "Handler" => String.t() | Atom.t(),
-        "KmsKeyArn" => String.t() | Atom.t(),
-        "LastModified" => String.t() | Atom.t(),
+        "FunctionName" => String.t() | atom(),
+        "Handler" => String.t() | atom(),
+        "KmsKeyArn" => String.t() | atom(),
+        "LastModified" => String.t() | atom(),
         "Layers" => list(aws_lambda_function_layer()),
-        "MasterArn" => String.t() | Atom.t(),
+        "MasterArn" => String.t() | atom(),
         "MemorySize" => integer(),
-        "PackageType" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t(),
-        "Role" => String.t() | Atom.t(),
-        "Runtime" => String.t() | Atom.t(),
+        "PackageType" => String.t() | atom(),
+        "RevisionId" => String.t() | atom(),
+        "Role" => String.t() | atom(),
+        "Runtime" => String.t() | atom(),
         "Timeout" => integer(),
         "TracingConfig" => aws_lambda_function_tracing_config(),
-        "Version" => String.t() | Atom.t(),
+        "Version" => String.t() | atom(),
         "VpcConfig" => aws_lambda_function_vpc_config()
       }
 
   """
-  @type aws_lambda_function_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_lambda_function_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_task_definition_volumes_host_details() :: %{
-        "SourcePath" => String.t() | Atom.t()
+        "SourcePath" => String.t() | atom()
       }
 
   """
-  @type aws_ecs_task_definition_volumes_host_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_task_definition_volumes_host_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_events_endpoint_details() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "EndpointId" => String.t() | Atom.t(),
-        "EndpointUrl" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "EndpointId" => String.t() | atom(),
+        "EndpointUrl" => String.t() | atom(),
         "EventBuses" => list(aws_events_endpoint_event_buses_details()),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "ReplicationConfig" => aws_events_endpoint_replication_config_details(),
-        "RoleArn" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | atom(),
         "RoutingConfig" => aws_events_endpoint_routing_config_details(),
-        "State" => String.t() | Atom.t(),
-        "StateReason" => String.t() | Atom.t()
+        "State" => String.t() | atom(),
+        "StateReason" => String.t() | atom()
       }
 
   """
-  @type aws_events_endpoint_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_events_endpoint_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       jira_cloud_update_configuration() :: %{
-        "ProjectKey" => String.t() | Atom.t()
+        "ProjectKey" => String.t() | atom()
       }
 
   """
-  @type jira_cloud_update_configuration() :: %{String.t() | Atom.t() => any()}
+  @type jira_cloud_update_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_launch_template_data_network_interface_set_ipv6_addresses_details() :: %{
-        "Ipv6Address" => String.t() | Atom.t()
+        "Ipv6Address" => String.t() | atom()
       }
 
   """
   @type aws_ec2_launch_template_data_network_interface_set_ipv6_addresses_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -12826,7 +12685,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type get_administrator_account_response() :: %{String.t() | Atom.t() => any()}
+  @type get_administrator_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12834,15 +12693,14 @@ defmodule AWS.SecurityHub do
 
       aws_app_sync_graph_ql_api_open_id_connect_config_details() :: %{
         "AuthTtL" => float(),
-        "ClientId" => String.t() | Atom.t(),
+        "ClientId" => String.t() | atom(),
         "IatTtL" => float(),
-        "Issuer" => String.t() | Atom.t()
+        "Issuer" => String.t() | atom()
       }
 
   """
   @type aws_app_sync_graph_ql_api_open_id_connect_config_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -12854,7 +12712,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type batch_get_configuration_policy_associations_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_configuration_policy_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12866,7 +12724,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type batch_get_standards_control_associations_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_standards_control_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12874,35 +12732,35 @@ defmodule AWS.SecurityHub do
 
       finding_provider_severity() :: %{
         "Label" => list(any()),
-        "Original" => String.t() | Atom.t()
+        "Original" => String.t() | atom()
       }
 
   """
-  @type finding_provider_severity() :: %{String.t() | Atom.t() => any()}
+  @type finding_provider_severity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_automation_rules_response() :: %{
-        "ProcessedAutomationRules" => list(String.t() | Atom.t()),
+        "ProcessedAutomationRules" => list(String.t() | atom()),
         "UnprocessedAutomationRules" => list(unprocessed_automation_rule())
       }
 
   """
-  @type batch_delete_automation_rules_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_automation_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_rds_db_parameter_group() :: %{
-        "DbParameterGroupName" => String.t() | Atom.t(),
-        "ParameterApplyStatus" => String.t() | Atom.t()
+        "DbParameterGroupName" => String.t() | atom(),
+        "ParameterApplyStatus" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_parameter_group() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_parameter_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12910,14 +12768,13 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_client_vpn_endpoint_client_connect_options_details() :: %{
         "Enabled" => boolean(),
-        "LambdaFunctionArn" => String.t() | Atom.t(),
+        "LambdaFunctionArn" => String.t() | atom(),
         "Status" => aws_ec2_client_vpn_endpoint_client_connect_options_status_details()
       }
 
   """
   @type aws_ec2_client_vpn_endpoint_client_connect_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -12925,24 +12782,24 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       get_security_control_definition_request() :: %{
-        required("SecurityControlId") => String.t() | Atom.t()
+        required("SecurityControlId") => String.t() | atom()
       }
 
   """
-  @type get_security_control_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type get_security_control_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       note() :: %{
-        "Text" => String.t() | Atom.t(),
-        "UpdatedAt" => String.t() | Atom.t(),
-        "UpdatedBy" => String.t() | Atom.t()
+        "Text" => String.t() | atom(),
+        "UpdatedAt" => String.t() | atom(),
+        "UpdatedBy" => String.t() | atom()
       }
 
   """
-  @type note() :: %{String.t() | Atom.t() => any()}
+  @type note() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12959,23 +12816,23 @@ defmodule AWS.SecurityHub do
 
       list_configuration_policies_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_configuration_policies_request() :: %{String.t() | Atom.t() => any()}
+  @type list_configuration_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_conflict_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12987,8 +12844,7 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_elasticsearch_domain_node_to_node_encryption_options() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -12998,28 +12854,28 @@ defmodule AWS.SecurityHub do
       aws_dynamo_db_table_details() :: %{
         "AttributeDefinitions" => list(aws_dynamo_db_table_attribute_definition()),
         "BillingModeSummary" => aws_dynamo_db_table_billing_mode_summary(),
-        "CreationDateTime" => String.t() | Atom.t(),
+        "CreationDateTime" => String.t() | atom(),
         "DeletionProtectionEnabled" => boolean(),
         "GlobalSecondaryIndexes" => list(aws_dynamo_db_table_global_secondary_index()),
-        "GlobalTableVersion" => String.t() | Atom.t(),
+        "GlobalTableVersion" => String.t() | atom(),
         "ItemCount" => integer(),
         "KeySchema" => list(aws_dynamo_db_table_key_schema()),
-        "LatestStreamArn" => String.t() | Atom.t(),
-        "LatestStreamLabel" => String.t() | Atom.t(),
+        "LatestStreamArn" => String.t() | atom(),
+        "LatestStreamLabel" => String.t() | atom(),
         "LocalSecondaryIndexes" => list(aws_dynamo_db_table_local_secondary_index()),
         "ProvisionedThroughput" => aws_dynamo_db_table_provisioned_throughput(),
         "Replicas" => list(aws_dynamo_db_table_replica()),
         "RestoreSummary" => aws_dynamo_db_table_restore_summary(),
         "SseDescription" => aws_dynamo_db_table_sse_description(),
         "StreamSpecification" => aws_dynamo_db_table_stream_specification(),
-        "TableId" => String.t() | Atom.t(),
-        "TableName" => String.t() | Atom.t(),
+        "TableId" => String.t() | atom(),
+        "TableName" => String.t() | atom(),
         "TableSizeBytes" => float(),
-        "TableStatus" => String.t() | Atom.t()
+        "TableStatus" => String.t() | atom()
       }
 
   """
-  @type aws_dynamo_db_table_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_dynamo_db_table_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13032,21 +12888,20 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type page() :: %{String.t() | Atom.t() => any()}
+  @type page() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_elasticsearch_domain_log_publishing_options_log_config() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t() | Atom.t(),
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
         "Enabled" => boolean()
       }
 
   """
   @type aws_elasticsearch_domain_log_publishing_options_log_config() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -13058,7 +12913,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type create_members_response() :: %{String.t() | Atom.t() => any()}
+  @type create_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13066,27 +12921,27 @@ defmodule AWS.SecurityHub do
 
       list_automation_rules_response() :: %{
         "AutomationRulesMetadata" => list(automation_rules_metadata()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_automation_rules_response() :: %{String.t() | Atom.t() => any()}
+  @type list_automation_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_code_build_project_environment() :: %{
-        "Certificate" => String.t() | Atom.t(),
+        "Certificate" => String.t() | atom(),
         "EnvironmentVariables" => list(aws_code_build_project_environment_environment_variables_details()),
-        "ImagePullCredentialsType" => String.t() | Atom.t(),
+        "ImagePullCredentialsType" => String.t() | atom(),
         "PrivilegedMode" => boolean(),
         "RegistryCredential" => aws_code_build_project_environment_registry_credential(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_code_build_project_environment() :: %{String.t() | Atom.t() => any()}
+  @type aws_code_build_project_environment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13094,16 +12949,16 @@ defmodule AWS.SecurityHub do
 
       get_configuration_policy_association_response() :: %{
         "AssociationStatus" => list(any()),
-        "AssociationStatusMessage" => String.t() | Atom.t(),
+        "AssociationStatusMessage" => String.t() | atom(),
         "AssociationType" => list(any()),
-        "ConfigurationPolicyId" => String.t() | Atom.t(),
-        "TargetId" => String.t() | Atom.t(),
+        "ConfigurationPolicyId" => String.t() | atom(),
+        "TargetId" => String.t() | atom(),
         "TargetType" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type get_configuration_policy_association_response() :: %{String.t() | Atom.t() => any()}
+  @type get_configuration_policy_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13115,21 +12970,20 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_ec2_launch_template_data_cpu_options_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_launch_template_data_cpu_options_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rule_group_source_stateless_rule_match_attributes_tcp_flags() :: %{
-        "Flags" => list(String.t() | Atom.t()),
-        "Masks" => list(String.t() | Atom.t())
+        "Flags" => list(String.t() | atom()),
+        "Masks" => list(String.t() | atom())
       }
 
   """
   @type rule_group_source_stateless_rule_match_attributes_tcp_flags() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -13138,12 +12992,12 @@ defmodule AWS.SecurityHub do
 
       update_insight_request() :: %{
         optional("Filters") => aws_security_finding_filters(),
-        optional("GroupByAttribute") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t()
+        optional("GroupByAttribute") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_insight_request() :: %{String.t() | Atom.t() => any()}
+  @type update_insight_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13155,7 +13009,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_ec2_vpn_connection_options_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_vpn_connection_options_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13163,14 +13017,14 @@ defmodule AWS.SecurityHub do
 
       aws_elb_load_balancer_listener() :: %{
         "InstancePort" => integer(),
-        "InstanceProtocol" => String.t() | Atom.t(),
+        "InstanceProtocol" => String.t() | atom(),
         "LoadBalancerPort" => integer(),
-        "Protocol" => String.t() | Atom.t(),
-        "SslCertificateId" => String.t() | Atom.t()
+        "Protocol" => String.t() | atom(),
+        "SslCertificateId" => String.t() | atom()
       }
 
   """
-  @type aws_elb_load_balancer_listener() :: %{String.t() | Atom.t() => any()}
+  @type aws_elb_load_balancer_listener() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13181,7 +13035,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type automation_rules_action_type_object_v2() :: %{String.t() | Atom.t() => any()}
+  @type automation_rules_action_type_object_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13194,21 +13048,20 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type integer_configuration_options() :: %{String.t() | Atom.t() => any()}
+  @type integer_configuration_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_backup_recovery_point_calculated_lifecycle_details() :: %{
-        "DeleteAt" => String.t() | Atom.t(),
-        "MoveToColdStorageAt" => String.t() | Atom.t()
+        "DeleteAt" => String.t() | atom(),
+        "MoveToColdStorageAt" => String.t() | atom()
       }
 
   """
   @type aws_backup_recovery_point_calculated_lifecycle_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -13216,13 +13069,13 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       string_configuration_options() :: %{
-        "DefaultValue" => String.t() | Atom.t(),
-        "ExpressionDescription" => String.t() | Atom.t(),
-        "Re2Expression" => String.t() | Atom.t()
+        "DefaultValue" => String.t() | atom(),
+        "ExpressionDescription" => String.t() | atom(),
+        "Re2Expression" => String.t() | atom()
       }
 
   """
-  @type string_configuration_options() :: %{String.t() | Atom.t() => any()}
+  @type string_configuration_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13230,20 +13083,20 @@ defmodule AWS.SecurityHub do
 
       aws_elbv2_load_balancer_details() :: %{
         "AvailabilityZones" => list(availability_zone()),
-        "CanonicalHostedZoneId" => String.t() | Atom.t(),
-        "CreatedTime" => String.t() | Atom.t(),
-        "DNSName" => String.t() | Atom.t(),
-        "IpAddressType" => String.t() | Atom.t(),
+        "CanonicalHostedZoneId" => String.t() | atom(),
+        "CreatedTime" => String.t() | atom(),
+        "DNSName" => String.t() | atom(),
+        "IpAddressType" => String.t() | atom(),
         "LoadBalancerAttributes" => list(aws_elbv2_load_balancer_attribute()),
-        "Scheme" => String.t() | Atom.t(),
-        "SecurityGroups" => list(String.t() | Atom.t()),
+        "Scheme" => String.t() | atom(),
+        "SecurityGroups" => list(String.t() | atom()),
         "State" => load_balancer_state(),
-        "Type" => String.t() | Atom.t(),
-        "VpcId" => String.t() | Atom.t()
+        "Type" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_elbv2_load_balancer_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_elbv2_load_balancer_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13254,7 +13107,7 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_ssm_patch() :: %{String.t() | Atom.t() => any()}
+  @type aws_ssm_patch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13262,39 +13115,38 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_route_table_details() :: %{
         "AssociationSet" => list(association_set_details()),
-        "OwnerId" => String.t() | Atom.t(),
+        "OwnerId" => String.t() | atom(),
         "PropagatingVgwSet" => list(propagating_vgw_set_details()),
         "RouteSet" => list(route_set_details()),
-        "RouteTableId" => String.t() | Atom.t(),
-        "VpcId" => String.t() | Atom.t()
+        "RouteTableId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_route_table_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_route_table_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ip_filter() :: %{
-        "Cidr" => String.t() | Atom.t()
+        "Cidr" => String.t() | atom()
       }
 
   """
-  @type ip_filter() :: %{String.t() | Atom.t() => any()}
+  @type ip_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_dms_replication_instance_vpc_security_groups_details() :: %{
-        "VpcSecurityGroupId" => String.t() | Atom.t()
+        "VpcSecurityGroupId" => String.t() | atom()
       }
 
   """
   @type aws_dms_replication_instance_vpc_security_groups_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -13303,44 +13155,44 @@ defmodule AWS.SecurityHub do
 
       aws_cloud_watch_alarm_details() :: %{
         "ActionsEnabled" => boolean(),
-        "AlarmActions" => list(String.t() | Atom.t()),
-        "AlarmArn" => String.t() | Atom.t(),
-        "AlarmConfigurationUpdatedTimestamp" => String.t() | Atom.t(),
-        "AlarmDescription" => String.t() | Atom.t(),
-        "AlarmName" => String.t() | Atom.t(),
-        "ComparisonOperator" => String.t() | Atom.t(),
+        "AlarmActions" => list(String.t() | atom()),
+        "AlarmArn" => String.t() | atom(),
+        "AlarmConfigurationUpdatedTimestamp" => String.t() | atom(),
+        "AlarmDescription" => String.t() | atom(),
+        "AlarmName" => String.t() | atom(),
+        "ComparisonOperator" => String.t() | atom(),
         "DatapointsToAlarm" => integer(),
         "Dimensions" => list(aws_cloud_watch_alarm_dimensions_details()),
-        "EvaluateLowSampleCountPercentile" => String.t() | Atom.t(),
+        "EvaluateLowSampleCountPercentile" => String.t() | atom(),
         "EvaluationPeriods" => integer(),
-        "ExtendedStatistic" => String.t() | Atom.t(),
-        "InsufficientDataActions" => list(String.t() | Atom.t()),
-        "MetricName" => String.t() | Atom.t(),
-        "Namespace" => String.t() | Atom.t(),
-        "OkActions" => list(String.t() | Atom.t()),
+        "ExtendedStatistic" => String.t() | atom(),
+        "InsufficientDataActions" => list(String.t() | atom()),
+        "MetricName" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
+        "OkActions" => list(String.t() | atom()),
         "Period" => integer(),
-        "Statistic" => String.t() | Atom.t(),
+        "Statistic" => String.t() | atom(),
         "Threshold" => float(),
-        "ThresholdMetricId" => String.t() | Atom.t(),
-        "TreatMissingData" => String.t() | Atom.t(),
-        "Unit" => String.t() | Atom.t()
+        "ThresholdMetricId" => String.t() | atom(),
+        "TreatMissingData" => String.t() | atom(),
+        "Unit" => String.t() | atom()
       }
 
   """
-  @type aws_cloud_watch_alarm_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_watch_alarm_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_connector_v2_response() :: %{
-        "AuthUrl" => String.t() | Atom.t(),
-        "ConnectorArn" => String.t() | Atom.t(),
-        "ConnectorId" => String.t() | Atom.t()
+        "AuthUrl" => String.t() | atom(),
+        "ConnectorArn" => String.t() | atom(),
+        "ConnectorId" => String.t() | atom()
       }
 
   """
-  @type create_connector_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type create_connector_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13355,19 +13207,19 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type number_filter() :: %{String.t() | Atom.t() => any()}
+  @type number_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_lambda_function_environment_error() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type aws_lambda_function_environment_error() :: %{String.t() | Atom.t() => any()}
+  @type aws_lambda_function_environment_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13378,34 +13230,34 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type aws_wafv2_rules_action_captcha_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_wafv2_rules_action_captcha_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       action_local_ip_details() :: %{
-        "IpAddressV4" => String.t() | Atom.t()
+        "IpAddressV4" => String.t() | atom()
       }
 
   """
-  @type action_local_ip_details() :: %{String.t() | Atom.t() => any()}
+  @type action_local_ip_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_efs_access_point_details() :: %{
-        "AccessPointId" => String.t() | Atom.t(),
-        "Arn" => String.t() | Atom.t(),
-        "ClientToken" => String.t() | Atom.t(),
-        "FileSystemId" => String.t() | Atom.t(),
+        "AccessPointId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "ClientToken" => String.t() | atom(),
+        "FileSystemId" => String.t() | atom(),
         "PosixUser" => aws_efs_access_point_posix_user_details(),
         "RootDirectory" => aws_efs_access_point_root_directory_details()
       }
 
   """
-  @type aws_efs_access_point_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_efs_access_point_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13414,66 +13266,66 @@ defmodule AWS.SecurityHub do
       aws_rds_db_pending_modified_values() :: %{
         "AllocatedStorage" => integer(),
         "BackupRetentionPeriod" => integer(),
-        "CaCertificateIdentifier" => String.t() | Atom.t(),
-        "DbInstanceClass" => String.t() | Atom.t(),
-        "DbInstanceIdentifier" => String.t() | Atom.t(),
-        "DbSubnetGroupName" => String.t() | Atom.t(),
-        "EngineVersion" => String.t() | Atom.t(),
+        "CaCertificateIdentifier" => String.t() | atom(),
+        "DbInstanceClass" => String.t() | atom(),
+        "DbInstanceIdentifier" => String.t() | atom(),
+        "DbSubnetGroupName" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "Iops" => integer(),
-        "LicenseModel" => String.t() | Atom.t(),
-        "MasterUserPassword" => String.t() | Atom.t(),
+        "LicenseModel" => String.t() | atom(),
+        "MasterUserPassword" => String.t() | atom(),
         "MultiAZ" => boolean(),
         "PendingCloudWatchLogsExports" => aws_rds_pending_cloud_watch_logs_exports(),
         "Port" => integer(),
         "ProcessorFeatures" => list(aws_rds_db_processor_feature()),
-        "StorageType" => String.t() | Atom.t()
+        "StorageType" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_pending_modified_values() :: %{String.t() | Atom.t() => any()}
+  @type aws_rds_db_pending_modified_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_elastic_beanstalk_environment_tier() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type aws_elastic_beanstalk_environment_tier() :: %{String.t() | Atom.t() => any()}
+  @type aws_elastic_beanstalk_environment_tier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_lambda_function_vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t() | Atom.t()),
-        "SubnetIds" => list(String.t() | Atom.t()),
-        "VpcId" => String.t() | Atom.t()
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_lambda_function_vpc_config() :: %{String.t() | Atom.t() => any()}
+  @type aws_lambda_function_vpc_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_cloud_front_distribution_viewer_certificate() :: %{
-        "AcmCertificateArn" => String.t() | Atom.t(),
-        "Certificate" => String.t() | Atom.t(),
-        "CertificateSource" => String.t() | Atom.t(),
+        "AcmCertificateArn" => String.t() | atom(),
+        "Certificate" => String.t() | atom(),
+        "CertificateSource" => String.t() | atom(),
         "CloudFrontDefaultCertificate" => boolean(),
-        "IamCertificateId" => String.t() | Atom.t(),
-        "MinimumProtocolVersion" => String.t() | Atom.t(),
-        "SslSupportMethod" => String.t() | Atom.t()
+        "IamCertificateId" => String.t() | atom(),
+        "MinimumProtocolVersion" => String.t() | atom(),
+        "SslSupportMethod" => String.t() | atom()
       }
 
   """
-  @type aws_cloud_front_distribution_viewer_certificate() :: %{String.t() | Atom.t() => any()}
+  @type aws_cloud_front_distribution_viewer_certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13483,20 +13335,20 @@ defmodule AWS.SecurityHub do
         "AccessLogSettings" => aws_api_gateway_access_log_settings(),
         "ApiGatewayManaged" => boolean(),
         "AutoDeploy" => boolean(),
-        "ClientCertificateId" => String.t() | Atom.t(),
-        "CreatedDate" => String.t() | Atom.t(),
+        "ClientCertificateId" => String.t() | atom(),
+        "CreatedDate" => String.t() | atom(),
         "DefaultRouteSettings" => aws_api_gateway_v2_route_settings(),
-        "DeploymentId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "LastDeploymentStatusMessage" => String.t() | Atom.t(),
-        "LastUpdatedDate" => String.t() | Atom.t(),
+        "DeploymentId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LastDeploymentStatusMessage" => String.t() | atom(),
+        "LastUpdatedDate" => String.t() | atom(),
         "RouteSettings" => aws_api_gateway_v2_route_settings(),
-        "StageName" => String.t() | Atom.t(),
+        "StageName" => String.t() | atom(),
         "StageVariables" => map()
       }
 
   """
-  @type aws_api_gateway_v2_stage_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_api_gateway_v2_stage_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13507,49 +13359,49 @@ defmodule AWS.SecurityHub do
       }
 
   """
-  @type enable_security_hub_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type enable_security_hub_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_amazon_mq_broker_details() :: %{
-        "AuthenticationStrategy" => String.t() | Atom.t(),
+        "AuthenticationStrategy" => String.t() | atom(),
         "AutoMinorVersionUpgrade" => boolean(),
-        "BrokerArn" => String.t() | Atom.t(),
-        "BrokerId" => String.t() | Atom.t(),
-        "BrokerName" => String.t() | Atom.t(),
-        "DeploymentMode" => String.t() | Atom.t(),
+        "BrokerArn" => String.t() | atom(),
+        "BrokerId" => String.t() | atom(),
+        "BrokerName" => String.t() | atom(),
+        "DeploymentMode" => String.t() | atom(),
         "EncryptionOptions" => aws_amazon_mq_broker_encryption_options_details(),
-        "EngineType" => String.t() | Atom.t(),
-        "EngineVersion" => String.t() | Atom.t(),
-        "HostInstanceType" => String.t() | Atom.t(),
+        "EngineType" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "HostInstanceType" => String.t() | atom(),
         "LdapServerMetadata" => aws_amazon_mq_broker_ldap_server_metadata_details(),
         "Logs" => aws_amazon_mq_broker_logs_details(),
         "MaintenanceWindowStartTime" => aws_amazon_mq_broker_maintenance_window_start_time_details(),
         "PubliclyAccessible" => boolean(),
-        "SecurityGroups" => list(String.t() | Atom.t()),
-        "StorageType" => String.t() | Atom.t(),
-        "SubnetIds" => list(String.t() | Atom.t()),
+        "SecurityGroups" => list(String.t() | atom()),
+        "StorageType" => String.t() | atom(),
+        "SubnetIds" => list(String.t() | atom()),
         "Users" => list(aws_amazon_mq_broker_users_details())
       }
 
   """
-  @type aws_amazon_mq_broker_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_amazon_mq_broker_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_finding_aggregator_response() :: %{
-        "FindingAggregationRegion" => String.t() | Atom.t(),
-        "FindingAggregatorArn" => String.t() | Atom.t(),
-        "RegionLinkingMode" => String.t() | Atom.t(),
-        "Regions" => list(String.t() | Atom.t())
+        "FindingAggregationRegion" => String.t() | atom(),
+        "FindingAggregatorArn" => String.t() | atom(),
+        "RegionLinkingMode" => String.t() | atom(),
+        "Regions" => list(String.t() | atom())
       }
 
   """
-  @type update_finding_aggregator_response() :: %{String.t() | Atom.t() => any()}
+  @type update_finding_aggregator_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13557,12 +13409,12 @@ defmodule AWS.SecurityHub do
 
       map_filter() :: %{
         "Comparison" => list(any()),
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type map_filter() :: %{String.t() | Atom.t() => any()}
+  @type map_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13578,26 +13430,26 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       create_ticket_v2_response() :: %{
-        "TicketId" => String.t() | Atom.t(),
-        "TicketSrcUrl" => String.t() | Atom.t()
+        "TicketId" => String.t() | atom(),
+        "TicketSrcUrl" => String.t() | atom()
       }
 
   """
-  @type create_ticket_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type create_ticket_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ecs_service_load_balancers_details() :: %{
-        "ContainerName" => String.t() | Atom.t(),
+        "ContainerName" => String.t() | atom(),
         "ContainerPort" => integer(),
-        "LoadBalancerName" => String.t() | Atom.t(),
-        "TargetGroupArn" => String.t() | Atom.t()
+        "LoadBalancerName" => String.t() | atom(),
+        "TargetGroupArn" => String.t() | atom()
       }
 
   """
-  @type aws_ecs_service_load_balancers_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_ecs_service_load_balancers_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13605,12 +13457,12 @@ defmodule AWS.SecurityHub do
 
       unprocessed_configuration_policy_association() :: %{
         "ConfigurationPolicyAssociationIdentifiers" => configuration_policy_association(),
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorReason" => String.t() | Atom.t()
+        "ErrorCode" => String.t() | atom(),
+        "ErrorReason" => String.t() | atom()
       }
 
   """
-  @type unprocessed_configuration_policy_association() :: %{String.t() | Atom.t() => any()}
+  @type unprocessed_configuration_policy_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13618,11 +13470,11 @@ defmodule AWS.SecurityHub do
 
       list_invitations_response() :: %{
         "Invitations" => list(invitation()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_invitations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_invitations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13630,13 +13482,12 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_task_definition_container_definitions_firelens_configuration_details() :: %{
         "Options" => map(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
   @type aws_ecs_task_definition_container_definitions_firelens_configuration_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -13644,48 +13495,47 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       resource() :: %{
-        "ApplicationArn" => String.t() | Atom.t(),
-        "ApplicationName" => String.t() | Atom.t(),
+        "ApplicationArn" => String.t() | atom(),
+        "ApplicationName" => String.t() | atom(),
         "DataClassification" => data_classification_details(),
         "Details" => resource_details(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "Partition" => list(any()),
-        "Region" => String.t() | Atom.t(),
-        "ResourceRole" => String.t() | Atom.t(),
+        "Region" => String.t() | atom(),
+        "ResourceRole" => String.t() | atom(),
         "Tags" => map(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type resource() :: %{String.t() | Atom.t() => any()}
+  @type resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       indicator() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Title" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Key" => String.t() | atom(),
+        "Title" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type indicator() :: %{String.t() | Atom.t() => any()}
+  @type indicator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_ec2_client_vpn_endpoint_client_login_banner_options_details() :: %{
-        "BannerText" => String.t() | Atom.t(),
+        "BannerText" => String.t() | atom(),
         "Enabled" => boolean()
       }
 
   """
   @type aws_ec2_client_vpn_endpoint_client_login_banner_options_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -13696,17 +13546,16 @@ defmodule AWS.SecurityHub do
         "DeleteOnTermination" => boolean(),
         "Encrypted" => boolean(),
         "Iops" => integer(),
-        "KmsKeyId" => String.t() | Atom.t(),
-        "SnapshotId" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
+        "SnapshotId" => String.t() | atom(),
         "Throughput" => integer(),
         "VolumeSize" => integer(),
-        "VolumeType" => String.t() | Atom.t()
+        "VolumeType" => String.t() | atom()
       }
 
   """
   @type aws_ec2_launch_template_data_block_device_mapping_set_ebs_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @type accept_administrator_invitation_errors() ::
@@ -15541,7 +15390,7 @@ defmodule AWS.SecurityHub do
   were
   already sent to Amazon CloudWatch Events using the custom action.
   """
-  @spec delete_action_target(map(), String.t() | Atom.t(), delete_action_target_request(), list()) ::
+  @spec delete_action_target(map(), String.t() | atom(), delete_action_target_request(), list()) ::
           {:ok, delete_action_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15572,7 +15421,7 @@ defmodule AWS.SecurityHub do
 
   This API is in private preview and subject to change.
   """
-  @spec delete_aggregator_v2(map(), String.t() | Atom.t(), delete_aggregator_v2_request(), list()) ::
+  @spec delete_aggregator_v2(map(), String.t() | atom(), delete_aggregator_v2_request(), list()) ::
           {:ok, delete_aggregator_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15605,7 +15454,7 @@ defmodule AWS.SecurityHub do
   """
   @spec delete_automation_rule_v2(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_automation_rule_v2_request(),
           list()
         ) ::
@@ -15646,7 +15495,7 @@ defmodule AWS.SecurityHub do
   """
   @spec delete_configuration_policy(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_configuration_policy_request(),
           list()
         ) ::
@@ -15680,7 +15529,7 @@ defmodule AWS.SecurityHub do
 
   This API is in preview release and subject to change.
   """
-  @spec delete_connector_v2(map(), String.t() | Atom.t(), delete_connector_v2_request(), list()) ::
+  @spec delete_connector_v2(map(), String.t() | atom(), delete_connector_v2_request(), list()) ::
           {:ok, delete_connector_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15721,7 +15570,7 @@ defmodule AWS.SecurityHub do
   """
   @spec delete_finding_aggregator(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_finding_aggregator_request(),
           list()
         ) ::
@@ -15755,7 +15604,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Deletes the insight specified by the `InsightArn`.
   """
-  @spec delete_insight(map(), String.t() | Atom.t(), delete_insight_request(), list()) ::
+  @spec delete_insight(map(), String.t() | atom(), delete_insight_request(), list()) ::
           {:ok, delete_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15891,7 +15740,7 @@ defmodule AWS.SecurityHub do
   Returns details about the Hub resource in your account, including the
   `HubArn` and the time when you enabled Security Hub.
   """
-  @spec describe_hub(map(), String.t() | Atom.t() | nil, list()) ::
+  @spec describe_hub(map(), String.t() | atom() | nil, list()) ::
           {:ok, describe_hub_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -15948,9 +15797,9 @@ defmodule AWS.SecurityHub do
   """
   @spec describe_products(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_products_response(), any()}
@@ -15999,12 +15848,7 @@ defmodule AWS.SecurityHub do
 
   This API is in private preview and subject to change.
   """
-  @spec describe_products_v2(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec describe_products_v2(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, describe_products_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16064,12 +15908,7 @@ defmodule AWS.SecurityHub do
   For each standard, the results include the standard ARN, the name, and a
   description.
   """
-  @spec describe_standards(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec describe_standards(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, describe_standards_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16110,9 +15949,9 @@ defmodule AWS.SecurityHub do
   """
   @spec describe_standards_controls(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_standards_controls_response(), any()}
@@ -16159,7 +15998,7 @@ defmodule AWS.SecurityHub do
   """
   @spec disable_import_findings_for_product(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           disable_import_findings_for_product_request(),
           list()
         ) ::
@@ -16630,7 +16469,7 @@ defmodule AWS.SecurityHub do
 
   This API is in private preview and subject to change.
   """
-  @spec get_aggregator_v2(map(), String.t() | Atom.t(), list()) ::
+  @spec get_aggregator_v2(map(), String.t() | atom(), list()) ::
           {:ok, get_aggregator_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16650,7 +16489,7 @@ defmodule AWS.SecurityHub do
 
   This API is in private preview and subject to change.
   """
-  @spec get_automation_rule_v2(map(), String.t() | Atom.t(), list()) ::
+  @spec get_automation_rule_v2(map(), String.t() | atom(), list()) ::
           {:ok, get_automation_rule_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16672,7 +16511,7 @@ defmodule AWS.SecurityHub do
   Only the Security Hub delegated administrator can invoke
   this operation from the home Region.
   """
-  @spec get_configuration_policy(map(), String.t() | Atom.t(), list()) ::
+  @spec get_configuration_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_configuration_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16732,7 +16571,7 @@ defmodule AWS.SecurityHub do
 
   This API is in preview release and subject to change.
   """
-  @spec get_connector_v2(map(), String.t() | Atom.t(), list()) ::
+  @spec get_connector_v2(map(), String.t() | atom(), list()) ::
           {:ok, get_connector_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16784,7 +16623,7 @@ defmodule AWS.SecurityHub do
   aggregation. A finding aggregator is a resource that establishes
   the home Region and any linked Regions.
   """
-  @spec get_finding_aggregator(map(), String.t() | Atom.t(), list()) ::
+  @spec get_finding_aggregator(map(), String.t() | atom(), list()) ::
           {:ok, get_finding_aggregator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -16950,7 +16789,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Lists the results of the Security Hub insight specified by the insight ARN.
   """
-  @spec get_insight_results(map(), String.t() | Atom.t(), list()) ::
+  @spec get_insight_results(map(), String.t() | atom(), list()) ::
           {:ok, get_insight_results_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17164,7 +17003,7 @@ defmodule AWS.SecurityHub do
   The definition includes the control title, description, Region availability,
   parameter definitions, and other details.
   """
-  @spec get_security_control_definition(map(), String.t() | Atom.t(), list()) ::
+  @spec get_security_control_definition(map(), String.t() | atom(), list()) ::
           {:ok, get_security_control_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17242,12 +17081,7 @@ defmodule AWS.SecurityHub do
 
   This API is in private preview and subject to change.
   """
-  @spec list_aggregators_v2(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec list_aggregators_v2(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_aggregators_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17285,12 +17119,7 @@ defmodule AWS.SecurityHub do
 
   A list of automation rules and their metadata for the calling account.
   """
-  @spec list_automation_rules(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec list_automation_rules(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_automation_rules_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17331,8 +17160,8 @@ defmodule AWS.SecurityHub do
   """
   @spec list_automation_rules_v2(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_automation_rules_v2_response(), any()}
@@ -17378,8 +17207,8 @@ defmodule AWS.SecurityHub do
   """
   @spec list_configuration_policies(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_configuration_policies_response(), any()}
@@ -17462,10 +17291,10 @@ defmodule AWS.SecurityHub do
   """
   @spec list_connectors_v2(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_connectors_v2_response(), any()}
@@ -17524,8 +17353,8 @@ defmodule AWS.SecurityHub do
   """
   @spec list_enabled_products_for_import(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_enabled_products_for_import_response(), any()}
@@ -17570,8 +17399,8 @@ defmodule AWS.SecurityHub do
   """
   @spec list_finding_aggregators(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_finding_aggregators_response(), any()}
@@ -17623,7 +17452,7 @@ defmodule AWS.SecurityHub do
   Accounts that are managed using the integration with Organizations don't receive
   invitations.
   """
-  @spec list_invitations(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_invitations(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17663,9 +17492,9 @@ defmodule AWS.SecurityHub do
   """
   @spec list_members(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_members_response(), any()}
@@ -17717,9 +17546,9 @@ defmodule AWS.SecurityHub do
   """
   @spec list_organization_admin_accounts(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_organization_admin_accounts_response(), any()}
@@ -17769,9 +17598,9 @@ defmodule AWS.SecurityHub do
   """
   @spec list_security_control_definitions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_security_control_definitions_response(), any()}
@@ -17825,9 +17654,9 @@ defmodule AWS.SecurityHub do
   """
   @spec list_standards_control_associations(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_standards_control_associations_response(), any()}
@@ -17874,7 +17703,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Returns a list of tags associated with a resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -17976,7 +17805,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Adds one or more tags to a resource.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18005,7 +17834,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Removes one or more tags from a resource.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18039,7 +17868,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Updates the name and description of a custom action target in Security Hub.
   """
-  @spec update_action_target(map(), String.t() | Atom.t(), update_action_target_request(), list()) ::
+  @spec update_action_target(map(), String.t() | atom(), update_action_target_request(), list()) ::
           {:ok, update_action_target_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18070,7 +17899,7 @@ defmodule AWS.SecurityHub do
 
   This API is in private preview and subject to change.
   """
-  @spec update_aggregator_v2(map(), String.t() | Atom.t(), update_aggregator_v2_request(), list()) ::
+  @spec update_aggregator_v2(map(), String.t() | atom(), update_aggregator_v2_request(), list()) ::
           {:ok, update_aggregator_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18103,7 +17932,7 @@ defmodule AWS.SecurityHub do
   """
   @spec update_automation_rule_v2(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_automation_rule_v2_request(),
           list()
         ) ::
@@ -18141,7 +17970,7 @@ defmodule AWS.SecurityHub do
   """
   @spec update_configuration_policy(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_configuration_policy_request(),
           list()
         ) ::
@@ -18175,7 +18004,7 @@ defmodule AWS.SecurityHub do
 
   This API is in preview release and subject to change.
   """
-  @spec update_connector_v2(map(), String.t() | Atom.t(), update_connector_v2_request(), list()) ::
+  @spec update_connector_v2(map(), String.t() | atom(), update_connector_v2_request(), list()) ::
           {:ok, update_connector_v2_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18286,7 +18115,7 @@ defmodule AWS.SecurityHub do
   @doc """
   Updates the Security Hub insight identified by the specified insight ARN.
   """
-  @spec update_insight(map(), String.t() | Atom.t(), update_insight_request(), list()) ::
+  @spec update_insight(map(), String.t() | atom(), update_insight_request(), list()) ::
           {:ok, update_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -18421,7 +18250,7 @@ defmodule AWS.SecurityHub do
   """
   @spec update_standards_control(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_standards_control_request(),
           list()
         ) ::

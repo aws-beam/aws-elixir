@@ -111,11 +111,11 @@ defmodule AWS.CodeStarConnections do
   ## Example:
       
       get_repository_link_input() :: %{
-        required("RepositoryLinkId") => String.t() | Atom.t()
+        required("RepositoryLinkId") => String.t() | atom()
       }
       
   """
-  @type get_repository_link_input() :: %{String.t() | Atom.t() => any()}
+  @type get_repository_link_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -126,7 +126,7 @@ defmodule AWS.CodeStarConnections do
       }
       
   """
-  @type create_sync_configuration_output() :: %{String.t() | Atom.t() => any()}
+  @type create_sync_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -139,70 +139,70 @@ defmodule AWS.CodeStarConnections do
       }
       
   """
-  @type repository_sync_attempt() :: %{String.t() | Atom.t() => any()}
+  @type repository_sync_attempt() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_connection_input() :: %{
-        required("ConnectionArn") => String.t() | Atom.t()
+        required("ConnectionArn") => String.t() | atom()
       }
       
   """
-  @type delete_connection_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_connection_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_operation_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type unsupported_operation_exception() :: %{String.t() | Atom.t() => any()}
+  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_configuration() :: %{
-        "SecurityGroupIds" => list(String.t() | Atom.t()),
-        "SubnetIds" => list(String.t() | Atom.t()),
-        "TlsCertificate" => String.t() | Atom.t(),
-        "VpcId" => String.t() | Atom.t()
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "TlsCertificate" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type vpc_configuration() :: %{String.t() | Atom.t() => any()}
+  @type vpc_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_repository_link_input() :: %{
-        optional("EncryptionKeyArn") => String.t() | Atom.t(),
+        optional("EncryptionKeyArn") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("ConnectionArn") => String.t() | Atom.t(),
-        required("OwnerId") => String.t() | Atom.t(),
-        required("RepositoryName") => String.t() | Atom.t()
+        required("ConnectionArn") => String.t() | atom(),
+        required("OwnerId") => String.t() | atom(),
+        required("RepositoryName") => String.t() | atom()
       }
       
   """
-  @type create_repository_link_input() :: %{String.t() | Atom.t() => any()}
+  @type create_repository_link_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_sync_configurations_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "SyncConfigurations" => list(sync_configuration())
       }
       
   """
-  @type list_sync_configurations_output() :: %{String.t() | Atom.t() => any()}
+  @type list_sync_configurations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -218,49 +218,49 @@ defmodule AWS.CodeStarConnections do
   ## Example:
       
       sync_blocker_context() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type sync_blocker_context() :: %{String.t() | Atom.t() => any()}
+  @type sync_blocker_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_unavailable_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_unavailable_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_sync_status_input() :: %{
-        required("ResourceName") => String.t() | Atom.t(),
+        required("ResourceName") => String.t() | atom(),
         required("SyncType") => list(any())
       }
       
   """
-  @type get_resource_sync_status_input() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_sync_status_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_sync_blocker_input() :: %{
-        required("Id") => String.t() | Atom.t(),
-        required("ResolvedReason") => String.t() | Atom.t(),
-        required("ResourceName") => String.t() | Atom.t(),
+        required("Id") => String.t() | atom(),
+        required("ResolvedReason") => String.t() | atom(),
+        required("ResourceName") => String.t() | atom(),
         required("SyncType") => list(any())
       }
       
   """
-  @type update_sync_blocker_input() :: %{String.t() | Atom.t() => any()}
+  @type update_sync_blocker_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -268,12 +268,12 @@ defmodule AWS.CodeStarConnections do
       
       sync_blocker_summary() :: %{
         "LatestBlockers" => list(sync_blocker()),
-        "ParentResourceName" => String.t() | Atom.t(),
-        "ResourceName" => String.t() | Atom.t()
+        "ParentResourceName" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
       }
       
   """
-  @type sync_blocker_summary() :: %{String.t() | Atom.t() => any()}
+  @type sync_blocker_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -281,11 +281,11 @@ defmodule AWS.CodeStarConnections do
       
       list_connections_output() :: %{
         "Connections" => list(connection()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_connections_output() :: %{String.t() | Atom.t() => any()}
+  @type list_connections_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -296,19 +296,19 @@ defmodule AWS.CodeStarConnections do
       }
       
   """
-  @type create_repository_link_output() :: %{String.t() | Atom.t() => any()}
+  @type create_repository_link_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_connection_output() :: %{
-        "ConnectionArn" => String.t() | Atom.t(),
+        "ConnectionArn" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type create_connection_output() :: %{String.t() | Atom.t() => any()}
+  @type create_connection_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -321,59 +321,59 @@ defmodule AWS.CodeStarConnections do
       }
       
   """
-  @type get_resource_sync_status_output() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_sync_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sync_configuration_still_exists_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type sync_configuration_still_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type sync_configuration_still_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       retry_latest_commit_failed_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type retry_latest_commit_failed_exception() :: %{String.t() | Atom.t() => any()}
+  @type retry_latest_commit_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_host_output() :: %{
-        "HostArn" => String.t() | Atom.t(),
+        "HostArn" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type create_host_output() :: %{String.t() | Atom.t() => any()}
+  @type create_host_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_sync_configuration_input() :: %{
-        optional("Branch") => String.t() | Atom.t(),
-        optional("ConfigFile") => String.t() | Atom.t(),
+        optional("Branch") => String.t() | atom(),
+        optional("ConfigFile") => String.t() | atom(),
         optional("PublishDeploymentStatus") => list(any()),
-        optional("RepositoryLinkId") => String.t() | Atom.t(),
-        optional("RoleArn") => String.t() | Atom.t(),
+        optional("RepositoryLinkId") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
         optional("TriggerResourceUpdateOn") => list(any()),
-        required("ResourceName") => String.t() | Atom.t(),
+        required("ResourceName") => String.t() | atom(),
         required("SyncType") => list(any())
       }
       
   """
-  @type update_sync_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type update_sync_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -384,45 +384,45 @@ defmodule AWS.CodeStarConnections do
       }
       
   """
-  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_sync_definition() :: %{
-        "Branch" => String.t() | Atom.t(),
-        "Directory" => String.t() | Atom.t(),
-        "Parent" => String.t() | Atom.t(),
-        "Target" => String.t() | Atom.t()
+        "Branch" => String.t() | atom(),
+        "Directory" => String.t() | atom(),
+        "Parent" => String.t() | atom(),
+        "Target" => String.t() | atom()
       }
       
   """
-  @type repository_sync_definition() :: %{String.t() | Atom.t() => any()}
+  @type repository_sync_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_sync_configuration_input() :: %{
-        required("ResourceName") => String.t() | Atom.t(),
+        required("ResourceName") => String.t() | atom(),
         required("SyncType") => list(any())
       }
       
   """
-  @type delete_sync_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_sync_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_repository_links_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "RepositoryLinks" => list(repository_link_info())
       }
       
   """
-  @type list_repository_links_output() :: %{String.t() | Atom.t() => any()}
+  @type list_repository_links_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -433,42 +433,42 @@ defmodule AWS.CodeStarConnections do
       }
       
   """
-  @type update_repository_link_output() :: %{String.t() | Atom.t() => any()}
+  @type update_repository_link_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_sync_blocker_output() :: %{
-        "ParentResourceName" => String.t() | Atom.t(),
-        "ResourceName" => String.t() | Atom.t(),
+        "ParentResourceName" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
         "SyncBlocker" => sync_blocker()
       }
       
   """
-  @type update_sync_blocker_output() :: %{String.t() | Atom.t() => any()}
+  @type update_sync_blocker_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -479,54 +479,54 @@ defmodule AWS.CodeStarConnections do
       }
       
   """
-  @type get_sync_configuration_output() :: %{String.t() | Atom.t() => any()}
+  @type get_sync_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_provider_type_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type unsupported_provider_type_exception() :: %{String.t() | Atom.t() => any()}
+  @type unsupported_provider_type_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_host_input() :: %{
-        optional("ProviderEndpoint") => String.t() | Atom.t(),
+        optional("ProviderEndpoint") => String.t() | atom(),
         optional("VpcConfiguration") => vpc_configuration(),
-        required("HostArn") => String.t() | Atom.t()
+        required("HostArn") => String.t() | atom()
       }
       
   """
-  @type update_host_input() :: %{String.t() | Atom.t() => any()}
+  @type update_host_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_connection_input() :: %{
-        required("ConnectionArn") => String.t() | Atom.t()
+        required("ConnectionArn") => String.t() | atom()
       }
       
   """
-  @type get_connection_input() :: %{String.t() | Atom.t() => any()}
+  @type get_connection_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -537,23 +537,23 @@ defmodule AWS.CodeStarConnections do
       }
       
   """
-  @type get_connection_output() :: %{String.t() | Atom.t() => any()}
+  @type get_connection_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       connection() :: %{
-        "ConnectionArn" => String.t() | Atom.t(),
-        "ConnectionName" => String.t() | Atom.t(),
+        "ConnectionArn" => String.t() | atom(),
+        "ConnectionName" => String.t() | atom(),
         "ConnectionStatus" => list(any()),
-        "HostArn" => String.t() | Atom.t(),
-        "OwnerAccountId" => String.t() | Atom.t(),
+        "HostArn" => String.t() | atom(),
+        "OwnerAccountId" => String.t() | atom(),
         "ProviderType" => list(any())
       }
       
   """
-  @type connection() :: %{String.t() | Atom.t() => any()}
+  @type connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -564,7 +564,7 @@ defmodule AWS.CodeStarConnections do
       }
       
   """
-  @type update_sync_configuration_output() :: %{String.t() | Atom.t() => any()}
+  @type update_sync_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -572,13 +572,13 @@ defmodule AWS.CodeStarConnections do
       
       list_sync_configurations_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("RepositoryLinkId") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("RepositoryLinkId") => String.t() | atom(),
         required("SyncType") => list(any())
       }
       
   """
-  @type list_sync_configurations_input() :: %{String.t() | Atom.t() => any()}
+  @type list_sync_configurations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -589,18 +589,18 @@ defmodule AWS.CodeStarConnections do
       }
       
   """
-  @type get_repository_sync_status_output() :: %{String.t() | Atom.t() => any()}
+  @type get_repository_sync_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_input_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_input_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -609,29 +609,29 @@ defmodule AWS.CodeStarConnections do
       sync_blocker() :: %{
         "Contexts" => list(sync_blocker_context()),
         "CreatedAt" => non_neg_integer(),
-        "CreatedReason" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "CreatedReason" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "ResolvedAt" => non_neg_integer(),
-        "ResolvedReason" => String.t() | Atom.t(),
+        "ResolvedReason" => String.t() | atom(),
         "Status" => list(any()),
         "Type" => list(any())
       }
       
   """
-  @type sync_blocker() :: %{String.t() | Atom.t() => any()}
+  @type sync_blocker() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_repository_link_input() :: %{
-        optional("ConnectionArn") => String.t() | Atom.t(),
-        optional("EncryptionKeyArn") => String.t() | Atom.t(),
-        required("RepositoryLinkId") => String.t() | Atom.t()
+        optional("ConnectionArn") => String.t() | atom(),
+        optional("EncryptionKeyArn") => String.t() | atom(),
+        required("RepositoryLinkId") => String.t() | atom()
       }
       
   """
-  @type update_repository_link_input() :: %{String.t() | Atom.t() => any()}
+  @type update_repository_link_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -642,48 +642,48 @@ defmodule AWS.CodeStarConnections do
       }
       
   """
-  @type get_sync_blocker_summary_output() :: %{String.t() | Atom.t() => any()}
+  @type get_sync_blocker_summary_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_input() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_repository_sync_definitions_input() :: %{
-        required("RepositoryLinkId") => String.t() | Atom.t(),
+        required("RepositoryLinkId") => String.t() | atom(),
         required("SyncType") => list(any())
       }
       
   """
-  @type list_repository_sync_definitions_input() :: %{String.t() | Atom.t() => any()}
+  @type list_repository_sync_definitions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       host() :: %{
-        "HostArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "ProviderEndpoint" => String.t() | Atom.t(),
+        "HostArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ProviderEndpoint" => String.t() | atom(),
         "ProviderType" => list(any()),
-        "Status" => String.t() | Atom.t(),
-        "StatusMessage" => String.t() | Atom.t(),
+        "Status" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
         "VpcConfiguration" => vpc_configuration()
       }
       
   """
-  @type host() :: %{String.t() | Atom.t() => any()}
+  @type host() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -691,11 +691,11 @@ defmodule AWS.CodeStarConnections do
       
       list_hosts_output() :: %{
         "Hosts" => list(host()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_hosts_output() :: %{String.t() | Atom.t() => any()}
+  @type list_hosts_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -711,89 +711,89 @@ defmodule AWS.CodeStarConnections do
   ## Example:
       
       conditional_check_failed_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type conditional_check_failed_exception() :: %{String.t() | Atom.t() => any()}
+  @type conditional_check_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sync_configuration() :: %{
-        "Branch" => String.t() | Atom.t(),
-        "ConfigFile" => String.t() | Atom.t(),
-        "OwnerId" => String.t() | Atom.t(),
+        "Branch" => String.t() | atom(),
+        "ConfigFile" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
         "ProviderType" => list(any()),
         "PublishDeploymentStatus" => list(any()),
-        "RepositoryLinkId" => String.t() | Atom.t(),
-        "RepositoryName" => String.t() | Atom.t(),
-        "ResourceName" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
+        "RepositoryLinkId" => String.t() | atom(),
+        "RepositoryName" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "SyncType" => list(any()),
         "TriggerResourceUpdateOn" => list(any())
       }
       
   """
-  @type sync_configuration() :: %{String.t() | Atom.t() => any()}
+  @type sync_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_input() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_host_input() :: %{
-        required("HostArn") => String.t() | Atom.t()
+        required("HostArn") => String.t() | atom()
       }
       
   """
-  @type delete_host_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_host_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_sync_configuration_input() :: %{
-        required("ResourceName") => String.t() | Atom.t(),
+        required("ResourceName") => String.t() | atom(),
         required("SyncType") => list(any())
       }
       
   """
-  @type get_sync_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type get_sync_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -809,22 +809,22 @@ defmodule AWS.CodeStarConnections do
   ## Example:
       
       concurrent_modification_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type concurrent_modification_exception() :: %{String.t() | Atom.t() => any()}
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_input() :: %{
-        required("ResourceArn") => String.t() | Atom.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -835,12 +835,12 @@ defmodule AWS.CodeStarConnections do
         "InitialRevision" => revision(),
         "StartedAt" => non_neg_integer(),
         "Status" => list(any()),
-        "Target" => String.t() | Atom.t(),
+        "Target" => String.t() | atom(),
         "TargetRevision" => revision()
       }
       
   """
-  @type resource_sync_attempt() :: %{String.t() | Atom.t() => any()}
+  @type resource_sync_attempt() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -865,24 +865,24 @@ defmodule AWS.CodeStarConnections do
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_repository_sync_status_input() :: %{
-        required("Branch") => String.t() | Atom.t(),
-        required("RepositoryLinkId") => String.t() | Atom.t(),
+        required("Branch") => String.t() | atom(),
+        required("RepositoryLinkId") => String.t() | atom(),
         required("SyncType") => list(any())
       }
       
   """
-  @type get_repository_sync_status_input() :: %{String.t() | Atom.t() => any()}
+  @type get_repository_sync_status_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -890,11 +890,11 @@ defmodule AWS.CodeStarConnections do
       
       list_repository_links_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_repository_links_input() :: %{String.t() | Atom.t() => any()}
+  @type list_repository_links_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -903,50 +903,50 @@ defmodule AWS.CodeStarConnections do
       create_host_input() :: %{
         optional("Tags") => list(tag()),
         optional("VpcConfiguration") => vpc_configuration(),
-        required("Name") => String.t() | Atom.t(),
-        required("ProviderEndpoint") => String.t() | Atom.t(),
+        required("Name") => String.t() | atom(),
+        required("ProviderEndpoint") => String.t() | atom(),
         required("ProviderType") => list(any())
       }
       
   """
-  @type create_host_input() :: %{String.t() | Atom.t() => any()}
+  @type create_host_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_repository_sync_definitions_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "RepositorySyncDefinitions" => list(repository_sync_definition())
       }
       
   """
-  @type list_repository_sync_definitions_output() :: %{String.t() | Atom.t() => any()}
+  @type list_repository_sync_definitions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_connections_input() :: %{
-        optional("HostArnFilter") => String.t() | Atom.t(),
+        optional("HostArnFilter") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ProviderTypeFilter") => list(any())
       }
       
   """
-  @type list_connections_input() :: %{String.t() | Atom.t() => any()}
+  @type list_connections_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -955,27 +955,27 @@ defmodule AWS.CodeStarConnections do
       create_sync_configuration_input() :: %{
         optional("PublishDeploymentStatus") => list(any()),
         optional("TriggerResourceUpdateOn") => list(any()),
-        required("Branch") => String.t() | Atom.t(),
-        required("ConfigFile") => String.t() | Atom.t(),
-        required("RepositoryLinkId") => String.t() | Atom.t(),
-        required("ResourceName") => String.t() | Atom.t(),
-        required("RoleArn") => String.t() | Atom.t(),
+        required("Branch") => String.t() | atom(),
+        required("ConfigFile") => String.t() | atom(),
+        required("RepositoryLinkId") => String.t() | atom(),
+        required("ResourceName") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom(),
         required("SyncType") => list(any())
       }
       
   """
-  @type create_sync_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type create_sync_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_repository_link_input() :: %{
-        required("RepositoryLinkId") => String.t() | Atom.t()
+        required("RepositoryLinkId") => String.t() | atom()
       }
       
   """
-  @type delete_repository_link_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_repository_link_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -995,55 +995,55 @@ defmodule AWS.CodeStarConnections do
       }
       
   """
-  @type get_repository_link_output() :: %{String.t() | Atom.t() => any()}
+  @type get_repository_link_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_sync_blocker_summary_input() :: %{
-        required("ResourceName") => String.t() | Atom.t(),
+        required("ResourceName") => String.t() | atom(),
         required("SyncType") => list(any())
       }
       
   """
-  @type get_sync_blocker_summary_input() :: %{String.t() | Atom.t() => any()}
+  @type get_sync_blocker_summary_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_already_exists_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_connection_input() :: %{
-        optional("HostArn") => String.t() | Atom.t(),
+        optional("HostArn") => String.t() | atom(),
         optional("ProviderType") => list(any()),
         optional("Tags") => list(tag()),
-        required("ConnectionName") => String.t() | Atom.t()
+        required("ConnectionName") => String.t() | atom()
       }
       
   """
-  @type create_connection_input() :: %{String.t() | Atom.t() => any()}
+  @type create_connection_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sync_blocker_does_not_exist_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type sync_blocker_does_not_exist_exception() :: %{String.t() | Atom.t() => any()}
+  @type sync_blocker_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1059,87 +1059,87 @@ defmodule AWS.CodeStarConnections do
   ## Example:
       
       repository_link_info() :: %{
-        "ConnectionArn" => String.t() | Atom.t(),
-        "EncryptionKeyArn" => String.t() | Atom.t(),
-        "OwnerId" => String.t() | Atom.t(),
+        "ConnectionArn" => String.t() | atom(),
+        "EncryptionKeyArn" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
         "ProviderType" => list(any()),
-        "RepositoryLinkArn" => String.t() | Atom.t(),
-        "RepositoryLinkId" => String.t() | Atom.t(),
-        "RepositoryName" => String.t() | Atom.t()
+        "RepositoryLinkArn" => String.t() | atom(),
+        "RepositoryLinkId" => String.t() | atom(),
+        "RepositoryName" => String.t() | atom()
       }
       
   """
-  @type repository_link_info() :: %{String.t() | Atom.t() => any()}
+  @type repository_link_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_sync_event() :: %{
-        "Event" => String.t() | Atom.t(),
-        "ExternalId" => String.t() | Atom.t(),
+        "Event" => String.t() | atom(),
+        "ExternalId" => String.t() | atom(),
         "Time" => non_neg_integer(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
       
   """
-  @type resource_sync_event() :: %{String.t() | Atom.t() => any()}
+  @type resource_sync_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_sync_event() :: %{
-        "Event" => String.t() | Atom.t(),
-        "ExternalId" => String.t() | Atom.t(),
+        "Event" => String.t() | atom(),
+        "ExternalId" => String.t() | atom(),
         "Time" => non_neg_integer(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
       
   """
-  @type repository_sync_event() :: %{String.t() | Atom.t() => any()}
+  @type repository_sync_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       revision() :: %{
-        "Branch" => String.t() | Atom.t(),
-        "Directory" => String.t() | Atom.t(),
-        "OwnerId" => String.t() | Atom.t(),
+        "Branch" => String.t() | atom(),
+        "Directory" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
         "ProviderType" => list(any()),
-        "RepositoryName" => String.t() | Atom.t(),
-        "Sha" => String.t() | Atom.t()
+        "RepositoryName" => String.t() | atom(),
+        "Sha" => String.t() | atom()
       }
       
   """
-  @type revision() :: %{String.t() | Atom.t() => any()}
+  @type revision() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_out_of_sync_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type update_out_of_sync_exception() :: %{String.t() | Atom.t() => any()}
+  @type update_out_of_sync_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_host_output() :: %{
-        "Name" => String.t() | Atom.t(),
-        "ProviderEndpoint" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "ProviderEndpoint" => String.t() | atom(),
         "ProviderType" => list(any()),
-        "Status" => String.t() | Atom.t(),
+        "Status" => String.t() | atom(),
         "VpcConfiguration" => vpc_configuration()
       }
       
   """
-  @type get_host_output() :: %{String.t() | Atom.t() => any()}
+  @type get_host_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1147,22 +1147,22 @@ defmodule AWS.CodeStarConnections do
       
       list_hosts_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_hosts_input() :: %{String.t() | Atom.t() => any()}
+  @type list_hosts_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_host_input() :: %{
-        required("HostArn") => String.t() | Atom.t()
+        required("HostArn") => String.t() | atom()
       }
       
   """
-  @type get_host_input() :: %{String.t() | Atom.t() => any()}
+  @type get_host_input() :: %{(String.t() | atom()) => any()}
 
   @type create_connection_errors() ::
           limit_exceeded_exception()

@@ -45,7 +45,7 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type update_profiling_group_request() :: %{String.t() | Atom.t() => any()}
+  @type update_profiling_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -53,11 +53,11 @@ defmodule AWS.CodeGuruProfiler do
 
       list_findings_reports_response() :: %{
         "findingsReportSummaries" => list(findings_report_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_findings_reports_response() :: %{String.t() | Atom.t() => any()}
+  @type list_findings_reports_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -68,7 +68,7 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -77,14 +77,14 @@ defmodule AWS.CodeGuruProfiler do
       list_profile_times_request() :: %{
         "endTime" => non_neg_integer(),
         "maxResults" => integer(),
-        "nextToken" => String.t() | Atom.t(),
-        "orderBy" => String.t() | Atom.t(),
-        "period" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
+        "orderBy" => String.t() | atom(),
+        "period" => String.t() | atom(),
         "startTime" => non_neg_integer()
       }
 
   """
-  @type list_profile_times_request() :: %{String.t() | Atom.t() => any()}
+  @type list_profile_times_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -92,13 +92,13 @@ defmodule AWS.CodeGuruProfiler do
 
       anomaly_instance() :: %{
         "endTime" => non_neg_integer(),
-        "id" => [String.t() | Atom.t()],
+        "id" => [String.t() | atom()],
         "startTime" => non_neg_integer(),
         "userFeedback" => user_feedback()
       }
 
   """
-  @type anomaly_instance() :: %{String.t() | Atom.t() => any()}
+  @type anomaly_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -109,7 +109,7 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type timestamp_structure() :: %{String.t() | Atom.t() => any()}
+  @type timestamp_structure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -125,25 +125,25 @@ defmodule AWS.CodeGuruProfiler do
   ## Example:
 
       aggregated_profile_time() :: %{
-        "period" => String.t() | Atom.t(),
+        "period" => String.t() | atom(),
         "start" => non_neg_integer()
       }
 
   """
-  @type aggregated_profile_time() :: %{String.t() | Atom.t() => any()}
+  @type aggregated_profile_time() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metric() :: %{
-        "frameName" => [String.t() | Atom.t()],
-        "threadStates" => list([String.t() | Atom.t()]()),
-        "type" => String.t() | Atom.t()
+        "frameName" => [String.t() | atom()],
+        "threadStates" => list([String.t() | atom()]()),
+        "type" => String.t() | atom()
       }
 
   """
-  @type metric() :: %{String.t() | Atom.t() => any()}
+  @type metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -156,7 +156,7 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type profiling_status() :: %{String.t() | Atom.t() => any()}
+  @type profiling_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -194,20 +194,20 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type agent_orchestration_config() :: %{String.t() | Atom.t() => any()}
+  @type agent_orchestration_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       frame_metric() :: %{
-        "frameName" => [String.t() | Atom.t()],
-        "threadStates" => list([String.t() | Atom.t()]()),
-        "type" => String.t() | Atom.t()
+        "frameName" => [String.t() | atom()],
+        "threadStates" => list([String.t() | atom()]()),
+        "type" => String.t() | atom()
       }
 
   """
-  @type frame_metric() :: %{String.t() | Atom.t() => any()}
+  @type frame_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -215,12 +215,12 @@ defmodule AWS.CodeGuruProfiler do
 
       post_agent_profile_request() :: %{
         "agentProfile" => binary(),
-        "contentType" => [String.t() | Atom.t()],
-        "profileToken" => String.t() | Atom.t()
+        "contentType" => [String.t() | atom()],
+        "profileToken" => String.t() | atom()
       }
 
   """
-  @type post_agent_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type post_agent_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -236,12 +236,12 @@ defmodule AWS.CodeGuruProfiler do
   ## Example:
 
       list_profile_times_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "profileTimes" => list(profile_time())
       }
 
   """
-  @type list_profile_times_response() :: %{String.t() | Atom.t() => any()}
+  @type list_profile_times_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -260,23 +260,23 @@ defmodule AWS.CodeGuruProfiler do
         "anomalies" => list(anomaly()),
         "profileEndTime" => non_neg_integer(),
         "profileStartTime" => non_neg_integer(),
-        "profilingGroupName" => String.t() | Atom.t(),
+        "profilingGroupName" => String.t() | atom(),
         "recommendations" => list(recommendation())
       }
 
   """
-  @type get_recommendations_response() :: %{String.t() | Atom.t() => any()}
+  @type get_recommendations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list([String.t() | Atom.t()]())
+        required("tagKeys") => list([String.t() | atom()]())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -287,7 +287,7 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type get_notification_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_notification_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -296,33 +296,33 @@ defmodule AWS.CodeGuruProfiler do
       get_findings_report_account_summary_request() :: %{
         "dailyReportsOnly" => [boolean()],
         "maxResults" => integer(),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_findings_report_account_summary_request() :: %{String.t() | Atom.t() => any()}
+  @type get_findings_report_account_summary_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -342,7 +342,7 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type remove_notification_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type remove_notification_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -351,11 +351,11 @@ defmodule AWS.CodeGuruProfiler do
       list_profiling_groups_request() :: %{
         "includeDescription" => [boolean()],
         "maxResults" => integer(),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_profiling_groups_request() :: %{String.t() | Atom.t() => any()}
+  @type list_profiling_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -371,65 +371,65 @@ defmodule AWS.CodeGuruProfiler do
   ## Example:
 
       pattern() :: %{
-        "countersToAggregate" => list([String.t() | Atom.t()]()),
-        "description" => [String.t() | Atom.t()],
-        "id" => [String.t() | Atom.t()],
-        "name" => [String.t() | Atom.t()],
-        "resolutionSteps" => [String.t() | Atom.t()],
-        "targetFrames" => list(list([String.t() | Atom.t()]())()),
+        "countersToAggregate" => list([String.t() | atom()]()),
+        "description" => [String.t() | atom()],
+        "id" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "resolutionSteps" => [String.t() | atom()],
+        "targetFrames" => list(list([String.t() | atom()]())()),
         "thresholdPercent" => float()
       }
 
   """
-  @type pattern() :: %{String.t() | Atom.t() => any()}
+  @type pattern() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_findings_report_account_summary_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "reportSummaries" => list(findings_report_summary())
       }
 
   """
-  @type get_findings_report_account_summary_response() :: %{String.t() | Atom.t() => any()}
+  @type get_findings_report_account_summary_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       configure_agent_request() :: %{
-        "fleetInstanceId" => String.t() | Atom.t(),
+        "fleetInstanceId" => String.t() | atom(),
         "metadata" => map()
       }
 
   """
-  @type configure_agent_request() :: %{String.t() | Atom.t() => any()}
+  @type configure_agent_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_profile_response() :: %{
-        "contentEncoding" => [String.t() | Atom.t()],
-        "contentType" => [String.t() | Atom.t()],
+        "contentEncoding" => [String.t() | atom()],
+        "contentType" => [String.t() | atom()],
         "profile" => binary()
       }
 
   """
-  @type get_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type get_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -445,7 +445,7 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type recommendation() :: %{String.t() | Atom.t() => any()}
+  @type recommendation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -453,23 +453,23 @@ defmodule AWS.CodeGuruProfiler do
 
       get_recommendations_request() :: %{
         "endTime" => non_neg_integer(),
-        "locale" => String.t() | Atom.t(),
+        "locale" => String.t() | atom(),
         "startTime" => non_neg_integer()
       }
 
   """
-  @type get_recommendations_request() :: %{String.t() | Atom.t() => any()}
+  @type get_recommendations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_permission_request() :: %{
-        "revisionId" => String.t() | Atom.t()
+        "revisionId" => String.t() | atom()
       }
 
   """
-  @type remove_permission_request() :: %{String.t() | Atom.t() => any()}
+  @type remove_permission_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -480,7 +480,7 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -490,24 +490,24 @@ defmodule AWS.CodeGuruProfiler do
         "dailyReportsOnly" => [boolean()],
         "endTime" => non_neg_integer(),
         "maxResults" => integer(),
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "startTime" => non_neg_integer()
       }
 
   """
-  @type list_findings_reports_request() :: %{String.t() | Atom.t() => any()}
+  @type list_findings_reports_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_permission_request() :: %{
-        "principals" => list(String.t() | Atom.t()),
-        "revisionId" => String.t() | Atom.t()
+        "principals" => list(String.t() | atom()),
+        "revisionId" => String.t() | atom()
       }
 
   """
-  @type put_permission_request() :: %{String.t() | Atom.t() => any()}
+  @type put_permission_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -518,19 +518,19 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type describe_profiling_group_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_profiling_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_permission_response() :: %{
-        "policy" => [String.t() | Atom.t()],
-        "revisionId" => String.t() | Atom.t()
+        "policy" => [String.t() | atom()],
+        "revisionId" => String.t() | atom()
       }
 
   """
-  @type put_permission_response() :: %{String.t() | Atom.t() => any()}
+  @type put_permission_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -541,7 +541,7 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type update_profiling_group_response() :: %{String.t() | Atom.t() => any()}
+  @type update_profiling_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -552,7 +552,7 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type profile_time() :: %{String.t() | Atom.t() => any()}
+  @type profile_time() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -563,19 +563,19 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type notification_configuration() :: %{String.t() | Atom.t() => any()}
+  @type notification_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_policy_response() :: %{
-        "policy" => [String.t() | Atom.t()],
-        "revisionId" => String.t() | Atom.t()
+        "policy" => [String.t() | atom()],
+        "revisionId" => String.t() | atom()
       }
 
   """
-  @type get_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type get_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -591,11 +591,11 @@ defmodule AWS.CodeGuruProfiler do
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -603,17 +603,17 @@ defmodule AWS.CodeGuruProfiler do
 
       profiling_group_description() :: %{
         "agentOrchestrationConfig" => agent_orchestration_config(),
-        "arn" => String.t() | Atom.t(),
-        "computePlatform" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
+        "computePlatform" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "profilingStatus" => profiling_status(),
         "tags" => map(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type profiling_group_description() :: %{String.t() | Atom.t() => any()}
+  @type profiling_group_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -622,11 +622,11 @@ defmodule AWS.CodeGuruProfiler do
       anomaly() :: %{
         "instances" => list(anomaly_instance()),
         "metric" => metric(),
-        "reason" => [String.t() | Atom.t()]
+        "reason" => [String.t() | atom()]
       }
 
   """
-  @type anomaly() :: %{String.t() | Atom.t() => any()}
+  @type anomaly() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -637,7 +637,7 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type create_profiling_group_response() :: %{String.t() | Atom.t() => any()}
+  @type create_profiling_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -645,14 +645,14 @@ defmodule AWS.CodeGuruProfiler do
 
       create_profiling_group_request() :: %{
         "agentOrchestrationConfig" => agent_orchestration_config(),
-        "clientToken" => String.t() | Atom.t(),
-        "computePlatform" => String.t() | Atom.t(),
-        "profilingGroupName" => String.t() | Atom.t(),
+        "clientToken" => String.t() | atom(),
+        "computePlatform" => String.t() | atom(),
+        "profilingGroupName" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type create_profiling_group_request() :: %{String.t() | Atom.t() => any()}
+  @type create_profiling_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -665,20 +665,20 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type agent_configuration() :: %{String.t() | Atom.t() => any()}
+  @type agent_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_profiling_groups_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
-        "profilingGroupNames" => list(String.t() | Atom.t()),
+        "nextToken" => String.t() | atom(),
+        "profilingGroupNames" => list(String.t() | atom()),
         "profilingGroups" => list(profiling_group_description())
       }
 
   """
-  @type list_profiling_groups_response() :: %{String.t() | Atom.t() => any()}
+  @type list_profiling_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -689,7 +689,7 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type add_notification_channels_request() :: %{String.t() | Atom.t() => any()}
+  @type add_notification_channels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -705,26 +705,26 @@ defmodule AWS.CodeGuruProfiler do
   ## Example:
 
       get_profile_request() :: %{
-        "accept" => [String.t() | Atom.t()],
+        "accept" => [String.t() | atom()],
         "endTime" => non_neg_integer(),
         "maxDepth" => integer(),
-        "period" => String.t() | Atom.t(),
+        "period" => String.t() | atom(),
         "startTime" => non_neg_integer()
       }
 
   """
-  @type get_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type get_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -740,11 +740,11 @@ defmodule AWS.CodeGuruProfiler do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -753,26 +753,26 @@ defmodule AWS.CodeGuruProfiler do
       batch_get_frame_metric_data_request() :: %{
         "endTime" => non_neg_integer(),
         "frameMetrics" => list(frame_metric()),
-        "period" => String.t() | Atom.t(),
+        "period" => String.t() | atom(),
         "startTime" => non_neg_integer(),
-        "targetResolution" => String.t() | Atom.t()
+        "targetResolution" => String.t() | atom()
       }
 
   """
-  @type batch_get_frame_metric_data_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_frame_metric_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       channel() :: %{
-        "eventPublishers" => list(String.t() | Atom.t()),
-        "id" => String.t() | Atom.t(),
-        "uri" => String.t() | Atom.t()
+        "eventPublishers" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "uri" => String.t() | atom()
       }
 
   """
-  @type channel() :: %{String.t() | Atom.t() => any()}
+  @type channel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -782,38 +782,38 @@ defmodule AWS.CodeGuruProfiler do
         "endTime" => non_neg_integer(),
         "endTimes" => list(timestamp_structure()),
         "frameMetricData" => list(frame_metric_datum()),
-        "resolution" => String.t() | Atom.t(),
+        "resolution" => String.t() | atom(),
         "startTime" => non_neg_integer(),
         "unprocessedEndTimes" => map()
       }
 
   """
-  @type batch_get_frame_metric_data_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_frame_metric_data_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       match() :: %{
-        "frameAddress" => [String.t() | Atom.t()],
+        "frameAddress" => [String.t() | atom()],
         "targetFramesIndex" => [integer()],
         "thresholdBreachValue" => [float()]
       }
 
   """
-  @type match() :: %{String.t() | Atom.t() => any()}
+  @type match() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       submit_feedback_request() :: %{
-        "comment" => [String.t() | Atom.t()],
-        "type" => String.t() | Atom.t()
+        "comment" => [String.t() | atom()],
+        "type" => String.t() | atom()
       }
 
   """
-  @type submit_feedback_request() :: %{String.t() | Atom.t() => any()}
+  @type submit_feedback_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -825,7 +825,7 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type frame_metric_datum() :: %{String.t() | Atom.t() => any()}
+  @type frame_metric_datum() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -836,7 +836,7 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type add_notification_channels_response() :: %{String.t() | Atom.t() => any()}
+  @type add_notification_channels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -847,45 +847,45 @@ defmodule AWS.CodeGuruProfiler do
       }
 
   """
-  @type configure_agent_response() :: %{String.t() | Atom.t() => any()}
+  @type configure_agent_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       findings_report_summary() :: %{
-        "id" => String.t() | Atom.t(),
+        "id" => String.t() | atom(),
         "profileEndTime" => non_neg_integer(),
         "profileStartTime" => non_neg_integer(),
-        "profilingGroupName" => [String.t() | Atom.t()],
+        "profilingGroupName" => [String.t() | atom()],
         "totalNumberOfFindings" => [integer()]
       }
 
   """
-  @type findings_report_summary() :: %{String.t() | Atom.t() => any()}
+  @type findings_report_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_permission_response() :: %{
-        "policy" => [String.t() | Atom.t()],
-        "revisionId" => String.t() | Atom.t()
+        "policy" => [String.t() | atom()],
+        "revisionId" => String.t() | atom()
       }
 
   """
-  @type remove_permission_response() :: %{String.t() | Atom.t() => any()}
+  @type remove_permission_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       user_feedback() :: %{
-        "type" => String.t() | Atom.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type user_feedback() :: %{String.t() | Atom.t() => any()}
+  @type user_feedback() :: %{(String.t() | atom()) => any()}
 
   @type add_notification_channels_errors() ::
           throttling_exception()
@@ -1034,7 +1034,7 @@ defmodule AWS.CodeGuruProfiler do
   """
   @spec add_notification_channels(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           add_notification_channels_request(),
           list()
         ) ::
@@ -1072,7 +1072,7 @@ defmodule AWS.CodeGuruProfiler do
   """
   @spec batch_get_frame_metric_data(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           batch_get_frame_metric_data_request(),
           list()
         ) ::
@@ -1118,7 +1118,7 @@ defmodule AWS.CodeGuruProfiler do
   to tell an agent whether to profile or not and for how long to return profiling
   data.
   """
-  @spec configure_agent(map(), String.t() | Atom.t(), configure_agent_request(), list()) ::
+  @spec configure_agent(map(), String.t() | atom(), configure_agent_request(), list()) ::
           {:ok, configure_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1183,7 +1183,7 @@ defmodule AWS.CodeGuruProfiler do
   """
   @spec delete_profiling_group(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_profiling_group_request(),
           list()
         ) ::
@@ -1220,7 +1220,7 @@ defmodule AWS.CodeGuruProfiler do
 
   object that contains information about the requested profiling group.
   """
-  @spec describe_profiling_group(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_profiling_group(map(), String.t() | atom(), list()) ::
           {:ok, describe_profiling_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1247,9 +1247,9 @@ defmodule AWS.CodeGuruProfiler do
   """
   @spec get_findings_report_account_summary(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_findings_report_account_summary_response(), any()}
@@ -1296,7 +1296,7 @@ defmodule AWS.CodeGuruProfiler do
   @doc """
   Get the current configuration for anomaly notifications for a profiling group.
   """
-  @spec get_notification_configuration(map(), String.t() | Atom.t(), list()) ::
+  @spec get_notification_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_notification_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1317,7 +1317,7 @@ defmodule AWS.CodeGuruProfiler do
 
   Returns the JSON-formatted resource-based policy on a profiling group.
   """
-  @spec get_policy(map(), String.t() | Atom.t(), list()) ::
+  @spec get_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1403,12 +1403,12 @@ defmodule AWS.CodeGuruProfiler do
   """
   @spec get_profile(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_profile_response(), any()}
@@ -1497,10 +1497,10 @@ defmodule AWS.CodeGuruProfiler do
   """
   @spec get_recommendations(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_recommendations_response(), any()}
@@ -1552,12 +1552,12 @@ defmodule AWS.CodeGuruProfiler do
   """
   @spec list_findings_reports(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_findings_reports_response(), any()}
@@ -1626,13 +1626,13 @@ defmodule AWS.CodeGuruProfiler do
   """
   @spec list_profile_times(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_profile_times_response(), any()}
@@ -1714,9 +1714,9 @@ defmodule AWS.CodeGuruProfiler do
   """
   @spec list_profiling_groups(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_profiling_groups_response(), any()}
@@ -1764,7 +1764,7 @@ defmodule AWS.CodeGuruProfiler do
 
   Returns a list of the tags that are assigned to a specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1789,7 +1789,7 @@ defmodule AWS.CodeGuruProfiler do
   `GetProfile`
   ](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_GetProfile.html).
   """
-  @spec post_agent_profile(map(), String.t() | Atom.t(), post_agent_profile_request(), list()) ::
+  @spec post_agent_profile(map(), String.t() | atom(), post_agent_profile_request(), list()) ::
           {:ok, post_agent_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1858,8 +1858,8 @@ defmodule AWS.CodeGuruProfiler do
   """
   @spec put_permission(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           put_permission_request(),
           list()
         ) ::
@@ -1895,8 +1895,8 @@ defmodule AWS.CodeGuruProfiler do
   """
   @spec remove_notification_channel(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           remove_notification_channel_request(),
           list()
         ) ::
@@ -1952,8 +1952,8 @@ defmodule AWS.CodeGuruProfiler do
   """
   @spec remove_permission(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           remove_permission_request(),
           list()
         ) ::
@@ -2002,8 +2002,8 @@ defmodule AWS.CodeGuruProfiler do
   """
   @spec submit_feedback(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           submit_feedback_request(),
           list()
         ) ::
@@ -2044,7 +2044,7 @@ defmodule AWS.CodeGuruProfiler do
 
   Use to assign one or more tags to a resource.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2074,7 +2074,7 @@ defmodule AWS.CodeGuruProfiler do
 
   Use to remove one or more tags from a resource.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2110,7 +2110,7 @@ defmodule AWS.CodeGuruProfiler do
   """
   @spec update_profiling_group(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_profiling_group_request(),
           list()
         ) ::

@@ -14,132 +14,132 @@ defmodule AWS.Account do
   ## Example:
 
       accept_primary_email_update_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
-        required("Otp") => String.t() | Atom.t(),
-        required("PrimaryEmail") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom(),
+        required("Otp") => String.t() | atom(),
+        required("PrimaryEmail") => String.t() | atom()
       }
 
   """
-  @type accept_primary_email_update_request() :: %{String.t() | Atom.t() => any()}
+  @type accept_primary_email_update_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       accept_primary_email_update_response() :: %{
-        "Status" => String.t() | Atom.t()
+        "Status" => String.t() | atom()
       }
 
   """
-  @type accept_primary_email_update_response() :: %{String.t() | Atom.t() => any()}
+  @type accept_primary_email_update_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "errorType" => [String.t() | Atom.t()],
-        "message" => [String.t() | Atom.t()]
+        "errorType" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       alternate_contact() :: %{
-        "AlternateContactType" => String.t() | Atom.t(),
-        "EmailAddress" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "PhoneNumber" => String.t() | Atom.t(),
-        "Title" => String.t() | Atom.t()
+        "AlternateContactType" => String.t() | atom(),
+        "EmailAddress" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "Title" => String.t() | atom()
       }
 
   """
-  @type alternate_contact() :: %{String.t() | Atom.t() => any()}
+  @type alternate_contact() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "errorType" => [String.t() | Atom.t()],
-        "message" => [String.t() | Atom.t()]
+        "errorType" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       contact_information() :: %{
-        "AddressLine1" => String.t() | Atom.t(),
-        "AddressLine2" => String.t() | Atom.t(),
-        "AddressLine3" => String.t() | Atom.t(),
-        "City" => String.t() | Atom.t(),
-        "CompanyName" => String.t() | Atom.t(),
-        "CountryCode" => String.t() | Atom.t(),
-        "DistrictOrCounty" => String.t() | Atom.t(),
-        "FullName" => String.t() | Atom.t(),
-        "PhoneNumber" => String.t() | Atom.t(),
-        "PostalCode" => String.t() | Atom.t(),
-        "StateOrRegion" => String.t() | Atom.t(),
-        "WebsiteUrl" => String.t() | Atom.t()
+        "AddressLine1" => String.t() | atom(),
+        "AddressLine2" => String.t() | atom(),
+        "AddressLine3" => String.t() | atom(),
+        "City" => String.t() | atom(),
+        "CompanyName" => String.t() | atom(),
+        "CountryCode" => String.t() | atom(),
+        "DistrictOrCounty" => String.t() | atom(),
+        "FullName" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "PostalCode" => String.t() | atom(),
+        "StateOrRegion" => String.t() | atom(),
+        "WebsiteUrl" => String.t() | atom()
       }
 
   """
-  @type contact_information() :: %{String.t() | Atom.t() => any()}
+  @type contact_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_alternate_contact_request() :: %{
-        optional("AccountId") => String.t() | Atom.t(),
-        required("AlternateContactType") => String.t() | Atom.t()
+        optional("AccountId") => String.t() | atom(),
+        required("AlternateContactType") => String.t() | atom()
       }
 
   """
-  @type delete_alternate_contact_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_alternate_contact_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disable_region_request() :: %{
-        optional("AccountId") => String.t() | Atom.t(),
-        required("RegionName") => String.t() | Atom.t()
+        optional("AccountId") => String.t() | atom(),
+        required("RegionName") => String.t() | atom()
       }
 
   """
-  @type disable_region_request() :: %{String.t() | Atom.t() => any()}
+  @type disable_region_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enable_region_request() :: %{
-        optional("AccountId") => String.t() | Atom.t(),
-        required("RegionName") => String.t() | Atom.t()
+        optional("AccountId") => String.t() | atom(),
+        required("RegionName") => String.t() | atom()
       }
 
   """
-  @type enable_region_request() :: %{String.t() | Atom.t() => any()}
+  @type enable_region_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_account_information_request() :: %{
-        optional("AccountId") => String.t() | Atom.t()
+        optional("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_account_information_request() :: %{String.t() | Atom.t() => any()}
+  @type get_account_information_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -147,24 +147,24 @@ defmodule AWS.Account do
 
       get_account_information_response() :: %{
         "AccountCreatedDate" => non_neg_integer(),
-        "AccountId" => String.t() | Atom.t(),
-        "AccountName" => String.t() | Atom.t()
+        "AccountId" => String.t() | atom(),
+        "AccountName" => String.t() | atom()
       }
 
   """
-  @type get_account_information_response() :: %{String.t() | Atom.t() => any()}
+  @type get_account_information_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_alternate_contact_request() :: %{
-        optional("AccountId") => String.t() | Atom.t(),
-        required("AlternateContactType") => String.t() | Atom.t()
+        optional("AccountId") => String.t() | atom(),
+        required("AlternateContactType") => String.t() | atom()
       }
 
   """
-  @type get_alternate_contact_request() :: %{String.t() | Atom.t() => any()}
+  @type get_alternate_contact_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -175,18 +175,18 @@ defmodule AWS.Account do
       }
 
   """
-  @type get_alternate_contact_response() :: %{String.t() | Atom.t() => any()}
+  @type get_alternate_contact_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_contact_information_request() :: %{
-        optional("AccountId") => String.t() | Atom.t()
+        optional("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_contact_information_request() :: %{String.t() | Atom.t() => any()}
+  @type get_contact_information_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -197,190 +197,190 @@ defmodule AWS.Account do
       }
 
   """
-  @type get_contact_information_response() :: %{String.t() | Atom.t() => any()}
+  @type get_contact_information_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_primary_email_request() :: %{
-        required("AccountId") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom()
       }
 
   """
-  @type get_primary_email_request() :: %{String.t() | Atom.t() => any()}
+  @type get_primary_email_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_primary_email_response() :: %{
-        "PrimaryEmail" => String.t() | Atom.t()
+        "PrimaryEmail" => String.t() | atom()
       }
 
   """
-  @type get_primary_email_response() :: %{String.t() | Atom.t() => any()}
+  @type get_primary_email_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_region_opt_status_request() :: %{
-        optional("AccountId") => String.t() | Atom.t(),
-        required("RegionName") => String.t() | Atom.t()
+        optional("AccountId") => String.t() | atom(),
+        required("RegionName") => String.t() | atom()
       }
 
   """
-  @type get_region_opt_status_request() :: %{String.t() | Atom.t() => any()}
+  @type get_region_opt_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_region_opt_status_response() :: %{
-        "RegionName" => String.t() | Atom.t(),
-        "RegionOptStatus" => String.t() | Atom.t()
+        "RegionName" => String.t() | atom(),
+        "RegionOptStatus" => String.t() | atom()
       }
 
   """
-  @type get_region_opt_status_response() :: %{String.t() | Atom.t() => any()}
+  @type get_region_opt_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "errorType" => [String.t() | Atom.t()],
-        "message" => [String.t() | Atom.t()]
+        "errorType" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_regions_request() :: %{
-        optional("AccountId") => String.t() | Atom.t(),
+        optional("AccountId") => String.t() | atom(),
         optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | Atom.t()],
-        optional("RegionOptStatusContains") => list(String.t() | Atom.t())
+        optional("NextToken") => [String.t() | atom()],
+        optional("RegionOptStatusContains") => list(String.t() | atom())
       }
 
   """
-  @type list_regions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_regions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_regions_response() :: %{
-        "NextToken" => [String.t() | Atom.t()],
+        "NextToken" => [String.t() | atom()],
         "Regions" => list(region())
       }
 
   """
-  @type list_regions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_regions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_account_name_request() :: %{
-        optional("AccountId") => String.t() | Atom.t(),
-        required("AccountName") => String.t() | Atom.t()
+        optional("AccountId") => String.t() | atom(),
+        required("AccountName") => String.t() | atom()
       }
 
   """
-  @type put_account_name_request() :: %{String.t() | Atom.t() => any()}
+  @type put_account_name_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_alternate_contact_request() :: %{
-        optional("AccountId") => String.t() | Atom.t(),
-        required("AlternateContactType") => String.t() | Atom.t(),
-        required("EmailAddress") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
-        required("PhoneNumber") => String.t() | Atom.t(),
-        required("Title") => String.t() | Atom.t()
+        optional("AccountId") => String.t() | atom(),
+        required("AlternateContactType") => String.t() | atom(),
+        required("EmailAddress") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("PhoneNumber") => String.t() | atom(),
+        required("Title") => String.t() | atom()
       }
 
   """
-  @type put_alternate_contact_request() :: %{String.t() | Atom.t() => any()}
+  @type put_alternate_contact_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_contact_information_request() :: %{
-        optional("AccountId") => String.t() | Atom.t(),
+        optional("AccountId") => String.t() | atom(),
         required("ContactInformation") => contact_information()
       }
 
   """
-  @type put_contact_information_request() :: %{String.t() | Atom.t() => any()}
+  @type put_contact_information_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       region() :: %{
-        "RegionName" => String.t() | Atom.t(),
-        "RegionOptStatus" => String.t() | Atom.t()
+        "RegionName" => String.t() | atom(),
+        "RegionOptStatus" => String.t() | atom()
       }
 
   """
-  @type region() :: %{String.t() | Atom.t() => any()}
+  @type region() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "errorType" => [String.t() | Atom.t()],
-        "message" => [String.t() | Atom.t()]
+        "errorType" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_primary_email_update_request() :: %{
-        required("AccountId") => String.t() | Atom.t(),
-        required("PrimaryEmail") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom(),
+        required("PrimaryEmail") => String.t() | atom()
       }
 
   """
-  @type start_primary_email_update_request() :: %{String.t() | Atom.t() => any()}
+  @type start_primary_email_update_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_primary_email_update_response() :: %{
-        "Status" => String.t() | Atom.t()
+        "Status" => String.t() | atom()
       }
 
   """
-  @type start_primary_email_update_response() :: %{String.t() | Atom.t() => any()}
+  @type start_primary_email_update_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "errorType" => [String.t() | Atom.t()],
-        "message" => [String.t() | Atom.t()]
+        "errorType" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -388,24 +388,24 @@ defmodule AWS.Account do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | Atom.t(),
-        "reason" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "reason" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => String.t() | Atom.t(),
-        "name" => [String.t() | Atom.t()]
+        "message" => String.t() | atom(),
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @type accept_primary_email_update_errors() ::
           validation_exception()

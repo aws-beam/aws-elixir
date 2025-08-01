@@ -25,23 +25,23 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       incompatible_schema_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type incompatible_schema_exception() :: %{String.t() | Atom.t() => any()}
+  @type incompatible_schema_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_facet_request() :: %{
-        required("Name") => String.t() | Atom.t(),
-        required("SchemaArn") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type get_facet_request() :: %{String.t() | Atom.t() => any()}
+  @type get_facet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -53,19 +53,19 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type object_attribute_range() :: %{String.t() | Atom.t() => any()}
+  @type object_attribute_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_link_attributes() :: %{
-        "AttributeNames" => list(String.t() | Atom.t()),
+        "AttributeNames" => list(String.t() | atom()),
         "TypedLinkSpecifier" => typed_link_specifier()
       }
 
   """
-  @type batch_get_link_attributes() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_link_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -73,36 +73,36 @@ defmodule AWS.CloudDirectory do
 
       batch_list_policy_attachments() :: %{
         "MaxResults" => integer(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "PolicyReference" => object_reference()
       }
 
   """
-  @type batch_list_policy_attachments() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_policy_attachments() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_object_request() :: %{
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
         required("ObjectReference") => object_reference()
       }
 
   """
-  @type delete_object_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_object_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       policy_to_path() :: %{
-        "Path" => String.t() | Atom.t(),
+        "Path" => String.t() | atom(),
         "Policies" => list(policy_attachment())
       }
 
   """
-  @type policy_to_path() :: %{String.t() | Atom.t() => any()}
+  @type policy_to_path() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -110,11 +110,11 @@ defmodule AWS.CloudDirectory do
 
       list_incoming_typed_links_response() :: %{
         "LinkSpecifiers" => list(typed_link_specifier()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_incoming_typed_links_response() :: %{String.t() | Atom.t() => any()}
+  @type list_incoming_typed_links_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -125,7 +125,7 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type get_object_attributes_response() :: %{String.t() | Atom.t() => any()}
+  @type get_object_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -133,12 +133,12 @@ defmodule AWS.CloudDirectory do
 
       batch_attach_object() :: %{
         "ChildReference" => object_reference(),
-        "LinkName" => String.t() | Atom.t(),
+        "LinkName" => String.t() | atom(),
         "ParentReference" => object_reference()
       }
 
   """
-  @type batch_attach_object() :: %{String.t() | Atom.t() => any()}
+  @type batch_attach_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -147,35 +147,35 @@ defmodule AWS.CloudDirectory do
       batch_list_index() :: %{
         "IndexReference" => object_reference(),
         "MaxResults" => integer(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "RangesOnIndexedValues" => list(object_attribute_range())
       }
 
   """
-  @type batch_list_index() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_index() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_detach_object_response() :: %{
-        "detachedObjectIdentifier" => String.t() | Atom.t()
+        "detachedObjectIdentifier" => String.t() | atom()
       }
 
   """
-  @type batch_detach_object_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_detach_object_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_directory_request() :: %{
-        required("Name") => String.t() | Atom.t(),
-        required("SchemaArn") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type create_directory_request() :: %{String.t() | Atom.t() => any()}
+  @type create_directory_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -183,83 +183,83 @@ defmodule AWS.CloudDirectory do
 
       batch_lookup_policy() :: %{
         "MaxResults" => integer(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ObjectReference" => object_reference()
       }
 
   """
-  @type batch_lookup_policy() :: %{String.t() | Atom.t() => any()}
+  @type batch_lookup_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("Tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_object_policies_response() :: %{
-        "AttachedPolicyIds" => list(String.t() | Atom.t()),
-        "NextToken" => String.t() | Atom.t()
+        "AttachedPolicyIds" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_object_policies_response() :: %{String.t() | Atom.t() => any()}
+  @type list_object_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_published_schema_arns_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "SchemaArns" => list(String.t() | Atom.t())
+        "NextToken" => String.t() | atom(),
+        "SchemaArns" => list(String.t() | atom())
       }
 
   """
-  @type list_published_schema_arns_response() :: %{String.t() | Atom.t() => any()}
+  @type list_published_schema_arns_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_attach_to_index_response() :: %{
-        "AttachedObjectIdentifier" => String.t() | Atom.t()
+        "AttachedObjectIdentifier" => String.t() | atom()
       }
 
   """
-  @type batch_attach_to_index_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_attach_to_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_schema_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_schema_request() :: %{String.t() | Atom.t() => any()}
+  @type create_schema_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_object_attributes() :: %{
-        "AttributeNames" => list(String.t() | Atom.t()),
+        "AttributeNames" => list(String.t() | atom()),
         "ObjectReference" => object_reference(),
         "SchemaFacet" => schema_facet()
       }
 
   """
-  @type batch_get_object_attributes() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_object_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -273,7 +273,7 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type typed_link_specifier() :: %{String.t() | Atom.t() => any()}
+  @type typed_link_specifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -283,12 +283,12 @@ defmodule AWS.CloudDirectory do
         "FilterAttributeRanges" => list(typed_link_attribute_range()),
         "FilterTypedLink" => typed_link_schema_and_facet_name(),
         "MaxResults" => integer(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ObjectReference" => object_reference()
       }
 
   """
-  @type batch_list_incoming_typed_links() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_incoming_typed_links() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -300,29 +300,29 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_remove_facet_from_object() :: %{String.t() | Atom.t() => any()}
+  @type batch_remove_facet_from_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_applied_schema_version_response() :: %{
-        "AppliedSchemaArn" => String.t() | Atom.t()
+        "AppliedSchemaArn" => String.t() | atom()
       }
 
   """
-  @type get_applied_schema_version_response() :: %{String.t() | Atom.t() => any()}
+  @type get_applied_schema_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_index_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type not_index_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_index_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -339,71 +339,71 @@ defmodule AWS.CloudDirectory do
 
       batch_list_attached_indices() :: %{
         "MaxResults" => integer(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "TargetReference" => object_reference()
       }
 
   """
-  @type batch_list_attached_indices() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_attached_indices() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disable_directory_response() :: %{
-        "DirectoryArn" => String.t() | Atom.t()
+        "DirectoryArn" => String.t() | atom()
       }
 
   """
-  @type disable_directory_response() :: %{String.t() | Atom.t() => any()}
+  @type disable_directory_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_schema_as_json_response() :: %{
-        "Document" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Document" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type get_schema_as_json_response() :: %{String.t() | Atom.t() => any()}
+  @type get_schema_as_json_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       retryable_conflict_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type retryable_conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type retryable_conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_directory_response() :: %{
-        "AppliedSchemaArn" => String.t() | Atom.t(),
-        "DirectoryArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "ObjectIdentifier" => String.t() | Atom.t()
+        "AppliedSchemaArn" => String.t() | atom(),
+        "DirectoryArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ObjectIdentifier" => String.t() | atom()
       }
 
   """
-  @type create_directory_response() :: %{String.t() | Atom.t() => any()}
+  @type create_directory_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_applied_schema_version_request() :: %{
-        required("SchemaArn") => String.t() | Atom.t()
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type get_applied_schema_version_request() :: %{String.t() | Atom.t() => any()}
+  @type get_applied_schema_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -419,23 +419,23 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       delete_schema_request() :: %{
-        required("SchemaArn") => String.t() | Atom.t()
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type delete_schema_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_schema_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       schema_facet() :: %{
-        "FacetName" => String.t() | Atom.t(),
-        "SchemaArn" => String.t() | Atom.t()
+        "FacetName" => String.t() | atom(),
+        "SchemaArn" => String.t() | atom()
       }
 
   """
-  @type schema_facet() :: %{String.t() | Atom.t() => any()}
+  @type schema_facet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -444,12 +444,12 @@ defmodule AWS.CloudDirectory do
       batch_list_object_attributes() :: %{
         "FacetFilter" => schema_facet(),
         "MaxResults" => integer(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ObjectReference" => object_reference()
       }
 
   """
-  @type batch_list_object_attributes() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_object_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -465,11 +465,11 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       object_reference() :: %{
-        "Selector" => String.t() | Atom.t()
+        "Selector" => String.t() | atom()
       }
 
   """
-  @type object_reference() :: %{String.t() | Atom.t() => any()}
+  @type object_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -494,53 +494,53 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_write_operation_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_write_operation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_write_request() :: %{
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
         required("Operations") => list(batch_write_operation())
       }
 
   """
-  @type batch_write_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_write_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enable_directory_request() :: %{
-        required("DirectoryArn") => String.t() | Atom.t()
+        required("DirectoryArn") => String.t() | atom()
       }
 
   """
-  @type enable_directory_request() :: %{String.t() | Atom.t() => any()}
+  @type enable_directory_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_list_policy_attachments_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "ObjectIdentifiers" => list(String.t() | Atom.t())
+        "NextToken" => String.t() | atom(),
+        "ObjectIdentifiers" => list(String.t() | atom())
       }
 
   """
-  @type batch_list_policy_attachments_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_policy_attachments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_facet_update_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_facet_update_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_facet_update_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -548,22 +548,22 @@ defmodule AWS.CloudDirectory do
 
       batch_list_incoming_typed_links_response() :: %{
         "LinkSpecifiers" => list(typed_link_specifier()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type batch_list_incoming_typed_links_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_incoming_typed_links_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       facet_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type facet_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type facet_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -572,13 +572,13 @@ defmodule AWS.CloudDirectory do
       list_attached_indices_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("DirectoryArn") => String.t() | atom(),
         required("TargetReference") => object_reference()
       }
 
   """
-  @type list_attached_indices_request() :: %{String.t() | Atom.t() => any()}
+  @type list_attached_indices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -594,11 +594,11 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       directory_deleted_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type directory_deleted_exception() :: %{String.t() | Atom.t() => any()}
+  @type directory_deleted_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -606,13 +606,13 @@ defmodule AWS.CloudDirectory do
 
       lookup_policy_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("DirectoryArn") => String.t() | atom(),
         required("ObjectReference") => object_reference()
       }
 
   """
-  @type lookup_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type lookup_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -624,7 +624,7 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_read_operation_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_read_operation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -632,12 +632,12 @@ defmodule AWS.CloudDirectory do
 
       list_typed_link_facet_names_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("SchemaArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type list_typed_link_facet_names_request() :: %{String.t() | Atom.t() => any()}
+  @type list_typed_link_facet_names_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -645,11 +645,11 @@ defmodule AWS.CloudDirectory do
 
       list_object_children_response() :: %{
         "Children" => map(),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_object_children_response() :: %{String.t() | Atom.t() => any()}
+  @type list_object_children_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -673,19 +673,19 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_read_successful_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_read_successful_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       typed_link_schema_and_facet_name() :: %{
-        "SchemaArn" => String.t() | Atom.t(),
-        "TypedLinkName" => String.t() | Atom.t()
+        "SchemaArn" => String.t() | atom(),
+        "TypedLinkName" => String.t() | atom()
       }
 
   """
-  @type typed_link_schema_and_facet_name() :: %{String.t() | Atom.t() => any()}
+  @type typed_link_schema_and_facet_name() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -699,7 +699,7 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type typed_attribute_value_range() :: %{String.t() | Atom.t() => any()}
+  @type typed_attribute_value_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -709,13 +709,13 @@ defmodule AWS.CloudDirectory do
         optional("ConsistencyLevel") => list(any()),
         optional("FacetFilter") => schema_facet(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("DirectoryArn") => String.t() | atom(),
         required("ObjectReference") => object_reference()
       }
 
   """
-  @type list_object_attributes_request() :: %{String.t() | Atom.t() => any()}
+  @type list_object_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -731,24 +731,24 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       detach_policy_request() :: %{
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
         required("ObjectReference") => object_reference(),
         required("PolicyReference") => object_reference()
       }
 
   """
-  @type detach_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type detach_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       publish_schema_response() :: %{
-        "PublishedSchemaArn" => String.t() | Atom.t()
+        "PublishedSchemaArn" => String.t() | atom()
       }
 
   """
-  @type publish_schema_response() :: %{String.t() | Atom.t() => any()}
+  @type publish_schema_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -756,13 +756,13 @@ defmodule AWS.CloudDirectory do
 
       directory() :: %{
         "CreationDateTime" => non_neg_integer(),
-        "DirectoryArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "DirectoryArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "State" => list(any())
       }
 
   """
-  @type directory() :: %{String.t() | Atom.t() => any()}
+  @type directory() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -774,29 +774,29 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type link_attribute_action() :: %{String.t() | Atom.t() => any()}
+  @type link_attribute_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_schema_response() :: %{
-        "SchemaArn" => String.t() | Atom.t()
+        "SchemaArn" => String.t() | atom()
       }
 
   """
-  @type update_schema_response() :: %{String.t() | Atom.t() => any()}
+  @type update_schema_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enable_directory_response() :: %{
-        "DirectoryArn" => String.t() | Atom.t()
+        "DirectoryArn" => String.t() | atom()
       }
 
   """
-  @type enable_directory_response() :: %{String.t() | Atom.t() => any()}
+  @type enable_directory_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -805,24 +805,24 @@ defmodule AWS.CloudDirectory do
       list_object_policies_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("DirectoryArn") => String.t() | atom(),
         required("ObjectReference") => object_reference()
       }
 
   """
-  @type list_object_policies_request() :: %{String.t() | Atom.t() => any()}
+  @type list_object_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_service_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_service_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -840,12 +840,12 @@ defmodule AWS.CloudDirectory do
       facet_attribute() :: %{
         "AttributeDefinition" => facet_attribute_definition(),
         "AttributeReference" => facet_attribute_reference(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "RequiredBehavior" => list(any())
       }
 
   """
-  @type facet_attribute() :: %{String.t() | Atom.t() => any()}
+  @type facet_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -853,13 +853,13 @@ defmodule AWS.CloudDirectory do
 
       list_typed_link_facet_attributes_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
-        required("SchemaArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type list_typed_link_facet_attributes_request() :: %{String.t() | Atom.t() => any()}
+  @type list_typed_link_facet_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -867,13 +867,13 @@ defmodule AWS.CloudDirectory do
 
       get_link_attributes_request() :: %{
         optional("ConsistencyLevel") => list(any()),
-        required("AttributeNames") => list(String.t() | Atom.t()),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("AttributeNames") => list(String.t() | atom()),
+        required("DirectoryArn") => String.t() | atom(),
         required("TypedLinkSpecifier") => typed_link_specifier()
       }
 
   """
-  @type get_link_attributes_request() :: %{String.t() | Atom.t() => any()}
+  @type get_link_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -881,57 +881,57 @@ defmodule AWS.CloudDirectory do
 
       list_development_schema_arns_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_development_schema_arns_request() :: %{String.t() | Atom.t() => any()}
+  @type list_development_schema_arns_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_schema_response() :: %{
-        "SchemaArn" => String.t() | Atom.t()
+        "SchemaArn" => String.t() | atom()
       }
 
   """
-  @type create_schema_response() :: %{String.t() | Atom.t() => any()}
+  @type create_schema_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disable_directory_request() :: %{
-        required("DirectoryArn") => String.t() | Atom.t()
+        required("DirectoryArn") => String.t() | atom()
       }
 
   """
-  @type disable_directory_request() :: %{String.t() | Atom.t() => any()}
+  @type disable_directory_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       apply_schema_request() :: %{
-        required("DirectoryArn") => String.t() | Atom.t(),
-        required("PublishedSchemaArn") => String.t() | Atom.t()
+        required("DirectoryArn") => String.t() | atom(),
+        required("PublishedSchemaArn") => String.t() | atom()
       }
 
   """
-  @type apply_schema_request() :: %{String.t() | Atom.t() => any()}
+  @type apply_schema_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -947,45 +947,45 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       schema_already_exists_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type schema_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type schema_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       apply_schema_response() :: %{
-        "AppliedSchemaArn" => String.t() | Atom.t(),
-        "DirectoryArn" => String.t() | Atom.t()
+        "AppliedSchemaArn" => String.t() | atom(),
+        "DirectoryArn" => String.t() | atom()
       }
 
   """
-  @type apply_schema_response() :: %{String.t() | Atom.t() => any()}
+  @type apply_schema_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       schema_already_published_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type schema_already_published_exception() :: %{String.t() | Atom.t() => any()}
+  @type schema_already_published_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_create_index_response() :: %{
-        "ObjectIdentifier" => String.t() | Atom.t()
+        "ObjectIdentifier" => String.t() | atom()
       }
 
   """
-  @type batch_create_index_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_create_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -993,13 +993,13 @@ defmodule AWS.CloudDirectory do
 
       list_facet_attributes_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
-        required("SchemaArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type list_facet_attributes_request() :: %{String.t() | Atom.t() => any()}
+  @type list_facet_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1028,30 +1028,30 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_get_object_information() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_object_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_arn_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_arn_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_arn_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_list_object_policies_response() :: %{
-        "AttachedPolicyIds" => list(String.t() | Atom.t()),
-        "NextToken" => String.t() | Atom.t()
+        "AttachedPolicyIds" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type batch_list_object_policies_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_object_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1059,13 +1059,13 @@ defmodule AWS.CloudDirectory do
 
       upgrade_published_schema_request() :: %{
         optional("DryRun") => boolean(),
-        required("DevelopmentSchemaArn") => String.t() | Atom.t(),
-        required("MinorVersion") => String.t() | Atom.t(),
-        required("PublishedSchemaArn") => String.t() | Atom.t()
+        required("DevelopmentSchemaArn") => String.t() | atom(),
+        required("MinorVersion") => String.t() | atom(),
+        required("PublishedSchemaArn") => String.t() | atom()
       }
 
   """
-  @type upgrade_published_schema_request() :: %{String.t() | Atom.t() => any()}
+  @type upgrade_published_schema_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1073,12 +1073,12 @@ defmodule AWS.CloudDirectory do
 
       update_object_attributes_request() :: %{
         required("AttributeUpdates") => list(object_attribute_update()),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
         required("ObjectReference") => object_reference()
       }
 
   """
-  @type update_object_attributes_request() :: %{String.t() | Atom.t() => any()}
+  @type update_object_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1086,13 +1086,13 @@ defmodule AWS.CloudDirectory do
 
       list_object_parent_paths_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("DirectoryArn") => String.t() | atom(),
         required("ObjectReference") => object_reference()
       }
 
   """
-  @type list_object_parent_paths_request() :: %{String.t() | Atom.t() => any()}
+  @type list_object_parent_paths_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1100,34 +1100,34 @@ defmodule AWS.CloudDirectory do
 
       list_typed_link_facet_attributes_response() :: %{
         "Attributes" => list(typed_link_attribute_definition()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_typed_link_facet_attributes_response() :: %{String.t() | Atom.t() => any()}
+  @type list_typed_link_facet_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_node_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type not_node_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_node_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_list_object_parent_paths_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "PathToObjectIdentifiersList" => list(path_to_object_identifiers())
       }
 
   """
-  @type batch_list_object_parent_paths_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_object_parent_paths_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1135,23 +1135,23 @@ defmodule AWS.CloudDirectory do
 
       index_attachment() :: %{
         "IndexedAttributes" => list(attribute_key_and_value()),
-        "ObjectIdentifier" => String.t() | Atom.t()
+        "ObjectIdentifier" => String.t() | atom()
       }
 
   """
-  @type index_attachment() :: %{String.t() | Atom.t() => any()}
+  @type index_attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_list_object_parents_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ParentLinks" => list(object_identifier_and_link_name_tuple())
       }
 
   """
-  @type batch_list_object_parents_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_object_parents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1162,7 +1162,7 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_write_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_write_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1170,12 +1170,12 @@ defmodule AWS.CloudDirectory do
 
       batch_list_object_parent_paths() :: %{
         "MaxResults" => integer(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ObjectReference" => object_reference()
       }
 
   """
-  @type batch_list_object_parent_paths() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_object_parent_paths() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1191,24 +1191,24 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       put_schema_from_json_response() :: %{
-        "Arn" => String.t() | Atom.t()
+        "Arn" => String.t() | atom()
       }
 
   """
-  @type put_schema_from_json_response() :: %{String.t() | Atom.t() => any()}
+  @type put_schema_from_json_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_object_parents_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ParentLinks" => list(object_identifier_and_link_name_tuple()),
         "Parents" => map()
       }
 
   """
-  @type list_object_parents_response() :: %{String.t() | Atom.t() => any()}
+  @type list_object_parents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1219,19 +1219,19 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type get_directory_response() :: %{String.t() | Atom.t() => any()}
+  @type get_directory_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       attribute_name_and_value() :: %{
-        "AttributeName" => String.t() | Atom.t(),
+        "AttributeName" => String.t() | atom(),
         "Value" => list()
       }
 
   """
-  @type attribute_name_and_value() :: %{String.t() | Atom.t() => any()}
+  @type attribute_name_and_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1239,25 +1239,25 @@ defmodule AWS.CloudDirectory do
 
       attach_object_request() :: %{
         required("ChildReference") => object_reference(),
-        required("DirectoryArn") => String.t() | Atom.t(),
-        required("LinkName") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
+        required("LinkName") => String.t() | atom(),
         required("ParentReference") => object_reference()
       }
 
   """
-  @type attach_object_request() :: %{String.t() | Atom.t() => any()}
+  @type attach_object_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_read_exception() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type batch_read_exception() :: %{String.t() | Atom.t() => any()}
+  @type batch_read_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1266,13 +1266,13 @@ defmodule AWS.CloudDirectory do
       list_object_children_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("DirectoryArn") => String.t() | atom(),
         required("ObjectReference") => object_reference()
       }
 
   """
-  @type list_object_children_request() :: %{String.t() | Atom.t() => any()}
+  @type list_object_children_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1281,26 +1281,26 @@ defmodule AWS.CloudDirectory do
       typed_link_attribute_definition() :: %{
         "DefaultValue" => list(),
         "IsImmutable" => boolean(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "RequiredBehavior" => list(any()),
         "Rules" => map(),
         "Type" => list(any())
       }
 
   """
-  @type typed_link_attribute_definition() :: %{String.t() | Atom.t() => any()}
+  @type typed_link_attribute_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_facet_names_response() :: %{
-        "FacetNames" => list(String.t() | Atom.t()),
-        "NextToken" => String.t() | Atom.t()
+        "FacetNames" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_facet_names_response() :: %{String.t() | Atom.t() => any()}
+  @type list_facet_names_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1312,18 +1312,18 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type facet_attribute_update() :: %{String.t() | Atom.t() => any()}
+  @type facet_attribute_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1331,24 +1331,24 @@ defmodule AWS.CloudDirectory do
 
       list_applied_schema_arns_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("SchemaArn") => String.t() | Atom.t(),
-        required("DirectoryArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("SchemaArn") => String.t() | atom(),
+        required("DirectoryArn") => String.t() | atom()
       }
 
   """
-  @type list_applied_schema_arns_request() :: %{String.t() | Atom.t() => any()}
+  @type list_applied_schema_arns_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       detach_object_response() :: %{
-        "DetachedObjectIdentifier" => String.t() | Atom.t()
+        "DetachedObjectIdentifier" => String.t() | atom()
       }
 
   """
-  @type detach_object_response() :: %{String.t() | Atom.t() => any()}
+  @type detach_object_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1373,24 +1373,24 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_lookup_policy_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "PolicyToPathList" => list(policy_to_path())
       }
 
   """
-  @type batch_lookup_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_lookup_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1402,18 +1402,18 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_detach_policy() :: %{String.t() | Atom.t() => any()}
+  @type batch_detach_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       directory_already_exists_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type directory_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type directory_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1434,172 +1434,172 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_update_link_attributes() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_link_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_create_object_response() :: %{
-        "ObjectIdentifier" => String.t() | Atom.t()
+        "ObjectIdentifier" => String.t() | atom()
       }
 
   """
-  @type batch_create_object_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_create_object_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       attach_policy_request() :: %{
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
         required("ObjectReference") => object_reference(),
         required("PolicyReference") => object_reference()
       }
 
   """
-  @type attach_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type attach_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       facet_attribute_reference() :: %{
-        "TargetAttributeName" => String.t() | Atom.t(),
-        "TargetFacetName" => String.t() | Atom.t()
+        "TargetAttributeName" => String.t() | atom(),
+        "TargetFacetName" => String.t() | atom()
       }
 
   """
-  @type facet_attribute_reference() :: %{String.t() | Atom.t() => any()}
+  @type facet_attribute_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_schema_doc_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_schema_doc_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_schema_doc_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_next_token_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_directory_response() :: %{
-        "DirectoryArn" => String.t() | Atom.t()
+        "DirectoryArn" => String.t() | atom()
       }
 
   """
-  @type delete_directory_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_directory_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_typed_link_facet_information_request() :: %{
-        required("Name") => String.t() | Atom.t(),
-        required("SchemaArn") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type get_typed_link_facet_information_request() :: %{String.t() | Atom.t() => any()}
+  @type get_typed_link_facet_information_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       attach_to_index_request() :: %{
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
         required("IndexReference") => object_reference(),
         required("TargetReference") => object_reference()
       }
 
   """
-  @type attach_to_index_request() :: %{String.t() | Atom.t() => any()}
+  @type attach_to_index_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_object_information_response() :: %{
-        "ObjectIdentifier" => String.t() | Atom.t(),
+        "ObjectIdentifier" => String.t() | atom(),
         "SchemaFacets" => list(schema_facet())
       }
 
   """
-  @type batch_get_object_information_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_object_information_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       detach_from_index_response() :: %{
-        "DetachedObjectIdentifier" => String.t() | Atom.t()
+        "DetachedObjectIdentifier" => String.t() | atom()
       }
 
   """
-  @type detach_from_index_response() :: %{String.t() | Atom.t() => any()}
+  @type detach_from_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       detach_from_index_request() :: %{
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
         required("IndexReference") => object_reference(),
         required("TargetReference") => object_reference()
       }
 
   """
-  @type detach_from_index_request() :: %{String.t() | Atom.t() => any()}
+  @type detach_from_index_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       facet_in_use_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type facet_in_use_exception() :: %{String.t() | Atom.t() => any()}
+  @type facet_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_schema_response() :: %{
-        "SchemaArn" => String.t() | Atom.t()
+        "SchemaArn" => String.t() | atom()
       }
 
   """
-  @type delete_schema_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_schema_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_detach_object() :: %{
-        "BatchReferenceName" => String.t() | Atom.t(),
-        "LinkName" => String.t() | Atom.t(),
+        "BatchReferenceName" => String.t() | atom(),
+        "LinkName" => String.t() | atom(),
         "ParentReference" => object_reference()
       }
 
   """
-  @type batch_detach_object() :: %{String.t() | Atom.t() => any()}
+  @type batch_detach_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1607,12 +1607,12 @@ defmodule AWS.CloudDirectory do
 
       list_facet_names_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("SchemaArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type list_facet_names_request() :: %{String.t() | Atom.t() => any()}
+  @type list_facet_names_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1620,23 +1620,23 @@ defmodule AWS.CloudDirectory do
 
       batch_list_attached_indices_response() :: %{
         "IndexAttachments" => list(index_attachment()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type batch_list_attached_indices_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_attached_indices_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_facet_request() :: %{
-        required("Name") => String.t() | Atom.t(),
-        required("SchemaArn") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type delete_facet_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_facet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1645,28 +1645,28 @@ defmodule AWS.CloudDirectory do
       list_policy_attachments_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("DirectoryArn") => String.t() | atom(),
         required("PolicyReference") => object_reference()
       }
 
   """
-  @type list_policy_attachments_request() :: %{String.t() | Atom.t() => any()}
+  @type list_policy_attachments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_create_object() :: %{
-        "BatchReferenceName" => String.t() | Atom.t(),
-        "LinkName" => String.t() | Atom.t(),
+        "BatchReferenceName" => String.t() | atom(),
+        "LinkName" => String.t() | atom(),
         "ObjectAttributeList" => list(attribute_key_and_value()),
         "ParentReference" => object_reference(),
         "SchemaFacet" => list(schema_facet())
       }
 
   """
-  @type batch_create_object() :: %{String.t() | Atom.t() => any()}
+  @type batch_create_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1690,7 +1690,7 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_read_operation() :: %{String.t() | Atom.t() => any()}
+  @type batch_read_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1701,13 +1701,13 @@ defmodule AWS.CloudDirectory do
         optional("FilterAttributeRanges") => list(typed_link_attribute_range()),
         optional("FilterTypedLink") => typed_link_schema_and_facet_name(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("DirectoryArn") => String.t() | atom(),
         required("ObjectReference") => object_reference()
       }
 
   """
-  @type list_incoming_typed_links_request() :: %{String.t() | Atom.t() => any()}
+  @type list_incoming_typed_links_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1715,23 +1715,23 @@ defmodule AWS.CloudDirectory do
 
       list_facet_attributes_response() :: %{
         "Attributes" => list(facet_attribute()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_facet_attributes_response() :: %{String.t() | Atom.t() => any()}
+  @type list_facet_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Tags" => list(tag())
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1743,18 +1743,18 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type object_attribute_update() :: %{String.t() | Atom.t() => any()}
+  @type object_attribute_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       upgrade_published_schema_response() :: %{
-        "UpgradedSchemaArn" => String.t() | Atom.t()
+        "UpgradedSchemaArn" => String.t() | atom()
       }
 
   """
-  @type upgrade_published_schema_response() :: %{String.t() | Atom.t() => any()}
+  @type upgrade_published_schema_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1774,24 +1774,24 @@ defmodule AWS.CloudDirectory do
         optional("FilterAttributeRanges") => list(typed_link_attribute_range()),
         optional("FilterTypedLink") => typed_link_schema_and_facet_name(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("DirectoryArn") => String.t() | atom(),
         required("ObjectReference") => object_reference()
       }
 
   """
-  @type list_outgoing_typed_links_request() :: %{String.t() | Atom.t() => any()}
+  @type list_outgoing_typed_links_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_update_object_attributes_response() :: %{
-        "ObjectIdentifier" => String.t() | Atom.t()
+        "ObjectIdentifier" => String.t() | atom()
       }
 
   """
-  @type batch_update_object_attributes_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_object_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1799,45 +1799,45 @@ defmodule AWS.CloudDirectory do
 
       batch_list_index_response() :: %{
         "IndexAttachments" => list(index_attachment()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type batch_list_index_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_outgoing_typed_links_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "TypedLinkSpecifiers" => list(typed_link_specifier())
       }
 
   """
-  @type list_outgoing_typed_links_response() :: %{String.t() | Atom.t() => any()}
+  @type list_outgoing_typed_links_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       attach_to_index_response() :: %{
-        "AttachedObjectIdentifier" => String.t() | Atom.t()
+        "AttachedObjectIdentifier" => String.t() | atom()
       }
 
   """
-  @type attach_to_index_response() :: %{String.t() | Atom.t() => any()}
+  @type attach_to_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       indexed_attribute_missing_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type indexed_attribute_missing_exception() :: %{String.t() | Atom.t() => any()}
+  @type indexed_attribute_missing_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1845,12 +1845,12 @@ defmodule AWS.CloudDirectory do
 
       update_link_attributes_request() :: %{
         required("AttributeUpdates") => list(link_attribute_update()),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
         required("TypedLinkSpecifier") => typed_link_specifier()
       }
 
   """
-  @type update_link_attributes_request() :: %{String.t() | Atom.t() => any()}
+  @type update_link_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1862,7 +1862,7 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type object_attribute_action() :: %{String.t() | Atom.t() => any()}
+  @type object_attribute_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1874,7 +1874,7 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type rule() :: %{String.t() | Atom.t() => any()}
+  @type rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1882,26 +1882,26 @@ defmodule AWS.CloudDirectory do
 
       attach_typed_link_request() :: %{
         required("Attributes") => list(attribute_name_and_value()),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
         required("SourceObjectReference") => object_reference(),
         required("TargetObjectReference") => object_reference(),
         required("TypedLinkFacet") => typed_link_schema_and_facet_name()
       }
 
   """
-  @type attach_typed_link_request() :: %{String.t() | Atom.t() => any()}
+  @type attach_typed_link_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_applied_schema_arns_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "SchemaArns" => list(String.t() | Atom.t())
+        "NextToken" => String.t() | atom(),
+        "SchemaArns" => list(String.t() | atom())
       }
 
   """
-  @type list_applied_schema_arns_response() :: %{String.t() | Atom.t() => any()}
+  @type list_applied_schema_arns_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1926,7 +1926,7 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_write_operation() :: %{String.t() | Atom.t() => any()}
+  @type batch_write_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1940,18 +1940,18 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_attach_typed_link() :: %{String.t() | Atom.t() => any()}
+  @type batch_attach_typed_link() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unsupported_index_type_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type unsupported_index_type_exception() :: %{String.t() | Atom.t() => any()}
+  @type unsupported_index_type_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1960,14 +1960,14 @@ defmodule AWS.CloudDirectory do
       list_index_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("RangesOnIndexedValues") => list(object_attribute_range()),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
         required("IndexReference") => object_reference()
       }
 
   """
-  @type list_index_request() :: %{String.t() | Atom.t() => any()}
+  @type list_index_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1979,31 +1979,31 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type link_attribute_update() :: %{String.t() | Atom.t() => any()}
+  @type link_attribute_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       link_name_already_in_use_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type link_name_already_in_use_exception() :: %{String.t() | Atom.t() => any()}
+  @type link_name_already_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       policy_attachment() :: %{
-        "ObjectIdentifier" => String.t() | Atom.t(),
-        "PolicyId" => String.t() | Atom.t(),
-        "PolicyType" => String.t() | Atom.t()
+        "ObjectIdentifier" => String.t() | atom(),
+        "PolicyId" => String.t() | atom(),
+        "PolicyType" => String.t() | atom()
       }
 
   """
-  @type policy_attachment() :: %{String.t() | Atom.t() => any()}
+  @type policy_attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2014,7 +2014,7 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type attach_typed_link_response() :: %{String.t() | Atom.t() => any()}
+  @type attach_typed_link_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2026,7 +2026,7 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_update_object_attributes() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_object_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2034,11 +2034,11 @@ defmodule AWS.CloudDirectory do
 
       list_object_attributes_response() :: %{
         "Attributes" => list(attribute_key_and_value()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_object_attributes_response() :: %{String.t() | Atom.t() => any()}
+  @type list_object_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2055,37 +2055,37 @@ defmodule AWS.CloudDirectory do
 
       batch_list_object_attributes_response() :: %{
         "Attributes" => list(attribute_key_and_value()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type batch_list_object_attributes_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_object_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       publish_schema_request() :: %{
-        optional("MinorVersion") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
-        required("DevelopmentSchemaArn") => String.t() | Atom.t(),
-        required("Version") => String.t() | Atom.t()
+        optional("MinorVersion") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        required("DevelopmentSchemaArn") => String.t() | atom(),
+        required("Version") => String.t() | atom()
       }
 
   """
-  @type publish_schema_request() :: %{String.t() | Atom.t() => any()}
+  @type publish_schema_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_object_information_response() :: %{
-        "ObjectIdentifier" => String.t() | Atom.t(),
+        "ObjectIdentifier" => String.t() | atom(),
         "SchemaFacets" => list(schema_facet())
       }
 
   """
-  @type get_object_information_response() :: %{String.t() | Atom.t() => any()}
+  @type get_object_information_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2096,19 +2096,19 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_read_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_read_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       path_to_object_identifiers() :: %{
-        "ObjectIdentifiers" => list(String.t() | Atom.t()),
-        "Path" => String.t() | Atom.t()
+        "ObjectIdentifiers" => list(String.t() | atom()),
+        "Path" => String.t() | atom()
       }
 
   """
-  @type path_to_object_identifiers() :: %{String.t() | Atom.t() => any()}
+  @type path_to_object_identifiers() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2120,19 +2120,19 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_attach_policy() :: %{String.t() | Atom.t() => any()}
+  @type batch_attach_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_object_parent_paths_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "PathToObjectIdentifiersList" => list(path_to_object_identifiers())
       }
 
   """
-  @type list_object_parent_paths_response() :: %{String.t() | Atom.t() => any()}
+  @type list_object_parent_paths_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2140,24 +2140,24 @@ defmodule AWS.CloudDirectory do
 
       batch_list_object_parents() :: %{
         "MaxResults" => integer(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ObjectReference" => object_reference()
       }
 
   """
-  @type batch_list_object_parents() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_object_parents() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_schema_from_json_request() :: %{
-        required("Document") => String.t() | Atom.t(),
-        required("SchemaArn") => String.t() | Atom.t()
+        required("Document") => String.t() | atom(),
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type put_schema_from_json_request() :: %{String.t() | Atom.t() => any()}
+  @type put_schema_from_json_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2169,19 +2169,19 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_attach_to_index() :: %{String.t() | Atom.t() => any()}
+  @type batch_attach_to_index() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_typed_link_facet_request() :: %{
-        required("Name") => String.t() | Atom.t(),
-        required("SchemaArn") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type delete_typed_link_facet_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_typed_link_facet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2191,12 +2191,12 @@ defmodule AWS.CloudDirectory do
         optional("Attributes") => list(facet_attribute()),
         optional("FacetStyle") => list(any()),
         optional("ObjectType") => list(any()),
-        required("Name") => String.t() | Atom.t(),
-        required("SchemaArn") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type create_facet_request() :: %{String.t() | Atom.t() => any()}
+  @type create_facet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2204,23 +2204,23 @@ defmodule AWS.CloudDirectory do
 
       list_directories_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("state") => list(any())
       }
 
   """
-  @type list_directories_request() :: %{String.t() | Atom.t() => any()}
+  @type list_directories_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cannot_list_parent_of_root_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type cannot_list_parent_of_root_exception() :: %{String.t() | Atom.t() => any()}
+  @type cannot_list_parent_of_root_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2228,27 +2228,27 @@ defmodule AWS.CloudDirectory do
 
       upgrade_applied_schema_request() :: %{
         optional("DryRun") => boolean(),
-        required("DirectoryArn") => String.t() | Atom.t(),
-        required("PublishedSchemaArn") => String.t() | Atom.t()
+        required("DirectoryArn") => String.t() | atom(),
+        required("PublishedSchemaArn") => String.t() | atom()
       }
 
   """
-  @type upgrade_applied_schema_request() :: %{String.t() | Atom.t() => any()}
+  @type upgrade_applied_schema_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_index_request() :: %{
-        optional("LinkName") => String.t() | Atom.t(),
+        optional("LinkName") => String.t() | atom(),
         optional("ParentReference") => object_reference(),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
         required("IsUnique") => boolean(),
         required("OrderedIndexedAttributeList") => list(attribute_key())
       }
 
   """
-  @type create_index_request() :: %{String.t() | Atom.t() => any()}
+  @type create_index_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2256,13 +2256,13 @@ defmodule AWS.CloudDirectory do
 
       update_typed_link_facet_request() :: %{
         required("AttributeUpdates") => list(typed_link_facet_attribute_update()),
-        required("IdentityAttributeOrder") => list(String.t() | Atom.t()),
-        required("Name") => String.t() | Atom.t(),
-        required("SchemaArn") => String.t() | Atom.t()
+        required("IdentityAttributeOrder") => list(String.t() | atom()),
+        required("Name") => String.t() | atom(),
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type update_typed_link_facet_request() :: %{String.t() | Atom.t() => any()}
+  @type update_typed_link_facet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2273,7 +2273,7 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_attach_typed_link_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_attach_typed_link_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2281,93 +2281,93 @@ defmodule AWS.CloudDirectory do
 
       get_object_information_request() :: %{
         optional("ConsistencyLevel") => list(any()),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
         required("ObjectReference") => object_reference()
       }
 
   """
-  @type get_object_information_request() :: %{String.t() | Atom.t() => any()}
+  @type get_object_information_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       object_identifier_and_link_name_tuple() :: %{
-        "LinkName" => String.t() | Atom.t(),
-        "ObjectIdentifier" => String.t() | Atom.t()
+        "LinkName" => String.t() | atom(),
+        "ObjectIdentifier" => String.t() | atom()
       }
 
   """
-  @type object_identifier_and_link_name_tuple() :: %{String.t() | Atom.t() => any()}
+  @type object_identifier_and_link_name_tuple() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       detach_object_request() :: %{
-        required("DirectoryArn") => String.t() | Atom.t(),
-        required("LinkName") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
+        required("LinkName") => String.t() | atom(),
         required("ParentReference") => object_reference()
       }
 
   """
-  @type detach_object_request() :: %{String.t() | Atom.t() => any()}
+  @type detach_object_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_object_attributes_response() :: %{
-        "ObjectIdentifier" => String.t() | Atom.t()
+        "ObjectIdentifier" => String.t() | atom()
       }
 
   """
-  @type update_object_attributes_response() :: %{String.t() | Atom.t() => any()}
+  @type update_object_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_typed_link_facet_names_response() :: %{
-        "FacetNames" => list(String.t() | Atom.t()),
-        "NextToken" => String.t() | Atom.t()
+        "FacetNames" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_typed_link_facet_names_response() :: %{String.t() | Atom.t() => any()}
+  @type list_typed_link_facet_names_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       still_contains_links_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type still_contains_links_exception() :: %{String.t() | Atom.t() => any()}
+  @type still_contains_links_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_directory_request() :: %{
-        required("DirectoryArn") => String.t() | Atom.t()
+        required("DirectoryArn") => String.t() | atom()
       }
 
   """
-  @type delete_directory_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_directory_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2383,11 +2383,11 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       facet_already_exists_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type facet_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type facet_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2403,24 +2403,24 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       list_development_schema_arns_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "SchemaArns" => list(String.t() | Atom.t())
+        "NextToken" => String.t() | atom(),
+        "SchemaArns" => list(String.t() | atom())
       }
 
   """
-  @type list_development_schema_arns_response() :: %{String.t() | Atom.t() => any()}
+  @type list_development_schema_arns_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_managed_schema_arns_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "SchemaArns" => list(String.t() | Atom.t())
+        "NextToken" => String.t() | atom(),
+        "SchemaArns" => list(String.t() | atom())
       }
 
   """
-  @type list_managed_schema_arns_response() :: %{String.t() | Atom.t() => any()}
+  @type list_managed_schema_arns_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2440,7 +2440,7 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type get_link_attributes_response() :: %{String.t() | Atom.t() => any()}
+  @type get_link_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2448,12 +2448,12 @@ defmodule AWS.CloudDirectory do
 
       batch_list_object_children() :: %{
         "MaxResults" => integer(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ObjectReference" => object_reference()
       }
 
   """
-  @type batch_list_object_children() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_object_children() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2461,11 +2461,11 @@ defmodule AWS.CloudDirectory do
 
       list_attached_indices_response() :: %{
         "IndexAttachments" => list(index_attachment()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_attached_indices_response() :: %{String.t() | Atom.t() => any()}
+  @type list_attached_indices_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2477,7 +2477,7 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type attribute_key_and_value() :: %{String.t() | Atom.t() => any()}
+  @type attribute_key_and_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2488,44 +2488,44 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_detach_typed_link() :: %{String.t() | Atom.t() => any()}
+  @type batch_detach_typed_link() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       directory_not_disabled_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type directory_not_disabled_exception() :: %{String.t() | Atom.t() => any()}
+  @type directory_not_disabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_create_index() :: %{
-        "BatchReferenceName" => String.t() | Atom.t(),
+        "BatchReferenceName" => String.t() | atom(),
         "IsUnique" => boolean(),
-        "LinkName" => String.t() | Atom.t(),
+        "LinkName" => String.t() | atom(),
         "OrderedIndexedAttributeList" => list(attribute_key()),
         "ParentReference" => object_reference()
       }
 
   """
-  @type batch_create_index() :: %{String.t() | Atom.t() => any()}
+  @type batch_create_index() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2533,12 +2533,12 @@ defmodule AWS.CloudDirectory do
 
       list_tags_for_resource_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ResourceArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2547,12 +2547,12 @@ defmodule AWS.CloudDirectory do
       update_facet_request() :: %{
         optional("AttributeUpdates") => list(facet_attribute_update()),
         optional("ObjectType") => list(any()),
-        required("Name") => String.t() | Atom.t(),
-        required("SchemaArn") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type update_facet_request() :: %{String.t() | Atom.t() => any()}
+  @type update_facet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2560,12 +2560,12 @@ defmodule AWS.CloudDirectory do
 
       facet() :: %{
         "FacetStyle" => list(any()),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "ObjectType" => list(any())
       }
 
   """
-  @type facet() :: %{String.t() | Atom.t() => any()}
+  @type facet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2582,22 +2582,22 @@ defmodule AWS.CloudDirectory do
 
       create_typed_link_facet_request() :: %{
         required("Facet") => typed_link_facet(),
-        required("SchemaArn") => String.t() | Atom.t()
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type create_typed_link_facet_request() :: %{String.t() | Atom.t() => any()}
+  @type create_typed_link_facet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       facet_validation_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type facet_validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type facet_validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2605,12 +2605,12 @@ defmodule AWS.CloudDirectory do
 
       batch_list_object_policies() :: %{
         "MaxResults" => integer(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ObjectReference" => object_reference()
       }
 
   """
-  @type batch_list_object_policies() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_object_policies() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2618,34 +2618,34 @@ defmodule AWS.CloudDirectory do
 
       typed_link_facet() :: %{
         "Attributes" => list(typed_link_attribute_definition()),
-        "IdentityAttributeOrder" => list(String.t() | Atom.t()),
-        "Name" => String.t() | Atom.t()
+        "IdentityAttributeOrder" => list(String.t() | atom()),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type typed_link_facet() :: %{String.t() | Atom.t() => any()}
+  @type typed_link_facet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_rule_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_rule_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_rule_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_attach_object_response() :: %{
-        "attachedObjectIdentifier" => String.t() | Atom.t()
+        "attachedObjectIdentifier" => String.t() | atom()
       }
 
   """
-  @type batch_attach_object_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_attach_object_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2653,22 +2653,22 @@ defmodule AWS.CloudDirectory do
 
       batch_list_object_children_response() :: %{
         "Children" => map(),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type batch_list_object_children_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_object_children_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_detach_from_index_response() :: %{
-        "DetachedObjectIdentifier" => String.t() | Atom.t()
+        "DetachedObjectIdentifier" => String.t() | atom()
       }
 
   """
-  @type batch_detach_from_index_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_detach_from_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2676,24 +2676,24 @@ defmodule AWS.CloudDirectory do
 
       list_published_schema_arns_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("SchemaArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type list_published_schema_arns_request() :: %{String.t() | Atom.t() => any()}
+  @type list_published_schema_arns_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_policy_attachments_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "ObjectIdentifiers" => list(String.t() | Atom.t())
+        "NextToken" => String.t() | atom(),
+        "ObjectIdentifiers" => list(String.t() | atom())
       }
 
   """
-  @type list_policy_attachments_response() :: %{String.t() | Atom.t() => any()}
+  @type list_policy_attachments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2704,63 +2704,63 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_get_object_attributes_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_object_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       object_not_detached_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type object_not_detached_exception() :: %{String.t() | Atom.t() => any()}
+  @type object_not_detached_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_list_outgoing_typed_links_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "TypedLinkSpecifiers" => list(typed_link_specifier())
       }
 
   """
-  @type batch_list_outgoing_typed_links_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_outgoing_typed_links_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       attach_object_response() :: %{
-        "AttachedObjectIdentifier" => String.t() | Atom.t()
+        "AttachedObjectIdentifier" => String.t() | atom()
       }
 
   """
-  @type attach_object_response() :: %{String.t() | Atom.t() => any()}
+  @type attach_object_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_policy_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type not_policy_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_policy_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2772,7 +2772,7 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_detach_from_index() :: %{String.t() | Atom.t() => any()}
+  @type batch_detach_from_index() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2788,11 +2788,11 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       directory_not_enabled_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type directory_not_enabled_exception() :: %{String.t() | Atom.t() => any()}
+  @type directory_not_enabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2800,11 +2800,11 @@ defmodule AWS.CloudDirectory do
 
       list_index_response() :: %{
         "IndexAttachments" => list(index_attachment()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_index_response() :: %{String.t() | Atom.t() => any()}
+  @type list_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2814,25 +2814,25 @@ defmodule AWS.CloudDirectory do
         optional("ConsistencyLevel") => list(any()),
         optional("IncludeAllLinksToEachParent") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("DirectoryArn") => String.t() | atom(),
         required("ObjectReference") => object_reference()
       }
 
   """
-  @type list_object_parents_request() :: %{String.t() | Atom.t() => any()}
+  @type list_object_parents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       detach_typed_link_request() :: %{
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
         required("TypedLinkSpecifier") => typed_link_specifier()
       }
 
   """
-  @type detach_typed_link_request() :: %{String.t() | Atom.t() => any()}
+  @type detach_typed_link_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2840,60 +2840,60 @@ defmodule AWS.CloudDirectory do
 
       list_directories_response() :: %{
         "Directories" => list(directory()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_directories_response() :: %{String.t() | Atom.t() => any()}
+  @type list_directories_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_index_response() :: %{
-        "ObjectIdentifier" => String.t() | Atom.t()
+        "ObjectIdentifier" => String.t() | atom()
       }
 
   """
-  @type create_index_response() :: %{String.t() | Atom.t() => any()}
+  @type create_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       upgrade_applied_schema_response() :: %{
-        "DirectoryArn" => String.t() | Atom.t(),
-        "UpgradedSchemaArn" => String.t() | Atom.t()
+        "DirectoryArn" => String.t() | atom(),
+        "UpgradedSchemaArn" => String.t() | atom()
       }
 
   """
-  @type upgrade_applied_schema_response() :: %{String.t() | Atom.t() => any()}
+  @type upgrade_applied_schema_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_object_request() :: %{
-        optional("LinkName") => String.t() | Atom.t(),
+        optional("LinkName") => String.t() | atom(),
         optional("ObjectAttributeList") => list(attribute_key_and_value()),
         optional("ParentReference") => object_reference(),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
         required("SchemaFacets") => list(schema_facet())
       }
 
   """
-  @type create_object_request() :: %{String.t() | Atom.t() => any()}
+  @type create_object_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_object_response() :: %{
-        "ObjectIdentifier" => String.t() | Atom.t()
+        "ObjectIdentifier" => String.t() | atom()
       }
 
   """
-  @type create_object_response() :: %{String.t() | Atom.t() => any()}
+  @type create_object_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2901,13 +2901,13 @@ defmodule AWS.CloudDirectory do
 
       add_facet_to_object_request() :: %{
         optional("ObjectAttributeList") => list(attribute_key_and_value()),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
         required("ObjectReference") => object_reference(),
         required("SchemaFacet") => schema_facet()
       }
 
   """
-  @type add_facet_to_object_request() :: %{String.t() | Atom.t() => any()}
+  @type add_facet_to_object_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2917,12 +2917,12 @@ defmodule AWS.CloudDirectory do
         "FilterAttributeRanges" => list(typed_link_attribute_range()),
         "FilterTypedLink" => typed_link_schema_and_facet_name(),
         "MaxResults" => integer(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ObjectReference" => object_reference()
       }
 
   """
-  @type batch_list_outgoing_typed_links() :: %{String.t() | Atom.t() => any()}
+  @type batch_list_outgoing_typed_links() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2933,20 +2933,20 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_delete_object() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       attribute_key() :: %{
-        "FacetName" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "SchemaArn" => String.t() | Atom.t()
+        "FacetName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "SchemaArn" => String.t() | atom()
       }
 
   """
-  @type attribute_key() :: %{String.t() | Atom.t() => any()}
+  @type attribute_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2958,30 +2958,30 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type typed_link_facet_attribute_update() :: %{String.t() | Atom.t() => any()}
+  @type typed_link_facet_attribute_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lookup_policy_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "PolicyToPathList" => list(policy_to_path())
       }
 
   """
-  @type lookup_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type lookup_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_attachment_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_attachment_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_attachment_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2995,20 +2995,20 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type facet_attribute_definition() :: %{String.t() | Atom.t() => any()}
+  @type facet_attribute_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_facet_from_object_request() :: %{
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
         required("ObjectReference") => object_reference(),
         required("SchemaFacet") => schema_facet()
       }
 
   """
-  @type remove_facet_from_object_request() :: %{String.t() | Atom.t() => any()}
+  @type remove_facet_from_object_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3016,12 +3016,12 @@ defmodule AWS.CloudDirectory do
 
       batch_read_request() :: %{
         optional("ConsistencyLevel") => list(any()),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("DirectoryArn") => String.t() | atom(),
         required("Operations") => list(batch_read_operation())
       }
 
   """
-  @type batch_read_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_read_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3037,45 +3037,45 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       object_already_detached_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type object_already_detached_exception() :: %{String.t() | Atom.t() => any()}
+  @type object_already_detached_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_schema_as_json_request() :: %{
-        required("SchemaArn") => String.t() | Atom.t()
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type get_schema_as_json_request() :: %{String.t() | Atom.t() => any()}
+  @type get_schema_as_json_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       typed_link_attribute_range() :: %{
-        "AttributeName" => String.t() | Atom.t(),
+        "AttributeName" => String.t() | atom(),
         "Range" => typed_attribute_value_range()
       }
 
   """
-  @type typed_link_attribute_range() :: %{String.t() | Atom.t() => any()}
+  @type typed_link_attribute_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_directory_request() :: %{
-        required("DirectoryArn") => String.t() | Atom.t()
+        required("DirectoryArn") => String.t() | atom()
       }
 
   """
-  @type get_directory_request() :: %{String.t() | Atom.t() => any()}
+  @type get_directory_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3086,7 +3086,7 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type get_facet_response() :: %{String.t() | Atom.t() => any()}
+  @type get_facet_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3094,12 +3094,12 @@ defmodule AWS.CloudDirectory do
 
       list_managed_schema_arns_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("SchemaArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type list_managed_schema_arns_request() :: %{String.t() | Atom.t() => any()}
+  @type list_managed_schema_arns_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3107,12 +3107,12 @@ defmodule AWS.CloudDirectory do
 
       batch_write_exception() :: %{
         "Index" => integer(),
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type batch_write_exception() :: %{String.t() | Atom.t() => any()}
+  @type batch_write_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3120,14 +3120,14 @@ defmodule AWS.CloudDirectory do
 
       get_object_attributes_request() :: %{
         optional("ConsistencyLevel") => list(any()),
-        required("AttributeNames") => list(String.t() | Atom.t()),
-        required("DirectoryArn") => String.t() | Atom.t(),
+        required("AttributeNames") => list(String.t() | atom()),
+        required("DirectoryArn") => String.t() | atom(),
         required("ObjectReference") => object_reference(),
         required("SchemaFacet") => schema_facet()
       }
 
   """
-  @type get_object_attributes_request() :: %{String.t() | Atom.t() => any()}
+  @type get_object_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3138,41 +3138,41 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_get_link_attributes_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_link_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_typed_link_facet_information_response() :: %{
-        "IdentityAttributeOrder" => list(String.t() | Atom.t())
+        "IdentityAttributeOrder" => list(String.t() | atom())
       }
 
   """
-  @type get_typed_link_facet_information_response() :: %{String.t() | Atom.t() => any()}
+  @type get_typed_link_facet_information_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_schema_request() :: %{
-        required("Name") => String.t() | Atom.t(),
-        required("SchemaArn") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("SchemaArn") => String.t() | atom()
       }
 
   """
-  @type update_schema_request() :: %{String.t() | Atom.t() => any()}
+  @type update_schema_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_tagging_request_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_tagging_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_tagging_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3185,7 +3185,7 @@ defmodule AWS.CloudDirectory do
       }
 
   """
-  @type batch_add_facet_to_object() :: %{String.t() | Atom.t() => any()}
+  @type batch_add_facet_to_object() :: %{(String.t() | atom()) => any()}
 
   @type add_facet_to_object_errors() ::
           directory_not_enabled_exception()

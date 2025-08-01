@@ -14,12 +14,12 @@ defmodule AWS.Forecastquery do
   ## Example:
       
       data_point() :: %{
-        "Timestamp" => String.t() | Atom.t(),
+        "Timestamp" => String.t() | atom(),
         "Value" => float()
       }
       
   """
-  @type data_point() :: %{String.t() | Atom.t() => any()}
+  @type data_point() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -30,55 +30,55 @@ defmodule AWS.Forecastquery do
       }
       
   """
-  @type forecast() :: %{String.t() | Atom.t() => any()}
+  @type forecast() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_input_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_input_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_next_token_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       query_forecast_request() :: %{
-        optional("EndDate") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("StartDate") => String.t() | Atom.t(),
+        optional("EndDate") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StartDate") => String.t() | atom(),
         required("Filters") => map(),
-        required("ForecastArn") => String.t() | Atom.t()
+        required("ForecastArn") => String.t() | atom()
       }
       
   """
-  @type query_forecast_request() :: %{String.t() | Atom.t() => any()}
+  @type query_forecast_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -89,22 +89,22 @@ defmodule AWS.Forecastquery do
       }
       
   """
-  @type query_forecast_response() :: %{String.t() | Atom.t() => any()}
+  @type query_forecast_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       query_what_if_forecast_request() :: %{
-        optional("EndDate") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("StartDate") => String.t() | Atom.t(),
+        optional("EndDate") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StartDate") => String.t() | atom(),
         required("Filters") => map(),
-        required("WhatIfForecastArn") => String.t() | Atom.t()
+        required("WhatIfForecastArn") => String.t() | atom()
       }
       
   """
-  @type query_what_if_forecast_request() :: %{String.t() | Atom.t() => any()}
+  @type query_what_if_forecast_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -115,29 +115,29 @@ defmodule AWS.Forecastquery do
       }
       
   """
-  @type query_what_if_forecast_response() :: %{String.t() | Atom.t() => any()}
+  @type query_what_if_forecast_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @type query_forecast_errors() ::
           resource_not_found_exception()

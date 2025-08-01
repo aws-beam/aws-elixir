@@ -24,93 +24,93 @@ defmodule AWS.DSQL do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cluster_summary() :: %{
-        "arn" => String.t() | Atom.t(),
-        "identifier" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "identifier" => String.t() | atom()
       }
 
   """
-  @type cluster_summary() :: %{String.t() | Atom.t() => any()}
+  @type cluster_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "resourceId" => [String.t() | Atom.t()],
-        "resourceType" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_cluster_input() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("deletionProtectionEnabled") => boolean(),
-        optional("kmsEncryptionKey") => String.t() | Atom.t(),
+        optional("kmsEncryptionKey") => String.t() | atom(),
         optional("multiRegionProperties") => multi_region_properties(),
         optional("tags") => map()
       }
 
   """
-  @type create_cluster_input() :: %{String.t() | Atom.t() => any()}
+  @type create_cluster_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_cluster_output() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
         "deletionProtectionEnabled" => boolean(),
         "encryptionDetails" => encryption_details(),
-        "identifier" => String.t() | Atom.t(),
+        "identifier" => String.t() | atom(),
         "multiRegionProperties" => multi_region_properties(),
         "status" => list(any())
       }
 
   """
-  @type create_cluster_output() :: %{String.t() | Atom.t() => any()}
+  @type create_cluster_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_cluster_input() :: %{
-        optional("clientToken") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type delete_cluster_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_cluster_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_cluster_output() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "identifier" => String.t() | Atom.t(),
+        "identifier" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type delete_cluster_output() :: %{String.t() | Atom.t() => any()}
+  @type delete_cluster_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -119,11 +119,11 @@ defmodule AWS.DSQL do
       encryption_details() :: %{
         "encryptionStatus" => list(any()),
         "encryptionType" => list(any()),
-        "kmsKeyArn" => String.t() | Atom.t()
+        "kmsKeyArn" => String.t() | atom()
       }
 
   """
-  @type encryption_details() :: %{String.t() | Atom.t() => any()}
+  @type encryption_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -139,18 +139,18 @@ defmodule AWS.DSQL do
   ## Example:
 
       get_cluster_output() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
         "deletionProtectionEnabled" => boolean(),
         "encryptionDetails" => encryption_details(),
-        "identifier" => String.t() | Atom.t(),
+        "identifier" => String.t() | atom(),
         "multiRegionProperties" => multi_region_properties(),
         "status" => list(any()),
         "tags" => map()
       }
 
   """
-  @type get_cluster_output() :: %{String.t() | Atom.t() => any()}
+  @type get_cluster_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -166,23 +166,23 @@ defmodule AWS.DSQL do
   ## Example:
 
       get_vpc_endpoint_service_name_output() :: %{
-        "serviceName" => String.t() | Atom.t()
+        "serviceName" => String.t() | atom()
       }
 
   """
-  @type get_vpc_endpoint_service_name_output() :: %{String.t() | Atom.t() => any()}
+  @type get_vpc_endpoint_service_name_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t() | Atom.t()],
+        "message" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -190,11 +190,11 @@ defmodule AWS.DSQL do
 
       list_clusters_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_clusters_input() :: %{String.t() | Atom.t() => any()}
+  @type list_clusters_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -202,11 +202,11 @@ defmodule AWS.DSQL do
 
       list_clusters_output() :: %{
         "clusters" => list(cluster_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_clusters_output() :: %{String.t() | Atom.t() => any()}
+  @type list_clusters_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -226,47 +226,47 @@ defmodule AWS.DSQL do
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       multi_region_properties() :: %{
-        "clusters" => list(String.t() | Atom.t()),
-        "witnessRegion" => String.t() | Atom.t()
+        "clusters" => list(String.t() | atom()),
+        "witnessRegion" => String.t() | atom()
       }
 
   """
-  @type multi_region_properties() :: %{String.t() | Atom.t() => any()}
+  @type multi_region_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "resourceId" => [String.t() | Atom.t()],
-        "resourceType" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "quotaCode" => [String.t() | Atom.t()],
-        "resourceId" => [String.t() | Atom.t()],
-        "resourceType" => [String.t() | Atom.t()],
-        "serviceCode" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -277,60 +277,60 @@ defmodule AWS.DSQL do
       }
 
   """
-  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "quotaCode" => [String.t() | Atom.t()],
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t() | Atom.t()]
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_cluster_input() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("deletionProtectionEnabled") => boolean(),
-        optional("kmsEncryptionKey") => String.t() | Atom.t(),
+        optional("kmsEncryptionKey") => String.t() | atom(),
         optional("multiRegionProperties") => multi_region_properties()
       }
 
   """
-  @type update_cluster_input() :: %{String.t() | Atom.t() => any()}
+  @type update_cluster_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_cluster_output() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "identifier" => String.t() | Atom.t(),
+        "identifier" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type update_cluster_output() :: %{String.t() | Atom.t() => any()}
+  @type update_cluster_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -338,24 +338,24 @@ defmodule AWS.DSQL do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | Atom.t()],
+        "message" => [String.t() | atom()],
         "reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t() | Atom.t()],
-        "name" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @type create_cluster_errors() ::
           validation_exception() | service_quota_exceeded_exception() | conflict_exception()
@@ -493,7 +493,7 @@ defmodule AWS.DSQL do
   @doc """
   Deletes a cluster in Amazon Aurora DSQL.
   """
-  @spec delete_cluster(map(), String.t() | Atom.t(), delete_cluster_input(), list()) ::
+  @spec delete_cluster(map(), String.t() | atom(), delete_cluster_input(), list()) ::
           {:ok, delete_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -527,7 +527,7 @@ defmodule AWS.DSQL do
   @doc """
   Retrieves information about a cluster.
   """
-  @spec get_cluster(map(), String.t() | Atom.t(), list()) ::
+  @spec get_cluster(map(), String.t() | atom(), list()) ::
           {:ok, get_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -545,7 +545,7 @@ defmodule AWS.DSQL do
   @doc """
   Retrieves the VPC endpoint service name.
   """
-  @spec get_vpc_endpoint_service_name(map(), String.t() | Atom.t(), list()) ::
+  @spec get_vpc_endpoint_service_name(map(), String.t() | atom(), list()) ::
           {:ok, get_vpc_endpoint_service_name_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -563,7 +563,7 @@ defmodule AWS.DSQL do
   @doc """
   Retrieves information about a list of clusters.
   """
-  @spec list_clusters(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_clusters(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_clusters_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -595,7 +595,7 @@ defmodule AWS.DSQL do
   @doc """
   Lists all of the tags for a resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -613,7 +613,7 @@ defmodule AWS.DSQL do
   @doc """
   Tags a resource with a map of key and value pairs.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -642,7 +642,7 @@ defmodule AWS.DSQL do
   @doc """
   Removes a tag from a resource.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -782,7 +782,7 @@ defmodule AWS.DSQL do
   The `dsql:RemovePeerCluster` permission uses a wildcard ARN pattern to simplify
   permission management during updates.
   """
-  @spec update_cluster(map(), String.t() | Atom.t(), update_cluster_input(), list()) ::
+  @spec update_cluster(map(), String.t() | atom(), update_cluster_input(), list()) ::
           {:ok, update_cluster_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

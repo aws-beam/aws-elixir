@@ -23,22 +23,22 @@ defmodule AWS.ComprehendMedical do
       list_s_n_o_m_e_d_c_t_inference_jobs_request() :: %{
         optional("Filter") => comprehend_medical_async_job_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_s_n_o_m_e_d_c_t_inference_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_s_n_o_m_e_d_c_t_inference_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_rx_norm_inference_job_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_rx_norm_inference_job_response() :: %{String.t() | Atom.t() => any()}
+  @type start_rx_norm_inference_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -50,7 +50,7 @@ defmodule AWS.ComprehendMedical do
       }
       
   """
-  @type s_n_o_m_e_d_c_t_trait() :: %{String.t() | Atom.t() => any()}
+  @type s_n_o_m_e_d_c_t_trait() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -62,18 +62,18 @@ defmodule AWS.ComprehendMedical do
       }
       
   """
-  @type trait() :: %{String.t() | Atom.t() => any()}
+  @type trait() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detect_entities_v2_request() :: %{
-        required("Text") => String.t() | Atom.t()
+        required("Text") => String.t() | atom()
       }
       
   """
-  @type detect_entities_v2_request() :: %{String.t() | Atom.t() => any()}
+  @type detect_entities_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -82,11 +82,11 @@ defmodule AWS.ComprehendMedical do
       list_phi_detection_jobs_request() :: %{
         optional("Filter") => comprehend_medical_async_job_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_phi_detection_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_phi_detection_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -100,25 +100,25 @@ defmodule AWS.ComprehendMedical do
         "ICD10CMConcepts" => list(icd10_cm_concept()),
         "Id" => integer(),
         "Score" => float(),
-        "Text" => String.t() | Atom.t(),
+        "Text" => String.t() | atom(),
         "Traits" => list(icd10_cm_trait()),
         "Type" => list(any())
       }
       
   """
-  @type icd10_cm_entity() :: %{String.t() | Atom.t() => any()}
+  @type icd10_cm_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       input_data_config() :: %{
-        "S3Bucket" => String.t() | Atom.t(),
-        "S3Key" => String.t() | Atom.t()
+        "S3Bucket" => String.t() | atom(),
+        "S3Key" => String.t() | atom()
       }
       
   """
-  @type input_data_config() :: %{String.t() | Atom.t() => any()}
+  @type input_data_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -129,7 +129,7 @@ defmodule AWS.ComprehendMedical do
       }
       
   """
-  @type characters() :: %{String.t() | Atom.t() => any()}
+  @type characters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -142,13 +142,13 @@ defmodule AWS.ComprehendMedical do
         "EndOffset" => integer(),
         "Id" => integer(),
         "Score" => float(),
-        "Text" => String.t() | Atom.t(),
+        "Text" => String.t() | atom(),
         "Traits" => list(trait()),
         "Type" => list(any())
       }
       
   """
-  @type entity() :: %{String.t() | Atom.t() => any()}
+  @type entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -159,7 +159,7 @@ defmodule AWS.ComprehendMedical do
       }
       
   """
-  @type describe_icd10_cm_inference_job_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_icd10_cm_inference_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -167,33 +167,33 @@ defmodule AWS.ComprehendMedical do
       
       list_rx_norm_inference_jobs_response() :: %{
         "ComprehendMedicalAsyncJobPropertiesList" => list(comprehend_medical_async_job_properties()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_rx_norm_inference_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_rx_norm_inference_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_icd10_cm_inference_job_request() :: %{
-        required("JobId") => String.t() | Atom.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type describe_icd10_cm_inference_job_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_icd10_cm_inference_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_encoding_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_encoding_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_encoding_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -208,13 +208,13 @@ defmodule AWS.ComprehendMedical do
         "RelationshipType" => list(any()),
         "SNOMEDCTConcepts" => list(s_n_o_m_e_d_c_t_concept()),
         "Score" => float(),
-        "Text" => String.t() | Atom.t(),
+        "Text" => String.t() | atom(),
         "Traits" => list(s_n_o_m_e_d_c_t_trait()),
         "Type" => list(any())
       }
       
   """
-  @type s_n_o_m_e_d_c_t_attribute() :: %{String.t() | Atom.t() => any()}
+  @type s_n_o_m_e_d_c_t_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -223,13 +223,13 @@ defmodule AWS.ComprehendMedical do
       infer_s_n_o_m_e_d_c_t_response() :: %{
         "Characters" => characters(),
         "Entities" => list(s_n_o_m_e_d_c_t_entity()),
-        "ModelVersion" => String.t() | Atom.t(),
-        "PaginationToken" => String.t() | Atom.t(),
+        "ModelVersion" => String.t() | atom(),
+        "PaginationToken" => String.t() | atom(),
         "SNOMEDCTDetails" => s_n_o_m_e_d_c_t_details()
       }
       
   """
-  @type infer_s_n_o_m_e_d_c_t_response() :: %{String.t() | Atom.t() => any()}
+  @type infer_s_n_o_m_e_d_c_t_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -237,40 +237,40 @@ defmodule AWS.ComprehendMedical do
       
       detect_phi_response() :: %{
         "Entities" => list(entity()),
-        "ModelVersion" => String.t() | Atom.t(),
-        "PaginationToken" => String.t() | Atom.t()
+        "ModelVersion" => String.t() | atom(),
+        "PaginationToken" => String.t() | atom()
       }
       
   """
-  @type detect_phi_response() :: %{String.t() | Atom.t() => any()}
+  @type detect_phi_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_phi_detection_job_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("JobName") => String.t() | Atom.t(),
-        optional("KMSKey") => String.t() | Atom.t(),
-        required("DataAccessRoleArn") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobName") => String.t() | atom(),
+        optional("KMSKey") => String.t() | atom(),
+        required("DataAccessRoleArn") => String.t() | atom(),
         required("InputDataConfig") => input_data_config(),
         required("LanguageCode") => list(any()),
         required("OutputDataConfig") => output_data_config()
       }
       
   """
-  @type start_phi_detection_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_phi_detection_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_entities_detection_v2_job_request() :: %{
-        required("JobId") => String.t() | Atom.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type stop_entities_detection_v2_job_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_entities_detection_v2_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -278,12 +278,12 @@ defmodule AWS.ComprehendMedical do
       
       infer_rx_norm_response() :: %{
         "Entities" => list(rx_norm_entity()),
-        "ModelVersion" => String.t() | Atom.t(),
-        "PaginationToken" => String.t() | Atom.t()
+        "ModelVersion" => String.t() | atom(),
+        "PaginationToken" => String.t() | atom()
       }
       
   """
-  @type infer_rx_norm_response() :: %{String.t() | Atom.t() => any()}
+  @type infer_rx_norm_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -295,42 +295,42 @@ defmodule AWS.ComprehendMedical do
       }
       
   """
-  @type unmapped_attribute() :: %{String.t() | Atom.t() => any()}
+  @type unmapped_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_requests_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s_n_o_m_e_d_c_t_details() :: %{
-        "Edition" => String.t() | Atom.t(),
-        "Language" => String.t() | Atom.t(),
-        "VersionDate" => String.t() | Atom.t()
+        "Edition" => String.t() | atom(),
+        "Language" => String.t() | atom(),
+        "VersionDate" => String.t() | atom()
       }
       
   """
-  @type s_n_o_m_e_d_c_t_details() :: %{String.t() | Atom.t() => any()}
+  @type s_n_o_m_e_d_c_t_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_icd10_cm_inference_job_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_icd10_cm_inference_job_response() :: %{String.t() | Atom.t() => any()}
+  @type start_icd10_cm_inference_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -338,11 +338,11 @@ defmodule AWS.ComprehendMedical do
       
       list_s_n_o_m_e_d_c_t_inference_jobs_response() :: %{
         "ComprehendMedicalAsyncJobPropertiesList" => list(comprehend_medical_async_job_properties()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_s_n_o_m_e_d_c_t_inference_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_s_n_o_m_e_d_c_t_inference_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -356,26 +356,26 @@ defmodule AWS.ComprehendMedical do
         "Id" => integer(),
         "RxNormConcepts" => list(rx_norm_concept()),
         "Score" => float(),
-        "Text" => String.t() | Atom.t(),
+        "Text" => String.t() | atom(),
         "Traits" => list(rx_norm_trait()),
         "Type" => list(any())
       }
       
   """
-  @type rx_norm_entity() :: %{String.t() | Atom.t() => any()}
+  @type rx_norm_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       icd10_cm_concept() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "Code" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "Score" => float()
       }
       
   """
-  @type icd10_cm_concept() :: %{String.t() | Atom.t() => any()}
+  @type icd10_cm_concept() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -383,43 +383,43 @@ defmodule AWS.ComprehendMedical do
       
       detect_entities_response() :: %{
         "Entities" => list(entity()),
-        "ModelVersion" => String.t() | Atom.t(),
-        "PaginationToken" => String.t() | Atom.t(),
+        "ModelVersion" => String.t() | atom(),
+        "PaginationToken" => String.t() | atom(),
         "UnmappedAttributes" => list(unmapped_attribute())
       }
       
   """
-  @type detect_entities_response() :: %{String.t() | Atom.t() => any()}
+  @type detect_entities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rx_norm_concept() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "Code" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "Score" => float()
       }
       
   """
-  @type rx_norm_concept() :: %{String.t() | Atom.t() => any()}
+  @type rx_norm_concept() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_entities_detection_v2_job_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("JobName") => String.t() | Atom.t(),
-        optional("KMSKey") => String.t() | Atom.t(),
-        required("DataAccessRoleArn") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobName") => String.t() | atom(),
+        optional("KMSKey") => String.t() | atom(),
+        required("DataAccessRoleArn") => String.t() | atom(),
         required("InputDataConfig") => input_data_config(),
         required("LanguageCode") => list(any()),
         required("OutputDataConfig") => output_data_config()
       }
       
   """
-  @type start_entities_detection_v2_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_entities_detection_v2_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -430,7 +430,7 @@ defmodule AWS.ComprehendMedical do
       }
       
   """
-  @type describe_s_n_o_m_e_d_c_t_inference_job_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_s_n_o_m_e_d_c_t_inference_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -438,23 +438,23 @@ defmodule AWS.ComprehendMedical do
       
       infer_icd10_cm_response() :: %{
         "Entities" => list(icd10_cm_entity()),
-        "ModelVersion" => String.t() | Atom.t(),
-        "PaginationToken" => String.t() | Atom.t()
+        "ModelVersion" => String.t() | atom(),
+        "PaginationToken" => String.t() | atom()
       }
       
   """
-  @type infer_icd10_cm_response() :: %{String.t() | Atom.t() => any()}
+  @type infer_icd10_cm_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -463,11 +463,11 @@ defmodule AWS.ComprehendMedical do
       list_icd10_cm_inference_jobs_request() :: %{
         optional("Filter") => comprehend_medical_async_job_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_icd10_cm_inference_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_icd10_cm_inference_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -475,24 +475,24 @@ defmodule AWS.ComprehendMedical do
       
       detect_entities_v2_response() :: %{
         "Entities" => list(entity()),
-        "ModelVersion" => String.t() | Atom.t(),
-        "PaginationToken" => String.t() | Atom.t(),
+        "ModelVersion" => String.t() | atom(),
+        "PaginationToken" => String.t() | atom(),
         "UnmappedAttributes" => list(unmapped_attribute())
       }
       
   """
-  @type detect_entities_v2_response() :: %{String.t() | Atom.t() => any()}
+  @type detect_entities_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detect_entities_request() :: %{
-        required("Text") => String.t() | Atom.t()
+        required("Text") => String.t() | atom()
       }
       
   """
-  @type detect_entities_request() :: %{String.t() | Atom.t() => any()}
+  @type detect_entities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -506,24 +506,24 @@ defmodule AWS.ComprehendMedical do
         "Id" => integer(),
         "SNOMEDCTConcepts" => list(s_n_o_m_e_d_c_t_concept()),
         "Score" => float(),
-        "Text" => String.t() | Atom.t(),
+        "Text" => String.t() | atom(),
         "Traits" => list(s_n_o_m_e_d_c_t_trait()),
         "Type" => list(any())
       }
       
   """
-  @type s_n_o_m_e_d_c_t_entity() :: %{String.t() | Atom.t() => any()}
+  @type s_n_o_m_e_d_c_t_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_request_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -531,11 +531,11 @@ defmodule AWS.ComprehendMedical do
       
       list_phi_detection_jobs_response() :: %{
         "ComprehendMedicalAsyncJobPropertiesList" => list(comprehend_medical_async_job_properties()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_phi_detection_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_phi_detection_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -544,11 +544,11 @@ defmodule AWS.ComprehendMedical do
       list_entities_detection_v2_jobs_request() :: %{
         optional("Filter") => comprehend_medical_async_job_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_entities_detection_v2_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_entities_detection_v2_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -559,43 +559,43 @@ defmodule AWS.ComprehendMedical do
       }
       
   """
-  @type describe_phi_detection_job_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_phi_detection_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_phi_detection_job_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type stop_phi_detection_job_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_phi_detection_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       comprehend_medical_async_job_filter() :: %{
-        "JobName" => String.t() | Atom.t(),
+        "JobName" => String.t() | atom(),
         "JobStatus" => list(any()),
         "SubmitTimeAfter" => non_neg_integer(),
         "SubmitTimeBefore" => non_neg_integer()
       }
       
   """
-  @type comprehend_medical_async_job_filter() :: %{String.t() | Atom.t() => any()}
+  @type comprehend_medical_async_job_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_icd10_cm_inference_job_request() :: %{
-        required("JobId") => String.t() | Atom.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type stop_icd10_cm_inference_job_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_icd10_cm_inference_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -606,29 +606,29 @@ defmodule AWS.ComprehendMedical do
       }
       
   """
-  @type describe_entities_detection_v2_job_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_entities_detection_v2_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_rx_norm_inference_job_request() :: %{
-        required("JobId") => String.t() | Atom.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type describe_rx_norm_inference_job_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_rx_norm_inference_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_unavailable_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -640,13 +640,13 @@ defmodule AWS.ComprehendMedical do
         "Id" => integer(),
         "RelationshipScore" => float(),
         "Score" => float(),
-        "Text" => String.t() | Atom.t(),
+        "Text" => String.t() | atom(),
         "Traits" => list(rx_norm_trait()),
         "Type" => list(any())
       }
       
   """
-  @type rx_norm_attribute() :: %{String.t() | Atom.t() => any()}
+  @type rx_norm_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -657,7 +657,7 @@ defmodule AWS.ComprehendMedical do
       }
       
   """
-  @type describe_rx_norm_inference_job_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_rx_norm_inference_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -671,13 +671,13 @@ defmodule AWS.ComprehendMedical do
         "RelationshipScore" => float(),
         "RelationshipType" => list(any()),
         "Score" => float(),
-        "Text" => String.t() | Atom.t(),
+        "Text" => String.t() | atom(),
         "Traits" => list(icd10_cm_trait()),
         "Type" => list(any())
       }
       
   """
-  @type icd10_cm_attribute() :: %{String.t() | Atom.t() => any()}
+  @type icd10_cm_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -685,11 +685,11 @@ defmodule AWS.ComprehendMedical do
       
       list_entities_detection_v2_jobs_response() :: %{
         "ComprehendMedicalAsyncJobPropertiesList" => list(comprehend_medical_async_job_properties()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_entities_detection_v2_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_entities_detection_v2_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -697,229 +697,229 @@ defmodule AWS.ComprehendMedical do
       
       list_icd10_cm_inference_jobs_response() :: %{
         "ComprehendMedicalAsyncJobPropertiesList" => list(comprehend_medical_async_job_properties()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_icd10_cm_inference_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_icd10_cm_inference_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       infer_s_n_o_m_e_d_c_t_request() :: %{
-        required("Text") => String.t() | Atom.t()
+        required("Text") => String.t() | atom()
       }
       
   """
-  @type infer_s_n_o_m_e_d_c_t_request() :: %{String.t() | Atom.t() => any()}
+  @type infer_s_n_o_m_e_d_c_t_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_icd10_cm_inference_job_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("JobName") => String.t() | Atom.t(),
-        optional("KMSKey") => String.t() | Atom.t(),
-        required("DataAccessRoleArn") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobName") => String.t() | atom(),
+        optional("KMSKey") => String.t() | atom(),
+        required("DataAccessRoleArn") => String.t() | atom(),
         required("InputDataConfig") => input_data_config(),
         required("LanguageCode") => list(any()),
         required("OutputDataConfig") => output_data_config()
       }
       
   """
-  @type start_icd10_cm_inference_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_icd10_cm_inference_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_s_n_o_m_e_d_c_t_inference_job_request() :: %{
-        required("JobId") => String.t() | Atom.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type describe_s_n_o_m_e_d_c_t_inference_job_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_s_n_o_m_e_d_c_t_inference_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_rx_norm_inference_job_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("JobName") => String.t() | Atom.t(),
-        optional("KMSKey") => String.t() | Atom.t(),
-        required("DataAccessRoleArn") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobName") => String.t() | atom(),
+        optional("KMSKey") => String.t() | atom(),
+        required("DataAccessRoleArn") => String.t() | atom(),
         required("InputDataConfig") => input_data_config(),
         required("LanguageCode") => list(any()),
         required("OutputDataConfig") => output_data_config()
       }
       
   """
-  @type start_rx_norm_inference_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_rx_norm_inference_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_s_n_o_m_e_d_c_t_inference_job_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_s_n_o_m_e_d_c_t_inference_job_response() :: %{String.t() | Atom.t() => any()}
+  @type start_s_n_o_m_e_d_c_t_inference_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       text_size_limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type text_size_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type text_size_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_s_n_o_m_e_d_c_t_inference_job_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type stop_s_n_o_m_e_d_c_t_inference_job_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_s_n_o_m_e_d_c_t_inference_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detect_phi_request() :: %{
-        required("Text") => String.t() | Atom.t()
+        required("Text") => String.t() | atom()
       }
       
   """
-  @type detect_phi_request() :: %{String.t() | Atom.t() => any()}
+  @type detect_phi_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_s_n_o_m_e_d_c_t_inference_job_request() :: %{
-        required("JobId") => String.t() | Atom.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type stop_s_n_o_m_e_d_c_t_inference_job_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_s_n_o_m_e_d_c_t_inference_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_s_n_o_m_e_d_c_t_inference_job_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("JobName") => String.t() | Atom.t(),
-        optional("KMSKey") => String.t() | Atom.t(),
-        required("DataAccessRoleArn") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobName") => String.t() | atom(),
+        optional("KMSKey") => String.t() | atom(),
+        required("DataAccessRoleArn") => String.t() | atom(),
         required("InputDataConfig") => input_data_config(),
         required("LanguageCode") => list(any()),
         required("OutputDataConfig") => output_data_config()
       }
       
   """
-  @type start_s_n_o_m_e_d_c_t_inference_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_s_n_o_m_e_d_c_t_inference_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_entities_detection_v2_job_request() :: %{
-        required("JobId") => String.t() | Atom.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type describe_entities_detection_v2_job_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_entities_detection_v2_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       comprehend_medical_async_job_properties() :: %{
-        "DataAccessRoleArn" => String.t() | Atom.t(),
+        "DataAccessRoleArn" => String.t() | atom(),
         "EndTime" => non_neg_integer(),
         "ExpirationTime" => non_neg_integer(),
         "InputDataConfig" => input_data_config(),
-        "JobId" => String.t() | Atom.t(),
-        "JobName" => String.t() | Atom.t(),
+        "JobId" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
         "JobStatus" => list(any()),
-        "KMSKey" => String.t() | Atom.t(),
+        "KMSKey" => String.t() | atom(),
         "LanguageCode" => list(any()),
-        "ManifestFilePath" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t(),
-        "ModelVersion" => String.t() | Atom.t(),
+        "ManifestFilePath" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "ModelVersion" => String.t() | atom(),
         "OutputDataConfig" => output_data_config(),
         "SubmitTime" => non_neg_integer()
       }
       
   """
-  @type comprehend_medical_async_job_properties() :: %{String.t() | Atom.t() => any()}
+  @type comprehend_medical_async_job_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_rx_norm_inference_job_request() :: %{
-        required("JobId") => String.t() | Atom.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type stop_rx_norm_inference_job_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_rx_norm_inference_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       infer_icd10_cm_request() :: %{
-        required("Text") => String.t() | Atom.t()
+        required("Text") => String.t() | atom()
       }
       
   """
-  @type infer_icd10_cm_request() :: %{String.t() | Atom.t() => any()}
+  @type infer_icd10_cm_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_icd10_cm_inference_job_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type stop_icd10_cm_inference_job_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_icd10_cm_inference_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -928,11 +928,11 @@ defmodule AWS.ComprehendMedical do
       list_rx_norm_inference_jobs_request() :: %{
         optional("Filter") => comprehend_medical_async_job_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_rx_norm_inference_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_rx_norm_inference_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -946,80 +946,80 @@ defmodule AWS.ComprehendMedical do
         "RelationshipScore" => float(),
         "RelationshipType" => list(any()),
         "Score" => float(),
-        "Text" => String.t() | Atom.t(),
+        "Text" => String.t() | atom(),
         "Traits" => list(trait()),
         "Type" => list(any())
       }
       
   """
-  @type attribute() :: %{String.t() | Atom.t() => any()}
+  @type attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_phi_detection_job_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_phi_detection_job_response() :: %{String.t() | Atom.t() => any()}
+  @type start_phi_detection_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_phi_detection_job_request() :: %{
-        required("JobId") => String.t() | Atom.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type describe_phi_detection_job_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_phi_detection_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_phi_detection_job_request() :: %{
-        required("JobId") => String.t() | Atom.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type stop_phi_detection_job_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_phi_detection_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       output_data_config() :: %{
-        "S3Bucket" => String.t() | Atom.t(),
-        "S3Key" => String.t() | Atom.t()
+        "S3Bucket" => String.t() | atom(),
+        "S3Key" => String.t() | atom()
       }
       
   """
-  @type output_data_config() :: %{String.t() | Atom.t() => any()}
+  @type output_data_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       infer_rx_norm_request() :: %{
-        required("Text") => String.t() | Atom.t()
+        required("Text") => String.t() | atom()
       }
       
   """
-  @type infer_rx_norm_request() :: %{String.t() | Atom.t() => any()}
+  @type infer_rx_norm_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_entities_detection_v2_job_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type stop_entities_detection_v2_job_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_entities_detection_v2_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1031,29 +1031,29 @@ defmodule AWS.ComprehendMedical do
       }
       
   """
-  @type rx_norm_trait() :: %{String.t() | Atom.t() => any()}
+  @type rx_norm_trait() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_rx_norm_inference_job_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type stop_rx_norm_inference_job_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_rx_norm_inference_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_entities_detection_v2_job_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_entities_detection_v2_job_response() :: %{String.t() | Atom.t() => any()}
+  @type start_entities_detection_v2_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1065,20 +1065,20 @@ defmodule AWS.ComprehendMedical do
       }
       
   """
-  @type icd10_cm_trait() :: %{String.t() | Atom.t() => any()}
+  @type icd10_cm_trait() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s_n_o_m_e_d_c_t_concept() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "Code" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "Score" => float()
       }
       
   """
-  @type s_n_o_m_e_d_c_t_concept() :: %{String.t() | Atom.t() => any()}
+  @type s_n_o_m_e_d_c_t_concept() :: %{(String.t() | atom()) => any()}
 
   @type describe_entities_detection_v2_job_errors() ::
           internal_server_exception()

@@ -40,17 +40,17 @@ defmodule AWS.AppStream do
       
       theme() :: %{
         "CreatedTime" => non_neg_integer(),
-        "StackName" => String.t() | Atom.t(),
+        "StackName" => String.t() | atom(),
         "State" => list(any()),
-        "ThemeFaviconURL" => String.t() | Atom.t(),
+        "ThemeFaviconURL" => String.t() | atom(),
         "ThemeFooterLinks" => list(theme_footer_link()),
-        "ThemeOrganizationLogoURL" => String.t() | Atom.t(),
+        "ThemeOrganizationLogoURL" => String.t() | atom(),
         "ThemeStyling" => list(any()),
-        "ThemeTitleText" => String.t() | Atom.t()
+        "ThemeTitleText" => String.t() | atom()
       }
       
   """
-  @type theme() :: %{String.t() | Atom.t() => any()}
+  @type theme() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -58,11 +58,11 @@ defmodule AWS.AppStream do
       
       describe_app_block_builders_result() :: %{
         "AppBlockBuilders" => list(app_block_builder()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_app_block_builders_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_app_block_builders_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -70,11 +70,11 @@ defmodule AWS.AppStream do
       
       describe_usage_report_subscriptions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_usage_report_subscriptions_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_usage_report_subscriptions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -82,19 +82,19 @@ defmodule AWS.AppStream do
       
       image_builder() :: %{
         "AccessEndpoints" => list(access_endpoint()),
-        "AppstreamAgentVersion" => String.t() | Atom.t(),
-        "Arn" => String.t() | Atom.t(),
+        "AppstreamAgentVersion" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
         "DomainJoinInfo" => domain_join_info(),
         "EnableDefaultInternetAccess" => boolean(),
-        "IamRoleArn" => String.t() | Atom.t(),
-        "ImageArn" => String.t() | Atom.t(),
+        "IamRoleArn" => String.t() | atom(),
+        "ImageArn" => String.t() | atom(),
         "ImageBuilderErrors" => list(resource_error()),
-        "InstanceType" => String.t() | Atom.t(),
+        "InstanceType" => String.t() | atom(),
         "LatestAppstreamAgentVersion" => list(any()),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "NetworkAccessConfiguration" => network_access_configuration(),
         "Platform" => list(any()),
         "State" => list(any()),
@@ -103,7 +103,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type image_builder() :: %{String.t() | Atom.t() => any()}
+  @type image_builder() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -114,19 +114,19 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type start_image_builder_result() :: %{String.t() | Atom.t() => any()}
+  @type start_image_builder_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("Tags") => map()
       }
       
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -137,18 +137,18 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type delete_image_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_image_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_fleet_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_fleet_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -159,7 +159,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type batch_disassociate_user_stack_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_disassociate_user_stack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -168,12 +168,12 @@ defmodule AWS.AppStream do
       user_stack_association() :: %{
         "AuthenticationType" => list(any()),
         "SendEmailNotification" => boolean(),
-        "StackName" => String.t() | Atom.t(),
-        "UserName" => String.t() | Atom.t()
+        "StackName" => String.t() | atom(),
+        "UserName" => String.t() | atom()
       }
       
   """
-  @type user_stack_association() :: %{String.t() | Atom.t() => any()}
+  @type user_stack_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -193,7 +193,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type create_application_result() :: %{String.t() | Atom.t() => any()}
+  @type create_application_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -213,7 +213,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type create_entitlement_result() :: %{String.t() | Atom.t() => any()}
+  @type create_entitlement_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -224,7 +224,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type stop_app_block_builder_result() :: %{String.t() | Atom.t() => any()}
+  @type stop_app_block_builder_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -232,11 +232,11 @@ defmodule AWS.AppStream do
       
       create_streaming_url_result() :: %{
         "Expires" => non_neg_integer(),
-        "StreamingURL" => String.t() | Atom.t()
+        "StreamingURL" => String.t() | atom()
       }
       
   """
-  @type create_streaming_url_result() :: %{String.t() | Atom.t() => any()}
+  @type create_streaming_url_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -244,11 +244,11 @@ defmodule AWS.AppStream do
       
       describe_app_blocks_result() :: %{
         "AppBlocks" => list(app_block()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_app_blocks_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_app_blocks_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -256,19 +256,19 @@ defmodule AWS.AppStream do
       
       create_app_block_builder_request() :: %{
         optional("AccessEndpoints") => list(access_endpoint()),
-        optional("Description") => String.t() | Atom.t(),
-        optional("DisplayName") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
         optional("EnableDefaultInternetAccess") => boolean(),
-        optional("IamRoleArn") => String.t() | Atom.t(),
+        optional("IamRoleArn") => String.t() | atom(),
         optional("Tags") => map(),
-        required("InstanceType") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
+        required("InstanceType") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Platform") => list(any()),
         required("VpcConfig") => vpc_config()
       }
       
   """
-  @type create_app_block_builder_request() :: %{String.t() | Atom.t() => any()}
+  @type create_app_block_builder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -294,13 +294,13 @@ defmodule AWS.AppStream do
       
       update_directory_config_request() :: %{
         optional("CertificateBasedAuthProperties") => certificate_based_auth_properties(),
-        optional("OrganizationalUnitDistinguishedNames") => list(String.t() | Atom.t()),
+        optional("OrganizationalUnitDistinguishedNames") => list(String.t() | atom()),
         optional("ServiceAccountCredentials") => service_account_credentials(),
-        required("DirectoryName") => String.t() | Atom.t()
+        required("DirectoryName") => String.t() | atom()
       }
       
   """
-  @type update_directory_config_request() :: %{String.t() | Atom.t() => any()}
+  @type update_directory_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -309,20 +309,20 @@ defmodule AWS.AppStream do
       create_stack_request() :: %{
         optional("AccessEndpoints") => list(access_endpoint()),
         optional("ApplicationSettings") => application_settings(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("DisplayName") => String.t() | Atom.t(),
-        optional("EmbedHostDomains") => list(String.t() | Atom.t()),
-        optional("FeedbackURL") => String.t() | Atom.t(),
-        optional("RedirectURL") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        optional("EmbedHostDomains") => list(String.t() | atom()),
+        optional("FeedbackURL") => String.t() | atom(),
+        optional("RedirectURL") => String.t() | atom(),
         optional("StorageConnectors") => list(storage_connector()),
         optional("StreamingExperienceSettings") => streaming_experience_settings(),
         optional("Tags") => map(),
         optional("UserSettings") => list(user_setting()),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_stack_request() :: %{String.t() | Atom.t() => any()}
+  @type create_stack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -333,19 +333,19 @@ defmodule AWS.AppStream do
         optional("ApplicationSettings") => application_settings(),
         optional("AttributesToDelete") => list(list(any())()),
         optional("DeleteStorageConnectors") => boolean(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("DisplayName") => String.t() | Atom.t(),
-        optional("EmbedHostDomains") => list(String.t() | Atom.t()),
-        optional("FeedbackURL") => String.t() | Atom.t(),
-        optional("RedirectURL") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        optional("EmbedHostDomains") => list(String.t() | atom()),
+        optional("FeedbackURL") => String.t() | atom(),
+        optional("RedirectURL") => String.t() | atom(),
         optional("StorageConnectors") => list(storage_connector()),
         optional("StreamingExperienceSettings") => streaming_experience_settings(),
         optional("UserSettings") => list(user_setting()),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type update_stack_request() :: %{String.t() | Atom.t() => any()}
+  @type update_stack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -354,14 +354,14 @@ defmodule AWS.AppStream do
       app_block_builder() :: %{
         "AccessEndpoints" => list(access_endpoint()),
         "AppBlockBuilderErrors" => list(resource_error()),
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
         "EnableDefaultInternetAccess" => boolean(),
-        "IamRoleArn" => String.t() | Atom.t(),
-        "InstanceType" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "IamRoleArn" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Platform" => list(any()),
         "State" => list(any()),
         "StateChangeReason" => app_block_builder_state_change_reason(),
@@ -369,29 +369,29 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type app_block_builder() :: %{String.t() | Atom.t() => any()}
+  @type app_block_builder() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_theme_for_stack_request() :: %{
-        required("StackName") => String.t() | Atom.t()
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type describe_theme_for_stack_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_theme_for_stack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -399,11 +399,11 @@ defmodule AWS.AppStream do
       
       describe_images_result() :: %{
         "Images" => list(image()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_images_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_images_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -411,16 +411,16 @@ defmodule AWS.AppStream do
       
       create_fleet_request() :: %{
         optional("ComputeCapacity") => compute_capacity(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("DisconnectTimeoutInSeconds") => integer(),
-        optional("DisplayName") => String.t() | Atom.t(),
+        optional("DisplayName") => String.t() | atom(),
         optional("DomainJoinInfo") => domain_join_info(),
         optional("EnableDefaultInternetAccess") => boolean(),
         optional("FleetType") => list(any()),
-        optional("IamRoleArn") => String.t() | Atom.t(),
+        optional("IamRoleArn") => String.t() | atom(),
         optional("IdleDisconnectTimeoutInSeconds") => integer(),
-        optional("ImageArn") => String.t() | Atom.t(),
-        optional("ImageName") => String.t() | Atom.t(),
+        optional("ImageArn") => String.t() | atom(),
+        optional("ImageName") => String.t() | atom(),
         optional("MaxConcurrentSessions") => integer(),
         optional("MaxSessionsPerInstance") => integer(),
         optional("MaxUserDurationInSeconds") => integer(),
@@ -428,26 +428,26 @@ defmodule AWS.AppStream do
         optional("SessionScriptS3Location") => s3_location(),
         optional("StreamView") => list(any()),
         optional("Tags") => map(),
-        optional("UsbDeviceFilterStrings") => list(String.t() | Atom.t()),
+        optional("UsbDeviceFilterStrings") => list(String.t() | atom()),
         optional("VpcConfig") => vpc_config(),
-        required("InstanceType") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        required("InstanceType") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_fleet_request() :: %{String.t() | Atom.t() => any()}
+  @type create_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_associated_stacks_request() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        required("FleetName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("FleetName") => String.t() | atom()
       }
       
   """
-  @type list_associated_stacks_request() :: %{String.t() | Atom.t() => any()}
+  @type list_associated_stacks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -455,11 +455,11 @@ defmodule AWS.AppStream do
       
       describe_image_builders_result() :: %{
         "ImageBuilders" => list(image_builder()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_image_builders_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_image_builders_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -484,59 +484,59 @@ defmodule AWS.AppStream do
   ## Example:
       
       describe_images_request() :: %{
-        optional("Arns") => list(String.t() | Atom.t()),
+        optional("Arns") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("Names") => list(String.t() | Atom.t()),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("Names") => list(String.t() | atom()),
+        optional("NextToken") => String.t() | atom(),
         optional("Type") => list(any())
       }
       
   """
-  @type describe_images_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_images_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       copy_image_request() :: %{
-        optional("DestinationImageDescription") => String.t() | Atom.t(),
-        required("DestinationImageName") => String.t() | Atom.t(),
-        required("DestinationRegion") => String.t() | Atom.t(),
-        required("SourceImageName") => String.t() | Atom.t()
+        optional("DestinationImageDescription") => String.t() | atom(),
+        required("DestinationImageName") => String.t() | atom(),
+        required("DestinationRegion") => String.t() | atom(),
+        required("SourceImageName") => String.t() | atom()
       }
       
   """
-  @type copy_image_request() :: %{String.t() | Atom.t() => any()}
+  @type copy_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_app_block_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("DisplayName") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
         optional("PackagingType") => list(any()),
         optional("PostSetupScriptDetails") => script_details(),
         optional("SetupScriptDetails") => script_details(),
         optional("Tags") => map(),
-        required("Name") => String.t() | Atom.t(),
+        required("Name") => String.t() | atom(),
         required("SourceS3Location") => s3_location()
       }
       
   """
-  @type create_app_block_request() :: %{String.t() | Atom.t() => any()}
+  @type create_app_block_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       network_access_configuration() :: %{
-        "EniId" => String.t() | Atom.t(),
-        "EniPrivateIpAddress" => String.t() | Atom.t()
+        "EniId" => String.t() | atom(),
+        "EniPrivateIpAddress" => String.t() | atom()
       }
       
   """
-  @type network_access_configuration() :: %{String.t() | Atom.t() => any()}
+  @type network_access_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -557,19 +557,19 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type image_permissions() :: %{String.t() | Atom.t() => any()}
+  @type image_permissions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application_fleet_association() :: %{
-        "ApplicationArn" => String.t() | Atom.t(),
-        "FleetName" => String.t() | Atom.t()
+        "ApplicationArn" => String.t() | atom(),
+        "FleetName" => String.t() | atom()
       }
       
   """
-  @type application_fleet_association() :: %{String.t() | Atom.t() => any()}
+  @type application_fleet_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -577,11 +577,11 @@ defmodule AWS.AppStream do
       
       image_state_change_reason() :: %{
         "Code" => list(any()),
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type image_state_change_reason() :: %{String.t() | Atom.t() => any()}
+  @type image_state_change_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -592,7 +592,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type associate_app_block_builder_app_block_result() :: %{String.t() | Atom.t() => any()}
+  @type associate_app_block_builder_app_block_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -601,18 +601,18 @@ defmodule AWS.AppStream do
       update_app_block_builder_request() :: %{
         optional("AccessEndpoints") => list(access_endpoint()),
         optional("AttributesToDelete") => list(list(any())()),
-        optional("Description") => String.t() | Atom.t(),
-        optional("DisplayName") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
         optional("EnableDefaultInternetAccess") => boolean(),
-        optional("IamRoleArn") => String.t() | Atom.t(),
-        optional("InstanceType") => String.t() | Atom.t(),
+        optional("IamRoleArn") => String.t() | atom(),
+        optional("InstanceType") => String.t() | atom(),
         optional("Platform") => list(any()),
         optional("VpcConfig") => vpc_config(),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type update_app_block_builder_request() :: %{String.t() | Atom.t() => any()}
+  @type update_app_block_builder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -623,19 +623,19 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type describe_theme_for_stack_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_theme_for_stack_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_image_permissions_request() :: %{
-        required("Name") => String.t() | Atom.t(),
-        required("SharedAccountId") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("SharedAccountId") => String.t() | atom()
       }
       
   """
-  @type delete_image_permissions_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_image_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -646,7 +646,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type create_image_builder_result() :: %{String.t() | Atom.t() => any()}
+  @type create_image_builder_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -657,7 +657,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type associate_application_fleet_result() :: %{String.t() | Atom.t() => any()}
+  @type associate_application_fleet_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -668,7 +668,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type create_stack_result() :: %{String.t() | Atom.t() => any()}
+  @type create_stack_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -676,11 +676,11 @@ defmodule AWS.AppStream do
       
       create_app_block_builder_streaming_url_request() :: %{
         optional("Validity") => float(),
-        required("AppBlockBuilderName") => String.t() | Atom.t()
+        required("AppBlockBuilderName") => String.t() | atom()
       }
       
   """
-  @type create_app_block_builder_streaming_url_request() :: %{String.t() | Atom.t() => any()}
+  @type create_app_block_builder_streaming_url_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -688,37 +688,37 @@ defmodule AWS.AppStream do
       
       describe_image_builders_request() :: %{
         optional("MaxResults") => integer(),
-        optional("Names") => list(String.t() | Atom.t()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("Names") => list(String.t() | atom()),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_image_builders_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_image_builders_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       expire_session_request() :: %{
-        required("SessionId") => String.t() | Atom.t()
+        required("SessionId") => String.t() | atom()
       }
       
   """
-  @type expire_session_request() :: %{String.t() | Atom.t() => any()}
+  @type expire_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_application_fleet_associations_request() :: %{
-        optional("ApplicationArn") => String.t() | Atom.t(),
-        optional("FleetName") => String.t() | Atom.t(),
+        optional("ApplicationArn") => String.t() | atom(),
+        optional("FleetName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_application_fleet_associations_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_application_fleet_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -726,12 +726,12 @@ defmodule AWS.AppStream do
       
       describe_users_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         required("AuthenticationType") => list(any())
       }
       
   """
-  @type describe_users_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_users_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -739,13 +739,13 @@ defmodule AWS.AppStream do
       
       describe_image_permissions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("SharedAwsAccountIds") => list(String.t() | Atom.t()),
-        required("Name") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("SharedAwsAccountIds") => list(String.t() | atom()),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type describe_image_permissions_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_image_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -757,29 +757,29 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type create_updated_image_result() :: %{String.t() | Atom.t() => any()}
+  @type create_updated_image_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       request_limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type request_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type request_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_available_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_available_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_available_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -787,11 +787,11 @@ defmodule AWS.AppStream do
       
       app_block_builder_state_change_reason() :: %{
         "Code" => list(any()),
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type app_block_builder_state_change_reason() :: %{String.t() | Atom.t() => any()}
+  @type app_block_builder_state_change_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -802,7 +802,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type update_directory_config_result() :: %{String.t() | Atom.t() => any()}
+  @type update_directory_config_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -813,20 +813,20 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type create_app_block_result() :: %{String.t() | Atom.t() => any()}
+  @type create_app_block_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_app_blocks_request() :: %{
-        optional("Arns") => list(String.t() | Atom.t()),
+        optional("Arns") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_app_blocks_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_app_blocks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -842,23 +842,23 @@ defmodule AWS.AppStream do
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_app_block_builder_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_app_block_builder_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_app_block_builder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -884,11 +884,11 @@ defmodule AWS.AppStream do
       
       access_endpoint() :: %{
         "EndpointType" => list(any()),
-        "VpceId" => String.t() | Atom.t()
+        "VpceId" => String.t() | atom()
       }
       
   """
-  @type access_endpoint() :: %{String.t() | Atom.t() => any()}
+  @type access_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -922,24 +922,24 @@ defmodule AWS.AppStream do
   ## Example:
       
       associate_application_to_entitlement_request() :: %{
-        required("ApplicationIdentifier") => String.t() | Atom.t(),
-        required("EntitlementName") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        required("ApplicationIdentifier") => String.t() | atom(),
+        required("EntitlementName") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type associate_application_to_entitlement_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_application_to_entitlement_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_combination_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_combination_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -947,22 +947,22 @@ defmodule AWS.AppStream do
       
       create_app_block_builder_streaming_url_result() :: %{
         "Expires" => non_neg_integer(),
-        "StreamingURL" => String.t() | Atom.t()
+        "StreamingURL" => String.t() | atom()
       }
       
   """
-  @type create_app_block_builder_streaming_url_result() :: %{String.t() | Atom.t() => any()}
+  @type create_app_block_builder_streaming_url_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_fleet_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type stop_fleet_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -973,18 +973,18 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type update_fleet_result() :: %{String.t() | Atom.t() => any()}
+  @type update_fleet_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_stack_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_stack_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_stack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -993,14 +993,14 @@ defmodule AWS.AppStream do
       stack() :: %{
         "AccessEndpoints" => list(access_endpoint()),
         "ApplicationSettings" => application_settings_response(),
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
-        "EmbedHostDomains" => list(String.t() | Atom.t()),
-        "FeedbackURL" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "RedirectURL" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "EmbedHostDomains" => list(String.t() | atom()),
+        "FeedbackURL" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RedirectURL" => String.t() | atom(),
         "StackErrors" => list(stack_error()),
         "StorageConnectors" => list(storage_connector()),
         "StreamingExperienceSettings" => streaming_experience_settings(),
@@ -1008,7 +1008,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type stack() :: %{String.t() | Atom.t() => any()}
+  @type stack() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1042,11 +1042,11 @@ defmodule AWS.AppStream do
   ## Example:
       
       stop_image_builder_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type stop_image_builder_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_image_builder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1064,7 +1064,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type compute_capacity_status() :: %{String.t() | Atom.t() => any()}
+  @type compute_capacity_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1072,59 +1072,59 @@ defmodule AWS.AppStream do
       
       describe_directory_configs_result() :: %{
         "DirectoryConfigs" => list(directory_config()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_directory_configs_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_directory_configs_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_application_from_entitlement_request() :: %{
-        required("ApplicationIdentifier") => String.t() | Atom.t(),
-        required("EntitlementName") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        required("ApplicationIdentifier") => String.t() | atom(),
+        required("EntitlementName") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type disassociate_application_from_entitlement_request() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_application_from_entitlement_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_application_fleet_request() :: %{
-        required("ApplicationArn") => String.t() | Atom.t(),
-        required("FleetName") => String.t() | Atom.t()
+        required("ApplicationArn") => String.t() | atom(),
+        required("FleetName") => String.t() | atom()
       }
       
   """
-  @type associate_application_fleet_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_application_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate_based_auth_properties() :: %{
-        "CertificateAuthorityArn" => String.t() | Atom.t(),
+        "CertificateAuthorityArn" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type certificate_based_auth_properties() :: %{String.t() | Atom.t() => any()}
+  @type certificate_based_auth_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1136,7 +1136,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type compute_capacity() :: %{String.t() | Atom.t() => any()}
+  @type compute_capacity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1149,12 +1149,12 @@ defmodule AWS.AppStream do
         optional("OrganizationLogoS3Location") => s3_location(),
         optional("State") => list(any()),
         optional("ThemeStyling") => list(any()),
-        optional("TitleText") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        optional("TitleText") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type update_theme_for_stack_request() :: %{String.t() | Atom.t() => any()}
+  @type update_theme_for_stack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1162,11 +1162,11 @@ defmodule AWS.AppStream do
       
       fleet_error() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | Atom.t()
+        "ErrorMessage" => String.t() | atom()
       }
       
   """
-  @type fleet_error() :: %{String.t() | Atom.t() => any()}
+  @type fleet_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1174,15 +1174,15 @@ defmodule AWS.AppStream do
       
       create_updated_image_request() :: %{
         optional("dryRun") => boolean(),
-        optional("newImageDescription") => String.t() | Atom.t(),
-        optional("newImageDisplayName") => String.t() | Atom.t(),
+        optional("newImageDescription") => String.t() | atom(),
+        optional("newImageDisplayName") => String.t() | atom(),
         optional("newImageTags") => map(),
-        required("existingImageName") => String.t() | Atom.t(),
-        required("newImageName") => String.t() | Atom.t()
+        required("existingImageName") => String.t() | atom(),
+        required("newImageName") => String.t() | atom()
       }
       
   """
-  @type create_updated_image_request() :: %{String.t() | Atom.t() => any()}
+  @type create_updated_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1198,12 +1198,12 @@ defmodule AWS.AppStream do
   ## Example:
       
       describe_stacks_request() :: %{
-        optional("Names") => list(String.t() | Atom.t()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("Names") => list(String.t() | atom()),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_stacks_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_stacks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1211,11 +1211,11 @@ defmodule AWS.AppStream do
       
       app_block() :: %{
         "AppBlockErrors" => list(error_details()),
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "PackagingType" => list(any()),
         "PostSetupScriptDetails" => script_details(),
         "SetupScriptDetails" => script_details(),
@@ -1224,7 +1224,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type app_block() :: %{String.t() | Atom.t() => any()}
+  @type app_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1234,29 +1234,29 @@ defmodule AWS.AppStream do
         optional("AttributesToDelete") => list(list(any())()),
         optional("ComputeCapacity") => compute_capacity(),
         optional("DeleteVpcConfig") => boolean(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("DisconnectTimeoutInSeconds") => integer(),
-        optional("DisplayName") => String.t() | Atom.t(),
+        optional("DisplayName") => String.t() | atom(),
         optional("DomainJoinInfo") => domain_join_info(),
         optional("EnableDefaultInternetAccess") => boolean(),
-        optional("IamRoleArn") => String.t() | Atom.t(),
+        optional("IamRoleArn") => String.t() | atom(),
         optional("IdleDisconnectTimeoutInSeconds") => integer(),
-        optional("ImageArn") => String.t() | Atom.t(),
-        optional("ImageName") => String.t() | Atom.t(),
-        optional("InstanceType") => String.t() | Atom.t(),
+        optional("ImageArn") => String.t() | atom(),
+        optional("ImageName") => String.t() | atom(),
+        optional("InstanceType") => String.t() | atom(),
         optional("MaxConcurrentSessions") => integer(),
         optional("MaxSessionsPerInstance") => integer(),
         optional("MaxUserDurationInSeconds") => integer(),
-        optional("Name") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
         optional("Platform") => list(any()),
         optional("SessionScriptS3Location") => s3_location(),
         optional("StreamView") => list(any()),
-        optional("UsbDeviceFilterStrings") => list(String.t() | Atom.t()),
+        optional("UsbDeviceFilterStrings") => list(String.t() | atom()),
         optional("VpcConfig") => vpc_config()
       }
       
   """
-  @type update_fleet_request() :: %{String.t() | Atom.t() => any()}
+  @type update_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1264,13 +1264,13 @@ defmodule AWS.AppStream do
       
       usage_report_subscription() :: %{
         "LastGeneratedReportDate" => non_neg_integer(),
-        "S3BucketName" => String.t() | Atom.t(),
+        "S3BucketName" => String.t() | atom(),
         "Schedule" => list(any()),
         "SubscriptionErrors" => list(last_report_generation_execution_error())
       }
       
   """
-  @type usage_report_subscription() :: %{String.t() | Atom.t() => any()}
+  @type usage_report_subscription() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1281,23 +1281,22 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type update_entitlement_result() :: %{String.t() | Atom.t() => any()}
+  @type update_entitlement_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_app_block_builder_app_block_associations_request() :: %{
-        optional("AppBlockArn") => String.t() | Atom.t(),
-        optional("AppBlockBuilderName") => String.t() | Atom.t(),
+        optional("AppBlockArn") => String.t() | atom(),
+        optional("AppBlockBuilderName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
   @type describe_app_block_builder_app_block_associations_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1306,47 +1305,47 @@ defmodule AWS.AppStream do
       
       create_image_builder_request() :: %{
         optional("AccessEndpoints") => list(access_endpoint()),
-        optional("AppstreamAgentVersion") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("DisplayName") => String.t() | Atom.t(),
+        optional("AppstreamAgentVersion") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
         optional("DomainJoinInfo") => domain_join_info(),
         optional("EnableDefaultInternetAccess") => boolean(),
-        optional("IamRoleArn") => String.t() | Atom.t(),
-        optional("ImageArn") => String.t() | Atom.t(),
-        optional("ImageName") => String.t() | Atom.t(),
+        optional("IamRoleArn") => String.t() | atom(),
+        optional("ImageArn") => String.t() | atom(),
+        optional("ImageName") => String.t() | atom(),
         optional("Tags") => map(),
         optional("VpcConfig") => vpc_config(),
-        required("InstanceType") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        required("InstanceType") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_image_builder_request() :: %{String.t() | Atom.t() => any()}
+  @type create_image_builder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application() :: %{
-        "AppBlockArn" => String.t() | Atom.t(),
-        "Arn" => String.t() | Atom.t(),
+        "AppBlockArn" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
         "Enabled" => boolean(),
         "IconS3Location" => s3_location(),
-        "IconURL" => String.t() | Atom.t(),
-        "InstanceFamilies" => list(String.t() | Atom.t()),
-        "LaunchParameters" => String.t() | Atom.t(),
-        "LaunchPath" => String.t() | Atom.t(),
+        "IconURL" => String.t() | atom(),
+        "InstanceFamilies" => list(String.t() | atom()),
+        "LaunchParameters" => String.t() | atom(),
+        "LaunchPath" => String.t() | atom(),
         "Metadata" => map(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Platforms" => list(list(any())()),
-        "WorkingDirectory" => String.t() | Atom.t()
+        "WorkingDirectory" => String.t() | atom()
       }
       
   """
-  @type application() :: %{String.t() | Atom.t() => any()}
+  @type application() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1359,19 +1358,19 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type user_setting() :: %{String.t() | Atom.t() => any()}
+  @type user_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_application_fleet_request() :: %{
-        required("ApplicationArn") => String.t() | Atom.t(),
-        required("FleetName") => String.t() | Atom.t()
+        required("ApplicationArn") => String.t() | atom(),
+        required("FleetName") => String.t() | atom()
       }
       
   """
-  @type disassociate_application_fleet_request() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_application_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1379,13 +1378,13 @@ defmodule AWS.AppStream do
       
       list_entitled_applications_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("EntitlementName") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("EntitlementName") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type list_entitled_applications_request() :: %{String.t() | Atom.t() => any()}
+  @type list_entitled_applications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1401,49 +1400,49 @@ defmodule AWS.AppStream do
   ## Example:
       
       vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t() | Atom.t()),
-        "SubnetIds" => list(String.t() | Atom.t())
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
       }
       
   """
-  @type vpc_config() :: %{String.t() | Atom.t() => any()}
+  @type vpc_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       entitlement_attribute() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type entitlement_attribute() :: %{String.t() | Atom.t() => any()}
+  @type entitlement_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_user_stack_associations_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "UserStackAssociations" => list(user_stack_association())
       }
       
   """
-  @type describe_user_stack_associations_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_user_stack_associations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_directory_configs_request() :: %{
-        optional("DirectoryNames") => list(String.t() | Atom.t()),
+        optional("DirectoryNames") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_directory_configs_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_directory_configs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1451,49 +1450,49 @@ defmodule AWS.AppStream do
       
       storage_connector() :: %{
         "ConnectorType" => list(any()),
-        "Domains" => list(String.t() | Atom.t()),
-        "DomainsRequireAdminConsent" => list(String.t() | Atom.t()),
-        "ResourceIdentifier" => String.t() | Atom.t()
+        "Domains" => list(String.t() | atom()),
+        "DomainsRequireAdminConsent" => list(String.t() | atom()),
+        "ResourceIdentifier" => String.t() | atom()
       }
       
   """
-  @type storage_connector() :: %{String.t() | Atom.t() => any()}
+  @type storage_connector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       copy_image_response() :: %{
-        "DestinationImageName" => String.t() | Atom.t()
+        "DestinationImageName" => String.t() | atom()
       }
       
   """
-  @type copy_image_response() :: %{String.t() | Atom.t() => any()}
+  @type copy_image_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       error_details() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t()
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom()
       }
       
   """
-  @type error_details() :: %{String.t() | Atom.t() => any()}
+  @type error_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_applications_request() :: %{
-        optional("Arns") => list(String.t() | Atom.t()),
+        optional("Arns") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_applications_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_applications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1504,28 +1503,28 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_application_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("DisplayName") => String.t() | Atom.t(),
-        optional("LaunchParameters") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        optional("LaunchParameters") => String.t() | atom(),
         optional("Tags") => map(),
-        optional("WorkingDirectory") => String.t() | Atom.t(),
-        required("AppBlockArn") => String.t() | Atom.t(),
+        optional("WorkingDirectory") => String.t() | atom(),
+        required("AppBlockArn") => String.t() | atom(),
         required("IconS3Location") => s3_location(),
-        required("InstanceFamilies") => list(String.t() | Atom.t()),
-        required("LaunchPath") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
+        required("InstanceFamilies") => list(String.t() | atom()),
+        required("LaunchPath") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Platforms") => list(list(any())())
       }
       
   """
-  @type create_application_request() :: %{String.t() | Atom.t() => any()}
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1541,11 +1540,11 @@ defmodule AWS.AppStream do
   ## Example:
       
       start_fleet_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type start_fleet_request() :: %{String.t() | Atom.t() => any()}
+  @type start_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1556,7 +1555,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type delete_image_builder_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_image_builder_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1564,46 +1563,46 @@ defmodule AWS.AppStream do
       
       resource_error() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | atom(),
         "ErrorTimestamp" => non_neg_integer()
       }
       
   """
-  @type resource_error() :: %{String.t() | Atom.t() => any()}
+  @type resource_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_not_permitted_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type operation_not_permitted_exception() :: %{String.t() | Atom.t() => any()}
+  @type operation_not_permitted_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_location() :: %{
-        "S3Bucket" => String.t() | Atom.t(),
-        "S3Key" => String.t() | Atom.t()
+        "S3Bucket" => String.t() | atom(),
+        "S3Key" => String.t() | atom()
       }
       
   """
-  @type s3_location() :: %{String.t() | Atom.t() => any()}
+  @type s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_app_block_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_app_block_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_app_block_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1614,18 +1613,18 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type update_theme_for_stack_result() :: %{String.t() | Atom.t() => any()}
+  @type update_theme_for_stack_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_app_block_builder_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type stop_app_block_builder_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_app_block_builder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1633,36 +1632,36 @@ defmodule AWS.AppStream do
       
       update_image_permissions_request() :: %{
         required("ImagePermissions") => image_permissions(),
-        required("Name") => String.t() | Atom.t(),
-        required("SharedAccountId") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("SharedAccountId") => String.t() | atom()
       }
       
   """
-  @type update_image_permissions_request() :: %{String.t() | Atom.t() => any()}
+  @type update_image_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_app_block_builder_app_block_request() :: %{
-        required("AppBlockArn") => String.t() | Atom.t(),
-        required("AppBlockBuilderName") => String.t() | Atom.t()
+        required("AppBlockArn") => String.t() | atom(),
+        required("AppBlockBuilderName") => String.t() | atom()
       }
       
   """
-  @type disassociate_app_block_builder_app_block_request() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_app_block_builder_app_block_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       app_block_builder_app_block_association() :: %{
-        "AppBlockArn" => String.t() | Atom.t(),
-        "AppBlockBuilderName" => String.t() | Atom.t()
+        "AppBlockArn" => String.t() | atom(),
+        "AppBlockBuilderName" => String.t() | atom()
       }
       
   """
-  @type app_block_builder_app_block_association() :: %{String.t() | Atom.t() => any()}
+  @type app_block_builder_app_block_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1680,19 +1679,19 @@ defmodule AWS.AppStream do
       session() :: %{
         "AuthenticationType" => list(any()),
         "ConnectionState" => list(any()),
-        "FleetName" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "InstanceId" => String.t() | Atom.t(),
+        "FleetName" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
         "MaxExpirationTime" => non_neg_integer(),
         "NetworkAccessConfiguration" => network_access_configuration(),
-        "StackName" => String.t() | Atom.t(),
+        "StackName" => String.t() | atom(),
         "StartTime" => non_neg_integer(),
         "State" => list(any()),
-        "UserId" => String.t() | Atom.t()
+        "UserId" => String.t() | atom()
       }
       
   """
-  @type session() :: %{String.t() | Atom.t() => any()}
+  @type session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1703,7 +1702,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type update_stack_result() :: %{String.t() | Atom.t() => any()}
+  @type update_stack_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1711,11 +1710,11 @@ defmodule AWS.AppStream do
       
       list_entitled_applications_result() :: %{
         "EntitledApplications" => list(entitled_application()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_entitled_applications_result() :: %{String.t() | Atom.t() => any()}
+  @type list_entitled_applications_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1726,7 +1725,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type streaming_experience_settings() :: %{String.t() | Atom.t() => any()}
+  @type streaming_experience_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1734,22 +1733,22 @@ defmodule AWS.AppStream do
       
       delete_user_request() :: %{
         required("AuthenticationType") => list(any()),
-        required("UserName") => String.t() | Atom.t()
+        required("UserName") => String.t() | atom()
       }
       
   """
-  @type delete_user_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       entitlement_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type entitlement_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type entitlement_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1765,38 +1764,38 @@ defmodule AWS.AppStream do
   ## Example:
       
       invalid_role_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_role_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_role_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_image_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_image_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_streaming_url_request() :: %{
-        optional("ApplicationId") => String.t() | Atom.t(),
-        optional("SessionContext") => String.t() | Atom.t(),
+        optional("ApplicationId") => String.t() | atom(),
+        optional("SessionContext") => String.t() | atom(),
         optional("Validity") => float(),
-        required("FleetName") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t(),
-        required("UserId") => String.t() | Atom.t()
+        required("FleetName") => String.t() | atom(),
+        required("StackName") => String.t() | atom(),
+        required("UserId") => String.t() | atom()
       }
       
   """
-  @type create_streaming_url_request() :: %{String.t() | Atom.t() => any()}
+  @type create_streaming_url_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1804,64 +1803,64 @@ defmodule AWS.AppStream do
       
       create_image_builder_streaming_url_request() :: %{
         optional("Validity") => float(),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_image_builder_streaming_url_request() :: %{String.t() | Atom.t() => any()}
+  @type create_image_builder_streaming_url_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_application_request() :: %{
-        optional("AppBlockArn") => String.t() | Atom.t(),
+        optional("AppBlockArn") => String.t() | atom(),
         optional("AttributesToDelete") => list(list(any())()),
-        optional("Description") => String.t() | Atom.t(),
-        optional("DisplayName") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
         optional("IconS3Location") => s3_location(),
-        optional("LaunchParameters") => String.t() | Atom.t(),
-        optional("LaunchPath") => String.t() | Atom.t(),
-        optional("WorkingDirectory") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        optional("LaunchParameters") => String.t() | atom(),
+        optional("LaunchPath") => String.t() | atom(),
+        optional("WorkingDirectory") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type update_application_request() :: %{String.t() | Atom.t() => any()}
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_image_builder_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_image_builder_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_image_builder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_account_status_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_account_status_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_account_status_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_associated_fleets_request() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type list_associated_fleets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_associated_fleets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1869,23 +1868,23 @@ defmodule AWS.AppStream do
       
       stack_error() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | Atom.t()
+        "ErrorMessage" => String.t() | atom()
       }
       
   """
-  @type stack_error() :: %{String.t() | Atom.t() => any()}
+  @type stack_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_associated_fleets_result() :: %{
-        "Names" => list(String.t() | Atom.t()),
-        "NextToken" => String.t() | Atom.t()
+        "Names" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_associated_fleets_result() :: %{String.t() | Atom.t() => any()}
+  @type list_associated_fleets_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1896,7 +1895,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type batch_disassociate_user_stack_result() :: %{String.t() | Atom.t() => any()}
+  @type batch_disassociate_user_stack_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1916,31 +1915,31 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type batch_associate_user_stack_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_associate_user_stack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_users_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Users" => list(user())
       }
       
   """
-  @type describe_users_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_users_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stacks_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Stacks" => list(stack())
       }
       
   """
-  @type describe_stacks_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_stacks_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1948,11 +1947,11 @@ defmodule AWS.AppStream do
       
       image_builder_state_change_reason() :: %{
         "Code" => list(any()),
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type image_builder_state_change_reason() :: %{String.t() | Atom.t() => any()}
+  @type image_builder_state_change_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1963,19 +1962,19 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type update_application_result() :: %{String.t() | Atom.t() => any()}
+  @type update_application_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       theme_footer_link() :: %{
-        "DisplayName" => String.t() | Atom.t(),
-        "FooterLinkURL" => String.t() | Atom.t()
+        "DisplayName" => String.t() | atom(),
+        "FooterLinkURL" => String.t() | atom()
       }
       
   """
-  @type theme_footer_link() :: %{String.t() | Atom.t() => any()}
+  @type theme_footer_link() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1985,14 +1984,14 @@ defmodule AWS.AppStream do
         "AppVisibility" => list(any()),
         "Attributes" => list(entitlement_attribute()),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
-        "StackName" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "StackName" => String.t() | atom()
       }
       
   """
-  @type entitlement() :: %{String.t() | Atom.t() => any()}
+  @type entitlement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2000,30 +1999,30 @@ defmodule AWS.AppStream do
       
       image() :: %{
         "Applications" => list(application()),
-        "AppstreamAgentVersion" => String.t() | Atom.t(),
-        "Arn" => String.t() | Atom.t(),
-        "BaseImageArn" => String.t() | Atom.t(),
+        "AppstreamAgentVersion" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "BaseImageArn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
         "DynamicAppProvidersEnabled" => list(any()),
-        "ImageBuilderName" => String.t() | Atom.t(),
+        "ImageBuilderName" => String.t() | atom(),
         "ImageBuilderSupported" => boolean(),
         "ImageErrors" => list(resource_error()),
         "ImagePermissions" => image_permissions(),
         "ImageSharedWithOthers" => list(any()),
         "LatestAppstreamAgentVersion" => list(any()),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Platform" => list(any()),
         "PublicBaseImageReleasedDate" => non_neg_integer(),
         "State" => list(any()),
         "StateChangeReason" => image_state_change_reason(),
-        "SupportedInstanceFamilies" => list(String.t() | Atom.t()),
+        "SupportedInstanceFamilies" => list(String.t() | atom()),
         "Visibility" => list(any())
       }
       
   """
-  @type image() :: %{String.t() | Atom.t() => any()}
+  @type image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2031,11 +2030,11 @@ defmodule AWS.AppStream do
       
       describe_entitlements_result() :: %{
         "Entitlements" => list(entitlement()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_entitlements_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_entitlements_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2043,11 +2042,11 @@ defmodule AWS.AppStream do
       
       shared_image_permissions() :: %{
         "imagePermissions" => image_permissions(),
-        "sharedAccountId" => String.t() | Atom.t()
+        "sharedAccountId" => String.t() | atom()
       }
       
   """
-  @type shared_image_permissions() :: %{String.t() | Atom.t() => any()}
+  @type shared_image_permissions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2055,22 +2054,22 @@ defmodule AWS.AppStream do
       
       application_settings() :: %{
         "Enabled" => boolean(),
-        "SettingsGroup" => String.t() | Atom.t()
+        "SettingsGroup" => String.t() | atom()
       }
       
   """
-  @type application_settings() :: %{String.t() | Atom.t() => any()}
+  @type application_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       incompatible_image_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type incompatible_image_exception() :: %{String.t() | Atom.t() => any()}
+  @type incompatible_image_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2078,11 +2077,11 @@ defmodule AWS.AppStream do
       
       create_image_builder_streaming_url_result() :: %{
         "Expires" => non_neg_integer(),
-        "StreamingURL" => String.t() | Atom.t()
+        "StreamingURL" => String.t() | atom()
       }
       
   """
-  @type create_image_builder_streaming_url_result() :: %{String.t() | Atom.t() => any()}
+  @type create_image_builder_streaming_url_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2093,7 +2092,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type create_fleet_result() :: %{String.t() | Atom.t() => any()}
+  @type create_fleet_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2101,13 +2100,12 @@ defmodule AWS.AppStream do
       
       describe_app_block_builder_app_block_associations_result() :: %{
         "AppBlockBuilderAppBlockAssociations" => list(app_block_builder_app_block_association()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
   @type describe_app_block_builder_app_block_associations_result() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2126,13 +2124,13 @@ defmodule AWS.AppStream do
       directory_config() :: %{
         "CertificateBasedAuthProperties" => certificate_based_auth_properties(),
         "CreatedTime" => non_neg_integer(),
-        "DirectoryName" => String.t() | Atom.t(),
-        "OrganizationalUnitDistinguishedNames" => list(String.t() | Atom.t()),
+        "DirectoryName" => String.t() | atom(),
+        "OrganizationalUnitDistinguishedNames" => list(String.t() | atom()),
         "ServiceAccountCredentials" => service_account_credentials()
       }
       
   """
-  @type directory_config() :: %{String.t() | Atom.t() => any()}
+  @type directory_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2143,31 +2141,31 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type batch_associate_user_stack_result() :: %{String.t() | Atom.t() => any()}
+  @type batch_associate_user_stack_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       concurrent_modification_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type concurrent_modification_exception() :: %{String.t() | Atom.t() => any()}
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_image_permissions_result() :: %{
-        "Name" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
         "SharedImagePermissionsList" => list(shared_image_permissions())
       }
       
   """
-  @type describe_image_permissions_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_image_permissions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2183,12 +2181,12 @@ defmodule AWS.AppStream do
   ## Example:
       
       associate_app_block_builder_app_block_request() :: %{
-        required("AppBlockArn") => String.t() | Atom.t(),
-        required("AppBlockBuilderName") => String.t() | Atom.t()
+        required("AppBlockArn") => String.t() | atom(),
+        required("AppBlockBuilderName") => String.t() | atom()
       }
       
   """
-  @type associate_app_block_builder_app_block_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_app_block_builder_app_block_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2199,30 +2197,30 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type create_app_block_builder_result() :: %{String.t() | Atom.t() => any()}
+  @type create_app_block_builder_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_account_credentials() :: %{
-        "AccountName" => String.t() | Atom.t(),
-        "AccountPassword" => String.t() | Atom.t()
+        "AccountName" => String.t() | atom(),
+        "AccountPassword" => String.t() | atom()
       }
       
   """
-  @type service_account_credentials() :: %{String.t() | Atom.t() => any()}
+  @type service_account_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2239,49 +2237,49 @@ defmodule AWS.AppStream do
       
       enable_user_request() :: %{
         required("AuthenticationType") => list(any()),
-        required("UserName") => String.t() | Atom.t()
+        required("UserName") => String.t() | atom()
       }
       
   """
-  @type enable_user_request() :: %{String.t() | Atom.t() => any()}
+  @type enable_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       script_details() :: %{
-        "ExecutableParameters" => String.t() | Atom.t(),
-        "ExecutablePath" => String.t() | Atom.t(),
+        "ExecutableParameters" => String.t() | atom(),
+        "ExecutablePath" => String.t() | atom(),
         "ScriptS3Location" => s3_location(),
         "TimeoutInSeconds" => integer()
       }
       
   """
-  @type script_details() :: %{String.t() | Atom.t() => any()}
+  @type script_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_fleet_request() :: %{
-        required("FleetName") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        required("FleetName") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type disassociate_fleet_request() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_entitlement_request() :: %{
-        required("Name") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type delete_entitlement_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_entitlement_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2297,18 +2295,18 @@ defmodule AWS.AppStream do
   ## Example:
       
       user() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "AuthenticationType" => list(any()),
         "CreatedTime" => non_neg_integer(),
         "Enabled" => boolean(),
-        "FirstName" => String.t() | Atom.t(),
-        "LastName" => String.t() | Atom.t(),
-        "Status" => String.t() | Atom.t(),
-        "UserName" => String.t() | Atom.t()
+        "FirstName" => String.t() | atom(),
+        "LastName" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "UserName" => String.t() | atom()
       }
       
   """
-  @type user() :: %{String.t() | Atom.t() => any()}
+  @type user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2316,39 +2314,39 @@ defmodule AWS.AppStream do
       
       describe_sessions_request() :: %{
         optional("AuthenticationType") => list(any()),
-        optional("InstanceId") => String.t() | Atom.t(),
+        optional("InstanceId") => String.t() | atom(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("UserId") => String.t() | Atom.t(),
-        required("FleetName") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("UserId") => String.t() | atom(),
+        required("FleetName") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type describe_sessions_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_sessions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_usage_report_subscription_result() :: %{
-        "S3BucketName" => String.t() | Atom.t(),
+        "S3BucketName" => String.t() | atom(),
         "Schedule" => list(any())
       }
       
   """
-  @type create_usage_report_subscription_result() :: %{String.t() | Atom.t() => any()}
+  @type create_usage_report_subscription_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2359,7 +2357,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type create_directory_config_result() :: %{String.t() | Atom.t() => any()}
+  @type create_directory_config_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2367,11 +2365,11 @@ defmodule AWS.AppStream do
       
       last_report_generation_execution_error() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | Atom.t()
+        "ErrorMessage" => String.t() | atom()
       }
       
   """
-  @type last_report_generation_execution_error() :: %{String.t() | Atom.t() => any()}
+  @type last_report_generation_execution_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2379,58 +2377,58 @@ defmodule AWS.AppStream do
       
       describe_fleets_result() :: %{
         "Fleets" => list(fleet()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_fleets_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_fleets_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_theme_for_stack_request() :: %{
-        required("StackName") => String.t() | Atom.t()
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type delete_theme_for_stack_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_theme_for_stack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_usage_report_subscriptions_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "UsageReportSubscriptions" => list(usage_report_subscription())
       }
       
   """
-  @type describe_usage_report_subscriptions_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_usage_report_subscriptions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_associated_stacks_result() :: %{
-        "Names" => list(String.t() | Atom.t()),
-        "NextToken" => String.t() | Atom.t()
+        "Names" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_associated_stacks_result() :: %{String.t() | Atom.t() => any()}
+  @type list_associated_stacks_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_fleet_request() :: %{
-        required("FleetName") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        required("FleetName") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type associate_fleet_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2438,12 +2436,12 @@ defmodule AWS.AppStream do
       
       describe_app_block_builders_request() :: %{
         optional("MaxResults") => integer(),
-        optional("Names") => list(String.t() | Atom.t()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("Names") => list(String.t() | atom()),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_app_block_builders_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_app_block_builders_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2452,24 +2450,24 @@ defmodule AWS.AppStream do
       describe_user_stack_associations_request() :: %{
         optional("AuthenticationType") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("StackName") => String.t() | Atom.t(),
-        optional("UserName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("StackName") => String.t() | atom(),
+        optional("UserName") => String.t() | atom()
       }
       
   """
-  @type describe_user_stack_associations_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_user_stack_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_already_exists_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2480,7 +2478,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type stop_image_builder_result() :: %{String.t() | Atom.t() => any()}
+  @type stop_image_builder_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2491,30 +2489,30 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type start_app_block_builder_result() :: %{String.t() | Atom.t() => any()}
+  @type start_app_block_builder_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_image_builder_request() :: %{
-        optional("AppstreamAgentVersion") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        optional("AppstreamAgentVersion") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type start_image_builder_request() :: %{String.t() | Atom.t() => any()}
+  @type start_image_builder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_app_block_builder_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type start_app_block_builder_request() :: %{String.t() | Atom.t() => any()}
+  @type start_app_block_builder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2525,7 +2523,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type update_app_block_builder_result() :: %{String.t() | Atom.t() => any()}
+  @type update_app_block_builder_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2541,11 +2539,11 @@ defmodule AWS.AppStream do
   ## Example:
       
       entitlement_already_exists_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type entitlement_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type entitlement_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2554,13 +2552,13 @@ defmodule AWS.AppStream do
       update_entitlement_request() :: %{
         optional("AppVisibility") => list(any()),
         optional("Attributes") => list(entitlement_attribute()),
-        optional("Description") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type update_entitlement_request() :: %{String.t() | Atom.t() => any()}
+  @type update_entitlement_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2568,11 +2566,11 @@ defmodule AWS.AppStream do
       
       describe_application_fleet_associations_result() :: %{
         "ApplicationFleetAssociations" => list(application_fleet_association()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_application_fleet_associations_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_application_fleet_associations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2589,11 +2587,11 @@ defmodule AWS.AppStream do
       
       disable_user_request() :: %{
         required("AuthenticationType") => list(any()),
-        required("UserName") => String.t() | Atom.t()
+        required("UserName") => String.t() | atom()
       }
       
   """
-  @type disable_user_request() :: %{String.t() | Atom.t() => any()}
+  @type disable_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2604,7 +2602,7 @@ defmodule AWS.AppStream do
       }
       
   """
-  @type create_theme_for_stack_result() :: %{String.t() | Atom.t() => any()}
+  @type create_theme_for_stack_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2612,12 +2610,12 @@ defmodule AWS.AppStream do
       
       application_settings_response() :: %{
         "Enabled" => boolean(),
-        "S3BucketName" => String.t() | Atom.t(),
-        "SettingsGroup" => String.t() | Atom.t()
+        "S3BucketName" => String.t() | atom(),
+        "SettingsGroup" => String.t() | atom()
       }
       
   """
-  @type application_settings_response() :: %{String.t() | Atom.t() => any()}
+  @type application_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2627,72 +2625,72 @@ defmodule AWS.AppStream do
         optional("FooterLinks") => list(theme_footer_link()),
         required("FaviconS3Location") => s3_location(),
         required("OrganizationLogoS3Location") => s3_location(),
-        required("StackName") => String.t() | Atom.t(),
+        required("StackName") => String.t() | atom(),
         required("ThemeStyling") => list(any()),
-        required("TitleText") => String.t() | Atom.t()
+        required("TitleText") => String.t() | atom()
       }
       
   """
-  @type create_theme_for_stack_request() :: %{String.t() | Atom.t() => any()}
+  @type create_theme_for_stack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       domain_join_info() :: %{
-        "DirectoryName" => String.t() | Atom.t(),
-        "OrganizationalUnitDistinguishedName" => String.t() | Atom.t()
+        "DirectoryName" => String.t() | atom(),
+        "OrganizationalUnitDistinguishedName" => String.t() | atom()
       }
       
   """
-  @type domain_join_info() :: %{String.t() | Atom.t() => any()}
+  @type domain_join_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_fleets_request() :: %{
-        optional("Names") => list(String.t() | Atom.t()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("Names") => list(String.t() | atom()),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_fleets_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_fleets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       fleet() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "ComputeCapacityStatus" => compute_capacity_status(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "DisconnectTimeoutInSeconds" => integer(),
-        "DisplayName" => String.t() | Atom.t(),
+        "DisplayName" => String.t() | atom(),
         "DomainJoinInfo" => domain_join_info(),
         "EnableDefaultInternetAccess" => boolean(),
         "FleetErrors" => list(fleet_error()),
         "FleetType" => list(any()),
-        "IamRoleArn" => String.t() | Atom.t(),
+        "IamRoleArn" => String.t() | atom(),
         "IdleDisconnectTimeoutInSeconds" => integer(),
-        "ImageArn" => String.t() | Atom.t(),
-        "ImageName" => String.t() | Atom.t(),
-        "InstanceType" => String.t() | Atom.t(),
+        "ImageArn" => String.t() | atom(),
+        "ImageName" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
         "MaxConcurrentSessions" => integer(),
         "MaxSessionsPerInstance" => integer(),
         "MaxUserDurationInSeconds" => integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Platform" => list(any()),
         "SessionScriptS3Location" => s3_location(),
         "State" => list(any()),
         "StreamView" => list(any()),
-        "UsbDeviceFilterStrings" => list(String.t() | Atom.t()),
+        "UsbDeviceFilterStrings" => list(String.t() | atom()),
         "VpcConfig" => vpc_config()
       }
       
   """
-  @type fleet() :: %{String.t() | Atom.t() => any()}
+  @type fleet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2700,13 +2698,13 @@ defmodule AWS.AppStream do
       
       describe_entitlements_request() :: %{
         optional("MaxResults") => integer(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        optional("Name") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type describe_entitlements_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_entitlements_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2714,34 +2712,34 @@ defmodule AWS.AppStream do
       
       describe_applications_result() :: %{
         "Applications" => list(application()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_applications_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_applications_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       entitled_application() :: %{
-        "ApplicationIdentifier" => String.t() | Atom.t()
+        "ApplicationIdentifier" => String.t() | atom()
       }
       
   """
-  @type entitled_application() :: %{String.t() | Atom.t() => any()}
+  @type entitled_application() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_sessions_result() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Sessions" => list(session())
       }
       
   """
-  @type describe_sessions_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_sessions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2749,53 +2747,53 @@ defmodule AWS.AppStream do
       
       user_stack_association_error() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | atom(),
         "UserStackAssociation" => user_stack_association()
       }
       
   """
-  @type user_stack_association_error() :: %{String.t() | Atom.t() => any()}
+  @type user_stack_association_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_application_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_application_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_user_request() :: %{
-        optional("FirstName") => String.t() | Atom.t(),
-        optional("LastName") => String.t() | Atom.t(),
+        optional("FirstName") => String.t() | atom(),
+        optional("LastName") => String.t() | atom(),
         optional("MessageAction") => list(any()),
         required("AuthenticationType") => list(any()),
-        required("UserName") => String.t() | Atom.t()
+        required("UserName") => String.t() | atom()
       }
       
   """
-  @type create_user_request() :: %{String.t() | Atom.t() => any()}
+  @type create_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_entitlement_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         required("AppVisibility") => list(any()),
         required("Attributes") => list(entitlement_attribute()),
-        required("Name") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type create_entitlement_request() :: %{String.t() | Atom.t() => any()}
+  @type create_entitlement_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2804,23 +2802,23 @@ defmodule AWS.AppStream do
       create_directory_config_request() :: %{
         optional("CertificateBasedAuthProperties") => certificate_based_auth_properties(),
         optional("ServiceAccountCredentials") => service_account_credentials(),
-        required("DirectoryName") => String.t() | Atom.t(),
-        required("OrganizationalUnitDistinguishedNames") => list(String.t() | Atom.t())
+        required("DirectoryName") => String.t() | atom(),
+        required("OrganizationalUnitDistinguishedNames") => list(String.t() | atom())
       }
       
   """
-  @type create_directory_config_request() :: %{String.t() | Atom.t() => any()}
+  @type create_directory_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_directory_config_request() :: %{
-        required("DirectoryName") => String.t() | Atom.t()
+        required("DirectoryName") => String.t() | atom()
       }
       
   """
-  @type delete_directory_config_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_directory_config_request() :: %{(String.t() | atom()) => any()}
 
   @type associate_app_block_builder_app_block_errors() ::
           limit_exceeded_exception()

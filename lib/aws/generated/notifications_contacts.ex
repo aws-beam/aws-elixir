@@ -19,11 +19,11 @@ defmodule AWS.NotificationsContacts do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -48,13 +48,13 @@ defmodule AWS.NotificationsContacts do
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceId" => String.t() | Atom.t(),
-        "resourceType" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -62,23 +62,23 @@ defmodule AWS.NotificationsContacts do
 
       create_email_contact_request() :: %{
         optional("tags") => map(),
-        required("emailAddress") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t()
+        required("emailAddress") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_email_contact_request() :: %{String.t() | Atom.t() => any()}
+  @type create_email_contact_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_email_contact_response() :: %{
-        "arn" => String.t() | Atom.t()
+        "arn" => String.t() | atom()
       }
 
   """
-  @type create_email_contact_response() :: %{String.t() | Atom.t() => any()}
+  @type create_email_contact_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -103,16 +103,16 @@ defmodule AWS.NotificationsContacts do
   ## Example:
 
       email_contact() :: %{
-        "address" => String.t() | Atom.t(),
-        "arn" => String.t() | Atom.t(),
+        "address" => String.t() | atom(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "name" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "updateTime" => non_neg_integer()
       }
 
   """
-  @type email_contact() :: %{String.t() | Atom.t() => any()}
+  @type email_contact() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -132,18 +132,18 @@ defmodule AWS.NotificationsContacts do
       }
 
   """
-  @type get_email_contact_response() :: %{String.t() | Atom.t() => any()}
+  @type get_email_contact_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -151,11 +151,11 @@ defmodule AWS.NotificationsContacts do
 
       list_email_contacts_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | Atom.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_email_contacts_request() :: %{String.t() | Atom.t() => any()}
+  @type list_email_contacts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -163,11 +163,11 @@ defmodule AWS.NotificationsContacts do
 
       list_email_contacts_response() :: %{
         "emailContacts" => list(email_contact()),
-        "nextToken" => [String.t() | Atom.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_email_contacts_response() :: %{String.t() | Atom.t() => any()}
+  @type list_email_contacts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -187,20 +187,20 @@ defmodule AWS.NotificationsContacts do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceId" => String.t() | Atom.t(),
-        "resourceType" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -225,15 +225,15 @@ defmodule AWS.NotificationsContacts do
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "quotaCode" => String.t() | Atom.t(),
-        "resourceId" => String.t() | Atom.t(),
-        "resourceType" => String.t() | Atom.t(),
-        "serviceCode" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "serviceCode" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -244,7 +244,7 @@ defmodule AWS.NotificationsContacts do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -260,25 +260,25 @@ defmodule AWS.NotificationsContacts do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "quotaCode" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
         "retryAfterSeconds" => [integer()],
-        "serviceCode" => String.t() | Atom.t()
+        "serviceCode" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -295,24 +295,24 @@ defmodule AWS.NotificationsContacts do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
         "reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t() | Atom.t()],
-        "name" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @type activate_email_contact_errors() ::
           validation_exception()
@@ -404,8 +404,8 @@ defmodule AWS.NotificationsContacts do
   """
   @spec activate_email_contact(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           activate_email_contact_request(),
           list()
         ) ::
@@ -469,7 +469,7 @@ defmodule AWS.NotificationsContacts do
   Deleting an email contact removes it from all associated notification
   configurations.
   """
-  @spec delete_email_contact(map(), String.t() | Atom.t(), delete_email_contact_request(), list()) ::
+  @spec delete_email_contact(map(), String.t() | atom(), delete_email_contact_request(), list()) ::
           {:ok, delete_email_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -498,7 +498,7 @@ defmodule AWS.NotificationsContacts do
   @doc """
   Returns an email contact.
   """
-  @spec get_email_contact(map(), String.t() | Atom.t(), list()) ::
+  @spec get_email_contact(map(), String.t() | atom(), list()) ::
           {:ok, get_email_contact_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -516,12 +516,7 @@ defmodule AWS.NotificationsContacts do
   @doc """
   Lists all email contacts created under the Account.
   """
-  @spec list_email_contacts(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec list_email_contacts(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_email_contacts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -561,7 +556,7 @@ defmodule AWS.NotificationsContacts do
 
   The resource can be a user, server, or role.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -583,7 +578,7 @@ defmodule AWS.NotificationsContacts do
   It might take a few minutes for the activation email to arrive. If it doesn't
   arrive, check in your spam folder or try sending another activation email.
   """
-  @spec send_activation_code(map(), String.t() | Atom.t(), send_activation_code_request(), list()) ::
+  @spec send_activation_code(map(), String.t() | atom(), send_activation_code_request(), list()) ::
           {:ok, send_activation_code_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -615,7 +610,7 @@ defmodule AWS.NotificationsContacts do
 
   Taggable resources in AWS User Notifications Contacts include email contacts.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -647,7 +642,7 @@ defmodule AWS.NotificationsContacts do
 
   Taggable resources in AWS User Notifications Contacts include email contacts..
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

@@ -16,11 +16,11 @@ defmodule AWS.KendraRanking do
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -31,18 +31,18 @@ defmodule AWS.KendraRanking do
       }
       
   """
-  @type capacity_units_configuration() :: %{String.t() | Atom.t() => any()}
+  @type capacity_units_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -50,26 +50,26 @@ defmodule AWS.KendraRanking do
       
       create_rescore_execution_plan_request() :: %{
         optional("CapacityUnits") => capacity_units_configuration(),
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_rescore_execution_plan_request() :: %{String.t() | Atom.t() => any()}
+  @type create_rescore_execution_plan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_rescore_execution_plan_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom()
       }
       
   """
-  @type create_rescore_execution_plan_response() :: %{String.t() | Atom.t() => any()}
+  @type create_rescore_execution_plan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -94,47 +94,47 @@ defmodule AWS.KendraRanking do
   ## Example:
       
       describe_rescore_execution_plan_response() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CapacityUnits" => capacity_units_configuration(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type describe_rescore_execution_plan_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_rescore_execution_plan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       document() :: %{
-        "Body" => String.t() | Atom.t(),
-        "GroupId" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "Body" => String.t() | atom(),
+        "GroupId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "OriginalScore" => float(),
-        "Title" => String.t() | Atom.t(),
-        "TokenizedBody" => list(String.t() | Atom.t()),
-        "TokenizedTitle" => list(String.t() | Atom.t())
+        "Title" => String.t() | atom(),
+        "TokenizedBody" => list(String.t() | atom()),
+        "TokenizedTitle" => list(String.t() | atom())
       }
       
   """
-  @type document() :: %{String.t() | Atom.t() => any()}
+  @type document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -142,34 +142,34 @@ defmodule AWS.KendraRanking do
       
       list_rescore_execution_plans_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_rescore_execution_plans_request() :: %{String.t() | Atom.t() => any()}
+  @type list_rescore_execution_plans_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_rescore_execution_plans_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "SummaryItems" => list(rescore_execution_plan_summary())
       }
       
   """
-  @type list_rescore_execution_plans_response() :: %{String.t() | Atom.t() => any()}
+  @type list_rescore_execution_plans_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t()
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -180,7 +180,7 @@ defmodule AWS.KendraRanking do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -188,14 +188,14 @@ defmodule AWS.KendraRanking do
       
       rescore_execution_plan_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type rescore_execution_plan_summary() :: %{String.t() | Atom.t() => any()}
+  @type rescore_execution_plan_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -203,92 +203,92 @@ defmodule AWS.KendraRanking do
       
       rescore_request() :: %{
         required("Documents") => list(document()),
-        required("SearchQuery") => String.t() | Atom.t()
+        required("SearchQuery") => String.t() | atom()
       }
       
   """
-  @type rescore_request() :: %{String.t() | Atom.t() => any()}
+  @type rescore_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rescore_result() :: %{
-        "RescoreId" => String.t() | Atom.t(),
+        "RescoreId" => String.t() | atom(),
         "ResultItems" => list(rescore_result_item())
       }
       
   """
-  @type rescore_result() :: %{String.t() | Atom.t() => any()}
+  @type rescore_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rescore_result_item() :: %{
-        "DocumentId" => String.t() | Atom.t(),
+        "DocumentId" => String.t() | atom(),
         "Score" => float()
       }
       
   """
-  @type rescore_result_item() :: %{String.t() | Atom.t() => any()}
+  @type rescore_result_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_unavailable_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_unavailable_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
+        required("ResourceARN") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -304,23 +304,23 @@ defmodule AWS.KendraRanking do
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -337,23 +337,23 @@ defmodule AWS.KendraRanking do
       
       update_rescore_execution_plan_request() :: %{
         optional("CapacityUnits") => capacity_units_configuration(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
       }
       
   """
-  @type update_rescore_execution_plan_request() :: %{String.t() | Atom.t() => any()}
+  @type update_rescore_execution_plan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type create_rescore_execution_plan_errors() ::
           validation_exception()

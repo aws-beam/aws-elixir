@@ -84,69 +84,69 @@ defmodule AWS.MarketplaceReporting do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_buyer_dashboard_input() :: %{
-        required("dashboardIdentifier") => String.t() | Atom.t(),
-        required("embeddingDomains") => list(String.t() | Atom.t())
+        required("dashboardIdentifier") => String.t() | atom(),
+        required("embeddingDomains") => list(String.t() | atom())
       }
 
   """
-  @type get_buyer_dashboard_input() :: %{String.t() | Atom.t() => any()}
+  @type get_buyer_dashboard_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_buyer_dashboard_output() :: %{
-        "dashboardIdentifier" => String.t() | Atom.t(),
-        "embedUrl" => [String.t() | Atom.t()],
-        "embeddingDomains" => list(String.t() | Atom.t())
+        "dashboardIdentifier" => String.t() | atom(),
+        "embedUrl" => [String.t() | atom()],
+        "embeddingDomains" => list(String.t() | atom())
       }
 
   """
-  @type get_buyer_dashboard_output() :: %{String.t() | Atom.t() => any()}
+  @type get_buyer_dashboard_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() | Atom.t() => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @type get_buyer_dashboard_errors() ::
           unauthorized_exception()

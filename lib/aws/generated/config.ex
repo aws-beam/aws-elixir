@@ -44,13 +44,12 @@ defmodule AWS.Config do
   ## Example:
       
       organization_conformance_pack_template_validation_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
   @type organization_conformance_pack_template_validation_exception() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -71,7 +70,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type describe_configuration_recorder_status_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_configuration_recorder_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -80,14 +79,13 @@ defmodule AWS.Config do
       get_organization_config_rule_detailed_status_request() :: %{
         optional("Filters") => status_detail_filters(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("OrganizationConfigRuleName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("OrganizationConfigRuleName") => String.t() | atom()
       }
       
   """
   @type get_organization_config_rule_detailed_status_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -99,40 +97,40 @@ defmodule AWS.Config do
       }
       
   """
-  @type config_snapshot_delivery_properties() :: %{String.t() | Atom.t() => any()}
+  @type config_snapshot_delivery_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_recording_group_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_recording_group_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_recording_group_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_configuration_aggregator_request() :: %{
-        required("ConfigurationAggregatorName") => String.t() | Atom.t()
+        required("ConfigurationAggregatorName") => String.t() | atom()
       }
       
   """
-  @type delete_configuration_aggregator_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_configuration_aggregator_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_all_features_not_enabled_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type organization_all_features_not_enabled_exception() :: %{String.t() | Atom.t() => any()}
+  @type organization_all_features_not_enabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -141,84 +139,84 @@ defmodule AWS.Config do
       evaluation_result_identifier() :: %{
         "EvaluationResultQualifier" => evaluation_result_qualifier(),
         "OrderingTimestamp" => non_neg_integer(),
-        "ResourceEvaluationId" => String.t() | Atom.t()
+        "ResourceEvaluationId" => String.t() | atom()
       }
       
   """
-  @type evaluation_result_identifier() :: %{String.t() | Atom.t() => any()}
+  @type evaluation_result_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remediation_configuration() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "Automatic" => boolean(),
-        "ConfigRuleName" => String.t() | Atom.t(),
-        "CreatedByService" => String.t() | Atom.t(),
+        "ConfigRuleName" => String.t() | atom(),
+        "CreatedByService" => String.t() | atom(),
         "ExecutionControls" => execution_controls(),
         "MaximumAutomaticAttempts" => integer(),
         "Parameters" => map(),
-        "ResourceType" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | atom(),
         "RetryAttemptSeconds" => float(),
-        "TargetId" => String.t() | Atom.t(),
+        "TargetId" => String.t() | atom(),
         "TargetType" => list(any()),
-        "TargetVersion" => String.t() | Atom.t()
+        "TargetVersion" => String.t() | atom()
       }
       
   """
-  @type remediation_configuration() :: %{String.t() | Atom.t() => any()}
+  @type remediation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       aggregated_source_status() :: %{
-        "AwsRegion" => String.t() | Atom.t(),
-        "LastErrorCode" => String.t() | Atom.t(),
-        "LastErrorMessage" => String.t() | Atom.t(),
+        "AwsRegion" => String.t() | atom(),
+        "LastErrorCode" => String.t() | atom(),
+        "LastErrorMessage" => String.t() | atom(),
         "LastUpdateStatus" => list(any()),
         "LastUpdateTime" => non_neg_integer(),
-        "SourceId" => String.t() | Atom.t(),
+        "SourceId" => String.t() | atom(),
         "SourceType" => list(any())
       }
       
   """
-  @type aggregated_source_status() :: %{String.t() | Atom.t() => any()}
+  @type aggregated_source_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_custom_rule_policy_response() :: %{
-        "PolicyText" => String.t() | Atom.t()
+        "PolicyText" => String.t() | atom()
       }
       
   """
-  @type get_custom_rule_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type get_custom_rule_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_such_configuration_aggregator_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_such_configuration_aggregator_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_such_configuration_aggregator_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -226,14 +224,13 @@ defmodule AWS.Config do
       
       get_aggregate_conformance_pack_compliance_summary_response() :: %{
         "AggregateConformancePackComplianceSummaries" => list(aggregate_conformance_pack_compliance_summary()),
-        "GroupByKey" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t()
+        "GroupByKey" => String.t() | atom(),
+        "NextToken" => String.t() | atom()
       }
       
   """
   @type get_aggregate_conformance_pack_compliance_summary_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -242,22 +239,22 @@ defmodule AWS.Config do
       
       get_compliance_details_by_resource_response() :: %{
         "EvaluationResults" => list(evaluation_result()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_compliance_details_by_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type get_compliance_details_by_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       last_delivery_channel_delete_failed_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type last_delivery_channel_delete_failed_exception() :: %{String.t() | Atom.t() => any()}
+  @type last_delivery_channel_delete_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -268,32 +265,32 @@ defmodule AWS.Config do
       }
       
   """
-  @type get_stored_query_response() :: %{String.t() | Atom.t() => any()}
+  @type get_stored_query_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_aggregate_discovered_resource_counts_response() :: %{
-        "GroupByKey" => String.t() | Atom.t(),
+        "GroupByKey" => String.t() | atom(),
         "GroupedResourceCounts" => list(grouped_resource_count()),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "TotalDiscoveredResources" => float()
       }
       
   """
-  @type get_aggregate_discovered_resource_counts_response() :: %{String.t() | Atom.t() => any()}
+  @type get_aggregate_discovered_resource_counts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_evaluation_results_request() :: %{
-        required("ConfigRuleName") => String.t() | Atom.t()
+        required("ConfigRuleName") => String.t() | atom()
       }
       
   """
-  @type delete_evaluation_results_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_evaluation_results_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -301,11 +298,11 @@ defmodule AWS.Config do
       
       put_service_linked_configuration_recorder_request() :: %{
         optional("Tags") => list(tag()),
-        required("ServicePrincipal") => String.t() | Atom.t()
+        required("ServicePrincipal") => String.t() | atom()
       }
       
   """
-  @type put_service_linked_configuration_recorder_request() :: %{String.t() | Atom.t() => any()}
+  @type put_service_linked_configuration_recorder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -321,65 +318,65 @@ defmodule AWS.Config do
   ## Example:
       
       insufficient_permissions_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type insufficient_permissions_exception() :: %{String.t() | Atom.t() => any()}
+  @type insufficient_permissions_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_config_rule_evaluation_status_request() :: %{
-        optional("ConfigRuleNames") => list(String.t() | Atom.t()),
+        optional("ConfigRuleNames") => list(String.t() | atom()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_config_rule_evaluation_status_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_config_rule_evaluation_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       grouped_resource_count() :: %{
-        "GroupName" => String.t() | Atom.t(),
+        "GroupName" => String.t() | atom(),
         "ResourceCount" => float()
       }
       
   """
-  @type grouped_resource_count() :: %{String.t() | Atom.t() => any()}
+  @type grouped_resource_count() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_remediation_configuration_request() :: %{
-        optional("ResourceType") => String.t() | Atom.t(),
-        required("ConfigRuleName") => String.t() | Atom.t()
+        optional("ResourceType") => String.t() | atom(),
+        required("ConfigRuleName") => String.t() | atom()
       }
       
   """
-  @type delete_remediation_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_remediation_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       config_rule_evaluation_status() :: %{
-        "ConfigRuleArn" => String.t() | Atom.t(),
-        "ConfigRuleId" => String.t() | Atom.t(),
-        "ConfigRuleName" => String.t() | Atom.t(),
+        "ConfigRuleArn" => String.t() | atom(),
+        "ConfigRuleId" => String.t() | atom(),
+        "ConfigRuleName" => String.t() | atom(),
         "FirstActivatedTime" => non_neg_integer(),
         "FirstEvaluationStarted" => boolean(),
         "LastDeactivatedTime" => non_neg_integer(),
-        "LastDebugLogDeliveryStatus" => String.t() | Atom.t(),
-        "LastDebugLogDeliveryStatusReason" => String.t() | Atom.t(),
+        "LastDebugLogDeliveryStatus" => String.t() | atom(),
+        "LastDebugLogDeliveryStatusReason" => String.t() | atom(),
         "LastDebugLogDeliveryTime" => non_neg_integer(),
-        "LastErrorCode" => String.t() | Atom.t(),
-        "LastErrorMessage" => String.t() | Atom.t(),
+        "LastErrorCode" => String.t() | atom(),
+        "LastErrorMessage" => String.t() | atom(),
         "LastFailedEvaluationTime" => non_neg_integer(),
         "LastFailedInvocationTime" => non_neg_integer(),
         "LastSuccessfulEvaluationTime" => non_neg_integer(),
@@ -387,39 +384,39 @@ defmodule AWS.Config do
       }
       
   """
-  @type config_rule_evaluation_status() :: %{String.t() | Atom.t() => any()}
+  @type config_rule_evaluation_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       config_rule() :: %{
-        "ConfigRuleArn" => String.t() | Atom.t(),
-        "ConfigRuleId" => String.t() | Atom.t(),
-        "ConfigRuleName" => String.t() | Atom.t(),
+        "ConfigRuleArn" => String.t() | atom(),
+        "ConfigRuleId" => String.t() | atom(),
+        "ConfigRuleName" => String.t() | atom(),
         "ConfigRuleState" => list(any()),
-        "CreatedBy" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "EvaluationModes" => list(evaluation_mode_configuration()),
-        "InputParameters" => String.t() | Atom.t(),
+        "InputParameters" => String.t() | atom(),
         "MaximumExecutionFrequency" => list(any()),
         "Scope" => scope(),
         "Source" => source()
       }
       
   """
-  @type config_rule() :: %{String.t() | Atom.t() => any()}
+  @type config_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       max_number_of_delivery_channels_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type max_number_of_delivery_channels_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type max_number_of_delivery_channels_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -431,7 +428,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type put_config_rule_request() :: %{String.t() | Atom.t() => any()}
+  @type put_config_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -442,30 +439,30 @@ defmodule AWS.Config do
       }
       
   """
-  @type associate_resource_types_response() :: %{String.t() | Atom.t() => any()}
+  @type associate_resource_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_delivery_policy_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type insufficient_delivery_policy_exception() :: %{String.t() | Atom.t() => any()}
+  @type insufficient_delivery_policy_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_retention_configurations_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "RetentionConfigurations" => list(retention_configuration())
       }
       
   """
-  @type describe_retention_configurations_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_retention_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -474,16 +471,16 @@ defmodule AWS.Config do
       configuration_aggregator() :: %{
         "AccountAggregationSources" => list(account_aggregation_source()),
         "AggregatorFilters" => aggregator_filters(),
-        "ConfigurationAggregatorArn" => String.t() | Atom.t(),
-        "ConfigurationAggregatorName" => String.t() | Atom.t(),
-        "CreatedBy" => String.t() | Atom.t(),
+        "ConfigurationAggregatorArn" => String.t() | atom(),
+        "ConfigurationAggregatorName" => String.t() | atom(),
+        "CreatedBy" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "LastUpdatedTime" => non_neg_integer(),
         "OrganizationAggregationSource" => organization_aggregation_source()
       }
       
   """
-  @type configuration_aggregator() :: %{String.t() | Atom.t() => any()}
+  @type configuration_aggregator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -495,22 +492,22 @@ defmodule AWS.Config do
       }
       
   """
-  @type compliance() :: %{String.t() | Atom.t() => any()}
+  @type compliance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remediation_exception() :: %{
-        "ConfigRuleName" => String.t() | Atom.t(),
+        "ConfigRuleName" => String.t() | atom(),
         "ExpirationTime" => non_neg_integer(),
-        "Message" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type remediation_exception() :: %{String.t() | Atom.t() => any()}
+  @type remediation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -519,54 +516,54 @@ defmodule AWS.Config do
       describe_compliance_by_resource_request() :: %{
         optional("ComplianceTypes") => list(list(any())()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("ResourceId") => String.t() | Atom.t(),
-        optional("ResourceType") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceId") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom()
       }
       
   """
-  @type describe_compliance_by_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_compliance_by_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       configuration_recorder() :: %{
-        "arn" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "recordingGroup" => recording_group(),
         "recordingMode" => recording_mode(),
         "recordingScope" => list(any()),
-        "roleARN" => String.t() | Atom.t(),
-        "servicePrincipal" => String.t() | Atom.t()
+        "roleARN" => String.t() | atom(),
+        "servicePrincipal" => String.t() | atom()
       }
       
   """
-  @type configuration_recorder() :: %{String.t() | Atom.t() => any()}
+  @type configuration_recorder() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_evaluation_filters() :: %{
-        "EvaluationContextIdentifier" => String.t() | Atom.t(),
+        "EvaluationContextIdentifier" => String.t() | atom(),
         "EvaluationMode" => list(any()),
         "TimeWindow" => time_window()
       }
       
   """
-  @type resource_evaluation_filters() :: %{String.t() | Atom.t() => any()}
+  @type resource_evaluation_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -574,12 +571,12 @@ defmodule AWS.Config do
       
       custom_policy_details() :: %{
         "EnableDebugLogDelivery" => boolean(),
-        "PolicyRuntime" => String.t() | Atom.t(),
-        "PolicyText" => String.t() | Atom.t()
+        "PolicyRuntime" => String.t() | atom(),
+        "PolicyText" => String.t() | atom()
       }
       
   """
-  @type custom_policy_details() :: %{String.t() | Atom.t() => any()}
+  @type custom_policy_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -587,36 +584,36 @@ defmodule AWS.Config do
       
       get_conformance_pack_compliance_summary_response() :: %{
         "ConformancePackComplianceSummaryList" => list(conformance_pack_compliance_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_conformance_pack_compliance_summary_response() :: %{String.t() | Atom.t() => any()}
+  @type get_conformance_pack_compliance_summary_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       oversized_configuration_item_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type oversized_configuration_item_exception() :: %{String.t() | Atom.t() => any()}
+  @type oversized_configuration_item_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       relationship() :: %{
-        "relationshipName" => String.t() | Atom.t(),
-        "resourceId" => String.t() | Atom.t(),
-        "resourceName" => String.t() | Atom.t(),
+        "relationshipName" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceName" => String.t() | atom(),
         "resourceType" => list(any())
       }
       
   """
-  @type relationship() :: %{String.t() | Atom.t() => any()}
+  @type relationship() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -627,20 +624,19 @@ defmodule AWS.Config do
       }
       
   """
-  @type delete_remediation_exceptions_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_remediation_exceptions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       max_number_of_organization_conformance_packs_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
   @type max_number_of_organization_conformance_packs_exceeded_exception() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -649,36 +645,36 @@ defmodule AWS.Config do
       
       describe_compliance_by_config_rule_request() :: %{
         optional("ComplianceTypes") => list(list(any())()),
-        optional("ConfigRuleNames") => list(String.t() | Atom.t()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("ConfigRuleNames") => list(String.t() | atom()),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_compliance_by_config_rule_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_compliance_by_config_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_organization_config_rules_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "OrganizationConfigRules" => list(organization_config_rule())
       }
       
   """
-  @type describe_organization_config_rules_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_organization_config_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_remediation_exceptions_request() :: %{
-        required("ConfigRuleName") => String.t() | Atom.t(),
+        required("ConfigRuleName") => String.t() | atom(),
         required("ResourceKeys") => list(remediation_exception_resource_key())
       }
       
   """
-  @type delete_remediation_exceptions_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_remediation_exceptions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -689,29 +685,29 @@ defmodule AWS.Config do
       }
       
   """
-  @type put_remediation_configurations_request() :: %{String.t() | Atom.t() => any()}
+  @type put_remediation_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_remediation_configurations_request() :: %{
-        required("ConfigRuleNames") => list(String.t() | Atom.t())
+        required("ConfigRuleNames") => list(String.t() | atom())
       }
       
   """
-  @type describe_remediation_configurations_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_remediation_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_custom_rule_policy_request() :: %{
-        optional("ConfigRuleName") => String.t() | Atom.t()
+        optional("ConfigRuleName") => String.t() | atom()
       }
       
   """
-  @type get_custom_rule_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type get_custom_rule_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -719,13 +715,12 @@ defmodule AWS.Config do
       
       get_aggregate_compliance_details_by_config_rule_response() :: %{
         "AggregateEvaluationResults" => list(aggregate_evaluation_result()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
   @type get_aggregate_compliance_details_by_config_rule_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -733,20 +728,20 @@ defmodule AWS.Config do
   ## Example:
       
       delete_config_rule_request() :: %{
-        required("ConfigRuleName") => String.t() | Atom.t()
+        required("ConfigRuleName") => String.t() | atom()
       }
       
   """
-  @type delete_config_rule_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_config_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       aggregate_evaluation_result() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "Annotation" => String.t() | Atom.t(),
-        "AwsRegion" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "Annotation" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom(),
         "ComplianceType" => list(any()),
         "ConfigRuleInvokedTime" => non_neg_integer(),
         "EvaluationResultIdentifier" => evaluation_result_identifier(),
@@ -754,34 +749,34 @@ defmodule AWS.Config do
       }
       
   """
-  @type aggregate_evaluation_result() :: %{String.t() | Atom.t() => any()}
+  @type aggregate_evaluation_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_conformance_pack_detailed_status() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "ConformancePackName" => String.t() | Atom.t(),
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "ConformancePackName" => String.t() | atom(),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
         "LastUpdateTime" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type organization_conformance_pack_detailed_status() :: %{String.t() | Atom.t() => any()}
+  @type organization_conformance_pack_detailed_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_delivery_channels_request() :: %{
-        optional("DeliveryChannelNames") => list(String.t() | Atom.t())
+        optional("DeliveryChannelNames") => list(String.t() | atom())
       }
       
   """
-  @type describe_delivery_channels_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_delivery_channels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -793,7 +788,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type remediation_parameter_value() :: %{String.t() | Atom.t() => any()}
+  @type remediation_parameter_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -802,14 +797,13 @@ defmodule AWS.Config do
       describe_aggregate_compliance_by_config_rules_request() :: %{
         optional("Filters") => config_rule_compliance_filters(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ConfigurationAggregatorName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ConfigurationAggregatorName") => String.t() | atom()
       }
       
   """
   @type describe_aggregate_compliance_by_config_rules_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -817,11 +811,11 @@ defmodule AWS.Config do
   ## Example:
       
       invalid_limit_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_limit_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_limit_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -831,14 +825,13 @@ defmodule AWS.Config do
         optional("Filters") => config_rule_compliance_summary_filters(),
         optional("GroupByKey") => list(any()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ConfigurationAggregatorName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ConfigurationAggregatorName") => String.t() | atom()
       }
       
   """
   @type get_aggregate_config_rule_compliance_summary_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -847,11 +840,11 @@ defmodule AWS.Config do
       
       list_configuration_recorders_response() :: %{
         "ConfigurationRecorderSummaries" => list(configuration_recorder_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_configuration_recorders_response() :: %{String.t() | Atom.t() => any()}
+  @type list_configuration_recorders_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -863,7 +856,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type compliance_contributor_count() :: %{String.t() | Atom.t() => any()}
+  @type compliance_contributor_count() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -874,7 +867,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type describe_remediation_configurations_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_remediation_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -886,30 +879,30 @@ defmodule AWS.Config do
       }
       
   """
-  @type recording_mode() :: %{String.t() | Atom.t() => any()}
+  @type recording_mode() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_result_token_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_result_token_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_result_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resource_evaluations_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ResourceEvaluations" => list(resource_evaluation())
       }
       
   """
-  @type list_resource_evaluations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_evaluations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -917,22 +910,22 @@ defmodule AWS.Config do
       
       failed_remediation_exception_batch() :: %{
         "FailedItems" => list(remediation_exception()),
-        "FailureMessage" => String.t() | Atom.t()
+        "FailureMessage" => String.t() | atom()
       }
       
   """
-  @type failed_remediation_exception_batch() :: %{String.t() | Atom.t() => any()}
+  @type failed_remediation_exception_batch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remediation_in_progress_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type remediation_in_progress_exception() :: %{String.t() | Atom.t() => any()}
+  @type remediation_in_progress_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -940,24 +933,23 @@ defmodule AWS.Config do
       
       get_compliance_details_by_config_rule_response() :: %{
         "EvaluationResults" => list(evaluation_result()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_compliance_details_by_config_rule_response() :: %{String.t() | Atom.t() => any()}
+  @type get_compliance_details_by_config_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       max_number_of_organization_config_rules_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
   @type max_number_of_organization_config_rules_exceeded_exception() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -965,62 +957,62 @@ defmodule AWS.Config do
   ## Example:
       
       unmodifiable_entity_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type unmodifiable_entity_exception() :: %{String.t() | Atom.t() => any()}
+  @type unmodifiable_entity_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       aggregation_authorization() :: %{
-        "AggregationAuthorizationArn" => String.t() | Atom.t(),
-        "AuthorizedAccountId" => String.t() | Atom.t(),
-        "AuthorizedAwsRegion" => String.t() | Atom.t(),
+        "AggregationAuthorizationArn" => String.t() | atom(),
+        "AuthorizedAccountId" => String.t() | atom(),
+        "AuthorizedAwsRegion" => String.t() | atom(),
         "CreationTime" => non_neg_integer()
       }
       
   """
-  @type aggregation_authorization() :: %{String.t() | Atom.t() => any()}
+  @type aggregation_authorization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_organization_conformance_packs_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "OrganizationConformancePacks" => list(organization_conformance_pack())
       }
       
   """
-  @type describe_organization_conformance_packs_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_organization_conformance_packs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       configuration_recorder_summary() :: %{
-        "arn" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "recordingScope" => list(any()),
-        "servicePrincipal" => String.t() | Atom.t()
+        "servicePrincipal" => String.t() | atom()
       }
       
   """
-  @type configuration_recorder_summary() :: %{String.t() | Atom.t() => any()}
+  @type configuration_recorder_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       max_number_of_config_rules_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type max_number_of_config_rules_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type max_number_of_config_rules_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1028,11 +1020,11 @@ defmodule AWS.Config do
       
       describe_compliance_by_config_rule_response() :: %{
         "ComplianceByConfigRules" => list(compliance_by_config_rule()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_compliance_by_config_rule_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_compliance_by_config_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1041,11 +1033,11 @@ defmodule AWS.Config do
       put_evaluations_request() :: %{
         optional("Evaluations") => list(evaluation()),
         optional("TestMode") => boolean(),
-        required("ResultToken") => String.t() | Atom.t()
+        required("ResultToken") => String.t() | atom()
       }
       
   """
-  @type put_evaluations_request() :: %{String.t() | Atom.t() => any()}
+  @type put_evaluations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1062,22 +1054,22 @@ defmodule AWS.Config do
       
       describe_config_rules_response() :: %{
         "ConfigRules" => list(config_rule()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_config_rules_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_config_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_stored_query_request() :: %{
-        required("QueryName") => String.t() | Atom.t()
+        required("QueryName") => String.t() | atom()
       }
       
   """
-  @type get_stored_query_request() :: %{String.t() | Atom.t() => any()}
+  @type get_stored_query_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1088,19 +1080,19 @@ defmodule AWS.Config do
       }
       
   """
-  @type describe_config_rules_filters() :: %{String.t() | Atom.t() => any()}
+  @type describe_config_rules_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1108,49 +1100,49 @@ defmodule AWS.Config do
       
       get_conformance_pack_compliance_summary_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ConformancePackNames") => list(String.t() | Atom.t())
+        optional("NextToken") => String.t() | atom(),
+        required("ConformancePackNames") => list(String.t() | atom())
       }
       
   """
-  @type get_conformance_pack_compliance_summary_request() :: %{String.t() | Atom.t() => any()}
+  @type get_conformance_pack_compliance_summary_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_config_rule_status() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
         "LastUpdateTime" => non_neg_integer(),
-        "OrganizationConfigRuleName" => String.t() | Atom.t(),
+        "OrganizationConfigRuleName" => String.t() | atom(),
         "OrganizationRuleStatus" => list(any())
       }
       
   """
-  @type organization_config_rule_status() :: %{String.t() | Atom.t() => any()}
+  @type organization_config_rule_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_organization_custom_rule_policy_response() :: %{
-        "PolicyText" => String.t() | Atom.t()
+        "PolicyText" => String.t() | atom()
       }
       
   """
-  @type get_organization_custom_rule_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type get_organization_custom_rule_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deliver_config_snapshot_request() :: %{
-        required("deliveryChannelName") => String.t() | Atom.t()
+        required("deliveryChannelName") => String.t() | atom()
       }
       
   """
-  @type deliver_config_snapshot_request() :: %{String.t() | Atom.t() => any()}
+  @type deliver_config_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1158,14 +1150,13 @@ defmodule AWS.Config do
       
       get_aggregate_config_rule_compliance_summary_response() :: %{
         "AggregateComplianceCounts" => list(aggregate_compliance_count()),
-        "GroupByKey" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t()
+        "GroupByKey" => String.t() | atom(),
+        "NextToken" => String.t() | atom()
       }
       
   """
   @type get_aggregate_config_rule_compliance_summary_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1178,7 +1169,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type resource_count() :: %{String.t() | Atom.t() => any()}
+  @type resource_count() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1189,22 +1180,22 @@ defmodule AWS.Config do
       }
       
   """
-  @type get_compliance_summary_by_resource_type_response() :: %{String.t() | Atom.t() => any()}
+  @type get_compliance_summary_by_resource_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       aggregate_resource_identifier() :: %{
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceName" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
         "ResourceType" => list(any()),
-        "SourceAccountId" => String.t() | Atom.t(),
-        "SourceRegion" => String.t() | Atom.t()
+        "SourceAccountId" => String.t() | atom(),
+        "SourceRegion" => String.t() | atom()
       }
       
   """
-  @type aggregate_resource_identifier() :: %{String.t() | Atom.t() => any()}
+  @type aggregate_resource_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1216,7 +1207,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type batch_get_aggregate_resource_config_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_aggregate_resource_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1224,35 +1215,35 @@ defmodule AWS.Config do
       
       describe_conformance_pack_status_response() :: %{
         "ConformancePackStatusDetails" => list(conformance_pack_status_detail()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_conformance_pack_status_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_conformance_pack_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_configuration_recorder_request() :: %{
-        required("ConfigurationRecorderName") => String.t() | Atom.t()
+        required("ConfigurationRecorderName") => String.t() | atom()
       }
       
   """
-  @type stop_configuration_recorder_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_configuration_recorder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       select_resource_config_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "QueryInfo" => query_info(),
-        "Results" => list(String.t() | Atom.t())
+        "Results" => list(String.t() | atom())
       }
       
   """
-  @type select_resource_config_response() :: %{String.t() | Atom.t() => any()}
+  @type select_resource_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1260,36 +1251,36 @@ defmodule AWS.Config do
       
       get_resource_config_history_response() :: %{
         "configurationItems" => list(configuration_item()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type get_resource_config_history_response() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_config_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_filters() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "Region" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceName" => String.t() | Atom.t()
+        "AccountId" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
       }
       
   """
-  @type resource_filters() :: %{String.t() | Atom.t() => any()}
+  @type resource_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_such_config_rule_in_conformance_pack_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_such_config_rule_in_conformance_pack_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_such_config_rule_in_conformance_pack_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1301,18 +1292,18 @@ defmodule AWS.Config do
       }
       
   """
-  @type ssm_controls() :: %{String.t() | Atom.t() => any()}
+  @type ssm_controls() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_such_remediation_exception_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_such_remediation_exception_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_such_remediation_exception_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1327,7 +1318,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type remediation_execution_status() :: %{String.t() | Atom.t() => any()}
+  @type remediation_execution_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1338,29 +1329,29 @@ defmodule AWS.Config do
       }
       
   """
-  @type describe_delivery_channels_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_delivery_channels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_conformance_pack_response() :: %{
-        "ConformancePackArn" => String.t() | Atom.t()
+        "ConformancePackArn" => String.t() | atom()
       }
       
   """
-  @type put_conformance_pack_response() :: %{String.t() | Atom.t() => any()}
+  @type put_conformance_pack_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_s_n_s_topic_arn_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_s_n_s_topic_arn_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_s_n_s_topic_arn_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1368,30 +1359,30 @@ defmodule AWS.Config do
       
       organization_aggregation_source() :: %{
         "AllAwsRegions" => boolean(),
-        "AwsRegions" => list(String.t() | Atom.t()),
-        "RoleArn" => String.t() | Atom.t()
+        "AwsRegions" => list(String.t() | atom()),
+        "RoleArn" => String.t() | atom()
       }
       
   """
-  @type organization_aggregation_source() :: %{String.t() | Atom.t() => any()}
+  @type organization_aggregation_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_managed_rule_metadata() :: %{
-        "Description" => String.t() | Atom.t(),
-        "InputParameters" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "InputParameters" => String.t() | atom(),
         "MaximumExecutionFrequency" => list(any()),
-        "ResourceIdScope" => String.t() | Atom.t(),
-        "ResourceTypesScope" => list(String.t() | Atom.t()),
-        "RuleIdentifier" => String.t() | Atom.t(),
-        "TagKeyScope" => String.t() | Atom.t(),
-        "TagValueScope" => String.t() | Atom.t()
+        "ResourceIdScope" => String.t() | atom(),
+        "ResourceTypesScope" => list(String.t() | atom()),
+        "RuleIdentifier" => String.t() | atom(),
+        "TagKeyScope" => String.t() | atom(),
+        "TagValueScope" => String.t() | atom()
       }
       
   """
-  @type organization_managed_rule_metadata() :: %{String.t() | Atom.t() => any()}
+  @type organization_managed_rule_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1405,41 +1396,41 @@ defmodule AWS.Config do
       }
       
   """
-  @type aggregate_conformance_pack_compliance() :: %{String.t() | Atom.t() => any()}
+  @type aggregate_conformance_pack_compliance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_discovered_resources_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "resourceIdentifiers" => list(resource_identifier())
       }
       
   """
-  @type list_discovered_resources_response() :: %{String.t() | Atom.t() => any()}
+  @type list_discovered_resources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       idempotent_parameter_mismatch() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type idempotent_parameter_mismatch() :: %{String.t() | Atom.t() => any()}
+  @type idempotent_parameter_mismatch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_delivery_channel_status_request() :: %{
-        optional("DeliveryChannelNames") => list(String.t() | Atom.t())
+        optional("DeliveryChannelNames") => list(String.t() | atom())
       }
       
   """
-  @type describe_delivery_channel_status_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_delivery_channel_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1447,26 +1438,25 @@ defmodule AWS.Config do
       
       describe_organization_config_rules_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("OrganizationConfigRuleNames") => list(String.t() | Atom.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("OrganizationConfigRuleNames") => list(String.t() | atom())
       }
       
   """
-  @type describe_organization_config_rules_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_organization_config_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_organization_config_rule_detailed_status_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "OrganizationConfigRuleDetailedStatus" => list(member_account_status())
       }
       
   """
   @type get_organization_config_rule_detailed_status_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1475,11 +1465,11 @@ defmodule AWS.Config do
       
       describe_compliance_by_resource_response() :: %{
         "ComplianceByResources" => list(compliance_by_resource()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_compliance_by_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_compliance_by_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1490,61 +1480,61 @@ defmodule AWS.Config do
       }
       
   """
-  @type put_remediation_configurations_response() :: %{String.t() | Atom.t() => any()}
+  @type put_remediation_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       member_account_status() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "ConfigRuleName" => String.t() | Atom.t(),
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "ConfigRuleName" => String.t() | atom(),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
         "LastUpdateTime" => non_neg_integer(),
         "MemberAccountRuleStatus" => list(any())
       }
       
   """
-  @type member_account_status() :: %{String.t() | Atom.t() => any()}
+  @type member_account_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       external_evaluation() :: %{
-        "Annotation" => String.t() | Atom.t(),
-        "ComplianceResourceId" => String.t() | Atom.t(),
-        "ComplianceResourceType" => String.t() | Atom.t(),
+        "Annotation" => String.t() | atom(),
+        "ComplianceResourceId" => String.t() | atom(),
+        "ComplianceResourceType" => String.t() | atom(),
         "ComplianceType" => list(any()),
         "OrderingTimestamp" => non_neg_integer()
       }
       
   """
-  @type external_evaluation() :: %{String.t() | Atom.t() => any()}
+  @type external_evaluation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_evaluation_summary_request() :: %{
-        required("ResourceEvaluationId") => String.t() | Atom.t()
+        required("ResourceEvaluationId") => String.t() | atom()
       }
       
   """
-  @type get_resource_evaluation_summary_request() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_evaluation_summary_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       config_rule_compliance_summary_filters() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "AwsRegion" => String.t() | Atom.t()
+        "AccountId" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom()
       }
       
   """
-  @type config_rule_compliance_summary_filters() :: %{String.t() | Atom.t() => any()}
+  @type config_rule_compliance_summary_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1552,56 +1542,56 @@ defmodule AWS.Config do
       
       compliance_by_config_rule() :: %{
         "Compliance" => compliance(),
-        "ConfigRuleName" => String.t() | Atom.t()
+        "ConfigRuleName" => String.t() | atom()
       }
       
   """
-  @type compliance_by_config_rule() :: %{String.t() | Atom.t() => any()}
+  @type compliance_by_config_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stored_query_metadata() :: %{
-        "Description" => String.t() | Atom.t(),
-        "QueryArn" => String.t() | Atom.t(),
-        "QueryId" => String.t() | Atom.t(),
-        "QueryName" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "QueryArn" => String.t() | atom(),
+        "QueryId" => String.t() | atom(),
+        "QueryName" => String.t() | atom()
       }
       
   """
-  @type stored_query_metadata() :: %{String.t() | Atom.t() => any()}
+  @type stored_query_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       configuration_recorder_status() :: %{
-        "arn" => String.t() | Atom.t(),
-        "lastErrorCode" => String.t() | Atom.t(),
-        "lastErrorMessage" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
+        "lastErrorCode" => String.t() | atom(),
+        "lastErrorMessage" => String.t() | atom(),
         "lastStartTime" => non_neg_integer(),
         "lastStatus" => list(any()),
         "lastStatusChangeTime" => non_neg_integer(),
         "lastStopTime" => non_neg_integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "recording" => boolean(),
-        "servicePrincipal" => String.t() | Atom.t()
+        "servicePrincipal" => String.t() | atom()
       }
       
   """
-  @type configuration_recorder_status() :: %{String.t() | Atom.t() => any()}
+  @type configuration_recorder_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_retention_configuration_request() :: %{
-        required("RetentionConfigurationName") => String.t() | Atom.t()
+        required("RetentionConfigurationName") => String.t() | atom()
       }
       
   """
-  @type delete_retention_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_retention_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1609,12 +1599,12 @@ defmodule AWS.Config do
       
       describe_organization_config_rule_statuses_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("OrganizationConfigRuleNames") => list(String.t() | Atom.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("OrganizationConfigRuleNames") => list(String.t() | atom())
       }
       
   """
-  @type describe_organization_config_rule_statuses_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_organization_config_rule_statuses_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1622,13 +1612,13 @@ defmodule AWS.Config do
       
       describe_remediation_execution_status_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ResourceKeys") => list(resource_key()),
-        required("ConfigRuleName") => String.t() | Atom.t()
+        required("ConfigRuleName") => String.t() | atom()
       }
       
   """
-  @type describe_remediation_execution_status_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_remediation_execution_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1636,30 +1626,30 @@ defmodule AWS.Config do
       
       aggregator_filter_resource_type() :: %{
         "Type" => list(any()),
-        "Value" => list(String.t() | Atom.t())
+        "Value" => list(String.t() | atom())
       }
       
   """
-  @type aggregator_filter_resource_type() :: %{String.t() | Atom.t() => any()}
+  @type aggregator_filter_resource_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conformance_pack_detail() :: %{
-        "ConformancePackArn" => String.t() | Atom.t(),
-        "ConformancePackId" => String.t() | Atom.t(),
+        "ConformancePackArn" => String.t() | atom(),
+        "ConformancePackId" => String.t() | atom(),
         "ConformancePackInputParameters" => list(conformance_pack_input_parameter()),
-        "ConformancePackName" => String.t() | Atom.t(),
-        "CreatedBy" => String.t() | Atom.t(),
-        "DeliveryS3Bucket" => String.t() | Atom.t(),
-        "DeliveryS3KeyPrefix" => String.t() | Atom.t(),
+        "ConformancePackName" => String.t() | atom(),
+        "CreatedBy" => String.t() | atom(),
+        "DeliveryS3Bucket" => String.t() | atom(),
+        "DeliveryS3KeyPrefix" => String.t() | atom(),
         "LastUpdateRequestedTime" => non_neg_integer(),
         "TemplateSSMDocumentDetails" => template_s_s_m_document_details()
       }
       
   """
-  @type conformance_pack_detail() :: %{String.t() | Atom.t() => any()}
+  @type conformance_pack_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1667,74 +1657,74 @@ defmodule AWS.Config do
       
       put_conformance_pack_request() :: %{
         optional("ConformancePackInputParameters") => list(conformance_pack_input_parameter()),
-        optional("DeliveryS3Bucket") => String.t() | Atom.t(),
-        optional("DeliveryS3KeyPrefix") => String.t() | Atom.t(),
-        optional("TemplateBody") => String.t() | Atom.t(),
-        optional("TemplateS3Uri") => String.t() | Atom.t(),
+        optional("DeliveryS3Bucket") => String.t() | atom(),
+        optional("DeliveryS3KeyPrefix") => String.t() | atom(),
+        optional("TemplateBody") => String.t() | atom(),
+        optional("TemplateS3Uri") => String.t() | atom(),
         optional("TemplateSSMDocumentDetails") => template_s_s_m_document_details(),
-        required("ConformancePackName") => String.t() | Atom.t()
+        required("ConformancePackName") => String.t() | atom()
       }
       
   """
-  @type put_conformance_pack_request() :: %{String.t() | Atom.t() => any()}
+  @type put_conformance_pack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       retention_configuration() :: %{
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "RetentionPeriodInDays" => integer()
       }
       
   """
-  @type retention_configuration() :: %{String.t() | Atom.t() => any()}
+  @type retention_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_resource_evaluation_response() :: %{
-        "ResourceEvaluationId" => String.t() | Atom.t()
+        "ResourceEvaluationId" => String.t() | atom()
       }
       
   """
-  @type start_resource_evaluation_response() :: %{String.t() | Atom.t() => any()}
+  @type start_resource_evaluation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_configuration_recorder_status_request() :: %{
-        optional("Arn") => String.t() | Atom.t(),
-        optional("ConfigurationRecorderNames") => list(String.t() | Atom.t()),
-        optional("ServicePrincipal") => String.t() | Atom.t()
+        optional("Arn") => String.t() | atom(),
+        optional("ConfigurationRecorderNames") => list(String.t() | atom()),
+        optional("ServicePrincipal") => String.t() | atom()
       }
       
   """
-  @type describe_configuration_recorder_status_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_configuration_recorder_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1746,7 +1736,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type time_window() :: %{String.t() | Atom.t() => any()}
+  @type time_window() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1754,46 +1744,46 @@ defmodule AWS.Config do
       
       aggregate_conformance_pack_compliance_summary() :: %{
         "ComplianceSummary" => aggregate_conformance_pack_compliance_count(),
-        "GroupName" => String.t() | Atom.t()
+        "GroupName" => String.t() | atom()
       }
       
   """
-  @type aggregate_conformance_pack_compliance_summary() :: %{String.t() | Atom.t() => any()}
+  @type aggregate_conformance_pack_compliance_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_time_range_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_time_range_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_time_range_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_external_evaluation_request() :: %{
-        required("ConfigRuleName") => String.t() | Atom.t(),
+        required("ConfigRuleName") => String.t() | atom(),
         required("ExternalEvaluation") => external_evaluation()
       }
       
   """
-  @type put_external_evaluation_request() :: %{String.t() | Atom.t() => any()}
+  @type put_external_evaluation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       pending_aggregation_request() :: %{
-        "RequesterAccountId" => String.t() | Atom.t(),
-        "RequesterAwsRegion" => String.t() | Atom.t()
+        "RequesterAccountId" => String.t() | atom(),
+        "RequesterAwsRegion" => String.t() | atom()
       }
       
   """
-  @type pending_aggregation_request() :: %{String.t() | Atom.t() => any()}
+  @type pending_aggregation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1801,38 +1791,38 @@ defmodule AWS.Config do
       
       resource_identifier() :: %{
         "resourceDeletionTime" => non_neg_integer(),
-        "resourceId" => String.t() | Atom.t(),
-        "resourceName" => String.t() | Atom.t(),
+        "resourceId" => String.t() | atom(),
+        "resourceName" => String.t() | atom(),
         "resourceType" => list(any())
       }
       
   """
-  @type resource_identifier() :: %{String.t() | Atom.t() => any()}
+  @type resource_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       account_aggregation_source() :: %{
-        "AccountIds" => list(String.t() | Atom.t()),
+        "AccountIds" => list(String.t() | atom()),
         "AllAwsRegions" => boolean(),
-        "AwsRegions" => list(String.t() | Atom.t())
+        "AwsRegions" => list(String.t() | atom())
       }
       
   """
-  @type account_aggregation_source() :: %{String.t() | Atom.t() => any()}
+  @type account_aggregation_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1844,7 +1834,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type batch_get_resource_config_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_resource_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1857,20 +1847,20 @@ defmodule AWS.Config do
       }
       
   """
-  @type source_detail() :: %{String.t() | Atom.t() => any()}
+  @type source_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_configuration_aggregators_request() :: %{
-        optional("ConfigurationAggregatorNames") => list(String.t() | Atom.t()),
+        optional("ConfigurationAggregatorNames") => list(String.t() | atom()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_configuration_aggregators_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_configuration_aggregators_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1879,13 +1869,13 @@ defmodule AWS.Config do
       list_conformance_pack_compliance_scores_request() :: %{
         optional("Filters") => conformance_pack_compliance_scores_filters(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type list_conformance_pack_compliance_scores_request() :: %{String.t() | Atom.t() => any()}
+  @type list_conformance_pack_compliance_scores_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1893,13 +1883,13 @@ defmodule AWS.Config do
       
       conformance_pack_evaluation_filters() :: %{
         "ComplianceType" => list(any()),
-        "ConfigRuleNames" => list(String.t() | Atom.t()),
-        "ResourceIds" => list(String.t() | Atom.t()),
-        "ResourceType" => String.t() | Atom.t()
+        "ConfigRuleNames" => list(String.t() | atom()),
+        "ResourceIds" => list(String.t() | atom()),
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type conformance_pack_evaluation_filters() :: %{String.t() | Atom.t() => any()}
+  @type conformance_pack_evaluation_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1907,11 +1897,11 @@ defmodule AWS.Config do
       
       describe_pending_aggregation_requests_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_pending_aggregation_requests_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_pending_aggregation_requests_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1919,11 +1909,11 @@ defmodule AWS.Config do
       
       start_remediation_execution_response() :: %{
         "FailedItems" => list(resource_key()),
-        "FailureMessage" => String.t() | Atom.t()
+        "FailureMessage" => String.t() | atom()
       }
       
   """
-  @type start_remediation_execution_response() :: %{String.t() | Atom.t() => any()}
+  @type start_remediation_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1931,13 +1921,12 @@ defmodule AWS.Config do
       
       describe_aggregate_compliance_by_config_rules_response() :: %{
         "AggregateComplianceByConfigRules" => list(aggregate_compliance_by_config_rule()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
   @type describe_aggregate_compliance_by_config_rules_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1945,13 +1934,12 @@ defmodule AWS.Config do
   ## Example:
       
       max_number_of_configuration_recorders_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
   @type max_number_of_configuration_recorders_exceeded_exception() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1963,40 +1951,40 @@ defmodule AWS.Config do
       }
       
   """
-  @type resource_value() :: %{String.t() | Atom.t() => any()}
+  @type resource_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_next_token_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_value_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_value_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_delivery_channel_name_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_delivery_channel_name_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_delivery_channel_name_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2008,19 +1996,19 @@ defmodule AWS.Config do
       }
       
   """
-  @type aggregator_filters() :: %{String.t() | Atom.t() => any()}
+  @type aggregator_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_aggregate_resource_config_request() :: %{
-        required("ConfigurationAggregatorName") => String.t() | Atom.t(),
+        required("ConfigurationAggregatorName") => String.t() | atom(),
         required("ResourceIdentifier") => aggregate_resource_identifier()
       }
       
   """
-  @type get_aggregate_resource_config_request() :: %{String.t() | Atom.t() => any()}
+  @type get_aggregate_resource_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2031,32 +2019,31 @@ defmodule AWS.Config do
       }
       
   """
-  @type recording_strategy() :: %{String.t() | Atom.t() => any()}
+  @type recording_strategy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deliver_config_snapshot_response() :: %{
-        "configSnapshotId" => String.t() | Atom.t()
+        "configSnapshotId" => String.t() | atom()
       }
       
   """
-  @type deliver_config_snapshot_response() :: %{String.t() | Atom.t() => any()}
+  @type deliver_config_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_organization_conformance_pack_statuses_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "OrganizationConformancePackStatuses" => list(organization_conformance_pack_status())
       }
       
   """
   @type describe_organization_conformance_pack_statuses_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2068,52 +2055,52 @@ defmodule AWS.Config do
       }
       
   """
-  @type put_retention_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type put_retention_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_resource_types_request() :: %{
-        required("ConfigurationRecorderArn") => String.t() | Atom.t(),
+        required("ConfigurationRecorderArn") => String.t() | atom(),
         required("ResourceTypes") => list(list(any())())
       }
       
   """
-  @type disassociate_resource_types_request() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_resource_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_such_delivery_channel_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_such_delivery_channel_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_such_delivery_channel_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_organization_conformance_pack_response() :: %{
-        "OrganizationConformancePackArn" => String.t() | Atom.t()
+        "OrganizationConformancePackArn" => String.t() | atom()
       }
       
   """
-  @type put_organization_conformance_pack_response() :: %{String.t() | Atom.t() => any()}
+  @type put_organization_conformance_pack_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_s3_kms_key_arn_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_s3_kms_key_arn_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_s3_kms_key_arn_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2121,11 +2108,11 @@ defmodule AWS.Config do
       
       describe_configuration_aggregators_response() :: %{
         "ConfigurationAggregators" => list(configuration_aggregator()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_configuration_aggregators_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_configuration_aggregators_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2134,13 +2121,13 @@ defmodule AWS.Config do
       select_aggregate_resource_config_request() :: %{
         optional("Limit") => integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ConfigurationAggregatorName") => String.t() | Atom.t(),
-        required("Expression") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ConfigurationAggregatorName") => String.t() | atom(),
+        required("Expression") => String.t() | atom()
       }
       
   """
-  @type select_aggregate_resource_config_request() :: %{String.t() | Atom.t() => any()}
+  @type select_aggregate_resource_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2148,23 +2135,23 @@ defmodule AWS.Config do
       
       conformance_pack_compliance_filters() :: %{
         "ComplianceType" => list(any()),
-        "ConfigRuleNames" => list(String.t() | Atom.t())
+        "ConfigRuleNames" => list(String.t() | atom())
       }
       
   """
-  @type conformance_pack_compliance_filters() :: %{String.t() | Atom.t() => any()}
+  @type conformance_pack_compliance_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_remediation_execution_request() :: %{
-        required("ConfigRuleName") => String.t() | Atom.t(),
+        required("ConfigRuleName") => String.t() | atom(),
         required("ResourceKeys") => list(resource_key())
       }
       
   """
-  @type start_remediation_execution_request() :: %{String.t() | Atom.t() => any()}
+  @type start_remediation_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2173,26 +2160,26 @@ defmodule AWS.Config do
       list_discovered_resources_request() :: %{
         optional("includeDeletedResources") => boolean(),
         optional("limit") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("resourceIds") => list(String.t() | Atom.t()),
-        optional("resourceName") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceIds") => list(String.t() | atom()),
+        optional("resourceName") => String.t() | atom(),
         required("resourceType") => list(any())
       }
       
   """
-  @type list_discovered_resources_request() :: %{String.t() | Atom.t() => any()}
+  @type list_discovered_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_aggregate_discovered_resources_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ResourceIdentifiers" => list(aggregate_resource_identifier())
       }
       
   """
-  @type list_aggregate_discovered_resources_response() :: %{String.t() | Atom.t() => any()}
+  @type list_aggregate_discovered_resources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2203,7 +2190,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type put_delivery_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type put_delivery_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2211,12 +2198,12 @@ defmodule AWS.Config do
       
       conformance_pack_rule_compliance() :: %{
         "ComplianceType" => list(any()),
-        "ConfigRuleName" => String.t() | Atom.t(),
-        "Controls" => list(String.t() | Atom.t())
+        "ConfigRuleName" => String.t() | atom(),
+        "Controls" => list(String.t() | atom())
       }
       
   """
-  @type conformance_pack_rule_compliance() :: %{String.t() | Atom.t() => any()}
+  @type conformance_pack_rule_compliance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2227,33 +2214,33 @@ defmodule AWS.Config do
       }
       
   """
-  @type put_aggregation_authorization_response() :: %{String.t() | Atom.t() => any()}
+  @type put_aggregation_authorization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stored_query() :: %{
-        "Description" => String.t() | Atom.t(),
-        "Expression" => String.t() | Atom.t(),
-        "QueryArn" => String.t() | Atom.t(),
-        "QueryId" => String.t() | Atom.t(),
-        "QueryName" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "Expression" => String.t() | atom(),
+        "QueryArn" => String.t() | atom(),
+        "QueryId" => String.t() | atom(),
+        "QueryName" => String.t() | atom()
       }
       
   """
-  @type stored_query() :: %{String.t() | Atom.t() => any()}
+  @type stored_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_stored_query_request() :: %{
-        required("QueryName") => String.t() | Atom.t()
+        required("QueryName") => String.t() | atom()
       }
       
   """
-  @type delete_stored_query_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_stored_query_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2273,13 +2260,13 @@ defmodule AWS.Config do
         optional("earlierTime") => non_neg_integer(),
         optional("laterTime") => non_neg_integer(),
         optional("limit") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("resourceId") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
+        required("resourceId") => String.t() | atom(),
         required("resourceType") => list(any())
       }
       
   """
-  @type get_resource_config_history_request() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_config_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2287,13 +2274,12 @@ defmodule AWS.Config do
       
       describe_aggregate_compliance_by_conformance_packs_response() :: %{
         "AggregateComplianceByConformancePacks" => list(aggregate_compliance_by_conformance_pack()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
   @type describe_aggregate_compliance_by_conformance_packs_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2302,11 +2288,11 @@ defmodule AWS.Config do
       
       list_stored_queries_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_stored_queries_request() :: %{String.t() | Atom.t() => any()}
+  @type list_stored_queries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2317,79 +2303,79 @@ defmodule AWS.Config do
       }
       
   """
-  @type put_remediation_exceptions_response() :: %{String.t() | Atom.t() => any()}
+  @type put_remediation_exceptions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_config_rules_evaluation_request() :: %{
-        optional("ConfigRuleNames") => list(String.t() | Atom.t())
+        optional("ConfigRuleNames") => list(String.t() | atom())
       }
       
   """
-  @type start_config_rules_evaluation_request() :: %{String.t() | Atom.t() => any()}
+  @type start_config_rules_evaluation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_aggregation_authorization_request() :: %{
-        required("AuthorizedAccountId") => String.t() | Atom.t(),
-        required("AuthorizedAwsRegion") => String.t() | Atom.t()
+        required("AuthorizedAccountId") => String.t() | atom(),
+        required("AuthorizedAwsRegion") => String.t() | atom()
       }
       
   """
-  @type delete_aggregation_authorization_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_aggregation_authorization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       recording_mode_override() :: %{
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "recordingFrequency" => list(any()),
         "resourceTypes" => list(list(any())())
       }
       
   """
-  @type recording_mode_override() :: %{String.t() | Atom.t() => any()}
+  @type recording_mode_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_configuration_recorder_request() :: %{
-        required("ConfigurationRecorderName") => String.t() | Atom.t()
+        required("ConfigurationRecorderName") => String.t() | atom()
       }
       
   """
-  @type start_configuration_recorder_request() :: %{String.t() | Atom.t() => any()}
+  @type start_configuration_recorder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_configuration_recorders_request() :: %{
-        optional("Arn") => String.t() | Atom.t(),
-        optional("ConfigurationRecorderNames") => list(String.t() | Atom.t()),
-        optional("ServicePrincipal") => String.t() | Atom.t()
+        optional("Arn") => String.t() | atom(),
+        optional("ConfigurationRecorderNames") => list(String.t() | atom()),
+        optional("ServicePrincipal") => String.t() | atom()
       }
       
   """
-  @type describe_configuration_recorders_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_configuration_recorders_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2397,50 +2383,50 @@ defmodule AWS.Config do
       
       get_compliance_details_by_resource_request() :: %{
         optional("ComplianceTypes") => list(list(any())()),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("ResourceEvaluationId") => String.t() | Atom.t(),
-        optional("ResourceId") => String.t() | Atom.t(),
-        optional("ResourceType") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceEvaluationId") => String.t() | atom(),
+        optional("ResourceId") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom()
       }
       
   """
-  @type get_compliance_details_by_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type get_compliance_details_by_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       aggregate_compliance_by_config_rule() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "AwsRegion" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom(),
         "Compliance" => compliance(),
-        "ConfigRuleName" => String.t() | Atom.t()
+        "ConfigRuleName" => String.t() | atom()
       }
       
   """
-  @type aggregate_compliance_by_config_rule() :: %{String.t() | Atom.t() => any()}
+  @type aggregate_compliance_by_config_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_organization_config_rule_response() :: %{
-        "OrganizationConfigRuleArn" => String.t() | Atom.t()
+        "OrganizationConfigRuleArn" => String.t() | atom()
       }
       
   """
-  @type put_organization_config_rule_response() :: %{String.t() | Atom.t() => any()}
+  @type put_organization_config_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_available_delivery_channel_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_available_delivery_channel_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_available_delivery_channel_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2449,14 +2435,13 @@ defmodule AWS.Config do
       describe_aggregate_compliance_by_conformance_packs_request() :: %{
         optional("Filters") => aggregate_conformance_pack_compliance_filters(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ConfigurationAggregatorName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ConfigurationAggregatorName") => String.t() | atom()
       }
       
   """
   @type describe_aggregate_compliance_by_conformance_packs_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2465,23 +2450,23 @@ defmodule AWS.Config do
       
       aggregator_filter_service_principal() :: %{
         "Type" => list(any()),
-        "Value" => list(String.t() | Atom.t())
+        "Value" => list(String.t() | atom())
       }
       
   """
-  @type aggregator_filter_service_principal() :: %{String.t() | Atom.t() => any()}
+  @type aggregator_filter_service_principal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_remediation_exceptions_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "RemediationExceptions" => list(remediation_exception())
       }
       
   """
-  @type describe_remediation_exceptions_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_remediation_exceptions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2490,37 +2475,37 @@ defmodule AWS.Config do
       resource_evaluation() :: %{
         "EvaluationMode" => list(any()),
         "EvaluationStartTimestamp" => non_neg_integer(),
-        "ResourceEvaluationId" => String.t() | Atom.t()
+        "ResourceEvaluationId" => String.t() | atom()
       }
       
   """
-  @type resource_evaluation() :: %{String.t() | Atom.t() => any()}
+  @type resource_evaluation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       aggregate_conformance_pack_compliance_filters() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "AwsRegion" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom(),
         "ComplianceType" => list(any()),
-        "ConformancePackName" => String.t() | Atom.t()
+        "ConformancePackName" => String.t() | atom()
       }
       
   """
-  @type aggregate_conformance_pack_compliance_filters() :: %{String.t() | Atom.t() => any()}
+  @type aggregate_conformance_pack_compliance_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       evaluation_status() :: %{
-        "FailureReason" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type evaluation_status() :: %{String.t() | Atom.t() => any()}
+  @type evaluation_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2533,11 +2518,11 @@ defmodule AWS.Config do
         "EvaluationStartTimestamp" => non_neg_integer(),
         "EvaluationStatus" => evaluation_status(),
         "ResourceDetails" => resource_details(),
-        "ResourceEvaluationId" => String.t() | Atom.t()
+        "ResourceEvaluationId" => String.t() | atom()
       }
       
   """
-  @type get_resource_evaluation_summary_response() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_evaluation_summary_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2546,17 +2531,16 @@ defmodule AWS.Config do
       get_aggregate_compliance_details_by_config_rule_request() :: %{
         optional("ComplianceType") => list(any()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("AccountId") => String.t() | Atom.t(),
-        required("AwsRegion") => String.t() | Atom.t(),
-        required("ConfigRuleName") => String.t() | Atom.t(),
-        required("ConfigurationAggregatorName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom(),
+        required("AwsRegion") => String.t() | atom(),
+        required("ConfigRuleName") => String.t() | atom(),
+        required("ConfigurationAggregatorName") => String.t() | atom()
       }
       
   """
   @type get_aggregate_compliance_details_by_config_rule_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2564,28 +2548,28 @@ defmodule AWS.Config do
   ## Example:
       
       describe_conformance_pack_status_request() :: %{
-        optional("ConformancePackNames") => list(String.t() | Atom.t()),
+        optional("ConformancePackNames") => list(String.t() | atom()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_conformance_pack_status_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_conformance_pack_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_conformance_pack_status() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
         "LastUpdateTime" => non_neg_integer(),
-        "OrganizationConformancePackName" => String.t() | Atom.t(),
+        "OrganizationConformancePackName" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type organization_conformance_pack_status() :: %{String.t() | Atom.t() => any()}
+  @type organization_conformance_pack_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2596,22 +2580,22 @@ defmodule AWS.Config do
         optional("AggregatorFilters") => aggregator_filters(),
         optional("OrganizationAggregationSource") => organization_aggregation_source(),
         optional("Tags") => list(tag()),
-        required("ConfigurationAggregatorName") => String.t() | Atom.t()
+        required("ConfigurationAggregatorName") => String.t() | atom()
       }
       
   """
-  @type put_configuration_aggregator_request() :: %{String.t() | Atom.t() => any()}
+  @type put_configuration_aggregator_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_role_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_role_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_role_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2622,7 +2606,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type exclusion_by_resource_types() :: %{String.t() | Atom.t() => any()}
+  @type exclusion_by_resource_types() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2631,20 +2615,20 @@ defmodule AWS.Config do
       list_aggregate_discovered_resources_request() :: %{
         optional("Filters") => resource_filters(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ConfigurationAggregatorName") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("ConfigurationAggregatorName") => String.t() | atom(),
         required("ResourceType") => list(any())
       }
       
   """
-  @type list_aggregate_discovered_resources_request() :: %{String.t() | Atom.t() => any()}
+  @type list_aggregate_discovered_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conformance_pack_evaluation_result() :: %{
-        "Annotation" => String.t() | Atom.t(),
+        "Annotation" => String.t() | atom(),
         "ComplianceType" => list(any()),
         "ConfigRuleInvokedTime" => non_neg_integer(),
         "EvaluationResultIdentifier" => evaluation_result_identifier(),
@@ -2652,7 +2636,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type conformance_pack_evaluation_result() :: %{String.t() | Atom.t() => any()}
+  @type conformance_pack_evaluation_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2663,7 +2647,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type disassociate_resource_types_response() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_resource_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2671,38 +2655,38 @@ defmodule AWS.Config do
       
       describe_aggregation_authorizations_response() :: %{
         "AggregationAuthorizations" => list(aggregation_authorization()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_aggregation_authorizations_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_aggregation_authorizations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_config_request() :: %{
-        optional("ResourceName") => String.t() | Atom.t(),
+        optional("ResourceName") => String.t() | atom(),
         optional("Tags") => map(),
-        required("Configuration") => String.t() | Atom.t(),
-        required("ResourceId") => String.t() | Atom.t(),
-        required("ResourceType") => String.t() | Atom.t(),
-        required("SchemaVersionId") => String.t() | Atom.t()
+        required("Configuration") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom(),
+        required("ResourceType") => String.t() | atom(),
+        required("SchemaVersionId") => String.t() | atom()
       }
       
   """
-  @type put_resource_config_request() :: %{String.t() | Atom.t() => any()}
+  @type put_resource_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_organization_conformance_pack_request() :: %{
-        required("OrganizationConformancePackName") => String.t() | Atom.t()
+        required("OrganizationConformancePackName") => String.t() | atom()
       }
       
   """
-  @type delete_organization_conformance_pack_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_organization_conformance_pack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2712,22 +2696,22 @@ defmodule AWS.Config do
         "CustomPolicyDetails" => custom_policy_details(),
         "Owner" => list(any()),
         "SourceDetails" => list(source_detail()),
-        "SourceIdentifier" => String.t() | Atom.t()
+        "SourceIdentifier" => String.t() | atom()
       }
       
   """
-  @type source() :: %{String.t() | Atom.t() => any()}
+  @type source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_running_configuration_recorder_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_running_configuration_recorder_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_running_configuration_recorder_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2737,37 +2721,37 @@ defmodule AWS.Config do
         "configHistoryDeliveryInfo" => config_export_delivery_info(),
         "configSnapshotDeliveryInfo" => config_export_delivery_info(),
         "configStreamDeliveryInfo" => config_stream_delivery_info(),
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type delivery_channel_status() :: %{String.t() | Atom.t() => any()}
+  @type delivery_channel_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       scope() :: %{
-        "ComplianceResourceId" => String.t() | Atom.t(),
-        "ComplianceResourceTypes" => list(String.t() | Atom.t()),
-        "TagKey" => String.t() | Atom.t(),
-        "TagValue" => String.t() | Atom.t()
+        "ComplianceResourceId" => String.t() | atom(),
+        "ComplianceResourceTypes" => list(String.t() | atom()),
+        "TagKey" => String.t() | atom(),
+        "TagValue" => String.t() | atom()
       }
       
   """
-  @type scope() :: %{String.t() | Atom.t() => any()}
+  @type scope() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_pending_aggregation_request_request() :: %{
-        required("RequesterAccountId") => String.t() | Atom.t(),
-        required("RequesterAwsRegion") => String.t() | Atom.t()
+        required("RequesterAccountId") => String.t() | atom(),
+        required("RequesterAwsRegion") => String.t() | atom()
       }
       
   """
-  @type delete_pending_aggregation_request_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_pending_aggregation_request_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2775,25 +2759,24 @@ defmodule AWS.Config do
       
       configuration_recorder_filter() :: %{
         "filterName" => list(any()),
-        "filterValue" => list(String.t() | Atom.t())
+        "filterValue" => list(String.t() | atom())
       }
       
   """
-  @type configuration_recorder_filter() :: %{String.t() | Atom.t() => any()}
+  @type configuration_recorder_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_service_linked_configuration_recorder_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
   @type delete_service_linked_configuration_recorder_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2801,12 +2784,12 @@ defmodule AWS.Config do
   ## Example:
       
       conformance_pack_input_parameter() :: %{
-        "ParameterName" => String.t() | Atom.t(),
-        "ParameterValue" => String.t() | Atom.t()
+        "ParameterName" => String.t() | atom(),
+        "ParameterValue" => String.t() | atom()
       }
       
   """
-  @type conformance_pack_input_parameter() :: %{String.t() | Atom.t() => any()}
+  @type conformance_pack_input_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2818,7 +2801,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type put_stored_query_request() :: %{String.t() | Atom.t() => any()}
+  @type put_stored_query_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2826,12 +2809,12 @@ defmodule AWS.Config do
       
       get_discovered_resource_counts_request() :: %{
         optional("limit") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("resourceTypes") => list(String.t() | Atom.t())
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceTypes") => list(String.t() | atom())
       }
       
   """
-  @type get_discovered_resource_counts_request() :: %{String.t() | Atom.t() => any()}
+  @type get_discovered_resource_counts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2842,7 +2825,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type put_evaluations_response() :: %{String.t() | Atom.t() => any()}
+  @type put_evaluations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2853,7 +2836,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type evaluation_mode_configuration() :: %{String.t() | Atom.t() => any()}
+  @type evaluation_mode_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2861,44 +2844,44 @@ defmodule AWS.Config do
       
       failed_delete_remediation_exceptions_batch() :: %{
         "FailedItems" => list(remediation_exception_resource_key()),
-        "FailureMessage" => String.t() | Atom.t()
+        "FailureMessage" => String.t() | atom()
       }
       
   """
-  @type failed_delete_remediation_exceptions_batch() :: %{String.t() | Atom.t() => any()}
+  @type failed_delete_remediation_exceptions_batch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_such_configuration_recorder_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_such_configuration_recorder_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_such_configuration_recorder_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_such_organization_conformance_pack_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_such_organization_conformance_pack_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_such_organization_conformance_pack_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_expression_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_expression_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_expression_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2906,23 +2889,23 @@ defmodule AWS.Config do
       
       put_aggregation_authorization_request() :: %{
         optional("Tags") => list(tag()),
-        required("AuthorizedAccountId") => String.t() | Atom.t(),
-        required("AuthorizedAwsRegion") => String.t() | Atom.t()
+        required("AuthorizedAccountId") => String.t() | atom(),
+        required("AuthorizedAwsRegion") => String.t() | atom()
       }
       
   """
-  @type put_aggregation_authorization_request() :: %{String.t() | Atom.t() => any()}
+  @type put_aggregation_authorization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_delivery_channel_request() :: %{
-        required("DeliveryChannelName") => String.t() | Atom.t()
+        required("DeliveryChannelName") => String.t() | atom()
       }
       
   """
-  @type delete_delivery_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_delivery_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2933,7 +2916,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type put_retention_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type put_retention_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2941,40 +2924,39 @@ defmodule AWS.Config do
       
       delivery_channel() :: %{
         "configSnapshotDeliveryProperties" => config_snapshot_delivery_properties(),
-        "name" => String.t() | Atom.t(),
-        "s3BucketName" => String.t() | Atom.t(),
-        "s3KeyPrefix" => String.t() | Atom.t(),
-        "s3KmsKeyArn" => String.t() | Atom.t(),
-        "snsTopicARN" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "s3BucketName" => String.t() | atom(),
+        "s3KeyPrefix" => String.t() | atom(),
+        "s3KmsKeyArn" => String.t() | atom(),
+        "snsTopicARN" => String.t() | atom()
       }
       
   """
-  @type delivery_channel() :: %{String.t() | Atom.t() => any()}
+  @type delivery_channel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_stored_query_response() :: %{
-        "QueryArn" => String.t() | Atom.t()
+        "QueryArn" => String.t() | atom()
       }
       
   """
-  @type put_stored_query_response() :: %{String.t() | Atom.t() => any()}
+  @type put_stored_query_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_organization_conformance_pack_detailed_status_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "OrganizationConformancePackDetailedStatuses" => list(organization_conformance_pack_detailed_status())
       }
       
   """
   @type get_organization_conformance_pack_detailed_status_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2982,60 +2964,60 @@ defmodule AWS.Config do
   ## Example:
       
       describe_conformance_packs_request() :: %{
-        optional("ConformancePackNames") => list(String.t() | Atom.t()),
+        optional("ConformancePackNames") => list(String.t() | atom()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_conformance_packs_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_conformance_packs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_compliance_summary_by_resource_type_request() :: %{
-        optional("ResourceTypes") => list(String.t() | Atom.t())
+        optional("ResourceTypes") => list(String.t() | atom())
       }
       
   """
-  @type get_compliance_summary_by_resource_type_request() :: %{String.t() | Atom.t() => any()}
+  @type get_compliance_summary_by_resource_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_such_conformance_pack_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_such_conformance_pack_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_such_conformance_pack_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conformance_pack_compliance_score() :: %{
-        "ConformancePackName" => String.t() | Atom.t(),
+        "ConformancePackName" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
-        "Score" => String.t() | Atom.t()
+        "Score" => String.t() | atom()
       }
       
   """
-  @type conformance_pack_compliance_score() :: %{String.t() | Atom.t() => any()}
+  @type conformance_pack_compliance_score() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_resource_types_request() :: %{
-        required("ConfigurationRecorderArn") => String.t() | Atom.t(),
+        required("ConfigurationRecorderArn") => String.t() | atom(),
         required("ResourceTypes") => list(list(any())())
       }
       
   """
-  @type associate_resource_types_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_resource_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3046,18 +3028,18 @@ defmodule AWS.Config do
       }
       
   """
-  @type put_configuration_aggregator_response() :: %{String.t() | Atom.t() => any()}
+  @type put_configuration_aggregator_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conformance_pack_compliance_scores_filters() :: %{
-        "ConformancePackNames" => list(String.t() | Atom.t())
+        "ConformancePackNames" => list(String.t() | atom())
       }
       
   """
-  @type conformance_pack_compliance_scores_filters() :: %{String.t() | Atom.t() => any()}
+  @type conformance_pack_compliance_scores_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3065,26 +3047,26 @@ defmodule AWS.Config do
       
       failed_remediation_batch() :: %{
         "FailedItems" => list(remediation_configuration()),
-        "FailureMessage" => String.t() | Atom.t()
+        "FailureMessage" => String.t() | atom()
       }
       
   """
-  @type failed_remediation_batch() :: %{String.t() | Atom.t() => any()}
+  @type failed_remediation_batch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_organization_config_rule_request() :: %{
-        optional("ExcludedAccounts") => list(String.t() | Atom.t()),
+        optional("ExcludedAccounts") => list(String.t() | atom()),
         optional("OrganizationCustomPolicyRuleMetadata") => organization_custom_policy_rule_metadata(),
         optional("OrganizationCustomRuleMetadata") => organization_custom_rule_metadata(),
         optional("OrganizationManagedRuleMetadata") => organization_managed_rule_metadata(),
-        required("OrganizationConfigRuleName") => String.t() | Atom.t()
+        required("OrganizationConfigRuleName") => String.t() | atom()
       }
       
   """
-  @type put_organization_config_rule_request() :: %{String.t() | Atom.t() => any()}
+  @type put_organization_config_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3099,44 +3081,44 @@ defmodule AWS.Config do
       }
       
   """
-  @type recording_group() :: %{String.t() | Atom.t() => any()}
+  @type recording_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_stored_queries_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "StoredQueryMetadata" => list(stored_query_metadata())
       }
       
   """
-  @type list_stored_queries_response() :: %{String.t() | Atom.t() => any()}
+  @type list_stored_queries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_key() :: %{
-        "resourceId" => String.t() | Atom.t(),
+        "resourceId" => String.t() | atom(),
         "resourceType" => list(any())
       }
       
   """
-  @type resource_key() :: %{String.t() | Atom.t() => any()}
+  @type resource_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_discovered_resource_counts_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "resourceCounts" => list(resource_count()),
         "totalDiscoveredResources" => float()
       }
       
   """
-  @type get_discovered_resource_counts_response() :: %{String.t() | Atom.t() => any()}
+  @type get_discovered_resource_counts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3147,7 +3129,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type execution_controls() :: %{String.t() | Atom.t() => any()}
+  @type execution_controls() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3155,37 +3137,37 @@ defmodule AWS.Config do
       
       config_export_delivery_info() :: %{
         "lastAttemptTime" => non_neg_integer(),
-        "lastErrorCode" => String.t() | Atom.t(),
-        "lastErrorMessage" => String.t() | Atom.t(),
+        "lastErrorCode" => String.t() | atom(),
+        "lastErrorMessage" => String.t() | atom(),
         "lastStatus" => list(any()),
         "lastSuccessfulTime" => non_neg_integer(),
         "nextDeliveryTime" => non_neg_integer()
       }
       
   """
-  @type config_export_delivery_info() :: %{String.t() | Atom.t() => any()}
+  @type config_export_delivery_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_discovered_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_not_discovered_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_discovered_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3193,59 +3175,59 @@ defmodule AWS.Config do
       
       list_tags_for_resource_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ResourceArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       evaluation_context() :: %{
-        "EvaluationContextIdentifier" => String.t() | Atom.t()
+        "EvaluationContextIdentifier" => String.t() | atom()
       }
       
   """
-  @type evaluation_context() :: %{String.t() | Atom.t() => any()}
+  @type evaluation_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_count_filters() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "Region" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "Region" => String.t() | atom(),
         "ResourceType" => list(any())
       }
       
   """
-  @type resource_count_filters() :: %{String.t() | Atom.t() => any()}
+  @type resource_count_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_concurrent_modification_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_concurrent_modification_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_service_linked_configuration_recorder_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type put_service_linked_configuration_recorder_response() :: %{String.t() | Atom.t() => any()}
+  @type put_service_linked_configuration_recorder_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3253,15 +3235,14 @@ defmodule AWS.Config do
       
       describe_configuration_aggregator_sources_status_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("UpdateStatus") => list(list(any())()),
-        required("ConfigurationAggregatorName") => String.t() | Atom.t()
+        required("ConfigurationAggregatorName") => String.t() | atom()
       }
       
   """
   @type describe_configuration_aggregator_sources_status_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3269,12 +3250,12 @@ defmodule AWS.Config do
   ## Example:
       
       describe_retention_configurations_request() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("RetentionConfigurationNames") => list(String.t() | Atom.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("RetentionConfigurationNames") => list(String.t() | atom())
       }
       
   """
-  @type describe_retention_configurations_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_retention_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3284,53 +3265,53 @@ defmodule AWS.Config do
         optional("Filters") => resource_count_filters(),
         optional("GroupByKey") => list(any()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ConfigurationAggregatorName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ConfigurationAggregatorName") => String.t() | atom()
       }
       
   """
-  @type get_aggregate_discovered_resource_counts_request() :: %{String.t() | Atom.t() => any()}
+  @type get_aggregate_discovered_resource_counts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_such_bucket_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_such_bucket_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_such_bucket_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_available_organization_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_available_organization_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_available_organization_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_custom_rule_metadata() :: %{
-        "Description" => String.t() | Atom.t(),
-        "InputParameters" => String.t() | Atom.t(),
-        "LambdaFunctionArn" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "InputParameters" => String.t() | atom(),
+        "LambdaFunctionArn" => String.t() | atom(),
         "MaximumExecutionFrequency" => list(any()),
         "OrganizationConfigRuleTriggerTypes" => list(list(any())()),
-        "ResourceIdScope" => String.t() | Atom.t(),
-        "ResourceTypesScope" => list(String.t() | Atom.t()),
-        "TagKeyScope" => String.t() | Atom.t(),
-        "TagValueScope" => String.t() | Atom.t()
+        "ResourceIdScope" => String.t() | atom(),
+        "ResourceTypesScope" => list(String.t() | atom()),
+        "TagKeyScope" => String.t() | atom(),
+        "TagValueScope" => String.t() | atom()
       }
       
   """
-  @type organization_custom_rule_metadata() :: %{String.t() | Atom.t() => any()}
+  @type organization_custom_rule_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3341,66 +3322,66 @@ defmodule AWS.Config do
       }
       
   """
-  @type describe_configuration_recorders_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_configuration_recorders_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_config_request() :: %{
-        required("ResourceId") => String.t() | Atom.t(),
-        required("ResourceType") => String.t() | Atom.t()
+        required("ResourceId") => String.t() | atom(),
+        required("ResourceType") => String.t() | atom()
       }
       
   """
-  @type delete_resource_config_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_resource_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       max_active_resources_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type max_active_resources_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type max_active_resources_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_such_organization_config_rule_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_such_organization_config_rule_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_such_organization_config_rule_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       status_detail_filters() :: %{
-        "AccountId" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
         "MemberAccountRuleStatus" => list(any())
       }
       
   """
-  @type status_detail_filters() :: %{String.t() | Atom.t() => any()}
+  @type status_detail_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_config_rules_request() :: %{
-        optional("ConfigRuleNames") => list(String.t() | Atom.t()),
+        optional("ConfigRuleNames") => list(String.t() | atom()),
         optional("Filters") => describe_config_rules_filters(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_config_rules_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_config_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3411,7 +3392,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type batch_get_resource_config_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_resource_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3420,12 +3401,12 @@ defmodule AWS.Config do
       get_conformance_pack_compliance_details_request() :: %{
         optional("Filters") => conformance_pack_evaluation_filters(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ConformancePackName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ConformancePackName") => String.t() | atom()
       }
       
   """
-  @type get_conformance_pack_compliance_details_request() :: %{String.t() | Atom.t() => any()}
+  @type get_conformance_pack_compliance_details_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3433,13 +3414,12 @@ defmodule AWS.Config do
       
       describe_configuration_aggregator_sources_status_response() :: %{
         "AggregatedSourceStatusList" => list(aggregated_source_status()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
   @type describe_configuration_aggregator_sources_status_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3447,11 +3427,11 @@ defmodule AWS.Config do
   ## Example:
       
       field_info() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type field_info() :: %{String.t() | Atom.t() => any()}
+  @type field_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3460,26 +3440,26 @@ defmodule AWS.Config do
       describe_conformance_pack_compliance_request() :: %{
         optional("Filters") => conformance_pack_compliance_filters(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ConformancePackName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ConformancePackName") => String.t() | atom()
       }
       
   """
-  @type describe_conformance_pack_compliance_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_conformance_pack_compliance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       config_stream_delivery_info() :: %{
-        "lastErrorCode" => String.t() | Atom.t(),
-        "lastErrorMessage" => String.t() | Atom.t(),
+        "lastErrorCode" => String.t() | atom(),
+        "lastErrorMessage" => String.t() | atom(),
         "lastStatus" => list(any()),
         "lastStatusChangeTime" => non_neg_integer()
       }
       
   """
-  @type config_stream_delivery_info() :: %{String.t() | Atom.t() => any()}
+  @type config_stream_delivery_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3489,14 +3469,13 @@ defmodule AWS.Config do
         optional("Filters") => aggregate_conformance_pack_compliance_summary_filters(),
         optional("GroupByKey") => list(any()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ConfigurationAggregatorName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ConfigurationAggregatorName") => String.t() | atom()
       }
       
   """
   @type get_aggregate_conformance_pack_compliance_summary_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3504,14 +3483,14 @@ defmodule AWS.Config do
   ## Example:
       
       aggregate_compliance_by_conformance_pack() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "AwsRegion" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom(),
         "Compliance" => aggregate_conformance_pack_compliance(),
-        "ConformancePackName" => String.t() | Atom.t()
+        "ConformancePackName" => String.t() | atom()
       }
       
   """
-  @type aggregate_compliance_by_conformance_pack() :: %{String.t() | Atom.t() => any()}
+  @type aggregate_compliance_by_conformance_pack() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3522,51 +3501,51 @@ defmodule AWS.Config do
       }
       
   """
-  @type describe_delivery_channel_status_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_delivery_channel_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_remediation_execution_status_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "RemediationExecutionStatuses" => list(remediation_execution_status())
       }
       
   """
-  @type describe_remediation_execution_status_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_remediation_execution_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_custom_policy_rule_metadata() :: %{
-        "DebugLogDeliveryAccounts" => list(String.t() | Atom.t()),
-        "Description" => String.t() | Atom.t(),
-        "InputParameters" => String.t() | Atom.t(),
+        "DebugLogDeliveryAccounts" => list(String.t() | atom()),
+        "Description" => String.t() | atom(),
+        "InputParameters" => String.t() | atom(),
         "MaximumExecutionFrequency" => list(any()),
         "OrganizationConfigRuleTriggerTypes" => list(list(any())()),
-        "PolicyRuntime" => String.t() | Atom.t(),
-        "PolicyText" => String.t() | Atom.t(),
-        "ResourceIdScope" => String.t() | Atom.t(),
-        "ResourceTypesScope" => list(String.t() | Atom.t()),
-        "TagKeyScope" => String.t() | Atom.t(),
-        "TagValueScope" => String.t() | Atom.t()
+        "PolicyRuntime" => String.t() | atom(),
+        "PolicyText" => String.t() | atom(),
+        "ResourceIdScope" => String.t() | atom(),
+        "ResourceTypesScope" => list(String.t() | atom()),
+        "TagKeyScope" => String.t() | atom(),
+        "TagValueScope" => String.t() | atom()
       }
       
   """
-  @type organization_custom_policy_rule_metadata() :: %{String.t() | Atom.t() => any()}
+  @type organization_custom_policy_rule_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3574,11 +3553,11 @@ defmodule AWS.Config do
       
       conformance_pack_compliance_summary() :: %{
         "ConformancePackComplianceStatus" => list(any()),
-        "ConformancePackName" => String.t() | Atom.t()
+        "ConformancePackName" => String.t() | atom()
       }
       
   """
-  @type conformance_pack_compliance_summary() :: %{String.t() | Atom.t() => any()}
+  @type conformance_pack_compliance_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3586,38 +3565,38 @@ defmodule AWS.Config do
       
       compliance_summary_by_resource_type() :: %{
         "ComplianceSummary" => compliance_summary(),
-        "ResourceType" => String.t() | Atom.t()
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type compliance_summary_by_resource_type() :: %{String.t() | Atom.t() => any()}
+  @type compliance_summary_by_resource_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_resource_detailed_status_filters() :: %{
-        "AccountId" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type organization_resource_detailed_status_filters() :: %{String.t() | Atom.t() => any()}
+  @type organization_resource_detailed_status_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       evaluation() :: %{
-        "Annotation" => String.t() | Atom.t(),
-        "ComplianceResourceId" => String.t() | Atom.t(),
-        "ComplianceResourceType" => String.t() | Atom.t(),
+        "Annotation" => String.t() | atom(),
+        "ComplianceResourceId" => String.t() | atom(),
+        "ComplianceResourceType" => String.t() | atom(),
         "ComplianceType" => list(any()),
         "OrderingTimestamp" => non_neg_integer()
       }
       
   """
-  @type evaluation() :: %{String.t() | Atom.t() => any()}
+  @type evaluation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3625,37 +3604,37 @@ defmodule AWS.Config do
       
       describe_aggregation_authorizations_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_aggregation_authorizations_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_aggregation_authorizations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       base_configuration_item() :: %{
-        "accountId" => String.t() | Atom.t(),
-        "arn" => String.t() | Atom.t(),
-        "availabilityZone" => String.t() | Atom.t(),
-        "awsRegion" => String.t() | Atom.t(),
-        "configuration" => String.t() | Atom.t(),
+        "accountId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "availabilityZone" => String.t() | atom(),
+        "awsRegion" => String.t() | atom(),
+        "configuration" => String.t() | atom(),
         "configurationItemCaptureTime" => non_neg_integer(),
         "configurationItemDeliveryTime" => non_neg_integer(),
         "configurationItemStatus" => list(any()),
-        "configurationStateId" => String.t() | Atom.t(),
+        "configurationStateId" => String.t() | atom(),
         "recordingFrequency" => list(any()),
         "resourceCreationTime" => non_neg_integer(),
-        "resourceId" => String.t() | Atom.t(),
-        "resourceName" => String.t() | Atom.t(),
+        "resourceId" => String.t() | atom(),
+        "resourceName" => String.t() | atom(),
         "resourceType" => list(any()),
         "supplementaryConfiguration" => map(),
-        "version" => String.t() | Atom.t()
+        "version" => String.t() | atom()
       }
       
   """
-  @type base_configuration_item() :: %{String.t() | Atom.t() => any()}
+  @type base_configuration_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3663,60 +3642,60 @@ defmodule AWS.Config do
       
       put_remediation_exceptions_request() :: %{
         optional("ExpirationTime") => non_neg_integer(),
-        optional("Message") => String.t() | Atom.t(),
-        required("ConfigRuleName") => String.t() | Atom.t(),
+        optional("Message") => String.t() | atom(),
+        required("ConfigRuleName") => String.t() | atom(),
         required("ResourceKeys") => list(remediation_exception_resource_key())
       }
       
   """
-  @type put_remediation_exceptions_request() :: %{String.t() | Atom.t() => any()}
+  @type put_remediation_exceptions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conformance_pack_status_detail() :: %{
-        "ConformancePackArn" => String.t() | Atom.t(),
-        "ConformancePackId" => String.t() | Atom.t(),
-        "ConformancePackName" => String.t() | Atom.t(),
+        "ConformancePackArn" => String.t() | atom(),
+        "ConformancePackId" => String.t() | atom(),
+        "ConformancePackName" => String.t() | atom(),
         "ConformancePackState" => list(any()),
-        "ConformancePackStatusReason" => String.t() | Atom.t(),
+        "ConformancePackStatusReason" => String.t() | atom(),
         "LastUpdateCompletedTime" => non_neg_integer(),
         "LastUpdateRequestedTime" => non_neg_integer(),
-        "StackArn" => String.t() | Atom.t()
+        "StackArn" => String.t() | atom()
       }
       
   """
-  @type conformance_pack_status_detail() :: %{String.t() | Atom.t() => any()}
+  @type conformance_pack_status_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_conformance_pack_compliance_details_response() :: %{
-        "ConformancePackName" => String.t() | Atom.t(),
+        "ConformancePackName" => String.t() | atom(),
         "ConformancePackRuleEvaluationResults" => list(conformance_pack_evaluation_result()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_conformance_pack_compliance_details_response() :: %{String.t() | Atom.t() => any()}
+  @type get_conformance_pack_compliance_details_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       evaluation_result() :: %{
-        "Annotation" => String.t() | Atom.t(),
+        "Annotation" => String.t() | atom(),
         "ComplianceType" => list(any()),
         "ConfigRuleInvokedTime" => non_neg_integer(),
         "EvaluationResultIdentifier" => evaluation_result_identifier(),
         "ResultRecordedTime" => non_neg_integer(),
-        "ResultToken" => String.t() | Atom.t()
+        "ResultToken" => String.t() | atom()
       }
       
   """
-  @type evaluation_result() :: %{String.t() | Atom.t() => any()}
+  @type evaluation_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3724,16 +3703,16 @@ defmodule AWS.Config do
       
       put_organization_conformance_pack_request() :: %{
         optional("ConformancePackInputParameters") => list(conformance_pack_input_parameter()),
-        optional("DeliveryS3Bucket") => String.t() | Atom.t(),
-        optional("DeliveryS3KeyPrefix") => String.t() | Atom.t(),
-        optional("ExcludedAccounts") => list(String.t() | Atom.t()),
-        optional("TemplateBody") => String.t() | Atom.t(),
-        optional("TemplateS3Uri") => String.t() | Atom.t(),
-        required("OrganizationConformancePackName") => String.t() | Atom.t()
+        optional("DeliveryS3Bucket") => String.t() | atom(),
+        optional("DeliveryS3KeyPrefix") => String.t() | atom(),
+        optional("ExcludedAccounts") => list(String.t() | atom()),
+        optional("TemplateBody") => String.t() | atom(),
+        optional("TemplateS3Uri") => String.t() | atom(),
+        required("OrganizationConformancePackName") => String.t() | atom()
       }
       
   """
-  @type put_organization_conformance_pack_request() :: %{String.t() | Atom.t() => any()}
+  @type put_organization_conformance_pack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3741,14 +3720,13 @@ defmodule AWS.Config do
       
       describe_organization_conformance_pack_statuses_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("OrganizationConformancePackNames") => list(String.t() | Atom.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("OrganizationConformancePackNames") => list(String.t() | atom())
       }
       
   """
   @type describe_organization_conformance_pack_statuses_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3756,19 +3734,19 @@ defmodule AWS.Config do
   ## Example:
       
       template_s_s_m_document_details() :: %{
-        "DocumentName" => String.t() | Atom.t(),
-        "DocumentVersion" => String.t() | Atom.t()
+        "DocumentName" => String.t() | atom(),
+        "DocumentVersion" => String.t() | atom()
       }
       
   """
-  @type template_s_s_m_document_details() :: %{String.t() | Atom.t() => any()}
+  @type template_s_s_m_document_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_resource_evaluation_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("EvaluationContext") => evaluation_context(),
         optional("EvaluationTimeout") => integer(),
         required("EvaluationMode") => list(any()),
@@ -3776,7 +3754,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type start_resource_evaluation_request() :: %{String.t() | Atom.t() => any()}
+  @type start_resource_evaluation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3797,33 +3775,33 @@ defmodule AWS.Config do
       }
       
   """
-  @type aggregate_conformance_pack_compliance_count() :: %{String.t() | Atom.t() => any()}
+  @type aggregate_conformance_pack_compliance_count() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_organization_config_rule_statuses_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "OrganizationConfigRuleStatuses" => list(organization_config_rule_status())
       }
       
   """
-  @type describe_organization_config_rule_statuses_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_organization_config_rule_statuses_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_details() :: %{
-        "ResourceConfiguration" => String.t() | Atom.t(),
+        "ResourceConfiguration" => String.t() | atom(),
         "ResourceConfigurationSchemaType" => list(any()),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type resource_details() :: %{String.t() | Atom.t() => any()}
+  @type resource_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3831,53 +3809,53 @@ defmodule AWS.Config do
       
       select_resource_config_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("Expression") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("Expression") => String.t() | atom()
       }
       
   """
-  @type select_resource_config_request() :: %{String.t() | Atom.t() => any()}
+  @type select_resource_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_s3_key_prefix_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_s3_key_prefix_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_s3_key_prefix_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       configuration_item() :: %{
-        "accountId" => String.t() | Atom.t(),
-        "arn" => String.t() | Atom.t(),
-        "availabilityZone" => String.t() | Atom.t(),
-        "awsRegion" => String.t() | Atom.t(),
-        "configuration" => String.t() | Atom.t(),
+        "accountId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "availabilityZone" => String.t() | atom(),
+        "awsRegion" => String.t() | atom(),
+        "configuration" => String.t() | atom(),
         "configurationItemCaptureTime" => non_neg_integer(),
         "configurationItemDeliveryTime" => non_neg_integer(),
-        "configurationItemMD5Hash" => String.t() | Atom.t(),
+        "configurationItemMD5Hash" => String.t() | atom(),
         "configurationItemStatus" => list(any()),
-        "configurationStateId" => String.t() | Atom.t(),
+        "configurationStateId" => String.t() | atom(),
         "recordingFrequency" => list(any()),
-        "relatedEvents" => list(String.t() | Atom.t()),
+        "relatedEvents" => list(String.t() | atom()),
         "relationships" => list(relationship()),
         "resourceCreationTime" => non_neg_integer(),
-        "resourceId" => String.t() | Atom.t(),
-        "resourceName" => String.t() | Atom.t(),
+        "resourceId" => String.t() | atom(),
+        "resourceName" => String.t() | atom(),
         "resourceType" => list(any()),
         "supplementaryConfiguration" => map(),
         "tags" => map(),
-        "version" => String.t() | Atom.t()
+        "version" => String.t() | atom()
       }
       
   """
-  @type configuration_item() :: %{String.t() | Atom.t() => any()}
+  @type configuration_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3885,12 +3863,12 @@ defmodule AWS.Config do
       
       compliance_by_resource() :: %{
         "Compliance" => compliance(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type compliance_by_resource() :: %{String.t() | Atom.t() => any()}
+  @type compliance_by_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3898,39 +3876,39 @@ defmodule AWS.Config do
       
       describe_config_rule_evaluation_status_response() :: %{
         "ConfigRulesEvaluationStatus" => list(config_rule_evaluation_status()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_config_rule_evaluation_status_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_config_rule_evaluation_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_config_rule() :: %{
-        "ExcludedAccounts" => list(String.t() | Atom.t()),
+        "ExcludedAccounts" => list(String.t() | atom()),
         "LastUpdateTime" => non_neg_integer(),
-        "OrganizationConfigRuleArn" => String.t() | Atom.t(),
-        "OrganizationConfigRuleName" => String.t() | Atom.t(),
+        "OrganizationConfigRuleArn" => String.t() | atom(),
+        "OrganizationConfigRuleName" => String.t() | atom(),
         "OrganizationCustomPolicyRuleMetadata" => organization_custom_policy_rule_metadata_no_policy(),
         "OrganizationCustomRuleMetadata" => organization_custom_rule_metadata(),
         "OrganizationManagedRuleMetadata" => organization_managed_rule_metadata()
       }
       
   """
-  @type organization_config_rule() :: %{String.t() | Atom.t() => any()}
+  @type organization_config_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       max_number_of_conformance_packs_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type max_number_of_conformance_packs_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type max_number_of_conformance_packs_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3938,47 +3916,46 @@ defmodule AWS.Config do
       
       list_conformance_pack_compliance_scores_response() :: %{
         "ConformancePackComplianceScores" => list(conformance_pack_compliance_score()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_conformance_pack_compliance_scores_response() :: %{String.t() | Atom.t() => any()}
+  @type list_conformance_pack_compliance_scores_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_pending_aggregation_requests_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "PendingAggregationRequests" => list(pending_aggregation_request())
       }
       
   """
-  @type describe_pending_aggregation_requests_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_pending_aggregation_requests_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       static_value() :: %{
-        "Values" => list(String.t() | Atom.t())
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type static_value() :: %{String.t() | Atom.t() => any()}
+  @type static_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       max_number_of_retention_configurations_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
   @type max_number_of_retention_configurations_exceeded_exception() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3986,11 +3963,11 @@ defmodule AWS.Config do
   ## Example:
       
       delete_organization_config_rule_request() :: %{
-        required("OrganizationConfigRuleName") => String.t() | Atom.t()
+        required("OrganizationConfigRuleName") => String.t() | atom()
       }
       
   """
-  @type delete_organization_config_rule_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_organization_config_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3998,25 +3975,25 @@ defmodule AWS.Config do
       
       describe_remediation_exceptions_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ResourceKeys") => list(remediation_exception_resource_key()),
-        required("ConfigRuleName") => String.t() | Atom.t()
+        required("ConfigRuleName") => String.t() | atom()
       }
       
   """
-  @type describe_remediation_exceptions_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_remediation_exceptions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_aggregate_resource_config_request() :: %{
-        required("ConfigurationAggregatorName") => String.t() | Atom.t(),
+        required("ConfigurationAggregatorName") => String.t() | atom(),
         required("ResourceIdentifiers") => list(aggregate_resource_identifier())
       }
       
   """
-  @type batch_get_aggregate_resource_config_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_aggregate_resource_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4024,11 +4001,11 @@ defmodule AWS.Config do
       
       describe_conformance_packs_response() :: %{
         "ConformancePackDetails" => list(conformance_pack_detail()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_conformance_packs_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_conformance_packs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4039,7 +4016,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type query_info() :: %{String.t() | Atom.t() => any()}
+  @type query_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4048,11 +4025,11 @@ defmodule AWS.Config do
       list_configuration_recorders_request() :: %{
         optional("Filters") => list(configuration_recorder_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_configuration_recorders_request() :: %{String.t() | Atom.t() => any()}
+  @type list_configuration_recorders_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4063,7 +4040,7 @@ defmodule AWS.Config do
       }
       
   """
-  @type get_compliance_summary_by_config_rule_response() :: %{String.t() | Atom.t() => any()}
+  @type get_compliance_summary_by_config_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4074,18 +4051,18 @@ defmodule AWS.Config do
       }
       
   """
-  @type get_aggregate_resource_config_response() :: %{String.t() | Atom.t() => any()}
+  @type get_aggregate_resource_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conformance_pack_template_validation_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type conformance_pack_template_validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type conformance_pack_template_validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4094,14 +4071,13 @@ defmodule AWS.Config do
       get_organization_conformance_pack_detailed_status_request() :: %{
         optional("Filters") => organization_resource_detailed_status_filters(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("OrganizationConformancePackName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("OrganizationConformancePackName") => String.t() | atom()
       }
       
   """
   @type get_organization_conformance_pack_detailed_status_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -4109,45 +4085,45 @@ defmodule AWS.Config do
   ## Example:
       
       organization_access_denied_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type organization_access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type organization_access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_such_retention_configuration_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_such_retention_configuration_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_such_retention_configuration_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remediation_exception_resource_key() :: %{
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type remediation_exception_resource_key() :: %{String.t() | Atom.t() => any()}
+  @type remediation_exception_resource_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_configuration_recorder_name_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_configuration_recorder_name_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_configuration_recorder_name_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4160,43 +4136,43 @@ defmodule AWS.Config do
       }
       
   """
-  @type compliance_summary() :: %{String.t() | Atom.t() => any()}
+  @type compliance_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_configuration_recorder_request() :: %{
-        required("ConfigurationRecorderName") => String.t() | Atom.t()
+        required("ConfigurationRecorderName") => String.t() | atom()
       }
       
   """
-  @type delete_configuration_recorder_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_configuration_recorder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_conformance_pack_request() :: %{
-        required("ConformancePackName") => String.t() | Atom.t()
+        required("ConformancePackName") => String.t() | atom()
       }
       
   """
-  @type delete_conformance_pack_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_conformance_pack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       evaluation_result_qualifier() :: %{
-        "ConfigRuleName" => String.t() | Atom.t(),
+        "ConfigRuleName" => String.t() | atom(),
         "EvaluationMode" => list(any()),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type evaluation_result_qualifier() :: %{String.t() | Atom.t() => any()}
+  @type evaluation_result_qualifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4204,16 +4180,16 @@ defmodule AWS.Config do
       
       organization_conformance_pack() :: %{
         "ConformancePackInputParameters" => list(conformance_pack_input_parameter()),
-        "DeliveryS3Bucket" => String.t() | Atom.t(),
-        "DeliveryS3KeyPrefix" => String.t() | Atom.t(),
-        "ExcludedAccounts" => list(String.t() | Atom.t()),
+        "DeliveryS3Bucket" => String.t() | atom(),
+        "DeliveryS3KeyPrefix" => String.t() | atom(),
+        "ExcludedAccounts" => list(String.t() | atom()),
         "LastUpdateTime" => non_neg_integer(),
-        "OrganizationConformancePackArn" => String.t() | Atom.t(),
-        "OrganizationConformancePackName" => String.t() | Atom.t()
+        "OrganizationConformancePackArn" => String.t() | atom(),
+        "OrganizationConformancePackName" => String.t() | atom()
       }
       
   """
-  @type organization_conformance_pack() :: %{String.t() | Atom.t() => any()}
+  @type organization_conformance_pack() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4221,25 +4197,24 @@ defmodule AWS.Config do
       
       describe_organization_conformance_packs_request() :: %{
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("OrganizationConformancePackNames") => list(String.t() | Atom.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("OrganizationConformancePackNames") => list(String.t() | atom())
       }
       
   """
-  @type describe_organization_conformance_packs_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_organization_conformance_packs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_service_linked_configuration_recorder_request() :: %{
-        required("ServicePrincipal") => String.t() | Atom.t()
+        required("ServicePrincipal") => String.t() | atom()
       }
       
   """
   @type delete_service_linked_configuration_recorder_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -4247,11 +4222,11 @@ defmodule AWS.Config do
   ## Example:
       
       too_many_tags_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4260,37 +4235,37 @@ defmodule AWS.Config do
       get_compliance_details_by_config_rule_request() :: %{
         optional("ComplianceTypes") => list(list(any())()),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ConfigRuleName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ConfigRuleName") => String.t() | atom()
       }
       
   """
-  @type get_compliance_details_by_config_rule_request() :: %{String.t() | Atom.t() => any()}
+  @type get_compliance_details_by_config_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       config_rule_compliance_filters() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "AwsRegion" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom(),
         "ComplianceType" => list(any()),
-        "ConfigRuleName" => String.t() | Atom.t()
+        "ConfigRuleName" => String.t() | atom()
       }
       
   """
-  @type config_rule_compliance_filters() :: %{String.t() | Atom.t() => any()}
+  @type config_rule_compliance_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_organization_custom_rule_policy_request() :: %{
-        required("OrganizationConfigRuleName") => String.t() | Atom.t()
+        required("OrganizationConfigRuleName") => String.t() | atom()
       }
       
   """
-  @type get_organization_custom_rule_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type get_organization_custom_rule_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4299,11 +4274,11 @@ defmodule AWS.Config do
       list_resource_evaluations_request() :: %{
         optional("Filters") => resource_evaluation_filters(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_resource_evaluations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_evaluations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4311,74 +4286,74 @@ defmodule AWS.Config do
       
       aggregate_compliance_count() :: %{
         "ComplianceSummary" => compliance_summary(),
-        "GroupName" => String.t() | Atom.t()
+        "GroupName" => String.t() | atom()
       }
       
   """
-  @type aggregate_compliance_count() :: %{String.t() | Atom.t() => any()}
+  @type aggregate_compliance_count() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       select_aggregate_resource_config_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "QueryInfo" => query_info(),
-        "Results" => list(String.t() | Atom.t())
+        "Results" => list(String.t() | atom())
       }
       
   """
-  @type select_aggregate_resource_config_response() :: %{String.t() | Atom.t() => any()}
+  @type select_aggregate_resource_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_such_config_rule_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_such_config_rule_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_such_config_rule_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remediation_execution_step() :: %{
-        "ErrorMessage" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "StartTime" => non_neg_integer(),
         "State" => list(any()),
         "StopTime" => non_neg_integer()
       }
       
   """
-  @type remediation_execution_step() :: %{String.t() | Atom.t() => any()}
+  @type remediation_execution_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_such_remediation_configuration_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_such_remediation_configuration_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_such_remediation_configuration_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_conformance_pack_compliance_response() :: %{
-        "ConformancePackName" => String.t() | Atom.t(),
+        "ConformancePackName" => String.t() | atom(),
         "ConformancePackRuleComplianceList" => list(conformance_pack_rule_compliance()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_conformance_pack_compliance_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_conformance_pack_compliance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4390,32 +4365,31 @@ defmodule AWS.Config do
       }
       
   """
-  @type put_configuration_recorder_request() :: %{String.t() | Atom.t() => any()}
+  @type put_configuration_recorder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_available_configuration_recorder_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_available_configuration_recorder_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_available_configuration_recorder_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       aggregate_conformance_pack_compliance_summary_filters() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "AwsRegion" => String.t() | Atom.t()
+        "AccountId" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom()
       }
       
   """
   @type aggregate_conformance_pack_compliance_summary_filters() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -4423,20 +4397,20 @@ defmodule AWS.Config do
   ## Example:
       
       organization_custom_policy_rule_metadata_no_policy() :: %{
-        "DebugLogDeliveryAccounts" => list(String.t() | Atom.t()),
-        "Description" => String.t() | Atom.t(),
-        "InputParameters" => String.t() | Atom.t(),
+        "DebugLogDeliveryAccounts" => list(String.t() | atom()),
+        "Description" => String.t() | atom(),
+        "InputParameters" => String.t() | atom(),
         "MaximumExecutionFrequency" => list(any()),
         "OrganizationConfigRuleTriggerTypes" => list(list(any())()),
-        "PolicyRuntime" => String.t() | Atom.t(),
-        "ResourceIdScope" => String.t() | Atom.t(),
-        "ResourceTypesScope" => list(String.t() | Atom.t()),
-        "TagKeyScope" => String.t() | Atom.t(),
-        "TagValueScope" => String.t() | Atom.t()
+        "PolicyRuntime" => String.t() | atom(),
+        "ResourceIdScope" => String.t() | atom(),
+        "ResourceTypesScope" => list(String.t() | atom()),
+        "TagKeyScope" => String.t() | atom(),
+        "TagValueScope" => String.t() | atom()
       }
       
   """
-  @type organization_custom_policy_rule_metadata_no_policy() :: %{String.t() | Atom.t() => any()}
+  @type organization_custom_policy_rule_metadata_no_policy() :: %{(String.t() | atom()) => any()}
 
   @type associate_resource_types_errors() ::
           validation_exception()

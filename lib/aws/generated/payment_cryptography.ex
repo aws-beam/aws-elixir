@@ -40,11 +40,11 @@ defmodule AWS.PaymentCryptography do
       
       export_tr31_key_block() :: %{
         "KeyBlockHeaders" => key_block_headers(),
-        "WrappingKeyIdentifier" => String.t() | Atom.t()
+        "WrappingKeyIdentifier" => String.t() | atom()
       }
       
   """
-  @type export_tr31_key_block() :: %{String.t() | Atom.t() => any()}
+  @type export_tr31_key_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -55,18 +55,18 @@ defmodule AWS.PaymentCryptography do
       }
       
   """
-  @type get_alias_output() :: %{String.t() | Atom.t() => any()}
+  @type get_alias_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_alias_input() :: %{
-        required("AliasName") => String.t() | Atom.t()
+        required("AliasName") => String.t() | atom()
       }
       
   """
-  @type get_alias_input() :: %{String.t() | Atom.t() => any()}
+  @type get_alias_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -85,32 +85,32 @@ defmodule AWS.PaymentCryptography do
       }
       
   """
-  @type key_modes_of_use() :: %{String.t() | Atom.t() => any()}
+  @type key_modes_of_use() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_parameters_for_export_input() :: %{
-        required("KeyMaterialType") => String.t() | Atom.t(),
-        required("SigningKeyAlgorithm") => String.t() | Atom.t()
+        required("KeyMaterialType") => String.t() | atom(),
+        required("SigningKeyAlgorithm") => String.t() | atom()
       }
       
   """
-  @type get_parameters_for_export_input() :: %{String.t() | Atom.t() => any()}
+  @type get_parameters_for_export_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_keys_input() :: %{
-        optional("KeyState") => String.t() | Atom.t(),
+        optional("KeyState") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_keys_input() :: %{String.t() | Atom.t() => any()}
+  @type list_keys_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -119,41 +119,41 @@ defmodule AWS.PaymentCryptography do
       key_summary() :: %{
         "Enabled" => [boolean()],
         "Exportable" => [boolean()],
-        "KeyArn" => String.t() | Atom.t(),
+        "KeyArn" => String.t() | atom(),
         "KeyAttributes" => key_attributes(),
-        "KeyCheckValue" => String.t() | Atom.t(),
-        "KeyState" => String.t() | Atom.t()
+        "KeyCheckValue" => String.t() | atom(),
+        "KeyState" => String.t() | atom()
       }
       
   """
-  @type key_summary() :: %{String.t() | Atom.t() => any()}
+  @type key_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_key_usage_input() :: %{
-        required("KeyIdentifier") => String.t() | Atom.t()
+        required("KeyIdentifier") => String.t() | atom()
       }
       
   """
-  @type stop_key_usage_input() :: %{String.t() | Atom.t() => any()}
+  @type stop_key_usage_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_tr34_key_block() :: %{
-        "CertificateAuthorityPublicKeyIdentifier" => String.t() | Atom.t(),
-        "ImportToken" => String.t() | Atom.t(),
-        "KeyBlockFormat" => String.t() | Atom.t(),
-        "RandomNonce" => String.t() | Atom.t(),
-        "SigningKeyCertificate" => String.t() | Atom.t(),
-        "WrappedKeyBlock" => String.t() | Atom.t()
+        "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
+        "ImportToken" => String.t() | atom(),
+        "KeyBlockFormat" => String.t() | atom(),
+        "RandomNonce" => String.t() | atom(),
+        "SigningKeyCertificate" => String.t() | atom(),
+        "WrappedKeyBlock" => String.t() | atom()
       }
       
   """
-  @type import_tr34_key_block() :: %{String.t() | Atom.t() => any()}
+  @type import_tr34_key_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -161,13 +161,13 @@ defmodule AWS.PaymentCryptography do
       
       import_key_input() :: %{
         optional("Enabled") => [boolean()],
-        optional("KeyCheckValueAlgorithm") => String.t() | Atom.t(),
+        optional("KeyCheckValueAlgorithm") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("KeyMaterial") => list()
       }
       
   """
-  @type import_key_input() :: %{String.t() | Atom.t() => any()}
+  @type import_key_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -175,29 +175,29 @@ defmodule AWS.PaymentCryptography do
       
       import_key_cryptogram() :: %{
         "Exportable" => [boolean()],
-        "ImportToken" => String.t() | Atom.t(),
+        "ImportToken" => String.t() | atom(),
         "KeyAttributes" => key_attributes(),
-        "WrappedKeyCryptogram" => String.t() | Atom.t(),
-        "WrappingSpec" => String.t() | Atom.t()
+        "WrappedKeyCryptogram" => String.t() | atom(),
+        "WrappingSpec" => String.t() | atom()
       }
       
   """
-  @type import_key_cryptogram() :: %{String.t() | Atom.t() => any()}
+  @type import_key_cryptogram() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_parameters_for_export_output() :: %{
-        "ExportToken" => String.t() | Atom.t(),
+        "ExportToken" => String.t() | atom(),
         "ParametersValidUntilTimestamp" => non_neg_integer(),
-        "SigningKeyAlgorithm" => String.t() | Atom.t(),
-        "SigningKeyCertificate" => String.t() | Atom.t(),
-        "SigningKeyCertificateChain" => String.t() | Atom.t()
+        "SigningKeyAlgorithm" => String.t() | atom(),
+        "SigningKeyCertificate" => String.t() | atom(),
+        "SigningKeyCertificateChain" => String.t() | atom()
       }
       
   """
-  @type get_parameters_for_export_output() :: %{String.t() | Atom.t() => any()}
+  @type get_parameters_for_export_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -208,7 +208,7 @@ defmodule AWS.PaymentCryptography do
       }
       
   """
-  @type delete_key_output() :: %{String.t() | Atom.t() => any()}
+  @type delete_key_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -219,7 +219,7 @@ defmodule AWS.PaymentCryptography do
       }
       
   """
-  @type stop_key_usage_output() :: %{String.t() | Atom.t() => any()}
+  @type stop_key_usage_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -227,55 +227,55 @@ defmodule AWS.PaymentCryptography do
       
       list_aliases_output() :: %{
         "Aliases" => list(alias()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_aliases_output() :: %{String.t() | Atom.t() => any()}
+  @type list_aliases_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       restore_key_input() :: %{
-        required("KeyIdentifier") => String.t() | Atom.t()
+        required("KeyIdentifier") => String.t() | atom()
       }
       
   """
-  @type restore_key_input() :: %{String.t() | Atom.t() => any()}
+  @type restore_key_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_parameters_for_import_output() :: %{
-        "ImportToken" => String.t() | Atom.t(),
+        "ImportToken" => String.t() | atom(),
         "ParametersValidUntilTimestamp" => non_neg_integer(),
-        "WrappingKeyAlgorithm" => String.t() | Atom.t(),
-        "WrappingKeyCertificate" => String.t() | Atom.t(),
-        "WrappingKeyCertificateChain" => String.t() | Atom.t()
+        "WrappingKeyAlgorithm" => String.t() | atom(),
+        "WrappingKeyCertificate" => String.t() | atom(),
+        "WrappingKeyCertificateChain" => String.t() | atom()
       }
       
   """
-  @type get_parameters_for_import_output() :: %{String.t() | Atom.t() => any()}
+  @type get_parameters_for_import_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       export_diffie_hellman_tr31_key_block() :: %{
-        "CertificateAuthorityPublicKeyIdentifier" => String.t() | Atom.t(),
+        "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
         "DerivationData" => list(),
         "DeriveKeyAlgorithm" => list(any()),
         "KeyBlockHeaders" => key_block_headers(),
         "KeyDerivationFunction" => list(any()),
         "KeyDerivationHashAlgorithm" => list(any()),
-        "PrivateKeyIdentifier" => String.t() | Atom.t(),
-        "PublicKeyCertificate" => String.t() | Atom.t()
+        "PrivateKeyIdentifier" => String.t() | atom(),
+        "PublicKeyCertificate" => String.t() | atom()
       }
       
   """
-  @type export_diffie_hellman_tr31_key_block() :: %{String.t() | Atom.t() => any()}
+  @type export_diffie_hellman_tr31_key_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -286,58 +286,58 @@ defmodule AWS.PaymentCryptography do
       }
       
   """
-  @type start_key_usage_output() :: %{String.t() | Atom.t() => any()}
+  @type start_key_usage_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       export_key_cryptogram() :: %{
-        "CertificateAuthorityPublicKeyIdentifier" => String.t() | Atom.t(),
-        "WrappingKeyCertificate" => String.t() | Atom.t(),
-        "WrappingSpec" => String.t() | Atom.t()
+        "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
+        "WrappingKeyCertificate" => String.t() | atom(),
+        "WrappingSpec" => String.t() | atom()
       }
       
   """
-  @type export_key_cryptogram() :: %{String.t() | Atom.t() => any()}
+  @type export_key_cryptogram() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       wrapped_key() :: %{
-        "KeyCheckValue" => String.t() | Atom.t(),
-        "KeyCheckValueAlgorithm" => String.t() | Atom.t(),
-        "KeyMaterial" => String.t() | Atom.t(),
-        "WrappedKeyMaterialFormat" => String.t() | Atom.t(),
-        "WrappingKeyArn" => String.t() | Atom.t()
+        "KeyCheckValue" => String.t() | atom(),
+        "KeyCheckValueAlgorithm" => String.t() | atom(),
+        "KeyMaterial" => String.t() | atom(),
+        "WrappedKeyMaterialFormat" => String.t() | atom(),
+        "WrappingKeyArn" => String.t() | atom()
       }
       
   """
-  @type wrapped_key() :: %{String.t() | Atom.t() => any()}
+  @type wrapped_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_alias_input() :: %{
-        required("AliasName") => String.t() | Atom.t()
+        required("AliasName") => String.t() | atom()
       }
       
   """
-  @type delete_alias_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_alias_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -345,83 +345,83 @@ defmodule AWS.PaymentCryptography do
       
       export_attributes() :: %{
         "ExportDukptInitialKey" => export_dukpt_initial_key(),
-        "KeyCheckValueAlgorithm" => String.t() | Atom.t()
+        "KeyCheckValueAlgorithm" => String.t() | atom()
       }
       
   """
-  @type export_attributes() :: %{String.t() | Atom.t() => any()}
+  @type export_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_key_input() :: %{
-        required("KeyIdentifier") => String.t() | Atom.t()
+        required("KeyIdentifier") => String.t() | atom()
       }
       
   """
-  @type get_key_input() :: %{String.t() | Atom.t() => any()}
+  @type get_key_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
       
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "ResourceId" => [String.t() | Atom.t()]
+        "ResourceId" => [String.t() | atom()]
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_key_input() :: %{
-        optional("DeriveKeyUsage") => String.t() | Atom.t(),
+        optional("DeriveKeyUsage") => String.t() | atom(),
         optional("Enabled") => [boolean()],
-        optional("KeyCheckValueAlgorithm") => String.t() | Atom.t(),
+        optional("KeyCheckValueAlgorithm") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("Exportable") => [boolean()],
         required("KeyAttributes") => key_attributes()
       }
       
   """
-  @type create_key_input() :: %{String.t() | Atom.t() => any()}
+  @type create_key_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -432,19 +432,19 @@ defmodule AWS.PaymentCryptography do
       }
       
   """
-  @type create_alias_output() :: %{String.t() | Atom.t() => any()}
+  @type create_alias_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_tr31_key_block() :: %{
-        "WrappedKeyBlock" => String.t() | Atom.t(),
-        "WrappingKeyIdentifier" => String.t() | Atom.t()
+        "WrappedKeyBlock" => String.t() | atom(),
+        "WrappingKeyIdentifier" => String.t() | atom()
       }
       
   """
-  @type import_tr31_key_block() :: %{String.t() | Atom.t() => any()}
+  @type import_tr31_key_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -455,66 +455,66 @@ defmodule AWS.PaymentCryptography do
       }
       
   """
-  @type update_alias_output() :: %{String.t() | Atom.t() => any()}
+  @type update_alias_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_alias_input() :: %{
-        optional("KeyArn") => String.t() | Atom.t(),
-        required("AliasName") => String.t() | Atom.t()
+        optional("KeyArn") => String.t() | atom(),
+        required("AliasName") => String.t() | atom()
       }
       
   """
-  @type update_alias_input() :: %{String.t() | Atom.t() => any()}
+  @type update_alias_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_unavailable_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
       
   """
-  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_key_usage_input() :: %{
-        required("KeyIdentifier") => String.t() | Atom.t()
+        required("KeyIdentifier") => String.t() | atom()
       }
       
   """
-  @type start_key_usage_input() :: %{String.t() | Atom.t() => any()}
+  @type start_key_usage_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_aliases_input() :: %{
-        optional("KeyArn") => String.t() | Atom.t(),
+        optional("KeyArn") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_aliases_input() :: %{String.t() | Atom.t() => any()}
+  @type list_aliases_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_input() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -530,14 +530,14 @@ defmodule AWS.PaymentCryptography do
   ## Example:
       
       key_attributes() :: %{
-        "KeyAlgorithm" => String.t() | Atom.t(),
-        "KeyClass" => String.t() | Atom.t(),
+        "KeyAlgorithm" => String.t() | atom(),
+        "KeyClass" => String.t() | atom(),
         "KeyModesOfUse" => key_modes_of_use(),
-        "KeyUsage" => String.t() | Atom.t()
+        "KeyUsage" => String.t() | atom()
       }
       
   """
-  @type key_attributes() :: %{String.t() | Atom.t() => any()}
+  @type key_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -545,22 +545,22 @@ defmodule AWS.PaymentCryptography do
       
       delete_key_input() :: %{
         optional("DeleteKeyInDays") => [integer()],
-        required("KeyIdentifier") => String.t() | Atom.t()
+        required("KeyIdentifier") => String.t() | atom()
       }
       
   """
-  @type delete_key_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_key_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
       
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -568,53 +568,53 @@ defmodule AWS.PaymentCryptography do
       
       export_key_input() :: %{
         optional("ExportAttributes") => export_attributes(),
-        required("ExportKeyIdentifier") => String.t() | Atom.t(),
+        required("ExportKeyIdentifier") => String.t() | atom(),
         required("KeyMaterial") => list()
       }
       
   """
-  @type export_key_input() :: %{String.t() | Atom.t() => any()}
+  @type export_key_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_diffie_hellman_tr31_key_block() :: %{
-        "CertificateAuthorityPublicKeyIdentifier" => String.t() | Atom.t(),
+        "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
         "DerivationData" => list(),
         "DeriveKeyAlgorithm" => list(any()),
         "KeyDerivationFunction" => list(any()),
         "KeyDerivationHashAlgorithm" => list(any()),
-        "PrivateKeyIdentifier" => String.t() | Atom.t(),
-        "PublicKeyCertificate" => String.t() | Atom.t(),
-        "WrappedKeyBlock" => String.t() | Atom.t()
+        "PrivateKeyIdentifier" => String.t() | atom(),
+        "PublicKeyCertificate" => String.t() | atom(),
+        "WrappedKeyBlock" => String.t() | atom()
       }
       
   """
-  @type import_diffie_hellman_tr31_key_block() :: %{String.t() | Atom.t() => any()}
+  @type import_diffie_hellman_tr31_key_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_public_key_certificate_input() :: %{
-        required("KeyIdentifier") => String.t() | Atom.t()
+        required("KeyIdentifier") => String.t() | atom()
       }
       
   """
-  @type get_public_key_certificate_input() :: %{String.t() | Atom.t() => any()}
+  @type get_public_key_certificate_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       alias() :: %{
-        "AliasName" => String.t() | Atom.t(),
-        "KeyArn" => String.t() | Atom.t()
+        "AliasName" => String.t() | atom(),
+        "KeyArn" => String.t() | atom()
       }
       
   """
-  @type alias() :: %{String.t() | Atom.t() => any()}
+  @type alias() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -625,82 +625,82 @@ defmodule AWS.PaymentCryptography do
       }
       
   """
-  @type import_key_output() :: %{String.t() | Atom.t() => any()}
+  @type import_key_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
       
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_input() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       export_tr34_key_block() :: %{
-        "CertificateAuthorityPublicKeyIdentifier" => String.t() | Atom.t(),
-        "ExportToken" => String.t() | Atom.t(),
-        "KeyBlockFormat" => String.t() | Atom.t(),
+        "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
+        "ExportToken" => String.t() | atom(),
+        "KeyBlockFormat" => String.t() | atom(),
         "KeyBlockHeaders" => key_block_headers(),
-        "RandomNonce" => String.t() | Atom.t(),
-        "WrappingKeyCertificate" => String.t() | Atom.t()
+        "RandomNonce" => String.t() | atom(),
+        "WrappingKeyCertificate" => String.t() | atom()
       }
       
   """
-  @type export_tr34_key_block() :: %{String.t() | Atom.t() => any()}
+  @type export_tr34_key_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       trusted_certificate_public_key() :: %{
-        "CertificateAuthorityPublicKeyIdentifier" => String.t() | Atom.t(),
+        "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
         "KeyAttributes" => key_attributes(),
-        "PublicKeyCertificate" => String.t() | Atom.t()
+        "PublicKeyCertificate" => String.t() | atom()
       }
       
   """
-  @type trusted_certificate_public_key() :: %{String.t() | Atom.t() => any()}
+  @type trusted_certificate_public_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_parameters_for_import_input() :: %{
-        required("KeyMaterialType") => String.t() | Atom.t(),
-        required("WrappingKeyAlgorithm") => String.t() | Atom.t()
+        required("KeyMaterialType") => String.t() | atom(),
+        required("WrappingKeyAlgorithm") => String.t() | atom()
       }
       
   """
-  @type get_parameters_for_import_input() :: %{String.t() | Atom.t() => any()}
+  @type get_parameters_for_import_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
       
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -708,12 +708,12 @@ defmodule AWS.PaymentCryptography do
       
       list_tags_for_resource_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ResourceArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -729,11 +729,11 @@ defmodule AWS.PaymentCryptography do
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
       
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -743,21 +743,21 @@ defmodule AWS.PaymentCryptography do
         "CreateTimestamp" => non_neg_integer(),
         "DeletePendingTimestamp" => non_neg_integer(),
         "DeleteTimestamp" => non_neg_integer(),
-        "DeriveKeyUsage" => String.t() | Atom.t(),
+        "DeriveKeyUsage" => String.t() | atom(),
         "Enabled" => [boolean()],
         "Exportable" => [boolean()],
-        "KeyArn" => String.t() | Atom.t(),
+        "KeyArn" => String.t() | atom(),
         "KeyAttributes" => key_attributes(),
-        "KeyCheckValue" => String.t() | Atom.t(),
-        "KeyCheckValueAlgorithm" => String.t() | Atom.t(),
-        "KeyOrigin" => String.t() | Atom.t(),
-        "KeyState" => String.t() | Atom.t(),
+        "KeyCheckValue" => String.t() | atom(),
+        "KeyCheckValueAlgorithm" => String.t() | atom(),
+        "KeyOrigin" => String.t() | atom(),
+        "KeyState" => String.t() | atom(),
         "UsageStartTimestamp" => non_neg_integer(),
         "UsageStopTimestamp" => non_neg_integer()
       }
       
   """
-  @type key() :: %{String.t() | Atom.t() => any()}
+  @type key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -765,23 +765,23 @@ defmodule AWS.PaymentCryptography do
       
       list_keys_output() :: %{
         "Keys" => list(key_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_keys_output() :: %{String.t() | Atom.t() => any()}
+  @type list_keys_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_alias_input() :: %{
-        optional("KeyArn") => String.t() | Atom.t(),
-        required("AliasName") => String.t() | Atom.t()
+        optional("KeyArn") => String.t() | atom(),
+        required("AliasName") => String.t() | atom()
       }
       
   """
-  @type create_alias_input() :: %{String.t() | Atom.t() => any()}
+  @type create_alias_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -801,18 +801,18 @@ defmodule AWS.PaymentCryptography do
       }
       
   """
-  @type export_key_output() :: %{String.t() | Atom.t() => any()}
+  @type export_key_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       export_dukpt_initial_key() :: %{
-        "KeySerialNumber" => String.t() | Atom.t()
+        "KeySerialNumber" => String.t() | atom()
       }
       
   """
-  @type export_dukpt_initial_key() :: %{String.t() | Atom.t() => any()}
+  @type export_dukpt_initial_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -823,7 +823,7 @@ defmodule AWS.PaymentCryptography do
       }
       
   """
-  @type restore_key_output() :: %{String.t() | Atom.t() => any()}
+  @type restore_key_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -831,11 +831,11 @@ defmodule AWS.PaymentCryptography do
       
       root_certificate_public_key() :: %{
         "KeyAttributes" => key_attributes(),
-        "PublicKeyCertificate" => String.t() | Atom.t()
+        "PublicKeyCertificate" => String.t() | atom()
       }
       
   """
-  @type root_certificate_public_key() :: %{String.t() | Atom.t() => any()}
+  @type root_certificate_public_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -846,7 +846,7 @@ defmodule AWS.PaymentCryptography do
       }
       
   """
-  @type get_key_output() :: %{String.t() | Atom.t() => any()}
+  @type get_key_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -857,33 +857,33 @@ defmodule AWS.PaymentCryptography do
       }
       
   """
-  @type create_key_output() :: %{String.t() | Atom.t() => any()}
+  @type create_key_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_public_key_certificate_output() :: %{
-        "KeyCertificate" => String.t() | Atom.t(),
-        "KeyCertificateChain" => String.t() | Atom.t()
+        "KeyCertificate" => String.t() | atom(),
+        "KeyCertificateChain" => String.t() | atom()
       }
       
   """
-  @type get_public_key_certificate_output() :: %{String.t() | Atom.t() => any()}
+  @type get_public_key_certificate_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       key_block_headers() :: %{
-        "KeyExportability" => String.t() | Atom.t(),
+        "KeyExportability" => String.t() | atom(),
         "KeyModesOfUse" => key_modes_of_use(),
-        "KeyVersion" => String.t() | Atom.t(),
+        "KeyVersion" => String.t() | atom(),
         "OptionalBlocks" => map()
       }
       
   """
-  @type key_block_headers() :: %{String.t() | Atom.t() => any()}
+  @type key_block_headers() :: %{(String.t() | atom()) => any()}
 
   @type create_alias_errors() ::
           throttling_exception()

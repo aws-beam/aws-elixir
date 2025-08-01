@@ -86,24 +86,24 @@ defmodule AWS.Cloud9 do
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
+        required("ResourceARN") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_environments_result() :: %{
-        "environmentIds" => list(String.t() | Atom.t()),
-        "nextToken" => String.t() | Atom.t()
+        "environmentIds" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_environments_result() :: %{String.t() | Atom.t() => any()}
+  @type list_environments_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -114,7 +114,7 @@ defmodule AWS.Cloud9 do
       }
       
   """
-  @type describe_environments_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_environments_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -130,147 +130,147 @@ defmodule AWS.Cloud9 do
   ## Example:
       
       delete_environment_membership_request() :: %{
-        required("environmentId") => String.t() | Atom.t(),
-        required("userArn") => String.t() | Atom.t()
+        required("environmentId") => String.t() | atom(),
+        required("userArn") => String.t() | atom()
       }
       
   """
-  @type delete_environment_membership_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_environment_membership_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       forbidden_exception() :: %{
-        "className" => String.t() | Atom.t(),
+        "className" => String.t() | atom(),
         "code" => integer(),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type forbidden_exception() :: %{String.t() | Atom.t() => any()}
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_environment_membership_request() :: %{
-        required("environmentId") => String.t() | Atom.t(),
+        required("environmentId") => String.t() | atom(),
         required("permissions") => list(any()),
-        required("userArn") => String.t() | Atom.t()
+        required("userArn") => String.t() | atom()
       }
       
   """
-  @type create_environment_membership_request() :: %{String.t() | Atom.t() => any()}
+  @type create_environment_membership_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_environment_memberships_request() :: %{
-        optional("environmentId") => String.t() | Atom.t(),
+        optional("environmentId") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("permissions") => list(list(any())()),
-        optional("userArn") => String.t() | Atom.t()
+        optional("userArn") => String.t() | atom()
       }
       
   """
-  @type describe_environment_memberships_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_environment_memberships_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_requests_exception() :: %{
-        "className" => String.t() | Atom.t(),
+        "className" => String.t() | atom(),
         "code" => integer(),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "className" => String.t() | Atom.t(),
+        "className" => String.t() | atom(),
         "code" => integer(),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_environment_status_result() :: %{
-        "message" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
         "status" => list(any())
       }
       
   """
-  @type describe_environment_status_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_environment_status_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "connectionType" => list(any()),
-        "description" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "lifecycle" => environment_lifecycle(),
         "managedCredentialsStatus" => list(any()),
-        "name" => String.t() | Atom.t(),
-        "ownerArn" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "ownerArn" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type environment() :: %{String.t() | Atom.t() => any()}
+  @type environment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       not_found_exception() :: %{
-        "className" => String.t() | Atom.t(),
+        "className" => String.t() | atom(),
         "code" => integer(),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -290,7 +290,7 @@ defmodule AWS.Cloud9 do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -298,11 +298,11 @@ defmodule AWS.Cloud9 do
       
       list_environments_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_environments_request() :: %{String.t() | Atom.t() => any()}
+  @type list_environments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -313,18 +313,18 @@ defmodule AWS.Cloud9 do
       }
       
   """
-  @type create_environment_membership_result() :: %{String.t() | Atom.t() => any()}
+  @type create_environment_membership_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_environment_request() :: %{
-        required("environmentId") => String.t() | Atom.t()
+        required("environmentId") => String.t() | atom()
       }
       
   """
-  @type delete_environment_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_environment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -340,11 +340,11 @@ defmodule AWS.Cloud9 do
   ## Example:
       
       create_environment_ec2_result() :: %{
-        "environmentId" => String.t() | Atom.t()
+        "environmentId" => String.t() | atom()
       }
       
   """
-  @type create_environment_ec2_result() :: %{String.t() | Atom.t() => any()}
+  @type create_environment_ec2_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -360,50 +360,50 @@ defmodule AWS.Cloud9 do
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t()
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_error_exception() :: %{
-        "className" => String.t() | Atom.t(),
+        "className" => String.t() | atom(),
         "code" => integer(),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type internal_server_error_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       concurrent_access_exception() :: %{
-        "className" => String.t() | Atom.t(),
+        "className" => String.t() | atom(),
         "code" => integer(),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type concurrent_access_exception() :: %{String.t() | Atom.t() => any()}
+  @type concurrent_access_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "className" => String.t() | Atom.t(),
+        "className" => String.t() | atom(),
         "code" => integer(),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -411,44 +411,44 @@ defmodule AWS.Cloud9 do
       
       create_environment_ec2_request() :: %{
         optional("automaticStopTimeMinutes") => integer(),
-        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("connectionType") => list(any()),
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("dryRun") => boolean(),
-        optional("ownerArn") => String.t() | Atom.t(),
-        optional("subnetId") => String.t() | Atom.t(),
+        optional("ownerArn") => String.t() | atom(),
+        optional("subnetId") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("imageId") => String.t() | Atom.t(),
-        required("instanceType") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t()
+        required("imageId") => String.t() | atom(),
+        required("instanceType") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
       
   """
-  @type create_environment_ec2_request() :: %{String.t() | Atom.t() => any()}
+  @type create_environment_ec2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       bad_request_exception() :: %{
-        "className" => String.t() | Atom.t(),
+        "className" => String.t() | atom(),
         "code" => integer(),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_environment_status_request() :: %{
-        required("environmentId") => String.t() | Atom.t()
+        required("environmentId") => String.t() | atom()
       }
       
   """
-  @type describe_environment_status_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_environment_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -456,38 +456,38 @@ defmodule AWS.Cloud9 do
       
       describe_environment_memberships_result() :: %{
         "memberships" => list(environment_member()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type describe_environment_memberships_result() :: %{String.t() | Atom.t() => any()}
+  @type describe_environment_memberships_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_environment_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("managedCredentialsAction") => list(any()),
-        optional("name") => String.t() | Atom.t(),
-        required("environmentId") => String.t() | Atom.t()
+        optional("name") => String.t() | atom(),
+        required("environmentId") => String.t() | atom()
       }
       
   """
-  @type update_environment_request() :: %{String.t() | Atom.t() => any()}
+  @type update_environment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_environment_membership_request() :: %{
-        required("environmentId") => String.t() | Atom.t(),
+        required("environmentId") => String.t() | atom(),
         required("permissions") => list(any()),
-        required("userArn") => String.t() | Atom.t()
+        required("userArn") => String.t() | atom()
       }
       
   """
-  @type update_environment_membership_request() :: %{String.t() | Atom.t() => any()}
+  @type update_environment_membership_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -498,22 +498,22 @@ defmodule AWS.Cloud9 do
       }
       
   """
-  @type update_environment_membership_result() :: %{String.t() | Atom.t() => any()}
+  @type update_environment_membership_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_member() :: %{
-        "environmentId" => String.t() | Atom.t(),
+        "environmentId" => String.t() | atom(),
         "lastAccess" => non_neg_integer(),
         "permissions" => list(any()),
-        "userArn" => String.t() | Atom.t(),
-        "userId" => String.t() | Atom.t()
+        "userArn" => String.t() | atom(),
+        "userId" => String.t() | atom()
       }
       
   """
-  @type environment_member() :: %{String.t() | Atom.t() => any()}
+  @type environment_member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -529,24 +529,24 @@ defmodule AWS.Cloud9 do
   ## Example:
       
       describe_environments_request() :: %{
-        required("environmentIds") => list(String.t() | Atom.t())
+        required("environmentIds") => list(String.t() | atom())
       }
       
   """
-  @type describe_environments_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_environments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_lifecycle() :: %{
-        "failureResource" => String.t() | Atom.t(),
-        "reason" => String.t() | Atom.t(),
+        "failureResource" => String.t() | atom(),
+        "reason" => String.t() | atom(),
         "status" => list(any())
       }
       
   """
-  @type environment_lifecycle() :: %{String.t() | Atom.t() => any()}
+  @type environment_lifecycle() :: %{(String.t() | atom()) => any()}
 
   @type create_environment_ec2_errors() ::
           bad_request_exception()

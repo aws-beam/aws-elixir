@@ -32,13 +32,13 @@ defmodule AWS.Evidently do
   ## Example:
 
       evaluation_request() :: %{
-        "entityId" => String.t() | Atom.t(),
-        "evaluationContext" => String.t() | Atom.t(),
-        "feature" => String.t() | Atom.t()
+        "entityId" => String.t() | atom(),
+        "evaluationContext" => String.t() | atom(),
+        "feature" => String.t() | atom()
       }
 
   """
-  @type evaluation_request() :: %{String.t() | Atom.t() => any()}
+  @type evaluation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -46,11 +46,11 @@ defmodule AWS.Evidently do
 
       list_experiments_response() :: %{
         optional("experiments") => list(experiment()),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_experiments_response() :: %{String.t() | Atom.t() => any()}
+  @type list_experiments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -66,27 +66,27 @@ defmodule AWS.Evidently do
   ## Example:
 
       treatment_config() :: %{
-        "description" => String.t() | Atom.t(),
-        "feature" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "variation" => String.t() | Atom.t()
+        "description" => String.t() | atom(),
+        "feature" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "variation" => String.t() | atom()
       }
 
   """
-  @type treatment_config() :: %{String.t() | Atom.t() => any()}
+  @type treatment_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       launch_group() :: %{
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "featureVariations" => map(),
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type launch_group() :: %{String.t() | Atom.t() => any()}
+  @type launch_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -97,7 +97,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -105,28 +105,28 @@ defmodule AWS.Evidently do
 
       list_launches_response() :: %{
         optional("launches") => list(launch()),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_launches_response() :: %{String.t() | Atom.t() => any()}
+  @type list_launches_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_feature_request() :: %{
-        optional("defaultVariation") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
+        optional("defaultVariation") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("entityOverrides") => map(),
-        optional("evaluationStrategy") => String.t() | Atom.t(),
+        optional("evaluationStrategy") => String.t() | atom(),
         optional("tags") => map(),
-        required("name") => String.t() | Atom.t(),
+        required("name") => String.t() | atom(),
         required("variations") => list(variation_config())
       }
 
   """
-  @type create_feature_request() :: %{String.t() | Atom.t() => any()}
+  @type create_feature_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -137,7 +137,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type create_feature_response() :: %{String.t() | Atom.t() => any()}
+  @type create_feature_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -148,7 +148,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type update_project_data_delivery_response() :: %{String.t() | Atom.t() => any()}
+  @type update_project_data_delivery_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -159,55 +159,55 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type get_experiment_response() :: %{String.t() | Atom.t() => any()}
+  @type get_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       test_segment_pattern_request() :: %{
-        required("pattern") => String.t() | Atom.t(),
-        required("payload") => String.t() | Atom.t()
+        required("pattern") => String.t() | atom(),
+        required("payload") => String.t() | atom()
       }
 
   """
-  @type test_segment_pattern_request() :: %{String.t() | Atom.t() => any()}
+  @type test_segment_pattern_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       feature() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "createdTime" => [non_neg_integer()],
-        "defaultVariation" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "defaultVariation" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "entityOverrides" => map(),
         "evaluationRules" => list(evaluation_rule()),
-        "evaluationStrategy" => String.t() | Atom.t(),
+        "evaluationStrategy" => String.t() | atom(),
         "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t() | Atom.t(),
-        "project" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "project" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "tags" => map(),
-        "valueType" => String.t() | Atom.t(),
+        "valueType" => String.t() | atom(),
         "variations" => list(variation())
       }
 
   """
-  @type feature() :: %{String.t() | Atom.t() => any()}
+  @type feature() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       online_ab_definition() :: %{
-        "controlTreatmentName" => String.t() | Atom.t(),
+        "controlTreatmentName" => String.t() | atom(),
         "treatmentWeights" => map()
       }
 
   """
-  @type online_ab_definition() :: %{String.t() | Atom.t() => any()}
+  @type online_ab_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -218,7 +218,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type scheduled_splits_launch_definition() :: %{String.t() | Atom.t() => any()}
+  @type scheduled_splits_launch_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -227,20 +227,20 @@ defmodule AWS.Evidently do
       project_summary() :: %{
         "activeExperimentCount" => [float()],
         "activeLaunchCount" => [float()],
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "createdTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "experimentCount" => [float()],
         "featureCount" => [float()],
         "lastUpdatedTime" => [non_neg_integer()],
         "launchCount" => [float()],
-        "name" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type project_summary() :: %{String.t() | Atom.t() => any()}
+  @type project_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -260,7 +260,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type get_launch_response() :: %{String.t() | Atom.t() => any()}
+  @type get_launch_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -281,19 +281,19 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type put_project_events_response() :: %{String.t() | Atom.t() => any()}
+  @type put_project_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       variation_config() :: %{
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "value" => list()
       }
 
   """
-  @type variation_config() :: %{String.t() | Atom.t() => any()}
+  @type variation_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -304,7 +304,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type test_segment_pattern_response() :: %{String.t() | Atom.t() => any()}
+  @type test_segment_pattern_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -320,36 +320,36 @@ defmodule AWS.Evidently do
   ## Example:
 
       list_segment_references_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("referencedBy") => list(ref_resource())
       }
 
   """
-  @type list_segment_references_response() :: %{String.t() | Atom.t() => any()}
+  @type list_segment_references_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_watch_logs_destination() :: %{
-        "logGroup" => String.t() | Atom.t()
+        "logGroup" => String.t() | atom()
       }
 
   """
-  @type cloud_watch_logs_destination() :: %{String.t() | Atom.t() => any()}
+  @type cloud_watch_logs_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_project_events_result_entry() :: %{
-        "errorCode" => String.t() | Atom.t(),
-        "errorMessage" => String.t() | Atom.t(),
-        "eventId" => String.t() | Atom.t()
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "eventId" => String.t() | atom()
       }
 
   """
-  @type put_project_events_result_entry() :: %{String.t() | Atom.t() => any()}
+  @type put_project_events_result_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -357,26 +357,26 @@ defmodule AWS.Evidently do
 
       list_features_response() :: %{
         optional("features") => list(feature_summary()),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_features_response() :: %{String.t() | Atom.t() => any()}
+  @type list_features_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metric_definition_config() :: %{
-        "entityIdKey" => String.t() | Atom.t(),
-        "eventPattern" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "unitLabel" => String.t() | Atom.t(),
-        "valueKey" => String.t() | Atom.t()
+        "entityIdKey" => String.t() | atom(),
+        "eventPattern" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "unitLabel" => String.t() | atom(),
+        "valueKey" => String.t() | atom()
       }
 
   """
-  @type metric_definition_config() :: %{String.t() | Atom.t() => any()}
+  @type metric_definition_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -387,7 +387,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type create_experiment_response() :: %{String.t() | Atom.t() => any()}
+  @type create_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -395,12 +395,12 @@ defmodule AWS.Evidently do
 
       segment_override() :: %{
         "evaluationOrder" => [float()],
-        "segment" => String.t() | Atom.t(),
+        "segment" => String.t() | atom(),
         "weights" => map()
       }
 
   """
-  @type segment_override() :: %{String.t() | Atom.t() => any()}
+  @type segment_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -408,12 +408,12 @@ defmodule AWS.Evidently do
 
       list_launches_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("status") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => String.t() | atom()
       }
 
   """
-  @type list_launches_request() :: %{String.t() | Atom.t() => any()}
+  @type list_launches_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -430,43 +430,43 @@ defmodule AWS.Evidently do
 
       list_features_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_features_request() :: %{String.t() | Atom.t() => any()}
+  @type list_features_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metric_definition() :: %{
-        "entityIdKey" => String.t() | Atom.t(),
-        "eventPattern" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "unitLabel" => String.t() | Atom.t(),
-        "valueKey" => String.t() | Atom.t()
+        "entityIdKey" => String.t() | atom(),
+        "eventPattern" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "unitLabel" => String.t() | atom(),
+        "valueKey" => String.t() | atom()
       }
 
   """
-  @type metric_definition() :: %{String.t() | Atom.t() => any()}
+  @type metric_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_launch_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("metricMonitors") => list(metric_monitor_config()),
-        optional("randomizationSalt") => String.t() | Atom.t(),
+        optional("randomizationSalt") => String.t() | atom(),
         optional("scheduledSplitsConfig") => scheduled_splits_launch_config(),
         optional("tags") => map(),
         required("groups") => list(launch_group_config()),
-        required("name") => String.t() | Atom.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_launch_request() :: %{String.t() | Atom.t() => any()}
+  @type create_launch_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -478,30 +478,30 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type update_project_data_delivery_request() :: %{String.t() | Atom.t() => any()}
+  @type update_project_data_delivery_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       variation() :: %{
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "value" => list()
       }
 
   """
-  @type variation() :: %{String.t() | Atom.t() => any()}
+  @type variation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -512,21 +512,21 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type update_project_response() :: %{String.t() | Atom.t() => any()}
+  @type update_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       evaluate_feature_response() :: %{
-        optional("details") => String.t() | Atom.t(),
-        optional("reason") => [String.t() | Atom.t()],
+        optional("details") => String.t() | atom(),
+        optional("reason") => [String.t() | atom()],
         optional("value") => list(),
-        optional("variation") => [String.t() | Atom.t()]
+        optional("variation") => [String.t() | atom()]
       }
 
   """
-  @type evaluate_feature_response() :: %{String.t() | Atom.t() => any()}
+  @type evaluate_feature_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -534,34 +534,34 @@ defmodule AWS.Evidently do
 
       update_feature_request() :: %{
         optional("addOrUpdateVariations") => list(variation_config()),
-        optional("defaultVariation") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
+        optional("defaultVariation") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("entityOverrides") => map(),
-        optional("evaluationStrategy") => String.t() | Atom.t(),
-        optional("removeVariations") => list(String.t() | Atom.t())
+        optional("evaluationStrategy") => String.t() | atom(),
+        optional("removeVariations") => list(String.t() | atom())
       }
 
   """
-  @type update_feature_request() :: %{String.t() | Atom.t() => any()}
+  @type update_feature_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       segment() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "createdTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "experimentCount" => [float()],
         "lastUpdatedTime" => [non_neg_integer()],
         "launchCount" => [float()],
-        "name" => String.t() | Atom.t(),
-        "pattern" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "pattern" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type segment() :: %{String.t() | Atom.t() => any()}
+  @type segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -572,7 +572,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type put_project_events_request() :: %{String.t() | Atom.t() => any()}
+  @type put_project_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -584,7 +584,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type project_data_delivery_config() :: %{String.t() | Atom.t() => any()}
+  @type project_data_delivery_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -595,44 +595,44 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type create_segment_response() :: %{String.t() | Atom.t() => any()}
+  @type create_segment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       project_app_config_resource() :: %{
-        "applicationId" => String.t() | Atom.t(),
-        "configurationProfileId" => String.t() | Atom.t(),
-        "environmentId" => String.t() | Atom.t()
+        "applicationId" => String.t() | atom(),
+        "configurationProfileId" => String.t() | atom(),
+        "environmentId" => String.t() | atom()
       }
 
   """
-  @type project_app_config_resource() :: %{String.t() | Atom.t() => any()}
+  @type project_app_config_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_segments_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("segments") => list(segment())
       }
 
   """
-  @type list_segments_response() :: %{String.t() | Atom.t() => any()}
+  @type list_segments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       evaluate_feature_request() :: %{
-        optional("evaluationContext") => String.t() | Atom.t(),
-        required("entityId") => String.t() | Atom.t()
+        optional("evaluationContext") => String.t() | atom(),
+        required("entityId") => String.t() | atom()
       }
 
   """
-  @type evaluate_feature_request() :: %{String.t() | Atom.t() => any()}
+  @type evaluate_feature_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -645,7 +645,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type scheduled_split_config() :: %{String.t() | Atom.t() => any()}
+  @type scheduled_split_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -656,33 +656,33 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type create_project_response() :: %{String.t() | Atom.t() => any()}
+  @type create_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "resourceId" => [String.t() | Atom.t()],
-        "resourceType" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "resourceId" => [String.t() | Atom.t()],
-        "resourceType" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -710,35 +710,35 @@ defmodule AWS.Evidently do
         "activeExperimentCount" => [float()],
         "activeLaunchCount" => [float()],
         "appConfigResource" => project_app_config_resource(),
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "createdTime" => [non_neg_integer()],
         "dataDelivery" => project_data_delivery(),
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "experimentCount" => [float()],
         "featureCount" => [float()],
         "lastUpdatedTime" => [non_neg_integer()],
         "launchCount" => [float()],
-        "name" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type project() :: %{String.t() | Atom.t() => any()}
+  @type project() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       launch_group_config() :: %{
-        "description" => String.t() | Atom.t(),
-        "feature" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "variation" => String.t() | Atom.t()
+        "description" => String.t() | atom(),
+        "feature" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "variation" => String.t() | atom()
       }
 
   """
-  @type launch_group_config() :: %{String.t() | Atom.t() => any()}
+  @type launch_group_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -749,22 +749,22 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type metric_monitor() :: %{String.t() | Atom.t() => any()}
+  @type metric_monitor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "quotaCode" => [String.t() | Atom.t()],
-        "resourceId" => [String.t() | Atom.t()],
-        "resourceType" => [String.t() | Atom.t()],
-        "serviceCode" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -775,31 +775,31 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type update_feature_response() :: %{String.t() | Atom.t() => any()}
+  @type update_feature_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metric_goal_config() :: %{
-        "desiredChange" => String.t() | Atom.t(),
+        "desiredChange" => String.t() | atom(),
         "metricDefinition" => metric_definition_config()
       }
 
   """
-  @type metric_goal_config() :: %{String.t() | Atom.t() => any()}
+  @type metric_goal_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_projects_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("projects") => list(project_summary())
       }
 
   """
-  @type list_projects_response() :: %{String.t() | Atom.t() => any()}
+  @type list_projects_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -810,7 +810,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type get_project_response() :: %{String.t() | Atom.t() => any()}
+  @type get_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -821,64 +821,64 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       feature_summary() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "createdTime" => [non_neg_integer()],
-        "defaultVariation" => String.t() | Atom.t(),
+        "defaultVariation" => String.t() | atom(),
         "evaluationRules" => list(evaluation_rule()),
-        "evaluationStrategy" => String.t() | Atom.t(),
+        "evaluationStrategy" => String.t() | atom(),
         "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t() | Atom.t(),
-        "project" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "project" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type feature_summary() :: %{String.t() | Atom.t() => any()}
+  @type feature_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t() | Atom.t()],
-        "name" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_report() :: %{
-        "content" => String.t() | Atom.t(),
-        "metricName" => String.t() | Atom.t(),
-        "reportName" => String.t() | Atom.t(),
-        "treatmentName" => String.t() | Atom.t()
+        "content" => String.t() | atom(),
+        "metricName" => String.t() | atom(),
+        "reportName" => String.t() | atom(),
+        "treatmentName" => String.t() | atom()
       }
 
   """
-  @type experiment_report() :: %{String.t() | Atom.t() => any()}
+  @type experiment_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -889,7 +889,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type batch_evaluate_feature_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_evaluate_feature_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -900,24 +900,24 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type get_segment_response() :: %{String.t() | Atom.t() => any()}
+  @type get_segment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ref_resource() :: %{
-        "arn" => [String.t() | Atom.t()],
-        "endTime" => [String.t() | Atom.t()],
-        "lastUpdatedOn" => [String.t() | Atom.t()],
-        "name" => [String.t() | Atom.t()],
-        "startTime" => [String.t() | Atom.t()],
-        "status" => [String.t() | Atom.t()],
-        "type" => [String.t() | Atom.t()]
+        "arn" => [String.t() | atom()],
+        "endTime" => [String.t() | atom()],
+        "lastUpdatedOn" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "startTime" => [String.t() | atom()],
+        "status" => [String.t() | atom()],
+        "type" => [String.t() | atom()]
       }
 
   """
-  @type ref_resource() :: %{String.t() | Atom.t() => any()}
+  @type ref_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -928,81 +928,81 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type scheduled_splits_launch_config() :: %{String.t() | Atom.t() => any()}
+  @type scheduled_splits_launch_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_segment_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("tags") => map(),
-        required("name") => String.t() | Atom.t(),
-        required("pattern") => String.t() | Atom.t()
+        required("name") => String.t() | atom(),
+        required("pattern") => String.t() | atom()
       }
 
   """
-  @type create_segment_request() :: %{String.t() | Atom.t() => any()}
+  @type create_segment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_watch_logs_destination_config() :: %{
-        "logGroup" => String.t() | Atom.t()
+        "logGroup" => String.t() | atom()
       }
 
   """
-  @type cloud_watch_logs_destination_config() :: %{String.t() | Atom.t() => any()}
+  @type cloud_watch_logs_destination_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_destination() :: %{
-        "bucket" => String.t() | Atom.t(),
-        "prefix" => String.t() | Atom.t()
+        "bucket" => String.t() | atom(),
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type s3_destination() :: %{String.t() | Atom.t() => any()}
+  @type s3_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_experiment_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("metricGoals") => list(metric_goal_config()),
         optional("onlineAbConfig") => online_ab_config(),
-        optional("randomizationSalt") => String.t() | Atom.t(),
+        optional("randomizationSalt") => String.t() | atom(),
         optional("removeSegment") => [boolean()],
         optional("samplingRate") => float(),
-        optional("segment") => String.t() | Atom.t(),
+        optional("segment") => String.t() | atom(),
         optional("treatments") => list(treatment_config())
       }
 
   """
-  @type update_experiment_request() :: %{String.t() | Atom.t() => any()}
+  @type update_experiment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_experiment_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("onlineAbConfig") => online_ab_config(),
-        optional("randomizationSalt") => String.t() | Atom.t(),
+        optional("randomizationSalt") => String.t() | atom(),
         optional("samplingRate") => float(),
-        optional("segment") => String.t() | Atom.t(),
+        optional("segment") => String.t() | atom(),
         optional("tags") => map(),
         required("metricGoals") => list(metric_goal_config()),
-        required("name") => String.t() | Atom.t(),
+        required("name") => String.t() | atom(),
         required("treatments") => list(treatment_config())
       }
 
   """
-  @type create_experiment_request() :: %{String.t() | Atom.t() => any()}
+  @type create_experiment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1018,14 +1018,14 @@ defmodule AWS.Evidently do
   ## Example:
 
       experiment_results_data() :: %{
-        "metricName" => String.t() | Atom.t(),
-        "resultStat" => String.t() | Atom.t(),
-        "treatmentName" => String.t() | Atom.t(),
+        "metricName" => String.t() | atom(),
+        "resultStat" => String.t() | atom(),
+        "treatmentName" => String.t() | atom(),
         "values" => list([float()]())
       }
 
   """
-  @type experiment_results_data() :: %{String.t() | Atom.t() => any()}
+  @type experiment_results_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1036,19 +1036,19 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type experiment_schedule() :: %{String.t() | Atom.t() => any()}
+  @type experiment_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       evaluation_rule() :: %{
-        "name" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type evaluation_rule() :: %{String.t() | Atom.t() => any()}
+  @type evaluation_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1060,30 +1060,30 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type experiment_execution() :: %{String.t() | Atom.t() => any()}
+  @type experiment_execution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_experiment_request() :: %{
-        optional("desiredState") => String.t() | Atom.t(),
-        optional("reason") => String.t() | Atom.t()
+        optional("desiredState") => String.t() | atom(),
+        optional("reason") => String.t() | atom()
       }
 
   """
-  @type stop_experiment_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_experiment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1100,49 +1100,49 @@ defmodule AWS.Evidently do
 
       update_project_request() :: %{
         optional("appConfigResource") => project_app_config_resource_config(),
-        optional("description") => String.t() | Atom.t()
+        optional("description") => String.t() | atom()
       }
 
   """
-  @type update_project_request() :: %{String.t() | Atom.t() => any()}
+  @type update_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       event() :: %{
-        "data" => String.t() | Atom.t(),
+        "data" => String.t() | atom(),
         "timestamp" => [non_neg_integer()],
-        "type" => String.t() | Atom.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type event() :: %{String.t() | Atom.t() => any()}
+  @type event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       online_ab_config() :: %{
-        "controlTreatmentName" => String.t() | Atom.t(),
+        "controlTreatmentName" => String.t() | atom(),
         "treatmentWeights" => map()
       }
 
   """
-  @type online_ab_config() :: %{String.t() | Atom.t() => any()}
+  @type online_ab_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       treatment() :: %{
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "featureVariations" => map(),
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type treatment() :: %{String.t() | Atom.t() => any()}
+  @type treatment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1153,7 +1153,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type start_experiment_response() :: %{String.t() | Atom.t() => any()}
+  @type start_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1164,18 +1164,18 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type update_launch_response() :: %{String.t() | Atom.t() => any()}
+  @type update_launch_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1187,7 +1187,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type project_data_delivery() :: %{String.t() | Atom.t() => any()}
+  @type project_data_delivery() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1204,12 +1204,12 @@ defmodule AWS.Evidently do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | Atom.t()],
-        "reason" => String.t() | Atom.t()
+        "message" => [String.t() | atom()],
+        "reason" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1229,7 +1229,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type batch_evaluate_feature_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_evaluate_feature_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1237,25 +1237,25 @@ defmodule AWS.Evidently do
 
       list_experiments_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("status") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => String.t() | atom()
       }
 
   """
-  @type list_experiments_request() :: %{String.t() | Atom.t() => any()}
+  @type list_experiments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "quotaCode" => [String.t() | Atom.t()],
-        "serviceCode" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1264,13 +1264,13 @@ defmodule AWS.Evidently do
       create_project_request() :: %{
         optional("appConfigResource") => project_app_config_resource_config(),
         optional("dataDelivery") => project_data_delivery_config(),
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("tags") => map(),
-        required("name") => String.t() | Atom.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_project_request() :: %{String.t() | Atom.t() => any()}
+  @type create_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1281,7 +1281,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type start_experiment_request() :: %{String.t() | Atom.t() => any()}
+  @type start_experiment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1289,11 +1289,11 @@ defmodule AWS.Evidently do
 
       list_projects_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_projects_request() :: %{String.t() | Atom.t() => any()}
+  @type list_projects_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1301,11 +1301,11 @@ defmodule AWS.Evidently do
 
       list_segments_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_segments_request() :: %{String.t() | Atom.t() => any()}
+  @type list_segments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1313,24 +1313,24 @@ defmodule AWS.Evidently do
 
       list_segment_references_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("type") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
 
   """
-  @type list_segment_references_request() :: %{String.t() | Atom.t() => any()}
+  @type list_segment_references_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metric_goal() :: %{
-        "desiredChange" => String.t() | Atom.t(),
+        "desiredChange" => String.t() | atom(),
         "metricDefinition" => metric_definition()
       }
 
   """
-  @type metric_goal() :: %{String.t() | Atom.t() => any()}
+  @type metric_goal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1342,7 +1342,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type launch_execution() :: %{String.t() | Atom.t() => any()}
+  @type launch_execution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1362,36 +1362,36 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type metric_monitor_config() :: %{String.t() | Atom.t() => any()}
+  @type metric_monitor_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       project_app_config_resource_config() :: %{
-        "applicationId" => String.t() | Atom.t(),
-        "environmentId" => String.t() | Atom.t()
+        "applicationId" => String.t() | atom(),
+        "environmentId" => String.t() | atom()
       }
 
   """
-  @type project_app_config_resource_config() :: %{String.t() | Atom.t() => any()}
+  @type project_app_config_resource_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       evaluation_result() :: %{
-        "details" => String.t() | Atom.t(),
-        "entityId" => String.t() | Atom.t(),
-        "feature" => String.t() | Atom.t(),
-        "project" => String.t() | Atom.t(),
-        "reason" => [String.t() | Atom.t()],
+        "details" => String.t() | atom(),
+        "entityId" => String.t() | atom(),
+        "feature" => String.t() | atom(),
+        "project" => String.t() | atom(),
+        "reason" => [String.t() | atom()],
         "value" => list(),
-        "variation" => [String.t() | Atom.t()]
+        "variation" => [String.t() | atom()]
       }
 
   """
-  @type evaluation_result() :: %{String.t() | Atom.t() => any()}
+  @type evaluation_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1402,19 +1402,19 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type stop_experiment_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_launch_request() :: %{
-        optional("desiredState") => String.t() | Atom.t(),
-        optional("reason") => String.t() | Atom.t()
+        optional("desiredState") => String.t() | atom(),
+        optional("reason") => String.t() | atom()
       }
 
   """
-  @type stop_launch_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_launch_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1434,7 +1434,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type start_launch_response() :: %{String.t() | Atom.t() => any()}
+  @type start_launch_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1445,7 +1445,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type get_feature_response() :: %{String.t() | Atom.t() => any()}
+  @type get_feature_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1461,39 +1461,39 @@ defmodule AWS.Evidently do
   ## Example:
 
       launch() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "createdTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "execution" => launch_execution(),
         "groups" => list(launch_group()),
         "lastUpdatedTime" => [non_neg_integer()],
         "metricMonitors" => list(metric_monitor()),
-        "name" => String.t() | Atom.t(),
-        "project" => String.t() | Atom.t(),
-        "randomizationSalt" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "project" => String.t() | atom(),
+        "randomizationSalt" => String.t() | atom(),
         "scheduledSplitsDefinition" => scheduled_splits_launch_definition(),
-        "status" => String.t() | Atom.t(),
-        "statusReason" => String.t() | Atom.t(),
+        "status" => String.t() | atom(),
+        "statusReason" => String.t() | atom(),
         "tags" => map(),
-        "type" => String.t() | Atom.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type launch() :: %{String.t() | Atom.t() => any()}
+  @type launch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_experiment_results_response() :: %{
-        optional("details") => [String.t() | Atom.t()],
+        optional("details") => [String.t() | atom()],
         optional("reports") => list(experiment_report()),
         optional("resultsData") => list(experiment_results_data()),
         optional("timestamps") => list([non_neg_integer()]())
       }
 
   """
-  @type get_experiment_results_response() :: %{String.t() | Atom.t() => any()}
+  @type get_experiment_results_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1506,35 +1506,35 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type scheduled_split() :: %{String.t() | Atom.t() => any()}
+  @type scheduled_split() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "createdTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "execution" => experiment_execution(),
         "lastUpdatedTime" => [non_neg_integer()],
         "metricGoals" => list(metric_goal()),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "onlineAbDefinition" => online_ab_definition(),
-        "project" => String.t() | Atom.t(),
-        "randomizationSalt" => String.t() | Atom.t(),
+        "project" => String.t() | atom(),
+        "randomizationSalt" => String.t() | atom(),
         "samplingRate" => float(),
         "schedule" => experiment_schedule(),
-        "segment" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t(),
-        "statusReason" => String.t() | Atom.t(),
+        "segment" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusReason" => String.t() | atom(),
         "tags" => map(),
         "treatments" => list(treatment()),
-        "type" => String.t() | Atom.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type experiment() :: %{String.t() | Atom.t() => any()}
+  @type experiment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1554,7 +1554,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type stop_launch_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_launch_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1565,7 +1565,7 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type update_experiment_response() :: %{String.t() | Atom.t() => any()}
+  @type update_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1581,30 +1581,30 @@ defmodule AWS.Evidently do
   ## Example:
 
       s3_destination_config() :: %{
-        "bucket" => String.t() | Atom.t(),
-        "prefix" => String.t() | Atom.t()
+        "bucket" => String.t() | atom(),
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type s3_destination_config() :: %{String.t() | Atom.t() => any()}
+  @type s3_destination_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_experiment_results_request() :: %{
-        optional("baseStat") => String.t() | Atom.t(),
+        optional("baseStat") => String.t() | atom(),
         optional("endTime") => [non_neg_integer()],
         optional("period") => float(),
-        optional("reportNames") => list(String.t() | Atom.t()),
-        optional("resultStats") => list(String.t() | Atom.t()),
+        optional("reportNames") => list(String.t() | atom()),
+        optional("resultStats") => list(String.t() | atom()),
         optional("startTime") => [non_neg_integer()],
-        required("metricNames") => list(String.t() | Atom.t()),
-        required("treatmentNames") => list(String.t() | Atom.t())
+        required("metricNames") => list(String.t() | atom()),
+        required("treatmentNames") => list(String.t() | atom())
       }
 
   """
-  @type get_experiment_results_request() :: %{String.t() | Atom.t() => any()}
+  @type get_experiment_results_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1642,22 +1642,22 @@ defmodule AWS.Evidently do
       }
 
   """
-  @type create_launch_response() :: %{String.t() | Atom.t() => any()}
+  @type create_launch_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_launch_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("groups") => list(launch_group_config()),
         optional("metricMonitors") => list(metric_monitor_config()),
-        optional("randomizationSalt") => String.t() | Atom.t(),
+        optional("randomizationSalt") => String.t() | atom(),
         optional("scheduledSplitsConfig") => scheduled_splits_launch_config()
       }
 
   """
-  @type update_launch_request() :: %{String.t() | Atom.t() => any()}
+  @type update_launch_request() :: %{(String.t() | atom()) => any()}
 
   @type batch_evaluate_feature_errors() ::
           throttling_exception()
@@ -1930,7 +1930,7 @@ defmodule AWS.Evidently do
   """
   @spec batch_evaluate_feature(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           batch_evaluate_feature_request(),
           list()
         ) ::
@@ -1979,7 +1979,7 @@ defmodule AWS.Evidently do
   Don't use this operation to update an existing experiment. Instead, use
   [UpdateExperiment](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateExperiment.html).
   """
-  @spec create_experiment(map(), String.t() | Atom.t(), create_experiment_request(), list()) ::
+  @spec create_experiment(map(), String.t() | atom(), create_experiment_request(), list()) ::
           {:ok, create_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2015,7 +2015,7 @@ defmodule AWS.Evidently do
   [CreateProject](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html).   Don't use this operation to update an existing feature. Instead, use
   [UpdateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateFeature.html).
   """
-  @spec create_feature(map(), String.t() | Atom.t(), create_feature_request(), list()) ::
+  @spec create_feature(map(), String.t() | atom(), create_feature_request(), list()) ::
           {:ok, create_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2059,7 +2059,7 @@ defmodule AWS.Evidently do
   Don't use this operation to update an existing launch. Instead, use
   [UpdateLaunch](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateLaunch.html).
   """
-  @spec create_launch(map(), String.t() | Atom.t(), create_launch_request(), list()) ::
+  @spec create_launch(map(), String.t() | atom(), create_launch_request(), list()) ::
           {:ok, create_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2185,8 +2185,8 @@ defmodule AWS.Evidently do
   """
   @spec delete_experiment(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_experiment_request(),
           list()
         ) ::
@@ -2222,8 +2222,8 @@ defmodule AWS.Evidently do
   """
   @spec delete_feature(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_feature_request(),
           list()
         ) ::
@@ -2264,8 +2264,8 @@ defmodule AWS.Evidently do
   """
   @spec delete_launch(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_launch_request(),
           list()
         ) ::
@@ -2301,7 +2301,7 @@ defmodule AWS.Evidently do
   features that the project contains. To delete a feature, use
   [DeleteFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_DeleteFeature.html).
   """
-  @spec delete_project(map(), String.t() | Atom.t(), delete_project_request(), list()) ::
+  @spec delete_project(map(), String.t() | atom(), delete_project_request(), list()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2334,7 +2334,7 @@ defmodule AWS.Evidently do
   that
   launch or experiment is not currently running.
   """
-  @spec delete_segment(map(), String.t() | Atom.t(), delete_segment_request(), list()) ::
+  @spec delete_segment(map(), String.t() | atom(), delete_segment_request(), list()) ::
           {:ok, delete_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2406,8 +2406,8 @@ defmodule AWS.Evidently do
   """
   @spec evaluate_feature(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           evaluate_feature_request(),
           list()
         ) ::
@@ -2445,7 +2445,7 @@ defmodule AWS.Evidently do
   experiment name. To retrieve a list of experiments in your account, use
   [ListExperiments](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListExperiments.html).
   """
-  @spec get_experiment(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_experiment(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2481,8 +2481,8 @@ defmodule AWS.Evidently do
   """
   @spec get_experiment_results(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           get_experiment_results_request(),
           list()
         ) ::
@@ -2520,7 +2520,7 @@ defmodule AWS.Evidently do
   retrieve a list of features in your account, use
   [ListFeatures](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListFeatures.html).
   """
-  @spec get_feature(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_feature(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_feature_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2544,7 +2544,7 @@ defmodule AWS.Evidently do
   launch name. To retrieve a list of launches in your account, use
   [ListLaunches](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListLaunches.html).
   """
-  @spec get_launch(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_launch(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_launch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2566,7 +2566,7 @@ defmodule AWS.Evidently do
   project name. To retrieve a list of projects in your account, use
   [ListProjects](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListProjects.html).
   """
-  @spec get_project(map(), String.t() | Atom.t(), list()) ::
+  @spec get_project(map(), String.t() | atom(), list()) ::
           {:ok, get_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2587,7 +2587,7 @@ defmodule AWS.Evidently do
   Specify the segment you want to view
   by specifying its ARN.
   """
-  @spec get_segment(map(), String.t() | Atom.t(), list()) ::
+  @spec get_segment(map(), String.t() | atom(), list()) ::
           {:ok, get_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2608,10 +2608,10 @@ defmodule AWS.Evidently do
   """
   @spec list_experiments(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_experiments_response(), any()}
@@ -2661,9 +2661,9 @@ defmodule AWS.Evidently do
   """
   @spec list_features(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_features_response(), any()}
@@ -2705,10 +2705,10 @@ defmodule AWS.Evidently do
   """
   @spec list_launches(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_launches_response(), any()}
@@ -2758,7 +2758,7 @@ defmodule AWS.Evidently do
   your
   account.
   """
-  @spec list_projects(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_projects(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2793,10 +2793,10 @@ defmodule AWS.Evidently do
   """
   @spec list_segment_references(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_segment_references_response(), any()}
@@ -2845,7 +2845,7 @@ defmodule AWS.Evidently do
   Returns a list of audience segments that you have created in your account in
   this Region.
   """
-  @spec list_segments(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_segments(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_segments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2877,7 +2877,7 @@ defmodule AWS.Evidently do
   @doc """
   Displays the tags associated with an Evidently resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2898,7 +2898,7 @@ defmodule AWS.Evidently do
   These events can be used to evaluate a launch or
   an experiment.
   """
-  @spec put_project_events(map(), String.t() | Atom.t(), put_project_events_request(), list()) ::
+  @spec put_project_events(map(), String.t() | atom(), put_project_events_request(), list()) ::
           {:ok, put_project_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2933,8 +2933,8 @@ defmodule AWS.Evidently do
   """
   @spec start_experiment(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           start_experiment_request(),
           list()
         ) ::
@@ -2974,8 +2974,8 @@ defmodule AWS.Evidently do
   """
   @spec start_launch(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           start_launch_request(),
           list()
         ) ::
@@ -3014,8 +3014,8 @@ defmodule AWS.Evidently do
   """
   @spec stop_experiment(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           stop_experiment_request(),
           list()
         ) ::
@@ -3059,8 +3059,8 @@ defmodule AWS.Evidently do
   """
   @spec stop_launch(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           stop_launch_request(),
           list()
         ) ::
@@ -3117,7 +3117,7 @@ defmodule AWS.Evidently do
 
   For more information, see [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html).
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3179,7 +3179,7 @@ defmodule AWS.Evidently do
   @doc """
   Removes one or more tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3218,8 +3218,8 @@ defmodule AWS.Evidently do
   """
   @spec update_experiment(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_experiment_request(),
           list()
         ) ::
@@ -3259,8 +3259,8 @@ defmodule AWS.Evidently do
   """
   @spec update_feature(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_feature_request(),
           list()
         ) ::
@@ -3299,8 +3299,8 @@ defmodule AWS.Evidently do
   """
   @spec update_launch(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_launch_request(),
           list()
         ) ::
@@ -3340,7 +3340,7 @@ defmodule AWS.Evidently do
   Don't use this operation to update the tags of a project. Instead, use
   [TagResource](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html).
   """
-  @spec update_project(map(), String.t() | Atom.t(), update_project_request(), list()) ::
+  @spec update_project(map(), String.t() | atom(), update_project_request(), list()) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3381,7 +3381,7 @@ defmodule AWS.Evidently do
   """
   @spec update_project_data_delivery(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_project_data_delivery_request(),
           list()
         ) ::

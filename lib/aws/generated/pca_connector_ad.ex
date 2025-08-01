@@ -20,11 +20,11 @@ defmodule AWS.PcaConnectorAd do
   ## Example:
 
       connector() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CertificateAuthorityArn" => String.t() | Atom.t(),
-        "CertificateEnrollmentPolicyServerEndpoint" => [String.t() | Atom.t()],
+        "Arn" => String.t() | atom(),
+        "CertificateAuthorityArn" => String.t() | atom(),
+        "CertificateEnrollmentPolicyServerEndpoint" => [String.t() | atom()],
         "CreatedAt" => [non_neg_integer()],
-        "DirectoryId" => String.t() | Atom.t(),
+        "DirectoryId" => String.t() | atom(),
         "Status" => list(any()),
         "StatusReason" => list(any()),
         "UpdatedAt" => [non_neg_integer()],
@@ -32,7 +32,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type connector() :: %{String.t() | Atom.t() => any()}
+  @type connector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -43,7 +43,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -51,14 +51,14 @@ defmodule AWS.PcaConnectorAd do
 
       private_key_attributes_v4() :: %{
         "Algorithm" => list(any()),
-        "CryptoProviders" => list([String.t() | Atom.t()]()),
+        "CryptoProviders" => list([String.t() | atom()]()),
         "KeySpec" => list(any()),
         "KeyUsageProperty" => list(),
         "MinimalKeyLength" => [integer()]
       }
 
   """
-  @type private_key_attributes_v4() :: %{String.t() | Atom.t() => any()}
+  @type private_key_attributes_v4() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -66,11 +66,11 @@ defmodule AWS.PcaConnectorAd do
 
       update_template_group_access_control_entry_request() :: %{
         optional("AccessRights") => access_rights(),
-        optional("GroupDisplayName") => String.t() | Atom.t()
+        optional("GroupDisplayName") => String.t() | atom()
       }
 
   """
-  @type update_template_group_access_control_entry_request() :: %{String.t() | Atom.t() => any()}
+  @type update_template_group_access_control_entry_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -78,24 +78,24 @@ defmodule AWS.PcaConnectorAd do
 
       list_connectors_response() :: %{
         "Connectors" => list(connector_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_connectors_response() :: %{String.t() | Atom.t() => any()}
+  @type list_connectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_directory_registration_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => map(),
-        required("DirectoryId") => String.t() | Atom.t()
+        required("DirectoryId") => String.t() | atom()
       }
 
   """
-  @type create_directory_registration_request() :: %{String.t() | Atom.t() => any()}
+  @type create_directory_registration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -103,12 +103,12 @@ defmodule AWS.PcaConnectorAd do
 
       list_templates_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ConnectorArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ConnectorArn") => String.t() | atom()
       }
 
   """
-  @type list_templates_request() :: %{String.t() | Atom.t() => any()}
+  @type list_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -132,7 +132,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type enrollment_flags_v3() :: %{String.t() | Atom.t() => any()}
+  @type enrollment_flags_v3() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -147,11 +147,11 @@ defmodule AWS.PcaConnectorAd do
         "PrivateKeyAttributes" => private_key_attributes_v3(),
         "PrivateKeyFlags" => private_key_flags_v3(),
         "SubjectNameFlags" => subject_name_flags_v3(),
-        "SupersededTemplates" => list(String.t() | Atom.t())
+        "SupersededTemplates" => list(String.t() | atom())
       }
 
   """
-  @type template_v3() :: %{String.t() | Atom.t() => any()}
+  @type template_v3() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -163,7 +163,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type general_flags_v2() :: %{String.t() | Atom.t() => any()}
+  @type general_flags_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -172,14 +172,14 @@ defmodule AWS.PcaConnectorAd do
       access_control_entry_summary() :: %{
         "AccessRights" => access_rights(),
         "CreatedAt" => [non_neg_integer()],
-        "GroupDisplayName" => String.t() | Atom.t(),
-        "GroupSecurityIdentifier" => String.t() | Atom.t(),
-        "TemplateArn" => String.t() | Atom.t(),
+        "GroupDisplayName" => String.t() | atom(),
+        "GroupSecurityIdentifier" => String.t() | atom(),
+        "TemplateArn" => String.t() | atom(),
         "UpdatedAt" => [non_neg_integer()]
       }
 
   """
-  @type access_control_entry_summary() :: %{String.t() | Atom.t() => any()}
+  @type access_control_entry_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -194,7 +194,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type enrollment_flags_v4() :: %{String.t() | Atom.t() => any()}
+  @type enrollment_flags_v4() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -215,7 +215,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type template_revision() :: %{String.t() | Atom.t() => any()}
+  @type template_revision() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -228,22 +228,22 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type private_key_flags_v2() :: %{String.t() | Atom.t() => any()}
+  @type private_key_flags_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_template_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => map(),
-        required("ConnectorArn") => String.t() | Atom.t(),
+        required("ConnectorArn") => String.t() | atom(),
         required("Definition") => list(),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_template_request() :: %{String.t() | Atom.t() => any()}
+  @type create_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -254,37 +254,37 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type get_template_response() :: %{String.t() | Atom.t() => any()}
+  @type get_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       directory_registration_summary() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => [non_neg_integer()],
-        "DirectoryId" => String.t() | Atom.t(),
+        "DirectoryId" => String.t() | atom(),
         "Status" => list(any()),
         "StatusReason" => list(any()),
         "UpdatedAt" => [non_neg_integer()]
       }
 
   """
-  @type directory_registration_summary() :: %{String.t() | Atom.t() => any()}
+  @type directory_registration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_template_group_access_control_entry_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         required("AccessRights") => access_rights(),
-        required("GroupDisplayName") => String.t() | Atom.t(),
-        required("GroupSecurityIdentifier") => String.t() | Atom.t()
+        required("GroupDisplayName") => String.t() | atom(),
+        required("GroupSecurityIdentifier") => String.t() | atom()
       }
 
   """
-  @type create_template_group_access_control_entry_request() :: %{String.t() | Atom.t() => any()}
+  @type create_template_group_access_control_entry_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -292,11 +292,11 @@ defmodule AWS.PcaConnectorAd do
 
       list_connectors_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_connectors_request() :: %{String.t() | Atom.t() => any()}
+  @type list_connectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -308,7 +308,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type update_template_request() :: %{String.t() | Atom.t() => any()}
+  @type update_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -323,18 +323,18 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type key_usage_flags() :: %{String.t() | Atom.t() => any()}
+  @type key_usage_flags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list([String.t() | Atom.t()]())
+        required("TagKeys") => list([String.t() | atom()]())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -354,19 +354,19 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type subject_name_flags_v4() :: %{String.t() | Atom.t() => any()}
+  @type subject_name_flags_v4() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_service_principal_names_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ServicePrincipalNames" => list(service_principal_name_summary())
       }
 
   """
-  @type list_service_principal_names_response() :: %{String.t() | Atom.t() => any()}
+  @type list_service_principal_names_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -381,7 +381,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type enrollment_flags_v2() :: %{String.t() | Atom.t() => any()}
+  @type enrollment_flags_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -393,7 +393,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type extensions_v3() :: %{String.t() | Atom.t() => any()}
+  @type extensions_v3() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -409,42 +409,42 @@ defmodule AWS.PcaConnectorAd do
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => [String.t() | Atom.t()],
-        "ResourceId" => [String.t() | Atom.t()],
-        "ResourceType" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => [String.t() | Atom.t()],
-        "ResourceId" => [String.t() | Atom.t()],
-        "ResourceType" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_principal_name_summary() :: %{
-        "ConnectorArn" => String.t() | Atom.t(),
+        "ConnectorArn" => String.t() | atom(),
         "CreatedAt" => [non_neg_integer()],
-        "DirectoryRegistrationArn" => String.t() | Atom.t(),
+        "DirectoryRegistrationArn" => String.t() | atom(),
         "Status" => list(any()),
         "StatusReason" => list(any()),
         "UpdatedAt" => [non_neg_integer()]
       }
 
   """
-  @type service_principal_name_summary() :: %{String.t() | Atom.t() => any()}
+  @type service_principal_name_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -456,7 +456,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type extensions_v2() :: %{String.t() | Atom.t() => any()}
+  @type extensions_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -467,22 +467,22 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type get_template_group_access_control_entry_response() :: %{String.t() | Atom.t() => any()}
+  @type get_template_group_access_control_entry_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => [String.t() | Atom.t()],
-        "QuotaCode" => [String.t() | Atom.t()],
-        "ResourceId" => [String.t() | Atom.t()],
-        "ResourceType" => [String.t() | Atom.t()],
-        "ServiceCode" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()],
+        "QuotaCode" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()],
+        "ServiceCode" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -495,7 +495,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type key_usage_property_flags() :: %{String.t() | Atom.t() => any()}
+  @type key_usage_property_flags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -510,23 +510,23 @@ defmodule AWS.PcaConnectorAd do
         "PrivateKeyAttributes" => private_key_attributes_v4(),
         "PrivateKeyFlags" => private_key_flags_v4(),
         "SubjectNameFlags" => subject_name_flags_v4(),
-        "SupersededTemplates" => list(String.t() | Atom.t())
+        "SupersededTemplates" => list(String.t() | atom())
       }
 
   """
-  @type template_v4() :: %{String.t() | Atom.t() => any()}
+  @type template_v4() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template_summary() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "ConnectorArn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "ConnectorArn" => String.t() | atom(),
         "CreatedAt" => [non_neg_integer()],
         "Definition" => list(),
-        "Name" => String.t() | Atom.t(),
-        "ObjectIdentifier" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "ObjectIdentifier" => String.t() | atom(),
         "PolicySchema" => [integer()],
         "Revision" => template_revision(),
         "Status" => list(any()),
@@ -534,36 +534,36 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type template_summary() :: %{String.t() | Atom.t() => any()}
+  @type template_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       private_key_attributes_v2() :: %{
-        "CryptoProviders" => list([String.t() | Atom.t()]()),
+        "CryptoProviders" => list([String.t() | atom()]()),
         "KeySpec" => list(any()),
         "MinimalKeyLength" => [integer()]
       }
 
   """
-  @type private_key_attributes_v2() :: %{String.t() | Atom.t() => any()}
+  @type private_key_attributes_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       directory_registration() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => [non_neg_integer()],
-        "DirectoryId" => String.t() | Atom.t(),
+        "DirectoryId" => String.t() | atom(),
         "Status" => list(any()),
         "StatusReason" => list(any()),
         "UpdatedAt" => [non_neg_integer()]
       }
 
   """
-  @type directory_registration() :: %{String.t() | Atom.t() => any()}
+  @type directory_registration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -579,16 +579,16 @@ defmodule AWS.PcaConnectorAd do
   ## Example:
 
       service_principal_name() :: %{
-        "ConnectorArn" => String.t() | Atom.t(),
+        "ConnectorArn" => String.t() | atom(),
         "CreatedAt" => [non_neg_integer()],
-        "DirectoryRegistrationArn" => String.t() | Atom.t(),
+        "DirectoryRegistrationArn" => String.t() | atom(),
         "Status" => list(any()),
         "StatusReason" => list(any()),
         "UpdatedAt" => [non_neg_integer()]
       }
 
   """
-  @type service_principal_name() :: %{String.t() | Atom.t() => any()}
+  @type service_principal_name() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -608,7 +608,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type get_service_principal_name_response() :: %{String.t() | Atom.t() => any()}
+  @type get_service_principal_name_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -617,25 +617,25 @@ defmodule AWS.PcaConnectorAd do
       access_control_entry() :: %{
         "AccessRights" => access_rights(),
         "CreatedAt" => [non_neg_integer()],
-        "GroupDisplayName" => String.t() | Atom.t(),
-        "GroupSecurityIdentifier" => String.t() | Atom.t(),
-        "TemplateArn" => String.t() | Atom.t(),
+        "GroupDisplayName" => String.t() | atom(),
+        "GroupSecurityIdentifier" => String.t() | atom(),
+        "TemplateArn" => String.t() | atom(),
         "UpdatedAt" => [non_neg_integer()]
       }
 
   """
-  @type access_control_entry() :: %{String.t() | Atom.t() => any()}
+  @type access_control_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_connector_response() :: %{
-        "ConnectorArn" => String.t() | Atom.t()
+        "ConnectorArn" => String.t() | atom()
       }
 
   """
-  @type create_connector_response() :: %{String.t() | Atom.t() => any()}
+  @type create_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -646,7 +646,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -654,22 +654,22 @@ defmodule AWS.PcaConnectorAd do
 
       list_directory_registrations_response() :: %{
         "DirectoryRegistrations" => list(directory_registration_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_directory_registrations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_directory_registrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_directory_registration_response() :: %{
-        "DirectoryRegistrationArn" => String.t() | Atom.t()
+        "DirectoryRegistrationArn" => String.t() | atom()
       }
 
   """
-  @type create_directory_registration_response() :: %{String.t() | Atom.t() => any()}
+  @type create_directory_registration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -685,11 +685,11 @@ defmodule AWS.PcaConnectorAd do
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -700,18 +700,18 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type get_directory_registration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_directory_registration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_service_principal_name_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t()
+        optional("ClientToken") => String.t() | atom()
       }
 
   """
-  @type create_service_principal_name_request() :: %{String.t() | Atom.t() => any()}
+  @type create_service_principal_name_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -719,14 +719,14 @@ defmodule AWS.PcaConnectorAd do
 
       private_key_attributes_v3() :: %{
         "Algorithm" => list(any()),
-        "CryptoProviders" => list([String.t() | Atom.t()]()),
+        "CryptoProviders" => list([String.t() | atom()]()),
         "KeySpec" => list(any()),
         "KeyUsageProperty" => list(),
         "MinimalKeyLength" => [integer()]
       }
 
   """
-  @type private_key_attributes_v3() :: %{String.t() | Atom.t() => any()}
+  @type private_key_attributes_v3() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -752,11 +752,11 @@ defmodule AWS.PcaConnectorAd do
 
       list_template_group_access_control_entries_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_template_group_access_control_entries_request() :: %{String.t() | Atom.t() => any()}
+  @type list_template_group_access_control_entries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -776,7 +776,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type subject_name_flags_v3() :: %{String.t() | Atom.t() => any()}
+  @type subject_name_flags_v3() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -788,7 +788,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type validity_period() :: %{String.t() | Atom.t() => any()}
+  @type validity_period() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -796,22 +796,22 @@ defmodule AWS.PcaConnectorAd do
 
       list_directory_registrations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_directory_registrations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_directory_registrations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -823,45 +823,45 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type application_policies() :: %{String.t() | Atom.t() => any()}
+  @type application_policies() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_connector_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => map(),
-        required("CertificateAuthorityArn") => String.t() | Atom.t(),
-        required("DirectoryId") => String.t() | Atom.t(),
+        required("CertificateAuthorityArn") => String.t() | atom(),
+        required("DirectoryId") => String.t() | atom(),
         required("VpcInformation") => vpc_information()
       }
 
   """
-  @type create_connector_request() :: %{String.t() | Atom.t() => any()}
+  @type create_connector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_templates_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Templates" => list(template_summary())
       }
 
   """
-  @type list_templates_response() :: %{String.t() | Atom.t() => any()}
+  @type list_templates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_summary() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CertificateAuthorityArn" => String.t() | Atom.t(),
-        "CertificateEnrollmentPolicyServerEndpoint" => [String.t() | Atom.t()],
+        "Arn" => String.t() | atom(),
+        "CertificateAuthorityArn" => String.t() | atom(),
+        "CertificateEnrollmentPolicyServerEndpoint" => [String.t() | atom()],
         "CreatedAt" => [non_neg_integer()],
-        "DirectoryId" => String.t() | Atom.t(),
+        "DirectoryId" => String.t() | atom(),
         "Status" => list(any()),
         "StatusReason" => list(any()),
         "UpdatedAt" => [non_neg_integer()],
@@ -869,7 +869,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type connector_summary() :: %{String.t() | Atom.t() => any()}
+  @type connector_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -885,12 +885,12 @@ defmodule AWS.PcaConnectorAd do
   ## Example:
 
       validation_exception() :: %{
-        "Message" => [String.t() | Atom.t()],
+        "Message" => [String.t() | atom()],
         "Reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -907,11 +907,11 @@ defmodule AWS.PcaConnectorAd do
 
       list_template_group_access_control_entries_response() :: %{
         "AccessControlEntries" => list(access_control_entry_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_template_group_access_control_entries_response() :: %{String.t() | Atom.t() => any()}
+  @type list_template_group_access_control_entries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -923,7 +923,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type access_rights() :: %{String.t() | Atom.t() => any()}
+  @type access_rights() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -935,20 +935,20 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type extensions_v4() :: %{String.t() | Atom.t() => any()}
+  @type extensions_v4() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => [String.t() | Atom.t()],
-        "QuotaCode" => [String.t() | Atom.t()],
-        "ServiceCode" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()],
+        "QuotaCode" => [String.t() | atom()],
+        "ServiceCode" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -960,7 +960,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type general_flags_v4() :: %{String.t() | Atom.t() => any()}
+  @type general_flags_v4() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -971,7 +971,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type get_connector_response() :: %{String.t() | Atom.t() => any()}
+  @type get_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -985,11 +985,11 @@ defmodule AWS.PcaConnectorAd do
         "PrivateKeyAttributes" => private_key_attributes_v2(),
         "PrivateKeyFlags" => private_key_flags_v2(),
         "SubjectNameFlags" => subject_name_flags_v2(),
-        "SupersededTemplates" => list(String.t() | Atom.t())
+        "SupersededTemplates" => list(String.t() | atom())
       }
 
   """
-  @type template_v2() :: %{String.t() | Atom.t() => any()}
+  @type template_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1005,7 +1005,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type private_key_flags_v4() :: %{String.t() | Atom.t() => any()}
+  @type private_key_flags_v4() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1013,11 +1013,11 @@ defmodule AWS.PcaConnectorAd do
 
       list_service_principal_names_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_service_principal_names_request() :: %{String.t() | Atom.t() => any()}
+  @type list_service_principal_names_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1037,7 +1037,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type subject_name_flags_v2() :: %{String.t() | Atom.t() => any()}
+  @type subject_name_flags_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1053,23 +1053,23 @@ defmodule AWS.PcaConnectorAd do
   ## Example:
 
       create_template_response() :: %{
-        "TemplateArn" => String.t() | Atom.t()
+        "TemplateArn" => String.t() | atom()
       }
 
   """
-  @type create_template_response() :: %{String.t() | Atom.t() => any()}
+  @type create_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "ConnectorArn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "ConnectorArn" => String.t() | atom(),
         "CreatedAt" => [non_neg_integer()],
         "Definition" => list(),
-        "Name" => String.t() | Atom.t(),
-        "ObjectIdentifier" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "ObjectIdentifier" => String.t() | atom(),
         "PolicySchema" => [integer()],
         "Revision" => template_revision(),
         "Status" => list(any()),
@@ -1077,7 +1077,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type template() :: %{String.t() | Atom.t() => any()}
+  @type template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1085,11 +1085,11 @@ defmodule AWS.PcaConnectorAd do
 
       vpc_information() :: %{
         "IpAddressType" => list(any()),
-        "SecurityGroupIds" => list(String.t() | Atom.t())
+        "SecurityGroupIds" => list(String.t() | atom())
       }
 
   """
-  @type vpc_information() :: %{String.t() | Atom.t() => any()}
+  @type vpc_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1103,7 +1103,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type private_key_flags_v3() :: %{String.t() | Atom.t() => any()}
+  @type private_key_flags_v3() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1115,7 +1115,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type certificate_validity() :: %{String.t() | Atom.t() => any()}
+  @type certificate_validity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1127,7 +1127,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type general_flags_v3() :: %{String.t() | Atom.t() => any()}
+  @type general_flags_v3() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1139,7 +1139,7 @@ defmodule AWS.PcaConnectorAd do
       }
 
   """
-  @type key_usage() :: %{String.t() | Atom.t() => any()}
+  @type key_usage() :: %{(String.t() | atom()) => any()}
 
   @type create_connector_errors() ::
           throttling_exception()
@@ -1417,8 +1417,8 @@ defmodule AWS.PcaConnectorAd do
   """
   @spec create_service_principal_name(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_service_principal_name_request(),
           list()
         ) ::
@@ -1496,7 +1496,7 @@ defmodule AWS.PcaConnectorAd do
   """
   @spec create_template_group_access_control_entry(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_template_group_access_control_entry_request(),
           list()
         ) ::
@@ -1541,7 +1541,7 @@ defmodule AWS.PcaConnectorAd do
   [https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteDirectoryRegistration)
   action.
   """
-  @spec delete_connector(map(), String.t() | Atom.t(), delete_connector_request(), list()) ::
+  @spec delete_connector(map(), String.t() | atom(), delete_connector_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1575,7 +1575,7 @@ defmodule AWS.PcaConnectorAd do
   """
   @spec delete_directory_registration(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_directory_registration_request(),
           list()
         ) ::
@@ -1616,8 +1616,8 @@ defmodule AWS.PcaConnectorAd do
   """
   @spec delete_service_principal_name(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_service_principal_name_request(),
           list()
         ) ::
@@ -1660,7 +1660,7 @@ defmodule AWS.PcaConnectorAd do
   Certificates issued using the template are still valid until they
   are revoked or expired.
   """
-  @spec delete_template(map(), String.t() | Atom.t(), delete_template_request(), list()) ::
+  @spec delete_template(map(), String.t() | atom(), delete_template_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1691,8 +1691,8 @@ defmodule AWS.PcaConnectorAd do
   """
   @spec delete_template_group_access_control_entry(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_template_group_access_control_entry_request(),
           list()
         ) ::
@@ -1735,7 +1735,7 @@ defmodule AWS.PcaConnectorAd do
   You specify the connector on input by its ARN
   (Amazon Resource Name).
   """
-  @spec get_connector(map(), String.t() | Atom.t(), list()) ::
+  @spec get_connector(map(), String.t() | atom(), list()) ::
           {:ok, get_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1753,7 +1753,7 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   A structure that contains information about your directory registration.
   """
-  @spec get_directory_registration(map(), String.t() | Atom.t(), list()) ::
+  @spec get_directory_registration(map(), String.t() | atom(), list()) ::
           {:ok, get_directory_registration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1772,7 +1772,7 @@ defmodule AWS.PcaConnectorAd do
   Lists the service principal name that the connector uses to authenticate with
   Active Directory.
   """
-  @spec get_service_principal_name(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_service_principal_name(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_service_principal_name_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1799,7 +1799,7 @@ defmodule AWS.PcaConnectorAd do
   from a
   private CA.
   """
-  @spec get_template(map(), String.t() | Atom.t(), list()) ::
+  @spec get_template(map(), String.t() | atom(), list()) ::
           {:ok, get_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1819,8 +1819,8 @@ defmodule AWS.PcaConnectorAd do
   """
   @spec get_template_group_access_control_entry(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_template_group_access_control_entry_response(), any()}
@@ -1849,7 +1849,7 @@ defmodule AWS.PcaConnectorAd do
   [https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector)
   action.
   """
-  @spec list_connectors(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_connectors(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1885,8 +1885,8 @@ defmodule AWS.PcaConnectorAd do
   """
   @spec list_directory_registrations(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_directory_registrations_response(), any()}
@@ -1928,9 +1928,9 @@ defmodule AWS.PcaConnectorAd do
   """
   @spec list_service_principal_names(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_service_principal_names_response(), any()}
@@ -1972,7 +1972,7 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   Lists the tags, if any, that are associated with your resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1992,9 +1992,9 @@ defmodule AWS.PcaConnectorAd do
   """
   @spec list_template_group_access_control_entries(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_template_group_access_control_entries_response(), any()}
@@ -2036,9 +2036,9 @@ defmodule AWS.PcaConnectorAd do
   """
   @spec list_templates(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_templates_response(), any()}
@@ -2085,7 +2085,7 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   Adds one or more tags to your resource.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2114,7 +2114,7 @@ defmodule AWS.PcaConnectorAd do
   @doc """
   Removes one or more tags from your resource.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2149,7 +2149,7 @@ defmodule AWS.PcaConnectorAd do
   Update template configuration to define the information included in
   certificates.
   """
-  @spec update_template(map(), String.t() | Atom.t(), update_template_request(), list()) ::
+  @spec update_template(map(), String.t() | atom(), update_template_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2181,8 +2181,8 @@ defmodule AWS.PcaConnectorAd do
   """
   @spec update_template_group_access_control_entry(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_template_group_access_control_entry_request(),
           list()
         ) ::

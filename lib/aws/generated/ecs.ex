@@ -40,14 +40,14 @@ defmodule AWS.ECS do
   ## Example:
       
       service_registry() :: %{
-        "containerName" => String.t() | Atom.t(),
+        "containerName" => String.t() | atom(),
         "containerPort" => integer(),
         "port" => integer(),
-        "registryArn" => String.t() | Atom.t()
+        "registryArn" => String.t() | atom()
       }
       
   """
-  @type service_registry() :: %{String.t() | Atom.t() => any()}
+  @type service_registry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -59,7 +59,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type describe_task_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_task_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,7 +71,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type container_instance_health_status() :: %{String.t() | Atom.t() => any()}
+  @type container_instance_health_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -82,7 +82,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type delete_capacity_provider_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_capacity_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -94,23 +94,23 @@ defmodule AWS.ECS do
       }
       
   """
-  @type update_container_instances_state_response() :: %{String.t() | Atom.t() => any()}
+  @type update_container_instances_state_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_deployments_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
         optional("createdAt") => created_at(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("status") => list(list(any())()),
-        required("service") => String.t() | Atom.t()
+        required("service") => String.t() | atom()
       }
       
   """
-  @type list_service_deployments_request() :: %{String.t() | Atom.t() => any()}
+  @type list_service_deployments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -118,34 +118,34 @@ defmodule AWS.ECS do
       
       task_set() :: %{
         "capacityProviderStrategy" => list(capacity_provider_strategy_item()),
-        "clusterArn" => String.t() | Atom.t(),
+        "clusterArn" => String.t() | atom(),
         "computedDesiredCount" => integer(),
         "createdAt" => non_neg_integer(),
-        "externalId" => String.t() | Atom.t(),
+        "externalId" => String.t() | atom(),
         "fargateEphemeralStorage" => deployment_ephemeral_storage(),
-        "id" => String.t() | Atom.t(),
+        "id" => String.t() | atom(),
         "launchType" => list(any()),
         "loadBalancers" => list(load_balancer()),
         "networkConfiguration" => network_configuration(),
         "pendingCount" => integer(),
-        "platformFamily" => String.t() | Atom.t(),
-        "platformVersion" => String.t() | Atom.t(),
+        "platformFamily" => String.t() | atom(),
+        "platformVersion" => String.t() | atom(),
         "runningCount" => integer(),
         "scale" => scale(),
-        "serviceArn" => String.t() | Atom.t(),
+        "serviceArn" => String.t() | atom(),
         "serviceRegistries" => list(service_registry()),
         "stabilityStatus" => list(any()),
         "stabilityStatusAt" => non_neg_integer(),
-        "startedBy" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t(),
+        "startedBy" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "tags" => list(tag()),
-        "taskDefinition" => String.t() | Atom.t(),
-        "taskSetArn" => String.t() | Atom.t(),
+        "taskDefinition" => String.t() | atom(),
+        "taskSetArn" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
       
   """
-  @type task_set() :: %{String.t() | Atom.t() => any()}
+  @type task_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -156,142 +156,142 @@ defmodule AWS.ECS do
         "attachments" => list(attachment()),
         "ephemeralStorage" => ephemeral_storage(),
         "pullStartedAt" => non_neg_integer(),
-        "containerInstanceArn" => String.t() | Atom.t(),
-        "startedBy" => String.t() | Atom.t(),
+        "containerInstanceArn" => String.t() | atom(),
+        "startedBy" => String.t() | atom(),
         "executionStoppedAt" => non_neg_integer(),
         "attributes" => list(attribute()),
         "stoppingAt" => non_neg_integer(),
-        "cpu" => String.t() | Atom.t(),
-        "platformVersion" => String.t() | Atom.t(),
+        "cpu" => String.t() | atom(),
+        "platformVersion" => String.t() | atom(),
         "enableExecuteCommand" => boolean(),
         "healthStatus" => list(any()),
-        "taskArn" => String.t() | Atom.t(),
+        "taskArn" => String.t() | atom(),
         "stopCode" => list(any()),
         "createdAt" => non_neg_integer(),
-        "lastStatus" => String.t() | Atom.t(),
-        "memory" => String.t() | Atom.t(),
-        "desiredStatus" => String.t() | Atom.t(),
+        "lastStatus" => String.t() | atom(),
+        "memory" => String.t() | atom(),
+        "desiredStatus" => String.t() | atom(),
         "overrides" => task_override(),
         "connectivity" => list(any()),
         "tags" => list(tag()),
         "connectivityAt" => non_neg_integer(),
-        "taskDefinitionArn" => String.t() | Atom.t(),
-        "platformFamily" => String.t() | Atom.t(),
+        "taskDefinitionArn" => String.t() | atom(),
+        "platformFamily" => String.t() | atom(),
         "inferenceAccelerators" => list(inference_accelerator()),
         "pullStoppedAt" => non_neg_integer(),
         "stoppedAt" => non_neg_integer(),
         "fargateEphemeralStorage" => task_ephemeral_storage(),
         "containers" => list(container()),
-        "capacityProviderName" => String.t() | Atom.t(),
-        "clusterArn" => String.t() | Atom.t(),
-        "group" => String.t() | Atom.t(),
-        "stoppedReason" => String.t() | Atom.t(),
+        "capacityProviderName" => String.t() | atom(),
+        "clusterArn" => String.t() | atom(),
+        "group" => String.t() | atom(),
+        "stoppedReason" => String.t() | atom(),
         "startedAt" => non_neg_integer(),
-        "availabilityZone" => String.t() | Atom.t(),
+        "availabilityZone" => String.t() | atom(),
         "version" => float()
       }
       
   """
-  @type task() :: %{String.t() | Atom.t() => any()}
+  @type task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_capacity_provider_request() :: %{
-        required("capacityProvider") => String.t() | Atom.t()
+        required("capacityProvider") => String.t() | atom()
       }
       
   """
-  @type delete_capacity_provider_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_capacity_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("resourceArn") => String.t() | Atom.t(),
+        required("resourceArn") => String.t() | atom(),
         required("tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_in_progress_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type update_in_progress_exception() :: %{String.t() | Atom.t() => any()}
+  @type update_in_progress_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_task_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
-        optional("reason") => String.t() | Atom.t(),
-        required("task") => String.t() | Atom.t()
+        optional("cluster") => String.t() | atom(),
+        optional("reason") => String.t() | atom(),
+        required("task") => String.t() | atom()
       }
       
   """
-  @type stop_task_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_container_instances_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
         optional("include") => list(list(any())()),
-        required("containerInstances") => list(String.t() | Atom.t())
+        required("containerInstances") => list(String.t() | atom())
       }
       
   """
-  @type describe_container_instances_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_container_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       system_control() :: %{
-        "namespace" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "namespace" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type system_control() :: %{String.t() | Atom.t() => any()}
+  @type system_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       container() :: %{
-        "containerArn" => String.t() | Atom.t(),
-        "cpu" => String.t() | Atom.t(),
+        "containerArn" => String.t() | atom(),
+        "cpu" => String.t() | atom(),
         "exitCode" => integer(),
-        "gpuIds" => list(String.t() | Atom.t()),
+        "gpuIds" => list(String.t() | atom()),
         "healthStatus" => list(any()),
-        "image" => String.t() | Atom.t(),
-        "imageDigest" => String.t() | Atom.t(),
-        "lastStatus" => String.t() | Atom.t(),
+        "image" => String.t() | atom(),
+        "imageDigest" => String.t() | atom(),
+        "lastStatus" => String.t() | atom(),
         "managedAgents" => list(managed_agent()),
-        "memory" => String.t() | Atom.t(),
-        "memoryReservation" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "memory" => String.t() | atom(),
+        "memoryReservation" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "networkBindings" => list(network_binding()),
         "networkInterfaces" => list(network_interface()),
-        "reason" => String.t() | Atom.t(),
-        "runtimeId" => String.t() | Atom.t(),
-        "taskArn" => String.t() | Atom.t()
+        "reason" => String.t() | atom(),
+        "runtimeId" => String.t() | atom(),
+        "taskArn" => String.t() | atom()
       }
       
   """
-  @type container() :: %{String.t() | Atom.t() => any()}
+  @type container() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -304,19 +304,19 @@ defmodule AWS.ECS do
       }
       
   """
-  @type service_deployment_circuit_breaker() :: %{String.t() | Atom.t() => any()}
+  @type service_deployment_circuit_breaker() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       inference_accelerator() :: %{
-        "deviceName" => String.t() | Atom.t(),
-        "deviceType" => String.t() | Atom.t()
+        "deviceName" => String.t() | atom(),
+        "deviceType" => String.t() | atom()
       }
       
   """
-  @type inference_accelerator() :: %{String.t() | Atom.t() => any()}
+  @type inference_accelerator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -328,31 +328,31 @@ defmodule AWS.ECS do
       }
       
   """
-  @type run_task_response() :: %{String.t() | Atom.t() => any()}
+  @type run_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       proxy_configuration() :: %{
-        "containerName" => String.t() | Atom.t(),
+        "containerName" => String.t() | atom(),
         "properties" => list(key_value_pair()),
         "type" => list(any())
       }
       
   """
-  @type proxy_configuration() :: %{String.t() | Atom.t() => any()}
+  @type proxy_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attribute_limit_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type attribute_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type attribute_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -360,13 +360,13 @@ defmodule AWS.ECS do
       
       setting() :: %{
         "name" => list(any()),
-        "principalArn" => String.t() | Atom.t(),
+        "principalArn" => String.t() | atom(),
         "type" => list(any()),
-        "value" => String.t() | Atom.t()
+        "value" => String.t() | atom()
       }
       
   """
-  @type setting() :: %{String.t() | Atom.t() => any()}
+  @type setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -378,26 +378,26 @@ defmodule AWS.ECS do
         "desiredCount" => integer(),
         "failedTasks" => integer(),
         "fargateEphemeralStorage" => deployment_ephemeral_storage(),
-        "id" => String.t() | Atom.t(),
+        "id" => String.t() | atom(),
         "launchType" => list(any()),
         "networkConfiguration" => network_configuration(),
         "pendingCount" => integer(),
-        "platformFamily" => String.t() | Atom.t(),
-        "platformVersion" => String.t() | Atom.t(),
+        "platformFamily" => String.t() | atom(),
+        "platformVersion" => String.t() | atom(),
         "rolloutState" => list(any()),
-        "rolloutStateReason" => String.t() | Atom.t(),
+        "rolloutStateReason" => String.t() | atom(),
         "runningCount" => integer(),
         "serviceConnectConfiguration" => service_connect_configuration(),
         "serviceConnectResources" => list(service_connect_service_resource()),
-        "status" => String.t() | Atom.t(),
-        "taskDefinition" => String.t() | Atom.t(),
+        "status" => String.t() | atom(),
+        "taskDefinition" => String.t() | atom(),
         "updatedAt" => non_neg_integer(),
         "volumeConfigurations" => list(service_volume_configuration()),
         "vpcLatticeConfigurations" => list(vpc_lattice_configuration())
       }
       
   """
-  @type deployment() :: %{String.t() | Atom.t() => any()}
+  @type deployment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -405,25 +405,25 @@ defmodule AWS.ECS do
       
       service_event() :: %{
         "createdAt" => non_neg_integer(),
-        "id" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "id" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
       
   """
-  @type service_event() :: %{String.t() | Atom.t() => any()}
+  @type service_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_services_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
         optional("include") => list(list(any())()),
-        required("services") => list(String.t() | Atom.t())
+        required("services") => list(String.t() | atom())
       }
       
   """
-  @type describe_services_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_services_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -431,11 +431,11 @@ defmodule AWS.ECS do
       
       stop_service_deployment_request() :: %{
         optional("stopType") => list(any()),
-        required("serviceDeploymentArn") => String.t() | Atom.t()
+        required("serviceDeploymentArn") => String.t() | atom()
       }
       
   """
-  @type stop_service_deployment_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_service_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -452,16 +452,16 @@ defmodule AWS.ECS do
       
       task_override() :: %{
         "containerOverrides" => list(container_override()),
-        "cpu" => String.t() | Atom.t(),
+        "cpu" => String.t() | atom(),
         "ephemeralStorage" => ephemeral_storage(),
-        "executionRoleArn" => String.t() | Atom.t(),
+        "executionRoleArn" => String.t() | atom(),
         "inferenceAcceleratorOverrides" => list(inference_accelerator_override()),
-        "memory" => String.t() | Atom.t(),
-        "taskRoleArn" => String.t() | Atom.t()
+        "memory" => String.t() | atom(),
+        "taskRoleArn" => String.t() | atom()
       }
       
   """
-  @type task_override() :: %{String.t() | Atom.t() => any()}
+  @type task_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -473,7 +473,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type describe_service_deployments_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_service_deployments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -484,18 +484,18 @@ defmodule AWS.ECS do
       }
       
   """
-  @type create_cluster_response() :: %{String.t() | Atom.t() => any()}
+  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -503,11 +503,11 @@ defmodule AWS.ECS do
       
       put_account_setting_default_request() :: %{
         required("name") => list(any()),
-        required("value") => String.t() | Atom.t()
+        required("value") => String.t() | atom()
       }
       
   """
-  @type put_account_setting_default_request() :: %{String.t() | Atom.t() => any()}
+  @type put_account_setting_default_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -518,7 +518,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type register_container_instance_response() :: %{String.t() | Atom.t() => any()}
+  @type register_container_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -526,45 +526,45 @@ defmodule AWS.ECS do
       
       create_task_set_request() :: %{
         optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()),
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("externalId") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("externalId") => String.t() | atom(),
         optional("launchType") => list(any()),
         optional("loadBalancers") => list(load_balancer()),
         optional("networkConfiguration") => network_configuration(),
-        optional("platformVersion") => String.t() | Atom.t(),
+        optional("platformVersion") => String.t() | atom(),
         optional("scale") => scale(),
         optional("serviceRegistries") => list(service_registry()),
         optional("tags") => list(tag()),
-        required("cluster") => String.t() | Atom.t(),
-        required("service") => String.t() | Atom.t(),
-        required("taskDefinition") => String.t() | Atom.t()
+        required("cluster") => String.t() | atom(),
+        required("service") => String.t() | atom(),
+        required("taskDefinition") => String.t() | atom()
       }
       
   """
-  @type create_task_set_request() :: %{String.t() | Atom.t() => any()}
+  @type create_task_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_task_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
         optional("enableECSManagedTags") => boolean(),
         optional("enableExecuteCommand") => boolean(),
-        optional("group") => String.t() | Atom.t(),
+        optional("group") => String.t() | atom(),
         optional("networkConfiguration") => network_configuration(),
         optional("overrides") => task_override(),
         optional("propagateTags") => list(any()),
-        optional("referenceId") => String.t() | Atom.t(),
-        optional("startedBy") => String.t() | Atom.t(),
+        optional("referenceId") => String.t() | atom(),
+        optional("startedBy") => String.t() | atom(),
         optional("tags") => list(tag()),
         optional("volumeConfigurations") => list(task_volume_configuration()),
-        required("containerInstances") => list(String.t() | Atom.t()),
-        required("taskDefinition") => String.t() | Atom.t()
+        required("containerInstances") => list(String.t() | atom()),
+        required("taskDefinition") => String.t() | atom()
       }
       
   """
-  @type start_task_request() :: %{String.t() | Atom.t() => any()}
+  @type start_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -575,7 +575,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type delete_account_setting_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_account_setting_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -583,11 +583,11 @@ defmodule AWS.ECS do
       
       update_capacity_provider_request() :: %{
         required("autoScalingGroupProvider") => auto_scaling_group_provider_update(),
-        required("name") => String.t() | Atom.t()
+        required("name") => String.t() | atom()
       }
       
   """
-  @type update_capacity_provider_request() :: %{String.t() | Atom.t() => any()}
+  @type update_capacity_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -598,7 +598,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type put_account_setting_response() :: %{String.t() | Atom.t() => any()}
+  @type put_account_setting_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -606,12 +606,12 @@ defmodule AWS.ECS do
       
       list_services_by_namespace_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("namespace") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("namespace") => String.t() | atom()
       }
       
   """
-  @type list_services_by_namespace_request() :: %{String.t() | Atom.t() => any()}
+  @type list_services_by_namespace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -623,92 +623,92 @@ defmodule AWS.ECS do
       }
       
   """
-  @type get_task_protection_response() :: %{String.t() | Atom.t() => any()}
+  @type get_task_protection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_connect_service_resource() :: %{
-        "discoveryArn" => String.t() | Atom.t(),
-        "discoveryName" => String.t() | Atom.t()
+        "discoveryArn" => String.t() | atom(),
+        "discoveryName" => String.t() | atom()
       }
       
   """
-  @type service_connect_service_resource() :: %{String.t() | Atom.t() => any()}
+  @type service_connect_service_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type cluster_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type cluster_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       host_volume_properties() :: %{
-        "sourcePath" => String.t() | Atom.t()
+        "sourcePath" => String.t() | atom()
       }
       
   """
-  @type host_volume_properties() :: %{String.t() | Atom.t() => any()}
+  @type host_volume_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       network_interface() :: %{
-        "attachmentId" => String.t() | Atom.t(),
-        "ipv6Address" => String.t() | Atom.t(),
-        "privateIpv4Address" => String.t() | Atom.t()
+        "attachmentId" => String.t() | atom(),
+        "ipv6Address" => String.t() | atom(),
+        "privateIpv4Address" => String.t() | atom()
       }
       
   """
-  @type network_interface() :: %{String.t() | Atom.t() => any()}
+  @type network_interface() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_task_set_request() :: %{
-        required("cluster") => String.t() | Atom.t(),
+        required("cluster") => String.t() | atom(),
         required("scale") => scale(),
-        required("service") => String.t() | Atom.t(),
-        required("taskSet") => String.t() | Atom.t()
+        required("service") => String.t() | atom(),
+        required("taskSet") => String.t() | atom()
       }
       
   """
-  @type update_task_set_request() :: %{String.t() | Atom.t() => any()}
+  @type update_task_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_deployment_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type service_deployment_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_deployment_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execute_command_configuration() :: %{
-        "kmsKeyId" => String.t() | Atom.t(),
+        "kmsKeyId" => String.t() | atom(),
         "logConfiguration" => execute_command_log_configuration(),
         "logging" => list(any())
       }
       
   """
-  @type execute_command_configuration() :: %{String.t() | Atom.t() => any()}
+  @type execute_command_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -716,49 +716,49 @@ defmodule AWS.ECS do
       
       attachment() :: %{
         "details" => list(key_value_pair()),
-        "id" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t()
+        "id" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type attachment() :: %{String.t() | Atom.t() => any()}
+  @type attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_revision_summary() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "pendingTaskCount" => integer(),
         "requestedTaskCount" => integer(),
         "runningTaskCount" => integer()
       }
       
   """
-  @type service_revision_summary() :: %{String.t() | Atom.t() => any()}
+  @type service_revision_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       target_not_connected_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type target_not_connected_exception() :: %{String.t() | Atom.t() => any()}
+  @type target_not_connected_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type service_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -767,9 +767,9 @@ defmodule AWS.ECS do
       service() :: %{
         "availabilityZoneRebalancing" => list(any()),
         "capacityProviderStrategy" => list(capacity_provider_strategy_item()),
-        "clusterArn" => String.t() | Atom.t(),
+        "clusterArn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | Atom.t(),
+        "createdBy" => String.t() | atom(),
         "deploymentConfiguration" => deployment_configuration(),
         "deploymentController" => deployment_controller(),
         "deployments" => list(deployment()),
@@ -784,69 +784,69 @@ defmodule AWS.ECS do
         "pendingCount" => integer(),
         "placementConstraints" => list(placement_constraint()),
         "placementStrategy" => list(placement_strategy()),
-        "platformFamily" => String.t() | Atom.t(),
-        "platformVersion" => String.t() | Atom.t(),
+        "platformFamily" => String.t() | atom(),
+        "platformVersion" => String.t() | atom(),
         "propagateTags" => list(any()),
-        "roleArn" => String.t() | Atom.t(),
+        "roleArn" => String.t() | atom(),
         "runningCount" => integer(),
         "schedulingStrategy" => list(any()),
-        "serviceArn" => String.t() | Atom.t(),
-        "serviceName" => String.t() | Atom.t(),
+        "serviceArn" => String.t() | atom(),
+        "serviceName" => String.t() | atom(),
         "serviceRegistries" => list(service_registry()),
-        "status" => String.t() | Atom.t(),
+        "status" => String.t() | atom(),
         "tags" => list(tag()),
-        "taskDefinition" => String.t() | Atom.t(),
+        "taskDefinition" => String.t() | atom(),
         "taskSets" => list(task_set())
       }
       
   """
-  @type service() :: %{String.t() | Atom.t() => any()}
+  @type service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       host_entry() :: %{
-        "hostname" => String.t() | Atom.t(),
-        "ipAddress" => String.t() | Atom.t()
+        "hostname" => String.t() | atom(),
+        "ipAddress" => String.t() | atom()
       }
       
   """
-  @type host_entry() :: %{String.t() | Atom.t() => any()}
+  @type host_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_task_definitions_request() :: %{
-        optional("familyPrefix") => String.t() | Atom.t(),
+        optional("familyPrefix") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("sort") => list(any()),
         optional("status") => list(any())
       }
       
   """
-  @type list_task_definitions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_task_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_deployment_brief() :: %{
-        "clusterArn" => String.t() | Atom.t(),
+        "clusterArn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "finishedAt" => non_neg_integer(),
-        "serviceArn" => String.t() | Atom.t(),
-        "serviceDeploymentArn" => String.t() | Atom.t(),
+        "serviceArn" => String.t() | atom(),
+        "serviceDeploymentArn" => String.t() | atom(),
         "startedAt" => non_neg_integer(),
         "status" => list(any()),
-        "statusReason" => String.t() | Atom.t(),
-        "targetServiceRevisionArn" => String.t() | Atom.t()
+        "statusReason" => String.t() | atom(),
+        "targetServiceRevisionArn" => String.t() | atom()
       }
       
   """
-  @type service_deployment_brief() :: %{String.t() | Atom.t() => any()}
+  @type service_deployment_brief() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -854,37 +854,37 @@ defmodule AWS.ECS do
       
       task_volume_configuration() :: %{
         "managedEBSVolume" => task_managed_ebs_volume_configuration(),
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type task_volume_configuration() :: %{String.t() | Atom.t() => any()}
+  @type task_volume_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       managed_agent_state_change() :: %{
-        "containerName" => String.t() | Atom.t(),
+        "containerName" => String.t() | atom(),
         "managedAgentName" => list(any()),
-        "reason" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t()
+        "reason" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
       
   """
-  @type managed_agent_state_change() :: %{String.t() | Atom.t() => any()}
+  @type managed_agent_state_change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("resourceArn") => String.t() | Atom.t(),
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -895,20 +895,20 @@ defmodule AWS.ECS do
       }
       
   """
-  @type delete_task_set_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_task_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_container_instances_state_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
-        required("containerInstances") => list(String.t() | Atom.t()),
+        optional("cluster") => String.t() | atom(),
+        required("containerInstances") => list(String.t() | atom()),
         required("status") => list(any())
       }
       
   """
-  @type update_container_instances_state_request() :: %{String.t() | Atom.t() => any()}
+  @type update_container_instances_state_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -916,14 +916,14 @@ defmodule AWS.ECS do
       
       docker_volume_configuration() :: %{
         "autoprovision" => boolean(),
-        "driver" => String.t() | Atom.t(),
+        "driver" => String.t() | atom(),
         "driverOpts" => map(),
         "labels" => map(),
         "scope" => list(any())
       }
       
   """
-  @type docker_volume_configuration() :: %{String.t() | Atom.t() => any()}
+  @type docker_volume_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -931,13 +931,13 @@ defmodule AWS.ECS do
       
       update_task_protection_request() :: %{
         optional("expiresInMinutes") => integer(),
-        required("cluster") => String.t() | Atom.t(),
+        required("cluster") => String.t() | atom(),
         required("protectionEnabled") => boolean(),
-        required("tasks") => list(String.t() | Atom.t())
+        required("tasks") => list(String.t() | atom())
       }
       
   """
-  @type update_task_protection_request() :: %{String.t() | Atom.t() => any()}
+  @type update_task_protection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -947,11 +947,11 @@ defmodule AWS.ECS do
         optional("configuration") => cluster_configuration(),
         optional("serviceConnectDefaults") => cluster_service_connect_defaults_request(),
         optional("settings") => list(cluster_setting()),
-        required("cluster") => String.t() | Atom.t()
+        required("cluster") => String.t() | atom()
       }
       
   """
-  @type update_cluster_request() :: %{String.t() | Atom.t() => any()}
+  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -959,10 +959,10 @@ defmodule AWS.ECS do
       
       register_container_instance_request() :: %{
         optional("attributes") => list(attribute()),
-        optional("cluster") => String.t() | Atom.t(),
-        optional("containerInstanceArn") => String.t() | Atom.t(),
-        optional("instanceIdentityDocument") => String.t() | Atom.t(),
-        optional("instanceIdentityDocumentSignature") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
+        optional("containerInstanceArn") => String.t() | atom(),
+        optional("instanceIdentityDocument") => String.t() | atom(),
+        optional("instanceIdentityDocumentSignature") => String.t() | atom(),
         optional("platformDevices") => list(platform_device()),
         optional("tags") => list(tag()),
         optional("totalResources") => list(resource()),
@@ -970,20 +970,20 @@ defmodule AWS.ECS do
       }
       
   """
-  @type register_container_instance_request() :: %{String.t() | Atom.t() => any()}
+  @type register_container_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       mount_point() :: %{
-        "containerPath" => String.t() | Atom.t(),
+        "containerPath" => String.t() | atom(),
         "readOnly" => boolean(),
-        "sourceVolume" => String.t() | Atom.t()
+        "sourceVolume" => String.t() | atom()
       }
       
   """
-  @type mount_point() :: %{String.t() | Atom.t() => any()}
+  @type mount_point() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -995,7 +995,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type timeout_configuration() :: %{String.t() | Atom.t() => any()}
+  @type timeout_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1003,13 +1003,13 @@ defmodule AWS.ECS do
       
       managed_agent() :: %{
         "lastStartedAt" => non_neg_integer(),
-        "lastStatus" => String.t() | Atom.t(),
+        "lastStatus" => String.t() | atom(),
         "name" => list(any()),
-        "reason" => String.t() | Atom.t()
+        "reason" => String.t() | atom()
       }
       
   """
-  @type managed_agent() :: %{String.t() | Atom.t() => any()}
+  @type managed_agent() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1021,64 +1021,64 @@ defmodule AWS.ECS do
       }
       
   """
-  @type cluster_configuration() :: %{String.t() | Atom.t() => any()}
+  @type cluster_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_alarms() :: %{
-        "alarmNames" => list(String.t() | Atom.t()),
+        "alarmNames" => list(String.t() | atom()),
         "enable" => boolean(),
         "rollback" => boolean()
       }
       
   """
-  @type deployment_alarms() :: %{String.t() | Atom.t() => any()}
+  @type deployment_alarms() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_account_setting_request() :: %{
-        optional("principalArn") => String.t() | Atom.t(),
+        optional("principalArn") => String.t() | atom(),
         required("name") => list(any()),
-        required("value") => String.t() | Atom.t()
+        required("value") => String.t() | atom()
       }
       
   """
-  @type put_account_setting_request() :: %{String.t() | Atom.t() => any()}
+  @type put_account_setting_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_services_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
         optional("launchType") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("schedulingStrategy") => list(any())
       }
       
   """
-  @type list_services_request() :: %{String.t() | Atom.t() => any()}
+  @type list_services_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execute_command_response() :: %{
-        "clusterArn" => String.t() | Atom.t(),
-        "containerArn" => String.t() | Atom.t(),
-        "containerName" => String.t() | Atom.t(),
+        "clusterArn" => String.t() | atom(),
+        "containerArn" => String.t() | atom(),
+        "containerName" => String.t() | atom(),
         "interactive" => boolean(),
         "session" => session(),
-        "taskArn" => String.t() | Atom.t()
+        "taskArn" => String.t() | atom()
       }
       
   """
-  @type execute_command_response() :: %{String.t() | Atom.t() => any()}
+  @type execute_command_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1090,7 +1090,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type describe_services_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_services_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1101,7 +1101,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type task_managed_ebs_volume_termination_policy() :: %{String.t() | Atom.t() => any()}
+  @type task_managed_ebs_volume_termination_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1112,29 +1112,29 @@ defmodule AWS.ECS do
       }
       
   """
-  @type deregister_task_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type deregister_task_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       namespace_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type namespace_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type namespace_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_feature_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type unsupported_feature_exception() :: %{String.t() | Atom.t() => any()}
+  @type unsupported_feature_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1148,7 +1148,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type deployment_configuration() :: %{String.t() | Atom.t() => any()}
+  @type deployment_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1158,46 +1158,46 @@ defmodule AWS.ECS do
         optional("effectiveSettings") => boolean(),
         optional("maxResults") => integer(),
         optional("name") => list(any()),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("principalArn") => String.t() | Atom.t(),
-        optional("value") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("principalArn") => String.t() | atom(),
+        optional("value") => String.t() | atom()
       }
       
   """
-  @type list_account_settings_request() :: %{String.t() | Atom.t() => any()}
+  @type list_account_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_account_settings_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "settings" => list(setting())
       }
       
   """
-  @type list_account_settings_response() :: %{String.t() | Atom.t() => any()}
+  @type list_account_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rollback() :: %{
-        "reason" => String.t() | Atom.t(),
-        "serviceRevisionArn" => String.t() | Atom.t(),
+        "reason" => String.t() | atom(),
+        "serviceRevisionArn" => String.t() | atom(),
         "startedAt" => non_neg_integer()
       }
       
   """
-  @type rollback() :: %{String.t() | Atom.t() => any()}
+  @type rollback() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_cluster_request() :: %{
-        optional("capacityProviders") => list(String.t() | Atom.t()),
-        optional("clusterName") => String.t() | Atom.t(),
+        optional("capacityProviders") => list(String.t() | atom()),
+        optional("clusterName") => String.t() | atom(),
         optional("configuration") => cluster_configuration(),
         optional("defaultCapacityProviderStrategy") => list(capacity_provider_strategy_item()),
         optional("serviceConnectDefaults") => cluster_service_connect_defaults_request(),
@@ -1206,7 +1206,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type create_cluster_request() :: %{String.t() | Atom.t() => any()}
+  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1219,19 +1219,19 @@ defmodule AWS.ECS do
       }
       
   """
-  @type container_restart_policy() :: %{String.t() | Atom.t() => any()}
+  @type container_restart_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_deployments_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "serviceDeployments" => list(service_deployment_brief())
       }
       
   """
-  @type list_service_deployments_response() :: %{String.t() | Atom.t() => any()}
+  @type list_service_deployments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1240,60 +1240,60 @@ defmodule AWS.ECS do
       service_connect_configuration() :: %{
         "enabled" => boolean(),
         "logConfiguration" => log_configuration(),
-        "namespace" => String.t() | Atom.t(),
+        "namespace" => String.t() | atom(),
         "services" => list(service_connect_service())
       }
       
   """
-  @type service_connect_configuration() :: %{String.t() | Atom.t() => any()}
+  @type service_connect_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       client_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type client_exception() :: %{String.t() | Atom.t() => any()}
+  @type client_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_capacity_providers_request() :: %{
-        optional("capacityProviders") => list(String.t() | Atom.t()),
+        optional("capacityProviders") => list(String.t() | atom()),
         optional("include") => list(list(any())()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type describe_capacity_providers_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_capacity_providers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceIds" => list(String.t() | Atom.t())
+        "message" => String.t() | atom(),
+        "resourceIds" => list(String.t() | atom())
       }
       
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1301,23 +1301,23 @@ defmodule AWS.ECS do
       
       container_definition() :: %{
         "dependsOn" => list(container_dependency()),
-        "image" => String.t() | Atom.t(),
-        "entryPoint" => list(String.t() | Atom.t()),
-        "user" => String.t() | Atom.t(),
+        "image" => String.t() | atom(),
+        "entryPoint" => list(String.t() | atom()),
+        "user" => String.t() | atom(),
         "healthCheck" => health_check(),
         "interactive" => boolean(),
-        "dockerSecurityOptions" => list(String.t() | Atom.t()),
+        "dockerSecurityOptions" => list(String.t() | atom()),
         "pseudoTerminal" => boolean(),
-        "hostname" => String.t() | Atom.t(),
+        "hostname" => String.t() | atom(),
         "secrets" => list(secret()),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "portMappings" => list(port_mapping()),
-        "workingDirectory" => String.t() | Atom.t(),
-        "command" => list(String.t() | Atom.t()),
+        "workingDirectory" => String.t() | atom(),
+        "command" => list(String.t() | atom()),
         "environmentFiles" => list(environment_file()),
         "cpu" => integer(),
         "repositoryCredentials" => repository_credentials(),
-        "links" => list(String.t() | Atom.t()),
+        "links" => list(String.t() | atom()),
         "ulimits" => list(ulimit()),
         "readonlyRootFilesystem" => boolean(),
         "volumesFrom" => list(volume_from()),
@@ -1328,114 +1328,114 @@ defmodule AWS.ECS do
         "systemControls" => list(system_control()),
         "mountPoints" => list(mount_point()),
         "environment" => list(key_value_pair()),
-        "dnsSearchDomains" => list(String.t() | Atom.t()),
+        "dnsSearchDomains" => list(String.t() | atom()),
         "linuxParameters" => linux_parameters(),
         "startTimeout" => integer(),
         "resourceRequirements" => list(resource_requirement()),
-        "dnsServers" => list(String.t() | Atom.t()),
+        "dnsServers" => list(String.t() | atom()),
         "restartPolicy" => container_restart_policy(),
         "dockerLabels" => map(),
         "versionConsistency" => list(any()),
         "essential" => boolean(),
         "stopTimeout" => integer(),
         "memoryReservation" => integer(),
-        "credentialSpecs" => list(String.t() | Atom.t()),
+        "credentialSpecs" => list(String.t() | atom()),
         "extraHosts" => list(host_entry()),
         "firelensConfiguration" => firelens_configuration()
       }
       
   """
-  @type container_definition() :: %{String.t() | Atom.t() => any()}
+  @type container_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       managed_storage_configuration() :: %{
-        "fargateEphemeralStorageKmsKeyId" => String.t() | Atom.t(),
-        "kmsKeyId" => String.t() | Atom.t()
+        "fargateEphemeralStorageKmsKeyId" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom()
       }
       
   """
-  @type managed_storage_configuration() :: %{String.t() | Atom.t() => any()}
+  @type managed_storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_lattice_configuration() :: %{
-        "portName" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
-        "targetGroupArn" => String.t() | Atom.t()
+        "portName" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "targetGroupArn" => String.t() | atom()
       }
       
   """
-  @type vpc_lattice_configuration() :: %{String.t() | Atom.t() => any()}
+  @type vpc_lattice_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_task_protection_request() :: %{
-        optional("tasks") => list(String.t() | Atom.t()),
-        required("cluster") => String.t() | Atom.t()
+        optional("tasks") => list(String.t() | atom()),
+        required("cluster") => String.t() | atom()
       }
       
   """
-  @type get_task_protection_request() :: %{String.t() | Atom.t() => any()}
+  @type get_task_protection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_contains_tasks_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type cluster_contains_tasks_exception() :: %{String.t() | Atom.t() => any()}
+  @type cluster_contains_tasks_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "key" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_task_definitions_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
-        "taskDefinitionArns" => list(String.t() | Atom.t())
+        "nextToken" => String.t() | atom(),
+        "taskDefinitionArns" => list(String.t() | atom())
       }
       
   """
-  @type list_task_definitions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_task_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       container_override() :: %{
-        "command" => list(String.t() | Atom.t()),
+        "command" => list(String.t() | atom()),
         "cpu" => integer(),
         "environment" => list(key_value_pair()),
         "environmentFiles" => list(environment_file()),
         "memory" => integer(),
         "memoryReservation" => integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "resourceRequirements" => list(resource_requirement())
       }
       
   """
-  @type container_override() :: %{String.t() | Atom.t() => any()}
+  @type container_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1448,7 +1448,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type ulimit() :: %{String.t() | Atom.t() => any()}
+  @type ulimit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1456,14 +1456,14 @@ defmodule AWS.ECS do
       
       execute_command_log_configuration() :: %{
         "cloudWatchEncryptionEnabled" => boolean(),
-        "cloudWatchLogGroupName" => String.t() | Atom.t(),
-        "s3BucketName" => String.t() | Atom.t(),
+        "cloudWatchLogGroupName" => String.t() | atom(),
+        "s3BucketName" => String.t() | atom(),
         "s3EncryptionEnabled" => boolean(),
-        "s3KeyPrefix" => String.t() | Atom.t()
+        "s3KeyPrefix" => String.t() | atom()
       }
       
   """
-  @type execute_command_log_configuration() :: %{String.t() | Atom.t() => any()}
+  @type execute_command_log_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1472,10 +1472,10 @@ defmodule AWS.ECS do
       cluster() :: %{
         "activeServicesCount" => integer(),
         "attachments" => list(attachment()),
-        "attachmentsStatus" => String.t() | Atom.t(),
-        "capacityProviders" => list(String.t() | Atom.t()),
-        "clusterArn" => String.t() | Atom.t(),
-        "clusterName" => String.t() | Atom.t(),
+        "attachmentsStatus" => String.t() | atom(),
+        "capacityProviders" => list(String.t() | atom()),
+        "clusterArn" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
         "configuration" => cluster_configuration(),
         "defaultCapacityProviderStrategy" => list(capacity_provider_strategy_item()),
         "pendingTasksCount" => integer(),
@@ -1484,36 +1484,36 @@ defmodule AWS.ECS do
         "serviceConnectDefaults" => cluster_service_connect_defaults(),
         "settings" => list(cluster_setting()),
         "statistics" => list(key_value_pair()),
-        "status" => String.t() | Atom.t(),
+        "status" => String.t() | atom(),
         "tags" => list(tag())
       }
       
   """
-  @type cluster() :: %{String.t() | Atom.t() => any()}
+  @type cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attachment_state_change() :: %{
-        "attachmentArn" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t()
+        "attachmentArn" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
       
   """
-  @type attachment_state_change() :: %{String.t() | Atom.t() => any()}
+  @type attachment_state_change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_services_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
-        "serviceArns" => list(String.t() | Atom.t())
+        "nextToken" => String.t() | atom(),
+        "serviceArns" => list(String.t() | atom())
       }
       
   """
-  @type list_services_response() :: %{String.t() | Atom.t() => any()}
+  @type list_services_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1525,31 +1525,31 @@ defmodule AWS.ECS do
       }
       
   """
-  @type describe_service_revisions_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_service_revisions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_deployment_alarms() :: %{
-        "alarmNames" => list(String.t() | Atom.t()),
+        "alarmNames" => list(String.t() | atom()),
         "status" => list(any()),
-        "triggeredAlarmNames" => list(String.t() | Atom.t())
+        "triggeredAlarmNames" => list(String.t() | atom())
       }
       
   """
-  @type service_deployment_alarms() :: %{String.t() | Atom.t() => any()}
+  @type service_deployment_alarms() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_not_active_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type service_not_active_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_not_active_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1557,22 +1557,22 @@ defmodule AWS.ECS do
       
       cluster_setting() :: %{
         "name" => list(any()),
-        "value" => String.t() | Atom.t()
+        "value" => String.t() | atom()
       }
       
   """
-  @type cluster_setting() :: %{String.t() | Atom.t() => any()}
+  @type cluster_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_task_definitions_request() :: %{
-        required("taskDefinitions") => list(String.t() | Atom.t())
+        required("taskDefinitions") => list(String.t() | atom())
       }
       
   """
-  @type delete_task_definitions_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_task_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1580,31 +1580,31 @@ defmodule AWS.ECS do
       
       describe_task_sets_request() :: %{
         optional("include") => list(list(any())()),
-        optional("taskSets") => list(String.t() | Atom.t()),
-        required("cluster") => String.t() | Atom.t(),
-        required("service") => String.t() | Atom.t()
+        optional("taskSets") => list(String.t() | atom()),
+        required("cluster") => String.t() | atom(),
+        required("service") => String.t() | atom()
       }
       
   """
-  @type describe_task_sets_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_task_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       submit_container_state_change_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
-        optional("containerName") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
+        optional("containerName") => String.t() | atom(),
         optional("exitCode") => integer(),
         optional("networkBindings") => list(network_binding()),
-        optional("reason") => String.t() | Atom.t(),
-        optional("runtimeId") => String.t() | Atom.t(),
-        optional("status") => String.t() | Atom.t(),
-        optional("task") => String.t() | Atom.t()
+        optional("reason") => String.t() | atom(),
+        optional("runtimeId") => String.t() | atom(),
+        optional("status") => String.t() | atom(),
+        optional("task") => String.t() | atom()
       }
       
   """
-  @type submit_container_state_change_request() :: %{String.t() | Atom.t() => any()}
+  @type submit_container_state_change_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1613,8 +1613,8 @@ defmodule AWS.ECS do
       create_service_request() :: %{
         optional("availabilityZoneRebalancing") => list(any()),
         optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()),
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("cluster") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("cluster") => String.t() | atom(),
         optional("deploymentConfiguration") => deployment_configuration(),
         optional("deploymentController") => deployment_controller(),
         optional("desiredCount") => integer(),
@@ -1626,58 +1626,58 @@ defmodule AWS.ECS do
         optional("networkConfiguration") => network_configuration(),
         optional("placementConstraints") => list(placement_constraint()),
         optional("placementStrategy") => list(placement_strategy()),
-        optional("platformVersion") => String.t() | Atom.t(),
+        optional("platformVersion") => String.t() | atom(),
         optional("propagateTags") => list(any()),
-        optional("role") => String.t() | Atom.t(),
+        optional("role") => String.t() | atom(),
         optional("schedulingStrategy") => list(any()),
         optional("serviceConnectConfiguration") => service_connect_configuration(),
         optional("serviceRegistries") => list(service_registry()),
         optional("tags") => list(tag()),
-        optional("taskDefinition") => String.t() | Atom.t(),
+        optional("taskDefinition") => String.t() | atom(),
         optional("volumeConfigurations") => list(service_volume_configuration()),
         optional("vpcLatticeConfigurations") => list(vpc_lattice_configuration()),
-        required("serviceName") => String.t() | Atom.t()
+        required("serviceName") => String.t() | atom()
       }
       
   """
-  @type create_service_request() :: %{String.t() | Atom.t() => any()}
+  @type create_service_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       task_definition_placement_constraint() :: %{
-        "expression" => String.t() | Atom.t(),
+        "expression" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type task_definition_placement_constraint() :: %{String.t() | Atom.t() => any()}
+  @type task_definition_placement_constraint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_task_definition_families_response() :: %{
-        "families" => list(String.t() | Atom.t()),
-        "nextToken" => String.t() | Atom.t()
+        "families" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_task_definition_families_response() :: %{String.t() | Atom.t() => any()}
+  @type list_task_definition_families_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       container_image() :: %{
-        "containerName" => String.t() | Atom.t(),
-        "image" => String.t() | Atom.t(),
-        "imageDigest" => String.t() | Atom.t()
+        "containerName" => String.t() | atom(),
+        "image" => String.t() | atom(),
+        "imageDigest" => String.t() | atom()
       }
       
   """
-  @type container_image() :: %{String.t() | Atom.t() => any()}
+  @type container_image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1688,7 +1688,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type update_task_set_response() :: %{String.t() | Atom.t() => any()}
+  @type update_task_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1699,7 +1699,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type delete_attributes_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1711,7 +1711,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type describe_tasks_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1723,7 +1723,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type deployment_circuit_breaker() :: %{String.t() | Atom.t() => any()}
+  @type deployment_circuit_breaker() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1735,49 +1735,49 @@ defmodule AWS.ECS do
       }
       
   """
-  @type describe_container_instances_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_container_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       container_state_change() :: %{
-        "containerName" => String.t() | Atom.t(),
+        "containerName" => String.t() | atom(),
         "exitCode" => integer(),
-        "imageDigest" => String.t() | Atom.t(),
+        "imageDigest" => String.t() | atom(),
         "networkBindings" => list(network_binding()),
-        "reason" => String.t() | Atom.t(),
-        "runtimeId" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t()
+        "reason" => String.t() | atom(),
+        "runtimeId" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
       
   """
-  @type container_state_change() :: %{String.t() | Atom.t() => any()}
+  @type container_state_change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       secret() :: %{
-        "name" => String.t() | Atom.t(),
-        "valueFrom" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "valueFrom" => String.t() | atom()
       }
       
   """
-  @type secret() :: %{String.t() | Atom.t() => any()}
+  @type secret() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_cluster_capacity_providers_request() :: %{
-        required("capacityProviders") => list(String.t() | Atom.t()),
-        required("cluster") => String.t() | Atom.t(),
+        required("capacityProviders") => list(String.t() | atom()),
+        required("cluster") => String.t() | atom(),
         required("defaultCapacityProviderStrategy") => list(capacity_provider_strategy_item())
       }
       
   """
-  @type put_cluster_capacity_providers_request() :: %{String.t() | Atom.t() => any()}
+  @type put_cluster_capacity_providers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1788,7 +1788,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1801,7 +1801,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type auto_scaling_group_provider_update() :: %{String.t() | Atom.t() => any()}
+  @type auto_scaling_group_provider_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1815,23 +1815,23 @@ defmodule AWS.ECS do
       }
       
   """
-  @type instance_health_check_result() :: %{String.t() | Atom.t() => any()}
+  @type instance_health_check_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       network_binding() :: %{
-        "bindIP" => String.t() | Atom.t(),
+        "bindIP" => String.t() | atom(),
         "containerPort" => integer(),
-        "containerPortRange" => String.t() | Atom.t(),
+        "containerPortRange" => String.t() | atom(),
         "hostPort" => integer(),
-        "hostPortRange" => String.t() | Atom.t(),
+        "hostPortRange" => String.t() | atom(),
         "protocol" => list(any())
       }
       
   """
-  @type network_binding() :: %{String.t() | Atom.t() => any()}
+  @type network_binding() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1839,25 +1839,25 @@ defmodule AWS.ECS do
       
       service_deployment() :: %{
         "alarms" => service_deployment_alarms(),
-        "clusterArn" => String.t() | Atom.t(),
+        "clusterArn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "deploymentCircuitBreaker" => service_deployment_circuit_breaker(),
         "deploymentConfiguration" => deployment_configuration(),
         "finishedAt" => non_neg_integer(),
         "rollback" => rollback(),
-        "serviceArn" => String.t() | Atom.t(),
-        "serviceDeploymentArn" => String.t() | Atom.t(),
+        "serviceArn" => String.t() | atom(),
+        "serviceDeploymentArn" => String.t() | atom(),
         "sourceServiceRevisions" => list(service_revision_summary()),
         "startedAt" => non_neg_integer(),
         "status" => list(any()),
-        "statusReason" => String.t() | Atom.t(),
+        "statusReason" => String.t() | atom(),
         "stoppedAt" => non_neg_integer(),
         "targetServiceRevision" => service_revision_summary(),
         "updatedAt" => non_neg_integer()
       }
       
   """
-  @type service_deployment() :: %{String.t() | Atom.t() => any()}
+  @type service_deployment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1869,35 +1869,35 @@ defmodule AWS.ECS do
       }
       
   """
-  @type describe_task_sets_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_task_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_container_instance_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
         optional("force") => boolean(),
-        required("containerInstance") => String.t() | Atom.t()
+        required("containerInstance") => String.t() | atom()
       }
       
   """
-  @type deregister_container_instance_request() :: %{String.t() | Atom.t() => any()}
+  @type deregister_container_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_container_instances_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
-        optional("filter") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
+        optional("filter") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("status") => list(any())
       }
       
   """
-  @type list_container_instances_request() :: %{String.t() | Atom.t() => any()}
+  @type list_container_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1905,26 +1905,26 @@ defmodule AWS.ECS do
       
       submit_task_state_change_request() :: %{
         optional("attachments") => list(attachment_state_change()),
-        optional("cluster") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
         optional("containers") => list(container_state_change()),
         optional("executionStoppedAt") => non_neg_integer(),
         optional("managedAgents") => list(managed_agent_state_change()),
         optional("pullStartedAt") => non_neg_integer(),
         optional("pullStoppedAt") => non_neg_integer(),
-        optional("reason") => String.t() | Atom.t(),
-        optional("status") => String.t() | Atom.t(),
-        optional("task") => String.t() | Atom.t()
+        optional("reason") => String.t() | atom(),
+        optional("status") => String.t() | atom(),
+        optional("task") => String.t() | atom()
       }
       
   """
-  @type submit_task_state_change_request() :: %{String.t() | Atom.t() => any()}
+  @type submit_task_state_change_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       health_check() :: %{
-        "command" => list(String.t() | Atom.t()),
+        "command" => list(String.t() | atom()),
         "interval" => integer(),
         "retries" => integer(),
         "startPeriod" => integer(),
@@ -1932,19 +1932,19 @@ defmodule AWS.ECS do
       }
       
   """
-  @type health_check() :: %{String.t() | Atom.t() => any()}
+  @type health_check() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_container_agent_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
-        required("containerInstance") => String.t() | Atom.t()
+        optional("cluster") => String.t() | atom(),
+        required("containerInstance") => String.t() | atom()
       }
       
   """
-  @type update_container_agent_request() :: %{String.t() | Atom.t() => any()}
+  @type update_container_agent_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1955,54 +1955,54 @@ defmodule AWS.ECS do
       }
       
   """
-  @type ephemeral_storage() :: %{String.t() | Atom.t() => any()}
+  @type ephemeral_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       submit_attachment_state_changes_response() :: %{
-        "acknowledgment" => String.t() | Atom.t()
+        "acknowledgment" => String.t() | atom()
       }
       
   """
-  @type submit_attachment_state_changes_response() :: %{String.t() | Atom.t() => any()}
+  @type submit_attachment_state_changes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_clusters_response() :: %{
-        "clusterArns" => list(String.t() | Atom.t()),
-        "nextToken" => String.t() | Atom.t()
+        "clusterArns" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_clusters_response() :: %{String.t() | Atom.t() => any()}
+  @type list_clusters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       task_set_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type task_set_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type task_set_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       session() :: %{
-        "sessionId" => String.t() | Atom.t(),
-        "streamUrl" => String.t() | Atom.t(),
-        "tokenValue" => String.t() | Atom.t()
+        "sessionId" => String.t() | atom(),
+        "streamUrl" => String.t() | atom(),
+        "tokenValue" => String.t() | atom()
       }
       
   """
-  @type session() :: %{String.t() | Atom.t() => any()}
+  @type session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2013,7 +2013,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type delete_cluster_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2024,7 +2024,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type create_capacity_provider_response() :: %{String.t() | Atom.t() => any()}
+  @type create_capacity_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2035,7 +2035,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type update_container_agent_response() :: %{String.t() | Atom.t() => any()}
+  @type update_container_agent_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2046,7 +2046,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type put_attributes_response() :: %{String.t() | Atom.t() => any()}
+  @type put_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2055,57 +2055,57 @@ defmodule AWS.ECS do
       task_definition() :: %{
         "compatibilities" => list(list(any())()),
         "containerDefinitions" => list(container_definition()),
-        "cpu" => String.t() | Atom.t(),
+        "cpu" => String.t() | atom(),
         "deregisteredAt" => non_neg_integer(),
         "enableFaultInjection" => boolean(),
         "ephemeralStorage" => ephemeral_storage(),
-        "executionRoleArn" => String.t() | Atom.t(),
-        "family" => String.t() | Atom.t(),
+        "executionRoleArn" => String.t() | atom(),
+        "family" => String.t() | atom(),
         "inferenceAccelerators" => list(inference_accelerator()),
         "ipcMode" => list(any()),
-        "memory" => String.t() | Atom.t(),
+        "memory" => String.t() | atom(),
         "networkMode" => list(any()),
         "pidMode" => list(any()),
         "placementConstraints" => list(task_definition_placement_constraint()),
         "proxyConfiguration" => proxy_configuration(),
         "registeredAt" => non_neg_integer(),
-        "registeredBy" => String.t() | Atom.t(),
+        "registeredBy" => String.t() | atom(),
         "requiresAttributes" => list(attribute()),
         "requiresCompatibilities" => list(list(any())()),
         "revision" => integer(),
         "runtimePlatform" => runtime_platform(),
         "status" => list(any()),
-        "taskDefinitionArn" => String.t() | Atom.t(),
-        "taskRoleArn" => String.t() | Atom.t(),
+        "taskDefinitionArn" => String.t() | atom(),
+        "taskRoleArn" => String.t() | atom(),
         "volumes" => list(volume())
       }
       
   """
-  @type task_definition() :: %{String.t() | Atom.t() => any()}
+  @type task_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_container_instances_response() :: %{
-        "containerInstanceArns" => list(String.t() | Atom.t()),
-        "nextToken" => String.t() | Atom.t()
+        "containerInstanceArns" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_container_instances_response() :: %{String.t() | Atom.t() => any()}
+  @type list_container_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_cluster_settings_request() :: %{
-        required("cluster") => String.t() | Atom.t(),
+        required("cluster") => String.t() | atom(),
         required("settings") => list(cluster_setting())
       }
       
   """
-  @type update_cluster_settings_request() :: %{String.t() | Atom.t() => any()}
+  @type update_cluster_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2114,7 +2114,7 @@ defmodule AWS.ECS do
       update_service_request() :: %{
         optional("availabilityZoneRebalancing") => list(any()),
         optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()),
-        optional("cluster") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
         optional("deploymentConfiguration") => deployment_configuration(),
         optional("desiredCount") => integer(),
         optional("enableECSManagedTags") => boolean(),
@@ -2125,18 +2125,18 @@ defmodule AWS.ECS do
         optional("networkConfiguration") => network_configuration(),
         optional("placementConstraints") => list(placement_constraint()),
         optional("placementStrategy") => list(placement_strategy()),
-        optional("platformVersion") => String.t() | Atom.t(),
+        optional("platformVersion") => String.t() | atom(),
         optional("propagateTags") => list(any()),
         optional("serviceConnectConfiguration") => service_connect_configuration(),
         optional("serviceRegistries") => list(service_registry()),
-        optional("taskDefinition") => String.t() | Atom.t(),
+        optional("taskDefinition") => String.t() | atom(),
         optional("volumeConfigurations") => list(service_volume_configuration()),
         optional("vpcLatticeConfigurations") => list(vpc_lattice_configuration()),
-        required("service") => String.t() | Atom.t()
+        required("service") => String.t() | atom()
       }
       
   """
-  @type update_service_request() :: %{String.t() | Atom.t() => any()}
+  @type update_service_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2149,7 +2149,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type ebs_tag_specification() :: %{String.t() | Atom.t() => any()}
+  @type ebs_tag_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2160,7 +2160,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type deployment_controller() :: %{String.t() | Atom.t() => any()}
+  @type deployment_controller() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2171,20 +2171,20 @@ defmodule AWS.ECS do
       }
       
   """
-  @type put_account_setting_default_response() :: %{String.t() | Atom.t() => any()}
+  @type put_account_setting_default_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       discover_poll_endpoint_response() :: %{
-        "endpoint" => String.t() | Atom.t(),
-        "serviceConnectEndpoint" => String.t() | Atom.t(),
-        "telemetryEndpoint" => String.t() | Atom.t()
+        "endpoint" => String.t() | atom(),
+        "serviceConnectEndpoint" => String.t() | atom(),
+        "telemetryEndpoint" => String.t() | atom()
       }
       
   """
-  @type discover_poll_endpoint_response() :: %{String.t() | Atom.t() => any()}
+  @type discover_poll_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2192,11 +2192,11 @@ defmodule AWS.ECS do
       
       list_clusters_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_clusters_request() :: %{String.t() | Atom.t() => any()}
+  @type list_clusters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2204,23 +2204,23 @@ defmodule AWS.ECS do
       
       describe_task_definition_request() :: %{
         optional("include") => list(list(any())()),
-        required("taskDefinition") => String.t() | Atom.t()
+        required("taskDefinition") => String.t() | atom()
       }
       
   """
-  @type describe_task_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_task_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       f_sx_windows_file_server_authorization_config() :: %{
-        "credentialsParameter" => String.t() | Atom.t(),
-        "domain" => String.t() | Atom.t()
+        "credentialsParameter" => String.t() | atom(),
+        "domain" => String.t() | atom()
       }
       
   """
-  @type f_sx_windows_file_server_authorization_config() :: %{String.t() | Atom.t() => any()}
+  @type f_sx_windows_file_server_authorization_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2231,42 +2231,42 @@ defmodule AWS.ECS do
       }
       
   """
-  @type update_capacity_provider_response() :: %{String.t() | Atom.t() => any()}
+  @type update_capacity_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       platform_unknown_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type platform_unknown_exception() :: %{String.t() | Atom.t() => any()}
+  @type platform_unknown_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_attributes_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
         required("attributes") => list(attribute())
       }
       
   """
-  @type delete_attributes_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       e_f_s_authorization_config() :: %{
-        "accessPointId" => String.t() | Atom.t(),
+        "accessPointId" => String.t() | atom(),
         "iam" => list(any())
       }
       
   """
-  @type e_f_s_authorization_config() :: %{String.t() | Atom.t() => any()}
+  @type e_f_s_authorization_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2278,7 +2278,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type update_task_protection_response() :: %{String.t() | Atom.t() => any()}
+  @type update_task_protection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2286,60 +2286,60 @@ defmodule AWS.ECS do
       
       delete_task_set_request() :: %{
         optional("force") => boolean(),
-        required("cluster") => String.t() | Atom.t(),
-        required("service") => String.t() | Atom.t(),
-        required("taskSet") => String.t() | Atom.t()
+        required("cluster") => String.t() | atom(),
+        required("service") => String.t() | atom(),
+        required("taskSet") => String.t() | atom()
       }
       
   """
-  @type delete_task_set_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_task_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_contains_container_instances_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type cluster_contains_container_instances_exception() :: %{String.t() | Atom.t() => any()}
+  @type cluster_contains_container_instances_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       submit_container_state_change_response() :: %{
-        "acknowledgment" => String.t() | Atom.t()
+        "acknowledgment" => String.t() | atom()
       }
       
   """
-  @type submit_container_state_change_response() :: %{String.t() | Atom.t() => any()}
+  @type submit_container_state_change_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_task_definition_families_request() :: %{
-        optional("familyPrefix") => String.t() | Atom.t(),
+        optional("familyPrefix") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("status") => list(any())
       }
       
   """
-  @type list_task_definition_families_request() :: %{String.t() | Atom.t() => any()}
+  @type list_task_definition_families_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cluster_request() :: %{
-        required("cluster") => String.t() | Atom.t()
+        required("cluster") => String.t() | atom()
       }
       
   """
-  @type delete_cluster_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2347,14 +2347,14 @@ defmodule AWS.ECS do
       
       e_f_s_volume_configuration() :: %{
         "authorizationConfig" => e_f_s_authorization_config(),
-        "fileSystemId" => String.t() | Atom.t(),
-        "rootDirectory" => String.t() | Atom.t(),
+        "fileSystemId" => String.t() | atom(),
+        "rootDirectory" => String.t() | atom(),
         "transitEncryption" => list(any()),
         "transitEncryptionPort" => integer()
       }
       
   """
-  @type e_f_s_volume_configuration() :: %{String.t() | Atom.t() => any()}
+  @type e_f_s_volume_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2365,7 +2365,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type update_cluster_settings_response() :: %{String.t() | Atom.t() => any()}
+  @type update_cluster_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2373,23 +2373,23 @@ defmodule AWS.ECS do
       
       capacity_provider_strategy_item() :: %{
         "base" => integer(),
-        "capacityProvider" => String.t() | Atom.t(),
+        "capacityProvider" => String.t() | atom(),
         "weight" => integer()
       }
       
   """
-  @type capacity_provider_strategy_item() :: %{String.t() | Atom.t() => any()}
+  @type capacity_provider_strategy_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_update_available_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_update_available_exception() :: %{String.t() | Atom.t() => any()}
+  @type no_update_available_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2401,19 +2401,19 @@ defmodule AWS.ECS do
       }
       
   """
-  @type delete_task_definitions_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_task_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       placement_constraint() :: %{
-        "expression" => String.t() | Atom.t(),
+        "expression" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type placement_constraint() :: %{String.t() | Atom.t() => any()}
+  @type placement_constraint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2424,7 +2424,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type network_configuration() :: %{String.t() | Atom.t() => any()}
+  @type network_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2439,7 +2439,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type managed_scaling() :: %{String.t() | Atom.t() => any()}
+  @type managed_scaling() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2451,7 +2451,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type created_at() :: %{String.t() | Atom.t() => any()}
+  @type created_at() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2463,44 +2463,44 @@ defmodule AWS.ECS do
         "efsVolumeConfiguration" => e_f_s_volume_configuration(),
         "fsxWindowsFileServerVolumeConfiguration" => f_sx_windows_file_server_volume_configuration(),
         "host" => host_volume_properties(),
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type volume() :: %{String.t() | Atom.t() => any()}
+  @type volume() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       missing_version_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type missing_version_exception() :: %{String.t() | Atom.t() => any()}
+  @type missing_version_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2516,13 +2516,13 @@ defmodule AWS.ECS do
   ## Example:
       
       register_task_definition_request() :: %{
-        optional("cpu") => String.t() | Atom.t(),
+        optional("cpu") => String.t() | atom(),
         optional("enableFaultInjection") => boolean(),
         optional("ephemeralStorage") => ephemeral_storage(),
-        optional("executionRoleArn") => String.t() | Atom.t(),
+        optional("executionRoleArn") => String.t() | atom(),
         optional("inferenceAccelerators") => list(inference_accelerator()),
         optional("ipcMode") => list(any()),
-        optional("memory") => String.t() | Atom.t(),
+        optional("memory") => String.t() | atom(),
         optional("networkMode") => list(any()),
         optional("pidMode") => list(any()),
         optional("placementConstraints") => list(task_definition_placement_constraint()),
@@ -2530,64 +2530,64 @@ defmodule AWS.ECS do
         optional("requiresCompatibilities") => list(list(any())()),
         optional("runtimePlatform") => runtime_platform(),
         optional("tags") => list(tag()),
-        optional("taskRoleArn") => String.t() | Atom.t(),
+        optional("taskRoleArn") => String.t() | atom(),
         optional("volumes") => list(volume()),
         required("containerDefinitions") => list(container_definition()),
-        required("family") => String.t() | Atom.t()
+        required("family") => String.t() | atom()
       }
       
   """
-  @type register_task_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type register_task_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_tasks_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
         optional("include") => list(list(any())()),
-        required("tasks") => list(String.t() | Atom.t())
+        required("tasks") => list(String.t() | atom())
       }
       
   """
-  @type describe_tasks_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       inference_accelerator_override() :: %{
-        "deviceName" => String.t() | Atom.t(),
-        "deviceType" => String.t() | Atom.t()
+        "deviceName" => String.t() | atom(),
+        "deviceType" => String.t() | atom()
       }
       
   """
-  @type inference_accelerator_override() :: %{String.t() | Atom.t() => any()}
+  @type inference_accelerator_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_scaling_group_provider() :: %{
-        "autoScalingGroupArn" => String.t() | Atom.t(),
+        "autoScalingGroupArn" => String.t() | atom(),
         "managedDraining" => list(any()),
         "managedScaling" => managed_scaling(),
         "managedTerminationProtection" => list(any())
       }
       
   """
-  @type auto_scaling_group_provider() :: %{String.t() | Atom.t() => any()}
+  @type auto_scaling_group_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       platform_task_definition_incompatibility_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type platform_task_definition_incompatibility_exception() :: %{String.t() | Atom.t() => any()}
+  @type platform_task_definition_incompatibility_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2596,14 +2596,14 @@ defmodule AWS.ECS do
       port_mapping() :: %{
         "appProtocol" => list(any()),
         "containerPort" => integer(),
-        "containerPortRange" => String.t() | Atom.t(),
+        "containerPortRange" => String.t() | atom(),
         "hostPort" => integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "protocol" => list(any())
       }
       
   """
-  @type port_mapping() :: %{String.t() | Atom.t() => any()}
+  @type port_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2615,7 +2615,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type describe_clusters_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_clusters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2627,95 +2627,95 @@ defmodule AWS.ECS do
       }
       
   """
-  @type start_task_response() :: %{String.t() | Atom.t() => any()}
+  @type start_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       load_balancer() :: %{
-        "containerName" => String.t() | Atom.t(),
+        "containerName" => String.t() | atom(),
         "containerPort" => integer(),
-        "loadBalancerName" => String.t() | Atom.t(),
-        "targetGroupArn" => String.t() | Atom.t()
+        "loadBalancerName" => String.t() | atom(),
+        "targetGroupArn" => String.t() | atom()
       }
       
   """
-  @type load_balancer() :: %{String.t() | Atom.t() => any()}
+  @type load_balancer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       key_value_pair() :: %{
-        "name" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type key_value_pair() :: %{String.t() | Atom.t() => any()}
+  @type key_value_pair() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_service_connect_defaults() :: %{
-        "namespace" => String.t() | Atom.t()
+        "namespace" => String.t() | atom()
       }
       
   """
-  @type cluster_service_connect_defaults() :: %{String.t() | Atom.t() => any()}
+  @type cluster_service_connect_defaults() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t() | Atom.t()
+        required("resourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kernel_capabilities() :: %{
-        "add" => list(String.t() | Atom.t()),
-        "drop" => list(String.t() | Atom.t())
+        "add" => list(String.t() | atom()),
+        "drop" => list(String.t() | atom())
       }
       
   """
-  @type kernel_capabilities() :: %{String.t() | Atom.t() => any()}
+  @type kernel_capabilities() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execute_command_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
-        optional("container") => String.t() | Atom.t(),
-        required("command") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
+        optional("container") => String.t() | atom(),
+        required("command") => String.t() | atom(),
         required("interactive") => boolean(),
-        required("task") => String.t() | Atom.t()
+        required("task") => String.t() | atom()
       }
       
   """
-  @type execute_command_request() :: %{String.t() | Atom.t() => any()}
+  @type execute_command_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_service_primary_task_set_request() :: %{
-        required("cluster") => String.t() | Atom.t(),
-        required("primaryTaskSet") => String.t() | Atom.t(),
-        required("service") => String.t() | Atom.t()
+        required("cluster") => String.t() | atom(),
+        required("primaryTaskSet") => String.t() | atom(),
+        required("service") => String.t() | atom()
       }
       
   """
-  @type update_service_primary_task_set_request() :: %{String.t() | Atom.t() => any()}
+  @type update_service_primary_task_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2727,31 +2727,31 @@ defmodule AWS.ECS do
       }
       
   """
-  @type runtime_platform() :: %{String.t() | Atom.t() => any()}
+  @type runtime_platform() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       target_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type target_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type target_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_service_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
         optional("force") => boolean(),
-        required("service") => String.t() | Atom.t()
+        required("service") => String.t() | atom()
       }
       
   """
-  @type delete_service_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_service_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2768,18 +2768,18 @@ defmodule AWS.ECS do
       }
       
   """
-  @type linux_parameters() :: %{String.t() | Atom.t() => any()}
+  @type linux_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       submit_task_state_change_response() :: %{
-        "acknowledgment" => String.t() | Atom.t()
+        "acknowledgment" => String.t() | atom()
       }
       
   """
-  @type submit_task_state_change_response() :: %{String.t() | Atom.t() => any()}
+  @type submit_task_state_change_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2787,15 +2787,15 @@ defmodule AWS.ECS do
       
       service_connect_service() :: %{
         "clientAliases" => list(service_connect_client_alias()),
-        "discoveryName" => String.t() | Atom.t(),
+        "discoveryName" => String.t() | atom(),
         "ingressPortOverride" => integer(),
-        "portName" => String.t() | Atom.t(),
+        "portName" => String.t() | atom(),
         "timeout" => timeout_configuration(),
         "tls" => service_connect_tls_configuration()
       }
       
   """
-  @type service_connect_service() :: %{String.t() | Atom.t() => any()}
+  @type service_connect_service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2807,120 +2807,120 @@ defmodule AWS.ECS do
       }
       
   """
-  @type scale() :: %{String.t() | Atom.t() => any()}
+  @type scale() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       server_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type server_exception() :: %{String.t() | Atom.t() => any()}
+  @type server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       platform_device() :: %{
-        "id" => String.t() | Atom.t(),
+        "id" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type platform_device() :: %{String.t() | Atom.t() => any()}
+  @type platform_device() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       discover_poll_endpoint_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
-        optional("containerInstance") => String.t() | Atom.t()
+        optional("cluster") => String.t() | atom(),
+        optional("containerInstance") => String.t() | atom()
       }
       
   """
-  @type discover_poll_endpoint_request() :: %{String.t() | Atom.t() => any()}
+  @type discover_poll_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_service_deployments_request() :: %{
-        required("serviceDeploymentArns") => list(String.t() | Atom.t())
+        required("serviceDeploymentArns") => list(String.t() | atom())
       }
       
   """
-  @type describe_service_deployments_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_service_deployments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_contains_services_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type cluster_contains_services_exception() :: %{String.t() | Atom.t() => any()}
+  @type cluster_contains_services_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       blocked_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type blocked_exception() :: %{String.t() | Atom.t() => any()}
+  @type blocked_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attribute() :: %{
-        "name" => String.t() | Atom.t(),
-        "targetId" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "targetId" => String.t() | atom(),
         "targetType" => list(any()),
-        "value" => String.t() | Atom.t()
+        "value" => String.t() | atom()
       }
       
   """
-  @type attribute() :: %{String.t() | Atom.t() => any()}
+  @type attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tasks_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
-        optional("containerInstance") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
+        optional("containerInstance") => String.t() | atom(),
         optional("desiredStatus") => list(any()),
-        optional("family") => String.t() | Atom.t(),
+        optional("family") => String.t() | atom(),
         optional("launchType") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("serviceName") => String.t() | Atom.t(),
-        optional("startedBy") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("serviceName") => String.t() | atom(),
+        optional("startedBy") => String.t() | atom()
       }
       
   """
-  @type list_tasks_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       task_ephemeral_storage() :: %{
-        "kmsKeyId" => String.t() | Atom.t(),
+        "kmsKeyId" => String.t() | atom(),
         "sizeInGiB" => integer()
       }
       
   """
-  @type task_ephemeral_storage() :: %{String.t() | Atom.t() => any()}
+  @type task_ephemeral_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2929,35 +2929,35 @@ defmodule AWS.ECS do
       describe_capacity_providers_response() :: %{
         "capacityProviders" => list(capacity_provider()),
         "failures" => list(failure()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type describe_capacity_providers_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_capacity_providers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       failure() :: %{
-        "arn" => String.t() | Atom.t(),
-        "detail" => String.t() | Atom.t(),
-        "reason" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "detail" => String.t() | atom(),
+        "reason" => String.t() | atom()
       }
       
   """
-  @type failure() :: %{String.t() | Atom.t() => any()}
+  @type failure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2968,31 +2968,31 @@ defmodule AWS.ECS do
       }
       
   """
-  @type stop_task_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_services_by_namespace_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
-        "serviceArns" => list(String.t() | Atom.t())
+        "nextToken" => String.t() | atom(),
+        "serviceArns" => list(String.t() | atom())
       }
       
   """
-  @type list_services_by_namespace_response() :: %{String.t() | Atom.t() => any()}
+  @type list_services_by_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_connect_client_alias() :: %{
-        "dnsName" => String.t() | Atom.t(),
+        "dnsName" => String.t() | atom(),
         "port" => integer()
       }
       
   """
-  @type service_connect_client_alias() :: %{String.t() | Atom.t() => any()}
+  @type service_connect_client_alias() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3000,12 +3000,12 @@ defmodule AWS.ECS do
       
       aws_vpc_configuration() :: %{
         "assignPublicIp" => list(any()),
-        "securityGroups" => list(String.t() | Atom.t()),
-        "subnets" => list(String.t() | Atom.t())
+        "securityGroups" => list(String.t() | atom()),
+        "subnets" => list(String.t() | atom())
       }
       
   """
-  @type aws_vpc_configuration() :: %{String.t() | Atom.t() => any()}
+  @type aws_vpc_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3013,16 +3013,16 @@ defmodule AWS.ECS do
       
       capacity_provider() :: %{
         "autoScalingGroupProvider" => auto_scaling_group_provider(),
-        "capacityProviderArn" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "capacityProviderArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
         "tags" => list(tag()),
         "updateStatus" => list(any()),
-        "updateStatusReason" => String.t() | Atom.t()
+        "updateStatusReason" => String.t() | atom()
       }
       
   """
-  @type capacity_provider() :: %{String.t() | Atom.t() => any()}
+  @type capacity_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3031,23 +3031,23 @@ defmodule AWS.ECS do
       create_capacity_provider_request() :: %{
         optional("tags") => list(tag()),
         required("autoScalingGroupProvider") => auto_scaling_group_provider(),
-        required("name") => String.t() | Atom.t()
+        required("name") => String.t() | atom()
       }
       
   """
-  @type create_capacity_provider_request() :: %{String.t() | Atom.t() => any()}
+  @type create_capacity_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_attributes_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
         required("attributes") => list(attribute())
       }
       
   """
-  @type put_attributes_request() :: %{String.t() | Atom.t() => any()}
+  @type put_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3058,7 +3058,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type put_cluster_capacity_providers_response() :: %{String.t() | Atom.t() => any()}
+  @type put_cluster_capacity_providers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3067,11 +3067,11 @@ defmodule AWS.ECS do
       protected_task() :: %{
         "expirationDate" => non_neg_integer(),
         "protectionEnabled" => boolean(),
-        "taskArn" => String.t() | Atom.t()
+        "taskArn" => String.t() | atom()
       }
       
   """
-  @type protected_task() :: %{String.t() | Atom.t() => any()}
+  @type protected_task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3079,12 +3079,12 @@ defmodule AWS.ECS do
       
       service_connect_tls_configuration() :: %{
         "issuerCertificateAuthority" => service_connect_tls_certificate_authority(),
-        "kmsKey" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "kmsKey" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
       
   """
-  @type service_connect_tls_configuration() :: %{String.t() | Atom.t() => any()}
+  @type service_connect_tls_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3092,7 +3092,7 @@ defmodule AWS.ECS do
       
       service_revision() :: %{
         "capacityProviderStrategy" => list(capacity_provider_strategy_item()),
-        "clusterArn" => String.t() | Atom.t(),
+        "clusterArn" => String.t() | atom(),
         "containerImages" => list(container_image()),
         "createdAt" => non_neg_integer(),
         "fargateEphemeralStorage" => deployment_ephemeral_storage(),
@@ -3100,35 +3100,35 @@ defmodule AWS.ECS do
         "launchType" => list(any()),
         "loadBalancers" => list(load_balancer()),
         "networkConfiguration" => network_configuration(),
-        "platformFamily" => String.t() | Atom.t(),
-        "platformVersion" => String.t() | Atom.t(),
-        "serviceArn" => String.t() | Atom.t(),
+        "platformFamily" => String.t() | atom(),
+        "platformVersion" => String.t() | atom(),
+        "serviceArn" => String.t() | atom(),
         "serviceConnectConfiguration" => service_connect_configuration(),
         "serviceRegistries" => list(service_registry()),
-        "serviceRevisionArn" => String.t() | Atom.t(),
-        "taskDefinition" => String.t() | Atom.t(),
+        "serviceRevisionArn" => String.t() | atom(),
+        "taskDefinition" => String.t() | atom(),
         "volumeConfigurations" => list(service_volume_configuration()),
         "vpcLatticeConfigurations" => list(vpc_lattice_configuration())
       }
       
   """
-  @type service_revision() :: %{String.t() | Atom.t() => any()}
+  @type service_revision() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_attributes_request() :: %{
-        optional("attributeName") => String.t() | Atom.t(),
-        optional("attributeValue") => String.t() | Atom.t(),
-        optional("cluster") => String.t() | Atom.t(),
+        optional("attributeName") => String.t() | atom(),
+        optional("attributeValue") => String.t() | atom(),
+        optional("cluster") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("targetType") => list(any())
       }
       
   """
-  @type list_attributes_request() :: %{String.t() | Atom.t() => any()}
+  @type list_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3139,7 +3139,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type update_service_response() :: %{String.t() | Atom.t() => any()}
+  @type update_service_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3147,11 +3147,11 @@ defmodule AWS.ECS do
       
       volume_from() :: %{
         "readOnly" => boolean(),
-        "sourceContainer" => String.t() | Atom.t()
+        "sourceContainer" => String.t() | atom()
       }
       
   """
-  @type volume_from() :: %{String.t() | Atom.t() => any()}
+  @type volume_from() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3162,44 +3162,44 @@ defmodule AWS.ECS do
       }
       
   """
-  @type delete_service_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_service_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       device() :: %{
-        "containerPath" => String.t() | Atom.t(),
-        "hostPath" => String.t() | Atom.t(),
+        "containerPath" => String.t() | atom(),
+        "hostPath" => String.t() | atom(),
         "permissions" => list(list(any())())
       }
       
   """
-  @type device() :: %{String.t() | Atom.t() => any()}
+  @type device() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       submit_attachment_state_changes_request() :: %{
-        optional("cluster") => String.t() | Atom.t(),
+        optional("cluster") => String.t() | atom(),
         required("attachments") => list(attachment_state_change())
       }
       
   """
-  @type submit_attachment_state_changes_request() :: %{String.t() | Atom.t() => any()}
+  @type submit_attachment_state_changes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_account_setting_request() :: %{
-        optional("principalArn") => String.t() | Atom.t(),
+        optional("principalArn") => String.t() | atom(),
         required("name") => list(any())
       }
       
   """
-  @type delete_account_setting_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_account_setting_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3210,7 +3210,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type create_task_set_response() :: %{String.t() | Atom.t() => any()}
+  @type create_task_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3218,34 +3218,34 @@ defmodule AWS.ECS do
       
       service_volume_configuration() :: %{
         "managedEBSVolume" => service_managed_ebs_volume_configuration(),
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type service_volume_configuration() :: %{String.t() | Atom.t() => any()}
+  @type service_volume_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_service_revisions_request() :: %{
-        required("serviceRevisionArns") => list(String.t() | Atom.t())
+        required("serviceRevisionArns") => list(String.t() | atom())
       }
       
   """
-  @type describe_service_revisions_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_service_revisions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tasks_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
-        "taskArns" => list(String.t() | Atom.t())
+        "nextToken" => String.t() | atom(),
+        "taskArns" => list(String.t() | atom())
       }
       
   """
-  @type list_tasks_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3256,7 +3256,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type create_service_response() :: %{String.t() | Atom.t() => any()}
+  @type create_service_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3266,19 +3266,19 @@ defmodule AWS.ECS do
         "encrypted" => boolean(),
         "filesystemType" => list(any()),
         "iops" => integer(),
-        "kmsKeyId" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
+        "kmsKeyId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
         "sizeInGiB" => integer(),
-        "snapshotId" => String.t() | Atom.t(),
+        "snapshotId" => String.t() | atom(),
         "tagSpecifications" => list(ebs_tag_specification()),
         "terminationPolicy" => task_managed_ebs_volume_termination_policy(),
         "throughput" => integer(),
         "volumeInitializationRate" => integer(),
-        "volumeType" => String.t() | Atom.t()
+        "volumeType" => String.t() | atom()
       }
       
   """
-  @type task_managed_ebs_volume_configuration() :: %{String.t() | Atom.t() => any()}
+  @type task_managed_ebs_volume_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3291,7 +3291,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type log_configuration() :: %{String.t() | Atom.t() => any()}
+  @type log_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3302,57 +3302,57 @@ defmodule AWS.ECS do
         "agentUpdateStatus" => list(any()),
         "attachments" => list(attachment()),
         "attributes" => list(attribute()),
-        "capacityProviderName" => String.t() | Atom.t(),
-        "containerInstanceArn" => String.t() | Atom.t(),
-        "ec2InstanceId" => String.t() | Atom.t(),
+        "capacityProviderName" => String.t() | atom(),
+        "containerInstanceArn" => String.t() | atom(),
+        "ec2InstanceId" => String.t() | atom(),
         "healthStatus" => container_instance_health_status(),
         "pendingTasksCount" => integer(),
         "registeredAt" => non_neg_integer(),
         "registeredResources" => list(resource()),
         "remainingResources" => list(resource()),
         "runningTasksCount" => integer(),
-        "status" => String.t() | Atom.t(),
-        "statusReason" => String.t() | Atom.t(),
+        "status" => String.t() | atom(),
+        "statusReason" => String.t() | atom(),
         "tags" => list(tag()),
         "version" => float(),
         "versionInfo" => version_info()
       }
       
   """
-  @type container_instance() :: %{String.t() | Atom.t() => any()}
+  @type container_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_service_deployment_response() :: %{
-        "serviceDeploymentArn" => String.t() | Atom.t()
+        "serviceDeploymentArn" => String.t() | atom()
       }
       
   """
-  @type stop_service_deployment_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_service_deployment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_connect_tls_certificate_authority() :: %{
-        "awsPcaAuthorityArn" => String.t() | Atom.t()
+        "awsPcaAuthorityArn" => String.t() | atom()
       }
       
   """
-  @type service_connect_tls_certificate_authority() :: %{String.t() | Atom.t() => any()}
+  @type service_connect_tls_certificate_authority() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_task_definition_request() :: %{
-        required("taskDefinition") => String.t() | Atom.t()
+        required("taskDefinition") => String.t() | atom()
       }
       
   """
-  @type deregister_task_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type deregister_task_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3360,11 +3360,11 @@ defmodule AWS.ECS do
       
       resource_requirement() :: %{
         "type" => list(any()),
-        "value" => String.t() | Atom.t()
+        "value" => String.t() | atom()
       }
       
   """
-  @type resource_requirement() :: %{String.t() | Atom.t() => any()}
+  @type resource_requirement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3376,20 +3376,20 @@ defmodule AWS.ECS do
       }
       
   """
-  @type firelens_configuration() :: %{String.t() | Atom.t() => any()}
+  @type firelens_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       version_info() :: %{
-        "agentHash" => String.t() | Atom.t(),
-        "agentVersion" => String.t() | Atom.t(),
-        "dockerVersion" => String.t() | Atom.t()
+        "agentHash" => String.t() | atom(),
+        "agentVersion" => String.t() | atom(),
+        "dockerVersion" => String.t() | atom()
       }
       
   """
-  @type version_info() :: %{String.t() | Atom.t() => any()}
+  @type version_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3400,7 +3400,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type update_service_primary_task_set_response() :: %{String.t() | Atom.t() => any()}
+  @type update_service_primary_task_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3410,18 +3410,18 @@ defmodule AWS.ECS do
         "encrypted" => boolean(),
         "filesystemType" => list(any()),
         "iops" => integer(),
-        "kmsKeyId" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
+        "kmsKeyId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
         "sizeInGiB" => integer(),
-        "snapshotId" => String.t() | Atom.t(),
+        "snapshotId" => String.t() | atom(),
         "tagSpecifications" => list(ebs_tag_specification()),
         "throughput" => integer(),
         "volumeInitializationRate" => integer(),
-        "volumeType" => String.t() | Atom.t()
+        "volumeType" => String.t() | atom()
       }
       
   """
-  @type service_managed_ebs_volume_configuration() :: %{String.t() | Atom.t() => any()}
+  @type service_managed_ebs_volume_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3433,19 +3433,19 @@ defmodule AWS.ECS do
       }
       
   """
-  @type register_task_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type register_task_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_clusters_request() :: %{
-        optional("clusters") => list(String.t() | Atom.t()),
+        optional("clusters") => list(String.t() | atom()),
         optional("include") => list(list(any())())
       }
       
   """
-  @type describe_clusters_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_clusters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3453,28 +3453,28 @@ defmodule AWS.ECS do
       
       run_task_request() :: %{
         optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()),
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("cluster") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("cluster") => String.t() | atom(),
         optional("count") => integer(),
         optional("enableECSManagedTags") => boolean(),
         optional("enableExecuteCommand") => boolean(),
-        optional("group") => String.t() | Atom.t(),
+        optional("group") => String.t() | atom(),
         optional("launchType") => list(any()),
         optional("networkConfiguration") => network_configuration(),
         optional("overrides") => task_override(),
         optional("placementConstraints") => list(placement_constraint()),
         optional("placementStrategy") => list(placement_strategy()),
-        optional("platformVersion") => String.t() | Atom.t(),
+        optional("platformVersion") => String.t() | atom(),
         optional("propagateTags") => list(any()),
-        optional("referenceId") => String.t() | Atom.t(),
-        optional("startedBy") => String.t() | Atom.t(),
+        optional("referenceId") => String.t() | atom(),
+        optional("startedBy") => String.t() | atom(),
         optional("tags") => list(tag()),
         optional("volumeConfigurations") => list(task_volume_configuration()),
-        required("taskDefinition") => String.t() | Atom.t()
+        required("taskDefinition") => String.t() | atom()
       }
       
   """
-  @type run_task_request() :: %{String.t() | Atom.t() => any()}
+  @type run_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3485,29 +3485,29 @@ defmodule AWS.ECS do
       }
       
   """
-  @type deregister_container_instance_response() :: %{String.t() | Atom.t() => any()}
+  @type deregister_container_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment_ephemeral_storage() :: %{
-        "kmsKeyId" => String.t() | Atom.t()
+        "kmsKeyId" => String.t() | atom()
       }
       
   """
-  @type deployment_ephemeral_storage() :: %{String.t() | Atom.t() => any()}
+  @type deployment_ephemeral_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_service_connect_defaults_request() :: %{
-        "namespace" => String.t() | Atom.t()
+        "namespace" => String.t() | atom()
       }
       
   """
-  @type cluster_service_connect_defaults_request() :: %{String.t() | Atom.t() => any()}
+  @type cluster_service_connect_defaults_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3515,22 +3515,22 @@ defmodule AWS.ECS do
       
       list_attributes_response() :: %{
         "attributes" => list(attribute()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_attributes_response() :: %{String.t() | Atom.t() => any()}
+  @type list_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_credentials() :: %{
-        "credentialsParameter" => String.t() | Atom.t()
+        "credentialsParameter" => String.t() | atom()
       }
       
   """
-  @type repository_credentials() :: %{String.t() | Atom.t() => any()}
+  @type repository_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3538,25 +3538,25 @@ defmodule AWS.ECS do
       
       f_sx_windows_file_server_volume_configuration() :: %{
         "authorizationConfig" => f_sx_windows_file_server_authorization_config(),
-        "fileSystemId" => String.t() | Atom.t(),
-        "rootDirectory" => String.t() | Atom.t()
+        "fileSystemId" => String.t() | atom(),
+        "rootDirectory" => String.t() | atom()
       }
       
   """
-  @type f_sx_windows_file_server_volume_configuration() :: %{String.t() | Atom.t() => any()}
+  @type f_sx_windows_file_server_volume_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tmpfs() :: %{
-        "containerPath" => String.t() | Atom.t(),
-        "mountOptions" => list(String.t() | Atom.t()),
+        "containerPath" => String.t() | atom(),
+        "mountOptions" => list(String.t() | atom()),
         "size" => integer()
       }
       
   """
-  @type tmpfs() :: %{String.t() | Atom.t() => any()}
+  @type tmpfs() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3564,23 +3564,23 @@ defmodule AWS.ECS do
       
       environment_file() :: %{
         "type" => list(any()),
-        "value" => String.t() | Atom.t()
+        "value" => String.t() | atom()
       }
       
   """
-  @type environment_file() :: %{String.t() | Atom.t() => any()}
+  @type environment_file() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       placement_strategy() :: %{
-        "field" => String.t() | Atom.t(),
+        "field" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type placement_strategy() :: %{String.t() | Atom.t() => any()}
+  @type placement_strategy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3591,7 +3591,7 @@ defmodule AWS.ECS do
       }
       
   """
-  @type update_cluster_response() :: %{String.t() | Atom.t() => any()}
+  @type update_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3599,11 +3599,11 @@ defmodule AWS.ECS do
       
       container_dependency() :: %{
         "condition" => list(any()),
-        "containerName" => String.t() | Atom.t()
+        "containerName" => String.t() | atom()
       }
       
   """
-  @type container_dependency() :: %{String.t() | Atom.t() => any()}
+  @type container_dependency() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3613,13 +3613,13 @@ defmodule AWS.ECS do
         "doubleValue" => float(),
         "integerValue" => integer(),
         "longValue" => float(),
-        "name" => String.t() | Atom.t(),
-        "stringSetValue" => list(String.t() | Atom.t()),
-        "type" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "stringSetValue" => list(String.t() | atom()),
+        "type" => String.t() | atom()
       }
       
   """
-  @type resource() :: %{String.t() | Atom.t() => any()}
+  @type resource() :: %{(String.t() | atom()) => any()}
 
   @type create_capacity_provider_errors() ::
           limit_exceeded_exception()

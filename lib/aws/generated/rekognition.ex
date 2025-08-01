@@ -314,7 +314,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type create_face_liveness_session_request_settings() :: %{String.t() | Atom.t() => any()}
+  @type create_face_liveness_session_request_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -325,18 +325,18 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type video() :: %{String.t() | Atom.t() => any()}
+  @type video() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       searched_user() :: %{
-        "UserId" => String.t() | Atom.t()
+        "UserId" => String.t() | atom()
       }
       
   """
-  @type searched_user() :: %{String.t() | Atom.t() => any()}
+  @type searched_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -344,11 +344,11 @@ defmodule AWS.Rekognition do
       
       update_dataset_entries_request() :: %{
         required("Changes") => dataset_changes(),
-        required("DatasetArn") => String.t() | Atom.t()
+        required("DatasetArn") => String.t() | atom()
       }
       
   """
-  @type update_dataset_entries_request() :: %{String.t() | Atom.t() => any()}
+  @type update_dataset_entries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -356,12 +356,12 @@ defmodule AWS.Rekognition do
       
       list_dataset_labels_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("DatasetArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("DatasetArn") => String.t() | atom()
       }
       
   """
-  @type list_dataset_labels_request() :: %{String.t() | Atom.t() => any()}
+  @type list_dataset_labels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -372,9 +372,9 @@ defmodule AWS.Rekognition do
         "CreationTimestamp" => non_neg_integer(),
         "FailureDetails" => media_analysis_job_failure_details(),
         "Input" => media_analysis_input(),
-        "JobId" => String.t() | Atom.t(),
-        "JobName" => String.t() | Atom.t(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "JobId" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "ManifestSummary" => media_analysis_manifest_summary(),
         "OperationsConfig" => media_analysis_operations_config(),
         "OutputConfig" => media_analysis_output_config(),
@@ -383,7 +383,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type get_media_analysis_job_response() :: %{String.t() | Atom.t() => any()}
+  @type get_media_analysis_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -395,19 +395,19 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type compared_source_image_face() :: %{String.t() | Atom.t() => any()}
+  @type compared_source_image_face() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       segment_type_info() :: %{
-        "ModelVersion" => String.t() | Atom.t(),
+        "ModelVersion" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type segment_type_info() :: %{String.t() | Atom.t() => any()}
+  @type segment_type_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -418,7 +418,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type recognize_celebrities_request() :: %{String.t() | Atom.t() => any()}
+  @type recognize_celebrities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -430,7 +430,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type get_label_detection_request_metadata() :: %{String.t() | Atom.t() => any()}
+  @type get_label_detection_request_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -438,11 +438,11 @@ defmodule AWS.Rekognition do
       
       detect_text_response() :: %{
         "TextDetections" => list(text_detection()),
-        "TextModelVersion" => String.t() | Atom.t()
+        "TextModelVersion" => String.t() | atom()
       }
       
   """
-  @type detect_text_response() :: %{String.t() | Atom.t() => any()}
+  @type detect_text_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -450,24 +450,24 @@ defmodule AWS.Rekognition do
       
       detect_protective_equipment_response() :: %{
         "Persons" => list(protective_equipment_person()),
-        "ProtectiveEquipmentModelVersion" => String.t() | Atom.t(),
+        "ProtectiveEquipmentModelVersion" => String.t() | atom(),
         "Summary" => protective_equipment_summary()
       }
       
   """
-  @type detect_protective_equipment_response() :: %{String.t() | Atom.t() => any()}
+  @type detect_protective_equipment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("Tags") => map()
       }
       
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -478,12 +478,12 @@ defmodule AWS.Rekognition do
         "CreationTimestamp" => non_neg_integer(),
         "Datasets" => list(dataset_metadata()),
         "Feature" => list(any()),
-        "ProjectArn" => String.t() | Atom.t(),
+        "ProjectArn" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type project_description() :: %{String.t() | Atom.t() => any()}
+  @type project_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -503,41 +503,41 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type start_shot_detection_filter() :: %{String.t() | Atom.t() => any()}
+  @type start_shot_detection_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_faces_request() :: %{
-        required("CollectionId") => String.t() | Atom.t(),
-        required("FaceIds") => list(String.t() | Atom.t())
+        required("CollectionId") => String.t() | atom(),
+        required("FaceIds") => list(String.t() | atom())
       }
       
   """
-  @type delete_faces_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_faces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_stream_processor_response() :: %{
-        "StreamProcessorArn" => String.t() | Atom.t()
+        "StreamProcessorArn" => String.t() | atom()
       }
       
   """
-  @type create_stream_processor_response() :: %{String.t() | Atom.t() => any()}
+  @type create_stream_processor_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_face_search_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_face_search_response() :: %{String.t() | Atom.t() => any()}
+  @type start_face_search_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -548,7 +548,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type detect_labels_image_properties_settings() :: %{String.t() | Atom.t() => any()}
+  @type detect_labels_image_properties_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -559,33 +559,33 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type customization_feature_content_moderation_config() :: %{String.t() | Atom.t() => any()}
+  @type customization_feature_content_moderation_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       search_users_response() :: %{
-        "FaceModelVersion" => String.t() | Atom.t(),
+        "FaceModelVersion" => String.t() | atom(),
         "SearchedFace" => searched_face(),
         "SearchedUser" => searched_user(),
         "UserMatches" => list(user_match())
       }
       
   """
-  @type search_users_response() :: %{String.t() | Atom.t() => any()}
+  @type search_users_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       matched_user() :: %{
-        "UserId" => String.t() | Atom.t(),
+        "UserId" => String.t() | atom(),
         "UserStatus" => list(any())
       }
       
   """
-  @type matched_user() :: %{String.t() | Atom.t() => any()}
+  @type matched_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -593,21 +593,21 @@ defmodule AWS.Rekognition do
       
       search_faces_response() :: %{
         "FaceMatches" => list(face_match()),
-        "FaceModelVersion" => String.t() | Atom.t(),
-        "SearchedFaceId" => String.t() | Atom.t()
+        "FaceModelVersion" => String.t() | atom(),
+        "SearchedFaceId" => String.t() | atom()
       }
       
   """
-  @type search_faces_response() :: %{String.t() | Atom.t() => any()}
+  @type search_faces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_label_detection_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
         optional("Features") => list(list(any())()),
-        optional("JobTag") => String.t() | Atom.t(),
+        optional("JobTag") => String.t() | atom(),
         optional("MinConfidence") => float(),
         optional("NotificationChannel") => notification_channel(),
         optional("Settings") => label_detection_settings(),
@@ -615,7 +615,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type start_label_detection_request() :: %{String.t() | Atom.t() => any()}
+  @type start_label_detection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -632,23 +632,23 @@ defmodule AWS.Rekognition do
       
       list_dataset_labels_response() :: %{
         "DatasetLabelDescriptions" => list(dataset_label_description()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_dataset_labels_response() :: %{String.t() | Atom.t() => any()}
+  @type list_dataset_labels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       dataset_source() :: %{
-        "DatasetArn" => String.t() | Atom.t(),
+        "DatasetArn" => String.t() | atom(),
         "GroundTruthManifest" => ground_truth_manifest()
       }
       
   """
-  @type dataset_source() :: %{String.t() | Atom.t() => any()}
+  @type dataset_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -661,7 +661,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type training_data_result() :: %{String.t() | Atom.t() => any()}
+  @type training_data_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -673,7 +673,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type unindexed_face() :: %{String.t() | Atom.t() => any()}
+  @type unindexed_face() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -685,7 +685,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type geometry() :: %{String.t() | Atom.t() => any()}
+  @type geometry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -696,12 +696,12 @@ defmodule AWS.Rekognition do
         "DatasetStats" => dataset_stats(),
         "LastUpdatedTimestamp" => non_neg_integer(),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | Atom.t(),
+        "StatusMessage" => String.t() | atom(),
         "StatusMessageCode" => list(any())
       }
       
   """
-  @type dataset_description() :: %{String.t() | Atom.t() => any()}
+  @type dataset_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -709,11 +709,11 @@ defmodule AWS.Rekognition do
       
       media_analysis_job_failure_details() :: %{
         "Code" => list(any()),
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type media_analysis_job_failure_details() :: %{String.t() | Atom.t() => any()}
+  @type media_analysis_job_failure_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -729,12 +729,12 @@ defmodule AWS.Rekognition do
   ## Example:
       
       stream_processor() :: %{
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type stream_processor() :: %{String.t() | Atom.t() => any()}
+  @type stream_processor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -745,36 +745,36 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type media_analysis_operations_config() :: %{String.t() | Atom.t() => any()}
+  @type media_analysis_operations_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_media_analysis_job_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("JobName") => String.t() | Atom.t(),
-        optional("KmsKeyId") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobName") => String.t() | atom(),
+        optional("KmsKeyId") => String.t() | atom(),
         required("Input") => media_analysis_input(),
         required("OperationsConfig") => media_analysis_operations_config(),
         required("OutputConfig") => media_analysis_output_config()
       }
       
   """
-  @type start_media_analysis_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_media_analysis_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -782,15 +782,15 @@ defmodule AWS.Rekognition do
       
       index_faces_request() :: %{
         optional("DetectionAttributes") => list(list(any())()),
-        optional("ExternalImageId") => String.t() | Atom.t(),
+        optional("ExternalImageId") => String.t() | atom(),
         optional("MaxFaces") => integer(),
         optional("QualityFilter") => list(any()),
-        required("CollectionId") => String.t() | Atom.t(),
+        required("CollectionId") => String.t() | atom(),
         required("Image") => image()
       }
       
   """
-  @type index_faces_request() :: %{String.t() | Atom.t() => any()}
+  @type index_faces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -803,31 +803,31 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type person_match() :: %{String.t() | Atom.t() => any()}
+  @type person_match() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_projects_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ProjectDescriptions" => list(project_description())
       }
       
   """
-  @type describe_projects_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_projects_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_faces_response() :: %{
-        "DeletedFaces" => list(String.t() | Atom.t()),
+        "DeletedFaces" => list(String.t() | atom()),
         "UnsuccessfulFaceDeletions" => list(unsuccessful_face_deletion())
       }
       
   """
-  @type delete_faces_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_faces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -839,7 +839,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type detect_faces_response() :: %{String.t() | Atom.t() => any()}
+  @type detect_faces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -849,21 +849,21 @@ defmodule AWS.Rekognition do
         "CreationTimestamp" => non_neg_integer(),
         "DataSharingPreference" => stream_processor_data_sharing_preference(),
         "Input" => stream_processor_input(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
         "LastUpdateTimestamp" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "NotificationChannel" => stream_processor_notification_channel(),
         "Output" => stream_processor_output(),
         "RegionsOfInterest" => list(region_of_interest()),
-        "RoleArn" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | atom(),
         "Settings" => stream_processor_settings(),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | Atom.t(),
-        "StreamProcessorArn" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom(),
+        "StreamProcessorArn" => String.t() | atom()
       }
       
   """
-  @type describe_stream_processor_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_stream_processor_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -874,19 +874,19 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type stream_processing_start_selector() :: %{String.t() | Atom.t() => any()}
+  @type stream_processing_start_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       versions() :: %{
-        "Maximum" => String.t() | Atom.t(),
-        "Minimum" => String.t() | Atom.t()
+        "Maximum" => String.t() | atom(),
+        "Minimum" => String.t() | atom()
       }
       
   """
-  @type versions() :: %{String.t() | Atom.t() => any()}
+  @type versions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -898,19 +898,19 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type smile() :: %{String.t() | Atom.t() => any()}
+  @type smile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       connected_home_settings() :: %{
-        "Labels" => list(String.t() | Atom.t()),
+        "Labels" => list(String.t() | atom()),
         "MinConfidence" => float()
       }
       
   """
-  @type connected_home_settings() :: %{String.t() | Atom.t() => any()}
+  @type connected_home_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -918,35 +918,35 @@ defmodule AWS.Rekognition do
       
       get_celebrity_info_response() :: %{
         "KnownGender" => known_gender(),
-        "Name" => String.t() | Atom.t(),
-        "Urls" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Urls" => list(String.t() | atom())
       }
       
   """
-  @type get_celebrity_info_response() :: %{String.t() | Atom.t() => any()}
+  @type get_celebrity_info_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_project_version_request() :: %{
-        required("ProjectVersionArn") => String.t() | Atom.t()
+        required("ProjectVersionArn") => String.t() | atom()
       }
       
   """
-  @type stop_project_version_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_project_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       media_analysis_output_config() :: %{
-        "S3Bucket" => String.t() | Atom.t(),
-        "S3KeyPrefix" => String.t() | Atom.t()
+        "S3Bucket" => String.t() | atom(),
+        "S3KeyPrefix" => String.t() | atom()
       }
       
   """
-  @type media_analysis_output_config() :: %{String.t() | Atom.t() => any()}
+  @type media_analysis_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -959,7 +959,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type person_detail() :: %{String.t() | Atom.t() => any()}
+  @type person_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -971,7 +971,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type get_content_moderation_request_metadata() :: %{String.t() | Atom.t() => any()}
+  @type get_content_moderation_request_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -979,24 +979,24 @@ defmodule AWS.Rekognition do
       
       get_face_search_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
-        required("JobId") => String.t() | Atom.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_face_search_request() :: %{String.t() | Atom.t() => any()}
+  @type get_face_search_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_stream_processor_response() :: %{
-        "SessionId" => String.t() | Atom.t()
+        "SessionId" => String.t() | atom()
       }
       
   """
-  @type start_stream_processor_response() :: %{String.t() | Atom.t() => any()}
+  @type start_stream_processor_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1009,31 +1009,31 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type associate_faces_response() :: %{String.t() | Atom.t() => any()}
+  @type associate_faces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unsuccessful_face_deletion() :: %{
-        "FaceId" => String.t() | Atom.t(),
+        "FaceId" => String.t() | atom(),
         "Reasons" => list(list(any())()),
-        "UserId" => String.t() | Atom.t()
+        "UserId" => String.t() | atom()
       }
       
   """
-  @type unsuccessful_face_deletion() :: %{String.t() | Atom.t() => any()}
+  @type unsuccessful_face_deletion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_face_detection_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_face_detection_response() :: %{String.t() | Atom.t() => any()}
+  @type start_face_detection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1047,7 +1047,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type protective_equipment_person() :: %{String.t() | Atom.t() => any()}
+  @type protective_equipment_person() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1060,22 +1060,22 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type eye_direction() :: %{String.t() | Atom.t() => any()}
+  @type eye_direction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_text_detection_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
         optional("Filters") => start_text_detection_filters(),
-        optional("JobTag") => String.t() | Atom.t(),
+        optional("JobTag") => String.t() | atom(),
         optional("NotificationChannel") => notification_channel(),
         required("Video") => video()
       }
       
   """
-  @type start_text_detection_request() :: %{String.t() | Atom.t() => any()}
+  @type start_text_detection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1084,38 +1084,38 @@ defmodule AWS.Rekognition do
       get_content_moderation_request() :: %{
         optional("AggregateBy") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
-        required("JobId") => String.t() | Atom.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_content_moderation_request() :: %{String.t() | Atom.t() => any()}
+  @type get_content_moderation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_object() :: %{
-        "Bucket" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Bucket" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
       
   """
-  @type s3_object() :: %{String.t() | Atom.t() => any()}
+  @type s3_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       connected_home_settings_for_update() :: %{
-        "Labels" => list(String.t() | Atom.t()),
+        "Labels" => list(String.t() | atom()),
         "MinConfidence" => float()
       }
       
   """
-  @type connected_home_settings_for_update() :: %{String.t() | Atom.t() => any()}
+  @type connected_home_settings_for_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1126,7 +1126,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type media_analysis_manifest_summary() :: %{String.t() | Atom.t() => any()}
+  @type media_analysis_manifest_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1136,25 +1136,25 @@ defmodule AWS.Rekognition do
         "ContentTypes" => list(content_type()),
         "HumanLoopActivationOutput" => human_loop_activation_output(),
         "ModerationLabels" => list(moderation_label()),
-        "ModerationModelVersion" => String.t() | Atom.t(),
-        "ProjectVersion" => String.t() | Atom.t()
+        "ModerationModelVersion" => String.t() | atom(),
+        "ProjectVersion" => String.t() | atom()
       }
       
   """
-  @type detect_moderation_labels_response() :: %{String.t() | Atom.t() => any()}
+  @type detect_moderation_labels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       image_too_large_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type image_too_large_exception() :: %{String.t() | Atom.t() => any()}
+  @type image_too_large_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1163,12 +1163,12 @@ defmodule AWS.Rekognition do
       search_faces_request() :: %{
         optional("FaceMatchThreshold") => float(),
         optional("MaxFaces") => integer(),
-        required("CollectionId") => String.t() | Atom.t(),
-        required("FaceId") => String.t() | Atom.t()
+        required("CollectionId") => String.t() | atom(),
+        required("FaceId") => String.t() | atom()
       }
       
   """
-  @type search_faces_request() :: %{String.t() | Atom.t() => any()}
+  @type search_faces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1179,7 +1179,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type start_project_version_response() :: %{String.t() | Atom.t() => any()}
+  @type start_project_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1192,7 +1192,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type disassociate_faces_response() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_faces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1204,7 +1204,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type stream_processor_output() :: %{String.t() | Atom.t() => any()}
+  @type stream_processor_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1215,18 +1215,18 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type training_data() :: %{String.t() | Atom.t() => any()}
+  @type training_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_project_version_response() :: %{
-        "ProjectVersionArn" => String.t() | Atom.t()
+        "ProjectVersionArn" => String.t() | atom()
       }
       
   """
-  @type create_project_version_response() :: %{String.t() | Atom.t() => any()}
+  @type create_project_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1239,31 +1239,31 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type detection_filter() :: %{String.t() | Atom.t() => any()}
+  @type detection_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       dataset_label_description() :: %{
-        "LabelName" => String.t() | Atom.t(),
+        "LabelName" => String.t() | atom(),
         "LabelStats" => dataset_label_stats()
       }
       
   """
-  @type dataset_label_description() :: %{String.t() | Atom.t() => any()}
+  @type dataset_label_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1274,7 +1274,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type known_gender() :: %{String.t() | Atom.t() => any()}
+  @type known_gender() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1283,46 +1283,46 @@ defmodule AWS.Rekognition do
       segment_detection() :: %{
         "DurationFrames" => float(),
         "DurationMillis" => float(),
-        "DurationSMPTE" => String.t() | Atom.t(),
+        "DurationSMPTE" => String.t() | atom(),
         "EndFrameNumber" => float(),
-        "EndTimecodeSMPTE" => String.t() | Atom.t(),
+        "EndTimecodeSMPTE" => String.t() | atom(),
         "EndTimestampMillis" => float(),
         "ShotSegment" => shot_segment(),
         "StartFrameNumber" => float(),
-        "StartTimecodeSMPTE" => String.t() | Atom.t(),
+        "StartTimecodeSMPTE" => String.t() | atom(),
         "StartTimestampMillis" => float(),
         "TechnicalCueSegment" => technical_cue_segment(),
         "Type" => list(any())
       }
       
   """
-  @type segment_detection() :: %{String.t() | Atom.t() => any()}
+  @type segment_detection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       searched_face() :: %{
-        "FaceId" => String.t() | Atom.t()
+        "FaceId" => String.t() | atom()
       }
       
   """
-  @type searched_face() :: %{String.t() | Atom.t() => any()}
+  @type searched_face() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_faces_request() :: %{
-        optional("FaceIds") => list(String.t() | Atom.t()),
+        optional("FaceIds") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("UserId") => String.t() | Atom.t(),
-        required("CollectionId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("UserId") => String.t() | atom(),
+        required("CollectionId") => String.t() | atom()
       }
       
   """
-  @type list_faces_request() :: %{String.t() | Atom.t() => any()}
+  @type list_faces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1334,7 +1334,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type detect_text_request() :: %{String.t() | Atom.t() => any()}
+  @type detect_text_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1342,19 +1342,19 @@ defmodule AWS.Rekognition do
       
       get_label_detection_response() :: %{
         "GetRequestMetadata" => get_label_detection_request_metadata(),
-        "JobId" => String.t() | Atom.t(),
+        "JobId" => String.t() | atom(),
         "JobStatus" => list(any()),
-        "JobTag" => String.t() | Atom.t(),
-        "LabelModelVersion" => String.t() | Atom.t(),
+        "JobTag" => String.t() | atom(),
+        "LabelModelVersion" => String.t() | atom(),
         "Labels" => list(label_detection()),
-        "NextToken" => String.t() | Atom.t(),
-        "StatusMessage" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
         "Video" => video(),
         "VideoMetadata" => video_metadata()
       }
       
   """
-  @type get_label_detection_response() :: %{String.t() | Atom.t() => any()}
+  @type get_label_detection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1362,48 +1362,48 @@ defmodule AWS.Rekognition do
       
       moderation_label() :: %{
         "Confidence" => float(),
-        "Name" => String.t() | Atom.t(),
-        "ParentName" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "ParentName" => String.t() | atom(),
         "TaxonomyLevel" => integer()
       }
       
   """
-  @type moderation_label() :: %{String.t() | Atom.t() => any()}
+  @type moderation_label() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_collections_response() :: %{
-        "CollectionIds" => list(String.t() | Atom.t()),
-        "FaceModelVersions" => list(String.t() | Atom.t()),
-        "NextToken" => String.t() | Atom.t()
+        "CollectionIds" => list(String.t() | atom()),
+        "FaceModelVersions" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_collections_response() :: %{String.t() | Atom.t() => any()}
+  @type list_collections_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associated_face() :: %{
-        "FaceId" => String.t() | Atom.t()
+        "FaceId" => String.t() | atom()
       }
       
   """
-  @type associated_face() :: %{String.t() | Atom.t() => any()}
+  @type associated_face() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_project_policy_response() :: %{
-        "PolicyRevisionId" => String.t() | Atom.t()
+        "PolicyRevisionId" => String.t() | atom()
       }
       
   """
-  @type put_project_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type put_project_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1417,7 +1417,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type compare_faces_request() :: %{String.t() | Atom.t() => any()}
+  @type compare_faces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1429,7 +1429,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type region_of_interest() :: %{String.t() | Atom.t() => any()}
+  @type region_of_interest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1440,7 +1440,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type distribute_dataset_entries_request() :: %{String.t() | Atom.t() => any()}
+  @type distribute_dataset_entries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1449,12 +1449,12 @@ defmodule AWS.Rekognition do
       describe_projects_request() :: %{
         optional("Features") => list(list(any())()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("ProjectNames") => list(String.t() | Atom.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("ProjectNames") => list(String.t() | atom())
       }
       
   """
-  @type describe_projects_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_projects_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1462,11 +1462,11 @@ defmodule AWS.Rekognition do
       
       content_type() :: %{
         "Confidence" => float(),
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type content_type() :: %{String.t() | Atom.t() => any()}
+  @type content_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1478,7 +1478,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type emotion() :: %{String.t() | Atom.t() => any()}
+  @type emotion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1490,30 +1490,30 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type testing_data() :: %{String.t() | Atom.t() => any()}
+  @type testing_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_face_liveness_session_results_request() :: %{
-        required("SessionId") => String.t() | Atom.t()
+        required("SessionId") => String.t() | atom()
       }
       
   """
-  @type get_face_liveness_session_results_request() :: %{String.t() | Atom.t() => any()}
+  @type get_face_liveness_session_results_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       notification_channel() :: %{
-        "RoleArn" => String.t() | Atom.t(),
-        "SNSTopicArn" => String.t() | Atom.t()
+        "RoleArn" => String.t() | atom(),
+        "SNSTopicArn" => String.t() | atom()
       }
       
   """
-  @type notification_channel() :: %{String.t() | Atom.t() => any()}
+  @type notification_channel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1521,17 +1521,17 @@ defmodule AWS.Rekognition do
       
       get_celebrity_recognition_response() :: %{
         "Celebrities" => list(celebrity_recognition()),
-        "JobId" => String.t() | Atom.t(),
+        "JobId" => String.t() | atom(),
         "JobStatus" => list(any()),
-        "JobTag" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
-        "StatusMessage" => String.t() | Atom.t(),
+        "JobTag" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
         "Video" => video(),
         "VideoMetadata" => video_metadata()
       }
       
   """
-  @type get_celebrity_recognition_response() :: %{String.t() | Atom.t() => any()}
+  @type get_celebrity_recognition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1543,18 +1543,18 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type point() :: %{String.t() | Atom.t() => any()}
+  @type point() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_dataset_response() :: %{
-        "DatasetArn" => String.t() | Atom.t()
+        "DatasetArn" => String.t() | atom()
       }
       
   """
-  @type create_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1570,13 +1570,13 @@ defmodule AWS.Rekognition do
   ## Example:
       
       human_loop_activation_output() :: %{
-        "HumanLoopActivationConditionsEvaluationResults" => String.t() | Atom.t(),
-        "HumanLoopActivationReasons" => list(String.t() | Atom.t()),
-        "HumanLoopArn" => String.t() | Atom.t()
+        "HumanLoopActivationConditionsEvaluationResults" => String.t() | atom(),
+        "HumanLoopActivationReasons" => list(String.t() | atom()),
+        "HumanLoopArn" => String.t() | atom()
       }
       
   """
-  @type human_loop_activation_output() :: %{String.t() | Atom.t() => any()}
+  @type human_loop_activation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1588,59 +1588,59 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type eye_open() :: %{String.t() | Atom.t() => any()}
+  @type eye_open() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioned_throughput_exceeded_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type provisioned_throughput_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type provisioned_throughput_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_policy_revision_id_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_policy_revision_id_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_policy_revision_id_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_face_detection_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
         optional("FaceAttributes") => list(any()),
-        optional("JobTag") => String.t() | Atom.t(),
+        optional("JobTag") => String.t() | atom(),
         optional("NotificationChannel") => notification_channel(),
         required("Video") => video()
       }
       
   """
-  @type start_face_detection_request() :: %{String.t() | Atom.t() => any()}
+  @type start_face_detection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_project_response() :: %{
-        "ProjectArn" => String.t() | Atom.t()
+        "ProjectArn" => String.t() | atom()
       }
       
   """
-  @type create_project_response() :: %{String.t() | Atom.t() => any()}
+  @type create_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1653,7 +1653,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type landmark() :: %{String.t() | Atom.t() => any()}
+  @type landmark() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1669,13 +1669,13 @@ defmodule AWS.Rekognition do
   ## Example:
       
       conflict_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1683,29 +1683,29 @@ defmodule AWS.Rekognition do
       
       dominant_color() :: %{
         "Blue" => integer(),
-        "CSSColor" => String.t() | Atom.t(),
+        "CSSColor" => String.t() | atom(),
         "Green" => integer(),
-        "HexCode" => String.t() | Atom.t(),
+        "HexCode" => String.t() | atom(),
         "PixelPercent" => float(),
         "Red" => integer(),
-        "SimplifiedColor" => String.t() | Atom.t()
+        "SimplifiedColor" => String.t() | atom()
       }
       
   """
-  @type dominant_color() :: %{String.t() | Atom.t() => any()}
+  @type dominant_color() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1716,7 +1716,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type asset() :: %{String.t() | Atom.t() => any()}
+  @type asset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1727,22 +1727,22 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type dataset_changes() :: %{String.t() | Atom.t() => any()}
+  @type dataset_changes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_faces_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
         optional("UserMatchThreshold") => float(),
-        required("CollectionId") => String.t() | Atom.t(),
-        required("FaceIds") => list(String.t() | Atom.t()),
-        required("UserId") => String.t() | Atom.t()
+        required("CollectionId") => String.t() | atom(),
+        required("FaceIds") => list(String.t() | atom()),
+        required("UserId") => String.t() | atom()
       }
       
   """
-  @type associate_faces_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_faces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1750,22 +1750,22 @@ defmodule AWS.Rekognition do
       
       list_collections_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_collections_request() :: %{String.t() | Atom.t() => any()}
+  @type list_collections_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_collection_request() :: %{
-        required("CollectionId") => String.t() | Atom.t()
+        required("CollectionId") => String.t() | atom()
       }
       
   """
-  @type delete_collection_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_collection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1773,11 +1773,11 @@ defmodule AWS.Rekognition do
       
       list_media_analysis_jobs_response() :: %{
         "MediaAnalysisJobs" => list(media_analysis_job_description()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_media_analysis_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_media_analysis_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1789,7 +1789,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type face_occluded() :: %{String.t() | Atom.t() => any()}
+  @type face_occluded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1800,7 +1800,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type stream_processor_settings_for_update() :: %{String.t() | Atom.t() => any()}
+  @type stream_processor_settings_for_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1814,7 +1814,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type detect_labels_image_properties() :: %{String.t() | Atom.t() => any()}
+  @type detect_labels_image_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1825,7 +1825,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type searched_face_details() :: %{String.t() | Atom.t() => any()}
+  @type searched_face_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1836,18 +1836,18 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type ground_truth_manifest() :: %{String.t() | Atom.t() => any()}
+  @type ground_truth_manifest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       label_category() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type label_category() :: %{String.t() | Atom.t() => any()}
+  @type label_category() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1855,12 +1855,12 @@ defmodule AWS.Rekognition do
       
       get_text_detection_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("JobId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_text_detection_request() :: %{String.t() | Atom.t() => any()}
+  @type get_text_detection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1875,7 +1875,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type detect_labels_request() :: %{String.t() | Atom.t() => any()}
+  @type detect_labels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1883,37 +1883,37 @@ defmodule AWS.Rekognition do
       
       list_project_policies_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ProjectArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ProjectArn") => String.t() | atom()
       }
       
   """
-  @type list_project_policies_request() :: %{String.t() | Atom.t() => any()}
+  @type list_project_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_stream_processors_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "StreamProcessors" => list(stream_processor())
       }
       
   """
-  @type list_stream_processors_response() :: %{String.t() | Atom.t() => any()}
+  @type list_stream_processors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1921,11 +1921,11 @@ defmodule AWS.Rekognition do
       
       list_stream_processors_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_stream_processors_request() :: %{String.t() | Atom.t() => any()}
+  @type list_stream_processors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1937,7 +1937,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type mouth_open() :: %{String.t() | Atom.t() => any()}
+  @type mouth_open() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1949,20 +1949,20 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type start_technical_cue_detection_filter() :: %{String.t() | Atom.t() => any()}
+  @type start_technical_cue_detection_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       idempotent_parameter_mismatch_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type idempotent_parameter_mismatch_exception() :: %{String.t() | Atom.t() => any()}
+  @type idempotent_parameter_mismatch_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1983,7 +1983,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type start_segment_detection_filters() :: %{String.t() | Atom.t() => any()}
+  @type start_segment_detection_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1993,34 +1993,34 @@ defmodule AWS.Rekognition do
         optional("MaxResults") => integer(),
         optional("MinConfidence") => float(),
         required("Image") => image(),
-        required("ProjectVersionArn") => String.t() | Atom.t()
+        required("ProjectVersionArn") => String.t() | atom()
       }
       
   """
-  @type detect_custom_labels_request() :: %{String.t() | Atom.t() => any()}
+  @type detect_custom_labels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_users_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Users" => list(user())
       }
       
   """
-  @type list_users_response() :: %{String.t() | Atom.t() => any()}
+  @type list_users_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_collection_request() :: %{
-        required("CollectionId") => String.t() | Atom.t()
+        required("CollectionId") => String.t() | atom()
       }
       
   """
-  @type describe_collection_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_collection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2028,17 +2028,17 @@ defmodule AWS.Rekognition do
       
       get_face_detection_response() :: %{
         "Faces" => list(face_detection()),
-        "JobId" => String.t() | Atom.t(),
+        "JobId" => String.t() | atom(),
         "JobStatus" => list(any()),
-        "JobTag" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
-        "StatusMessage" => String.t() | Atom.t(),
+        "JobTag" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
         "Video" => video(),
         "VideoMetadata" => video_metadata()
       }
       
   """
-  @type get_face_detection_response() :: %{String.t() | Atom.t() => any()}
+  @type get_face_detection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2052,7 +2052,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type dataset_stats() :: %{String.t() | Atom.t() => any()}
+  @type dataset_stats() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2067,7 +2067,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type label_detection() :: %{String.t() | Atom.t() => any()}
+  @type label_detection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2079,24 +2079,24 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type detect_text_filters() :: %{String.t() | Atom.t() => any()}
+  @type detect_text_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_dataset_entries_request() :: %{
-        optional("ContainsLabels") => list(String.t() | Atom.t()),
+        optional("ContainsLabels") => list(String.t() | atom()),
         optional("HasErrors") => boolean(),
         optional("Labeled") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("SourceRefContains") => String.t() | Atom.t(),
-        required("DatasetArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("SourceRefContains") => String.t() | atom(),
+        required("DatasetArn") => String.t() | atom()
       }
       
   """
-  @type list_dataset_entries_request() :: %{String.t() | Atom.t() => any()}
+  @type list_dataset_entries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2107,7 +2107,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type detect_custom_labels_response() :: %{String.t() | Atom.t() => any()}
+  @type detect_custom_labels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2117,12 +2117,12 @@ defmodule AWS.Rekognition do
         optional("FaceMatchThreshold") => float(),
         optional("MaxFaces") => integer(),
         optional("QualityFilter") => list(any()),
-        required("CollectionId") => String.t() | Atom.t(),
+        required("CollectionId") => String.t() | atom(),
         required("Image") => image()
       }
       
   """
-  @type search_faces_by_image_request() :: %{String.t() | Atom.t() => any()}
+  @type search_faces_by_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2132,26 +2132,26 @@ defmodule AWS.Rekognition do
         optional("MaxUsers") => integer(),
         optional("QualityFilter") => list(any()),
         optional("UserMatchThreshold") => float(),
-        required("CollectionId") => String.t() | Atom.t(),
+        required("CollectionId") => String.t() | atom(),
         required("Image") => image()
       }
       
   """
-  @type search_users_by_image_request() :: %{String.t() | Atom.t() => any()}
+  @type search_users_by_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_celebrity_recognition_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("JobTag") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobTag") => String.t() | atom(),
         optional("NotificationChannel") => notification_channel(),
         required("Video") => video()
       }
       
   """
-  @type start_celebrity_recognition_request() :: %{String.t() | Atom.t() => any()}
+  @type start_celebrity_recognition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2159,11 +2159,11 @@ defmodule AWS.Rekognition do
       
       create_collection_request() :: %{
         optional("Tags") => map(),
-        required("CollectionId") => String.t() | Atom.t()
+        required("CollectionId") => String.t() | atom()
       }
       
   """
-  @type create_collection_request() :: %{String.t() | Atom.t() => any()}
+  @type create_collection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2175,59 +2175,59 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type compare_faces_match() :: %{String.t() | Atom.t() => any()}
+  @type compare_faces_match() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kinesis_video_stream_start_selector() :: %{
-        "FragmentNumber" => String.t() | Atom.t(),
+        "FragmentNumber" => String.t() | atom(),
         "ProducerTimestamp" => float()
       }
       
   """
-  @type kinesis_video_stream_start_selector() :: %{String.t() | Atom.t() => any()}
+  @type kinesis_video_stream_start_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       project_version_description() :: %{
-        "BaseModelVersion" => String.t() | Atom.t(),
+        "BaseModelVersion" => String.t() | atom(),
         "BillableTrainingTimeInSeconds" => float(),
         "CreationTimestamp" => non_neg_integer(),
         "EvaluationResult" => evaluation_result(),
         "Feature" => list(any()),
         "FeatureConfig" => customization_feature_config(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
         "ManifestSummary" => ground_truth_manifest(),
         "MaxInferenceUnits" => integer(),
         "MinInferenceUnits" => integer(),
         "OutputConfig" => output_config(),
-        "ProjectVersionArn" => String.t() | Atom.t(),
-        "SourceProjectVersionArn" => String.t() | Atom.t(),
+        "ProjectVersionArn" => String.t() | atom(),
+        "SourceProjectVersionArn" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | Atom.t(),
+        "StatusMessage" => String.t() | atom(),
         "TestingDataResult" => testing_data_result(),
         "TrainingDataResult" => training_data_result(),
         "TrainingEndTimestamp" => non_neg_integer(),
-        "VersionDescription" => String.t() | Atom.t()
+        "VersionDescription" => String.t() | atom()
       }
       
   """
-  @type project_version_description() :: %{String.t() | Atom.t() => any()}
+  @type project_version_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_person_tracking_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_person_tracking_response() :: %{String.t() | Atom.t() => any()}
+  @type start_person_tracking_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2238,7 +2238,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2250,7 +2250,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type dataset_label_stats() :: %{String.t() | Atom.t() => any()}
+  @type dataset_label_stats() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2266,7 +2266,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type content_moderation_detection() :: %{String.t() | Atom.t() => any()}
+  @type content_moderation_detection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2278,7 +2278,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type media_analysis_results() :: %{String.t() | Atom.t() => any()}
+  @type media_analysis_results() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2287,13 +2287,13 @@ defmodule AWS.Rekognition do
       get_label_detection_request() :: %{
         optional("AggregateBy") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
-        required("JobId") => String.t() | Atom.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_label_detection_request() :: %{String.t() | Atom.t() => any()}
+  @type get_label_detection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2305,36 +2305,36 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type detect_protective_equipment_request() :: %{String.t() | Atom.t() => any()}
+  @type detect_protective_equipment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       search_users_request() :: %{
-        optional("FaceId") => String.t() | Atom.t(),
+        optional("FaceId") => String.t() | atom(),
         optional("MaxUsers") => integer(),
-        optional("UserId") => String.t() | Atom.t(),
+        optional("UserId") => String.t() | atom(),
         optional("UserMatchThreshold") => float(),
-        required("CollectionId") => String.t() | Atom.t()
+        required("CollectionId") => String.t() | atom()
       }
       
   """
-  @type search_users_request() :: %{String.t() | Atom.t() => any()}
+  @type search_users_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       search_users_by_image_response() :: %{
-        "FaceModelVersion" => String.t() | Atom.t(),
+        "FaceModelVersion" => String.t() | atom(),
         "SearchedFace" => searched_face_details(),
         "UnsearchedFaces" => list(unsearched_face()),
         "UserMatches" => list(user_match())
       }
       
   """
-  @type search_users_by_image_response() :: %{String.t() | Atom.t() => any()}
+  @type search_users_by_image_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2361,7 +2361,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type face_detail() :: %{String.t() | Atom.t() => any()}
+  @type face_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2373,7 +2373,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type black_frame() :: %{String.t() | Atom.t() => any()}
+  @type black_frame() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2381,13 +2381,13 @@ defmodule AWS.Rekognition do
       
       detect_labels_response() :: %{
         "ImageProperties" => detect_labels_image_properties(),
-        "LabelModelVersion" => String.t() | Atom.t(),
+        "LabelModelVersion" => String.t() | atom(),
         "Labels" => list(label()),
         "OrientationCorrection" => list(any())
       }
       
   """
-  @type detect_labels_response() :: %{String.t() | Atom.t() => any()}
+  @type detect_labels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2400,7 +2400,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type testing_data_result() :: %{String.t() | Atom.t() => any()}
+  @type testing_data_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2412,7 +2412,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type unsearched_face() :: %{String.t() | Atom.t() => any()}
+  @type unsearched_face() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2421,27 +2421,27 @@ defmodule AWS.Rekognition do
       face() :: %{
         "BoundingBox" => bounding_box(),
         "Confidence" => float(),
-        "ExternalImageId" => String.t() | Atom.t(),
-        "FaceId" => String.t() | Atom.t(),
-        "ImageId" => String.t() | Atom.t(),
-        "IndexFacesModelVersion" => String.t() | Atom.t(),
-        "UserId" => String.t() | Atom.t()
+        "ExternalImageId" => String.t() | atom(),
+        "FaceId" => String.t() | atom(),
+        "ImageId" => String.t() | atom(),
+        "IndexFacesModelVersion" => String.t() | atom(),
+        "UserId" => String.t() | atom()
       }
       
   """
-  @type face() :: %{String.t() | Atom.t() => any()}
+  @type face() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_project_policies_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ProjectPolicies" => list(project_policy())
       }
       
   """
-  @type list_project_policies_response() :: %{String.t() | Atom.t() => any()}
+  @type list_project_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2449,18 +2449,18 @@ defmodule AWS.Rekognition do
       
       create_project_version_request() :: %{
         optional("FeatureConfig") => customization_feature_config(),
-        optional("KmsKeyId") => String.t() | Atom.t(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("Tags") => map(),
         optional("TestingData") => testing_data(),
         optional("TrainingData") => training_data(),
-        optional("VersionDescription") => String.t() | Atom.t(),
+        optional("VersionDescription") => String.t() | atom(),
         required("OutputConfig") => output_config(),
-        required("ProjectArn") => String.t() | Atom.t(),
-        required("VersionName") => String.t() | Atom.t()
+        required("ProjectArn") => String.t() | atom(),
+        required("VersionName") => String.t() | atom()
       }
       
   """
-  @type create_project_version_request() :: %{String.t() | Atom.t() => any()}
+  @type create_project_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2472,7 +2472,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type beard() :: %{String.t() | Atom.t() => any()}
+  @type beard() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2493,32 +2493,32 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type protective_equipment_summarization_attributes() :: %{String.t() | Atom.t() => any()}
+  @type protective_equipment_summarization_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_user_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        required("CollectionId") => String.t() | Atom.t(),
-        required("UserId") => String.t() | Atom.t()
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("CollectionId") => String.t() | atom(),
+        required("UserId") => String.t() | atom()
       }
       
   """
-  @type delete_user_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_destination() :: %{
-        "Bucket" => String.t() | Atom.t(),
-        "KeyPrefix" => String.t() | Atom.t()
+        "Bucket" => String.t() | atom(),
+        "KeyPrefix" => String.t() | atom()
       }
       
   """
-  @type s3_destination() :: %{String.t() | Atom.t() => any()}
+  @type s3_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2526,19 +2526,19 @@ defmodule AWS.Rekognition do
       
       get_segment_detection_response() :: %{
         "AudioMetadata" => list(audio_metadata()),
-        "JobId" => String.t() | Atom.t(),
+        "JobId" => String.t() | atom(),
         "JobStatus" => list(any()),
-        "JobTag" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
+        "JobTag" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
         "Segments" => list(segment_detection()),
         "SelectedSegmentTypes" => list(segment_type_info()),
-        "StatusMessage" => String.t() | Atom.t(),
+        "StatusMessage" => String.t() | atom(),
         "Video" => video(),
         "VideoMetadata" => list(video_metadata())
       }
       
   """
-  @type get_segment_detection_response() :: %{String.t() | Atom.t() => any()}
+  @type get_segment_detection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2547,11 +2547,11 @@ defmodule AWS.Rekognition do
       custom_label() :: %{
         "Confidence" => float(),
         "Geometry" => geometry(),
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type custom_label() :: %{String.t() | Atom.t() => any()}
+  @type custom_label() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2559,15 +2559,15 @@ defmodule AWS.Rekognition do
       
       celebrity() :: %{
         "Face" => compared_face(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "KnownGender" => known_gender(),
         "MatchConfidence" => float(),
-        "Name" => String.t() | Atom.t(),
-        "Urls" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Urls" => list(String.t() | atom())
       }
       
   """
-  @type celebrity() :: %{String.t() | Atom.t() => any()}
+  @type celebrity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2584,13 +2584,13 @@ defmodule AWS.Rekognition do
       
       get_celebrity_recognition_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
-        required("JobId") => String.t() | Atom.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_celebrity_recognition_request() :: %{String.t() | Atom.t() => any()}
+  @type get_celebrity_recognition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2602,7 +2602,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type challenge_preference() :: %{String.t() | Atom.t() => any()}
+  @type challenge_preference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2614,7 +2614,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type celebrity_recognition() :: %{String.t() | Atom.t() => any()}
+  @type celebrity_recognition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2627,7 +2627,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type recognize_celebrities_response() :: %{String.t() | Atom.t() => any()}
+  @type recognize_celebrities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2635,34 +2635,34 @@ defmodule AWS.Rekognition do
       
       challenge() :: %{
         "Type" => list(any()),
-        "Version" => String.t() | Atom.t()
+        "Version" => String.t() | atom()
       }
       
   """
-  @type challenge() :: %{String.t() | Atom.t() => any()}
+  @type challenge() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       face_search_settings() :: %{
-        "CollectionId" => String.t() | Atom.t(),
+        "CollectionId" => String.t() | atom(),
         "FaceMatchThreshold" => float()
       }
       
   """
-  @type face_search_settings() :: %{String.t() | Atom.t() => any()}
+  @type face_search_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_face_liveness_session_response() :: %{
-        "SessionId" => String.t() | Atom.t()
+        "SessionId" => String.t() | atom()
       }
       
   """
-  @type create_face_liveness_session_response() :: %{String.t() | Atom.t() => any()}
+  @type create_face_liveness_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2673,22 +2673,22 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type stream_processor_data_sharing_preference() :: %{String.t() | Atom.t() => any()}
+  @type stream_processor_data_sharing_preference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_collection_response() :: %{
-        "CollectionARN" => String.t() | Atom.t(),
+        "CollectionARN" => String.t() | atom(),
         "CreationTimestamp" => non_neg_integer(),
         "FaceCount" => float(),
-        "FaceModelVersion" => String.t() | Atom.t(),
+        "FaceModelVersion" => String.t() | atom(),
         "UserCount" => float()
       }
       
   """
-  @type describe_collection_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_collection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2700,20 +2700,20 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type stream_processor_settings() :: %{String.t() | Atom.t() => any()}
+  @type stream_processor_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_collection_response() :: %{
-        "CollectionArn" => String.t() | Atom.t(),
-        "FaceModelVersion" => String.t() | Atom.t(),
+        "CollectionArn" => String.t() | atom(),
+        "FaceModelVersion" => String.t() | atom(),
         "StatusCode" => integer()
       }
       
   """
-  @type create_collection_response() :: %{String.t() | Atom.t() => any()}
+  @type create_collection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2725,7 +2725,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type age_range() :: %{String.t() | Atom.t() => any()}
+  @type age_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2736,7 +2736,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type human_loop_data_attributes() :: %{String.t() | Atom.t() => any()}
+  @type human_loop_data_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2749,7 +2749,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type protective_equipment_body_part() :: %{String.t() | Atom.t() => any()}
+  @type protective_equipment_body_part() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2760,21 +2760,21 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type delete_project_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_project_policy_request() :: %{
-        optional("PolicyRevisionId") => String.t() | Atom.t(),
-        required("PolicyDocument") => String.t() | Atom.t(),
-        required("PolicyName") => String.t() | Atom.t(),
-        required("ProjectArn") => String.t() | Atom.t()
+        optional("PolicyRevisionId") => String.t() | atom(),
+        required("PolicyDocument") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom(),
+        required("ProjectArn") => String.t() | atom()
       }
       
   """
-  @type put_project_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type put_project_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2788,42 +2788,42 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type bounding_box() :: %{String.t() | Atom.t() => any()}
+  @type bounding_box() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_stream_processor_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_stream_processor_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_stream_processor_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unsuccessful_face_disassociation() :: %{
-        "FaceId" => String.t() | Atom.t(),
+        "FaceId" => String.t() | atom(),
         "Reasons" => list(list(any())()),
-        "UserId" => String.t() | Atom.t()
+        "UserId" => String.t() | atom()
       }
       
   """
-  @type unsuccessful_face_disassociation() :: %{String.t() | Atom.t() => any()}
+  @type unsuccessful_face_disassociation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_stream_processor_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type stop_stream_processor_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_stream_processor_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2835,7 +2835,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type face_match() :: %{String.t() | Atom.t() => any()}
+  @type face_match() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2846,9 +2846,9 @@ defmodule AWS.Rekognition do
         "CreationTimestamp" => non_neg_integer(),
         "FailureDetails" => media_analysis_job_failure_details(),
         "Input" => media_analysis_input(),
-        "JobId" => String.t() | Atom.t(),
-        "JobName" => String.t() | Atom.t(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "JobId" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "ManifestSummary" => media_analysis_manifest_summary(),
         "OperationsConfig" => media_analysis_operations_config(),
         "OutputConfig" => media_analysis_output_config(),
@@ -2857,18 +2857,18 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type media_analysis_job_description() :: %{String.t() | Atom.t() => any()}
+  @type media_analysis_job_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_text_detection_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_text_detection_response() :: %{String.t() | Atom.t() => any()}
+  @type start_text_detection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2879,7 +2879,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type label_detection_settings() :: %{String.t() | Atom.t() => any()}
+  @type label_detection_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2890,36 +2890,36 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type stream_processor_input() :: %{String.t() | Atom.t() => any()}
+  @type stream_processor_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_person_tracking_response() :: %{
-        "JobId" => String.t() | Atom.t(),
+        "JobId" => String.t() | atom(),
         "JobStatus" => list(any()),
-        "JobTag" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
+        "JobTag" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
         "Persons" => list(person_detection()),
-        "StatusMessage" => String.t() | Atom.t(),
+        "StatusMessage" => String.t() | atom(),
         "Video" => video(),
         "VideoMetadata" => video_metadata()
       }
       
   """
-  @type get_person_tracking_response() :: %{String.t() | Atom.t() => any()}
+  @type get_person_tracking_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       copy_project_version_response() :: %{
-        "ProjectVersionArn" => String.t() | Atom.t()
+        "ProjectVersionArn" => String.t() | atom()
       }
       
   """
-  @type copy_project_version_response() :: %{String.t() | Atom.t() => any()}
+  @type copy_project_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2931,7 +2931,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type image() :: %{String.t() | Atom.t() => any()}
+  @type image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2939,26 +2939,26 @@ defmodule AWS.Rekognition do
       
       list_media_analysis_jobs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_media_analysis_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_media_analysis_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_content_moderation_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("JobTag") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobTag") => String.t() | atom(),
         optional("MinConfidence") => float(),
         optional("NotificationChannel") => notification_channel(),
         required("Video") => video()
       }
       
   """
-  @type start_content_moderation_request() :: %{String.t() | Atom.t() => any()}
+  @type start_content_moderation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2970,20 +2970,20 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type covers_body_part() :: %{String.t() | Atom.t() => any()}
+  @type covers_body_part() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_error() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_server_error() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2996,7 +2996,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type instance() :: %{String.t() | Atom.t() => any()}
+  @type instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3008,59 +3008,59 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type image_quality() :: %{String.t() | Atom.t() => any()}
+  @type image_quality() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_faces_response() :: %{
-        "FaceModelVersion" => String.t() | Atom.t(),
+        "FaceModelVersion" => String.t() | atom(),
         "Faces" => list(face()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_faces_response() :: %{String.t() | Atom.t() => any()}
+  @type list_faces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_project_policy_request() :: %{
-        optional("PolicyRevisionId") => String.t() | Atom.t(),
-        required("PolicyName") => String.t() | Atom.t(),
-        required("ProjectArn") => String.t() | Atom.t()
+        optional("PolicyRevisionId") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom(),
+        required("ProjectArn") => String.t() | atom()
       }
       
   """
-  @type delete_project_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_project_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3068,33 +3068,33 @@ defmodule AWS.Rekognition do
       
       create_stream_processor_request() :: %{
         optional("DataSharingPreference") => stream_processor_data_sharing_preference(),
-        optional("KmsKeyId") => String.t() | Atom.t(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("NotificationChannel") => stream_processor_notification_channel(),
         optional("RegionsOfInterest") => list(region_of_interest()),
         optional("Tags") => map(),
         required("Input") => stream_processor_input(),
-        required("Name") => String.t() | Atom.t(),
+        required("Name") => String.t() | atom(),
         required("Output") => stream_processor_output(),
-        required("RoleArn") => String.t() | Atom.t(),
+        required("RoleArn") => String.t() | atom(),
         required("Settings") => stream_processor_settings()
       }
       
   """
-  @type create_stream_processor_request() :: %{String.t() | Atom.t() => any()}
+  @type create_stream_processor_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       index_faces_response() :: %{
-        "FaceModelVersion" => String.t() | Atom.t(),
+        "FaceModelVersion" => String.t() | atom(),
         "FaceRecords" => list(face_record()),
         "OrientationCorrection" => list(any()),
         "UnindexedFaces" => list(unindexed_face())
       }
       
   """
-  @type index_faces_response() :: %{String.t() | Atom.t() => any()}
+  @type index_faces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3110,11 +3110,11 @@ defmodule AWS.Rekognition do
   ## Example:
       
       get_media_analysis_job_request() :: %{
-        required("JobId") => String.t() | Atom.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_media_analysis_job_request() :: %{String.t() | Atom.t() => any()}
+  @type get_media_analysis_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3126,36 +3126,36 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type technical_cue_segment() :: %{String.t() | Atom.t() => any()}
+  @type technical_cue_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       output_config() :: %{
-        "S3Bucket" => String.t() | Atom.t(),
-        "S3KeyPrefix" => String.t() | Atom.t()
+        "S3Bucket" => String.t() | atom(),
+        "S3KeyPrefix" => String.t() | atom()
       }
       
   """
-  @type output_config() :: %{String.t() | Atom.t() => any()}
+  @type output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       video_metadata() :: %{
-        "Codec" => String.t() | Atom.t(),
+        "Codec" => String.t() | atom(),
         "ColorRange" => list(any()),
         "DurationMillis" => float(),
-        "Format" => String.t() | Atom.t(),
+        "Format" => String.t() | atom(),
         "FrameHeight" => float(),
         "FrameRate" => float(),
         "FrameWidth" => float()
       }
       
   """
-  @type video_metadata() :: %{String.t() | Atom.t() => any()}
+  @type video_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3164,12 +3164,12 @@ defmodule AWS.Rekognition do
       detect_moderation_labels_request() :: %{
         optional("HumanLoopConfig") => human_loop_config(),
         optional("MinConfidence") => float(),
-        optional("ProjectVersion") => String.t() | Atom.t(),
+        optional("ProjectVersion") => String.t() | atom(),
         required("Image") => image()
       }
       
   """
-  @type detect_moderation_labels_request() :: %{String.t() | Atom.t() => any()}
+  @type detect_moderation_labels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3181,29 +3181,29 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type eyeglasses() :: %{String.t() | Atom.t() => any()}
+  @type eyeglasses() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_content_moderation_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_content_moderation_response() :: %{String.t() | Atom.t() => any()}
+  @type start_content_moderation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_segment_detection_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_segment_detection_response() :: %{String.t() | Atom.t() => any()}
+  @type start_segment_detection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3211,13 +3211,13 @@ defmodule AWS.Rekognition do
       
       unsuccessful_face_association() :: %{
         "Confidence" => float(),
-        "FaceId" => String.t() | Atom.t(),
+        "FaceId" => String.t() | atom(),
         "Reasons" => list(list(any())()),
-        "UserId" => String.t() | Atom.t()
+        "UserId" => String.t() | atom()
       }
       
   """
-  @type unsuccessful_face_association() :: %{String.t() | Atom.t() => any()}
+  @type unsuccessful_face_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3229,7 +3229,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type detect_faces_request() :: %{String.t() | Atom.t() => any()}
+  @type detect_faces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3240,7 +3240,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type describe_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3252,56 +3252,56 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type person_detection() :: %{String.t() | Atom.t() => any()}
+  @type person_detection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_person_tracking_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("JobTag") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobTag") => String.t() | atom(),
         optional("NotificationChannel") => notification_channel(),
         required("Video") => video()
       }
       
   """
-  @type start_person_tracking_request() :: %{String.t() | Atom.t() => any()}
+  @type start_person_tracking_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       distribute_dataset() :: %{
-        "Arn" => String.t() | Atom.t()
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type distribute_dataset() :: %{String.t() | Atom.t() => any()}
+  @type distribute_dataset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_image_format_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_image_format_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_image_format_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3311,11 +3311,11 @@ defmodule AWS.Rekognition do
         optional("DatasetSource") => dataset_source(),
         optional("Tags") => map(),
         required("DatasetType") => list(any()),
-        required("ProjectArn") => String.t() | Atom.t()
+        required("ProjectArn") => String.t() | atom()
       }
       
   """
-  @type create_dataset_request() :: %{String.t() | Atom.t() => any()}
+  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3327,7 +3327,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type face_detection() :: %{String.t() | Atom.t() => any()}
+  @type face_detection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3340,18 +3340,18 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type audit_image() :: %{String.t() | Atom.t() => any()}
+  @type audit_image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_celebrity_recognition_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_celebrity_recognition_response() :: %{String.t() | Atom.t() => any()}
+  @type start_celebrity_recognition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3359,12 +3359,12 @@ defmodule AWS.Rekognition do
       
       get_segment_detection_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("JobId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_segment_detection_request() :: %{String.t() | Atom.t() => any()}
+  @type get_segment_detection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3376,7 +3376,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type shot_segment() :: %{String.t() | Atom.t() => any()}
+  @type shot_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3387,25 +3387,25 @@ defmodule AWS.Rekognition do
         "Challenge" => challenge(),
         "Confidence" => float(),
         "ReferenceImage" => audit_image(),
-        "SessionId" => String.t() | Atom.t(),
+        "SessionId" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type get_face_liveness_session_results_response() :: %{String.t() | Atom.t() => any()}
+  @type get_face_liveness_session_results_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3421,23 +3421,23 @@ defmodule AWS.Rekognition do
   ## Example:
       
       disassociated_face() :: %{
-        "FaceId" => String.t() | Atom.t()
+        "FaceId" => String.t() | atom()
       }
       
   """
-  @type disassociated_face() :: %{String.t() | Atom.t() => any()}
+  @type disassociated_face() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       user() :: %{
-        "UserId" => String.t() | Atom.t(),
+        "UserId" => String.t() | atom(),
         "UserStatus" => list(any())
       }
       
   """
-  @type user() :: %{String.t() | Atom.t() => any()}
+  @type user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3445,7 +3445,7 @@ defmodule AWS.Rekognition do
       
       text_detection() :: %{
         "Confidence" => float(),
-        "DetectedText" => String.t() | Atom.t(),
+        "DetectedText" => String.t() | atom(),
         "Geometry" => geometry(),
         "Id" => integer(),
         "ParentId" => integer(),
@@ -3453,7 +3453,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type text_detection() :: %{String.t() | Atom.t() => any()}
+  @type text_detection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3465,7 +3465,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type text_detection_result() :: %{String.t() | Atom.t() => any()}
+  @type text_detection_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3475,37 +3475,37 @@ defmodule AWS.Rekognition do
         optional("AutoUpdate") => list(any()),
         optional("Feature") => list(any()),
         optional("Tags") => map(),
-        required("ProjectName") => String.t() | Atom.t()
+        required("ProjectName") => String.t() | atom()
       }
       
   """
-  @type create_project_request() :: %{String.t() | Atom.t() => any()}
+  @type create_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       malformed_policy_document_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type malformed_policy_document_exception() :: %{String.t() | Atom.t() => any()}
+  @type malformed_policy_document_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       session_not_found_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type session_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type session_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3516,18 +3516,18 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type customization_feature_config() :: %{String.t() | Atom.t() => any()}
+  @type customization_feature_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stream_processor_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type describe_stream_processor_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_stream_processor_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3540,7 +3540,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type pose() :: %{String.t() | Atom.t() => any()}
+  @type pose() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3551,11 +3551,11 @@ defmodule AWS.Rekognition do
         optional("ParametersToDelete") => list(list(any())()),
         optional("RegionsOfInterestForUpdate") => list(region_of_interest()),
         optional("SettingsForUpdate") => stream_processor_settings_for_update(),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type update_stream_processor_request() :: %{String.t() | Atom.t() => any()}
+  @type update_stream_processor_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3564,28 +3564,28 @@ defmodule AWS.Rekognition do
       start_stream_processor_request() :: %{
         optional("StartSelector") => stream_processing_start_selector(),
         optional("StopSelector") => stream_processing_stop_selector(),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type start_stream_processor_request() :: %{String.t() | Atom.t() => any()}
+  @type start_stream_processor_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       copy_project_version_request() :: %{
-        optional("KmsKeyId") => String.t() | Atom.t(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("Tags") => map(),
-        required("DestinationProjectArn") => String.t() | Atom.t(),
+        required("DestinationProjectArn") => String.t() | atom(),
         required("OutputConfig") => output_config(),
-        required("SourceProjectArn") => String.t() | Atom.t(),
-        required("SourceProjectVersionArn") => String.t() | Atom.t(),
-        required("VersionName") => String.t() | Atom.t()
+        required("SourceProjectArn") => String.t() | atom(),
+        required("SourceProjectVersionArn") => String.t() | atom(),
+        required("VersionName") => String.t() | atom()
       }
       
   """
-  @type copy_project_version_request() :: %{String.t() | Atom.t() => any()}
+  @type copy_project_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3599,7 +3599,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type equipment_detection() :: %{String.t() | Atom.t() => any()}
+  @type equipment_detection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3607,26 +3607,26 @@ defmodule AWS.Rekognition do
       
       list_users_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("CollectionId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("CollectionId") => String.t() | atom()
       }
       
   """
-  @type list_users_request() :: %{String.t() | Atom.t() => any()}
+  @type list_users_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       general_labels_settings() :: %{
-        "LabelCategoryExclusionFilters" => list(String.t() | Atom.t()),
-        "LabelCategoryInclusionFilters" => list(String.t() | Atom.t()),
-        "LabelExclusionFilters" => list(String.t() | Atom.t()),
-        "LabelInclusionFilters" => list(String.t() | Atom.t())
+        "LabelCategoryExclusionFilters" => list(String.t() | atom()),
+        "LabelCategoryInclusionFilters" => list(String.t() | atom()),
+        "LabelExclusionFilters" => list(String.t() | atom()),
+        "LabelInclusionFilters" => list(String.t() | atom())
       }
       
   """
-  @type general_labels_settings() :: %{String.t() | Atom.t() => any()}
+  @type general_labels_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3637,42 +3637,42 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type media_analysis_input() :: %{String.t() | Atom.t() => any()}
+  @type media_analysis_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stream_processor_notification_channel() :: %{
-        "SNSTopicArn" => String.t() | Atom.t()
+        "SNSTopicArn" => String.t() | atom()
       }
       
   """
-  @type stream_processor_notification_channel() :: %{String.t() | Atom.t() => any()}
+  @type stream_processor_notification_channel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_media_analysis_job_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_media_analysis_job_response() :: %{String.t() | Atom.t() => any()}
+  @type start_media_analysis_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3680,97 +3680,97 @@ defmodule AWS.Rekognition do
       
       media_analysis_detect_moderation_labels_config() :: %{
         "MinConfidence" => float(),
-        "ProjectVersion" => String.t() | Atom.t()
+        "ProjectVersion" => String.t() | atom()
       }
       
   """
-  @type media_analysis_detect_moderation_labels_config() :: %{String.t() | Atom.t() => any()}
+  @type media_analysis_detect_moderation_labels_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_manifest_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_manifest_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_manifest_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       video_too_large_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type video_too_large_exception() :: %{String.t() | Atom.t() => any()}
+  @type video_too_large_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       human_loop_quota_exceeded_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t(),
-        "QuotaCode" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t(),
-        "ServiceCode" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "QuotaCode" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
       }
       
   """
-  @type human_loop_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type human_loop_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_faces_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        required("CollectionId") => String.t() | Atom.t(),
-        required("FaceIds") => list(String.t() | Atom.t()),
-        required("UserId") => String.t() | Atom.t()
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("CollectionId") => String.t() | atom(),
+        required("FaceIds") => list(String.t() | atom()),
+        required("UserId") => String.t() | atom()
       }
       
   """
-  @type disassociate_faces_request() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_faces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_text_detection_response() :: %{
-        "JobId" => String.t() | Atom.t(),
+        "JobId" => String.t() | atom(),
         "JobStatus" => list(any()),
-        "JobTag" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
-        "StatusMessage" => String.t() | Atom.t(),
+        "JobTag" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
         "TextDetections" => list(text_detection_result()),
-        "TextModelVersion" => String.t() | Atom.t(),
+        "TextModelVersion" => String.t() | atom(),
         "Video" => video(),
         "VideoMetadata" => video_metadata()
       }
       
   """
-  @type get_text_detection_response() :: %{String.t() | Atom.t() => any()}
+  @type get_text_detection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_celebrity_info_request() :: %{
-        required("Id") => String.t() | Atom.t()
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type get_celebrity_info_request() :: %{String.t() | Atom.t() => any()}
+  @type get_celebrity_info_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3783,7 +3783,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type protective_equipment_summary() :: %{String.t() | Atom.t() => any()}
+  @type protective_equipment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3795,23 +3795,23 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type start_text_detection_filters() :: %{String.t() | Atom.t() => any()}
+  @type start_text_detection_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_segment_detection_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
         optional("Filters") => start_segment_detection_filters(),
-        optional("JobTag") => String.t() | Atom.t(),
+        optional("JobTag") => String.t() | atom(),
         optional("NotificationChannel") => notification_channel(),
         required("SegmentTypes") => list(list(any())()),
         required("Video") => video()
       }
       
   """
-  @type start_segment_detection_request() :: %{String.t() | Atom.t() => any()}
+  @type start_segment_detection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3823,7 +3823,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type evaluation_result() :: %{String.t() | Atom.t() => any()}
+  @type evaluation_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3835,29 +3835,29 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type user_match() :: %{String.t() | Atom.t() => any()}
+  @type user_match() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_dataset_request() :: %{
-        required("DatasetArn") => String.t() | Atom.t()
+        required("DatasetArn") => String.t() | atom()
       }
       
   """
-  @type describe_dataset_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_dataset_request() :: %{
-        required("DatasetArn") => String.t() | Atom.t()
+        required("DatasetArn") => String.t() | atom()
       }
       
   """
-  @type delete_dataset_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3870,19 +3870,19 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type detect_labels_image_quality() :: %{String.t() | Atom.t() => any()}
+  @type detect_labels_image_quality() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_project_versions_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ProjectVersionDescriptions" => list(project_version_description())
       }
       
   """
-  @type describe_project_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_project_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3894,19 +3894,19 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type detect_labels_settings() :: %{String.t() | Atom.t() => any()}
+  @type detect_labels_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       liveness_output_config() :: %{
-        "S3Bucket" => String.t() | Atom.t(),
-        "S3KeyPrefix" => String.t() | Atom.t()
+        "S3Bucket" => String.t() | atom(),
+        "S3KeyPrefix" => String.t() | atom()
       }
       
   """
-  @type liveness_output_config() :: %{String.t() | Atom.t() => any()}
+  @type liveness_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3918,42 +3918,42 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type face_record() :: %{String.t() | Atom.t() => any()}
+  @type face_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_label_detection_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_label_detection_response() :: %{String.t() | Atom.t() => any()}
+  @type start_label_detection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parent() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type parent() :: %{String.t() | Atom.t() => any()}
+  @type parent() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_already_exists_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3964,7 +3964,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type validation_data() :: %{String.t() | Atom.t() => any()}
+  @type validation_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3972,13 +3972,13 @@ defmodule AWS.Rekognition do
       
       describe_project_versions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("VersionNames") => list(String.t() | Atom.t()),
-        required("ProjectArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("VersionNames") => list(String.t() | atom()),
+        required("ProjectArn") => String.t() | atom()
       }
       
   """
-  @type describe_project_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_project_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3990,64 +3990,64 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type detect_labels_image_foreground() :: %{String.t() | Atom.t() => any()}
+  @type detect_labels_image_foreground() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_s3_object_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_s3_object_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_s3_object_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       media_analysis_model_versions() :: %{
-        "Moderation" => String.t() | Atom.t()
+        "Moderation" => String.t() | atom()
       }
       
   """
-  @type media_analysis_model_versions() :: %{String.t() | Atom.t() => any()}
+  @type media_analysis_model_versions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_project_request() :: %{
-        required("ProjectArn") => String.t() | Atom.t()
+        required("ProjectArn") => String.t() | atom()
       }
       
   """
-  @type delete_project_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kinesis_data_stream() :: %{
-        "Arn" => String.t() | Atom.t()
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type kinesis_data_stream() :: %{String.t() | Atom.t() => any()}
+  @type kinesis_data_stream() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       label_alias() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type label_alias() :: %{String.t() | Atom.t() => any()}
+  @type label_alias() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4059,7 +4059,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type mustache() :: %{String.t() | Atom.t() => any()}
+  @type mustache() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4071,7 +4071,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type sunglasses() :: %{String.t() | Atom.t() => any()}
+  @type sunglasses() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4079,41 +4079,41 @@ defmodule AWS.Rekognition do
       
       human_loop_config() :: %{
         "DataAttributes" => human_loop_data_attributes(),
-        "FlowDefinitionArn" => String.t() | Atom.t(),
-        "HumanLoopName" => String.t() | Atom.t()
+        "FlowDefinitionArn" => String.t() | atom(),
+        "HumanLoopName" => String.t() | atom()
       }
       
   """
-  @type human_loop_config() :: %{String.t() | Atom.t() => any()}
+  @type human_loop_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_face_search_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
         optional("FaceMatchThreshold") => float(),
-        optional("JobTag") => String.t() | Atom.t(),
+        optional("JobTag") => String.t() | atom(),
         optional("NotificationChannel") => notification_channel(),
-        required("CollectionId") => String.t() | Atom.t(),
+        required("CollectionId") => String.t() | atom(),
         required("Video") => video()
       }
       
   """
-  @type start_face_search_request() :: %{String.t() | Atom.t() => any()}
+  @type start_face_search_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_ready_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_ready_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_ready_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4124,7 +4124,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type delete_collection_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_collection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4132,19 +4132,19 @@ defmodule AWS.Rekognition do
       
       get_content_moderation_response() :: %{
         "GetRequestMetadata" => get_content_moderation_request_metadata(),
-        "JobId" => String.t() | Atom.t(),
+        "JobId" => String.t() | atom(),
         "JobStatus" => list(any()),
-        "JobTag" => String.t() | Atom.t(),
+        "JobTag" => String.t() | atom(),
         "ModerationLabels" => list(content_moderation_detection()),
-        "ModerationModelVersion" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
-        "StatusMessage" => String.t() | Atom.t(),
+        "ModerationModelVersion" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
         "Video" => video(),
         "VideoMetadata" => video_metadata()
       }
       
   """
-  @type get_content_moderation_response() :: %{String.t() | Atom.t() => any()}
+  @type get_content_moderation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4168,7 +4168,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type compare_faces_response() :: %{String.t() | Atom.t() => any()}
+  @type compare_faces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4177,14 +4177,14 @@ defmodule AWS.Rekognition do
       project_policy() :: %{
         "CreationTimestamp" => non_neg_integer(),
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "PolicyDocument" => String.t() | Atom.t(),
-        "PolicyName" => String.t() | Atom.t(),
-        "PolicyRevisionId" => String.t() | Atom.t(),
-        "ProjectArn" => String.t() | Atom.t()
+        "PolicyDocument" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
+        "PolicyRevisionId" => String.t() | atom(),
+        "ProjectArn" => String.t() | atom()
       }
       
   """
-  @type project_policy() :: %{String.t() | Atom.t() => any()}
+  @type project_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4192,25 +4192,25 @@ defmodule AWS.Rekognition do
       
       search_faces_by_image_response() :: %{
         "FaceMatches" => list(face_match()),
-        "FaceModelVersion" => String.t() | Atom.t(),
+        "FaceModelVersion" => String.t() | atom(),
         "SearchedFaceBoundingBox" => bounding_box(),
         "SearchedFaceConfidence" => float()
       }
       
   """
-  @type search_faces_by_image_response() :: %{String.t() | Atom.t() => any()}
+  @type search_faces_by_image_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_dataset_entries_response() :: %{
-        "DatasetEntries" => list(String.t() | Atom.t()),
-        "NextToken" => String.t() | Atom.t()
+        "DatasetEntries" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_dataset_entries_response() :: %{String.t() | Atom.t() => any()}
+  @type list_dataset_entries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4221,18 +4221,18 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type summary() :: %{String.t() | Atom.t() => any()}
+  @type summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kinesis_video_stream() :: %{
-        "Arn" => String.t() | Atom.t()
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type kinesis_video_stream() :: %{String.t() | Atom.t() => any()}
+  @type kinesis_video_stream() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4240,15 +4240,15 @@ defmodule AWS.Rekognition do
       
       dataset_metadata() :: %{
         "CreationTimestamp" => non_neg_integer(),
-        "DatasetArn" => String.t() | Atom.t(),
+        "DatasetArn" => String.t() | atom(),
         "DatasetType" => list(any()),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | Atom.t(),
+        "StatusMessage" => String.t() | atom(),
         "StatusMessageCode" => list(any())
       }
       
   """
-  @type dataset_metadata() :: %{String.t() | Atom.t() => any()}
+  @type dataset_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4260,7 +4260,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type detect_labels_image_background() :: %{String.t() | Atom.t() => any()}
+  @type detect_labels_image_background() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4270,14 +4270,14 @@ defmodule AWS.Rekognition do
         "BoundingBox" => bounding_box(),
         "Confidence" => float(),
         "Face" => face_detail(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "KnownGender" => known_gender(),
-        "Name" => String.t() | Atom.t(),
-        "Urls" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Urls" => list(String.t() | atom())
       }
       
   """
-  @type celebrity_detail() :: %{String.t() | Atom.t() => any()}
+  @type celebrity_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4288,21 +4288,21 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type stream_processing_stop_selector() :: %{String.t() | Atom.t() => any()}
+  @type stream_processing_stop_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       audio_metadata() :: %{
-        "Codec" => String.t() | Atom.t(),
+        "Codec" => String.t() | atom(),
         "DurationMillis" => float(),
         "NumberOfChannels" => float(),
         "SampleRate" => float()
       }
       
   """
-  @type audio_metadata() :: %{String.t() | Atom.t() => any()}
+  @type audio_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4314,7 +4314,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type gender() :: %{String.t() | Atom.t() => any()}
+  @type gender() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4325,30 +4325,30 @@ defmodule AWS.Rekognition do
         "Categories" => list(label_category()),
         "Confidence" => float(),
         "Instances" => list(instance()),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Parents" => list(parent())
       }
       
   """
-  @type label() :: %{String.t() | Atom.t() => any()}
+  @type label() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_face_search_response() :: %{
-        "JobId" => String.t() | Atom.t(),
+        "JobId" => String.t() | atom(),
         "JobStatus" => list(any()),
-        "JobTag" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
+        "JobTag" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
         "Persons" => list(person_match()),
-        "StatusMessage" => String.t() | Atom.t(),
+        "StatusMessage" => String.t() | atom(),
         "Video" => video(),
         "VideoMetadata" => video_metadata()
       }
       
   """
-  @type get_face_search_response() :: %{String.t() | Atom.t() => any()}
+  @type get_face_search_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4357,11 +4357,11 @@ defmodule AWS.Rekognition do
       start_project_version_request() :: %{
         optional("MaxInferenceUnits") => integer(),
         required("MinInferenceUnits") => integer(),
-        required("ProjectVersionArn") => String.t() | Atom.t()
+        required("ProjectVersionArn") => String.t() | atom()
       }
       
   """
-  @type start_project_version_request() :: %{String.t() | Atom.t() => any()}
+  @type start_project_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4378,7 +4378,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type compared_face() :: %{String.t() | Atom.t() => any()}
+  @type compared_face() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4386,23 +4386,23 @@ defmodule AWS.Rekognition do
       
       get_face_detection_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("JobId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_face_detection_request() :: %{String.t() | Atom.t() => any()}
+  @type get_face_detection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_project_version_request() :: %{
-        required("ProjectVersionArn") => String.t() | Atom.t()
+        required("ProjectVersionArn") => String.t() | atom()
       }
       
   """
-  @type delete_project_version_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_project_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4413,46 +4413,46 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type stop_project_version_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_project_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_user_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        required("CollectionId") => String.t() | Atom.t(),
-        required("UserId") => String.t() | Atom.t()
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("CollectionId") => String.t() | atom(),
+        required("UserId") => String.t() | atom()
       }
       
   """
-  @type create_user_request() :: %{String.t() | Atom.t() => any()}
+  @type create_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_face_liveness_session_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("KmsKeyId") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("Settings") => create_face_liveness_session_request_settings()
       }
       
   """
-  @type create_face_liveness_session_request() :: %{String.t() | Atom.t() => any()}
+  @type create_face_liveness_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_pagination_token_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Logref" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Logref" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_pagination_token_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_pagination_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4463,7 +4463,7 @@ defmodule AWS.Rekognition do
       }
       
   """
-  @type delete_project_version_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_project_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4471,13 +4471,13 @@ defmodule AWS.Rekognition do
       
       get_person_tracking_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
-        required("JobId") => String.t() | Atom.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_person_tracking_request() :: %{String.t() | Atom.t() => any()}
+  @type get_person_tracking_request() :: %{(String.t() | atom()) => any()}
 
   @type associate_faces_errors() ::
           throttling_exception()

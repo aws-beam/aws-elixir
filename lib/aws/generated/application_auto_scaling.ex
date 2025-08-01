@@ -107,7 +107,7 @@ defmodule AWS.ApplicationAutoScaling do
       }
       
   """
-  @type step_adjustment() :: %{String.t() | Atom.t() => any()}
+  @type step_adjustment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -124,19 +124,19 @@ defmodule AWS.ApplicationAutoScaling do
       }
       
   """
-  @type predictive_scaling_metric_specification() :: %{String.t() | Atom.t() => any()}
+  @type predictive_scaling_metric_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
+        required("ResourceARN") => String.t() | atom(),
         required("Tags") => map()
       }
       
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -144,15 +144,15 @@ defmodule AWS.ApplicationAutoScaling do
       
       get_predictive_scaling_forecast_request() :: %{
         required("EndTime") => non_neg_integer(),
-        required("PolicyName") => String.t() | Atom.t(),
-        required("ResourceId") => String.t() | Atom.t(),
+        required("PolicyName") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom(),
         required("ScalableDimension") => list(any()),
         required("ServiceNamespace") => list(any()),
         required("StartTime") => non_neg_integer()
       }
       
   """
-  @type get_predictive_scaling_forecast_request() :: %{String.t() | Atom.t() => any()}
+  @type get_predictive_scaling_forecast_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -160,27 +160,27 @@ defmodule AWS.ApplicationAutoScaling do
       
       describe_scaling_policies_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("PolicyNames") => list(String.t() | Atom.t()),
-        optional("ResourceId") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PolicyNames") => list(String.t() | atom()),
+        optional("ResourceId") => String.t() | atom(),
         optional("ScalableDimension") => list(any()),
         required("ServiceNamespace") => list(any())
       }
       
   """
-  @type describe_scaling_policies_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_scaling_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       predictive_scaling_metric_dimension() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type predictive_scaling_metric_dimension() :: %{String.t() | Atom.t() => any()}
+  @type predictive_scaling_metric_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -205,14 +205,13 @@ defmodule AWS.ApplicationAutoScaling do
   ## Example:
       
       predictive_scaling_predefined_scaling_metric_specification() :: %{
-        "PredefinedMetricType" => String.t() | Atom.t(),
-        "ResourceLabel" => String.t() | Atom.t()
+        "PredefinedMetricType" => String.t() | atom(),
+        "ResourceLabel" => String.t() | atom()
       }
       
   """
   @type predictive_scaling_predefined_scaling_metric_specification() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -220,12 +219,12 @@ defmodule AWS.ApplicationAutoScaling do
   ## Example:
       
       alarm() :: %{
-        "AlarmARN" => String.t() | Atom.t(),
-        "AlarmName" => String.t() | Atom.t()
+        "AlarmARN" => String.t() | atom(),
+        "AlarmName" => String.t() | atom()
       }
       
   """
-  @type alarm() :: %{String.t() | Atom.t() => any()}
+  @type alarm() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -241,7 +240,7 @@ defmodule AWS.ApplicationAutoScaling do
       }
       
   """
-  @type target_tracking_scaling_policy_configuration() :: %{String.t() | Atom.t() => any()}
+  @type target_tracking_scaling_policy_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -254,20 +253,20 @@ defmodule AWS.ApplicationAutoScaling do
       }
       
   """
-  @type get_predictive_scaling_forecast_response() :: %{String.t() | Atom.t() => any()}
+  @type get_predictive_scaling_forecast_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_scalable_target_request() :: %{
-        required("ResourceId") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | atom(),
         required("ScalableDimension") => list(any()),
         required("ServiceNamespace") => list(any())
       }
       
   """
-  @type deregister_scalable_target_request() :: %{String.t() | Atom.t() => any()}
+  @type deregister_scalable_target_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -276,11 +275,11 @@ defmodule AWS.ApplicationAutoScaling do
       scaling_policy() :: %{
         "Alarms" => list(alarm()),
         "CreationTime" => non_neg_integer(),
-        "PolicyARN" => String.t() | Atom.t(),
-        "PolicyName" => String.t() | Atom.t(),
+        "PolicyARN" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
         "PolicyType" => list(any()),
         "PredictiveScalingPolicyConfiguration" => predictive_scaling_policy_configuration(),
-        "ResourceId" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | atom(),
         "ScalableDimension" => list(any()),
         "ServiceNamespace" => list(any()),
         "StepScalingPolicyConfiguration" => step_scaling_policy_configuration(),
@@ -288,30 +287,30 @@ defmodule AWS.ApplicationAutoScaling do
       }
       
   """
-  @type scaling_policy() :: %{String.t() | Atom.t() => any()}
+  @type scaling_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_service_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_service_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_scheduled_actions_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ScheduledActions" => list(scheduled_action())
       }
       
   """
-  @type describe_scheduled_actions_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_scheduled_actions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -319,41 +318,40 @@ defmodule AWS.ApplicationAutoScaling do
       
       describe_scheduled_actions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("ResourceId") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceId") => String.t() | atom(),
         optional("ScalableDimension") => list(any()),
-        optional("ScheduledActionNames") => list(String.t() | Atom.t()),
+        optional("ScheduledActionNames") => list(String.t() | atom()),
         required("ServiceNamespace") => list(any())
       }
       
   """
-  @type describe_scheduled_actions_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_scheduled_actions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       predictive_scaling_predefined_load_metric_specification() :: %{
-        "PredefinedMetricType" => String.t() | Atom.t(),
-        "ResourceLabel" => String.t() | Atom.t()
+        "PredefinedMetricType" => String.t() | atom(),
+        "ResourceLabel" => String.t() | atom()
       }
       
   """
   @type predictive_scaling_predefined_load_metric_specification() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -362,27 +360,27 @@ defmodule AWS.ApplicationAutoScaling do
       
       customized_metric_specification() :: %{
         "Dimensions" => list(metric_dimension()),
-        "MetricName" => String.t() | Atom.t(),
+        "MetricName" => String.t() | atom(),
         "Metrics" => list(target_tracking_metric_data_query()),
-        "Namespace" => String.t() | Atom.t(),
+        "Namespace" => String.t() | atom(),
         "Statistic" => list(any()),
-        "Unit" => String.t() | Atom.t()
+        "Unit" => String.t() | atom()
       }
       
   """
-  @type customized_metric_specification() :: %{String.t() | Atom.t() => any()}
+  @type customized_metric_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_scaling_activities_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ScalingActivities" => list(scaling_activity())
       }
       
   """
-  @type describe_scaling_activities_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_scaling_activities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -395,19 +393,19 @@ defmodule AWS.ApplicationAutoScaling do
       }
       
   """
-  @type suspended_state() :: %{String.t() | Atom.t() => any()}
+  @type suspended_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceName" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -420,18 +418,18 @@ defmodule AWS.ApplicationAutoScaling do
       }
       
   """
-  @type load_forecast() :: %{String.t() | Atom.t() => any()}
+  @type load_forecast() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_next_token_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_next_token_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -439,12 +437,12 @@ defmodule AWS.ApplicationAutoScaling do
       
       target_tracking_metric_stat() :: %{
         "Metric" => target_tracking_metric(),
-        "Stat" => String.t() | Atom.t(),
-        "Unit" => String.t() | Atom.t()
+        "Stat" => String.t() | atom(),
+        "Unit" => String.t() | atom()
       }
       
   """
-  @type target_tracking_metric_stat() :: %{String.t() | Atom.t() => any()}
+  @type target_tracking_metric_stat() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -453,33 +451,32 @@ defmodule AWS.ApplicationAutoScaling do
       scheduled_action() :: %{
         "CreationTime" => non_neg_integer(),
         "EndTime" => non_neg_integer(),
-        "ResourceId" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | atom(),
         "ScalableDimension" => list(any()),
         "ScalableTargetAction" => scalable_target_action(),
-        "Schedule" => String.t() | Atom.t(),
-        "ScheduledActionARN" => String.t() | Atom.t(),
-        "ScheduledActionName" => String.t() | Atom.t(),
+        "Schedule" => String.t() | atom(),
+        "ScheduledActionARN" => String.t() | atom(),
+        "ScheduledActionName" => String.t() | atom(),
         "ServiceNamespace" => list(any()),
         "StartTime" => non_neg_integer(),
-        "Timezone" => String.t() | Atom.t()
+        "Timezone" => String.t() | atom()
       }
       
   """
-  @type scheduled_action() :: %{String.t() | Atom.t() => any()}
+  @type scheduled_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       predictive_scaling_predefined_metric_pair_specification() :: %{
-        "PredefinedMetricType" => String.t() | Atom.t(),
-        "ResourceLabel" => String.t() | Atom.t()
+        "PredefinedMetricType" => String.t() | atom(),
+        "ResourceLabel" => String.t() | atom()
       }
       
   """
   @type predictive_scaling_predefined_metric_pair_specification() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -487,22 +484,22 @@ defmodule AWS.ApplicationAutoScaling do
   ## Example:
       
       scaling_activity() :: %{
-        "ActivityId" => String.t() | Atom.t(),
-        "Cause" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "Details" => String.t() | Atom.t(),
+        "ActivityId" => String.t() | atom(),
+        "Cause" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Details" => String.t() | atom(),
         "EndTime" => non_neg_integer(),
         "NotScaledReasons" => list(not_scaled_reason()),
-        "ResourceId" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | atom(),
         "ScalableDimension" => list(any()),
         "ServiceNamespace" => list(any()),
         "StartTime" => non_neg_integer(),
         "StatusCode" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type scaling_activity() :: %{String.t() | Atom.t() => any()}
+  @type scaling_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -513,7 +510,7 @@ defmodule AWS.ApplicationAutoScaling do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -522,16 +519,16 @@ defmodule AWS.ApplicationAutoScaling do
       register_scalable_target_request() :: %{
         optional("MaxCapacity") => integer(),
         optional("MinCapacity") => integer(),
-        optional("RoleARN") => String.t() | Atom.t(),
+        optional("RoleARN") => String.t() | atom(),
         optional("SuspendedState") => suspended_state(),
         optional("Tags") => map(),
-        required("ResourceId") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | atom(),
         required("ScalableDimension") => list(any()),
         required("ServiceNamespace") => list(any())
       }
       
   """
-  @type register_scalable_target_request() :: %{String.t() | Atom.t() => any()}
+  @type register_scalable_target_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -546,7 +543,7 @@ defmodule AWS.ApplicationAutoScaling do
       }
       
   """
-  @type step_scaling_policy_configuration() :: %{String.t() | Atom.t() => any()}
+  @type step_scaling_policy_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -555,14 +552,14 @@ defmodule AWS.ApplicationAutoScaling do
       describe_scaling_activities_request() :: %{
         optional("IncludeNotScaledActivities") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("ResourceId") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceId") => String.t() | atom(),
         optional("ScalableDimension") => list(any()),
         required("ServiceNamespace") => list(any())
       }
       
   """
-  @type describe_scaling_activities_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_scaling_activities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -570,24 +567,24 @@ defmodule AWS.ApplicationAutoScaling do
       
       target_tracking_metric() :: %{
         "Dimensions" => list(target_tracking_metric_dimension()),
-        "MetricName" => String.t() | Atom.t(),
-        "Namespace" => String.t() | Atom.t()
+        "MetricName" => String.t() | atom(),
+        "Namespace" => String.t() | atom()
       }
       
   """
-  @type target_tracking_metric() :: %{String.t() | Atom.t() => any()}
+  @type target_tracking_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       metric_dimension() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type metric_dimension() :: %{String.t() | Atom.t() => any()}
+  @type metric_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -598,7 +595,7 @@ defmodule AWS.ApplicationAutoScaling do
       }
       
   """
-  @type predictive_scaling_customized_metric_specification() :: %{String.t() | Atom.t() => any()}
+  @type predictive_scaling_customized_metric_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -606,26 +603,26 @@ defmodule AWS.ApplicationAutoScaling do
       
       put_scaling_policy_response() :: %{
         "Alarms" => list(alarm()),
-        "PolicyARN" => String.t() | Atom.t()
+        "PolicyARN" => String.t() | atom()
       }
       
   """
-  @type put_scaling_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type put_scaling_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       predictive_scaling_metric_data_query() :: %{
-        "Expression" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Label" => String.t() | Atom.t(),
+        "Expression" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Label" => String.t() | atom(),
         "MetricStat" => predictive_scaling_metric_stat(),
         "ReturnData" => boolean()
       }
       
   """
-  @type predictive_scaling_metric_data_query() :: %{String.t() | Atom.t() => any()}
+  @type predictive_scaling_metric_data_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -637,7 +634,7 @@ defmodule AWS.ApplicationAutoScaling do
       }
       
   """
-  @type scalable_target_action() :: %{String.t() | Atom.t() => any()}
+  @type scalable_target_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -645,40 +642,40 @@ defmodule AWS.ApplicationAutoScaling do
       
       describe_scalable_targets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("ResourceIds") => list(String.t() | Atom.t()),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceIds") => list(String.t() | atom()),
         optional("ScalableDimension") => list(any()),
         required("ServiceNamespace") => list(any())
       }
       
   """
-  @type describe_scalable_targets_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_scalable_targets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_scaling_policies_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ScalingPolicies" => list(scaling_policy())
       }
       
   """
-  @type describe_scaling_policies_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_scaling_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_scaling_policy_request() :: %{
-        required("PolicyName") => String.t() | Atom.t(),
-        required("ResourceId") => String.t() | Atom.t(),
+        required("PolicyName") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom(),
         required("ScalableDimension") => list(any()),
         required("ServiceNamespace") => list(any())
       }
       
   """
-  @type delete_scaling_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_scaling_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -687,28 +684,28 @@ defmodule AWS.ApplicationAutoScaling do
       put_scheduled_action_request() :: %{
         optional("EndTime") => non_neg_integer(),
         optional("ScalableTargetAction") => scalable_target_action(),
-        optional("Schedule") => String.t() | Atom.t(),
+        optional("Schedule") => String.t() | atom(),
         optional("StartTime") => non_neg_integer(),
-        optional("Timezone") => String.t() | Atom.t(),
-        required("ResourceId") => String.t() | Atom.t(),
+        optional("Timezone") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom(),
         required("ScalableDimension") => list(any()),
-        required("ScheduledActionName") => String.t() | Atom.t(),
+        required("ScheduledActionName") => String.t() | atom(),
         required("ServiceNamespace") => list(any())
       }
       
   """
-  @type put_scheduled_action_request() :: %{String.t() | Atom.t() => any()}
+  @type put_scheduled_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       object_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type object_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type object_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -725,11 +722,11 @@ defmodule AWS.ApplicationAutoScaling do
       
       predefined_metric_specification() :: %{
         "PredefinedMetricType" => list(any()),
-        "ResourceLabel" => String.t() | Atom.t()
+        "ResourceLabel" => String.t() | atom()
       }
       
   """
-  @type predefined_metric_specification() :: %{String.t() | Atom.t() => any()}
+  @type predefined_metric_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -740,16 +737,16 @@ defmodule AWS.ApplicationAutoScaling do
         "MaxCapacity" => integer(),
         "MinCapacity" => integer(),
         "PredictedCapacity" => integer(),
-        "ResourceId" => String.t() | Atom.t(),
-        "RoleARN" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | atom(),
+        "RoleARN" => String.t() | atom(),
         "ScalableDimension" => list(any()),
-        "ScalableTargetARN" => String.t() | Atom.t(),
+        "ScalableTargetARN" => String.t() | atom(),
         "ServiceNamespace" => list(any()),
         "SuspendedState" => suspended_state()
       }
       
   """
-  @type scalable_target() :: %{String.t() | Atom.t() => any()}
+  @type scalable_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -773,40 +770,40 @@ defmodule AWS.ApplicationAutoScaling do
       }
       
   """
-  @type predictive_scaling_policy_configuration() :: %{String.t() | Atom.t() => any()}
+  @type predictive_scaling_policy_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       concurrent_update_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type concurrent_update_exception() :: %{String.t() | Atom.t() => any()}
+  @type concurrent_update_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t()
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -817,14 +814,14 @@ defmodule AWS.ApplicationAutoScaling do
         optional("PredictiveScalingPolicyConfiguration") => predictive_scaling_policy_configuration(),
         optional("StepScalingPolicyConfiguration") => step_scaling_policy_configuration(),
         optional("TargetTrackingScalingPolicyConfiguration") => target_tracking_scaling_policy_configuration(),
-        required("PolicyName") => String.t() | Atom.t(),
-        required("ResourceId") => String.t() | Atom.t(),
+        required("PolicyName") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom(),
         required("ScalableDimension") => list(any()),
         required("ServiceNamespace") => list(any())
       }
       
   """
-  @type put_scaling_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type put_scaling_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -840,37 +837,37 @@ defmodule AWS.ApplicationAutoScaling do
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_scheduled_action_request() :: %{
-        required("ResourceId") => String.t() | Atom.t(),
+        required("ResourceId") => String.t() | atom(),
         required("ScalableDimension") => list(any()),
-        required("ScheduledActionName") => String.t() | Atom.t(),
+        required("ScheduledActionName") => String.t() | atom(),
         required("ServiceNamespace") => list(any())
       }
       
   """
-  @type delete_scheduled_action_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_scheduled_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       target_tracking_metric_dimension() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type target_tracking_metric_dimension() :: %{String.t() | Atom.t() => any()}
+  @type target_tracking_metric_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -878,39 +875,39 @@ defmodule AWS.ApplicationAutoScaling do
       
       predictive_scaling_metric_stat() :: %{
         "Metric" => predictive_scaling_metric(),
-        "Stat" => String.t() | Atom.t(),
-        "Unit" => String.t() | Atom.t()
+        "Stat" => String.t() | atom(),
+        "Unit" => String.t() | atom()
       }
       
   """
-  @type predictive_scaling_metric_stat() :: %{String.t() | Atom.t() => any()}
+  @type predictive_scaling_metric_stat() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_scalable_targets_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ScalableTargets" => list(scalable_target())
       }
       
   """
-  @type describe_scalable_targets_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_scalable_targets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       target_tracking_metric_data_query() :: %{
-        "Expression" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Label" => String.t() | Atom.t(),
+        "Expression" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Label" => String.t() | atom(),
         "MetricStat" => target_tracking_metric_stat(),
         "ReturnData" => boolean()
       }
       
   """
-  @type target_tracking_metric_data_query() :: %{String.t() | Atom.t() => any()}
+  @type target_tracking_metric_data_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -922,21 +919,21 @@ defmodule AWS.ApplicationAutoScaling do
       }
       
   """
-  @type capacity_forecast() :: %{String.t() | Atom.t() => any()}
+  @type capacity_forecast() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       not_scaled_reason() :: %{
-        "Code" => String.t() | Atom.t(),
+        "Code" => String.t() | atom(),
         "CurrentCapacity" => integer(),
         "MaxCapacity" => integer(),
         "MinCapacity" => integer()
       }
       
   """
-  @type not_scaled_reason() :: %{String.t() | Atom.t() => any()}
+  @type not_scaled_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -944,12 +941,12 @@ defmodule AWS.ApplicationAutoScaling do
       
       predictive_scaling_metric() :: %{
         "Dimensions" => list(predictive_scaling_metric_dimension()),
-        "MetricName" => String.t() | Atom.t(),
-        "Namespace" => String.t() | Atom.t()
+        "MetricName" => String.t() | atom(),
+        "Namespace" => String.t() | atom()
       }
       
   """
-  @type predictive_scaling_metric() :: %{String.t() | Atom.t() => any()}
+  @type predictive_scaling_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -965,34 +962,34 @@ defmodule AWS.ApplicationAutoScaling do
   ## Example:
       
       too_many_tags_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceName" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       failed_resource_access_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type failed_resource_access_exception() :: %{String.t() | Atom.t() => any()}
+  @type failed_resource_access_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_scalable_target_response() :: %{
-        "ScalableTargetARN" => String.t() | Atom.t()
+        "ScalableTargetARN" => String.t() | atom()
       }
       
   """
-  @type register_scalable_target_response() :: %{String.t() | Atom.t() => any()}
+  @type register_scalable_target_response() :: %{(String.t() | atom()) => any()}
 
   @type delete_scaling_policy_errors() ::
           validation_exception()

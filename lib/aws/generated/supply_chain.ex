@@ -29,12 +29,12 @@ defmodule AWS.SupplyChain do
       data_integration_flow_source() :: %{
         "datasetSource" => data_integration_flow_dataset_source_configuration(),
         "s3Source" => data_integration_flow_s3_source_configuration(),
-        "sourceName" => String.t() | Atom.t(),
+        "sourceName" => String.t() | atom(),
         "sourceType" => list(any())
       }
 
   """
-  @type data_integration_flow_source() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_flow_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -54,19 +54,19 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_data_lake_namespace_response() :: %{
-        "instanceId" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "instanceId" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type delete_data_lake_namespace_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_data_lake_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -83,11 +83,11 @@ defmodule AWS.SupplyChain do
 
       list_data_lake_namespaces_response() :: %{
         "namespaces" => list(data_lake_namespace()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_data_lake_namespaces_response() :: %{String.t() | Atom.t() => any()}
+  @type list_data_lake_namespaces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -103,12 +103,12 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       data_integration_event_dataset_target_configuration() :: %{
-        "datasetIdentifier" => String.t() | Atom.t(),
+        "datasetIdentifier" => String.t() | atom(),
         "operationType" => list(any())
       }
 
   """
-  @type data_integration_event_dataset_target_configuration() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_event_dataset_target_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -124,13 +124,13 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       data_integration_flow_s3_target_configuration() :: %{
-        "bucketName" => String.t() | Atom.t(),
+        "bucketName" => String.t() | atom(),
         "options" => data_integration_flow_s3_options(),
-        "prefix" => String.t() | Atom.t()
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type data_integration_flow_s3_target_configuration() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_flow_s3_target_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -143,7 +143,7 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type data_integration_flow_execution_source_info() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_flow_execution_source_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -154,7 +154,7 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type data_integration_flow_s3_options() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_flow_s3_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -162,11 +162,11 @@ defmodule AWS.SupplyChain do
 
       list_data_integration_flow_executions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_data_integration_flow_executions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_data_integration_flow_executions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -177,7 +177,7 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type get_data_lake_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type get_data_lake_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -185,23 +185,23 @@ defmodule AWS.SupplyChain do
 
       list_data_lake_datasets_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_data_lake_datasets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_data_lake_datasets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_lake_dataset_partition_field() :: %{
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "transform" => data_lake_dataset_partition_field_transform()
       }
 
   """
-  @type data_lake_dataset_partition_field() :: %{String.t() | Atom.t() => any()}
+  @type data_lake_dataset_partition_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -217,25 +217,25 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       update_data_lake_dataset_request() :: %{
-        optional("description") => String.t() | Atom.t()
+        optional("description") => String.t() | atom()
       }
 
   """
-  @type update_data_lake_dataset_request() :: %{String.t() | Atom.t() => any()}
+  @type update_data_lake_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_lake_dataset_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("partitionSpec") => data_lake_dataset_partition_spec(),
         optional("schema") => data_lake_dataset_schema(),
         optional("tags") => map()
       }
 
   """
-  @type create_data_lake_dataset_request() :: %{String.t() | Atom.t() => any()}
+  @type create_data_lake_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -246,19 +246,19 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type create_instance_response() :: %{String.t() | Atom.t() => any()}
+  @type create_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_data_integration_flow_response() :: %{
-        "instanceId" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "instanceId" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type delete_data_integration_flow_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_data_integration_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -270,29 +270,29 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type data_integration_flow_dedupe_strategy() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_flow_dedupe_strategy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_lake_dataset_primary_key_field() :: %{
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type data_lake_dataset_primary_key_field() :: %{String.t() | Atom.t() => any()}
+  @type data_lake_dataset_primary_key_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -306,31 +306,31 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type create_data_integration_flow_request() :: %{String.t() | Atom.t() => any()}
+  @type create_data_integration_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_lake_namespace_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("tags") => map()
       }
 
   """
-  @type create_data_lake_namespace_request() :: %{String.t() | Atom.t() => any()}
+  @type create_data_lake_namespace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_integration_flow_field_priority_dedupe_field() :: %{
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "sortOrder" => list(any())
       }
 
   """
-  @type data_integration_flow_field_priority_dedupe_field() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_flow_field_priority_dedupe_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -338,16 +338,16 @@ defmodule AWS.SupplyChain do
 
       data_integration_flow() :: %{
         "createdTime" => [non_neg_integer()],
-        "instanceId" => String.t() | Atom.t(),
+        "instanceId" => String.t() | atom(),
         "lastModifiedTime" => [non_neg_integer()],
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "sources" => list(data_integration_flow_source()),
         "target" => data_integration_flow_target(),
         "transformation" => data_integration_flow_transformation()
       }
 
   """
-  @type data_integration_flow() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_flow() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -358,7 +358,7 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type update_data_integration_flow_response() :: %{String.t() | Atom.t() => any()}
+  @type update_data_integration_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -374,22 +374,22 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       create_bill_of_materials_import_job_response() :: %{
-        "jobId" => String.t() | Atom.t()
+        "jobId" => String.t() | atom()
       }
 
   """
-  @type create_bill_of_materials_import_job_response() :: %{String.t() | Atom.t() => any()}
+  @type create_bill_of_materials_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_data_lake_namespace_request() :: %{
-        optional("description") => String.t() | Atom.t()
+        optional("description") => String.t() | atom()
       }
 
   """
-  @type update_data_lake_namespace_request() :: %{String.t() | Atom.t() => any()}
+  @type update_data_lake_namespace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -397,12 +397,12 @@ defmodule AWS.SupplyChain do
 
       data_lake_dataset_schema_field() :: %{
         "isRequired" => [boolean()],
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type data_lake_dataset_schema_field() :: %{String.t() | Atom.t() => any()}
+  @type data_lake_dataset_schema_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -413,20 +413,19 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type get_bill_of_materials_import_job_response() :: %{String.t() | Atom.t() => any()}
+  @type get_bill_of_materials_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_integration_flow_s_q_l_transformation_configuration() :: %{
-        "query" => String.t() | Atom.t()
+        "query" => String.t() | atom()
       }
 
   """
   @type data_integration_flow_s_q_l_transformation_configuration() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -434,12 +433,12 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       create_data_integration_flow_response() :: %{
-        "instanceId" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "instanceId" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type create_data_integration_flow_response() :: %{String.t() | Atom.t() => any()}
+  @type create_data_integration_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -447,33 +446,33 @@ defmodule AWS.SupplyChain do
 
       list_data_lake_datasets_response() :: %{
         "datasets" => list(data_lake_dataset()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_data_lake_datasets_response() :: %{String.t() | Atom.t() => any()}
+  @type list_data_lake_datasets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -484,7 +483,7 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type update_data_lake_namespace_response() :: %{String.t() | Atom.t() => any()}
+  @type update_data_lake_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -500,11 +499,11 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -517,7 +516,7 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type data_integration_flow_dataset_options() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_flow_dataset_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -533,14 +532,13 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       data_integration_event_dataset_load_execution_details() :: %{
-        "message" => [String.t() | Atom.t()],
+        "message" => [String.t() | atom()],
         "status" => list(any())
       }
 
   """
   @type data_integration_event_dataset_load_execution_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -548,12 +546,12 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       update_instance_request() :: %{
-        optional("instanceDescription") => String.t() | Atom.t(),
-        optional("instanceName") => String.t() | Atom.t()
+        optional("instanceDescription") => String.t() | atom(),
+        optional("instanceName") => String.t() | atom()
       }
 
   """
-  @type update_instance_request() :: %{String.t() | Atom.t() => any()}
+  @type update_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -561,24 +559,24 @@ defmodule AWS.SupplyChain do
 
       list_data_integration_flow_executions_response() :: %{
         "flowExecutions" => list(data_integration_flow_execution()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_data_integration_flow_executions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_data_integration_flow_executions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_integration_event_dataset_target_details() :: %{
-        "datasetIdentifier" => String.t() | Atom.t(),
+        "datasetIdentifier" => String.t() | atom(),
         "datasetLoadExecution" => data_integration_event_dataset_load_execution_details(),
         "operationType" => list(any())
       }
 
   """
-  @type data_integration_event_dataset_target_details() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_event_dataset_target_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -589,7 +587,7 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type get_instance_response() :: %{String.t() | Atom.t() => any()}
+  @type get_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -597,12 +595,12 @@ defmodule AWS.SupplyChain do
 
       data_lake_dataset_schema() :: %{
         "fields" => list(data_lake_dataset_schema_field()),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "primaryKeys" => list(data_lake_dataset_primary_key_field())
       }
 
   """
-  @type data_lake_dataset_schema() :: %{String.t() | Atom.t() => any()}
+  @type data_lake_dataset_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -611,11 +609,11 @@ defmodule AWS.SupplyChain do
       list_data_integration_events_request() :: %{
         optional("eventType") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_data_integration_events_request() :: %{String.t() | Atom.t() => any()}
+  @type list_data_integration_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -626,7 +624,7 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -637,45 +635,45 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type data_lake_dataset_partition_field_transform() :: %{String.t() | Atom.t() => any()}
+  @type data_lake_dataset_partition_field_transform() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_integration_flow_dataset_target_configuration() :: %{
-        "datasetIdentifier" => String.t() | Atom.t(),
+        "datasetIdentifier" => String.t() | atom(),
         "options" => data_integration_flow_dataset_options()
       }
 
   """
-  @type data_integration_flow_dataset_target_configuration() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_flow_dataset_target_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_bill_of_materials_import_job_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        required("s3uri") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom(),
+        required("s3uri") => String.t() | atom()
       }
 
   """
-  @type create_bill_of_materials_import_job_request() :: %{String.t() | Atom.t() => any()}
+  @type create_bill_of_materials_import_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_instances_request() :: %{
-        optional("instanceNameFilter") => list(String.t() | Atom.t()),
+        optional("instanceNameFilter") => list(String.t() | atom()),
         optional("instanceStateFilter") => list(list(any())()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_instances_request() :: %{String.t() | Atom.t() => any()}
+  @type list_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -686,7 +684,7 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type create_data_lake_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type create_data_lake_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -694,22 +692,22 @@ defmodule AWS.SupplyChain do
 
       list_instances_response() :: %{
         "instances" => list(instance()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_instances_response() :: %{String.t() | Atom.t() => any()}
+  @type list_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -721,7 +719,7 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type data_integration_flow_transformation() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_flow_transformation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -732,29 +730,29 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type get_data_integration_flow_execution_response() :: %{String.t() | Atom.t() => any()}
+  @type get_data_integration_flow_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_integration_flow_dataset_source() :: %{
-        "datasetIdentifier" => String.t() | Atom.t()
+        "datasetIdentifier" => String.t() | atom()
       }
 
   """
-  @type data_integration_flow_dataset_source() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_flow_dataset_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_integration_flow_execution_output_metadata() :: %{
-        "diagnosticReportsRootS3URI" => String.t() | Atom.t()
+        "diagnosticReportsRootS3URI" => String.t() | atom()
       }
 
   """
-  @type data_integration_flow_execution_output_metadata() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_flow_execution_output_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -765,7 +763,7 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type get_data_integration_event_response() :: %{String.t() | Atom.t() => any()}
+  @type get_data_integration_event_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -776,44 +774,44 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type get_data_integration_flow_response() :: %{String.t() | Atom.t() => any()}
+  @type get_data_integration_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_instance_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("instanceDescription") => String.t() | Atom.t(),
-        optional("instanceName") => String.t() | Atom.t(),
-        optional("kmsKeyArn") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("instanceDescription") => String.t() | atom(),
+        optional("instanceName") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
         optional("tags") => map(),
-        optional("webAppDnsDomain") => String.t() | Atom.t()
+        optional("webAppDnsDomain") => String.t() | atom()
       }
 
   """
-  @type create_instance_request() :: %{String.t() | Atom.t() => any()}
+  @type create_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       instance() :: %{
-        "awsAccountId" => String.t() | Atom.t(),
+        "awsAccountId" => String.t() | atom(),
         "createdTime" => [non_neg_integer()],
-        "errorMessage" => [String.t() | Atom.t()],
-        "instanceDescription" => String.t() | Atom.t(),
-        "instanceId" => String.t() | Atom.t(),
-        "instanceName" => String.t() | Atom.t(),
-        "kmsKeyArn" => String.t() | Atom.t(),
+        "errorMessage" => [String.t() | atom()],
+        "instanceDescription" => String.t() | atom(),
+        "instanceId" => String.t() | atom(),
+        "instanceName" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
         "lastModifiedTime" => [non_neg_integer()],
         "state" => list(any()),
         "versionNumber" => [float()],
-        "webAppDnsDomain" => String.t() | Atom.t()
+        "webAppDnsDomain" => String.t() | atom()
       }
 
   """
-  @type instance() :: %{String.t() | Atom.t() => any()}
+  @type instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -829,11 +827,11 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -850,11 +848,11 @@ defmodule AWS.SupplyChain do
 
       list_data_integration_events_response() :: %{
         "events" => list(data_integration_event()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_data_integration_events_response() :: %{String.t() | Atom.t() => any()}
+  @type list_data_integration_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -865,7 +863,7 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type get_data_lake_namespace_response() :: %{String.t() | Atom.t() => any()}
+  @type get_data_lake_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -876,29 +874,29 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type delete_instance_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       send_data_integration_event_response() :: %{
-        "eventId" => String.t() | Atom.t()
+        "eventId" => String.t() | atom()
       }
 
   """
-  @type send_data_integration_event_response() :: %{String.t() | Atom.t() => any()}
+  @type send_data_integration_event_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -914,11 +912,11 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -944,11 +942,11 @@ defmodule AWS.SupplyChain do
 
       list_data_integration_flows_response() :: %{
         "flows" => list(data_integration_flow()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_data_integration_flows_response() :: %{String.t() | Atom.t() => any()}
+  @type list_data_integration_flows_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -956,11 +954,11 @@ defmodule AWS.SupplyChain do
 
       list_data_lake_namespaces_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_data_lake_namespaces_request() :: %{String.t() | Atom.t() => any()}
+  @type list_data_lake_namespaces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -972,8 +970,7 @@ defmodule AWS.SupplyChain do
 
   """
   @type data_integration_flow_field_priority_dedupe_strategy_configuration() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -981,28 +978,28 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       data_integration_flow_s3_source() :: %{
-        "bucketName" => String.t() | Atom.t(),
-        "key" => String.t() | Atom.t()
+        "bucketName" => String.t() | atom(),
+        "key" => String.t() | atom()
       }
 
   """
-  @type data_integration_flow_s3_source() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_flow_s3_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       send_data_integration_event_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("datasetTarget") => data_integration_event_dataset_target_configuration(),
         optional("eventTimestamp") => [non_neg_integer()],
-        required("data") => String.t() | Atom.t(),
-        required("eventGroupId") => String.t() | Atom.t(),
+        required("data") => String.t() | atom(),
+        required("eventGroupId") => String.t() | atom(),
         required("eventType") => list(any())
       }
 
   """
-  @type send_data_integration_event_request() :: %{String.t() | Atom.t() => any()}
+  @type send_data_integration_event_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1010,10 +1007,10 @@ defmodule AWS.SupplyChain do
 
       data_integration_flow_execution() :: %{
         "endTime" => [non_neg_integer()],
-        "executionId" => String.t() | Atom.t(),
-        "flowName" => String.t() | Atom.t(),
-        "instanceId" => String.t() | Atom.t(),
-        "message" => [String.t() | Atom.t()],
+        "executionId" => String.t() | atom(),
+        "flowName" => String.t() | atom(),
+        "instanceId" => String.t() | atom(),
+        "message" => [String.t() | atom()],
         "outputMetadata" => data_integration_flow_execution_output_metadata(),
         "sourceInfo" => data_integration_flow_execution_source_info(),
         "startTime" => [non_neg_integer()],
@@ -1021,20 +1018,20 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type data_integration_flow_execution() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_flow_execution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_integration_flow_s3_source_configuration() :: %{
-        "bucketName" => String.t() | Atom.t(),
+        "bucketName" => String.t() | atom(),
         "options" => data_integration_flow_s3_options(),
-        "prefix" => String.t() | Atom.t()
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type data_integration_flow_s3_source_configuration() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_flow_s3_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1056,7 +1053,7 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type data_integration_flow_target() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_flow_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1067,23 +1064,23 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type data_lake_dataset_partition_spec() :: %{String.t() | Atom.t() => any()}
+  @type data_lake_dataset_partition_spec() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_lake_namespace() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "createdTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
-        "instanceId" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "instanceId" => String.t() | atom(),
         "lastModifiedTime" => [non_neg_integer()],
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type data_lake_namespace() :: %{String.t() | Atom.t() => any()}
+  @type data_lake_namespace() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1091,11 +1088,11 @@ defmodule AWS.SupplyChain do
 
       list_data_integration_flows_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_data_integration_flows_request() :: %{String.t() | Atom.t() => any()}
+  @type list_data_integration_flows_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1103,15 +1100,15 @@ defmodule AWS.SupplyChain do
 
       data_integration_event() :: %{
         "datasetTargetDetails" => data_integration_event_dataset_target_details(),
-        "eventGroupId" => String.t() | Atom.t(),
-        "eventId" => String.t() | Atom.t(),
+        "eventGroupId" => String.t() | atom(),
+        "eventId" => String.t() | atom(),
         "eventTimestamp" => [non_neg_integer()],
         "eventType" => list(any()),
-        "instanceId" => String.t() | Atom.t()
+        "instanceId" => String.t() | atom()
       }
 
   """
-  @type data_integration_event() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1122,7 +1119,7 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type update_instance_response() :: %{String.t() | Atom.t() => any()}
+  @type update_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1135,34 +1132,34 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type update_data_integration_flow_request() :: %{String.t() | Atom.t() => any()}
+  @type update_data_integration_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_integration_flow_dataset_source_configuration() :: %{
-        "datasetIdentifier" => String.t() | Atom.t(),
+        "datasetIdentifier" => String.t() | atom(),
         "options" => data_integration_flow_dataset_options()
       }
 
   """
-  @type data_integration_flow_dataset_source_configuration() :: %{String.t() | Atom.t() => any()}
+  @type data_integration_flow_dataset_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bill_of_materials_import_job() :: %{
-        "instanceId" => String.t() | Atom.t(),
-        "jobId" => String.t() | Atom.t(),
-        "message" => [String.t() | Atom.t()],
-        "s3uri" => String.t() | Atom.t(),
+        "instanceId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "message" => [String.t() | atom()],
+        "s3uri" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type bill_of_materials_import_job() :: %{String.t() | Atom.t() => any()}
+  @type bill_of_materials_import_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1173,39 +1170,39 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type create_data_lake_namespace_response() :: %{String.t() | Atom.t() => any()}
+  @type create_data_lake_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_lake_dataset() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "createdTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
-        "instanceId" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "instanceId" => String.t() | atom(),
         "lastModifiedTime" => [non_neg_integer()],
-        "name" => String.t() | Atom.t(),
-        "namespace" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "namespace" => String.t() | atom(),
         "partitionSpec" => data_lake_dataset_partition_spec(),
         "schema" => data_lake_dataset_schema()
       }
 
   """
-  @type data_lake_dataset() :: %{String.t() | Atom.t() => any()}
+  @type data_lake_dataset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_data_lake_dataset_response() :: %{
-        "instanceId" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "namespace" => String.t() | Atom.t()
+        "instanceId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "namespace" => String.t() | atom()
       }
 
   """
-  @type delete_data_lake_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_data_lake_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1216,7 +1213,7 @@ defmodule AWS.SupplyChain do
       }
 
   """
-  @type update_data_lake_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type update_data_lake_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @type create_bill_of_materials_import_job_errors() ::
           throttling_exception()
@@ -1459,7 +1456,7 @@ defmodule AWS.SupplyChain do
   """
   @spec create_bill_of_materials_import_job(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_bill_of_materials_import_job_request(),
           list()
         ) ::
@@ -1498,8 +1495,8 @@ defmodule AWS.SupplyChain do
   """
   @spec create_data_integration_flow(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_data_integration_flow_request(),
           list()
         ) ::
@@ -1539,9 +1536,9 @@ defmodule AWS.SupplyChain do
   """
   @spec create_data_lake_dataset(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_data_lake_dataset_request(),
           list()
         ) ::
@@ -1587,8 +1584,8 @@ defmodule AWS.SupplyChain do
   """
   @spec create_data_lake_namespace(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_data_lake_namespace_request(),
           list()
         ) ::
@@ -1664,8 +1661,8 @@ defmodule AWS.SupplyChain do
   """
   @spec delete_data_integration_flow(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_data_integration_flow_request(),
           list()
         ) ::
@@ -1705,9 +1702,9 @@ defmodule AWS.SupplyChain do
   """
   @spec delete_data_lake_dataset(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_data_lake_dataset_request(),
           list()
         ) ::
@@ -1754,8 +1751,8 @@ defmodule AWS.SupplyChain do
   """
   @spec delete_data_lake_namespace(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_data_lake_namespace_request(),
           list()
         ) ::
@@ -1797,7 +1794,7 @@ defmodule AWS.SupplyChain do
   resources created during the instance creation process. You can use the
   GetInstance action to check the instance status.
   """
-  @spec delete_instance(map(), String.t() | Atom.t(), delete_instance_request(), list()) ::
+  @spec delete_instance(map(), String.t() | atom(), delete_instance_request(), list()) ::
           {:ok, delete_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1826,12 +1823,7 @@ defmodule AWS.SupplyChain do
   @doc """
   Get status and details of a BillOfMaterialsImportJob.
   """
-  @spec get_bill_of_materials_import_job(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec get_bill_of_materials_import_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_bill_of_materials_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1855,7 +1847,7 @@ defmodule AWS.SupplyChain do
   Developers can view the eventType, eventGroupId, eventTimestamp, datasetTarget,
   datasetLoadExecution.
   """
-  @spec get_data_integration_event(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_data_integration_event(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_data_integration_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1876,7 +1868,7 @@ defmodule AWS.SupplyChain do
   Enables you to programmatically view a specific data pipeline for the provided
   Amazon Web Services Supply Chain instance and DataIntegrationFlow name.
   """
-  @spec get_data_integration_flow(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_data_integration_flow(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_data_integration_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1898,9 +1890,9 @@ defmodule AWS.SupplyChain do
   """
   @spec get_data_integration_flow_execution(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_data_integration_flow_execution_response(), any()}
@@ -1934,9 +1926,9 @@ defmodule AWS.SupplyChain do
   """
   @spec get_data_lake_dataset(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_data_lake_dataset_response(), any()}
@@ -1962,7 +1954,7 @@ defmodule AWS.SupplyChain do
   Developers can view the data lake namespace information such as description for
   a given instance ID and namespace name.
   """
-  @spec get_data_lake_namespace(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_data_lake_namespace(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_data_lake_namespace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1983,7 +1975,7 @@ defmodule AWS.SupplyChain do
   Enables you to programmatically retrieve the information related to an Amazon
   Web Services Supply Chain instance ID.
   """
-  @spec get_instance(map(), String.t() | Atom.t(), list()) ::
+  @spec get_instance(map(), String.t() | atom(), list()) ::
           {:ok, get_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2004,10 +1996,10 @@ defmodule AWS.SupplyChain do
   """
   @spec list_data_integration_events(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_data_integration_events_response(), any()}
@@ -2059,10 +2051,10 @@ defmodule AWS.SupplyChain do
   """
   @spec list_data_integration_flow_executions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_data_integration_flow_executions_response(), any()}
@@ -2108,9 +2100,9 @@ defmodule AWS.SupplyChain do
   """
   @spec list_data_integration_flows(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_data_integration_flows_response(), any()}
@@ -2158,10 +2150,10 @@ defmodule AWS.SupplyChain do
   """
   @spec list_data_lake_datasets(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_data_lake_datasets_response(), any()}
@@ -2211,9 +2203,9 @@ defmodule AWS.SupplyChain do
   """
   @spec list_data_lake_namespaces(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_data_lake_namespaces_response(), any()}
@@ -2259,10 +2251,10 @@ defmodule AWS.SupplyChain do
   """
   @spec list_instances(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_instances_response(), any()}
@@ -2321,7 +2313,7 @@ defmodule AWS.SupplyChain do
   can view the tag level information on a resource and perform actions such as,
   deleting a resource associated with a particular tag.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2345,7 +2337,7 @@ defmodule AWS.SupplyChain do
   """
   @spec send_data_integration_event(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           send_data_integration_event_request(),
           list()
         ) ::
@@ -2385,7 +2377,7 @@ defmodule AWS.SupplyChain do
   datasets. You can use these tags to identify a group of resources or a single
   resource used by the developer.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2419,7 +2411,7 @@ defmodule AWS.SupplyChain do
   prod to data flows created during the data ingestion process in the AWS Supply
   Chain datasets.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2458,8 +2450,8 @@ defmodule AWS.SupplyChain do
   """
   @spec update_data_integration_flow(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_data_integration_flow_request(),
           list()
         ) ::
@@ -2499,9 +2491,9 @@ defmodule AWS.SupplyChain do
   """
   @spec update_data_lake_dataset(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_data_lake_dataset_request(),
           list()
         ) ::
@@ -2548,8 +2540,8 @@ defmodule AWS.SupplyChain do
   """
   @spec update_data_lake_namespace(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_data_lake_namespace_request(),
           list()
         ) ::
@@ -2585,7 +2577,7 @@ defmodule AWS.SupplyChain do
   instance description by providing all the relevant information such as account
   ID, instance ID and so on without using the AWS console.
   """
-  @spec update_instance(map(), String.t() | Atom.t(), update_instance_request(), list()) ::
+  @spec update_instance(map(), String.t() | atom(), update_instance_request(), list()) ::
           {:ok, update_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

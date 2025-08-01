@@ -35,32 +35,32 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type get_tax_registration_document_request() :: %{String.t() | Atom.t() => any()}
+  @type get_tax_registration_document_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       south_korea_additional_info() :: %{
-        "businessRepresentativeName" => String.t() | Atom.t(),
-        "itemOfBusiness" => String.t() | Atom.t(),
-        "lineOfBusiness" => String.t() | Atom.t()
+        "businessRepresentativeName" => String.t() | atom(),
+        "itemOfBusiness" => String.t() | atom(),
+        "lineOfBusiness" => String.t() | atom()
       }
 
   """
-  @type south_korea_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type south_korea_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       source_s3_location() :: %{
-        "bucket" => String.t() | Atom.t(),
-        "key" => String.t() | Atom.t()
+        "bucket" => String.t() | atom(),
+        "key" => String.t() | atom()
       }
 
   """
-  @type source_s3_location() :: %{String.t() | Atom.t() => any()}
+  @type source_s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,7 +71,7 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type batch_delete_tax_registration_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_tax_registration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -79,11 +79,11 @@ defmodule AWS.TaxSettings do
 
       list_tax_exemptions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_tax_exemptions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tax_exemptions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -114,7 +114,7 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type additional_info_response() :: %{String.t() | Atom.t() => any()}
+  @type additional_info_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -125,44 +125,44 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type ukraine_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type ukraine_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       italy_additional_info() :: %{
-        "cigNumber" => String.t() | Atom.t(),
-        "cupNumber" => String.t() | Atom.t(),
-        "sdiAccountId" => String.t() | Atom.t(),
-        "taxCode" => String.t() | Atom.t()
+        "cigNumber" => String.t() | atom(),
+        "cupNumber" => String.t() | atom(),
+        "sdiAccountId" => String.t() | atom(),
+        "taxCode" => String.t() | atom()
       }
 
   """
-  @type italy_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type italy_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       attachment_upload_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type attachment_upload_exception() :: %{String.t() | Atom.t() => any()}
+  @type attachment_upload_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tax_inheritance_details() :: %{
-        "inheritanceObtainedReason" => String.t() | Atom.t(),
-        "parentEntityId" => String.t() | Atom.t()
+        "inheritanceObtainedReason" => String.t() | atom(),
+        "parentEntityId" => String.t() | atom()
       }
 
   """
-  @type tax_inheritance_details() :: %{String.t() | Atom.t() => any()}
+  @type tax_inheritance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -178,20 +178,20 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type tax_exemption() :: %{String.t() | Atom.t() => any()}
+  @type tax_exemption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       malaysia_additional_info() :: %{
-        "businessRegistrationNumber" => String.t() | Atom.t(),
+        "businessRegistrationNumber" => String.t() | atom(),
         "serviceTaxCodes" => list(list(any())()),
-        "taxInformationNumber" => String.t() | Atom.t()
+        "taxInformationNumber" => String.t() | atom()
       }
 
   """
-  @type malaysia_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type malaysia_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -202,18 +202,18 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type kenya_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type kenya_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       greece_additional_info() :: %{
-        "contractingAuthorityCode" => String.t() | Atom.t()
+        "contractingAuthorityCode" => String.t() | atom()
       }
 
   """
-  @type greece_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type greece_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -224,7 +224,7 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type get_tax_registration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_tax_registration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -232,46 +232,46 @@ defmodule AWS.TaxSettings do
 
       tax_registration_doc_file() :: %{
         "fileContent" => binary(),
-        "fileName" => String.t() | Atom.t()
+        "fileName" => String.t() | atom()
       }
 
   """
-  @type tax_registration_doc_file() :: %{String.t() | Atom.t() => any()}
+  @type tax_registration_doc_file() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       india_additional_info() :: %{
-        "pan" => String.t() | Atom.t()
+        "pan" => String.t() | atom()
       }
 
   """
-  @type india_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type india_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       poland_additional_info() :: %{
-        "individualRegistrationNumber" => String.t() | Atom.t(),
+        "individualRegistrationNumber" => String.t() | atom(),
         "isGroupVatEnabled" => boolean()
       }
 
   """
-  @type poland_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type poland_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_tax_exemptions_response() :: %{
-        "failedAccounts" => list(String.t() | Atom.t()),
+        "failedAccounts" => list(String.t() | atom()),
         "taxExemptionDetailsMap" => map()
       }
 
   """
-  @type batch_get_tax_exemptions_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_tax_exemptions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -282,53 +282,53 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type put_supplemental_tax_registration_request() :: %{String.t() | Atom.t() => any()}
+  @type put_supplemental_tax_registration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_put_tax_registration_request() :: %{
-        required("accountIds") => list(String.t() | Atom.t()),
+        required("accountIds") => list(String.t() | atom()),
         required("taxRegistrationEntry") => tax_registration_entry()
       }
 
   """
-  @type batch_put_tax_registration_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_tax_registration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       egypt_additional_info() :: %{
-        "uniqueIdentificationNumber" => String.t() | Atom.t(),
-        "uniqueIdentificationNumberExpirationDate" => String.t() | Atom.t()
+        "uniqueIdentificationNumber" => String.t() | atom(),
+        "uniqueIdentificationNumberExpirationDate" => String.t() | atom()
       }
 
   """
-  @type egypt_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type egypt_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       case_creation_limit_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type case_creation_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type case_creation_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_supplemental_tax_registration_request() :: %{
-        required("authorityId") => String.t() | Atom.t()
+        required("authorityId") => String.t() | atom()
       }
 
   """
-  @type delete_supplemental_tax_registration_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_supplemental_tax_registration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -344,11 +344,11 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       get_tax_registration_request() :: %{
-        optional("accountId") => String.t() | Atom.t()
+        optional("accountId") => String.t() | atom()
       }
 
   """
-  @type get_tax_registration_request() :: %{String.t() | Atom.t() => any()}
+  @type get_tax_registration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -359,7 +359,7 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type get_tax_inheritance_response() :: %{String.t() | Atom.t() => any()}
+  @type get_tax_inheritance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -370,19 +370,19 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type romania_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type romania_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       brazil_additional_info() :: %{
-        "ccmCode" => String.t() | Atom.t(),
-        "legalNatureCode" => String.t() | Atom.t()
+        "ccmCode" => String.t() | atom(),
+        "legalNatureCode" => String.t() | atom()
       }
 
   """
-  @type brazil_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type brazil_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -411,7 +411,7 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type additional_info_request() :: %{String.t() | Atom.t() => any()}
+  @type additional_info_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -419,13 +419,13 @@ defmodule AWS.TaxSettings do
 
       supplemental_tax_registration_entry() :: %{
         "address" => address(),
-        "legalName" => String.t() | Atom.t(),
-        "registrationId" => String.t() | Atom.t(),
+        "legalName" => String.t() | atom(),
+        "registrationId" => String.t() | atom(),
         "registrationType" => list(any())
       }
 
   """
-  @type supplemental_tax_registration_entry() :: %{String.t() | Atom.t() => any()}
+  @type supplemental_tax_registration_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -442,37 +442,37 @@ defmodule AWS.TaxSettings do
 
       tax_exemption_type() :: %{
         "applicableJurisdictions" => list(authority()),
-        "description" => String.t() | Atom.t(),
-        "displayName" => String.t() | Atom.t()
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom()
       }
 
   """
-  @type tax_exemption_type() :: %{String.t() | Atom.t() => any()}
+  @type tax_exemption_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       indonesia_additional_info() :: %{
-        "decisionNumber" => String.t() | Atom.t(),
-        "ppnExceptionDesignationCode" => String.t() | Atom.t(),
+        "decisionNumber" => String.t() | atom(),
+        "ppnExceptionDesignationCode" => String.t() | atom(),
         "taxRegistrationNumberType" => list(any())
       }
 
   """
-  @type indonesia_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type indonesia_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       authority() :: %{
-        "country" => String.t() | Atom.t(),
-        "state" => String.t() | Atom.t()
+        "country" => String.t() | atom(),
+        "state" => String.t() | atom()
       }
 
   """
-  @type authority() :: %{String.t() | Atom.t() => any()}
+  @type authority() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -483,7 +483,7 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type get_tax_exemption_types_response() :: %{String.t() | Atom.t() => any()}
+  @type get_tax_exemption_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -495,54 +495,54 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type batch_put_tax_registration_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_tax_registration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tax_document_metadata() :: %{
-        "taxDocumentAccessToken" => String.t() | Atom.t(),
-        "taxDocumentName" => String.t() | Atom.t()
+        "taxDocumentAccessToken" => String.t() | atom(),
+        "taxDocumentName" => String.t() | atom()
       }
 
   """
-  @type tax_document_metadata() :: %{String.t() | Atom.t() => any()}
+  @type tax_document_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "errorCode" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "errorCode" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "errorCode" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "errorCode" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       estonia_additional_info() :: %{
-        "registryCommercialCode" => String.t() | Atom.t()
+        "registryCommercialCode" => String.t() | atom()
       }
 
   """
-  @type estonia_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type estonia_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -550,11 +550,11 @@ defmodule AWS.TaxSettings do
 
       list_tax_registrations_response() :: %{
         "accountDetails" => list(account_details()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_tax_registrations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tax_registrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -562,11 +562,11 @@ defmodule AWS.TaxSettings do
 
       list_tax_registrations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_tax_registrations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tax_registrations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -577,19 +577,19 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type spain_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type spain_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_supplemental_tax_registration_response() :: %{
-        "authorityId" => String.t() | Atom.t(),
+        "authorityId" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type put_supplemental_tax_registration_response() :: %{String.t() | Atom.t() => any()}
+  @type put_supplemental_tax_registration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -600,7 +600,7 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type georgia_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type georgia_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -616,37 +616,37 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       list_tax_exemptions_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "taxExemptionDetailsMap" => map()
       }
 
   """
-  @type list_tax_exemptions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tax_exemptions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account_details() :: %{
-        "accountId" => String.t() | Atom.t(),
+        "accountId" => String.t() | atom(),
         "accountMetaData" => account_meta_data(),
         "taxInheritanceDetails" => tax_inheritance_details(),
         "taxRegistration" => tax_registration_with_jurisdiction()
       }
 
   """
-  @type account_details() :: %{String.t() | Atom.t() => any()}
+  @type account_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_tax_exemption_response() :: %{
-        "caseId" => String.t() | Atom.t()
+        "caseId" => String.t() | atom()
       }
 
   """
-  @type put_tax_exemption_response() :: %{String.t() | Atom.t() => any()}
+  @type put_tax_exemption_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -658,43 +658,43 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type tax_registration_document() :: %{String.t() | Atom.t() => any()}
+  @type tax_registration_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       destination_s3_location() :: %{
-        "bucket" => String.t() | Atom.t(),
-        "prefix" => String.t() | Atom.t()
+        "bucket" => String.t() | atom(),
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type destination_s3_location() :: %{String.t() | Atom.t() => any()}
+  @type destination_s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_tax_registration_error() :: %{
-        "accountId" => String.t() | Atom.t(),
-        "code" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "accountId" => String.t() | atom(),
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type batch_delete_tax_registration_error() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_tax_registration_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -705,21 +705,21 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type saudi_arabia_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type saudi_arabia_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       canada_additional_info() :: %{
-        "canadaQuebecSalesTaxNumber" => String.t() | Atom.t(),
-        "canadaRetailSalesTaxNumber" => String.t() | Atom.t(),
+        "canadaQuebecSalesTaxNumber" => String.t() | atom(),
+        "canadaRetailSalesTaxNumber" => String.t() | atom(),
         "isResellerAccount" => boolean(),
-        "provincialSalesTaxId" => String.t() | Atom.t()
+        "provincialSalesTaxId" => String.t() | atom()
       }
 
   """
-  @type canada_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type canada_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -727,58 +727,58 @@ defmodule AWS.TaxSettings do
 
       uzbekistan_additional_info() :: %{
         "taxRegistrationNumberType" => list(any()),
-        "vatRegistrationNumber" => String.t() | Atom.t()
+        "vatRegistrationNumber" => String.t() | atom()
       }
 
   """
-  @type uzbekistan_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type uzbekistan_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_tax_registration_request() :: %{
-        optional("accountId") => String.t() | Atom.t(),
+        optional("accountId") => String.t() | atom(),
         required("taxRegistrationEntry") => tax_registration_entry()
       }
 
   """
-  @type put_tax_registration_request() :: %{String.t() | Atom.t() => any()}
+  @type put_tax_registration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       verification_details() :: %{
-        "dateOfBirth" => String.t() | Atom.t(),
+        "dateOfBirth" => String.t() | atom(),
         "taxRegistrationDocuments" => list(tax_registration_document())
       }
 
   """
-  @type verification_details() :: %{String.t() | Atom.t() => any()}
+  @type verification_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_tax_registration_request() :: %{
-        optional("accountId") => String.t() | Atom.t()
+        optional("accountId") => String.t() | atom()
       }
 
   """
-  @type delete_tax_registration_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_tax_registration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "errorCode" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "errorCode" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -786,10 +786,10 @@ defmodule AWS.TaxSettings do
 
       tax_registration() :: %{
         "additionalTaxInformation" => additional_info_response(),
-        "certifiedEmailId" => String.t() | Atom.t(),
+        "certifiedEmailId" => String.t() | atom(),
         "legalAddress" => address(),
-        "legalName" => String.t() | Atom.t(),
-        "registrationId" => String.t() | Atom.t(),
+        "legalName" => String.t() | atom(),
+        "registrationId" => String.t() | atom(),
         "registrationType" => list(any()),
         "sector" => list(any()),
         "status" => list(any()),
@@ -797,7 +797,7 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type tax_registration() :: %{String.t() | Atom.t() => any()}
+  @type tax_registration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -805,27 +805,27 @@ defmodule AWS.TaxSettings do
 
       turkey_additional_info() :: %{
         "industries" => list(any()),
-        "kepEmailId" => String.t() | Atom.t(),
-        "secondaryTaxId" => String.t() | Atom.t(),
-        "taxOffice" => String.t() | Atom.t()
+        "kepEmailId" => String.t() | atom(),
+        "secondaryTaxId" => String.t() | atom(),
+        "taxOffice" => String.t() | atom()
       }
 
   """
-  @type turkey_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type turkey_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vietnam_additional_info() :: %{
-        "electronicTransactionCodeNumber" => String.t() | Atom.t(),
-        "enterpriseIdentificationNumber" => String.t() | Atom.t(),
-        "paymentVoucherNumber" => String.t() | Atom.t(),
-        "paymentVoucherNumberDate" => String.t() | Atom.t()
+        "electronicTransactionCodeNumber" => String.t() | atom(),
+        "enterpriseIdentificationNumber" => String.t() | atom(),
+        "paymentVoucherNumber" => String.t() | atom(),
+        "paymentVoucherNumberDate" => String.t() | atom()
       }
 
   """
-  @type vietnam_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type vietnam_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -833,42 +833,42 @@ defmodule AWS.TaxSettings do
 
       tax_registration_entry() :: %{
         "additionalTaxInformation" => additional_info_request(),
-        "certifiedEmailId" => String.t() | Atom.t(),
+        "certifiedEmailId" => String.t() | atom(),
         "legalAddress" => address(),
-        "legalName" => String.t() | Atom.t(),
-        "registrationId" => String.t() | Atom.t(),
+        "legalName" => String.t() | atom(),
+        "registrationId" => String.t() | atom(),
         "registrationType" => list(any()),
         "sector" => list(any()),
         "verificationDetails" => verification_details()
       }
 
   """
-  @type tax_registration_entry() :: %{String.t() | Atom.t() => any()}
+  @type tax_registration_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_tax_exemption_request() :: %{
-        required("accountIds") => list(String.t() | Atom.t()),
+        required("accountIds") => list(String.t() | atom()),
         required("authority") => authority(),
         required("exemptionCertificate") => exemption_certificate(),
-        required("exemptionType") => String.t() | Atom.t()
+        required("exemptionType") => String.t() | atom()
       }
 
   """
-  @type put_tax_exemption_request() :: %{String.t() | Atom.t() => any()}
+  @type put_tax_exemption_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -876,11 +876,11 @@ defmodule AWS.TaxSettings do
 
       list_supplemental_tax_registrations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_supplemental_tax_registrations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_supplemental_tax_registrations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -888,10 +888,10 @@ defmodule AWS.TaxSettings do
 
       tax_registration_with_jurisdiction() :: %{
         "additionalTaxInformation" => additional_info_response(),
-        "certifiedEmailId" => String.t() | Atom.t(),
+        "certifiedEmailId" => String.t() | atom(),
         "jurisdiction" => jurisdiction(),
-        "legalName" => String.t() | Atom.t(),
-        "registrationId" => String.t() | Atom.t(),
+        "legalName" => String.t() | atom(),
+        "registrationId" => String.t() | atom(),
         "registrationType" => list(any()),
         "sector" => list(any()),
         "status" => list(any()),
@@ -899,7 +899,7 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type tax_registration_with_jurisdiction() :: %{String.t() | Atom.t() => any()}
+  @type tax_registration_with_jurisdiction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -916,13 +916,13 @@ defmodule AWS.TaxSettings do
 
       tax_exemption_details() :: %{
         "heritageObtainedDetails" => boolean(),
-        "heritageObtainedParentEntity" => String.t() | Atom.t(),
-        "heritageObtainedReason" => String.t() | Atom.t(),
+        "heritageObtainedParentEntity" => String.t() | atom(),
+        "heritageObtainedReason" => String.t() | atom(),
         "taxExemptions" => list(tax_exemption())
       }
 
   """
-  @type tax_exemption_details() :: %{String.t() | Atom.t() => any()}
+  @type tax_exemption_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -931,23 +931,23 @@ defmodule AWS.TaxSettings do
       validation_exception() :: %{
         "errorCode" => list(any()),
         "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_supplemental_tax_registrations_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "taxRegistrations" => list(supplemental_tax_registration())
       }
 
   """
-  @type list_supplemental_tax_registrations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_supplemental_tax_registrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -963,13 +963,13 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       batch_put_tax_registration_error() :: %{
-        "accountId" => String.t() | Atom.t(),
-        "code" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "accountId" => String.t() | atom(),
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type batch_put_tax_registration_error() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_tax_registration_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -980,7 +980,7 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type put_tax_inheritance_request() :: %{String.t() | Atom.t() => any()}
+  @type put_tax_inheritance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -988,29 +988,29 @@ defmodule AWS.TaxSettings do
 
       exemption_certificate() :: %{
         "documentFile" => binary(),
-        "documentName" => String.t() | Atom.t()
+        "documentName" => String.t() | atom()
       }
 
   """
-  @type exemption_certificate() :: %{String.t() | Atom.t() => any()}
+  @type exemption_certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       address() :: %{
-        "addressLine1" => String.t() | Atom.t(),
-        "addressLine2" => String.t() | Atom.t(),
-        "addressLine3" => String.t() | Atom.t(),
-        "city" => String.t() | Atom.t(),
-        "countryCode" => String.t() | Atom.t(),
-        "districtOrCounty" => String.t() | Atom.t(),
-        "postalCode" => String.t() | Atom.t(),
-        "stateOrRegion" => String.t() | Atom.t()
+        "addressLine1" => String.t() | atom(),
+        "addressLine2" => String.t() | atom(),
+        "addressLine3" => String.t() | atom(),
+        "city" => String.t() | atom(),
+        "countryCode" => String.t() | atom(),
+        "districtOrCounty" => String.t() | atom(),
+        "postalCode" => String.t() | atom(),
+        "stateOrRegion" => String.t() | atom()
       }
 
   """
-  @type address() :: %{String.t() | Atom.t() => any()}
+  @type address() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1022,7 +1022,7 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type israel_additional_info() :: %{String.t() | Atom.t() => any()}
+  @type israel_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1030,64 +1030,64 @@ defmodule AWS.TaxSettings do
 
       supplemental_tax_registration() :: %{
         "address" => address(),
-        "authorityId" => String.t() | Atom.t(),
-        "legalName" => String.t() | Atom.t(),
-        "registrationId" => String.t() | Atom.t(),
+        "authorityId" => String.t() | atom(),
+        "legalName" => String.t() | atom(),
+        "registrationId" => String.t() | atom(),
         "registrationType" => list(any()),
         "status" => list(any())
       }
 
   """
-  @type supplemental_tax_registration() :: %{String.t() | Atom.t() => any()}
+  @type supplemental_tax_registration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       jurisdiction() :: %{
-        "countryCode" => String.t() | Atom.t(),
-        "stateOrRegion" => String.t() | Atom.t()
+        "countryCode" => String.t() | atom(),
+        "stateOrRegion" => String.t() | atom()
       }
 
   """
-  @type jurisdiction() :: %{String.t() | Atom.t() => any()}
+  @type jurisdiction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_tax_exemptions_request() :: %{
-        required("accountIds") => list(String.t() | Atom.t())
+        required("accountIds") => list(String.t() | atom())
       }
 
   """
-  @type batch_get_tax_exemptions_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_tax_exemptions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account_meta_data() :: %{
-        "accountName" => String.t() | Atom.t(),
+        "accountName" => String.t() | atom(),
         "address" => address(),
         "addressRoleMap" => map(),
         "addressType" => list(any()),
-        "seller" => String.t() | Atom.t()
+        "seller" => String.t() | atom()
       }
 
   """
-  @type account_meta_data() :: %{String.t() | Atom.t() => any()}
+  @type account_meta_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_tax_registration_request() :: %{
-        required("accountIds") => list(String.t() | Atom.t())
+        required("accountIds") => list(String.t() | atom())
       }
 
   """
-  @type batch_delete_tax_registration_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_tax_registration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1098,19 +1098,19 @@ defmodule AWS.TaxSettings do
       }
 
   """
-  @type put_tax_registration_response() :: %{String.t() | Atom.t() => any()}
+  @type put_tax_registration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_tax_registration_document_response() :: %{
-        "destinationFilePath" => String.t() | Atom.t(),
-        "presignedS3Url" => String.t() | Atom.t()
+        "destinationFilePath" => String.t() | atom(),
+        "presignedS3Url" => String.t() | atom()
       }
 
   """
-  @type get_tax_registration_document_response() :: %{String.t() | Atom.t() => any()}
+  @type get_tax_registration_document_response() :: %{(String.t() | atom()) => any()}
 
   @type batch_delete_tax_registration_errors() ::
           validation_exception() | internal_server_exception() | conflict_exception()

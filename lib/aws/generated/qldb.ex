@@ -18,7 +18,7 @@ defmodule AWS.QLDB do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -30,7 +30,7 @@ defmodule AWS.QLDB do
       }
 
   """
-  @type get_revision_response() :: %{String.t() | Atom.t() => any()}
+  @type get_revision_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -38,11 +38,11 @@ defmodule AWS.QLDB do
 
       list_journal_s3_exports_for_ledger_response() :: %{
         "JournalS3Exports" => list(journal_s3_export_description()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_journal_s3_exports_for_ledger_response() :: %{String.t() | Atom.t() => any()}
+  @type list_journal_s3_exports_for_ledger_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -52,12 +52,12 @@ defmodule AWS.QLDB do
         optional("OutputFormat") => list(any()),
         required("ExclusiveEndTime") => non_neg_integer(),
         required("InclusiveStartTime") => non_neg_integer(),
-        required("RoleArn") => String.t() | Atom.t(),
+        required("RoleArn") => String.t() | atom(),
         required("S3ExportConfiguration") => s3_export_configuration()
       }
 
   """
-  @type export_journal_to_s3_request() :: %{String.t() | Atom.t() => any()}
+  @type export_journal_to_s3_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -74,41 +74,41 @@ defmodule AWS.QLDB do
 
       list_journal_kinesis_streams_for_ledger_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_journal_kinesis_streams_for_ledger_request() :: %{String.t() | Atom.t() => any()}
+  @type list_journal_kinesis_streams_for_ledger_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_precondition_not_met_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceName" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type resource_precondition_not_met_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_precondition_not_met_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_ledger_response() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreationDateTime" => non_neg_integer(),
         "DeletionProtection" => boolean(),
         "EncryptionDescription" => ledger_encryption_description(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "PermissionsMode" => list(any()),
         "State" => list(any())
       }
 
   """
-  @type describe_ledger_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_ledger_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -124,34 +124,34 @@ defmodule AWS.QLDB do
   ## Example:
 
       journal_kinesis_stream_description() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "ErrorCause" => list(any()),
         "ExclusiveEndTime" => non_neg_integer(),
         "InclusiveStartTime" => non_neg_integer(),
         "KinesisConfiguration" => kinesis_configuration(),
-        "LedgerName" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
+        "LedgerName" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "Status" => list(any()),
-        "StreamId" => String.t() | Atom.t(),
-        "StreamName" => String.t() | Atom.t()
+        "StreamId" => String.t() | atom(),
+        "StreamName" => String.t() | atom()
       }
 
   """
-  @type journal_kinesis_stream_description() :: %{String.t() | Atom.t() => any()}
+  @type journal_kinesis_stream_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_in_use_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceName" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -160,11 +160,11 @@ defmodule AWS.QLDB do
       get_revision_request() :: %{
         optional("DigestTipAddress") => value_holder(),
         required("BlockAddress") => value_holder(),
-        required("DocumentId") => String.t() | Atom.t()
+        required("DocumentId") => String.t() | atom()
       }
 
   """
-  @type get_revision_request() :: %{String.t() | Atom.t() => any()}
+  @type get_revision_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -176,19 +176,19 @@ defmodule AWS.QLDB do
       }
 
   """
-  @type get_block_request() :: %{String.t() | Atom.t() => any()}
+  @type get_block_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_encryption_configuration() :: %{
-        "KmsKeyArn" => String.t() | Atom.t(),
+        "KmsKeyArn" => String.t() | atom(),
         "ObjectEncryptionType" => list(any())
       }
 
   """
-  @type s3_encryption_configuration() :: %{String.t() | Atom.t() => any()}
+  @type s3_encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -196,12 +196,12 @@ defmodule AWS.QLDB do
 
       ledger_summary() :: %{
         "CreationDateTime" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "State" => list(any())
       }
 
   """
-  @type ledger_summary() :: %{String.t() | Atom.t() => any()}
+  @type ledger_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -209,11 +209,11 @@ defmodule AWS.QLDB do
 
       list_ledgers_response() :: %{
         "Ledgers" => list(ledger_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_ledgers_response() :: %{String.t() | Atom.t() => any()}
+  @type list_ledgers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -230,22 +230,22 @@ defmodule AWS.QLDB do
 
       update_ledger_request() :: %{
         optional("DeletionProtection") => boolean(),
-        optional("KmsKey") => String.t() | Atom.t()
+        optional("KmsKey") => String.t() | atom()
       }
 
   """
-  @type update_ledger_request() :: %{String.t() | Atom.t() => any()}
+  @type update_ledger_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -254,46 +254,46 @@ defmodule AWS.QLDB do
       journal_s3_export_description() :: %{
         "ExclusiveEndTime" => non_neg_integer(),
         "ExportCreationTime" => non_neg_integer(),
-        "ExportId" => String.t() | Atom.t(),
+        "ExportId" => String.t() | atom(),
         "InclusiveStartTime" => non_neg_integer(),
-        "LedgerName" => String.t() | Atom.t(),
+        "LedgerName" => String.t() | atom(),
         "OutputFormat" => list(any()),
-        "RoleArn" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | atom(),
         "S3ExportConfiguration" => s3_export_configuration(),
         "Status" => list(any())
       }
 
   """
-  @type journal_s3_export_description() :: %{String.t() | Atom.t() => any()}
+  @type journal_s3_export_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_ledger_response() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreationDateTime" => non_neg_integer(),
         "DeletionProtection" => boolean(),
-        "KmsKeyArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "KmsKeyArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "PermissionsMode" => list(any()),
         "State" => list(any())
       }
 
   """
-  @type create_ledger_response() :: %{String.t() | Atom.t() => any()}
+  @type create_ledger_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_journal_kinesis_streams_for_ledger_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Streams" => list(journal_kinesis_stream_description())
       }
 
   """
-  @type list_journal_kinesis_streams_for_ledger_response() :: %{String.t() | Atom.t() => any()}
+  @type list_journal_kinesis_streams_for_ledger_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -305,7 +305,7 @@ defmodule AWS.QLDB do
       }
 
   """
-  @type get_digest_response() :: %{String.t() | Atom.t() => any()}
+  @type get_digest_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -316,12 +316,12 @@ defmodule AWS.QLDB do
         optional("Tags") => map(),
         required("InclusiveStartTime") => non_neg_integer(),
         required("KinesisConfiguration") => kinesis_configuration(),
-        required("RoleArn") => String.t() | Atom.t(),
-        required("StreamName") => String.t() | Atom.t()
+        required("RoleArn") => String.t() | atom(),
+        required("StreamName") => String.t() | atom()
       }
 
   """
-  @type stream_journal_to_kinesis_request() :: %{String.t() | Atom.t() => any()}
+  @type stream_journal_to_kinesis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -337,53 +337,53 @@ defmodule AWS.QLDB do
   ## Example:
 
       s3_export_configuration() :: %{
-        "Bucket" => String.t() | Atom.t(),
+        "Bucket" => String.t() | atom(),
         "EncryptionConfiguration" => s3_encryption_configuration(),
-        "Prefix" => String.t() | Atom.t()
+        "Prefix" => String.t() | atom()
       }
 
   """
-  @type s3_export_configuration() :: %{String.t() | Atom.t() => any()}
+  @type s3_export_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_journal_kinesis_stream_response() :: %{
-        "StreamId" => String.t() | Atom.t()
+        "StreamId" => String.t() | atom()
       }
 
   """
-  @type cancel_journal_kinesis_stream_response() :: %{String.t() | Atom.t() => any()}
+  @type cancel_journal_kinesis_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceName" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_ledger_response() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreationDateTime" => non_neg_integer(),
         "DeletionProtection" => boolean(),
         "EncryptionDescription" => ledger_encryption_description(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "State" => list(any())
       }
 
   """
-  @type update_ledger_response() :: %{String.t() | Atom.t() => any()}
+  @type update_ledger_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -391,24 +391,24 @@ defmodule AWS.QLDB do
 
       kinesis_configuration() :: %{
         "AggregationEnabled" => boolean(),
-        "StreamArn" => String.t() | Atom.t()
+        "StreamArn" => String.t() | atom()
       }
 
   """
-  @type kinesis_configuration() :: %{String.t() | Atom.t() => any()}
+  @type kinesis_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_ledger_permissions_mode_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "PermissionsMode" => list(any())
       }
 
   """
-  @type update_ledger_permissions_mode_response() :: %{String.t() | Atom.t() => any()}
+  @type update_ledger_permissions_mode_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -416,11 +416,11 @@ defmodule AWS.QLDB do
 
       list_journal_s3_exports_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_journal_s3_exports_request() :: %{String.t() | Atom.t() => any()}
+  @type list_journal_s3_exports_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -431,7 +431,7 @@ defmodule AWS.QLDB do
       }
 
   """
-  @type describe_journal_s3_export_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_journal_s3_export_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -442,7 +442,7 @@ defmodule AWS.QLDB do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -454,7 +454,7 @@ defmodule AWS.QLDB do
       }
 
   """
-  @type get_block_response() :: %{String.t() | Atom.t() => any()}
+  @type get_block_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -462,11 +462,11 @@ defmodule AWS.QLDB do
 
       list_journal_s3_exports_for_ledger_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_journal_s3_exports_for_ledger_request() :: %{String.t() | Atom.t() => any()}
+  @type list_journal_s3_exports_for_ledger_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -474,45 +474,45 @@ defmodule AWS.QLDB do
 
       list_journal_s3_exports_response() :: %{
         "JournalS3Exports" => list(journal_s3_export_description()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_journal_s3_exports_response() :: %{String.t() | Atom.t() => any()}
+  @type list_journal_s3_exports_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       value_holder() :: %{
-        "IonText" => String.t() | Atom.t()
+        "IonText" => String.t() | atom()
       }
 
   """
-  @type value_holder() :: %{String.t() | Atom.t() => any()}
+  @type value_holder() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stream_journal_to_kinesis_response() :: %{
-        "StreamId" => String.t() | Atom.t()
+        "StreamId" => String.t() | atom()
       }
 
   """
-  @type stream_journal_to_kinesis_response() :: %{String.t() | Atom.t() => any()}
+  @type stream_journal_to_kinesis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ParameterName" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ParameterName" => String.t() | atom()
       }
 
   """
-  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -538,25 +538,25 @@ defmodule AWS.QLDB do
 
       create_ledger_request() :: %{
         optional("DeletionProtection") => boolean(),
-        optional("KmsKey") => String.t() | Atom.t(),
+        optional("KmsKey") => String.t() | atom(),
         optional("Tags") => map(),
-        required("Name") => String.t() | Atom.t(),
+        required("Name") => String.t() | atom(),
         required("PermissionsMode") => list(any())
       }
 
   """
-  @type create_ledger_request() :: %{String.t() | Atom.t() => any()}
+  @type create_ledger_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_journal_to_s3_response() :: %{
-        "ExportId" => String.t() | Atom.t()
+        "ExportId" => String.t() | atom()
       }
 
   """
-  @type export_journal_to_s3_response() :: %{String.t() | Atom.t() => any()}
+  @type export_journal_to_s3_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -567,7 +567,7 @@ defmodule AWS.QLDB do
       }
 
   """
-  @type describe_journal_kinesis_stream_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_journal_kinesis_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -592,12 +592,12 @@ defmodule AWS.QLDB do
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -608,20 +608,20 @@ defmodule AWS.QLDB do
       }
 
   """
-  @type update_ledger_permissions_mode_request() :: %{String.t() | Atom.t() => any()}
+  @type update_ledger_permissions_mode_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_already_exists_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceName" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -630,11 +630,11 @@ defmodule AWS.QLDB do
       ledger_encryption_description() :: %{
         "EncryptionStatus" => list(any()),
         "InaccessibleKmsKeyDateTime" => non_neg_integer(),
-        "KmsKeyArn" => String.t() | Atom.t()
+        "KmsKeyArn" => String.t() | atom()
       }
 
   """
-  @type ledger_encryption_description() :: %{String.t() | Atom.t() => any()}
+  @type ledger_encryption_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -651,11 +651,11 @@ defmodule AWS.QLDB do
 
       list_ledgers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_ledgers_request() :: %{String.t() | Atom.t() => any()}
+  @type list_ledgers_request() :: %{(String.t() | atom()) => any()}
 
   @type cancel_journal_kinesis_stream_errors() ::
           invalid_parameter_exception()
@@ -753,8 +753,8 @@ defmodule AWS.QLDB do
   """
   @spec cancel_journal_kinesis_stream(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           cancel_journal_kinesis_stream_request(),
           list()
         ) ::
@@ -830,7 +830,7 @@ defmodule AWS.QLDB do
   ledger. You can disable it by calling the `UpdateLedger` operation to set this
   parameter to `false`.
   """
-  @spec delete_ledger(map(), String.t() | Atom.t(), delete_ledger_request(), list()) ::
+  @spec delete_ledger(map(), String.t() | atom(), delete_ledger_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -870,12 +870,7 @@ defmodule AWS.QLDB do
   in the *Amazon QLDB Developer
   Guide*.
   """
-  @spec describe_journal_kinesis_stream(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec describe_journal_kinesis_stream(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_journal_kinesis_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -910,7 +905,7 @@ defmodule AWS.QLDB do
   If the ledger with the given `Name` doesn't exist, then throws
   `ResourceNotFoundException`.
   """
-  @spec describe_journal_s3_export(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec describe_journal_s3_export(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_journal_s3_export_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -932,7 +927,7 @@ defmodule AWS.QLDB do
   encryption at
   rest settings, and when it was created.
   """
-  @spec describe_ledger(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_ledger(map(), String.t() | atom(), list()) ::
           {:ok, describe_ledger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -966,7 +961,7 @@ defmodule AWS.QLDB do
   Beyond
   this limit, journal export requests throw `LimitExceededException`.
   """
-  @spec export_journal_to_s3(map(), String.t() | Atom.t(), export_journal_to_s3_request(), list()) ::
+  @spec export_journal_to_s3(map(), String.t() | atom(), export_journal_to_s3_request(), list()) ::
           {:ok, export_journal_to_s3_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1011,7 +1006,7 @@ defmodule AWS.QLDB do
   If no block exists with the specified address, then throws
   `InvalidParameterException`.
   """
-  @spec get_block(map(), String.t() | Atom.t(), get_block_request(), list()) ::
+  @spec get_block(map(), String.t() | atom(), get_block_request(), list()) ::
           {:ok, get_block_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1043,7 +1038,7 @@ defmodule AWS.QLDB do
   The
   response includes a 256-bit hash value and a block address.
   """
-  @spec get_digest(map(), String.t() | Atom.t(), get_digest_request(), list()) ::
+  @spec get_digest(map(), String.t() | atom(), get_digest_request(), list()) ::
           {:ok, get_digest_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1076,7 +1071,7 @@ defmodule AWS.QLDB do
   returns a proof of the specified revision for verification if `DigestTipAddress`
   is provided.
   """
-  @spec get_revision(map(), String.t() | Atom.t(), get_revision_request(), list()) ::
+  @spec get_revision(map(), String.t() | atom(), get_revision_request(), list()) ::
           {:ok, get_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1117,9 +1112,9 @@ defmodule AWS.QLDB do
   """
   @spec list_journal_kinesis_streams_for_ledger(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_journal_kinesis_streams_for_ledger_response(), any()}
@@ -1172,8 +1167,8 @@ defmodule AWS.QLDB do
   """
   @spec list_journal_s3_exports(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_journal_s3_exports_response(), any()}
@@ -1222,9 +1217,9 @@ defmodule AWS.QLDB do
   """
   @spec list_journal_s3_exports_for_ledger(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_journal_s3_exports_for_ledger_response(), any()}
@@ -1268,7 +1263,7 @@ defmodule AWS.QLDB do
   This action returns a maximum of `MaxResults` items and is paginated so that
   you can retrieve all the items by calling `ListLedgers` multiple times.
   """
-  @spec list_ledgers(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_ledgers(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_ledgers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1299,7 +1294,7 @@ defmodule AWS.QLDB do
   @doc """
   Returns all tags for a specified Amazon QLDB resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1324,7 +1319,7 @@ defmodule AWS.QLDB do
   """
   @spec stream_journal_to_kinesis(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           stream_journal_to_kinesis_request(),
           list()
         ) ::
@@ -1359,7 +1354,7 @@ defmodule AWS.QLDB do
   A resource can have up to 50 tags. If you try to create more than 50 tags for a
   resource, your request fails and returns an error.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1391,7 +1386,7 @@ defmodule AWS.QLDB do
   You can specify up to 50
   tag keys to remove.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1425,7 +1420,7 @@ defmodule AWS.QLDB do
   @doc """
   Updates properties on a ledger.
   """
-  @spec update_ledger(map(), String.t() | Atom.t(), update_ledger_request(), list()) ::
+  @spec update_ledger(map(), String.t() | atom(), update_ledger_request(), list()) ::
           {:ok, update_ledger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1463,7 +1458,7 @@ defmodule AWS.QLDB do
   """
   @spec update_ledger_permissions_mode(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_ledger_permissions_mode_request(),
           list()
         ) ::

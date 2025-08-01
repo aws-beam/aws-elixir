@@ -18,28 +18,28 @@ defmodule AWS.Fis do
   ## Example:
 
       target_account_configuration() :: %{
-        "accountId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "accountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type target_account_configuration() :: %{String.t() | Atom.t() => any()}
+  @type target_account_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       action_summary() :: %{
-        "arn" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "tags" => map(),
         "targets" => map()
       }
 
   """
-  @type action_summary() :: %{String.t() | Atom.t() => any()}
+  @type action_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -47,11 +47,11 @@ defmodule AWS.Fis do
 
       list_experiments_response() :: %{
         "experiments" => list(experiment_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_experiments_response() :: %{String.t() | Atom.t() => any()}
+  @type list_experiments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -59,12 +59,12 @@ defmodule AWS.Fis do
 
       list_experiment_resolved_targets_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("targetName") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("targetName") => String.t() | atom()
       }
 
   """
-  @type list_experiment_resolved_targets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_experiment_resolved_targets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -75,7 +75,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type experiment_report_configuration_outputs() :: %{String.t() | Atom.t() => any()}
+  @type experiment_report_configuration_outputs() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -86,24 +86,24 @@ defmodule AWS.Fis do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_summary() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
         "experimentOptions" => experiment_options(),
-        "experimentTemplateId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "experimentTemplateId" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "state" => experiment_state(),
         "tags" => map()
       }
 
   """
-  @type experiment_summary() :: %{String.t() | Atom.t() => any()}
+  @type experiment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -115,8 +115,7 @@ defmodule AWS.Fis do
 
   """
   @type get_experiment_target_account_configuration_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -126,14 +125,13 @@ defmodule AWS.Fis do
       create_experiment_template_report_configuration_input() :: %{
         "dataSources" => experiment_template_report_configuration_data_sources_input(),
         "outputs" => experiment_template_report_configuration_outputs_input(),
-        "postExperimentDuration" => String.t() | Atom.t(),
-        "preExperimentDuration" => String.t() | Atom.t()
+        "postExperimentDuration" => String.t() | atom(),
+        "preExperimentDuration" => String.t() | atom()
       }
 
   """
   @type create_experiment_template_report_configuration_input() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -145,7 +143,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type get_experiment_response() :: %{String.t() | Atom.t() => any()}
+  @type get_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -156,7 +154,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type update_target_account_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type update_target_account_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -165,14 +163,14 @@ defmodule AWS.Fis do
       experiment_template_target() :: %{
         "filters" => list(experiment_template_target_filter()),
         "parameters" => map(),
-        "resourceArns" => list(String.t() | Atom.t()),
+        "resourceArns" => list(String.t() | atom()),
         "resourceTags" => map(),
-        "resourceType" => String.t() | Atom.t(),
-        "selectionMode" => String.t() | Atom.t()
+        "resourceType" => String.t() | atom(),
+        "selectionMode" => String.t() | atom()
       }
 
   """
-  @type experiment_template_target() :: %{String.t() | Atom.t() => any()}
+  @type experiment_template_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -188,13 +186,13 @@ defmodule AWS.Fis do
   ## Example:
 
       experiment_target_account_configuration() :: %{
-        "accountId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "accountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type experiment_target_account_configuration() :: %{String.t() | Atom.t() => any()}
+  @type experiment_target_account_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -214,7 +212,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type experiment_report_configuration_data_sources() :: %{String.t() | Atom.t() => any()}
+  @type experiment_report_configuration_data_sources() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -222,11 +220,11 @@ defmodule AWS.Fis do
 
       list_experiment_templates_response() :: %{
         "experimentTemplates" => list(experiment_template_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_experiment_templates_response() :: %{String.t() | Atom.t() => any()}
+  @type list_experiment_templates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -234,17 +232,17 @@ defmodule AWS.Fis do
 
       update_experiment_template_request() :: %{
         optional("actions") => map(),
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("experimentOptions") => update_experiment_template_experiment_options_input(),
         optional("experimentReportConfiguration") => update_experiment_template_report_configuration_input(),
         optional("logConfiguration") => update_experiment_template_log_configuration_input(),
-        optional("roleArn") => String.t() | Atom.t(),
+        optional("roleArn") => String.t() | atom(),
         optional("stopConditions") => list(update_experiment_template_stop_condition_input()),
         optional("targets") => map()
       }
 
   """
-  @type update_experiment_template_request() :: %{String.t() | Atom.t() => any()}
+  @type update_experiment_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -255,74 +253,74 @@ defmodule AWS.Fis do
       }
 
   """
-  @type get_target_resource_type_response() :: %{String.t() | Atom.t() => any()}
+  @type get_target_resource_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_s3_log_configuration() :: %{
-        "bucketName" => String.t() | Atom.t(),
-        "prefix" => String.t() | Atom.t()
+        "bucketName" => String.t() | atom(),
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type experiment_s3_log_configuration() :: %{String.t() | Atom.t() => any()}
+  @type experiment_s3_log_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_action_state() :: %{
-        "reason" => String.t() | Atom.t(),
+        "reason" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type experiment_action_state() :: %{String.t() | Atom.t() => any()}
+  @type experiment_action_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_action() :: %{
-        "actionId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "actionId" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "endTime" => non_neg_integer(),
         "parameters" => map(),
-        "startAfter" => list(String.t() | Atom.t()),
+        "startAfter" => list(String.t() | atom()),
         "startTime" => non_neg_integer(),
         "state" => experiment_action_state(),
         "targets" => map()
       }
 
   """
-  @type experiment_action() :: %{String.t() | Atom.t() => any()}
+  @type experiment_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       target_account_configuration_summary() :: %{
-        "accountId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "accountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type target_account_configuration_summary() :: %{String.t() | Atom.t() => any()}
+  @type target_account_configuration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_report_s3_report() :: %{
-        "arn" => String.t() | Atom.t(),
-        "reportType" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "reportType" => String.t() | atom()
       }
 
   """
-  @type experiment_report_s3_report() :: %{String.t() | Atom.t() => any()}
+  @type experiment_report_s3_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -338,36 +336,36 @@ defmodule AWS.Fis do
   ## Example:
 
       experiment_template_s3_log_configuration_input() :: %{
-        "bucketName" => String.t() | Atom.t(),
-        "prefix" => String.t() | Atom.t()
+        "bucketName" => String.t() | atom(),
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type experiment_template_s3_log_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type experiment_template_s3_log_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_template_target_filter() :: %{
-        "path" => String.t() | Atom.t(),
-        "values" => list(String.t() | Atom.t())
+        "path" => String.t() | atom(),
+        "values" => list(String.t() | atom())
       }
 
   """
-  @type experiment_template_target_filter() :: %{String.t() | Atom.t() => any()}
+  @type experiment_template_target_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_target_account_configuration_request() :: %{
-        optional("description") => String.t() | Atom.t(),
-        optional("roleArn") => String.t() | Atom.t()
+        optional("description") => String.t() | atom(),
+        optional("roleArn") => String.t() | atom()
       }
 
   """
-  @type update_target_account_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_target_account_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -378,7 +376,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type update_safety_lever_state_response() :: %{String.t() | Atom.t() => any()}
+  @type update_safety_lever_state_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -391,18 +389,18 @@ defmodule AWS.Fis do
       }
 
   """
-  @type experiment_log_configuration() :: %{String.t() | Atom.t() => any()}
+  @type experiment_log_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        optional("tagKeys") => list(String.t() | Atom.t())
+        optional("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -418,12 +416,12 @@ defmodule AWS.Fis do
   ## Example:
 
       report_configuration_s3_output_input() :: %{
-        "bucketName" => String.t() | Atom.t(),
-        "prefix" => String.t() | Atom.t()
+        "bucketName" => String.t() | atom(),
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type report_configuration_s3_output_input() :: %{String.t() | Atom.t() => any()}
+  @type report_configuration_s3_output_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -434,21 +432,20 @@ defmodule AWS.Fis do
       }
 
   """
-  @type create_target_account_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type create_target_account_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_report_configuration_outputs_s3_configuration() :: %{
-        "bucketName" => String.t() | Atom.t(),
-        "prefix" => String.t() | Atom.t()
+        "bucketName" => String.t() | atom(),
+        "prefix" => String.t() | atom()
       }
 
   """
   @type experiment_report_configuration_outputs_s3_configuration() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -456,14 +453,13 @@ defmodule AWS.Fis do
   ## Example:
 
       list_experiment_target_account_configurations_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "targetAccountConfigurations" => list(experiment_target_account_configuration_summary())
       }
 
   """
   @type list_experiment_target_account_configurations_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -471,13 +467,12 @@ defmodule AWS.Fis do
   ## Example:
 
       experiment_report_configuration_cloud_watch_dashboard() :: %{
-        "dashboardIdentifier" => String.t() | Atom.t()
+        "dashboardIdentifier" => String.t() | atom()
       }
 
   """
   @type experiment_report_configuration_cloud_watch_dashboard() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -494,13 +489,12 @@ defmodule AWS.Fis do
   ## Example:
 
       experiment_template_cloud_watch_logs_log_configuration_input() :: %{
-        "logGroupArn" => String.t() | Atom.t()
+        "logGroupArn" => String.t() | atom()
       }
 
   """
   @type experiment_template_cloud_watch_logs_log_configuration_input() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -509,83 +503,83 @@ defmodule AWS.Fis do
 
       list_target_account_configurations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_target_account_configurations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_target_account_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       target_resource_type_summary() :: %{
-        "description" => String.t() | Atom.t(),
-        "resourceType" => String.t() | Atom.t()
+        "description" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
 
   """
-  @type target_resource_type_summary() :: %{String.t() | Atom.t() => any()}
+  @type target_resource_type_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_experiment_template_action_input_item() :: %{
-        "actionId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "actionId" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "parameters" => map(),
-        "startAfter" => list(String.t() | Atom.t()),
+        "startAfter" => list(String.t() | atom()),
         "targets" => map()
       }
 
   """
-  @type update_experiment_template_action_input_item() :: %{String.t() | Atom.t() => any()}
+  @type update_experiment_template_action_input_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_target_filter() :: %{
-        "path" => String.t() | Atom.t(),
-        "values" => list(String.t() | Atom.t())
+        "path" => String.t() | atom(),
+        "values" => list(String.t() | atom())
       }
 
   """
-  @type experiment_target_filter() :: %{String.t() | Atom.t() => any()}
+  @type experiment_target_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       report_configuration_cloud_watch_dashboard_input() :: %{
-        "dashboardIdentifier" => String.t() | Atom.t()
+        "dashboardIdentifier" => String.t() | atom()
       }
 
   """
-  @type report_configuration_cloud_watch_dashboard_input() :: %{String.t() | Atom.t() => any()}
+  @type report_configuration_cloud_watch_dashboard_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -593,11 +587,11 @@ defmodule AWS.Fis do
 
       list_experiment_templates_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_experiment_templates_request() :: %{String.t() | Atom.t() => any()}
+  @type list_experiment_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -610,7 +604,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type update_experiment_template_log_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type update_experiment_template_log_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -618,12 +612,12 @@ defmodule AWS.Fis do
 
       experiment_state() :: %{
         "error" => experiment_error(),
-        "reason" => String.t() | Atom.t(),
+        "reason" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type experiment_state() :: %{String.t() | Atom.t() => any()}
+  @type experiment_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -645,20 +639,20 @@ defmodule AWS.Fis do
       }
 
   """
-  @type create_experiment_template_log_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type create_experiment_template_log_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resolved_target() :: %{
-        "resourceType" => String.t() | Atom.t(),
+        "resourceType" => String.t() | atom(),
         "targetInformation" => map(),
-        "targetName" => String.t() | Atom.t()
+        "targetName" => String.t() | atom()
       }
 
   """
-  @type resolved_target() :: %{String.t() | Atom.t() => any()}
+  @type resolved_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -666,51 +660,51 @@ defmodule AWS.Fis do
 
       list_target_resource_types_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_target_resource_types_request() :: %{String.t() | Atom.t() => any()}
+  @type list_target_resource_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_template_summary() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "lastUpdateTime" => non_neg_integer(),
         "tags" => map()
       }
 
   """
-  @type experiment_template_summary() :: %{String.t() | Atom.t() => any()}
+  @type experiment_template_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_target_account_configuration_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
-        required("roleArn") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type create_target_account_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type create_target_account_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -722,8 +716,7 @@ defmodule AWS.Fis do
 
   """
   @type experiment_template_report_configuration_data_sources_input() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -731,12 +724,12 @@ defmodule AWS.Fis do
   ## Example:
 
       target_resource_type_parameter() :: %{
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "required" => boolean()
       }
 
   """
-  @type target_resource_type_parameter() :: %{String.t() | Atom.t() => any()}
+  @type target_resource_type_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -749,14 +742,14 @@ defmodule AWS.Fis do
         optional("tags") => map(),
         optional("targets") => map(),
         required("actions") => map(),
-        required("clientToken") => String.t() | Atom.t(),
-        required("description") => String.t() | Atom.t(),
-        required("roleArn") => String.t() | Atom.t(),
+        required("clientToken") => String.t() | atom(),
+        required("description") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
         required("stopConditions") => list(create_experiment_template_stop_condition_input())
       }
 
   """
-  @type create_experiment_template_request() :: %{String.t() | Atom.t() => any()}
+  @type create_experiment_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -772,13 +765,12 @@ defmodule AWS.Fis do
   ## Example:
 
       experiment_template_report_configuration_cloud_watch_dashboard() :: %{
-        "dashboardIdentifier" => String.t() | Atom.t()
+        "dashboardIdentifier" => String.t() | atom()
       }
 
   """
   @type experiment_template_report_configuration_cloud_watch_dashboard() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -788,12 +780,12 @@ defmodule AWS.Fis do
       experiment_report_configuration() :: %{
         "dataSources" => experiment_report_configuration_data_sources(),
         "outputs" => experiment_report_configuration_outputs(),
-        "postExperimentDuration" => String.t() | Atom.t(),
-        "preExperimentDuration" => String.t() | Atom.t()
+        "postExperimentDuration" => String.t() | atom(),
+        "preExperimentDuration" => String.t() | atom()
       }
 
   """
-  @type experiment_report_configuration() :: %{String.t() | Atom.t() => any()}
+  @type experiment_report_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -802,14 +794,14 @@ defmodule AWS.Fis do
       experiment_target() :: %{
         "filters" => list(experiment_target_filter()),
         "parameters" => map(),
-        "resourceArns" => list(String.t() | Atom.t()),
+        "resourceArns" => list(String.t() | atom()),
         "resourceTags" => map(),
-        "resourceType" => String.t() | Atom.t(),
-        "selectionMode" => String.t() | Atom.t()
+        "resourceType" => String.t() | atom(),
+        "selectionMode" => String.t() | atom()
       }
 
   """
-  @type experiment_target() :: %{String.t() | Atom.t() => any()}
+  @type experiment_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -820,20 +812,19 @@ defmodule AWS.Fis do
       }
 
   """
-  @type get_action_response() :: %{String.t() | Atom.t() => any()}
+  @type get_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_experiment_target_account_configurations_request() :: %{
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
   @type list_experiment_target_account_configurations_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -845,19 +836,19 @@ defmodule AWS.Fis do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_template_s3_log_configuration() :: %{
-        "bucketName" => String.t() | Atom.t(),
-        "prefix" => String.t() | Atom.t()
+        "bucketName" => String.t() | atom(),
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type experiment_template_s3_log_configuration() :: %{String.t() | Atom.t() => any()}
+  @type experiment_template_s3_log_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -865,11 +856,11 @@ defmodule AWS.Fis do
 
       list_actions_response() :: %{
         "actions" => list(action_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_actions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_actions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -881,7 +872,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type experiment_report() :: %{String.t() | Atom.t() => any()}
+  @type experiment_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -893,8 +884,7 @@ defmodule AWS.Fis do
 
   """
   @type experiment_template_report_configuration_outputs_input() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -903,36 +893,36 @@ defmodule AWS.Fis do
 
       list_actions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_actions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_actions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_stop_condition() :: %{
-        "source" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "source" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type experiment_stop_condition() :: %{String.t() | Atom.t() => any()}
+  @type experiment_stop_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       target_resource_type() :: %{
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "parameters" => map(),
-        "resourceType" => String.t() | Atom.t()
+        "resourceType" => String.t() | atom()
       }
 
   """
-  @type target_resource_type() :: %{String.t() | Atom.t() => any()}
+  @type target_resource_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -943,43 +933,43 @@ defmodule AWS.Fis do
       }
 
   """
-  @type update_safety_lever_state_request() :: %{String.t() | Atom.t() => any()}
+  @type update_safety_lever_state_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       action_target() :: %{
-        "resourceType" => String.t() | Atom.t()
+        "resourceType" => String.t() | atom()
       }
 
   """
-  @type action_target() :: %{String.t() | Atom.t() => any()}
+  @type action_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_target_account_configurations_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "targetAccountConfigurations" => list(target_account_configuration_summary())
       }
 
   """
-  @type list_target_account_configurations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_target_account_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_error() :: %{
-        "accountId" => String.t() | Atom.t(),
-        "code" => String.t() | Atom.t(),
-        "location" => String.t() | Atom.t()
+        "accountId" => String.t() | atom(),
+        "code" => String.t() | atom(),
+        "location" => String.t() | atom()
       }
 
   """
-  @type experiment_error() :: %{String.t() | Atom.t() => any()}
+  @type experiment_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -987,12 +977,12 @@ defmodule AWS.Fis do
 
       experiment_report_state() :: %{
         "error" => experiment_report_error(),
-        "reason" => String.t() | Atom.t(),
+        "reason" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type experiment_report_state() :: %{String.t() | Atom.t() => any()}
+  @type experiment_report_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1003,7 +993,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type experiment_template_report_configuration_outputs() :: %{String.t() | Atom.t() => any()}
+  @type experiment_template_report_configuration_outputs() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1019,27 +1009,27 @@ defmodule AWS.Fis do
   ## Example:
 
       experiment_template_stop_condition() :: %{
-        "source" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "source" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type experiment_template_stop_condition() :: %{String.t() | Atom.t() => any()}
+  @type experiment_template_stop_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_template_action() :: %{
-        "actionId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "actionId" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "parameters" => map(),
-        "startAfter" => list(String.t() | Atom.t()),
+        "startAfter" => list(String.t() | atom()),
         "targets" => map()
       }
 
   """
-  @type experiment_template_action() :: %{String.t() | Atom.t() => any()}
+  @type experiment_template_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1050,7 +1040,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type delete_experiment_template_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_experiment_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1062,8 +1052,7 @@ defmodule AWS.Fis do
 
   """
   @type experiment_template_report_configuration_data_sources() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1071,16 +1060,16 @@ defmodule AWS.Fis do
   ## Example:
 
       action() :: %{
-        "arn" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "parameters" => map(),
         "tags" => map(),
         "targets" => map()
       }
 
   """
-  @type action() :: %{String.t() | Atom.t() => any()}
+  @type action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1088,15 +1077,15 @@ defmodule AWS.Fis do
 
       experiment_template() :: %{
         "actions" => map(),
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "experimentOptions" => experiment_template_experiment_options(),
         "experimentReportConfiguration" => experiment_template_report_configuration(),
-        "id" => String.t() | Atom.t(),
+        "id" => String.t() | atom(),
         "lastUpdateTime" => non_neg_integer(),
         "logConfiguration" => experiment_template_log_configuration(),
-        "roleArn" => String.t() | Atom.t(),
+        "roleArn" => String.t() | atom(),
         "stopConditions" => list(experiment_template_stop_condition()),
         "tags" => map(),
         "targetAccountConfigurationsCount" => float(),
@@ -1104,7 +1093,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type experiment_template() :: %{String.t() | Atom.t() => any()}
+  @type experiment_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1115,7 +1104,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type start_experiment_response() :: %{String.t() | Atom.t() => any()}
+  @type start_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1135,7 +1124,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type get_safety_lever_response() :: %{String.t() | Atom.t() => any()}
+  @type get_safety_lever_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1146,19 +1135,19 @@ defmodule AWS.Fis do
       }
 
   """
-  @type update_experiment_template_response() :: %{String.t() | Atom.t() => any()}
+  @type update_experiment_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_experiment_resolved_targets_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "resolvedTargets" => list(resolved_target())
       }
 
   """
-  @type list_experiment_resolved_targets_response() :: %{String.t() | Atom.t() => any()}
+  @type list_experiment_resolved_targets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1187,56 +1176,56 @@ defmodule AWS.Fis do
       }
 
   """
-  @type get_experiment_template_response() :: %{String.t() | Atom.t() => any()}
+  @type get_experiment_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_experiment_template_action_input() :: %{
-        "actionId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "actionId" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "parameters" => map(),
-        "startAfter" => list(String.t() | Atom.t()),
+        "startAfter" => list(String.t() | atom()),
         "targets" => map()
       }
 
   """
-  @type create_experiment_template_action_input() :: %{String.t() | Atom.t() => any()}
+  @type create_experiment_template_action_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_template_target_input_filter() :: %{
-        "path" => String.t() | Atom.t(),
-        "values" => list(String.t() | Atom.t())
+        "path" => String.t() | atom(),
+        "values" => list(String.t() | atom())
       }
 
   """
-  @type experiment_template_target_input_filter() :: %{String.t() | Atom.t() => any()}
+  @type experiment_template_target_input_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_report_error() :: %{
-        "code" => String.t() | Atom.t()
+        "code" => String.t() | atom()
       }
 
   """
-  @type experiment_report_error() :: %{String.t() | Atom.t() => any()}
+  @type experiment_report_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1252,12 +1241,12 @@ defmodule AWS.Fis do
   ## Example:
 
       list_target_resource_types_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "targetResourceTypes" => list(target_resource_type_summary())
       }
 
   """
-  @type list_target_resource_types_response() :: %{String.t() | Atom.t() => any()}
+  @type list_target_resource_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1268,32 +1257,32 @@ defmodule AWS.Fis do
       }
 
   """
-  @type get_target_account_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_target_account_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_target_account_configuration_summary() :: %{
-        "accountId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "accountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type experiment_target_account_configuration_summary() :: %{String.t() | Atom.t() => any()}
+  @type experiment_target_account_configuration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_safety_lever_state_input() :: %{
-        "reason" => String.t() | Atom.t(),
+        "reason" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type update_safety_lever_state_input() :: %{String.t() | Atom.t() => any()}
+  @type update_safety_lever_state_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1306,20 +1295,20 @@ defmodule AWS.Fis do
       }
 
   """
-  @type experiment_options() :: %{String.t() | Atom.t() => any()}
+  @type experiment_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_experiments_request() :: %{
-        optional("experimentTemplateId") => String.t() | Atom.t(),
+        optional("experimentTemplateId") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_experiments_request() :: %{String.t() | Atom.t() => any()}
+  @type list_experiments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1328,12 +1317,12 @@ defmodule AWS.Fis do
       start_experiment_request() :: %{
         optional("experimentOptions") => start_experiment_experiment_options_input(),
         optional("tags") => map(),
-        required("clientToken") => String.t() | Atom.t(),
-        required("experimentTemplateId") => String.t() | Atom.t()
+        required("clientToken") => String.t() | atom(),
+        required("experimentTemplateId") => String.t() | atom()
       }
 
   """
-  @type start_experiment_request() :: %{String.t() | Atom.t() => any()}
+  @type start_experiment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1342,14 +1331,13 @@ defmodule AWS.Fis do
       update_experiment_template_report_configuration_input() :: %{
         "dataSources" => experiment_template_report_configuration_data_sources_input(),
         "outputs" => experiment_template_report_configuration_outputs_input(),
-        "postExperimentDuration" => String.t() | Atom.t(),
-        "preExperimentDuration" => String.t() | Atom.t()
+        "postExperimentDuration" => String.t() | atom(),
+        "preExperimentDuration" => String.t() | atom()
       }
 
   """
   @type update_experiment_template_report_configuration_input() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1362,7 +1350,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type create_experiment_template_experiment_options_input() :: %{String.t() | Atom.t() => any()}
+  @type create_experiment_template_experiment_options_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1383,19 +1371,19 @@ defmodule AWS.Fis do
       }
 
   """
-  @type experiment_template_experiment_options() :: %{String.t() | Atom.t() => any()}
+  @type experiment_template_experiment_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_experiment_template_stop_condition_input() :: %{
-        "source" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "source" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type create_experiment_template_stop_condition_input() :: %{String.t() | Atom.t() => any()}
+  @type create_experiment_template_stop_condition_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1406,7 +1394,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type create_experiment_template_response() :: %{String.t() | Atom.t() => any()}
+  @type create_experiment_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1415,38 +1403,38 @@ defmodule AWS.Fis do
       create_experiment_template_target_input() :: %{
         "filters" => list(experiment_template_target_input_filter()),
         "parameters" => map(),
-        "resourceArns" => list(String.t() | Atom.t()),
+        "resourceArns" => list(String.t() | atom()),
         "resourceTags" => map(),
-        "resourceType" => String.t() | Atom.t(),
-        "selectionMode" => String.t() | Atom.t()
+        "resourceType" => String.t() | atom(),
+        "selectionMode" => String.t() | atom()
       }
 
   """
-  @type create_experiment_template_target_input() :: %{String.t() | Atom.t() => any()}
+  @type create_experiment_template_target_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       report_configuration_s3_output() :: %{
-        "bucketName" => String.t() | Atom.t(),
-        "prefix" => String.t() | Atom.t()
+        "bucketName" => String.t() | atom(),
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type report_configuration_s3_output() :: %{String.t() | Atom.t() => any()}
+  @type report_configuration_s3_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       action_parameter() :: %{
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "required" => boolean()
       }
 
   """
-  @type action_parameter() :: %{String.t() | Atom.t() => any()}
+  @type action_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1457,7 +1445,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type start_experiment_experiment_options_input() :: %{String.t() | Atom.t() => any()}
+  @type start_experiment_experiment_options_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1468,7 +1456,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type delete_target_account_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_target_account_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1479,7 +1467,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type stop_experiment_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_experiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1488,14 +1476,14 @@ defmodule AWS.Fis do
       update_experiment_template_target_input() :: %{
         "filters" => list(experiment_template_target_input_filter()),
         "parameters" => map(),
-        "resourceArns" => list(String.t() | Atom.t()),
+        "resourceArns" => list(String.t() | atom()),
         "resourceTags" => map(),
-        "resourceType" => String.t() | Atom.t(),
-        "selectionMode" => String.t() | Atom.t()
+        "resourceType" => String.t() | atom(),
+        "selectionMode" => String.t() | atom()
       }
 
   """
-  @type update_experiment_template_target_input() :: %{String.t() | Atom.t() => any()}
+  @type update_experiment_template_target_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1504,12 +1492,12 @@ defmodule AWS.Fis do
       experiment_template_report_configuration() :: %{
         "dataSources" => experiment_template_report_configuration_data_sources(),
         "outputs" => experiment_template_report_configuration_outputs(),
-        "postExperimentDuration" => String.t() | Atom.t(),
-        "preExperimentDuration" => String.t() | Atom.t()
+        "postExperimentDuration" => String.t() | atom(),
+        "preExperimentDuration" => String.t() | atom()
       }
 
   """
-  @type experiment_template_report_configuration() :: %{String.t() | Atom.t() => any()}
+  @type experiment_template_report_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1520,7 +1508,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type update_experiment_template_experiment_options_input() :: %{String.t() | Atom.t() => any()}
+  @type update_experiment_template_experiment_options_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1528,16 +1516,16 @@ defmodule AWS.Fis do
 
       experiment() :: %{
         "actions" => map(),
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
         "endTime" => non_neg_integer(),
         "experimentOptions" => experiment_options(),
         "experimentReport" => experiment_report(),
         "experimentReportConfiguration" => experiment_report_configuration(),
-        "experimentTemplateId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "experimentTemplateId" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "logConfiguration" => experiment_log_configuration(),
-        "roleArn" => String.t() | Atom.t(),
+        "roleArn" => String.t() | atom(),
         "startTime" => non_neg_integer(),
         "state" => experiment_state(),
         "stopConditions" => list(experiment_stop_condition()),
@@ -1547,7 +1535,7 @@ defmodule AWS.Fis do
       }
 
   """
-  @type experiment() :: %{String.t() | Atom.t() => any()}
+  @type experiment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1560,56 +1548,55 @@ defmodule AWS.Fis do
       }
 
   """
-  @type experiment_template_log_configuration() :: %{String.t() | Atom.t() => any()}
+  @type experiment_template_log_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       safety_lever() :: %{
-        "arn" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "state" => safety_lever_state()
       }
 
   """
-  @type safety_lever() :: %{String.t() | Atom.t() => any()}
+  @type safety_lever() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_experiment_template_stop_condition_input() :: %{
-        "source" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "source" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type update_experiment_template_stop_condition_input() :: %{String.t() | Atom.t() => any()}
+  @type update_experiment_template_stop_condition_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_cloud_watch_logs_log_configuration() :: %{
-        "logGroupArn" => String.t() | Atom.t()
+        "logGroupArn" => String.t() | atom()
       }
 
   """
-  @type experiment_cloud_watch_logs_log_configuration() :: %{String.t() | Atom.t() => any()}
+  @type experiment_cloud_watch_logs_log_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       experiment_template_cloud_watch_logs_log_configuration() :: %{
-        "logGroupArn" => String.t() | Atom.t()
+        "logGroupArn" => String.t() | atom()
       }
 
   """
   @type experiment_template_cloud_watch_logs_log_configuration() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1617,12 +1604,12 @@ defmodule AWS.Fis do
   ## Example:
 
       safety_lever_state() :: %{
-        "reason" => String.t() | Atom.t(),
+        "reason" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type safety_lever_state() :: %{String.t() | Atom.t() => any()}
+  @type safety_lever_state() :: %{(String.t() | atom()) => any()}
 
   @type create_experiment_template_errors() ::
           validation_exception()
@@ -1776,8 +1763,8 @@ defmodule AWS.Fis do
   """
   @spec create_target_account_configuration(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_target_account_configuration_request(),
           list()
         ) ::
@@ -1819,7 +1806,7 @@ defmodule AWS.Fis do
   """
   @spec delete_experiment_template(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_experiment_template_request(),
           list()
         ) ::
@@ -1853,8 +1840,8 @@ defmodule AWS.Fis do
   """
   @spec delete_target_account_configuration(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_target_account_configuration_request(),
           list()
         ) ::
@@ -1894,7 +1881,7 @@ defmodule AWS.Fis do
   @doc """
   Gets information about the specified FIS action.
   """
-  @spec get_action(map(), String.t() | Atom.t(), list()) ::
+  @spec get_action(map(), String.t() | atom(), list()) ::
           {:ok, get_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1912,7 +1899,7 @@ defmodule AWS.Fis do
   @doc """
   Gets information about the specified experiment.
   """
-  @spec get_experiment(map(), String.t() | Atom.t(), list()) ::
+  @spec get_experiment(map(), String.t() | atom(), list()) ::
           {:ok, get_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1933,8 +1920,8 @@ defmodule AWS.Fis do
   """
   @spec get_experiment_target_account_configuration(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_experiment_target_account_configuration_response(), any()}
@@ -1961,7 +1948,7 @@ defmodule AWS.Fis do
   @doc """
   Gets information about the specified experiment template.
   """
-  @spec get_experiment_template(map(), String.t() | Atom.t(), list()) ::
+  @spec get_experiment_template(map(), String.t() | atom(), list()) ::
           {:ok, get_experiment_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1980,7 +1967,7 @@ defmodule AWS.Fis do
 
   Gets information about the specified safety lever.
   """
-  @spec get_safety_lever(map(), String.t() | Atom.t(), list()) ::
+  @spec get_safety_lever(map(), String.t() | atom(), list()) ::
           {:ok, get_safety_lever_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1999,12 +1986,7 @@ defmodule AWS.Fis do
   Gets information about the specified target account configuration of the
   experiment template.
   """
-  @spec get_target_account_configuration(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec get_target_account_configuration(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_target_account_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2029,7 +2011,7 @@ defmodule AWS.Fis do
   @doc """
   Gets information about the specified resource type.
   """
-  @spec get_target_resource_type(map(), String.t() | Atom.t(), list()) ::
+  @spec get_target_resource_type(map(), String.t() | atom(), list()) ::
           {:ok, get_target_resource_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2047,7 +2029,7 @@ defmodule AWS.Fis do
   @doc """
   Lists the available FIS actions.
   """
-  @spec list_actions(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_actions(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2081,10 +2063,10 @@ defmodule AWS.Fis do
   """
   @spec list_experiment_resolved_targets(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_experiment_resolved_targets_response(), any()}
@@ -2134,8 +2116,8 @@ defmodule AWS.Fis do
   """
   @spec list_experiment_target_account_configurations(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_experiment_target_account_configurations_response(), any()}
@@ -2169,8 +2151,8 @@ defmodule AWS.Fis do
   """
   @spec list_experiment_templates(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_experiment_templates_response(), any()}
@@ -2211,9 +2193,9 @@ defmodule AWS.Fis do
   """
   @spec list_experiments(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_experiments_response(), any()}
@@ -2260,7 +2242,7 @@ defmodule AWS.Fis do
   @doc """
   Lists the tags for the specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2279,9 +2261,9 @@ defmodule AWS.Fis do
   """
   @spec list_target_account_configurations(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_target_account_configurations_response(), any()}
@@ -2325,8 +2307,8 @@ defmodule AWS.Fis do
   """
   @spec list_target_resource_types(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_target_resource_types_response(), any()}
@@ -2394,7 +2376,7 @@ defmodule AWS.Fis do
   @doc """
   Stops the specified experiment.
   """
-  @spec stop_experiment(map(), String.t() | Atom.t(), stop_experiment_request(), list()) ::
+  @spec stop_experiment(map(), String.t() | atom(), stop_experiment_request(), list()) ::
           {:ok, stop_experiment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2423,7 +2405,7 @@ defmodule AWS.Fis do
   @doc """
   Applies the specified tags to the specified resource.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2451,7 +2433,7 @@ defmodule AWS.Fis do
   @doc """
   Removes the specified tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2486,7 +2468,7 @@ defmodule AWS.Fis do
   """
   @spec update_experiment_template(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_experiment_template_request(),
           list()
         ) ::
@@ -2521,7 +2503,7 @@ defmodule AWS.Fis do
   """
   @spec update_safety_lever_state(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_safety_lever_state_request(),
           list()
         ) ::
@@ -2555,8 +2537,8 @@ defmodule AWS.Fis do
   """
   @spec update_target_account_configuration(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_target_account_configuration_request(),
           list()
         ) ::

@@ -30,11 +30,11 @@ defmodule AWS.Athena do
   ## Example:
       
       get_notebook_metadata_input() :: %{
-        required("NotebookId") => String.t() | Atom.t()
+        required("NotebookId") => String.t() | atom()
       }
       
   """
-  @type get_notebook_metadata_input() :: %{String.t() | Atom.t() => any()}
+  @type get_notebook_metadata_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -42,44 +42,44 @@ defmodule AWS.Athena do
       
       query_stage_plan_node() :: %{
         "Children" => list(query_stage_plan_node()),
-        "Identifier" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "RemoteSources" => list(String.t() | Atom.t())
+        "Identifier" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RemoteSources" => list(String.t() | atom())
       }
       
   """
-  @type query_stage_plan_node() :: %{String.t() | Atom.t() => any()}
+  @type query_stage_plan_node() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       named_query() :: %{
-        "Database" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "NamedQueryId" => String.t() | Atom.t(),
-        "QueryString" => String.t() | Atom.t(),
-        "WorkGroup" => String.t() | Atom.t()
+        "Database" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NamedQueryId" => String.t() | atom(),
+        "QueryString" => String.t() | atom(),
+        "WorkGroup" => String.t() | atom()
       }
       
   """
-  @type named_query() :: %{String.t() | Atom.t() => any()}
+  @type named_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_catalog_summary() :: %{
-        "CatalogName" => String.t() | Atom.t(),
+        "CatalogName" => String.t() | atom(),
         "ConnectionType" => list(any()),
-        "Error" => String.t() | Atom.t(),
+        "Error" => String.t() | atom(),
         "Status" => list(any()),
         "Type" => list(any())
       }
       
   """
-  @type data_catalog_summary() :: %{String.t() | Atom.t() => any()}
+  @type data_catalog_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -91,7 +91,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type managed_query_results_configuration() :: %{String.t() | Atom.t() => any()}
+  @type managed_query_results_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -99,11 +99,11 @@ defmodule AWS.Athena do
       
       delete_data_catalog_input() :: %{
         optional("DeleteCatalogOnly") => boolean(),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_data_catalog_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_data_catalog_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -119,38 +119,38 @@ defmodule AWS.Athena do
   ## Example:
       
       update_prepared_statement_input() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        required("QueryStatement") => String.t() | Atom.t(),
-        required("StatementName") => String.t() | Atom.t(),
-        required("WorkGroup") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        required("QueryStatement") => String.t() | atom(),
+        required("StatementName") => String.t() | atom(),
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type update_prepared_statement_input() :: %{String.t() | Atom.t() => any()}
+  @type update_prepared_statement_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       metadata_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type metadata_exception() :: %{String.t() | Atom.t() => any()}
+  @type metadata_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_notebook_metadata_input() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
-        required("NotebookId") => String.t() | Atom.t()
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("NotebookId") => String.t() | atom()
       }
       
   """
-  @type update_notebook_metadata_input() :: %{String.t() | Atom.t() => any()}
+  @type update_notebook_metadata_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -158,11 +158,11 @@ defmodule AWS.Athena do
       
       encryption_configuration() :: %{
         "EncryptionOption" => list(any()),
-        "KmsKey" => String.t() | Atom.t()
+        "KmsKey" => String.t() | atom()
       }
       
   """
-  @type encryption_configuration() :: %{String.t() | Atom.t() => any()}
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -173,7 +173,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type get_data_catalog_output() :: %{String.t() | Atom.t() => any()}
+  @type get_data_catalog_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -184,13 +184,13 @@ defmodule AWS.Athena do
         "CreationTime" => non_neg_integer(),
         "LastAllocation" => capacity_allocation(),
         "LastSuccessfulAllocationTime" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
         "TargetDpus" => integer()
       }
       
   """
-  @type capacity_reservation() :: %{String.t() | Atom.t() => any()}
+  @type capacity_reservation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -201,90 +201,90 @@ defmodule AWS.Athena do
       }
       
   """
-  @type result_set_metadata() :: %{String.t() | Atom.t() => any()}
+  @type result_set_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_prepared_statement_input() :: %{
-        required("StatementName") => String.t() | Atom.t(),
-        required("WorkGroup") => String.t() | Atom.t()
+        required("StatementName") => String.t() | atom(),
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type get_prepared_statement_input() :: %{String.t() | Atom.t() => any()}
+  @type get_prepared_statement_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       database() :: %{
-        "Description" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Parameters" => map()
       }
       
   """
-  @type database() :: %{String.t() | Atom.t() => any()}
+  @type database() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       session_summary() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "EngineVersion" => engine_version(),
-        "NotebookVersion" => String.t() | Atom.t(),
-        "SessionId" => String.t() | Atom.t(),
+        "NotebookVersion" => String.t() | atom(),
+        "SessionId" => String.t() | atom(),
         "Status" => session_status()
       }
       
   """
-  @type session_summary() :: %{String.t() | Atom.t() => any()}
+  @type session_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_calculation_execution_status_request() :: %{
-        required("CalculationExecutionId") => String.t() | Atom.t()
+        required("CalculationExecutionId") => String.t() | atom()
       }
       
   """
-  @type get_calculation_execution_status_request() :: %{String.t() | Atom.t() => any()}
+  @type get_calculation_execution_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_session_response() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "EngineConfiguration" => engine_configuration(),
-        "EngineVersion" => String.t() | Atom.t(),
-        "NotebookVersion" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | atom(),
+        "NotebookVersion" => String.t() | atom(),
         "SessionConfiguration" => session_configuration(),
-        "SessionId" => String.t() | Atom.t(),
+        "SessionId" => String.t() | atom(),
         "Statistics" => session_statistics(),
         "Status" => session_status(),
-        "WorkGroup" => String.t() | Atom.t()
+        "WorkGroup" => String.t() | atom()
       }
       
   """
-  @type get_session_response() :: %{String.t() | Atom.t() => any()}
+  @type get_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_query_results_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ResultSet" => result_set(),
         "UpdateCount" => float()
       }
       
   """
-  @type get_query_results_output() :: %{String.t() | Atom.t() => any()}
+  @type get_query_results_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -295,7 +295,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type get_notebook_metadata_output() :: %{String.t() | Atom.t() => any()}
+  @type get_notebook_metadata_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -303,24 +303,24 @@ defmodule AWS.Athena do
       
       list_notebook_sessions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("NotebookId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("NotebookId") => String.t() | atom()
       }
       
   """
-  @type list_notebook_sessions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_notebook_sessions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_notebook_metadata_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "NotebookMetadataList" => list(notebook_metadata())
       }
       
   """
-  @type list_notebook_metadata_output() :: %{String.t() | Atom.t() => any()}
+  @type list_notebook_metadata_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -336,16 +336,16 @@ defmodule AWS.Athena do
   ## Example:
       
       start_session_request() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("NotebookVersion") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("NotebookVersion") => String.t() | atom(),
         optional("SessionIdleTimeoutInMinutes") => integer(),
         required("EngineConfiguration") => engine_configuration(),
-        required("WorkGroup") => String.t() | Atom.t()
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type start_session_request() :: %{String.t() | Atom.t() => any()}
+  @type start_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -361,11 +361,11 @@ defmodule AWS.Athena do
   ## Example:
       
       get_capacity_reservation_input() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_capacity_reservation_input() :: %{String.t() | Atom.t() => any()}
+  @type get_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -383,8 +383,8 @@ defmodule AWS.Athena do
       result_configuration_updates() :: %{
         "AclConfiguration" => acl_configuration(),
         "EncryptionConfiguration" => encryption_configuration(),
-        "ExpectedBucketOwner" => String.t() | Atom.t(),
-        "OutputLocation" => String.t() | Atom.t(),
+        "ExpectedBucketOwner" => String.t() | atom(),
+        "OutputLocation" => String.t() | atom(),
         "RemoveAclConfiguration" => boolean(),
         "RemoveEncryptionConfiguration" => boolean(),
         "RemoveExpectedBucketOwner" => boolean(),
@@ -392,19 +392,19 @@ defmodule AWS.Athena do
       }
       
   """
-  @type result_configuration_updates() :: %{String.t() | Atom.t() => any()}
+  @type result_configuration_updates() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       engine_version() :: %{
-        "EffectiveEngineVersion" => String.t() | Atom.t(),
-        "SelectedEngineVersion" => String.t() | Atom.t()
+        "EffectiveEngineVersion" => String.t() | atom(),
+        "SelectedEngineVersion" => String.t() | atom()
       }
       
   """
-  @type engine_version() :: %{String.t() | Atom.t() => any()}
+  @type engine_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -419,43 +419,43 @@ defmodule AWS.Athena do
       }
       
   """
-  @type engine_configuration() :: %{String.t() | Atom.t() => any()}
+  @type engine_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_capacity_assignment_configuration_input() :: %{
-        required("CapacityReservationName") => String.t() | Atom.t()
+        required("CapacityReservationName") => String.t() | atom()
       }
       
   """
-  @type get_capacity_assignment_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type get_capacity_assignment_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_prepared_statement_input() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        required("QueryStatement") => String.t() | Atom.t(),
-        required("StatementName") => String.t() | Atom.t(),
-        required("WorkGroup") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        required("QueryStatement") => String.t() | atom(),
+        required("StatementName") => String.t() | atom(),
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type create_prepared_statement_input() :: %{String.t() | Atom.t() => any()}
+  @type create_prepared_statement_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_query_execution_input() :: %{
-        required("QueryExecutionId") => String.t() | Atom.t()
+        required("QueryExecutionId") => String.t() | atom()
       }
       
   """
-  @type get_query_execution_input() :: %{String.t() | Atom.t() => any()}
+  @type get_query_execution_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -466,7 +466,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type result_reuse_information() :: %{String.t() | Atom.t() => any()}
+  @type result_reuse_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -477,7 +477,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type stop_calculation_execution_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_calculation_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -490,20 +490,20 @@ defmodule AWS.Athena do
       }
       
   """
-  @type query_runtime_statistics() :: %{String.t() | Atom.t() => any()}
+  @type query_runtime_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       column() :: %{
-        "Comment" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Comment" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type column() :: %{String.t() | Atom.t() => any()}
+  @type column() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -511,29 +511,29 @@ defmodule AWS.Athena do
       
       athena_error() :: %{
         "ErrorCategory" => integer(),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | atom(),
         "ErrorType" => integer(),
         "Retryable" => boolean()
       }
       
   """
-  @type athena_error() :: %{String.t() | Atom.t() => any()}
+  @type athena_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_table_metadata_input() :: %{
-        optional("Expression") => String.t() | Atom.t(),
+        optional("Expression") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("WorkGroup") => String.t() | Atom.t(),
-        required("CatalogName") => String.t() | Atom.t(),
-        required("DatabaseName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("WorkGroup") => String.t() | atom(),
+        required("CatalogName") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom()
       }
       
   """
-  @type list_table_metadata_input() :: %{String.t() | Atom.t() => any()}
+  @type list_table_metadata_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -541,11 +541,11 @@ defmodule AWS.Athena do
       
       list_application_d_p_u_sizes_output() :: %{
         "ApplicationDPUSizes" => list(application_d_p_u_sizes()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_application_d_p_u_sizes_output() :: %{String.t() | Atom.t() => any()}
+  @type list_application_d_p_u_sizes_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -563,14 +563,14 @@ defmodule AWS.Athena do
       work_group() :: %{
         "Configuration" => work_group_configuration(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "IdentityCenterApplicationArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "IdentityCenterApplicationArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "State" => list(any())
       }
       
   """
-  @type work_group() :: %{String.t() | Atom.t() => any()}
+  @type work_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -586,11 +586,11 @@ defmodule AWS.Athena do
   ## Example:
       
       datum() :: %{
-        "VarCharValue" => String.t() | Atom.t()
+        "VarCharValue" => String.t() | atom()
       }
       
   """
-  @type datum() :: %{String.t() | Atom.t() => any()}
+  @type datum() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -607,35 +607,35 @@ defmodule AWS.Athena do
       
       put_capacity_assignment_configuration_input() :: %{
         required("CapacityAssignments") => list(capacity_assignment()),
-        required("CapacityReservationName") => String.t() | Atom.t()
+        required("CapacityReservationName") => String.t() | atom()
       }
       
   """
-  @type put_capacity_assignment_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type put_capacity_assignment_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_notebook_input() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
-        required("WorkGroup") => String.t() | Atom.t()
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type create_notebook_input() :: %{String.t() | Atom.t() => any()}
+  @type create_notebook_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_query_execution_input() :: %{
-        required("QueryExecutionId") => String.t() | Atom.t()
+        required("QueryExecutionId") => String.t() | atom()
       }
       
   """
-  @type stop_query_execution_input() :: %{String.t() | Atom.t() => any()}
+  @type stop_query_execution_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -643,11 +643,11 @@ defmodule AWS.Athena do
       
       export_notebook_output() :: %{
         "NotebookMetadata" => notebook_metadata(),
-        "Payload" => String.t() | Atom.t()
+        "Payload" => String.t() | atom()
       }
       
   """
-  @type export_notebook_output() :: %{String.t() | Atom.t() => any()}
+  @type export_notebook_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -659,7 +659,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type get_calculation_execution_status_response() :: %{String.t() | Atom.t() => any()}
+  @type get_calculation_execution_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -667,11 +667,11 @@ defmodule AWS.Athena do
       
       list_capacity_reservations_output() :: %{
         "CapacityReservations" => list(capacity_reservation()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_capacity_reservations_output() :: %{String.t() | Atom.t() => any()}
+  @type list_capacity_reservations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -682,18 +682,18 @@ defmodule AWS.Athena do
       }
       
   """
-  @type get_query_execution_output() :: %{String.t() | Atom.t() => any()}
+  @type get_query_execution_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_named_query_input() :: %{
-        required("NamedQueryId") => String.t() | Atom.t()
+        required("NamedQueryId") => String.t() | atom()
       }
       
   """
-  @type get_named_query_input() :: %{String.t() | Atom.t() => any()}
+  @type get_named_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -701,11 +701,11 @@ defmodule AWS.Athena do
       
       notebook_session_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "SessionId" => String.t() | Atom.t()
+        "SessionId" => String.t() | atom()
       }
       
   """
-  @type notebook_session_summary() :: %{String.t() | Atom.t() => any()}
+  @type notebook_session_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -713,34 +713,34 @@ defmodule AWS.Athena do
       
       capacity_assignment_configuration() :: %{
         "CapacityAssignments" => list(capacity_assignment()),
-        "CapacityReservationName" => String.t() | Atom.t()
+        "CapacityReservationName" => String.t() | atom()
       }
       
   """
-  @type capacity_assignment_configuration() :: %{String.t() | Atom.t() => any()}
+  @type capacity_assignment_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_named_query_input() :: %{
-        required("NamedQueryIds") => list(String.t() | Atom.t())
+        required("NamedQueryIds") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_named_query_input() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_named_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_requests_exception() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "Reason" => list(any())
       }
       
   """
-  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -748,23 +748,23 @@ defmodule AWS.Athena do
       
       calculation_statistics() :: %{
         "DpuExecutionInMillis" => float(),
-        "Progress" => String.t() | Atom.t()
+        "Progress" => String.t() | atom()
       }
       
   """
-  @type calculation_statistics() :: %{String.t() | Atom.t() => any()}
+  @type calculation_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -772,22 +772,22 @@ defmodule AWS.Athena do
       
       prepared_statement_summary() :: %{
         "LastModifiedTime" => non_neg_integer(),
-        "StatementName" => String.t() | Atom.t()
+        "StatementName" => String.t() | atom()
       }
       
   """
-  @type prepared_statement_summary() :: %{String.t() | Atom.t() => any()}
+  @type prepared_statement_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_session_request() :: %{
-        required("SessionId") => String.t() | Atom.t()
+        required("SessionId") => String.t() | atom()
       }
       
   """
-  @type get_session_request() :: %{String.t() | Atom.t() => any()}
+  @type get_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -804,12 +804,12 @@ defmodule AWS.Athena do
       
       list_prepared_statements_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("WorkGroup") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type list_prepared_statements_input() :: %{String.t() | Atom.t() => any()}
+  @type list_prepared_statements_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -817,24 +817,24 @@ defmodule AWS.Athena do
       
       session_configuration() :: %{
         "EncryptionConfiguration" => encryption_configuration(),
-        "ExecutionRole" => String.t() | Atom.t(),
+        "ExecutionRole" => String.t() | atom(),
         "IdleTimeoutSeconds" => float(),
-        "WorkingDirectory" => String.t() | Atom.t()
+        "WorkingDirectory" => String.t() | atom()
       }
       
   """
-  @type session_configuration() :: %{String.t() | Atom.t() => any()}
+  @type session_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_capacity_reservation_input() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type cancel_capacity_reservation_input() :: %{String.t() | Atom.t() => any()}
+  @type cancel_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -842,16 +842,16 @@ defmodule AWS.Athena do
       
       data_catalog() :: %{
         "ConnectionType" => list(any()),
-        "Description" => String.t() | Atom.t(),
-        "Error" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Error" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Parameters" => map(),
         "Status" => list(any()),
         "Type" => list(any())
       }
       
   """
-  @type data_catalog() :: %{String.t() | Atom.t() => any()}
+  @type data_catalog() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -871,42 +871,42 @@ defmodule AWS.Athena do
       }
       
   """
-  @type result_reuse_configuration() :: %{String.t() | Atom.t() => any()}
+  @type result_reuse_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_calculation_execution_response() :: %{
-        "CalculationExecutionId" => String.t() | Atom.t(),
+        "CalculationExecutionId" => String.t() | atom(),
         "State" => list(any())
       }
       
   """
-  @type start_calculation_execution_response() :: %{String.t() | Atom.t() => any()}
+  @type start_calculation_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_prepared_statement_input() :: %{
-        required("PreparedStatementNames") => list(String.t() | Atom.t()),
-        required("WorkGroup") => String.t() | Atom.t()
+        required("PreparedStatementNames") => list(String.t() | atom()),
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type batch_get_prepared_statement_input() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_prepared_statement_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       export_notebook_input() :: %{
-        required("NotebookId") => String.t() | Atom.t()
+        required("NotebookId") => String.t() | atom()
       }
       
   """
-  @type export_notebook_input() :: %{String.t() | Atom.t() => any()}
+  @type export_notebook_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -914,39 +914,39 @@ defmodule AWS.Athena do
       
       list_calculation_executions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("StateFilter") => list(any()),
-        required("SessionId") => String.t() | Atom.t()
+        required("SessionId") => String.t() | atom()
       }
       
   """
-  @type list_calculation_executions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_calculation_executions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       terminate_session_request() :: %{
-        required("SessionId") => String.t() | Atom.t()
+        required("SessionId") => String.t() | atom()
       }
       
   """
-  @type terminate_session_request() :: %{String.t() | Atom.t() => any()}
+  @type terminate_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_data_catalog_input() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("Parameters") => map(),
         optional("Tags") => list(tag()),
-        required("Name") => String.t() | Atom.t(),
+        required("Name") => String.t() | atom(),
         required("Type") => list(any())
       }
       
   """
-  @type create_data_catalog_input() :: %{String.t() | Atom.t() => any()}
+  @type create_data_catalog_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -954,13 +954,13 @@ defmodule AWS.Athena do
       
       list_databases_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("WorkGroup") => String.t() | Atom.t(),
-        required("CatalogName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("WorkGroup") => String.t() | atom(),
+        required("CatalogName") => String.t() | atom()
       }
       
   """
-  @type list_databases_input() :: %{String.t() | Atom.t() => any()}
+  @type list_databases_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -971,32 +971,32 @@ defmodule AWS.Athena do
       }
       
   """
-  @type get_capacity_assignment_configuration_output() :: %{String.t() | Atom.t() => any()}
+  @type get_capacity_assignment_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_capacity_reservation_input() :: %{
-        required("Name") => String.t() | Atom.t(),
+        required("Name") => String.t() | atom(),
         required("TargetDpus") => integer()
       }
       
   """
-  @type update_capacity_reservation_input() :: %{String.t() | Atom.t() => any()}
+  @type update_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unprocessed_query_execution_id() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "QueryExecutionId" => String.t() | Atom.t()
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "QueryExecutionId" => String.t() | atom()
       }
       
   """
-  @type unprocessed_query_execution_id() :: %{String.t() | Atom.t() => any()}
+  @type unprocessed_query_execution_id() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1007,7 +1007,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type terminate_session_response() :: %{String.t() | Atom.t() => any()}
+  @type terminate_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1015,28 +1015,28 @@ defmodule AWS.Athena do
       
       list_named_queries_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("WorkGroup") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type list_named_queries_input() :: %{String.t() | Atom.t() => any()}
+  @type list_named_queries_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_named_query_input() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("WorkGroup") => String.t() | Atom.t(),
-        required("Database") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
-        required("QueryString") => String.t() | Atom.t()
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("WorkGroup") => String.t() | atom(),
+        required("Database") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("QueryString") => String.t() | atom()
       }
       
   """
-  @type create_named_query_input() :: %{String.t() | Atom.t() => any()}
+  @type create_named_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1046,26 +1046,26 @@ defmodule AWS.Athena do
         "Columns" => list(column()),
         "CreateTime" => non_neg_integer(),
         "LastAccessTime" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Parameters" => map(),
         "PartitionKeys" => list(column()),
-        "TableType" => String.t() | Atom.t()
+        "TableType" => String.t() | atom()
       }
       
   """
-  @type table_metadata() :: %{String.t() | Atom.t() => any()}
+  @type table_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_sessions_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Sessions" => list(session_summary())
       }
       
   """
-  @type list_sessions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_sessions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1078,19 +1078,19 @@ defmodule AWS.Athena do
       }
       
   """
-  @type managed_query_results_configuration_updates() :: %{String.t() | Atom.t() => any()}
+  @type managed_query_results_configuration_updates() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceName" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1101,117 +1101,117 @@ defmodule AWS.Athena do
       }
       
   """
-  @type get_database_output() :: %{String.t() | Atom.t() => any()}
+  @type get_database_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_named_query_input() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
-        required("NamedQueryId") => String.t() | Atom.t(),
-        required("QueryString") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("NamedQueryId") => String.t() | atom(),
+        required("QueryString") => String.t() | atom()
       }
       
   """
-  @type update_named_query_input() :: %{String.t() | Atom.t() => any()}
+  @type update_named_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       calculation_configuration() :: %{
-        "CodeBlock" => String.t() | Atom.t()
+        "CodeBlock" => String.t() | atom()
       }
       
   """
-  @type calculation_configuration() :: %{String.t() | Atom.t() => any()}
+  @type calculation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_table_metadata_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "TableMetadataList" => list(table_metadata())
       }
       
   """
-  @type list_table_metadata_output() :: %{String.t() | Atom.t() => any()}
+  @type list_table_metadata_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application_d_p_u_sizes() :: %{
-        "ApplicationRuntimeId" => String.t() | Atom.t(),
+        "ApplicationRuntimeId" => String.t() | atom(),
         "SupportedDPUSizes" => list(integer())
       }
       
   """
-  @type application_d_p_u_sizes() :: %{String.t() | Atom.t() => any()}
+  @type application_d_p_u_sizes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       query_execution_context() :: %{
-        "Catalog" => String.t() | Atom.t(),
-        "Database" => String.t() | Atom.t()
+        "Catalog" => String.t() | atom(),
+        "Database" => String.t() | atom()
       }
       
   """
-  @type query_execution_context() :: %{String.t() | Atom.t() => any()}
+  @type query_execution_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_request_exception() :: %{
-        "AthenaErrorCode" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "AthenaErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       capacity_assignment() :: %{
-        "WorkGroupNames" => list(String.t() | Atom.t())
+        "WorkGroupNames" => list(String.t() | atom())
       }
       
   """
-  @type capacity_assignment() :: %{String.t() | Atom.t() => any()}
+  @type capacity_assignment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       calculation_result() :: %{
-        "ResultS3Uri" => String.t() | Atom.t(),
-        "ResultType" => String.t() | Atom.t(),
-        "StdErrorS3Uri" => String.t() | Atom.t(),
-        "StdOutS3Uri" => String.t() | Atom.t()
+        "ResultS3Uri" => String.t() | atom(),
+        "ResultType" => String.t() | atom(),
+        "StdErrorS3Uri" => String.t() | atom(),
+        "StdOutS3Uri" => String.t() | atom()
       }
       
   """
-  @type calculation_result() :: %{String.t() | Atom.t() => any()}
+  @type calculation_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1222,7 +1222,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type row() :: %{String.t() | Atom.t() => any()}
+  @type row() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1239,35 +1239,35 @@ defmodule AWS.Athena do
       
       list_databases_output() :: %{
         "DatabaseList" => list(database()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_databases_output() :: %{String.t() | Atom.t() => any()}
+  @type list_databases_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_data_catalog_input() :: %{
-        optional("WorkGroup") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        optional("WorkGroup") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type get_data_catalog_input() :: %{String.t() | Atom.t() => any()}
+  @type get_data_catalog_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_notebook_sessions_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "NotebookSessionsList" => list(notebook_session_summary())
       }
       
   """
-  @type list_notebook_sessions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_notebook_sessions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1281,12 +1281,12 @@ defmodule AWS.Athena do
         "OutputRows" => float(),
         "QueryStagePlan" => query_stage_plan_node(),
         "StageId" => float(),
-        "State" => String.t() | Atom.t(),
+        "State" => String.t() | atom(),
         "SubStages" => list(query_stage())
       }
       
   """
-  @type query_stage() :: %{String.t() | Atom.t() => any()}
+  @type query_stage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1294,34 +1294,34 @@ defmodule AWS.Athena do
       
       list_executors_response() :: %{
         "ExecutorsSummary" => list(executors_summary()),
-        "NextToken" => String.t() | Atom.t(),
-        "SessionId" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom(),
+        "SessionId" => String.t() | atom()
       }
       
   """
-  @type list_executors_response() :: %{String.t() | Atom.t() => any()}
+  @type list_executors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_capacity_reservation_input() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_capacity_reservation_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_notebook_output() :: %{
-        "NotebookId" => String.t() | Atom.t()
+        "NotebookId" => String.t() | atom()
       }
       
   """
-  @type create_notebook_output() :: %{String.t() | Atom.t() => any()}
+  @type create_notebook_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1329,11 +1329,11 @@ defmodule AWS.Athena do
       
       list_capacity_reservations_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_capacity_reservations_input() :: %{String.t() | Atom.t() => any()}
+  @type list_capacity_reservations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1341,23 +1341,23 @@ defmodule AWS.Athena do
       
       query_execution() :: %{
         "EngineVersion" => engine_version(),
-        "ExecutionParameters" => list(String.t() | Atom.t()),
+        "ExecutionParameters" => list(String.t() | atom()),
         "ManagedQueryResultsConfiguration" => managed_query_results_configuration(),
-        "Query" => String.t() | Atom.t(),
+        "Query" => String.t() | atom(),
         "QueryExecutionContext" => query_execution_context(),
-        "QueryExecutionId" => String.t() | Atom.t(),
+        "QueryExecutionId" => String.t() | atom(),
         "QueryResultsS3AccessGrantsConfiguration" => query_results_s3_access_grants_configuration(),
         "ResultConfiguration" => result_configuration(),
         "ResultReuseConfiguration" => result_reuse_configuration(),
         "StatementType" => list(any()),
         "Statistics" => query_execution_statistics(),
         "Status" => query_execution_status(),
-        "SubstatementType" => String.t() | Atom.t(),
-        "WorkGroup" => String.t() | Atom.t()
+        "SubstatementType" => String.t() | atom(),
+        "WorkGroup" => String.t() | atom()
       }
       
   """
-  @type query_execution() :: %{String.t() | Atom.t() => any()}
+  @type query_execution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1368,7 +1368,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type get_table_metadata_output() :: %{String.t() | Atom.t() => any()}
+  @type get_table_metadata_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1376,12 +1376,12 @@ defmodule AWS.Athena do
       
       create_capacity_reservation_input() :: %{
         optional("Tags") => list(tag()),
-        required("Name") => String.t() | Atom.t(),
+        required("Name") => String.t() | atom(),
         required("TargetDpus") => integer()
       }
       
   """
-  @type create_capacity_reservation_input() :: %{String.t() | Atom.t() => any()}
+  @type create_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1392,22 +1392,22 @@ defmodule AWS.Athena do
       }
       
   """
-  @type delete_data_catalog_output() :: %{String.t() | Atom.t() => any()}
+  @type delete_data_catalog_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_notebook_input() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("SessionId") => String.t() | Atom.t(),
-        required("NotebookId") => String.t() | Atom.t(),
-        required("Payload") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("SessionId") => String.t() | atom(),
+        required("NotebookId") => String.t() | atom(),
+        required("Payload") => String.t() | atom(),
         required("Type") => list(any())
       }
       
   """
-  @type update_notebook_input() :: %{String.t() | Atom.t() => any()}
+  @type update_notebook_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1419,20 +1419,20 @@ defmodule AWS.Athena do
       }
       
   """
-  @type batch_get_named_query_output() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_named_query_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_database_input() :: %{
-        optional("WorkGroup") => String.t() | Atom.t(),
-        required("CatalogName") => String.t() | Atom.t(),
-        required("DatabaseName") => String.t() | Atom.t()
+        optional("WorkGroup") => String.t() | atom(),
+        required("CatalogName") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom()
       }
       
   """
-  @type get_database_input() :: %{String.t() | Atom.t() => any()}
+  @type get_database_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1440,45 +1440,45 @@ defmodule AWS.Athena do
       
       list_sessions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("StateFilter") => list(any()),
-        required("WorkGroup") => String.t() | Atom.t()
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type list_sessions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_sessions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_calculation_execution_response() :: %{
-        "CalculationExecutionId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "CalculationExecutionId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "Result" => calculation_result(),
-        "SessionId" => String.t() | Atom.t(),
+        "SessionId" => String.t() | atom(),
         "Statistics" => calculation_statistics(),
         "Status" => calculation_status(),
-        "WorkingDirectory" => String.t() | Atom.t()
+        "WorkingDirectory" => String.t() | atom()
       }
       
   """
-  @type get_calculation_execution_response() :: %{String.t() | Atom.t() => any()}
+  @type get_calculation_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       prepared_statement() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
-        "QueryStatement" => String.t() | Atom.t(),
-        "StatementName" => String.t() | Atom.t(),
-        "WorkGroupName" => String.t() | Atom.t()
+        "QueryStatement" => String.t() | atom(),
+        "StatementName" => String.t() | atom(),
+        "WorkGroupName" => String.t() | atom()
       }
       
   """
-  @type prepared_statement() :: %{String.t() | Atom.t() => any()}
+  @type prepared_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1489,7 +1489,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type get_work_group_output() :: %{String.t() | Atom.t() => any()}
+  @type get_work_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1506,36 +1506,36 @@ defmodule AWS.Athena do
       
       create_work_group_input() :: %{
         optional("Configuration") => work_group_configuration(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_work_group_input() :: %{String.t() | Atom.t() => any()}
+  @type create_work_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_input() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
+        required("ResourceARN") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_query_execution_input() :: %{
-        required("QueryExecutionIds") => list(String.t() | Atom.t())
+        required("QueryExecutionIds") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_query_execution_input() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_query_execution_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1543,11 +1543,11 @@ defmodule AWS.Athena do
       
       list_application_d_p_u_sizes_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_application_d_p_u_sizes_input() :: %{String.t() | Atom.t() => any()}
+  @type list_application_d_p_u_sizes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1558,31 +1558,31 @@ defmodule AWS.Athena do
       }
       
   """
-  @type create_data_catalog_output() :: %{String.t() | Atom.t() => any()}
+  @type create_data_catalog_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_query_runtime_statistics_input() :: %{
-        required("QueryExecutionId") => String.t() | Atom.t()
+        required("QueryExecutionId") => String.t() | atom()
       }
       
   """
-  @type get_query_runtime_statistics_input() :: %{String.t() | Atom.t() => any()}
+  @type get_query_runtime_statistics_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unprocessed_prepared_statement_name() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "StatementName" => String.t() | Atom.t()
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "StatementName" => String.t() | atom()
       }
       
   """
-  @type unprocessed_prepared_statement_name() :: %{String.t() | Atom.t() => any()}
+  @type unprocessed_prepared_statement_name() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1592,11 +1592,11 @@ defmodule AWS.Athena do
         "RequestCompletionTime" => non_neg_integer(),
         "RequestTime" => non_neg_integer(),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type capacity_allocation() :: %{String.t() | Atom.t() => any()}
+  @type capacity_allocation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1606,19 +1606,19 @@ defmodule AWS.Athena do
         "AthenaError" => athena_error(),
         "CompletionDateTime" => non_neg_integer(),
         "State" => list(any()),
-        "StateChangeReason" => String.t() | Atom.t(),
+        "StateChangeReason" => String.t() | atom(),
         "SubmissionDateTime" => non_neg_integer()
       }
       
   """
-  @type query_execution_status() :: %{String.t() | Atom.t() => any()}
+  @type query_execution_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       executors_summary() :: %{
-        "ExecutorId" => String.t() | Atom.t(),
+        "ExecutorId" => String.t() | atom(),
         "ExecutorSize" => float(),
         "ExecutorState" => list(any()),
         "ExecutorType" => list(any()),
@@ -1627,7 +1627,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type executors_summary() :: %{String.t() | Atom.t() => any()}
+  @type executors_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1644,13 +1644,13 @@ defmodule AWS.Athena do
       
       update_work_group_input() :: %{
         optional("ConfigurationUpdates") => work_group_configuration_updates(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("State") => list(any()),
-        required("WorkGroup") => String.t() | Atom.t()
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type update_work_group_input() :: %{String.t() | Atom.t() => any()}
+  @type update_work_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1666,49 +1666,49 @@ defmodule AWS.Athena do
   ## Example:
       
       update_data_catalog_input() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("Parameters") => map(),
-        required("Name") => String.t() | Atom.t(),
+        required("Name") => String.t() | atom(),
         required("Type") => list(any())
       }
       
   """
-  @type update_data_catalog_input() :: %{String.t() | Atom.t() => any()}
+  @type update_data_catalog_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_calculation_execution_code_response() :: %{
-        "CodeBlock" => String.t() | Atom.t()
+        "CodeBlock" => String.t() | atom()
       }
       
   """
-  @type get_calculation_execution_code_response() :: %{String.t() | Atom.t() => any()}
+  @type get_calculation_execution_code_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       work_group_configuration() :: %{
-        "AdditionalConfiguration" => String.t() | Atom.t(),
+        "AdditionalConfiguration" => String.t() | atom(),
         "BytesScannedCutoffPerQuery" => float(),
         "CustomerContentEncryptionConfiguration" => customer_content_encryption_configuration(),
         "EnableMinimumEncryptionConfiguration" => boolean(),
         "EnforceWorkGroupConfiguration" => boolean(),
         "EngineVersion" => engine_version(),
-        "ExecutionRole" => String.t() | Atom.t(),
+        "ExecutionRole" => String.t() | atom(),
         "IdentityCenterConfiguration" => identity_center_configuration(),
         "ManagedQueryResultsConfiguration" => managed_query_results_configuration(),
         "PublishCloudWatchMetricsEnabled" => boolean(),
@@ -1718,31 +1718,31 @@ defmodule AWS.Athena do
       }
       
   """
-  @type work_group_configuration() :: %{String.t() | Atom.t() => any()}
+  @type work_group_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_calculation_execution_request() :: %{
-        required("CalculationExecutionId") => String.t() | Atom.t()
+        required("CalculationExecutionId") => String.t() | atom()
       }
       
   """
-  @type get_calculation_execution_request() :: %{String.t() | Atom.t() => any()}
+  @type get_calculation_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       work_group_configuration_updates() :: %{
-        "AdditionalConfiguration" => String.t() | Atom.t(),
+        "AdditionalConfiguration" => String.t() | atom(),
         "BytesScannedCutoffPerQuery" => float(),
         "CustomerContentEncryptionConfiguration" => customer_content_encryption_configuration(),
         "EnableMinimumEncryptionConfiguration" => boolean(),
         "EnforceWorkGroupConfiguration" => boolean(),
         "EngineVersion" => engine_version(),
-        "ExecutionRole" => String.t() | Atom.t(),
+        "ExecutionRole" => String.t() | atom(),
         "ManagedQueryResultsConfigurationUpdates" => managed_query_results_configuration_updates(),
         "PublishCloudWatchMetricsEnabled" => boolean(),
         "QueryResultsS3AccessGrantsConfiguration" => query_results_s3_access_grants_configuration(),
@@ -1753,35 +1753,35 @@ defmodule AWS.Athena do
       }
       
   """
-  @type work_group_configuration_updates() :: %{String.t() | Atom.t() => any()}
+  @type work_group_configuration_updates() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_work_group_input() :: %{
-        required("WorkGroup") => String.t() | Atom.t()
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type get_work_group_input() :: %{String.t() | Atom.t() => any()}
+  @type get_work_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_query_execution_input() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("ExecutionParameters") => list(String.t() | Atom.t()),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("ExecutionParameters") => list(String.t() | atom()),
         optional("QueryExecutionContext") => query_execution_context(),
         optional("ResultConfiguration") => result_configuration(),
         optional("ResultReuseConfiguration") => result_reuse_configuration(),
-        optional("WorkGroup") => String.t() | Atom.t(),
-        required("QueryString") => String.t() | Atom.t()
+        optional("WorkGroup") => String.t() | atom(),
+        required("QueryString") => String.t() | atom()
       }
       
   """
-  @type start_query_execution_input() :: %{String.t() | Atom.t() => any()}
+  @type start_query_execution_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1789,12 +1789,12 @@ defmodule AWS.Athena do
       
       list_query_executions_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("WorkGroup") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type list_query_executions_input() :: %{String.t() | Atom.t() => any()}
+  @type list_query_executions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1810,12 +1810,12 @@ defmodule AWS.Athena do
   ## Example:
       
       start_session_response() :: %{
-        "SessionId" => String.t() | Atom.t(),
+        "SessionId" => String.t() | atom(),
         "State" => list(any())
       }
       
   """
-  @type start_session_response() :: %{String.t() | Atom.t() => any()}
+  @type start_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1835,7 +1835,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type get_capacity_reservation_output() :: %{String.t() | Atom.t() => any()}
+  @type get_capacity_reservation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1844,23 +1844,23 @@ defmodule AWS.Athena do
       result_configuration() :: %{
         "AclConfiguration" => acl_configuration(),
         "EncryptionConfiguration" => encryption_configuration(),
-        "ExpectedBucketOwner" => String.t() | Atom.t(),
-        "OutputLocation" => String.t() | Atom.t()
+        "ExpectedBucketOwner" => String.t() | atom(),
+        "OutputLocation" => String.t() | atom()
       }
       
   """
-  @type result_configuration() :: %{String.t() | Atom.t() => any()}
+  @type result_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_calculation_execution_code_request() :: %{
-        required("CalculationExecutionId") => String.t() | Atom.t()
+        required("CalculationExecutionId") => String.t() | atom()
       }
       
   """
-  @type get_calculation_execution_code_request() :: %{String.t() | Atom.t() => any()}
+  @type get_calculation_execution_code_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1874,59 +1874,59 @@ defmodule AWS.Athena do
       }
       
   """
-  @type query_runtime_statistics_rows() :: %{String.t() | Atom.t() => any()}
+  @type query_runtime_statistics_rows() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_notebook_input() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("NotebookS3LocationUri") => String.t() | Atom.t(),
-        optional("Payload") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("NotebookS3LocationUri") => String.t() | atom(),
+        optional("Payload") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Type") => list(any()),
-        required("WorkGroup") => String.t() | Atom.t()
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type import_notebook_input() :: %{String.t() | Atom.t() => any()}
+  @type import_notebook_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_input() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       filter_definition() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type filter_definition() :: %{String.t() | Atom.t() => any()}
+  @type filter_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_presigned_notebook_url_response() :: %{
-        "AuthToken" => String.t() | Atom.t(),
+        "AuthToken" => String.t() | atom(),
         "AuthTokenExpirationTime" => float(),
-        "NotebookUrl" => String.t() | Atom.t()
+        "NotebookUrl" => String.t() | atom()
       }
       
   """
-  @type create_presigned_notebook_url_response() :: %{String.t() | Atom.t() => any()}
+  @type create_presigned_notebook_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1937,18 +1937,18 @@ defmodule AWS.Athena do
       }
       
   """
-  @type get_query_runtime_statistics_output() :: %{String.t() | Atom.t() => any()}
+  @type get_query_runtime_statistics_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_notebook_output() :: %{
-        "NotebookId" => String.t() | Atom.t()
+        "NotebookId" => String.t() | atom()
       }
       
   """
-  @type import_notebook_output() :: %{String.t() | Atom.t() => any()}
+  @type import_notebook_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1960,19 +1960,19 @@ defmodule AWS.Athena do
       }
       
   """
-  @type result_reuse_by_age_configuration() :: %{String.t() | Atom.t() => any()}
+  @type result_reuse_by_age_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_prepared_statement_input() :: %{
-        required("StatementName") => String.t() | Atom.t(),
-        required("WorkGroup") => String.t() | Atom.t()
+        required("StatementName") => String.t() | atom(),
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type delete_prepared_statement_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_prepared_statement_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1980,11 +1980,11 @@ defmodule AWS.Athena do
       
       list_calculation_executions_response() :: %{
         "Calculations" => list(calculation_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_calculation_executions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_calculation_executions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1996,7 +1996,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type result_set() :: %{String.t() | Atom.t() => any()}
+  @type result_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2004,13 +2004,13 @@ defmodule AWS.Athena do
       
       get_query_results_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("QueryResultType") => list(any()),
-        required("QueryExecutionId") => String.t() | Atom.t()
+        required("QueryExecutionId") => String.t() | atom()
       }
       
   """
-  @type get_query_results_input() :: %{String.t() | Atom.t() => any()}
+  @type get_query_results_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2018,12 +2018,12 @@ defmodule AWS.Athena do
       
       list_tags_for_resource_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ResourceARN") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2039,12 +2039,12 @@ defmodule AWS.Athena do
   ## Example:
       
       get_session_status_response() :: %{
-        "SessionId" => String.t() | Atom.t(),
+        "SessionId" => String.t() | atom(),
         "Status" => session_status()
       }
       
   """
-  @type get_session_status_response() :: %{String.t() | Atom.t() => any()}
+  @type get_session_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2052,22 +2052,22 @@ defmodule AWS.Athena do
       
       identity_center_configuration() :: %{
         "EnableIdentityCenter" => boolean(),
-        "IdentityCenterInstanceArn" => String.t() | Atom.t()
+        "IdentityCenterInstanceArn" => String.t() | atom()
       }
       
   """
-  @type identity_center_configuration() :: %{String.t() | Atom.t() => any()}
+  @type identity_center_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_calculation_execution_request() :: %{
-        required("CalculationExecutionId") => String.t() | Atom.t()
+        required("CalculationExecutionId") => String.t() | atom()
       }
       
   """
-  @type stop_calculation_execution_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_calculation_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2080,43 +2080,43 @@ defmodule AWS.Athena do
       }
       
   """
-  @type query_results_s3_access_grants_configuration() :: %{String.t() | Atom.t() => any()}
+  @type query_results_s3_access_grants_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_presigned_notebook_url_request() :: %{
-        required("SessionId") => String.t() | Atom.t()
+        required("SessionId") => String.t() | atom()
       }
       
   """
-  @type create_presigned_notebook_url_request() :: %{String.t() | Atom.t() => any()}
+  @type create_presigned_notebook_url_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       calculation_summary() :: %{
-        "CalculationExecutionId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "CalculationExecutionId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "Status" => calculation_status()
       }
       
   """
-  @type calculation_summary() :: %{String.t() | Atom.t() => any()}
+  @type calculation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_work_groups_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "WorkGroups" => list(work_group_summary())
       }
       
   """
-  @type list_work_groups_output() :: %{String.t() | Atom.t() => any()}
+  @type list_work_groups_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2128,7 +2128,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type batch_get_prepared_statement_output() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_prepared_statement_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2144,7 +2144,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type query_runtime_statistics_timeline() :: %{String.t() | Atom.t() => any()}
+  @type query_runtime_statistics_timeline() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2152,33 +2152,33 @@ defmodule AWS.Athena do
       
       list_data_catalogs_output() :: %{
         "DataCatalogsSummary" => list(data_catalog_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_data_catalogs_output() :: %{String.t() | Atom.t() => any()}
+  @type list_data_catalogs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_notebook_input() :: %{
-        required("NotebookId") => String.t() | Atom.t()
+        required("NotebookId") => String.t() | atom()
       }
       
   """
-  @type delete_notebook_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_notebook_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_query_execution_output() :: %{
-        "QueryExecutionId" => String.t() | Atom.t()
+        "QueryExecutionId" => String.t() | atom()
       }
       
   """
-  @type start_query_execution_output() :: %{String.t() | Atom.t() => any()}
+  @type start_query_execution_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2187,36 +2187,36 @@ defmodule AWS.Athena do
       list_executors_request() :: %{
         optional("ExecutorStateFilter") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("SessionId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("SessionId") => String.t() | atom()
       }
       
   """
-  @type list_executors_request() :: %{String.t() | Atom.t() => any()}
+  @type list_executors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_named_query_input() :: %{
-        required("NamedQueryId") => String.t() | Atom.t()
+        required("NamedQueryId") => String.t() | atom()
       }
       
   """
-  @type delete_named_query_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_named_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unprocessed_named_query_id() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "NamedQueryId" => String.t() | Atom.t()
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "NamedQueryId" => String.t() | atom()
       }
       
   """
-  @type unprocessed_named_query_id() :: %{String.t() | Atom.t() => any()}
+  @type unprocessed_named_query_id() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2224,15 +2224,15 @@ defmodule AWS.Athena do
       
       work_group_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "EngineVersion" => engine_version(),
-        "IdentityCenterApplicationArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "IdentityCenterApplicationArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "State" => list(any())
       }
       
   """
-  @type work_group_summary() :: %{String.t() | Atom.t() => any()}
+  @type work_group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2240,22 +2240,22 @@ defmodule AWS.Athena do
       
       list_work_groups_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_work_groups_input() :: %{String.t() | Atom.t() => any()}
+  @type list_work_groups_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_session_status_request() :: %{
-        required("SessionId") => String.t() | Atom.t()
+        required("SessionId") => String.t() | atom()
       }
       
   """
-  @type get_session_status_request() :: %{String.t() | Atom.t() => any()}
+  @type get_session_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2271,23 +2271,23 @@ defmodule AWS.Athena do
   ## Example:
       
       managed_query_results_encryption_configuration() :: %{
-        "KmsKey" => String.t() | Atom.t()
+        "KmsKey" => String.t() | atom()
       }
       
   """
-  @type managed_query_results_encryption_configuration() :: %{String.t() | Atom.t() => any()}
+  @type managed_query_results_encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_query_executions_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "QueryExecutionIds" => list(String.t() | Atom.t())
+        "NextToken" => String.t() | atom(),
+        "QueryExecutionIds" => list(String.t() | atom())
       }
       
   """
-  @type list_query_executions_output() :: %{String.t() | Atom.t() => any()}
+  @type list_query_executions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2296,12 +2296,12 @@ defmodule AWS.Athena do
       calculation_status() :: %{
         "CompletionDateTime" => non_neg_integer(),
         "State" => list(any()),
-        "StateChangeReason" => String.t() | Atom.t(),
+        "StateChangeReason" => String.t() | atom(),
         "SubmissionDateTime" => non_neg_integer()
       }
       
   """
-  @type calculation_status() :: %{String.t() | Atom.t() => any()}
+  @type calculation_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2309,19 +2309,19 @@ defmodule AWS.Athena do
       
       column_info() :: %{
         "CaseSensitive" => boolean(),
-        "CatalogName" => String.t() | Atom.t(),
-        "Label" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "CatalogName" => String.t() | atom(),
+        "Label" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Nullable" => list(any()),
         "Precision" => integer(),
         "Scale" => integer(),
-        "SchemaName" => String.t() | Atom.t(),
-        "TableName" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "SchemaName" => String.t() | atom(),
+        "TableName" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type column_info() :: %{String.t() | Atom.t() => any()}
+  @type column_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2329,12 +2329,12 @@ defmodule AWS.Athena do
       
       list_data_catalogs_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("WorkGroup") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type list_data_catalogs_input() :: %{String.t() | Atom.t() => any()}
+  @type list_data_catalogs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2346,7 +2346,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type batch_get_query_execution_output() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_query_execution_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2358,11 +2358,11 @@ defmodule AWS.Athena do
         "LastModifiedDateTime" => non_neg_integer(),
         "StartDateTime" => non_neg_integer(),
         "State" => list(any()),
-        "StateChangeReason" => String.t() | Atom.t()
+        "StateChangeReason" => String.t() | atom()
       }
       
   """
-  @type session_status() :: %{String.t() | Atom.t() => any()}
+  @type session_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2370,28 +2370,28 @@ defmodule AWS.Athena do
       
       start_calculation_execution_request() :: %{
         optional("CalculationConfiguration") => calculation_configuration(),
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("CodeBlock") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        required("SessionId") => String.t() | Atom.t()
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("CodeBlock") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("SessionId") => String.t() | atom()
       }
       
   """
-  @type start_calculation_execution_request() :: %{String.t() | Atom.t() => any()}
+  @type start_calculation_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_table_metadata_input() :: %{
-        optional("WorkGroup") => String.t() | Atom.t(),
-        required("CatalogName") => String.t() | Atom.t(),
-        required("DatabaseName") => String.t() | Atom.t(),
-        required("TableName") => String.t() | Atom.t()
+        optional("WorkGroup") => String.t() | atom(),
+        required("CatalogName") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type get_table_metadata_input() :: %{String.t() | Atom.t() => any()}
+  @type get_table_metadata_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2399,11 +2399,11 @@ defmodule AWS.Athena do
       
       list_engine_versions_output() :: %{
         "EngineVersions" => list(engine_version()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_engine_versions_output() :: %{String.t() | Atom.t() => any()}
+  @type list_engine_versions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2412,14 +2412,14 @@ defmodule AWS.Athena do
       notebook_metadata() :: %{
         "CreationTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
-        "NotebookId" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "NotebookId" => String.t() | atom(),
         "Type" => list(any()),
-        "WorkGroup" => String.t() | Atom.t()
+        "WorkGroup" => String.t() | atom()
       }
       
   """
-  @type notebook_metadata() :: %{String.t() | Atom.t() => any()}
+  @type notebook_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2439,7 +2439,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type get_named_query_output() :: %{String.t() | Atom.t() => any()}
+  @type get_named_query_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2450,19 +2450,19 @@ defmodule AWS.Athena do
       }
       
   """
-  @type acl_configuration() :: %{String.t() | Atom.t() => any()}
+  @type acl_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_named_queries_output() :: %{
-        "NamedQueryIds" => list(String.t() | Atom.t()),
-        "NextToken" => String.t() | Atom.t()
+        "NamedQueryIds" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_named_queries_output() :: %{String.t() | Atom.t() => any()}
+  @type list_named_queries_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2482,7 +2482,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type session_statistics() :: %{String.t() | Atom.t() => any()}
+  @type session_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2490,56 +2490,56 @@ defmodule AWS.Athena do
       
       list_engine_versions_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_engine_versions_input() :: %{String.t() | Atom.t() => any()}
+  @type list_engine_versions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_named_query_output() :: %{
-        "NamedQueryId" => String.t() | Atom.t()
+        "NamedQueryId" => String.t() | atom()
       }
       
   """
-  @type create_named_query_output() :: %{String.t() | Atom.t() => any()}
+  @type create_named_query_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_prepared_statements_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "PreparedStatements" => list(prepared_statement_summary())
       }
       
   """
-  @type list_prepared_statements_output() :: %{String.t() | Atom.t() => any()}
+  @type list_prepared_statements_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       session_already_exists_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type session_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type session_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       customer_content_encryption_configuration() :: %{
-        "KmsKey" => String.t() | Atom.t()
+        "KmsKey" => String.t() | atom()
       }
       
   """
-  @type customer_content_encryption_configuration() :: %{String.t() | Atom.t() => any()}
+  @type customer_content_encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2557,12 +2557,12 @@ defmodule AWS.Athena do
       list_notebook_metadata_input() :: %{
         optional("Filters") => filter_definition(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("WorkGroup") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type list_notebook_metadata_input() :: %{String.t() | Atom.t() => any()}
+  @type list_notebook_metadata_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2570,18 +2570,18 @@ defmodule AWS.Athena do
       
       delete_work_group_input() :: %{
         optional("RecursiveDeleteOption") => boolean(),
-        required("WorkGroup") => String.t() | Atom.t()
+        required("WorkGroup") => String.t() | atom()
       }
       
   """
-  @type delete_work_group_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_work_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       query_execution_statistics() :: %{
-        "DataManifestLocation" => String.t() | Atom.t(),
+        "DataManifestLocation" => String.t() | atom(),
         "DataScannedInBytes" => float(),
         "EngineExecutionTimeInMillis" => float(),
         "QueryPlanningTimeInMillis" => float(),
@@ -2593,7 +2593,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type query_execution_statistics() :: %{String.t() | Atom.t() => any()}
+  @type query_execution_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2604,7 +2604,7 @@ defmodule AWS.Athena do
       }
       
   """
-  @type get_prepared_statement_output() :: %{String.t() | Atom.t() => any()}
+  @type get_prepared_statement_output() :: %{(String.t() | atom()) => any()}
 
   @type batch_get_named_query_errors() ::
           internal_server_exception() | invalid_request_exception()

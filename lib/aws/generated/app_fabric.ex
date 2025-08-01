@@ -50,19 +50,19 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       app_bundle() :: %{
-        "arn" => String.t() | Atom.t(),
-        "customerManagedKeyArn" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "customerManagedKeyArn" => String.t() | atom()
       }
 
   """
-  @type app_bundle() :: %{String.t() | Atom.t() => any()}
+  @type app_bundle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -70,11 +70,11 @@ defmodule AWS.AppFabric do
 
       list_ingestions_response() :: %{
         "ingestions" => list(ingestion_summary()),
-        "nextToken" => [String.t() | Atom.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_ingestions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_ingestions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -91,40 +91,40 @@ defmodule AWS.AppFabric do
 
       list_ingestions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t() | Atom.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_ingestions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_ingestions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       user_access_task_item() :: %{
-        "app" => String.t() | Atom.t(),
+        "app" => String.t() | atom(),
         "error" => task_error(),
-        "taskId" => String.t() | Atom.t(),
-        "tenantId" => String.t() | Atom.t()
+        "taskId" => String.t() | atom(),
+        "tenantId" => String.t() | atom()
       }
 
   """
-  @type user_access_task_item() :: %{String.t() | Atom.t() => any()}
+  @type user_access_task_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_ingestion_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("app") => String.t() | Atom.t(),
+        required("app") => String.t() | atom(),
         required("ingestionType") => list(any()),
-        required("tenantId") => String.t() | Atom.t()
+        required("tenantId") => String.t() | atom()
       }
 
   """
-  @type create_ingestion_request() :: %{String.t() | Atom.t() => any()}
+  @type create_ingestion_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -140,22 +140,22 @@ defmodule AWS.AppFabric do
   ## Example:
 
       ingestion_destination_summary() :: %{
-        "arn" => String.t() | Atom.t()
+        "arn" => String.t() | atom()
       }
 
   """
-  @type ingestion_destination_summary() :: %{String.t() | Atom.t() => any()}
+  @type ingestion_destination_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       app_bundle_summary() :: %{
-        "arn" => String.t() | Atom.t()
+        "arn" => String.t() | atom()
       }
 
   """
-  @type app_bundle_summary() :: %{String.t() | Atom.t() => any()}
+  @type app_bundle_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -171,14 +171,14 @@ defmodule AWS.AppFabric do
   ## Example:
 
       create_ingestion_destination_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("tags") => list(tag()),
         required("destinationConfiguration") => list(),
         required("processingConfiguration") => list()
       }
 
   """
-  @type create_ingestion_destination_request() :: %{String.t() | Atom.t() => any()}
+  @type create_ingestion_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -198,7 +198,7 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type create_ingestion_response() :: %{String.t() | Atom.t() => any()}
+  @type create_ingestion_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -209,18 +209,18 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type get_ingestion_response() :: %{String.t() | Atom.t() => any()}
+  @type get_ingestion_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -228,11 +228,11 @@ defmodule AWS.AppFabric do
 
       list_ingestion_destinations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t() | Atom.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_ingestion_destinations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_ingestion_destinations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -243,47 +243,47 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type get_app_authorization_response() :: %{String.t() | Atom.t() => any()}
+  @type get_app_authorization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       firehose_stream() :: %{
-        "streamName" => String.t() | Atom.t()
+        "streamName" => String.t() | atom()
       }
 
   """
-  @type firehose_stream() :: %{String.t() | Atom.t() => any()}
+  @type firehose_stream() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_app_bundle_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("customerManagedKeyIdentifier") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("customerManagedKeyIdentifier") => String.t() | atom(),
         optional("tags") => list(tag())
       }
 
   """
-  @type create_app_bundle_request() :: %{String.t() | Atom.t() => any()}
+  @type create_app_bundle_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       app_authorization_summary() :: %{
-        "app" => String.t() | Atom.t(),
-        "appAuthorizationArn" => String.t() | Atom.t(),
-        "appBundleArn" => String.t() | Atom.t(),
+        "app" => String.t() | atom(),
+        "appAuthorizationArn" => String.t() | atom(),
+        "appBundleArn" => String.t() | atom(),
         "status" => list(any()),
         "tenant" => tenant(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type app_authorization_summary() :: %{String.t() | Atom.t() => any()}
+  @type app_authorization_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -303,41 +303,41 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type connect_app_authorization_request() :: %{String.t() | Atom.t() => any()}
+  @type connect_app_authorization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tenant() :: %{
-        "tenantDisplayName" => String.t() | Atom.t(),
-        "tenantIdentifier" => String.t() | Atom.t()
+        "tenantDisplayName" => String.t() | atom(),
+        "tenantIdentifier" => String.t() | atom()
       }
 
   """
-  @type tenant() :: %{String.t() | Atom.t() => any()}
+  @type tenant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       user_access_result_item() :: %{
-        "app" => String.t() | Atom.t(),
-        "email" => String.t() | Atom.t(),
+        "app" => String.t() | atom(),
+        "email" => String.t() | atom(),
         "resultStatus" => list(any()),
         "taskError" => task_error(),
-        "taskId" => String.t() | Atom.t(),
-        "tenantDisplayName" => String.t() | Atom.t(),
-        "tenantId" => String.t() | Atom.t(),
-        "userFirstName" => String.t() | Atom.t(),
-        "userFullName" => String.t() | Atom.t(),
-        "userId" => String.t() | Atom.t(),
-        "userLastName" => String.t() | Atom.t(),
-        "userStatus" => [String.t() | Atom.t()]
+        "taskId" => String.t() | atom(),
+        "tenantDisplayName" => String.t() | atom(),
+        "tenantId" => String.t() | atom(),
+        "userFirstName" => String.t() | atom(),
+        "userFullName" => String.t() | atom(),
+        "userId" => String.t() | atom(),
+        "userLastName" => String.t() | atom(),
+        "userStatus" => [String.t() | atom()]
       }
 
   """
-  @type user_access_result_item() :: %{String.t() | Atom.t() => any()}
+  @type user_access_result_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -362,44 +362,44 @@ defmodule AWS.AppFabric do
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "resourceId" => [String.t() | Atom.t()],
-        "resourceType" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "resourceId" => [String.t() | Atom.t()],
-        "resourceType" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ingestion_destination() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "destinationConfiguration" => list(),
-        "ingestionArn" => String.t() | Atom.t(),
+        "ingestionArn" => String.t() | atom(),
         "processingConfiguration" => list(),
         "status" => list(any()),
-        "statusReason" => [String.t() | Atom.t()],
+        "statusReason" => [String.t() | atom()],
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type ingestion_destination() :: %{String.t() | Atom.t() => any()}
+  @type ingestion_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -407,122 +407,122 @@ defmodule AWS.AppFabric do
 
       list_app_bundles_response() :: %{
         "appBundleSummaryList" => list(app_bundle_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_app_bundles_response() :: %{String.t() | Atom.t() => any()}
+  @type list_app_bundles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ingestion() :: %{
-        "app" => String.t() | Atom.t(),
-        "appBundleArn" => String.t() | Atom.t(),
-        "arn" => String.t() | Atom.t(),
+        "app" => String.t() | atom(),
+        "appBundleArn" => String.t() | atom(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "ingestionType" => list(any()),
         "state" => list(any()),
-        "tenantId" => String.t() | Atom.t(),
+        "tenantId" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type ingestion() :: %{String.t() | Atom.t() => any()}
+  @type ingestion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "key" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_bucket() :: %{
-        "bucketName" => String.t() | Atom.t(),
-        "prefix" => String.t() | Atom.t()
+        "bucketName" => String.t() | atom(),
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type s3_bucket() :: %{String.t() | Atom.t() => any()}
+  @type s3_bucket() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_user_access_tasks_request() :: %{
-        required("appBundleIdentifier") => String.t() | Atom.t(),
-        required("email") => String.t() | Atom.t()
+        required("appBundleIdentifier") => String.t() | atom(),
+        required("email") => String.t() | atom()
       }
 
   """
-  @type start_user_access_tasks_request() :: %{String.t() | Atom.t() => any()}
+  @type start_user_access_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "quotaCode" => [String.t() | Atom.t()],
-        "resourceId" => [String.t() | Atom.t()],
-        "resourceType" => [String.t() | Atom.t()],
-        "serviceCode" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_user_access_tasks_request() :: %{
-        required("appBundleIdentifier") => String.t() | Atom.t(),
-        required("taskIdList") => list(String.t() | Atom.t())
+        required("appBundleIdentifier") => String.t() | atom(),
+        required("taskIdList") => list(String.t() | atom())
       }
 
   """
-  @type batch_get_user_access_tasks_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_user_access_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_app_authorization_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("app") => String.t() | Atom.t(),
+        required("app") => String.t() | atom(),
         required("authType") => list(any()),
         required("credential") => list(),
         required("tenant") => tenant()
       }
 
   """
-  @type create_app_authorization_request() :: %{String.t() | Atom.t() => any()}
+  @type create_app_authorization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ingestion_summary() :: %{
-        "app" => String.t() | Atom.t(),
-        "arn" => String.t() | Atom.t(),
+        "app" => String.t() | atom(),
+        "arn" => String.t() | atom(),
         "state" => list(any()),
-        "tenantId" => String.t() | Atom.t()
+        "tenantId" => String.t() | atom()
       }
 
   """
-  @type ingestion_summary() :: %{String.t() | Atom.t() => any()}
+  @type ingestion_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -533,7 +533,7 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -541,23 +541,23 @@ defmodule AWS.AppFabric do
 
       list_ingestion_destinations_response() :: %{
         "ingestionDestinations" => list(ingestion_destination_summary()),
-        "nextToken" => [String.t() | Atom.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_ingestion_destinations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_ingestion_destinations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t() | Atom.t()],
-        "name" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -569,7 +569,7 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type update_app_authorization_request() :: %{String.t() | Atom.t() => any()}
+  @type update_app_authorization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -598,7 +598,7 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type audit_log_destination_configuration() :: %{String.t() | Atom.t() => any()}
+  @type audit_log_destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -614,12 +614,12 @@ defmodule AWS.AppFabric do
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t() | Atom.t()],
+        "message" => [String.t() | atom()],
         "retryAfterSeconds" => integer()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -627,11 +627,11 @@ defmodule AWS.AppFabric do
 
       list_app_bundles_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_app_bundles_request() :: %{String.t() | Atom.t() => any()}
+  @type list_app_bundles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -642,7 +642,7 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type batch_get_user_access_tasks_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_user_access_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -653,7 +653,7 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type get_ingestion_destination_response() :: %{String.t() | Atom.t() => any()}
+  @type get_ingestion_destination_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -669,12 +669,12 @@ defmodule AWS.AppFabric do
   ## Example:
 
       auth_request() :: %{
-        "code" => String.t() | Atom.t(),
-        "redirectUri" => String.t() | Atom.t()
+        "code" => String.t() | atom(),
+        "redirectUri" => String.t() | atom()
       }
 
   """
-  @type auth_request() :: %{String.t() | Atom.t() => any()}
+  @type auth_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -685,7 +685,7 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type create_ingestion_destination_response() :: %{String.t() | Atom.t() => any()}
+  @type create_ingestion_destination_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -697,7 +697,7 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type audit_log_processing_configuration() :: %{String.t() | Atom.t() => any()}
+  @type audit_log_processing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -717,18 +717,18 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type update_app_authorization_response() :: %{String.t() | Atom.t() => any()}
+  @type update_app_authorization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -736,11 +736,11 @@ defmodule AWS.AppFabric do
 
       list_app_authorizations_response() :: %{
         "appAuthorizationSummaryList" => list(app_authorization_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_app_authorizations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_app_authorizations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -751,7 +751,7 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type start_user_access_tasks_response() :: %{String.t() | Atom.t() => any()}
+  @type start_user_access_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -771,7 +771,7 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type create_app_bundle_response() :: %{String.t() | Atom.t() => any()}
+  @type create_app_bundle_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -791,7 +791,7 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type get_app_bundle_response() :: %{String.t() | Atom.t() => any()}
+  @type get_app_bundle_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -799,11 +799,11 @@ defmodule AWS.AppFabric do
 
       list_app_authorizations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_app_authorizations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_app_authorizations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -811,12 +811,12 @@ defmodule AWS.AppFabric do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | Atom.t()],
+        "message" => [String.t() | atom()],
         "reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -827,7 +827,7 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type connect_app_authorization_response() :: %{String.t() | Atom.t() => any()}
+  @type connect_app_authorization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -843,25 +843,25 @@ defmodule AWS.AppFabric do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "quotaCode" => [String.t() | Atom.t()],
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
         "retryAfterSeconds" => integer(),
-        "serviceCode" => [String.t() | Atom.t()]
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       app_authorization() :: %{
-        "app" => String.t() | Atom.t(),
-        "appAuthorizationArn" => String.t() | Atom.t(),
-        "appBundleArn" => String.t() | Atom.t(),
+        "app" => String.t() | atom(),
+        "appAuthorizationArn" => String.t() | atom(),
+        "appBundleArn" => String.t() | atom(),
         "authType" => list(any()),
-        "authUrl" => [String.t() | Atom.t()],
+        "authUrl" => [String.t() | atom()],
         "createdAt" => non_neg_integer(),
         "persona" => list(any()),
         "status" => list(any()),
@@ -870,19 +870,19 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type app_authorization() :: %{String.t() | Atom.t() => any()}
+  @type app_authorization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       task_error() :: %{
-        "errorCode" => [String.t() | Atom.t()],
-        "errorMessage" => [String.t() | Atom.t()]
+        "errorCode" => [String.t() | atom()],
+        "errorMessage" => [String.t() | atom()]
       }
 
   """
-  @type task_error() :: %{String.t() | Atom.t() => any()}
+  @type task_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -893,30 +893,30 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type update_ingestion_destination_request() :: %{String.t() | Atom.t() => any()}
+  @type update_ingestion_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       oauth2_credential() :: %{
-        "clientId" => String.t() | Atom.t(),
-        "clientSecret" => String.t() | Atom.t()
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom()
       }
 
   """
-  @type oauth2_credential() :: %{String.t() | Atom.t() => any()}
+  @type oauth2_credential() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       api_key_credential() :: %{
-        "apiKey" => String.t() | Atom.t()
+        "apiKey" => String.t() | atom()
       }
 
   """
-  @type api_key_credential() :: %{String.t() | Atom.t() => any()}
+  @type api_key_credential() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -936,7 +936,7 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type create_app_authorization_response() :: %{String.t() | Atom.t() => any()}
+  @type create_app_authorization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -956,7 +956,7 @@ defmodule AWS.AppFabric do
       }
 
   """
-  @type update_ingestion_destination_response() :: %{String.t() | Atom.t() => any()}
+  @type update_ingestion_destination_response() :: %{(String.t() | atom()) => any()}
 
   @type batch_get_user_access_tasks_errors() ::
           throttling_exception()
@@ -1203,8 +1203,8 @@ defmodule AWS.AppFabric do
   """
   @spec connect_app_authorization(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           connect_app_authorization_request(),
           list()
         ) ::
@@ -1248,7 +1248,7 @@ defmodule AWS.AppFabric do
   """
   @spec create_app_authorization(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_app_authorization_request(),
           list()
         ) ::
@@ -1309,7 +1309,7 @@ defmodule AWS.AppFabric do
   @doc """
   Creates a data ingestion for an application.
   """
-  @spec create_ingestion(map(), String.t() | Atom.t(), create_ingestion_request(), list()) ::
+  @spec create_ingestion(map(), String.t() | atom(), create_ingestion_request(), list()) ::
           {:ok, create_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1342,8 +1342,8 @@ defmodule AWS.AppFabric do
   """
   @spec create_ingestion_destination(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_ingestion_destination_request(),
           list()
         ) ::
@@ -1388,8 +1388,8 @@ defmodule AWS.AppFabric do
   """
   @spec delete_app_authorization(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_app_authorization_request(),
           list()
         ) ::
@@ -1432,7 +1432,7 @@ defmodule AWS.AppFabric do
   You must delete all associated app authorizations before you can
   delete an app bundle.
   """
-  @spec delete_app_bundle(map(), String.t() | Atom.t(), delete_app_bundle_request(), list()) ::
+  @spec delete_app_bundle(map(), String.t() | atom(), delete_app_bundle_request(), list()) ::
           {:ok, delete_app_bundle_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1466,8 +1466,8 @@ defmodule AWS.AppFabric do
   """
   @spec delete_ingestion(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_ingestion_request(),
           list()
         ) ::
@@ -1518,9 +1518,9 @@ defmodule AWS.AppFabric do
   """
   @spec delete_ingestion_destination(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_ingestion_destination_request(),
           list()
         ) ::
@@ -1561,7 +1561,7 @@ defmodule AWS.AppFabric do
   @doc """
   Returns information about an app authorization.
   """
-  @spec get_app_authorization(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_app_authorization(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_app_authorization_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1586,7 +1586,7 @@ defmodule AWS.AppFabric do
   @doc """
   Returns information about an app bundle.
   """
-  @spec get_app_bundle(map(), String.t() | Atom.t(), list()) ::
+  @spec get_app_bundle(map(), String.t() | atom(), list()) ::
           {:ok, get_app_bundle_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1604,7 +1604,7 @@ defmodule AWS.AppFabric do
   @doc """
   Returns information about an ingestion.
   """
-  @spec get_ingestion(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_ingestion(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_ingestion_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1631,9 +1631,9 @@ defmodule AWS.AppFabric do
   """
   @spec get_ingestion_destination(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_ingestion_destination_response(), any()}
@@ -1663,9 +1663,9 @@ defmodule AWS.AppFabric do
   """
   @spec list_app_authorizations(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_app_authorizations_response(), any()}
@@ -1705,7 +1705,7 @@ defmodule AWS.AppFabric do
   @doc """
   Returns a list of app bundles.
   """
-  @spec list_app_bundles(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_app_bundles(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_app_bundles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1739,10 +1739,10 @@ defmodule AWS.AppFabric do
   """
   @spec list_ingestion_destinations(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_ingestion_destinations_response(), any()}
@@ -1787,9 +1787,9 @@ defmodule AWS.AppFabric do
   """
   @spec list_ingestions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_ingestions_response(), any()}
@@ -1829,7 +1829,7 @@ defmodule AWS.AppFabric do
   @doc """
   Returns a list of tags for a resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1849,8 +1849,8 @@ defmodule AWS.AppFabric do
   """
   @spec start_ingestion(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           start_ingestion_request(),
           list()
         ) ::
@@ -1924,8 +1924,8 @@ defmodule AWS.AppFabric do
   """
   @spec stop_ingestion(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           stop_ingestion_request(),
           list()
         ) ::
@@ -1965,7 +1965,7 @@ defmodule AWS.AppFabric do
   @doc """
   Assigns one or more tags (key-value pairs) to the specified resource.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1994,7 +1994,7 @@ defmodule AWS.AppFabric do
   @doc """
   Removes a tag or tags from a resource.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2035,8 +2035,8 @@ defmodule AWS.AppFabric do
   """
   @spec update_app_authorization(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_app_authorization_request(),
           list()
         ) ::
@@ -2080,9 +2080,9 @@ defmodule AWS.AppFabric do
   """
   @spec update_ingestion_destination(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_ingestion_destination_request(),
           list()
         ) ::

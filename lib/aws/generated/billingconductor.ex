@@ -38,11 +38,11 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       delete_pricing_rule_output() :: %{
-        optional("Arn") => String.t() | Atom.t()
+        optional("Arn") => String.t() | atom()
       }
 
   """
-  @type delete_pricing_rule_output() :: %{String.t() | Atom.t() => any()}
+  @type delete_pricing_rule_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -53,35 +53,35 @@ defmodule AWS.Billingconductor do
       }
 
   """
-  @type list_custom_line_item_percentage_charge_details() :: %{String.t() | Atom.t() => any()}
+  @type list_custom_line_item_percentage_charge_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_pricing_rules_output() :: %{
-        optional("BillingPeriod") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("BillingPeriod") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("PricingRules") => list(pricing_rule_list_element())
       }
 
   """
-  @type list_pricing_rules_output() :: %{String.t() | Atom.t() => any()}
+  @type list_pricing_rules_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resources_associated_to_custom_line_item_input() :: %{
-        optional("BillingPeriod") => String.t() | Atom.t(),
+        optional("BillingPeriod") => String.t() | atom(),
         optional("Filters") => list_resources_associated_to_custom_line_item_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("Arn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("Arn") => String.t() | atom()
       }
 
   """
-  @type list_resources_associated_to_custom_line_item_input() :: %{String.t() | Atom.t() => any()}
+  @type list_resources_associated_to_custom_line_item_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -92,21 +92,21 @@ defmodule AWS.Billingconductor do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_pricing_rules_input() :: %{
-        optional("BillingPeriod") => String.t() | Atom.t(),
+        optional("BillingPeriod") => String.t() | atom(),
         optional("Filters") => list_pricing_rules_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_pricing_rules_input() :: %{String.t() | Atom.t() => any()}
+  @type list_pricing_rules_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -119,19 +119,19 @@ defmodule AWS.Billingconductor do
       }
 
   """
-  @type update_custom_line_item_charge_details() :: %{String.t() | Atom.t() => any()}
+  @type update_custom_line_item_charge_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_pricing_rules_input() :: %{
-        required("Arn") => String.t() | Atom.t(),
-        required("PricingRuleArns") => list(String.t() | Atom.t())
+        required("Arn") => String.t() | atom(),
+        required("PricingRuleArns") => list(String.t() | atom())
       }
 
   """
-  @type disassociate_pricing_rules_input() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_pricing_rules_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -140,25 +140,25 @@ defmodule AWS.Billingconductor do
       update_billing_group_input() :: %{
         optional("AccountGrouping") => update_billing_group_account_grouping(),
         optional("ComputationPreference") => computation_preference(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("Status") => String.t() | Atom.t(),
-        required("Arn") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Status") => String.t() | atom(),
+        required("Arn") => String.t() | atom()
       }
 
   """
-  @type update_billing_group_input() :: %{String.t() | Atom.t() => any()}
+  @type update_billing_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_pricing_rules_output() :: %{
-        optional("Arn") => String.t() | Atom.t()
+        optional("Arn") => String.t() | atom()
       }
 
   """
-  @type associate_pricing_rules_output() :: %{String.t() | Atom.t() => any()}
+  @type associate_pricing_rules_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -169,36 +169,35 @@ defmodule AWS.Billingconductor do
       }
 
   """
-  @type create_free_tier_config() :: %{String.t() | Atom.t() => any()}
+  @type create_free_tier_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_pricing_plans_output() :: %{
-        optional("BillingPeriod") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("BillingPeriod") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("PricingPlans") => list(pricing_plan_list_element())
       }
 
   """
-  @type list_pricing_plans_output() :: %{String.t() | Atom.t() => any()}
+  @type list_pricing_plans_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_pricing_rules_associated_to_pricing_plan_output() :: %{
-        optional("BillingPeriod") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("PricingPlanArn") => String.t() | Atom.t(),
-        optional("PricingRuleArns") => list(String.t() | Atom.t())
+        optional("BillingPeriod") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PricingPlanArn") => String.t() | atom(),
+        optional("PricingRuleArns") => list(String.t() | atom())
       }
 
   """
   @type list_pricing_rules_associated_to_pricing_plan_output() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -206,17 +205,17 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       create_billing_group_input() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("PrimaryAccountId") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("PrimaryAccountId") => String.t() | atom(),
         optional("Tags") => map(),
         required("AccountGrouping") => account_grouping(),
         required("ComputationPreference") => computation_preference(),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_billing_group_input() :: %{String.t() | Atom.t() => any()}
+  @type create_billing_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -232,11 +231,11 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       delete_pricing_rule_input() :: %{
-        required("Arn") => String.t() | Atom.t()
+        required("Arn") => String.t() | atom()
       }
 
   """
-  @type delete_pricing_rule_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_pricing_rule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -244,14 +243,14 @@ defmodule AWS.Billingconductor do
 
       get_billing_group_cost_report_input() :: %{
         optional("BillingPeriodRange") => billing_period_range(),
-        optional("GroupBy") => list(String.t() | Atom.t()),
+        optional("GroupBy") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("Arn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("Arn") => String.t() | atom()
       }
 
   """
-  @type get_billing_group_cost_report_input() :: %{String.t() | Atom.t() => any()}
+  @type get_billing_group_cost_report_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -261,27 +260,26 @@ defmodule AWS.Billingconductor do
         "Flat" => list_custom_line_item_flat_charge_details(),
         "LineItemFilters" => list(line_item_filter()),
         "Percentage" => list_custom_line_item_percentage_charge_details(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type list_custom_line_item_charge_details() :: %{String.t() | Atom.t() => any()}
+  @type list_custom_line_item_charge_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_pricing_plans_associated_with_pricing_rule_input() :: %{
-        optional("BillingPeriod") => String.t() | Atom.t(),
+        optional("BillingPeriod") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("PricingRuleArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("PricingRuleArn") => String.t() | atom()
       }
 
   """
   @type list_pricing_plans_associated_with_pricing_rule_input() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -289,22 +287,22 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       create_pricing_rule_input() :: %{
-        optional("BillingEntity") => String.t() | Atom.t(),
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("BillingEntity") => String.t() | atom(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("ModifierPercentage") => float(),
-        optional("Operation") => String.t() | Atom.t(),
-        optional("Service") => String.t() | Atom.t(),
+        optional("Operation") => String.t() | atom(),
+        optional("Service") => String.t() | atom(),
         optional("Tags") => map(),
         optional("Tiering") => create_tiering_input(),
-        optional("UsageType") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
-        required("Scope") => String.t() | Atom.t(),
-        required("Type") => String.t() | Atom.t()
+        optional("UsageType") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Scope") => String.t() | atom(),
+        required("Type") => String.t() | atom()
       }
 
   """
-  @type create_pricing_rule_input() :: %{String.t() | Atom.t() => any()}
+  @type create_pricing_rule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -315,43 +313,43 @@ defmodule AWS.Billingconductor do
       }
 
   """
-  @type update_custom_line_item_percentage_charge_details() :: %{String.t() | Atom.t() => any()}
+  @type update_custom_line_item_percentage_charge_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_pricing_plan_output() :: %{
-        optional("Arn") => String.t() | Atom.t()
+        optional("Arn") => String.t() | atom()
       }
 
   """
-  @type create_pricing_plan_output() :: %{String.t() | Atom.t() => any()}
+  @type create_pricing_plan_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_billing_group_cost_reports_input() :: %{
-        optional("BillingPeriod") => String.t() | Atom.t(),
+        optional("BillingPeriod") => String.t() | atom(),
         optional("Filters") => list_billing_group_cost_reports_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_billing_group_cost_reports_input() :: %{String.t() | Atom.t() => any()}
+  @type list_billing_group_cost_reports_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_pricing_rule_output() :: %{
-        optional("Arn") => String.t() | Atom.t()
+        optional("Arn") => String.t() | atom()
       }
 
   """
-  @type create_pricing_rule_output() :: %{String.t() | Atom.t() => any()}
+  @type create_pricing_rule_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -362,30 +360,30 @@ defmodule AWS.Billingconductor do
       }
 
   """
-  @type free_tier_config() :: %{String.t() | Atom.t() => any()}
+  @type free_tier_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_resource_error() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Reason" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Reason" => String.t() | atom()
       }
 
   """
-  @type associate_resource_error() :: %{String.t() | Atom.t() => any()}
+  @type associate_resource_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_billing_group_output() :: %{
-        optional("Arn") => String.t() | Atom.t()
+        optional("Arn") => String.t() | atom()
       }
 
   """
-  @type create_billing_group_output() :: %{String.t() | Atom.t() => any()}
+  @type create_billing_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -395,11 +393,11 @@ defmodule AWS.Billingconductor do
         "Flat" => custom_line_item_flat_charge_details(),
         "LineItemFilters" => list(line_item_filter()),
         "Percentage" => custom_line_item_percentage_charge_details(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type custom_line_item_charge_details() :: %{String.t() | Atom.t() => any()}
+  @type custom_line_item_charge_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -407,37 +405,37 @@ defmodule AWS.Billingconductor do
 
       batch_associate_resources_to_custom_line_item_input() :: %{
         optional("BillingPeriodRange") => custom_line_item_billing_period_range(),
-        required("ResourceArns") => list(String.t() | Atom.t()),
-        required("TargetArn") => String.t() | Atom.t()
+        required("ResourceArns") => list(String.t() | atom()),
+        required("TargetArn") => String.t() | atom()
       }
 
   """
-  @type batch_associate_resources_to_custom_line_item_input() :: %{String.t() | Atom.t() => any()}
+  @type batch_associate_resources_to_custom_line_item_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        "TagKeys" => list(String.t() | Atom.t())
+        "TagKeys" => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_custom_line_items_input() :: %{
-        optional("BillingPeriod") => String.t() | Atom.t(),
+        optional("BillingPeriod") => String.t() | atom(),
         optional("Filters") => list_custom_line_items_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_custom_line_items_input() :: %{String.t() | Atom.t() => any()}
+  @type list_custom_line_items_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -445,35 +443,35 @@ defmodule AWS.Billingconductor do
 
       list_custom_line_item_versions_output() :: %{
         optional("CustomLineItemVersions") => list(custom_line_item_version_list_element()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_custom_line_item_versions_output() :: %{String.t() | Atom.t() => any()}
+  @type list_custom_line_item_versions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_pricing_rules_input() :: %{
-        required("Arn") => String.t() | Atom.t(),
-        required("PricingRuleArns") => list(String.t() | Atom.t())
+        required("Arn") => String.t() | atom(),
+        required("PricingRuleArns") => list(String.t() | atom())
       }
 
   """
-  @type associate_pricing_rules_input() :: %{String.t() | Atom.t() => any()}
+  @type associate_pricing_rules_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_line_item_billing_period_range() :: %{
-        "ExclusiveEndBillingPeriod" => String.t() | Atom.t(),
-        "InclusiveStartBillingPeriod" => String.t() | Atom.t()
+        "ExclusiveEndBillingPeriod" => String.t() | atom(),
+        "InclusiveStartBillingPeriod" => String.t() | atom()
       }
 
   """
-  @type custom_line_item_billing_period_range() :: %{String.t() | Atom.t() => any()}
+  @type custom_line_item_billing_period_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -481,26 +479,26 @@ defmodule AWS.Billingconductor do
 
       list_custom_line_items_output() :: %{
         optional("CustomLineItems") => list(custom_line_item_list_element()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_custom_line_items_output() :: %{String.t() | Atom.t() => any()}
+  @type list_custom_line_items_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_pricing_plan_output() :: %{
-        optional("Arn") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("LastModifiedTime") => float(),
-        optional("Name") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
         optional("Size") => float()
       }
 
   """
-  @type update_pricing_plan_output() :: %{String.t() | Atom.t() => any()}
+  @type update_pricing_plan_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -508,19 +506,19 @@ defmodule AWS.Billingconductor do
 
       update_billing_group_output() :: %{
         optional("AccountGrouping") => update_billing_group_account_grouping(),
-        optional("Arn") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("LastModifiedTime") => float(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("PricingPlanArn") => String.t() | Atom.t(),
-        optional("PrimaryAccountId") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
+        optional("PricingPlanArn") => String.t() | atom(),
+        optional("PrimaryAccountId") => String.t() | atom(),
         optional("Size") => float(),
-        optional("Status") => String.t() | Atom.t(),
-        optional("StatusReason") => String.t() | Atom.t()
+        optional("Status") => String.t() | atom(),
+        optional("StatusReason") => String.t() | atom()
       }
 
   """
-  @type update_billing_group_output() :: %{String.t() | Atom.t() => any()}
+  @type update_billing_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -533,8 +531,7 @@ defmodule AWS.Billingconductor do
 
   """
   @type batch_disassociate_resources_from_custom_line_item_output() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -542,42 +539,41 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       computation_preference() :: %{
-        "PricingPlanArn" => String.t() | Atom.t()
+        "PricingPlanArn" => String.t() | atom()
       }
 
   """
-  @type computation_preference() :: %{String.t() | Atom.t() => any()}
+  @type computation_preference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pricing_plan_list_element() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreationTime" => float(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "LastModifiedTime" => float(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Size" => float()
       }
 
   """
-  @type pricing_plan_list_element() :: %{String.t() | Atom.t() => any()}
+  @type pricing_plan_list_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resources_associated_to_custom_line_item_response_element() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "EndBillingPeriod" => String.t() | Atom.t(),
-        "Relationship" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "EndBillingPeriod" => String.t() | atom(),
+        "Relationship" => String.t() | atom()
       }
 
   """
   @type list_resources_associated_to_custom_line_item_response_element() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -585,77 +581,76 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       disassociate_pricing_rules_output() :: %{
-        optional("Arn") => String.t() | Atom.t()
+        optional("Arn") => String.t() | atom()
       }
 
   """
-  @type disassociate_pricing_rules_output() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_pricing_rules_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_billing_group_output() :: %{
-        optional("Arn") => String.t() | Atom.t()
+        optional("Arn") => String.t() | atom()
       }
 
   """
-  @type delete_billing_group_output() :: %{String.t() | Atom.t() => any()}
+  @type delete_billing_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Reason" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Reason" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       billing_period_range() :: %{
-        "ExclusiveEndBillingPeriod" => String.t() | Atom.t(),
-        "InclusiveStartBillingPeriod" => String.t() | Atom.t()
+        "ExclusiveEndBillingPeriod" => String.t() | atom(),
+        "InclusiveStartBillingPeriod" => String.t() | atom()
       }
 
   """
-  @type billing_period_range() :: %{String.t() | Atom.t() => any()}
+  @type billing_period_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_pricing_plans_associated_with_pricing_rule_output() :: %{
-        optional("BillingPeriod") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("PricingPlanArns") => list(String.t() | Atom.t()),
-        optional("PricingRuleArn") => String.t() | Atom.t()
+        optional("BillingPeriod") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PricingPlanArns") => list(String.t() | atom()),
+        optional("PricingRuleArn") => String.t() | atom()
       }
 
   """
   @type list_pricing_plans_associated_with_pricing_rule_output() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -667,7 +662,7 @@ defmodule AWS.Billingconductor do
       }
 
   """
-  @type update_tiering_input() :: %{String.t() | Atom.t() => any()}
+  @type update_tiering_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -675,11 +670,11 @@ defmodule AWS.Billingconductor do
 
       list_billing_groups_output() :: %{
         optional("BillingGroups") => list(billing_group_list_element()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_billing_groups_output() :: %{String.t() | Atom.t() => any()}
+  @type list_billing_groups_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -688,36 +683,36 @@ defmodule AWS.Billingconductor do
       list_custom_line_item_versions_input() :: %{
         optional("Filters") => list_custom_line_item_versions_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("Arn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("Arn") => String.t() | atom()
       }
 
   """
-  @type list_custom_line_item_versions_input() :: %{String.t() | Atom.t() => any()}
+  @type list_custom_line_item_versions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_pricing_plan_input() :: %{
-        required("Arn") => String.t() | Atom.t()
+        required("Arn") => String.t() | atom()
       }
 
   """
-  @type delete_pricing_plan_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_pricing_plan_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_account_associations_input() :: %{
-        optional("BillingPeriod") => String.t() | Atom.t(),
+        optional("BillingPeriod") => String.t() | atom(),
         optional("Filters") => list_account_associations_filter(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_account_associations_input() :: %{String.t() | Atom.t() => any()}
+  @type list_account_associations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -728,38 +723,38 @@ defmodule AWS.Billingconductor do
       }
 
   """
-  @type list_custom_line_item_versions_filter() :: %{String.t() | Atom.t() => any()}
+  @type list_custom_line_item_versions_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       billing_group_cost_report_result_element() :: %{
-        "AWSCost" => String.t() | Atom.t(),
-        "Arn" => String.t() | Atom.t(),
+        "AWSCost" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
         "Attributes" => list(attribute()),
-        "Currency" => String.t() | Atom.t(),
-        "Margin" => String.t() | Atom.t(),
-        "MarginPercentage" => String.t() | Atom.t(),
-        "ProformaCost" => String.t() | Atom.t()
+        "Currency" => String.t() | atom(),
+        "Margin" => String.t() | atom(),
+        "MarginPercentage" => String.t() | atom(),
+        "ProformaCost" => String.t() | atom()
       }
 
   """
-  @type billing_group_cost_report_result_element() :: %{String.t() | Atom.t() => any()}
+  @type billing_group_cost_report_result_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_pricing_rules_associated_to_pricing_plan_input() :: %{
-        optional("BillingPeriod") => String.t() | Atom.t(),
+        optional("BillingPeriod") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("PricingPlanArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("PricingPlanArn") => String.t() | atom()
       }
 
   """
-  @type list_pricing_rules_associated_to_pricing_plan_input() :: %{String.t() | Atom.t() => any()}
+  @type list_pricing_rules_associated_to_pricing_plan_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -767,11 +762,11 @@ defmodule AWS.Billingconductor do
 
       account_grouping() :: %{
         "AutoAssociate" => [boolean()],
-        "LinkedAccountIds" => list(String.t() | Atom.t())
+        "LinkedAccountIds" => list(String.t() | atom())
       }
 
   """
-  @type account_grouping() :: %{String.t() | Atom.t() => any()}
+  @type account_grouping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -782,33 +777,33 @@ defmodule AWS.Billingconductor do
       }
 
   """
-  @type update_custom_line_item_flat_charge_details() :: %{String.t() | Atom.t() => any()}
+  @type update_custom_line_item_flat_charge_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_pricing_plan_input() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("PricingRuleArns") => list(String.t() | Atom.t()),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("PricingRuleArns") => list(String.t() | atom()),
         optional("Tags") => map(),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_pricing_plan_input() :: %{String.t() | Atom.t() => any()}
+  @type create_pricing_plan_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_pricing_plans_filter() :: %{
-        "Arns" => list(String.t() | Atom.t())
+        "Arns" => list(String.t() | atom())
       }
 
   """
-  @type list_pricing_plans_filter() :: %{String.t() | Atom.t() => any()}
+  @type list_pricing_plans_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -819,7 +814,7 @@ defmodule AWS.Billingconductor do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -830,34 +825,33 @@ defmodule AWS.Billingconductor do
       }
 
   """
-  @type list_custom_line_item_flat_charge_details() :: %{String.t() | Atom.t() => any()}
+  @type list_custom_line_item_flat_charge_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resources_associated_to_custom_line_item_output() :: %{
-        optional("Arn") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
         optional("AssociatedResources") => list(list_resources_associated_to_custom_line_item_response_element()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
   @type list_resources_associated_to_custom_line_item_output() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -866,85 +860,85 @@ defmodule AWS.Billingconductor do
 
       list_account_associations_output() :: %{
         optional("LinkedAccounts") => list(account_associations_list_element()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_account_associations_output() :: %{String.t() | Atom.t() => any()}
+  @type list_account_associations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_pricing_plans_input() :: %{
-        optional("BillingPeriod") => String.t() | Atom.t(),
+        optional("BillingPeriod") => String.t() | atom(),
         optional("Filters") => list_pricing_plans_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_pricing_plans_input() :: %{String.t() | Atom.t() => any()}
+  @type list_pricing_plans_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_pricing_plan_input() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
-        required("Arn") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        required("Arn") => String.t() | atom()
       }
 
   """
-  @type update_pricing_plan_input() :: %{String.t() | Atom.t() => any()}
+  @type update_pricing_plan_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_account_associations_filter() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "AccountIds" => list(String.t() | Atom.t()),
-        "Association" => String.t() | Atom.t()
+        "AccountId" => String.t() | atom(),
+        "AccountIds" => list(String.t() | atom()),
+        "Association" => String.t() | atom()
       }
 
   """
-  @type list_account_associations_filter() :: %{String.t() | Atom.t() => any()}
+  @type list_account_associations_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_billing_group_cost_reports_filter() :: %{
-        "BillingGroupArns" => list(String.t() | Atom.t())
+        "BillingGroupArns" => list(String.t() | atom())
       }
 
   """
-  @type list_billing_group_cost_reports_filter() :: %{String.t() | Atom.t() => any()}
+  @type list_billing_group_cost_reports_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_pricing_rules_filter() :: %{
-        "Arns" => list(String.t() | Atom.t())
+        "Arns" => list(String.t() | atom())
       }
 
   """
-  @type list_pricing_rules_filter() :: %{String.t() | Atom.t() => any()}
+  @type list_pricing_rules_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_resource_response_element() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "Error" => associate_resource_error()
       }
 
   """
-  @type associate_resource_response_element() :: %{String.t() | Atom.t() => any()}
+  @type associate_resource_response_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -955,30 +949,30 @@ defmodule AWS.Billingconductor do
       }
 
   """
-  @type custom_line_item_flat_charge_details() :: %{String.t() | Atom.t() => any()}
+  @type custom_line_item_flat_charge_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_pricing_rule_output() :: %{
-        optional("Arn") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
         optional("AssociatedPricingPlanCount") => float(),
-        optional("BillingEntity") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("BillingEntity") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("LastModifiedTime") => float(),
         optional("ModifierPercentage") => float(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("Operation") => String.t() | Atom.t(),
-        optional("Scope") => String.t() | Atom.t(),
-        optional("Service") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
+        optional("Operation") => String.t() | atom(),
+        optional("Scope") => String.t() | atom(),
+        optional("Service") => String.t() | atom(),
         optional("Tiering") => update_tiering_input(),
-        optional("Type") => String.t() | Atom.t(),
-        optional("UsageType") => String.t() | Atom.t()
+        optional("Type") => String.t() | atom(),
+        optional("UsageType") => String.t() | atom()
       }
 
   """
-  @type update_pricing_rule_output() :: %{String.t() | Atom.t() => any()}
+  @type update_pricing_rule_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -986,74 +980,74 @@ defmodule AWS.Billingconductor do
 
       delete_custom_line_item_input() :: %{
         optional("BillingPeriodRange") => custom_line_item_billing_period_range(),
-        required("Arn") => String.t() | Atom.t()
+        required("Arn") => String.t() | atom()
       }
 
   """
-  @type delete_custom_line_item_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_custom_line_item_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       line_item_filter() :: %{
-        "Attribute" => String.t() | Atom.t(),
-        "MatchOption" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Attribute" => String.t() | atom(),
+        "MatchOption" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type line_item_filter() :: %{String.t() | Atom.t() => any()}
+  @type line_item_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "RetryAfterSeconds" => integer()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_line_item_percentage_charge_details() :: %{
-        "AssociatedValues" => list(String.t() | Atom.t()),
+        "AssociatedValues" => list(String.t() | atom()),
         "PercentageValue" => float()
       }
 
   """
-  @type custom_line_item_percentage_charge_details() :: %{String.t() | Atom.t() => any()}
+  @type custom_line_item_percentage_charge_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_billing_groups_filter() :: %{
-        "Arns" => list(String.t() | Atom.t()),
+        "Arns" => list(String.t() | atom()),
         "AutoAssociate" => [boolean()],
-        "PricingPlan" => String.t() | Atom.t(),
-        "Statuses" => list(String.t() | Atom.t())
+        "PricingPlan" => String.t() | atom(),
+        "Statuses" => list(String.t() | atom())
       }
 
   """
-  @type list_billing_groups_filter() :: %{String.t() | Atom.t() => any()}
+  @type list_billing_groups_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_accounts_input() :: %{
-        required("AccountIds") => list(String.t() | Atom.t()),
-        required("Arn") => String.t() | Atom.t()
+        required("AccountIds") => list(String.t() | atom()),
+        required("Arn") => String.t() | atom()
       }
 
   """
-  @type disassociate_accounts_input() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_accounts_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1064,18 +1058,18 @@ defmodule AWS.Billingconductor do
       }
 
   """
-  @type list_billing_group_account_grouping() :: %{String.t() | Atom.t() => any()}
+  @type list_billing_group_account_grouping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1083,11 +1077,11 @@ defmodule AWS.Billingconductor do
 
       get_billing_group_cost_report_output() :: %{
         "BillingGroupCostReportResults" => list(billing_group_cost_report_result_element()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_billing_group_cost_report_output() :: %{String.t() | Atom.t() => any()}
+  @type get_billing_group_cost_report_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1103,25 +1097,25 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       list_custom_line_items_filter() :: %{
-        "AccountIds" => list(String.t() | Atom.t()),
-        "Arns" => list(String.t() | Atom.t()),
-        "BillingGroups" => list(String.t() | Atom.t()),
-        "Names" => list(String.t() | Atom.t())
+        "AccountIds" => list(String.t() | atom()),
+        "Arns" => list(String.t() | atom()),
+        "BillingGroups" => list(String.t() | atom()),
+        "Names" => list(String.t() | atom())
       }
 
   """
-  @type list_custom_line_items_filter() :: %{String.t() | Atom.t() => any()}
+  @type list_custom_line_items_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_custom_line_item_output() :: %{
-        optional("Arn") => String.t() | Atom.t()
+        optional("Arn") => String.t() | atom()
       }
 
   """
-  @type create_custom_line_item_output() :: %{String.t() | Atom.t() => any()}
+  @type create_custom_line_item_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1132,19 +1126,19 @@ defmodule AWS.Billingconductor do
       }
 
   """
-  @type update_billing_group_account_grouping() :: %{String.t() | Atom.t() => any()}
+  @type update_billing_group_account_grouping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_resource_response_element() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "Error" => associate_resource_error()
       }
 
   """
-  @type disassociate_resource_response_element() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_resource_response_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1152,12 +1146,12 @@ defmodule AWS.Billingconductor do
 
       validation_exception() :: %{
         "Fields" => list(validation_exception_field()),
-        "Message" => String.t() | Atom.t(),
-        "Reason" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Reason" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1174,14 +1168,13 @@ defmodule AWS.Billingconductor do
 
       batch_disassociate_resources_from_custom_line_item_input() :: %{
         optional("BillingPeriodRange") => custom_line_item_billing_period_range(),
-        required("ResourceArns") => list(String.t() | Atom.t()),
-        required("TargetArn") => String.t() | Atom.t()
+        required("ResourceArns") => list(String.t() | atom()),
+        required("TargetArn") => String.t() | atom()
       }
 
   """
   @type batch_disassociate_resources_from_custom_line_item_input() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1189,14 +1182,13 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       list_custom_line_item_versions_billing_period_range_filter() :: %{
-        "EndBillingPeriod" => String.t() | Atom.t(),
-        "StartBillingPeriod" => String.t() | Atom.t()
+        "EndBillingPeriod" => String.t() | atom(),
+        "StartBillingPeriod" => String.t() | atom()
       }
 
   """
   @type list_custom_line_item_versions_billing_period_range_filter() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1204,72 +1196,72 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       service_limit_exceeded_exception() :: %{
-        "LimitCode" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t(),
-        "ServiceCode" => String.t() | Atom.t()
+        "LimitCode" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
       }
 
   """
-  @type service_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_line_item_list_element() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "Arn" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
         "AssociationSize" => float(),
-        "BillingGroupArn" => String.t() | Atom.t(),
+        "BillingGroupArn" => String.t() | atom(),
         "ChargeDetails" => list_custom_line_item_charge_details(),
         "CreationTime" => float(),
-        "CurrencyCode" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "CurrencyCode" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "LastModifiedTime" => float(),
-        "Name" => String.t() | Atom.t(),
-        "ProductCode" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "ProductCode" => String.t() | atom()
       }
 
   """
-  @type custom_line_item_list_element() :: %{String.t() | Atom.t() => any()}
+  @type custom_line_item_list_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_line_item_version_list_element() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "Arn" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
         "AssociationSize" => float(),
-        "BillingGroupArn" => String.t() | Atom.t(),
+        "BillingGroupArn" => String.t() | atom(),
         "ChargeDetails" => list_custom_line_item_charge_details(),
         "CreationTime" => float(),
-        "CurrencyCode" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "EndBillingPeriod" => String.t() | Atom.t(),
+        "CurrencyCode" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "EndBillingPeriod" => String.t() | atom(),
         "LastModifiedTime" => float(),
-        "Name" => String.t() | Atom.t(),
-        "ProductCode" => String.t() | Atom.t(),
-        "StartBillingPeriod" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "ProductCode" => String.t() | atom(),
+        "StartBillingPeriod" => String.t() | atom(),
         "StartTime" => float()
       }
 
   """
-  @type custom_line_item_version_list_element() :: %{String.t() | Atom.t() => any()}
+  @type custom_line_item_version_list_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "RetryAfterSeconds" => integer()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1278,25 +1270,25 @@ defmodule AWS.Billingconductor do
       update_custom_line_item_input() :: %{
         optional("BillingPeriodRange") => custom_line_item_billing_period_range(),
         optional("ChargeDetails") => update_custom_line_item_charge_details(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
-        required("Arn") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        required("Arn") => String.t() | atom()
       }
 
   """
-  @type update_custom_line_item_input() :: %{String.t() | Atom.t() => any()}
+  @type update_custom_line_item_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       attribute() :: %{
-        "Key" => [String.t() | Atom.t()],
-        "Value" => [String.t() | Atom.t()]
+        "Key" => [String.t() | atom()],
+        "Value" => [String.t() | atom()]
       }
 
   """
-  @type attribute() :: %{String.t() | Atom.t() => any()}
+  @type attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1304,47 +1296,47 @@ defmodule AWS.Billingconductor do
 
       billing_group_list_element() :: %{
         "AccountGrouping" => list_billing_group_account_grouping(),
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "ComputationPreference" => computation_preference(),
         "CreationTime" => float(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "LastModifiedTime" => float(),
-        "Name" => String.t() | Atom.t(),
-        "PrimaryAccountId" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "PrimaryAccountId" => String.t() | atom(),
         "Size" => float(),
-        "Status" => String.t() | Atom.t(),
-        "StatusReason" => String.t() | Atom.t()
+        "Status" => String.t() | atom(),
+        "StatusReason" => String.t() | atom()
       }
 
   """
-  @type billing_group_list_element() :: %{String.t() | Atom.t() => any()}
+  @type billing_group_list_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_pricing_rule_input() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("ModifierPercentage") => float(),
-        optional("Name") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
         optional("Tiering") => update_tiering_input(),
-        optional("Type") => String.t() | Atom.t(),
-        required("Arn") => String.t() | Atom.t()
+        optional("Type") => String.t() | atom(),
+        required("Arn") => String.t() | atom()
       }
 
   """
-  @type update_pricing_rule_input() :: %{String.t() | Atom.t() => any()}
+  @type update_pricing_rule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_pricing_plan_output() :: %{
-        optional("Arn") => String.t() | Atom.t()
+        optional("Arn") => String.t() | atom()
       }
 
   """
-  @type delete_pricing_plan_output() :: %{String.t() | Atom.t() => any()}
+  @type delete_pricing_plan_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1355,7 +1347,7 @@ defmodule AWS.Billingconductor do
       }
 
   """
-  @type tiering() :: %{String.t() | Atom.t() => any()}
+  @type tiering() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1366,32 +1358,31 @@ defmodule AWS.Billingconductor do
       }
 
   """
-  @type create_tiering_input() :: %{String.t() | Atom.t() => any()}
+  @type create_tiering_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_accounts_input() :: %{
-        required("AccountIds") => list(String.t() | Atom.t()),
-        required("Arn") => String.t() | Atom.t()
+        required("AccountIds") => list(String.t() | atom()),
+        required("Arn") => String.t() | atom()
       }
 
   """
-  @type associate_accounts_input() :: %{String.t() | Atom.t() => any()}
+  @type associate_accounts_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resources_associated_to_custom_line_item_filter() :: %{
-        "Relationship" => String.t() | Atom.t()
+        "Relationship" => String.t() | atom()
       }
 
   """
   @type list_resources_associated_to_custom_line_item_filter() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1399,35 +1390,35 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       associate_accounts_output() :: %{
-        optional("Arn") => String.t() | Atom.t()
+        optional("Arn") => String.t() | atom()
       }
 
   """
-  @type associate_accounts_output() :: %{String.t() | Atom.t() => any()}
+  @type associate_accounts_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pricing_rule_list_element() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "AssociatedPricingPlanCount" => float(),
-        "BillingEntity" => String.t() | Atom.t(),
+        "BillingEntity" => String.t() | atom(),
         "CreationTime" => float(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "LastModifiedTime" => float(),
         "ModifierPercentage" => float(),
-        "Name" => String.t() | Atom.t(),
-        "Operation" => String.t() | Atom.t(),
-        "Scope" => String.t() | Atom.t(),
-        "Service" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "Operation" => String.t() | atom(),
+        "Scope" => String.t() | atom(),
+        "Service" => String.t() | atom(),
         "Tiering" => tiering(),
-        "Type" => String.t() | Atom.t(),
-        "UsageType" => String.t() | Atom.t()
+        "Type" => String.t() | atom(),
+        "UsageType" => String.t() | atom()
       }
 
   """
-  @type pricing_rule_list_element() :: %{String.t() | Atom.t() => any()}
+  @type pricing_rule_list_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1438,57 +1429,57 @@ defmodule AWS.Billingconductor do
       }
 
   """
-  @type update_free_tier_config() :: %{String.t() | Atom.t() => any()}
+  @type update_free_tier_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_billing_groups_input() :: %{
-        optional("BillingPeriod") => String.t() | Atom.t(),
+        optional("BillingPeriod") => String.t() | atom(),
         optional("Filters") => list_billing_groups_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_billing_groups_input() :: %{String.t() | Atom.t() => any()}
+  @type list_billing_groups_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_accounts_output() :: %{
-        optional("Arn") => String.t() | Atom.t()
+        optional("Arn") => String.t() | atom()
       }
 
   """
-  @type disassociate_accounts_output() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_accounts_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account_associations_list_element() :: %{
-        "AccountEmail" => String.t() | Atom.t(),
-        "AccountId" => String.t() | Atom.t(),
-        "AccountName" => String.t() | Atom.t(),
-        "BillingGroupArn" => String.t() | Atom.t()
+        "AccountEmail" => String.t() | atom(),
+        "AccountId" => String.t() | atom(),
+        "AccountName" => String.t() | atom(),
+        "BillingGroupArn" => String.t() | atom()
       }
 
   """
-  @type account_associations_list_element() :: %{String.t() | Atom.t() => any()}
+  @type account_associations_list_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_billing_group_input() :: %{
-        required("Arn") => String.t() | Atom.t()
+        required("Arn") => String.t() | atom()
       }
 
   """
-  @type delete_billing_group_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_billing_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1496,11 +1487,11 @@ defmodule AWS.Billingconductor do
 
       list_billing_group_cost_reports_output() :: %{
         optional("BillingGroupCostReports") => list(billing_group_cost_report_element()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_billing_group_cost_reports_output() :: %{String.t() | Atom.t() => any()}
+  @type list_billing_group_cost_reports_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1513,8 +1504,7 @@ defmodule AWS.Billingconductor do
 
   """
   @type batch_associate_resources_to_custom_line_item_output() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1522,62 +1512,62 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       delete_custom_line_item_output() :: %{
-        optional("Arn") => String.t() | Atom.t()
+        optional("Arn") => String.t() | atom()
       }
 
   """
-  @type delete_custom_line_item_output() :: %{String.t() | Atom.t() => any()}
+  @type delete_custom_line_item_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_custom_line_item_input() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "BillingGroupArn" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "BillingGroupArn" => String.t() | atom(),
         "BillingPeriodRange" => custom_line_item_billing_period_range(),
         "ChargeDetails" => custom_line_item_charge_details(),
-        "ClientToken" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "ClientToken" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type create_custom_line_item_input() :: %{String.t() | Atom.t() => any()}
+  @type create_custom_line_item_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_custom_line_item_output() :: %{
-        optional("Arn") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
         optional("AssociationSize") => float(),
-        optional("BillingGroupArn") => String.t() | Atom.t(),
+        optional("BillingGroupArn") => String.t() | atom(),
         optional("ChargeDetails") => list_custom_line_item_charge_details(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("LastModifiedTime") => float(),
-        optional("Name") => String.t() | Atom.t()
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_custom_line_item_output() :: %{String.t() | Atom.t() => any()}
+  @type update_custom_line_item_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       billing_group_cost_report_element() :: %{
-        "AWSCost" => String.t() | Atom.t(),
-        "Arn" => String.t() | Atom.t(),
-        "Currency" => String.t() | Atom.t(),
-        "Margin" => String.t() | Atom.t(),
-        "MarginPercentage" => String.t() | Atom.t(),
-        "ProformaCost" => String.t() | Atom.t()
+        "AWSCost" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "Currency" => String.t() | atom(),
+        "Margin" => String.t() | atom(),
+        "MarginPercentage" => String.t() | atom(),
+        "ProformaCost" => String.t() | atom()
       }
 
   """
-  @type billing_group_cost_report_element() :: %{String.t() | Atom.t() => any()}
+  @type billing_group_cost_report_element() :: %{(String.t() | atom()) => any()}
 
   @type associate_accounts_errors() ::
           throttling_exception()
@@ -2660,7 +2650,7 @@ defmodule AWS.Billingconductor do
 
   A list the tags for a resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2682,7 +2672,7 @@ defmodule AWS.Billingconductor do
   are not
   changed.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2712,7 +2702,7 @@ defmodule AWS.Billingconductor do
 
   Deletes specified tags from a resource.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

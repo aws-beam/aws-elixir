@@ -18,38 +18,38 @@ defmodule AWS.Kinesis do
   ## Example:
       
       kms_disabled_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type kms_disabled_exception() :: %{String.t() | Atom.t() => any()}
+  @type kms_disabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_shards_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Shards" => list(shard())
       }
       
   """
-  @type list_shards_output() :: %{String.t() | Atom.t() => any()}
+  @type list_shards_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       consumer_description() :: %{
-        "ConsumerARN" => String.t() | Atom.t(),
+        "ConsumerARN" => String.t() | atom(),
         "ConsumerCreationTimestamp" => non_neg_integer(),
-        "ConsumerName" => String.t() | Atom.t(),
+        "ConsumerName" => String.t() | atom(),
         "ConsumerStatus" => list(any()),
-        "StreamARN" => String.t() | Atom.t()
+        "StreamARN" => String.t() | atom()
       }
       
   """
-  @type consumer_description() :: %{String.t() | Atom.t() => any()}
+  @type consumer_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -59,12 +59,12 @@ defmodule AWS.Kinesis do
         "ApproximateArrivalTimestamp" => non_neg_integer(),
         "Data" => binary(),
         "EncryptionType" => list(any()),
-        "PartitionKey" => String.t() | Atom.t(),
-        "SequenceNumber" => String.t() | Atom.t()
+        "PartitionKey" => String.t() | atom(),
+        "SequenceNumber" => String.t() | atom()
       }
       
   """
-  @type record() :: %{String.t() | Atom.t() => any()}
+  @type record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -78,59 +78,59 @@ defmodule AWS.Kinesis do
       }
       
   """
-  @type describe_limits_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_limits_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_failure_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type internal_failure_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       enable_enhanced_monitoring_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
         required("ShardLevelMetrics") => list(list(any())())
       }
       
   """
-  @type enable_enhanced_monitoring_input() :: %{String.t() | Atom.t() => any()}
+  @type enable_enhanced_monitoring_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_shards_input() :: %{
-        optional("ExclusiveStartShardId") => String.t() | Atom.t(),
+        optional("ExclusiveStartShardId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ShardFilter") => shard_filter(),
-        optional("StreamARN") => String.t() | Atom.t(),
+        optional("StreamARN") => String.t() | atom(),
         optional("StreamCreationTimestamp") => non_neg_integer(),
-        optional("StreamName") => String.t() | Atom.t()
+        optional("StreamName") => String.t() | atom()
       }
       
   """
-  @type list_shards_input() :: %{String.t() | Atom.t() => any()}
+  @type list_shards_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_opt_in_required() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type kms_opt_in_required() :: %{String.t() | Atom.t() => any()}
+  @type kms_opt_in_required() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -138,73 +138,73 @@ defmodule AWS.Kinesis do
       
       list_stream_consumers_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("StreamCreationTimestamp") => non_neg_integer(),
-        required("StreamARN") => String.t() | Atom.t()
+        required("StreamARN") => String.t() | atom()
       }
       
   """
-  @type list_stream_consumers_input() :: %{String.t() | Atom.t() => any()}
+  @type list_stream_consumers_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_policy_output() :: %{
-        "Policy" => String.t() | Atom.t()
+        "Policy" => String.t() | atom()
       }
       
   """
-  @type get_resource_policy_output() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_policy_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       starting_position() :: %{
-        "SequenceNumber" => String.t() | Atom.t(),
+        "SequenceNumber" => String.t() | atom(),
         "Timestamp" => non_neg_integer(),
         "Type" => list(any())
       }
       
   """
-  @type starting_position() :: %{String.t() | Atom.t() => any()}
+  @type starting_position() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_throttling_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type kms_throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type kms_throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_shard_count_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
         required("ScalingType") => list(any()),
         required("TargetShardCount") => integer()
       }
       
   """
-  @type update_shard_count_input() :: %{String.t() | Atom.t() => any()}
+  @type update_shard_count_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -216,7 +216,7 @@ defmodule AWS.Kinesis do
       }
       
   """
-  @type list_tags_for_stream_output() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_stream_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -226,31 +226,31 @@ defmodule AWS.Kinesis do
         "EncryptionType" => list(any()),
         "EnhancedMonitoring" => list(enhanced_metrics()),
         "HasMoreShards" => boolean(),
-        "KeyId" => String.t() | Atom.t(),
+        "KeyId" => String.t() | atom(),
         "RetentionPeriodHours" => integer(),
         "Shards" => list(shard()),
-        "StreamARN" => String.t() | Atom.t(),
+        "StreamARN" => String.t() | atom(),
         "StreamCreationTimestamp" => non_neg_integer(),
         "StreamModeDetails" => stream_mode_details(),
-        "StreamName" => String.t() | Atom.t(),
+        "StreamName" => String.t() | atom(),
         "StreamStatus" => list(any())
       }
       
   """
-  @type stream_description() :: %{String.t() | Atom.t() => any()}
+  @type stream_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       decrease_stream_retention_period_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
         required("RetentionPeriodHours") => integer()
       }
       
   """
-  @type decrease_stream_retention_period_input() :: %{String.t() | Atom.t() => any()}
+  @type decrease_stream_retention_period_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -260,44 +260,44 @@ defmodule AWS.Kinesis do
         "ConsumerCount" => integer(),
         "EncryptionType" => list(any()),
         "EnhancedMonitoring" => list(enhanced_metrics()),
-        "KeyId" => String.t() | Atom.t(),
+        "KeyId" => String.t() | atom(),
         "OpenShardCount" => integer(),
         "RetentionPeriodHours" => integer(),
-        "StreamARN" => String.t() | Atom.t(),
+        "StreamARN" => String.t() | atom(),
         "StreamCreationTimestamp" => non_neg_integer(),
         "StreamModeDetails" => stream_mode_details(),
-        "StreamName" => String.t() | Atom.t(),
+        "StreamName" => String.t() | atom(),
         "StreamStatus" => list(any())
       }
       
   """
-  @type stream_description_summary() :: %{String.t() | Atom.t() => any()}
+  @type stream_description_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_stream_consumer_input() :: %{
-        optional("ConsumerARN") => String.t() | Atom.t(),
-        optional("ConsumerName") => String.t() | Atom.t(),
-        optional("StreamARN") => String.t() | Atom.t()
+        optional("ConsumerARN") => String.t() | atom(),
+        optional("ConsumerName") => String.t() | atom(),
+        optional("StreamARN") => String.t() | atom()
       }
       
   """
-  @type deregister_stream_consumer_input() :: %{String.t() | Atom.t() => any()}
+  @type deregister_stream_consumer_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       increase_stream_retention_period_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
         required("RetentionPeriodHours") => integer()
       }
       
   """
-  @type increase_stream_retention_period_input() :: %{String.t() | Atom.t() => any()}
+  @type increase_stream_retention_period_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -305,23 +305,23 @@ defmodule AWS.Kinesis do
       
       delete_stream_input() :: %{
         optional("EnforceConsumerDeletion") => boolean(),
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t()
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom()
       }
       
   """
-  @type delete_stream_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_resource_policy_input() :: %{
-        required("ResourceARN") => String.t() | Atom.t()
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type delete_resource_policy_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_resource_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -332,20 +332,20 @@ defmodule AWS.Kinesis do
       }
       
   """
-  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_records_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
         required("Records") => list(put_records_request_entry())
       }
       
   """
-  @type put_records_input() :: %{String.t() | Atom.t() => any()}
+  @type put_records_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -354,25 +354,25 @@ defmodule AWS.Kinesis do
       get_records_output() :: %{
         "ChildShards" => list(child_shard()),
         "MillisBehindLatest" => float(),
-        "NextShardIterator" => String.t() | Atom.t(),
+        "NextShardIterator" => String.t() | atom(),
         "Records" => list(record())
       }
       
   """
-  @type get_records_output() :: %{String.t() | Atom.t() => any()}
+  @type get_records_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_to_stream_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
         required("Tags") => map()
       }
       
   """
-  @type add_tags_to_stream_input() :: %{String.t() | Atom.t() => any()}
+  @type add_tags_to_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -380,24 +380,24 @@ defmodule AWS.Kinesis do
       
       list_streams_output() :: %{
         "HasMoreStreams" => boolean(),
-        "NextToken" => String.t() | Atom.t(),
-        "StreamNames" => list(String.t() | Atom.t()),
+        "NextToken" => String.t() | atom(),
+        "StreamNames" => list(String.t() | atom()),
         "StreamSummaries" => list(stream_summary())
       }
       
   """
-  @type list_streams_output() :: %{String.t() | Atom.t() => any()}
+  @type list_streams_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       expired_next_token_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type expired_next_token_exception() :: %{String.t() | Atom.t() => any()}
+  @type expired_next_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -408,79 +408,79 @@ defmodule AWS.Kinesis do
       }
       
   """
-  @type register_stream_consumer_output() :: %{String.t() | Atom.t() => any()}
+  @type register_stream_consumer_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       hash_key_range() :: %{
-        "EndingHashKey" => String.t() | Atom.t(),
-        "StartingHashKey" => String.t() | Atom.t()
+        "EndingHashKey" => String.t() | atom(),
+        "StartingHashKey" => String.t() | atom()
       }
       
   """
-  @type hash_key_range() :: %{String.t() | Atom.t() => any()}
+  @type hash_key_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioned_throughput_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type provisioned_throughput_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type provisioned_throughput_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_records_result_entry() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "SequenceNumber" => String.t() | Atom.t(),
-        "ShardId" => String.t() | Atom.t()
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "SequenceNumber" => String.t() | atom(),
+        "ShardId" => String.t() | atom()
       }
       
   """
-  @type put_records_result_entry() :: %{String.t() | Atom.t() => any()}
+  @type put_records_result_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_resource_policy_input() :: %{
-        required("Policy") => String.t() | Atom.t(),
-        required("ResourceARN") => String.t() | Atom.t()
+        required("Policy") => String.t() | atom(),
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type put_resource_policy_input() :: %{String.t() | Atom.t() => any()}
+  @type put_resource_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -488,114 +488,114 @@ defmodule AWS.Kinesis do
       
       register_stream_consumer_input() :: %{
         optional("Tags") => map(),
-        required("ConsumerName") => String.t() | Atom.t(),
-        required("StreamARN") => String.t() | Atom.t()
+        required("ConsumerName") => String.t() | atom(),
+        required("StreamARN") => String.t() | atom()
       }
       
   """
-  @type register_stream_consumer_input() :: %{String.t() | Atom.t() => any()}
+  @type register_stream_consumer_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_shard_iterator_input() :: %{
-        optional("StartingSequenceNumber") => String.t() | Atom.t(),
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
+        optional("StartingSequenceNumber") => String.t() | atom(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
         optional("Timestamp") => non_neg_integer(),
-        required("ShardId") => String.t() | Atom.t(),
+        required("ShardId") => String.t() | atom(),
         required("ShardIteratorType") => list(any())
       }
       
   """
-  @type get_shard_iterator_input() :: %{String.t() | Atom.t() => any()}
+  @type get_shard_iterator_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stream_consumer_input() :: %{
-        optional("ConsumerARN") => String.t() | Atom.t(),
-        optional("ConsumerName") => String.t() | Atom.t(),
-        optional("StreamARN") => String.t() | Atom.t()
+        optional("ConsumerARN") => String.t() | atom(),
+        optional("ConsumerName") => String.t() | atom(),
+        optional("StreamARN") => String.t() | atom()
       }
       
   """
-  @type describe_stream_consumer_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_stream_consumer_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_tags_from_stream_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type remove_tags_from_stream_input() :: %{String.t() | Atom.t() => any()}
+  @type remove_tags_from_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       merge_shards_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
-        required("AdjacentShardToMerge") => String.t() | Atom.t(),
-        required("ShardToMerge") => String.t() | Atom.t()
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
+        required("AdjacentShardToMerge") => String.t() | atom(),
+        required("ShardToMerge") => String.t() | atom()
       }
       
   """
-  @type merge_shards_input() :: %{String.t() | Atom.t() => any()}
+  @type merge_shards_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_shard_iterator_output() :: %{
-        "ShardIterator" => String.t() | Atom.t()
+        "ShardIterator" => String.t() | atom()
       }
       
   """
-  @type get_shard_iterator_output() :: %{String.t() | Atom.t() => any()}
+  @type get_shard_iterator_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       expired_iterator_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type expired_iterator_exception() :: %{String.t() | Atom.t() => any()}
+  @type expired_iterator_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stream_summary_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t()
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom()
       }
       
   """
-  @type describe_stream_summary_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_stream_summary_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_input() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
+        required("ResourceARN") => String.t() | atom(),
         required("Tags") => map()
       }
       
   """
-  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -603,11 +603,11 @@ defmodule AWS.Kinesis do
       
       list_stream_consumers_output() :: %{
         "Consumers" => list(consumer()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_stream_consumers_output() :: %{String.t() | Atom.t() => any()}
+  @type list_stream_consumers_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -623,11 +623,11 @@ defmodule AWS.Kinesis do
   ## Example:
       
       kms_access_denied_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type kms_access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type kms_access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -635,53 +635,53 @@ defmodule AWS.Kinesis do
       
       put_record_output() :: %{
         "EncryptionType" => list(any()),
-        "SequenceNumber" => String.t() | Atom.t(),
-        "ShardId" => String.t() | Atom.t()
+        "SequenceNumber" => String.t() | atom(),
+        "ShardId" => String.t() | atom()
       }
       
   """
-  @type put_record_output() :: %{String.t() | Atom.t() => any()}
+  @type put_record_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_streams_input() :: %{
-        optional("ExclusiveStartStreamName") => String.t() | Atom.t(),
+        optional("ExclusiveStartStreamName") => String.t() | atom(),
         optional("Limit") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_streams_input() :: %{String.t() | Atom.t() => any()}
+  @type list_streams_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       shard() :: %{
-        "AdjacentParentShardId" => String.t() | Atom.t(),
+        "AdjacentParentShardId" => String.t() | atom(),
         "HashKeyRange" => hash_key_range(),
-        "ParentShardId" => String.t() | Atom.t(),
+        "ParentShardId" => String.t() | atom(),
         "SequenceNumberRange" => sequence_number_range(),
-        "ShardId" => String.t() | Atom.t()
+        "ShardId" => String.t() | atom()
       }
       
   """
-  @type shard() :: %{String.t() | Atom.t() => any()}
+  @type shard() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subscribe_to_shard_input() :: %{
-        required("ConsumerARN") => String.t() | Atom.t(),
-        required("ShardId") => String.t() | Atom.t(),
+        required("ConsumerARN") => String.t() | atom(),
+        required("ShardId") => String.t() | atom(),
         required("StartingPosition") => starting_position()
       }
       
   """
-  @type subscribe_to_shard_input() :: %{String.t() | Atom.t() => any()}
+  @type subscribe_to_shard_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -692,21 +692,21 @@ defmodule AWS.Kinesis do
       }
       
   """
-  @type describe_stream_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_stream_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_stream_encryption_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
         required("EncryptionType") => list(any()),
-        required("KeyId") => String.t() | Atom.t()
+        required("KeyId") => String.t() | atom()
       }
       
   """
-  @type stop_stream_encryption_input() :: %{String.t() | Atom.t() => any()}
+  @type stop_stream_encryption_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -714,34 +714,34 @@ defmodule AWS.Kinesis do
       
       get_records_input() :: %{
         optional("Limit") => integer(),
-        optional("StreamARN") => String.t() | Atom.t(),
-        required("ShardIterator") => String.t() | Atom.t()
+        optional("StreamARN") => String.t() | atom(),
+        required("ShardIterator") => String.t() | atom()
       }
       
   """
-  @type get_records_input() :: %{String.t() | Atom.t() => any()}
+  @type get_records_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type kms_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type kms_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -752,33 +752,33 @@ defmodule AWS.Kinesis do
       }
       
   """
-  @type stream_mode_details() :: %{String.t() | Atom.t() => any()}
+  @type stream_mode_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_input() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_stream_input() :: %{
-        optional("ExclusiveStartTagKey") => String.t() | Atom.t(),
+        optional("ExclusiveStartTagKey") => String.t() | atom(),
         optional("Limit") => integer(),
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t()
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_stream_input() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -787,80 +787,80 @@ defmodule AWS.Kinesis do
       enhanced_monitoring_output() :: %{
         "CurrentShardLevelMetrics" => list(list(any())()),
         "DesiredShardLevelMetrics" => list(list(any())()),
-        "StreamARN" => String.t() | Atom.t(),
-        "StreamName" => String.t() | Atom.t()
+        "StreamARN" => String.t() | atom(),
+        "StreamName" => String.t() | atom()
       }
       
   """
-  @type enhanced_monitoring_output() :: %{String.t() | Atom.t() => any()}
+  @type enhanced_monitoring_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_policy_input() :: %{
-        required("ResourceARN") => String.t() | Atom.t()
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type get_resource_policy_input() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_argument_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_argument_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_stream_mode_input() :: %{
-        required("StreamARN") => String.t() | Atom.t(),
+        required("StreamARN") => String.t() | atom(),
         required("StreamModeDetails") => stream_mode_details()
       }
       
   """
-  @type update_stream_mode_input() :: %{String.t() | Atom.t() => any()}
+  @type update_stream_mode_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sequence_number_range() :: %{
-        "EndingSequenceNumber" => String.t() | Atom.t(),
-        "StartingSequenceNumber" => String.t() | Atom.t()
+        "EndingSequenceNumber" => String.t() | atom(),
+        "StartingSequenceNumber" => String.t() | atom()
       }
       
   """
-  @type sequence_number_range() :: %{String.t() | Atom.t() => any()}
+  @type sequence_number_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_input() :: %{
-        required("ResourceARN") => String.t() | Atom.t()
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -868,13 +868,13 @@ defmodule AWS.Kinesis do
       
       subscribe_to_shard_event() :: %{
         "ChildShards" => list(child_shard()),
-        "ContinuationSequenceNumber" => String.t() | Atom.t(),
+        "ContinuationSequenceNumber" => String.t() | atom(),
         "MillisBehindLatest" => float(),
         "Records" => list(record())
       }
       
   """
-  @type subscribe_to_shard_event() :: %{String.t() | Atom.t() => any()}
+  @type subscribe_to_shard_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -882,54 +882,54 @@ defmodule AWS.Kinesis do
       
       child_shard() :: %{
         "HashKeyRange" => hash_key_range(),
-        "ParentShards" => list(String.t() | Atom.t()),
-        "ShardId" => String.t() | Atom.t()
+        "ParentShards" => list(String.t() | atom()),
+        "ShardId" => String.t() | atom()
       }
       
   """
-  @type child_shard() :: %{String.t() | Atom.t() => any()}
+  @type child_shard() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stream_summary() :: %{
-        "StreamARN" => String.t() | Atom.t(),
+        "StreamARN" => String.t() | atom(),
         "StreamCreationTimestamp" => non_neg_integer(),
         "StreamModeDetails" => stream_mode_details(),
-        "StreamName" => String.t() | Atom.t(),
+        "StreamName" => String.t() | atom(),
         "StreamStatus" => list(any())
       }
       
   """
-  @type stream_summary() :: %{String.t() | Atom.t() => any()}
+  @type stream_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       shard_filter() :: %{
-        "ShardId" => String.t() | Atom.t(),
+        "ShardId" => String.t() | atom(),
         "Timestamp" => non_neg_integer(),
         "Type" => list(any())
       }
       
   """
-  @type shard_filter() :: %{String.t() | Atom.t() => any()}
+  @type shard_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       consumer() :: %{
-        "ConsumerARN" => String.t() | Atom.t(),
+        "ConsumerARN" => String.t() | atom(),
         "ConsumerCreationTimestamp" => non_neg_integer(),
-        "ConsumerName" => String.t() | Atom.t(),
+        "ConsumerName" => String.t() | atom(),
         "ConsumerStatus" => list(any())
       }
       
   """
-  @type consumer() :: %{String.t() | Atom.t() => any()}
+  @type consumer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -939,22 +939,22 @@ defmodule AWS.Kinesis do
         optional("ShardCount") => integer(),
         optional("StreamModeDetails") => stream_mode_details(),
         optional("Tags") => map(),
-        required("StreamName") => String.t() | Atom.t()
+        required("StreamName") => String.t() | atom()
       }
       
   """
-  @type create_stream_input() :: %{String.t() | Atom.t() => any()}
+  @type create_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -962,39 +962,39 @@ defmodule AWS.Kinesis do
       
       put_records_request_entry() :: %{
         "Data" => binary(),
-        "ExplicitHashKey" => String.t() | Atom.t(),
-        "PartitionKey" => String.t() | Atom.t()
+        "ExplicitHashKey" => String.t() | atom(),
+        "PartitionKey" => String.t() | atom()
       }
       
   """
-  @type put_records_request_entry() :: %{String.t() | Atom.t() => any()}
+  @type put_records_request_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_stream_encryption_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
         required("EncryptionType") => list(any()),
-        required("KeyId") => String.t() | Atom.t()
+        required("KeyId") => String.t() | atom()
       }
       
   """
-  @type start_stream_encryption_input() :: %{String.t() | Atom.t() => any()}
+  @type start_stream_encryption_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_enhanced_monitoring_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
         required("ShardLevelMetrics") => list(list(any())())
       }
       
   """
-  @type disable_enhanced_monitoring_input() :: %{String.t() | Atom.t() => any()}
+  @type disable_enhanced_monitoring_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1002,13 +1002,13 @@ defmodule AWS.Kinesis do
       
       update_shard_count_output() :: %{
         "CurrentShardCount" => integer(),
-        "StreamARN" => String.t() | Atom.t(),
-        "StreamName" => String.t() | Atom.t(),
+        "StreamARN" => String.t() | atom(),
+        "StreamName" => String.t() | atom(),
         "TargetShardCount" => integer()
       }
       
   """
-  @type update_shard_count_output() :: %{String.t() | Atom.t() => any()}
+  @type update_shard_count_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1019,7 +1019,7 @@ defmodule AWS.Kinesis do
       }
       
   """
-  @type describe_stream_consumer_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_stream_consumer_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1030,62 +1030,62 @@ defmodule AWS.Kinesis do
       }
       
   """
-  @type enhanced_metrics() :: %{String.t() | Atom.t() => any()}
+  @type enhanced_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       split_shard_input() :: %{
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
-        required("NewStartingHashKey") => String.t() | Atom.t(),
-        required("ShardToSplit") => String.t() | Atom.t()
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
+        required("NewStartingHashKey") => String.t() | atom(),
+        required("ShardToSplit") => String.t() | atom()
       }
       
   """
-  @type split_shard_input() :: %{String.t() | Atom.t() => any()}
+  @type split_shard_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_record_input() :: %{
-        optional("ExplicitHashKey") => String.t() | Atom.t(),
-        optional("SequenceNumberForOrdering") => String.t() | Atom.t(),
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t(),
+        optional("ExplicitHashKey") => String.t() | atom(),
+        optional("SequenceNumberForOrdering") => String.t() | atom(),
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom(),
         required("Data") => binary(),
-        required("PartitionKey") => String.t() | Atom.t()
+        required("PartitionKey") => String.t() | atom()
       }
       
   """
-  @type put_record_input() :: %{String.t() | Atom.t() => any()}
+  @type put_record_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_invalid_state_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type kms_invalid_state_exception() :: %{String.t() | Atom.t() => any()}
+  @type kms_invalid_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stream_input() :: %{
-        optional("ExclusiveStartShardId") => String.t() | Atom.t(),
+        optional("ExclusiveStartShardId") => String.t() | atom(),
         optional("Limit") => integer(),
-        optional("StreamARN") => String.t() | Atom.t(),
-        optional("StreamName") => String.t() | Atom.t()
+        optional("StreamARN") => String.t() | atom(),
+        optional("StreamName") => String.t() | atom()
       }
       
   """
-  @type describe_stream_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1096,7 +1096,7 @@ defmodule AWS.Kinesis do
       }
       
   """
-  @type subscribe_to_shard_output() :: %{String.t() | Atom.t() => any()}
+  @type subscribe_to_shard_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1109,7 +1109,7 @@ defmodule AWS.Kinesis do
       }
       
   """
-  @type put_records_output() :: %{String.t() | Atom.t() => any()}
+  @type put_records_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1120,7 +1120,7 @@ defmodule AWS.Kinesis do
       }
       
   """
-  @type describe_stream_summary_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_stream_summary_output() :: %{(String.t() | atom()) => any()}
 
   @type add_tags_to_stream_errors() ::
           limit_exceeded_exception()

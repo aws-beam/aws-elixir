@@ -23,11 +23,11 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       internal_failure_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_failure_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -38,7 +38,7 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type batch_reset_alarm_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_reset_alarm_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -46,25 +46,25 @@ defmodule AWS.IoTEventsData do
 
       batch_alarm_action_error_entry() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => String.t() | Atom.t(),
-        "requestId" => String.t() | Atom.t()
+        "errorMessage" => String.t() | atom(),
+        "requestId" => String.t() | atom()
       }
 
   """
-  @type batch_alarm_action_error_entry() :: %{String.t() | Atom.t() => any()}
+  @type batch_alarm_action_error_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       detector_state() :: %{
-        "stateName" => String.t() | Atom.t(),
+        "stateName" => String.t() | atom(),
         "timers" => list(timer()),
         "variables" => list(variable())
       }
 
   """
-  @type detector_state() :: %{String.t() | Atom.t() => any()}
+  @type detector_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -75,24 +75,24 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type batch_snooze_alarm_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_snooze_alarm_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       alarm() :: %{
-        "alarmModelName" => String.t() | Atom.t(),
-        "alarmModelVersion" => String.t() | Atom.t(),
+        "alarmModelName" => String.t() | atom(),
+        "alarmModelVersion" => String.t() | atom(),
         "alarmState" => alarm_state(),
         "creationTime" => non_neg_integer(),
-        "keyValue" => String.t() | Atom.t(),
+        "keyValue" => String.t() | atom(),
         "lastUpdateTime" => non_neg_integer(),
         "severity" => integer()
       }
 
   """
-  @type alarm() :: %{String.t() | Atom.t() => any()}
+  @type alarm() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -100,34 +100,34 @@ defmodule AWS.IoTEventsData do
 
       list_alarms_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_alarms_request() :: %{String.t() | Atom.t() => any()}
+  @type list_alarms_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       acknowledge_action_configuration() :: %{
-        "note" => String.t() | Atom.t()
+        "note" => String.t() | atom()
       }
 
   """
-  @type acknowledge_action_configuration() :: %{String.t() | Atom.t() => any()}
+  @type acknowledge_action_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       timer() :: %{
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "timestamp" => non_neg_integer()
       }
 
   """
-  @type timer() :: %{String.t() | Atom.t() => any()}
+  @type timer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -135,26 +135,26 @@ defmodule AWS.IoTEventsData do
 
       list_detectors_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("stateName") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("stateName") => String.t() | atom()
       }
 
   """
-  @type list_detectors_request() :: %{String.t() | Atom.t() => any()}
+  @type list_detectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disable_alarm_action_request() :: %{
-        "alarmModelName" => String.t() | Atom.t(),
-        "keyValue" => String.t() | Atom.t(),
-        "note" => String.t() | Atom.t(),
-        "requestId" => String.t() | Atom.t()
+        "alarmModelName" => String.t() | atom(),
+        "keyValue" => String.t() | atom(),
+        "note" => String.t() | atom(),
+        "requestId" => String.t() | atom()
       }
 
   """
-  @type disable_alarm_action_request() :: %{String.t() | Atom.t() => any()}
+  @type disable_alarm_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -165,21 +165,21 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type batch_acknowledge_alarm_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_acknowledge_alarm_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reset_alarm_action_request() :: %{
-        "alarmModelName" => String.t() | Atom.t(),
-        "keyValue" => String.t() | Atom.t(),
-        "note" => String.t() | Atom.t(),
-        "requestId" => String.t() | Atom.t()
+        "alarmModelName" => String.t() | atom(),
+        "keyValue" => String.t() | atom(),
+        "note" => String.t() | atom(),
+        "requestId" => String.t() | atom()
       }
 
   """
-  @type reset_alarm_action_request() :: %{String.t() | Atom.t() => any()}
+  @type reset_alarm_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -190,18 +190,18 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type batch_put_message_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enable_action_configuration() :: %{
-        "note" => String.t() | Atom.t()
+        "note" => String.t() | atom()
       }
 
   """
-  @type enable_action_configuration() :: %{String.t() | Atom.t() => any()}
+  @type enable_action_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -212,47 +212,47 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type batch_delete_detector_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_detector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_detector_request() :: %{
-        optional("keyValue") => String.t() | Atom.t()
+        optional("keyValue") => String.t() | atom()
       }
 
   """
-  @type describe_detector_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_detector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       alarm_summary() :: %{
-        "alarmModelName" => String.t() | Atom.t(),
-        "alarmModelVersion" => String.t() | Atom.t(),
+        "alarmModelName" => String.t() | atom(),
+        "alarmModelVersion" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "keyValue" => String.t() | Atom.t(),
+        "keyValue" => String.t() | atom(),
         "lastUpdateTime" => non_neg_integer(),
         "stateName" => list(any())
       }
 
   """
-  @type alarm_summary() :: %{String.t() | Atom.t() => any()}
+  @type alarm_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       simple_rule_evaluation() :: %{
-        "inputPropertyValue" => String.t() | Atom.t(),
+        "inputPropertyValue" => String.t() | atom(),
         "operator" => list(any()),
-        "thresholdValue" => String.t() | Atom.t()
+        "thresholdValue" => String.t() | atom()
       }
 
   """
-  @type simple_rule_evaluation() :: %{String.t() | Atom.t() => any()}
+  @type simple_rule_evaluation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -263,66 +263,66 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type batch_acknowledge_alarm_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_acknowledge_alarm_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       acknowledge_alarm_action_request() :: %{
-        "alarmModelName" => String.t() | Atom.t(),
-        "keyValue" => String.t() | Atom.t(),
-        "note" => String.t() | Atom.t(),
-        "requestId" => String.t() | Atom.t()
+        "alarmModelName" => String.t() | atom(),
+        "keyValue" => String.t() | atom(),
+        "note" => String.t() | atom(),
+        "requestId" => String.t() | atom()
       }
 
   """
-  @type acknowledge_alarm_action_request() :: %{String.t() | Atom.t() => any()}
+  @type acknowledge_alarm_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       detector_state_summary() :: %{
-        "stateName" => String.t() | Atom.t()
+        "stateName" => String.t() | atom()
       }
 
   """
-  @type detector_state_summary() :: %{String.t() | Atom.t() => any()}
+  @type detector_state_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       timer_definition() :: %{
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "seconds" => integer()
       }
 
   """
-  @type timer_definition() :: %{String.t() | Atom.t() => any()}
+  @type timer_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -333,7 +333,7 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type batch_update_detector_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_detector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -344,7 +344,7 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type batch_snooze_alarm_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_snooze_alarm_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -360,31 +360,31 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type customer_action() :: %{String.t() | Atom.t() => any()}
+  @type customer_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disable_action_configuration() :: %{
-        "note" => String.t() | Atom.t()
+        "note" => String.t() | atom()
       }
 
   """
-  @type disable_action_configuration() :: %{String.t() | Atom.t() => any()}
+  @type disable_action_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       detector_state_definition() :: %{
-        "stateName" => String.t() | Atom.t(),
+        "stateName" => String.t() | atom(),
         "timers" => list(timer_definition()),
         "variables" => list(variable_definition())
       }
 
   """
-  @type detector_state_definition() :: %{String.t() | Atom.t() => any()}
+  @type detector_state_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -392,12 +392,12 @@ defmodule AWS.IoTEventsData do
 
       batch_update_detector_error_entry() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => String.t() | Atom.t(),
-        "messageId" => String.t() | Atom.t()
+        "errorMessage" => String.t() | atom(),
+        "messageId" => String.t() | atom()
       }
 
   """
-  @type batch_update_detector_error_entry() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_detector_error_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -405,38 +405,38 @@ defmodule AWS.IoTEventsData do
 
       detector_summary() :: %{
         "creationTime" => non_neg_integer(),
-        "detectorModelName" => String.t() | Atom.t(),
-        "detectorModelVersion" => String.t() | Atom.t(),
-        "keyValue" => String.t() | Atom.t(),
+        "detectorModelName" => String.t() | atom(),
+        "detectorModelVersion" => String.t() | atom(),
+        "keyValue" => String.t() | atom(),
         "lastUpdateTime" => non_neg_integer(),
         "state" => detector_state_summary()
       }
 
   """
-  @type detector_summary() :: %{String.t() | Atom.t() => any()}
+  @type detector_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       variable() :: %{
-        "name" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type variable() :: %{String.t() | Atom.t() => any()}
+  @type variable() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -447,7 +447,7 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type batch_disable_alarm_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_disable_alarm_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -455,22 +455,22 @@ defmodule AWS.IoTEventsData do
 
       list_alarms_response() :: %{
         "alarmSummaries" => list(alarm_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_alarms_response() :: %{String.t() | Atom.t() => any()}
+  @type list_alarms_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reset_action_configuration() :: %{
-        "note" => String.t() | Atom.t()
+        "note" => String.t() | atom()
       }
 
   """
-  @type reset_action_configuration() :: %{String.t() | Atom.t() => any()}
+  @type reset_action_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -481,7 +481,7 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type describe_alarm_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_alarm_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -492,7 +492,7 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type batch_enable_alarm_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_enable_alarm_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -503,7 +503,7 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type batch_reset_alarm_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_reset_alarm_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -514,7 +514,7 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type describe_detector_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_detector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -525,7 +525,7 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type batch_delete_detector_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_detector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -533,11 +533,11 @@ defmodule AWS.IoTEventsData do
 
       list_detectors_response() :: %{
         "detectorSummaries" => list(detector_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_detectors_response() :: %{String.t() | Atom.t() => any()}
+  @type list_detectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -551,41 +551,41 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type alarm_state() :: %{String.t() | Atom.t() => any()}
+  @type alarm_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       variable_definition() :: %{
-        "name" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type variable_definition() :: %{String.t() | Atom.t() => any()}
+  @type variable_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_alarm_request() :: %{
-        optional("keyValue") => String.t() | Atom.t()
+        optional("keyValue") => String.t() | atom()
       }
 
   """
-  @type describe_alarm_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_alarm_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -596,7 +596,7 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type state_change_configuration() :: %{String.t() | Atom.t() => any()}
+  @type state_change_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -604,39 +604,39 @@ defmodule AWS.IoTEventsData do
 
       batch_put_message_error_entry() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => String.t() | Atom.t(),
-        "messageId" => String.t() | Atom.t()
+        "errorMessage" => String.t() | atom(),
+        "messageId" => String.t() | atom()
       }
 
   """
-  @type batch_put_message_error_entry() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_message_error_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       snooze_action_configuration() :: %{
-        "note" => String.t() | Atom.t(),
+        "note" => String.t() | atom(),
         "snoozeDuration" => integer()
       }
 
   """
-  @type snooze_action_configuration() :: %{String.t() | Atom.t() => any()}
+  @type snooze_action_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       snooze_alarm_action_request() :: %{
-        "alarmModelName" => String.t() | Atom.t(),
-        "keyValue" => String.t() | Atom.t(),
-        "note" => String.t() | Atom.t(),
-        "requestId" => String.t() | Atom.t(),
+        "alarmModelName" => String.t() | atom(),
+        "keyValue" => String.t() | atom(),
+        "note" => String.t() | atom(),
+        "requestId" => String.t() | atom(),
         "snoozeDuration" => integer()
       }
 
   """
-  @type snooze_alarm_action_request() :: %{String.t() | Atom.t() => any()}
+  @type snooze_alarm_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -648,7 +648,7 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type system_event() :: %{String.t() | Atom.t() => any()}
+  @type system_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -659,7 +659,7 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type batch_update_detector_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_detector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -670,7 +670,7 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type batch_enable_alarm_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_enable_alarm_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -678,26 +678,26 @@ defmodule AWS.IoTEventsData do
 
       batch_delete_detector_error_entry() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => String.t() | Atom.t(),
-        "messageId" => String.t() | Atom.t()
+        "errorMessage" => String.t() | atom(),
+        "messageId" => String.t() | atom()
       }
 
   """
-  @type batch_delete_detector_error_entry() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_detector_error_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_detector_request() :: %{
-        "detectorModelName" => String.t() | Atom.t(),
-        "keyValue" => String.t() | Atom.t(),
-        "messageId" => String.t() | Atom.t(),
+        "detectorModelName" => String.t() | atom(),
+        "keyValue" => String.t() | atom(),
+        "messageId" => String.t() | atom(),
         "state" => detector_state_definition()
       }
 
   """
-  @type update_detector_request() :: %{String.t() | Atom.t() => any()}
+  @type update_detector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -708,7 +708,7 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type batch_put_message_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_message_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -719,7 +719,7 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type rule_evaluation() :: %{String.t() | Atom.t() => any()}
+  @type rule_evaluation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -727,15 +727,15 @@ defmodule AWS.IoTEventsData do
 
       detector() :: %{
         "creationTime" => non_neg_integer(),
-        "detectorModelName" => String.t() | Atom.t(),
-        "detectorModelVersion" => String.t() | Atom.t(),
-        "keyValue" => String.t() | Atom.t(),
+        "detectorModelName" => String.t() | atom(),
+        "detectorModelVersion" => String.t() | atom(),
+        "keyValue" => String.t() | atom(),
         "lastUpdateTime" => non_neg_integer(),
         "state" => detector_state()
       }
 
   """
-  @type detector() :: %{String.t() | Atom.t() => any()}
+  @type detector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -746,7 +746,7 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type timestamp_value() :: %{String.t() | Atom.t() => any()}
+  @type timestamp_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -757,48 +757,48 @@ defmodule AWS.IoTEventsData do
       }
 
   """
-  @type batch_disable_alarm_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_disable_alarm_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       message() :: %{
-        "inputName" => String.t() | Atom.t(),
-        "messageId" => String.t() | Atom.t(),
+        "inputName" => String.t() | atom(),
+        "messageId" => String.t() | atom(),
         "payload" => binary(),
         "timestamp" => timestamp_value()
       }
 
   """
-  @type message() :: %{String.t() | Atom.t() => any()}
+  @type message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_detector_request() :: %{
-        "detectorModelName" => String.t() | Atom.t(),
-        "keyValue" => String.t() | Atom.t(),
-        "messageId" => String.t() | Atom.t()
+        "detectorModelName" => String.t() | atom(),
+        "keyValue" => String.t() | atom(),
+        "messageId" => String.t() | atom()
       }
 
   """
-  @type delete_detector_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_detector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enable_alarm_action_request() :: %{
-        "alarmModelName" => String.t() | Atom.t(),
-        "keyValue" => String.t() | Atom.t(),
-        "note" => String.t() | Atom.t(),
-        "requestId" => String.t() | Atom.t()
+        "alarmModelName" => String.t() | atom(),
+        "keyValue" => String.t() | atom(),
+        "note" => String.t() | atom(),
+        "requestId" => String.t() | atom()
       }
 
   """
-  @type enable_alarm_action_request() :: %{String.t() | Atom.t() => any()}
+  @type enable_alarm_action_request() :: %{(String.t() | atom()) => any()}
 
   @type batch_acknowledge_alarm_errors() ::
           throttling_exception()
@@ -1158,7 +1158,7 @@ defmodule AWS.IoTEventsData do
   @doc """
   Retrieves information about an alarm.
   """
-  @spec describe_alarm(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec describe_alarm(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, describe_alarm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1183,7 +1183,7 @@ defmodule AWS.IoTEventsData do
   @doc """
   Returns information about the specified detector (instance).
   """
-  @spec describe_detector(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec describe_detector(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, describe_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1213,9 +1213,9 @@ defmodule AWS.IoTEventsData do
   """
   @spec list_alarms(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_alarms_response(), any()}
@@ -1257,10 +1257,10 @@ defmodule AWS.IoTEventsData do
   """
   @spec list_detectors(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_detectors_response(), any()}

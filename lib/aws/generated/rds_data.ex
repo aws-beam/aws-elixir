@@ -33,11 +33,11 @@ defmodule AWS.RDSData do
 
       statement_timeout_exception() :: %{
         "dbConnectionId" => float(),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type statement_timeout_exception() :: %{String.t() | Atom.t() => any()}
+  @type statement_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -48,7 +48,7 @@ defmodule AWS.RDSData do
       }
 
   """
-  @type record() :: %{String.t() | Atom.t() => any()}
+  @type record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -60,42 +60,42 @@ defmodule AWS.RDSData do
       }
 
   """
-  @type result_set_metadata() :: %{String.t() | Atom.t() => any()}
+  @type result_set_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       database_resuming_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type database_resuming_exception() :: %{String.t() | Atom.t() => any()}
+  @type database_resuming_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unsupported_result_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type unsupported_result_exception() :: %{String.t() | Atom.t() => any()}
+  @type unsupported_result_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rollback_transaction_request() :: %{
-        "resourceArn" => String.t() | Atom.t(),
-        "secretArn" => String.t() | Atom.t(),
-        "transactionId" => String.t() | Atom.t()
+        "resourceArn" => String.t() | atom(),
+        "secretArn" => String.t() | atom(),
+        "transactionId" => String.t() | atom()
       }
 
   """
-  @type rollback_transaction_request() :: %{String.t() | Atom.t() => any()}
+  @type rollback_transaction_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -107,69 +107,69 @@ defmodule AWS.RDSData do
         "isCaseSensitive" => boolean(),
         "isCurrency" => boolean(),
         "isSigned" => boolean(),
-        "label" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "label" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "nullable" => integer(),
         "precision" => integer(),
         "scale" => integer(),
-        "schemaName" => String.t() | Atom.t(),
-        "tableName" => String.t() | Atom.t(),
+        "schemaName" => String.t() | atom(),
+        "tableName" => String.t() | atom(),
         "type" => integer(),
-        "typeName" => String.t() | Atom.t()
+        "typeName" => String.t() | atom()
       }
 
   """
-  @type column_metadata() :: %{String.t() | Atom.t() => any()}
+  @type column_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       commit_transaction_request() :: %{
-        "resourceArn" => String.t() | Atom.t(),
-        "secretArn" => String.t() | Atom.t(),
-        "transactionId" => String.t() | Atom.t()
+        "resourceArn" => String.t() | atom(),
+        "secretArn" => String.t() | atom(),
+        "transactionId" => String.t() | atom()
       }
 
   """
-  @type commit_transaction_request() :: %{String.t() | Atom.t() => any()}
+  @type commit_transaction_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       execute_sql_request() :: %{
-        "awsSecretStoreArn" => String.t() | Atom.t(),
-        "database" => String.t() | Atom.t(),
-        "dbClusterOrInstanceArn" => String.t() | Atom.t(),
-        "schema" => String.t() | Atom.t(),
-        "sqlStatements" => String.t() | Atom.t()
+        "awsSecretStoreArn" => String.t() | atom(),
+        "database" => String.t() | atom(),
+        "dbClusterOrInstanceArn" => String.t() | atom(),
+        "schema" => String.t() | atom(),
+        "sqlStatements" => String.t() | atom()
       }
 
   """
-  @type execute_sql_request() :: %{String.t() | Atom.t() => any()}
+  @type execute_sql_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       transaction_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type transaction_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type transaction_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       forbidden_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() | Atom.t() => any()}
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -180,51 +180,51 @@ defmodule AWS.RDSData do
       }
 
   """
-  @type update_result() :: %{String.t() | Atom.t() => any()}
+  @type update_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sql_parameter() :: %{
-        "name" => String.t() | Atom.t(),
-        "typeHint" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "typeHint" => String.t() | atom(),
         "value" => list()
       }
 
   """
-  @type sql_parameter() :: %{String.t() | Atom.t() => any()}
+  @type sql_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_execute_statement_request() :: %{
-        "database" => String.t() | Atom.t(),
+        "database" => String.t() | atom(),
         "parameterSets" => list(list(sql_parameter())()),
-        "resourceArn" => String.t() | Atom.t(),
-        "schema" => String.t() | Atom.t(),
-        "secretArn" => String.t() | Atom.t(),
-        "sql" => String.t() | Atom.t(),
-        "transactionId" => String.t() | Atom.t()
+        "resourceArn" => String.t() | atom(),
+        "schema" => String.t() | atom(),
+        "secretArn" => String.t() | atom(),
+        "sql" => String.t() | atom(),
+        "transactionId" => String.t() | atom()
       }
 
   """
-  @type batch_execute_statement_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_execute_statement_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       begin_transaction_request() :: %{
-        "database" => String.t() | Atom.t(),
-        "resourceArn" => String.t() | Atom.t(),
-        "schema" => String.t() | Atom.t(),
-        "secretArn" => String.t() | Atom.t()
+        "database" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "schema" => String.t() | atom(),
+        "secretArn" => String.t() | atom()
       }
 
   """
-  @type begin_transaction_request() :: %{String.t() | Atom.t() => any()}
+  @type begin_transaction_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -232,14 +232,14 @@ defmodule AWS.RDSData do
 
       execute_statement_response() :: %{
         "columnMetadata" => list(column_metadata()),
-        "formattedRecords" => String.t() | Atom.t(),
+        "formattedRecords" => String.t() | atom(),
         "generatedFields" => list(list()),
         "numberOfRecordsUpdated" => float(),
         "records" => list(list(list())())
       }
 
   """
-  @type execute_statement_response() :: %{String.t() | Atom.t() => any()}
+  @type execute_statement_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -255,45 +255,45 @@ defmodule AWS.RDSData do
   ## Example:
 
       invalid_secret_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_secret_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_secret_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       result_set_options() :: %{
-        "decimalReturnType" => String.t() | Atom.t(),
-        "longReturnType" => String.t() | Atom.t()
+        "decimalReturnType" => String.t() | atom(),
+        "longReturnType" => String.t() | atom()
       }
 
   """
-  @type result_set_options() :: %{String.t() | Atom.t() => any()}
+  @type result_set_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       commit_transaction_response() :: %{
-        "transactionStatus" => String.t() | Atom.t()
+        "transactionStatus" => String.t() | atom()
       }
 
   """
-  @type commit_transaction_response() :: %{String.t() | Atom.t() => any()}
+  @type commit_transaction_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -309,88 +309,88 @@ defmodule AWS.RDSData do
   ## Example:
 
       invalid_resource_state_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_resource_state_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_resource_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       secrets_error_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type secrets_error_exception() :: %{String.t() | Atom.t() => any()}
+  @type secrets_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       http_endpoint_not_enabled_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type http_endpoint_not_enabled_exception() :: %{String.t() | Atom.t() => any()}
+  @type http_endpoint_not_enabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       database_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type database_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type database_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rollback_transaction_response() :: %{
-        "transactionStatus" => String.t() | Atom.t()
+        "transactionStatus" => String.t() | atom()
       }
 
   """
-  @type rollback_transaction_response() :: %{String.t() | Atom.t() => any()}
+  @type rollback_transaction_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       database_error_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type database_error_exception() :: %{String.t() | Atom.t() => any()}
+  @type database_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       begin_transaction_response() :: %{
-        "transactionId" => String.t() | Atom.t()
+        "transactionId" => String.t() | atom()
       }
 
   """
-  @type begin_transaction_response() :: %{String.t() | Atom.t() => any()}
+  @type begin_transaction_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -411,7 +411,7 @@ defmodule AWS.RDSData do
       }
 
   """
-  @type result_frame() :: %{String.t() | Atom.t() => any()}
+  @type result_frame() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -419,20 +419,20 @@ defmodule AWS.RDSData do
 
       execute_statement_request() :: %{
         "continueAfterTimeout" => boolean(),
-        "database" => String.t() | Atom.t(),
-        "formatRecordsAs" => String.t() | Atom.t(),
+        "database" => String.t() | atom(),
+        "formatRecordsAs" => String.t() | atom(),
         "includeResultMetadata" => boolean(),
         "parameters" => list(sql_parameter()),
-        "resourceArn" => String.t() | Atom.t(),
+        "resourceArn" => String.t() | atom(),
         "resultSetOptions" => result_set_options(),
-        "schema" => String.t() | Atom.t(),
-        "secretArn" => String.t() | Atom.t(),
-        "sql" => String.t() | Atom.t(),
-        "transactionId" => String.t() | Atom.t()
+        "schema" => String.t() | atom(),
+        "secretArn" => String.t() | atom(),
+        "sql" => String.t() | atom(),
+        "transactionId" => String.t() | atom()
       }
 
   """
-  @type execute_statement_request() :: %{String.t() | Atom.t() => any()}
+  @type execute_statement_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -444,18 +444,18 @@ defmodule AWS.RDSData do
       }
 
   """
-  @type sql_statement_result() :: %{String.t() | Atom.t() => any()}
+  @type sql_statement_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -466,7 +466,7 @@ defmodule AWS.RDSData do
       }
 
   """
-  @type execute_sql_response() :: %{String.t() | Atom.t() => any()}
+  @type execute_sql_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -477,7 +477,7 @@ defmodule AWS.RDSData do
       }
 
   """
-  @type struct_value() :: %{String.t() | Atom.t() => any()}
+  @type struct_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -488,7 +488,7 @@ defmodule AWS.RDSData do
       }
 
   """
-  @type batch_execute_statement_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_execute_statement_response() :: %{(String.t() | atom()) => any()}
 
   @type batch_execute_statement_errors() ::
           bad_request_exception()

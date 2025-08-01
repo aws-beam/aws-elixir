@@ -35,54 +35,54 @@ defmodule AWS.CustomerProfiles do
 
       get_domain_layout_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
         "IsDefault" => boolean(),
         "LastUpdatedAt" => non_neg_integer(),
-        "Layout" => String.t() | Atom.t(),
-        "LayoutDefinitionName" => String.t() | Atom.t(),
+        "Layout" => String.t() | atom(),
+        "LayoutDefinitionName" => String.t() | atom(),
         "LayoutType" => list(any()),
         "Tags" => map(),
-        "Version" => String.t() | Atom.t()
+        "Version" => String.t() | atom()
       }
 
   """
-  @type get_domain_layout_response() :: %{String.t() | Atom.t() => any()}
+  @type get_domain_layout_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       profile() :: %{
-        "AccountNumber" => String.t() | Atom.t(),
-        "AdditionalInformation" => String.t() | Atom.t(),
+        "AccountNumber" => String.t() | atom(),
+        "AdditionalInformation" => String.t() | atom(),
         "Address" => address(),
         "Attributes" => map(),
         "BillingAddress" => address(),
-        "BirthDate" => String.t() | Atom.t(),
-        "BusinessEmailAddress" => String.t() | Atom.t(),
-        "BusinessName" => String.t() | Atom.t(),
-        "BusinessPhoneNumber" => String.t() | Atom.t(),
-        "EmailAddress" => String.t() | Atom.t(),
-        "FirstName" => String.t() | Atom.t(),
+        "BirthDate" => String.t() | atom(),
+        "BusinessEmailAddress" => String.t() | atom(),
+        "BusinessName" => String.t() | atom(),
+        "BusinessPhoneNumber" => String.t() | atom(),
+        "EmailAddress" => String.t() | atom(),
+        "FirstName" => String.t() | atom(),
         "FoundByItems" => list(found_by_key_value()),
         "Gender" => list(any()),
-        "GenderString" => String.t() | Atom.t(),
-        "HomePhoneNumber" => String.t() | Atom.t(),
-        "LastName" => String.t() | Atom.t(),
+        "GenderString" => String.t() | atom(),
+        "HomePhoneNumber" => String.t() | atom(),
+        "LastName" => String.t() | atom(),
         "MailingAddress" => address(),
-        "MiddleName" => String.t() | Atom.t(),
-        "MobilePhoneNumber" => String.t() | Atom.t(),
+        "MiddleName" => String.t() | atom(),
+        "MobilePhoneNumber" => String.t() | atom(),
         "PartyType" => list(any()),
-        "PartyTypeString" => String.t() | Atom.t(),
-        "PersonalEmailAddress" => String.t() | Atom.t(),
-        "PhoneNumber" => String.t() | Atom.t(),
-        "ProfileId" => String.t() | Atom.t(),
+        "PartyTypeString" => String.t() | atom(),
+        "PersonalEmailAddress" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "ProfileId" => String.t() | atom(),
         "ShippingAddress" => address()
       }
 
   """
-  @type profile() :: %{String.t() | Atom.t() => any()}
+  @type profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -93,7 +93,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type integration_config() :: %{String.t() | Atom.t() => any()}
+  @type integration_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -101,16 +101,16 @@ defmodule AWS.CustomerProfiles do
 
       list_profile_object_type_item() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
         "MaxAvailableProfileObjectCount" => integer(),
         "MaxProfileObjectCount" => integer(),
-        "ObjectTypeName" => String.t() | Atom.t(),
+        "ObjectTypeName" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type list_profile_object_type_item() :: %{String.t() | Atom.t() => any()}
+  @type list_profile_object_type_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -124,7 +124,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type auto_merging() :: %{String.t() | Atom.t() => any()}
+  @type auto_merging() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -136,7 +136,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type event_trigger_limits() :: %{String.t() | Atom.t() => any()}
+  @type event_trigger_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -147,7 +147,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type create_segment_estimate_request() :: %{String.t() | Atom.t() => any()}
+  @type create_segment_estimate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -155,11 +155,11 @@ defmodule AWS.CustomerProfiles do
 
       create_calculated_attribute_definition_response() :: %{
         "AttributeDetails" => attribute_details(),
-        "CalculatedAttributeName" => String.t() | Atom.t(),
+        "CalculatedAttributeName" => String.t() | atom(),
         "Conditions" => conditions(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
         "Filter" => filter(),
         "LastUpdatedAt" => non_neg_integer(),
         "Readiness" => readiness(),
@@ -170,7 +170,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type create_calculated_attribute_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type create_calculated_attribute_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -186,14 +186,14 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       create_segment_snapshot_request() :: %{
-        optional("DestinationUri") => String.t() | Atom.t(),
-        optional("EncryptionKey") => String.t() | Atom.t(),
-        optional("RoleArn") => String.t() | Atom.t(),
+        optional("DestinationUri") => String.t() | atom(),
+        optional("EncryptionKey") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
         required("DataFormat") => list(any())
       }
 
   """
-  @type create_segment_snapshot_request() :: %{String.t() | Atom.t() => any()}
+  @type create_segment_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -202,22 +202,22 @@ defmodule AWS.CustomerProfiles do
       put_profile_object_type_response() :: %{
         "AllowProfileCreation" => boolean(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "EncryptionKey" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "EncryptionKey" => String.t() | atom(),
         "ExpirationDays" => integer(),
         "Fields" => map(),
         "Keys" => map(),
         "LastUpdatedAt" => non_neg_integer(),
         "MaxAvailableProfileObjectCount" => integer(),
         "MaxProfileObjectCount" => integer(),
-        "ObjectTypeName" => String.t() | Atom.t(),
-        "SourceLastUpdatedTimestampFormat" => String.t() | Atom.t(),
+        "ObjectTypeName" => String.t() | atom(),
+        "SourceLastUpdatedTimestampFormat" => String.t() | atom(),
         "Tags" => map(),
-        "TemplateId" => String.t() | Atom.t()
+        "TemplateId" => String.t() | atom()
       }
 
   """
-  @type put_profile_object_type_response() :: %{String.t() | Atom.t() => any()}
+  @type put_profile_object_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -225,33 +225,33 @@ defmodule AWS.CustomerProfiles do
 
       date_dimension() :: %{
         "DimensionType" => list(any()),
-        "Values" => list([String.t() | Atom.t()]())
+        "Values" => list([String.t() | atom()]())
       }
 
   """
-  @type date_dimension() :: %{String.t() | Atom.t() => any()}
+  @type date_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_domain_response() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type delete_domain_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_profile_object_response() :: %{
-        "ProfileObjectUniqueKey" => String.t() | Atom.t()
+        "ProfileObjectUniqueKey" => String.t() | atom()
       }
 
   """
-  @type put_profile_object_response() :: %{String.t() | Atom.t() => any()}
+  @type put_profile_object_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -259,22 +259,22 @@ defmodule AWS.CustomerProfiles do
 
       job_schedule() :: %{
         "DayOfTheWeek" => list(any()),
-        "Time" => String.t() | Atom.t()
+        "Time" => String.t() | atom()
       }
 
   """
-  @type job_schedule() :: %{String.t() | Atom.t() => any()}
+  @type job_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_integration_response() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type delete_integration_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_integration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -282,22 +282,22 @@ defmodule AWS.CustomerProfiles do
 
       task() :: %{
         "ConnectorOperator" => connector_operator(),
-        "DestinationField" => String.t() | Atom.t(),
-        "SourceFields" => list(String.t() | Atom.t()),
+        "DestinationField" => String.t() | atom(),
+        "SourceFields" => list(String.t() | atom()),
         "TaskProperties" => map(),
         "TaskType" => list(any())
       }
 
   """
-  @type task() :: %{String.t() | Atom.t() => any()}
+  @type task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_domain_request() :: %{
-        optional("DeadLetterQueueUrl") => String.t() | Atom.t(),
-        optional("DefaultEncryptionKey") => String.t() | Atom.t(),
+        optional("DeadLetterQueueUrl") => String.t() | atom(),
+        optional("DefaultEncryptionKey") => String.t() | atom(),
         optional("DefaultExpirationDays") => integer(),
         optional("Matching") => matching_request(),
         optional("RuleBasedMatching") => rule_based_matching_request(),
@@ -305,7 +305,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type update_domain_request() :: %{String.t() | Atom.t() => any()}
+  @type update_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -316,7 +316,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -326,29 +326,29 @@ defmodule AWS.CustomerProfiles do
         "DataPullMode" => list(any()),
         "FirstExecutionFrom" => non_neg_integer(),
         "ScheduleEndTime" => non_neg_integer(),
-        "ScheduleExpression" => String.t() | Atom.t(),
+        "ScheduleExpression" => String.t() | atom(),
         "ScheduleOffset" => float(),
         "ScheduleStartTime" => non_neg_integer(),
-        "Timezone" => String.t() | Atom.t()
+        "Timezone" => String.t() | atom()
       }
 
   """
-  @type scheduled_trigger_properties() :: %{String.t() | Atom.t() => any()}
+  @type scheduled_trigger_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       range() :: %{
-        "TimestampFormat" => String.t() | Atom.t(),
-        "TimestampSource" => String.t() | Atom.t(),
+        "TimestampFormat" => String.t() | atom(),
+        "TimestampSource" => String.t() | atom(),
         "Unit" => list(any()),
         "Value" => integer(),
         "ValueRange" => value_range()
       }
 
   """
-  @type range() :: %{String.t() | Atom.t() => any()}
+  @type range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -356,36 +356,36 @@ defmodule AWS.CustomerProfiles do
 
       profile_query_result() :: %{
         "Profile" => profile(),
-        "ProfileId" => String.t() | Atom.t(),
+        "ProfileId" => String.t() | atom(),
         "QueryResult" => list(any())
       }
 
   """
-  @type profile_query_result() :: %{String.t() | Atom.t() => any()}
+  @type profile_query_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_profile_key_response() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type delete_profile_key_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_profile_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_profile_object_type_template_item() :: %{
-        "SourceName" => String.t() | Atom.t(),
-        "SourceObject" => String.t() | Atom.t(),
-        "TemplateId" => String.t() | Atom.t()
+        "SourceName" => String.t() | atom(),
+        "SourceObject" => String.t() | atom(),
+        "TemplateId" => String.t() | atom()
       }
 
   """
-  @type list_profile_object_type_template_item() :: %{String.t() | Atom.t() => any()}
+  @type list_profile_object_type_template_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -393,11 +393,11 @@ defmodule AWS.CustomerProfiles do
 
       attribute_details() :: %{
         "Attributes" => list(attribute_item()),
-        "Expression" => String.t() | Atom.t()
+        "Expression" => String.t() | atom()
       }
 
   """
-  @type attribute_details() :: %{String.t() | Atom.t() => any()}
+  @type attribute_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -408,7 +408,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type detect_profile_object_type_response() :: %{String.t() | Atom.t() => any()}
+  @type detect_profile_object_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -416,11 +416,11 @@ defmodule AWS.CustomerProfiles do
 
       list_identity_resolution_jobs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_identity_resolution_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_identity_resolution_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -433,18 +433,18 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type job_stats() :: %{String.t() | Atom.t() => any()}
+  @type job_stats() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       marketo_source_properties() :: %{
-        "Object" => String.t() | Atom.t()
+        "Object" => String.t() | atom()
       }
 
   """
-  @type marketo_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type marketo_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -461,11 +461,11 @@ defmodule AWS.CustomerProfiles do
 
       list_upload_jobs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_upload_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_upload_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -474,33 +474,33 @@ defmodule AWS.CustomerProfiles do
       get_profile_object_type_response() :: %{
         "AllowProfileCreation" => boolean(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "EncryptionKey" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "EncryptionKey" => String.t() | atom(),
         "ExpirationDays" => integer(),
         "Fields" => map(),
         "Keys" => map(),
         "LastUpdatedAt" => non_neg_integer(),
         "MaxAvailableProfileObjectCount" => integer(),
         "MaxProfileObjectCount" => integer(),
-        "ObjectTypeName" => String.t() | Atom.t(),
-        "SourceLastUpdatedTimestampFormat" => String.t() | Atom.t(),
+        "ObjectTypeName" => String.t() | atom(),
+        "SourceLastUpdatedTimestampFormat" => String.t() | atom(),
         "Tags" => map(),
-        "TemplateId" => String.t() | Atom.t()
+        "TemplateId" => String.t() | atom()
       }
 
   """
-  @type get_profile_object_type_response() :: %{String.t() | Atom.t() => any()}
+  @type get_profile_object_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       attribute_item() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type attribute_item() :: %{String.t() | Atom.t() => any()}
+  @type attribute_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -517,22 +517,22 @@ defmodule AWS.CustomerProfiles do
 
       conflict_resolution() :: %{
         "ConflictResolvingModel" => list(any()),
-        "SourceName" => String.t() | Atom.t()
+        "SourceName" => String.t() | atom()
       }
 
   """
-  @type conflict_resolution() :: %{String.t() | Atom.t() => any()}
+  @type conflict_resolution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_profile_request() :: %{
-        required("ProfileId") => String.t() | Atom.t()
+        required("ProfileId") => String.t() | atom()
       }
 
   """
-  @type delete_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -562,7 +562,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type event_trigger_condition() :: %{String.t() | Atom.t() => any()}
+  @type event_trigger_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -576,7 +576,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type domain_stats() :: %{String.t() | Atom.t() => any()}
+  @type domain_stats() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -594,47 +594,47 @@ defmodule AWS.CustomerProfiles do
       list_account_integrations_request() :: %{
         optional("IncludeHidden") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("Uri") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("Uri") => String.t() | atom()
       }
 
   """
-  @type list_account_integrations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_account_integrations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_event_trigger_response() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type delete_event_trigger_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_event_trigger_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       object_filter() :: %{
-        "KeyName" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "KeyName" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type object_filter() :: %{String.t() | Atom.t() => any()}
+  @type object_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_source_properties() :: %{
-        "BucketName" => String.t() | Atom.t(),
-        "BucketPrefix" => String.t() | Atom.t()
+        "BucketName" => String.t() | atom(),
+        "BucketPrefix" => String.t() | atom()
       }
 
   """
-  @type s3_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type s3_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -642,27 +642,27 @@ defmodule AWS.CustomerProfiles do
 
       segment_definition_item() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
-        "SegmentDefinitionArn" => String.t() | Atom.t(),
-        "SegmentDefinitionName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "SegmentDefinitionArn" => String.t() | atom(),
+        "SegmentDefinitionName" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type segment_definition_item() :: %{String.t() | Atom.t() => any()}
+  @type segment_definition_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       found_by_key_value() :: %{
-        "KeyName" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "KeyName" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type found_by_key_value() :: %{String.t() | Atom.t() => any()}
+  @type found_by_key_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -670,10 +670,10 @@ defmodule AWS.CustomerProfiles do
 
       update_domain_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DeadLetterQueueUrl" => String.t() | Atom.t(),
-        "DefaultEncryptionKey" => String.t() | Atom.t(),
+        "DeadLetterQueueUrl" => String.t() | atom(),
+        "DefaultEncryptionKey" => String.t() | atom(),
         "DefaultExpirationDays" => integer(),
-        "DomainName" => String.t() | Atom.t(),
+        "DomainName" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
         "Matching" => matching_response(),
         "RuleBasedMatching" => rule_based_matching_response(),
@@ -681,29 +681,29 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type update_domain_response() :: %{String.t() | Atom.t() => any()}
+  @type update_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       merge_profiles_response() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type merge_profiles_response() :: %{String.t() | Atom.t() => any()}
+  @type merge_profiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_profile_response() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type delete_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -711,11 +711,11 @@ defmodule AWS.CustomerProfiles do
 
       list_segment_definitions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_segment_definitions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_segment_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -731,56 +731,56 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       appflow_integration_workflow_step() :: %{
-        "BatchRecordsEndTime" => String.t() | Atom.t(),
-        "BatchRecordsStartTime" => String.t() | Atom.t(),
+        "BatchRecordsEndTime" => String.t() | atom(),
+        "BatchRecordsStartTime" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "ExecutionMessage" => String.t() | Atom.t(),
-        "FlowName" => String.t() | Atom.t(),
+        "ExecutionMessage" => String.t() | atom(),
+        "FlowName" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
         "RecordsProcessed" => float(),
         "Status" => list(any())
       }
 
   """
-  @type appflow_integration_workflow_step() :: %{String.t() | Atom.t() => any()}
+  @type appflow_integration_workflow_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       detect_profile_object_type_request() :: %{
-        required("Objects") => list(String.t() | Atom.t())
+        required("Objects") => list(String.t() | atom())
       }
 
   """
-  @type detect_profile_object_type_request() :: %{String.t() | Atom.t() => any()}
+  @type detect_profile_object_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       calculated_attribute_value() :: %{
-        "CalculatedAttributeName" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
-        "IsDataPartial" => String.t() | Atom.t(),
+        "CalculatedAttributeName" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "IsDataPartial" => String.t() | atom(),
         "LastObjectTimestamp" => non_neg_integer(),
-        "ProfileId" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "ProfileId" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type calculated_attribute_value() :: %{String.t() | Atom.t() => any()}
+  @type calculated_attribute_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_domain_layout_response() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type delete_domain_layout_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_domain_layout_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -796,7 +796,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type address_dimension() :: %{String.t() | Atom.t() => any()}
+  @type address_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -807,7 +807,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type exporting_location() :: %{String.t() | Atom.t() => any()}
+  @type exporting_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -815,32 +815,32 @@ defmodule AWS.CustomerProfiles do
 
       get_similar_profiles_response() :: %{
         "ConfidenceScore" => float(),
-        "MatchId" => String.t() | Atom.t(),
+        "MatchId" => String.t() | atom(),
         "MatchType" => list(any()),
-        "NextToken" => String.t() | Atom.t(),
-        "ProfileIds" => list(String.t() | Atom.t()),
+        "NextToken" => String.t() | atom(),
+        "ProfileIds" => list(String.t() | atom()),
         "RuleLevel" => integer()
       }
 
   """
-  @type get_similar_profiles_response() :: %{String.t() | Atom.t() => any()}
+  @type get_similar_profiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_integration_request() :: %{
-        optional("EventTriggerNames") => list(String.t() | Atom.t()),
+        optional("EventTriggerNames") => list(String.t() | atom()),
         optional("FlowDefinition") => flow_definition(),
-        optional("ObjectTypeName") => String.t() | Atom.t(),
+        optional("ObjectTypeName") => String.t() | atom(),
         optional("ObjectTypeNames") => map(),
-        optional("RoleArn") => String.t() | Atom.t(),
+        optional("RoleArn") => String.t() | atom(),
         optional("Tags") => map(),
-        optional("Uri") => String.t() | Atom.t()
+        optional("Uri") => String.t() | atom()
       }
 
   """
-  @type put_integration_request() :: %{String.t() | Atom.t() => any()}
+  @type put_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -850,17 +850,17 @@ defmodule AWS.CustomerProfiles do
         "CompletedAt" => non_neg_integer(),
         "CreatedAt" => non_neg_integer(),
         "DataExpiry" => integer(),
-        "DisplayName" => String.t() | Atom.t(),
+        "DisplayName" => String.t() | atom(),
         "Fields" => map(),
-        "JobId" => String.t() | Atom.t(),
+        "JobId" => String.t() | atom(),
         "ResultsSummary" => results_summary(),
         "Status" => list(any()),
         "StatusReason" => list(any()),
-        "UniqueKey" => String.t() | Atom.t()
+        "UniqueKey" => String.t() | atom()
       }
 
   """
-  @type get_upload_job_response() :: %{String.t() | Atom.t() => any()}
+  @type get_upload_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -868,35 +868,35 @@ defmodule AWS.CustomerProfiles do
 
       create_domain_layout_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
         "IsDefault" => boolean(),
         "LastUpdatedAt" => non_neg_integer(),
-        "Layout" => String.t() | Atom.t(),
-        "LayoutDefinitionName" => String.t() | Atom.t(),
+        "Layout" => String.t() | atom(),
+        "LayoutDefinitionName" => String.t() | atom(),
         "LayoutType" => list(any()),
         "Tags" => map(),
-        "Version" => String.t() | Atom.t()
+        "Version" => String.t() | atom()
       }
 
   """
-  @type create_domain_layout_response() :: %{String.t() | Atom.t() => any()}
+  @type create_domain_layout_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       flow_definition() :: %{
-        "Description" => String.t() | Atom.t(),
-        "FlowName" => String.t() | Atom.t(),
-        "KmsArn" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "FlowName" => String.t() | atom(),
+        "KmsArn" => String.t() | atom(),
         "SourceFlowConfig" => source_flow_config(),
         "Tasks" => list(task()),
         "TriggerConfig" => trigger_config()
       }
 
   """
-  @type flow_definition() :: %{String.t() | Atom.t() => any()}
+  @type flow_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -904,48 +904,48 @@ defmodule AWS.CustomerProfiles do
 
       list_event_triggers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_event_triggers_request() :: %{String.t() | Atom.t() => any()}
+  @type list_event_triggers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_rule_based_matches_response() :: %{
-        "MatchIds" => list(String.t() | Atom.t()),
-        "NextToken" => String.t() | Atom.t()
+        "MatchIds" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_rule_based_matches_response() :: %{String.t() | Atom.t() => any()}
+  @type list_rule_based_matches_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       appflow_integration_workflow_attributes() :: %{
-        "ConnectorProfileName" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
+        "ConnectorProfileName" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "SourceConnectorType" => list(any())
       }
 
   """
-  @type appflow_integration_workflow_attributes() :: %{String.t() | Atom.t() => any()}
+  @type appflow_integration_workflow_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       add_profile_key_response() :: %{
-        "KeyName" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "KeyName" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type add_profile_key_response() :: %{String.t() | Atom.t() => any()}
+  @type add_profile_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -957,7 +957,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type filter_group() :: %{String.t() | Atom.t() => any()}
+  @type filter_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -965,24 +965,24 @@ defmodule AWS.CustomerProfiles do
 
       list_identity_resolution_jobs_response() :: %{
         "IdentityResolutionJobsList" => list(identity_resolution_job()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_identity_resolution_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_identity_resolution_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_calculated_attribute_for_profile_error() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t(),
-        "ProfileId" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "ProfileId" => String.t() | atom()
       }
 
   """
-  @type batch_get_calculated_attribute_for_profile_error() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_calculated_attribute_for_profile_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -993,40 +993,40 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type condition_overrides() :: %{String.t() | Atom.t() => any()}
+  @type condition_overrides() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       matching_rule() :: %{
-        "Rule" => list(String.t() | Atom.t())
+        "Rule" => list(String.t() | atom())
       }
 
   """
-  @type matching_rule() :: %{String.t() | Atom.t() => any()}
+  @type matching_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       attribute_value_item() :: %{
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type attribute_value_item() :: %{String.t() | Atom.t() => any()}
+  @type attribute_value_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1034,31 +1034,31 @@ defmodule AWS.CustomerProfiles do
 
       put_integration_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DomainName" => String.t() | Atom.t(),
-        "EventTriggerNames" => list(String.t() | Atom.t()),
+        "DomainName" => String.t() | atom(),
+        "EventTriggerNames" => list(String.t() | atom()),
         "IsUnstructured" => boolean(),
         "LastUpdatedAt" => non_neg_integer(),
-        "ObjectTypeName" => String.t() | Atom.t(),
+        "ObjectTypeName" => String.t() | atom(),
         "ObjectTypeNames" => map(),
-        "RoleArn" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | atom(),
         "Tags" => map(),
-        "Uri" => String.t() | Atom.t(),
-        "WorkflowId" => String.t() | Atom.t()
+        "Uri" => String.t() | atom(),
+        "WorkflowId" => String.t() | atom()
       }
 
   """
-  @type put_integration_response() :: %{String.t() | Atom.t() => any()}
+  @type put_integration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       zendesk_source_properties() :: %{
-        "Object" => String.t() | Atom.t()
+        "Object" => String.t() | atom()
       }
 
   """
-  @type zendesk_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type zendesk_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1067,13 +1067,13 @@ defmodule AWS.CustomerProfiles do
       create_integration_workflow_request() :: %{
         optional("Tags") => map(),
         required("IntegrationConfig") => integration_config(),
-        required("ObjectTypeName") => String.t() | Atom.t(),
-        required("RoleArn") => String.t() | Atom.t(),
+        required("ObjectTypeName") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom(),
         required("WorkflowType") => list(any())
       }
 
   """
-  @type create_integration_workflow_request() :: %{String.t() | Atom.t() => any()}
+  @type create_integration_workflow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1081,20 +1081,20 @@ defmodule AWS.CustomerProfiles do
 
       get_identity_resolution_job_response() :: %{
         "AutoMerging" => auto_merging(),
-        "DomainName" => String.t() | Atom.t(),
+        "DomainName" => String.t() | atom(),
         "ExportingLocation" => exporting_location(),
         "JobEndTime" => non_neg_integer(),
         "JobExpirationTime" => non_neg_integer(),
-        "JobId" => String.t() | Atom.t(),
+        "JobId" => String.t() | atom(),
         "JobStartTime" => non_neg_integer(),
         "JobStats" => job_stats(),
         "LastUpdatedAt" => non_neg_integer(),
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type get_identity_resolution_job_response() :: %{String.t() | Atom.t() => any()}
+  @type get_identity_resolution_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1102,14 +1102,14 @@ defmodule AWS.CustomerProfiles do
 
       get_similar_profiles_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         required("MatchType") => list(any()),
-        required("SearchKey") => String.t() | Atom.t(),
-        required("SearchValue") => String.t() | Atom.t()
+        required("SearchKey") => String.t() | atom(),
+        required("SearchValue") => String.t() | atom()
       }
 
   """
-  @type get_similar_profiles_request() :: %{String.t() | Atom.t() => any()}
+  @type get_similar_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1120,7 +1120,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type trigger_properties() :: %{String.t() | Atom.t() => any()}
+  @type trigger_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1137,11 +1137,11 @@ defmodule AWS.CustomerProfiles do
 
       list_event_triggers_response() :: %{
         "Items" => list(event_trigger_summary_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_event_triggers_response() :: %{String.t() | Atom.t() => any()}
+  @type list_event_triggers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1154,7 +1154,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type range_override() :: %{String.t() | Atom.t() => any()}
+  @type range_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1180,8 +1180,8 @@ defmodule AWS.CustomerProfiles do
 
       create_calculated_attribute_definition_request() :: %{
         optional("Conditions") => conditions(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("DisplayName") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
         optional("Filter") => filter(),
         optional("Tags") => map(),
         optional("UseHistoricalData") => boolean(),
@@ -1190,17 +1190,17 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type create_calculated_attribute_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type create_calculated_attribute_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_calculated_attribute_definition_item() :: %{
-        "CalculatedAttributeName" => String.t() | Atom.t(),
+        "CalculatedAttributeName" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
         "Status" => list(any()),
         "Tags" => map(),
@@ -1208,7 +1208,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type list_calculated_attribute_definition_item() :: %{String.t() | Atom.t() => any()}
+  @type list_calculated_attribute_definition_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1217,11 +1217,11 @@ defmodule AWS.CustomerProfiles do
       list_integrations_request() :: %{
         optional("IncludeHidden") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_integrations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_integrations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1241,7 +1241,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type workflow_step_item() :: %{String.t() | Atom.t() => any()}
+  @type workflow_step_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1249,12 +1249,12 @@ defmodule AWS.CustomerProfiles do
 
       object_type_field() :: %{
         "ContentType" => list(any()),
-        "Source" => String.t() | Atom.t(),
-        "Target" => String.t() | Atom.t()
+        "Source" => String.t() | atom(),
+        "Target" => String.t() | atom()
       }
 
   """
-  @type object_type_field() :: %{String.t() | Atom.t() => any()}
+  @type object_type_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1262,33 +1262,33 @@ defmodule AWS.CustomerProfiles do
 
       list_domain_item() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DomainName" => String.t() | Atom.t(),
+        "DomainName" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
         "Tags" => map()
       }
 
   """
-  @type list_domain_item() :: %{String.t() | Atom.t() => any()}
+  @type list_domain_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_address() :: %{
-        "Address1" => String.t() | Atom.t(),
-        "Address2" => String.t() | Atom.t(),
-        "Address3" => String.t() | Atom.t(),
-        "Address4" => String.t() | Atom.t(),
-        "City" => String.t() | Atom.t(),
-        "Country" => String.t() | Atom.t(),
-        "County" => String.t() | Atom.t(),
-        "PostalCode" => String.t() | Atom.t(),
-        "Province" => String.t() | Atom.t(),
-        "State" => String.t() | Atom.t()
+        "Address1" => String.t() | atom(),
+        "Address2" => String.t() | atom(),
+        "Address3" => String.t() | atom(),
+        "Address4" => String.t() | atom(),
+        "City" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "County" => String.t() | atom(),
+        "PostalCode" => String.t() | atom(),
+        "Province" => String.t() | atom(),
+        "State" => String.t() | atom()
       }
 
   """
-  @type update_address() :: %{String.t() | Atom.t() => any()}
+  @type update_address() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1296,23 +1296,23 @@ defmodule AWS.CustomerProfiles do
 
       list_object_type_attributes_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_object_type_attributes_request() :: %{String.t() | Atom.t() => any()}
+  @type list_object_type_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_object_type_attribute_item() :: %{
-        "AttributeName" => String.t() | Atom.t(),
+        "AttributeName" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer()
       }
 
   """
-  @type list_object_type_attribute_item() :: %{String.t() | Atom.t() => any()}
+  @type list_object_type_attribute_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1320,31 +1320,31 @@ defmodule AWS.CustomerProfiles do
 
       get_integration_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DomainName" => String.t() | Atom.t(),
-        "EventTriggerNames" => list(String.t() | Atom.t()),
+        "DomainName" => String.t() | atom(),
+        "EventTriggerNames" => list(String.t() | atom()),
         "IsUnstructured" => boolean(),
         "LastUpdatedAt" => non_neg_integer(),
-        "ObjectTypeName" => String.t() | Atom.t(),
+        "ObjectTypeName" => String.t() | atom(),
         "ObjectTypeNames" => map(),
-        "RoleArn" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | atom(),
         "Tags" => map(),
-        "Uri" => String.t() | Atom.t(),
-        "WorkflowId" => String.t() | Atom.t()
+        "Uri" => String.t() | atom(),
+        "WorkflowId" => String.t() | atom()
       }
 
   """
-  @type get_integration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_integration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_profile_object_response() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type delete_profile_object_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_profile_object_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1360,13 +1360,13 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       delete_profile_key_request() :: %{
-        required("KeyName") => String.t() | Atom.t(),
-        required("ProfileId") => String.t() | Atom.t(),
-        required("Values") => list(String.t() | Atom.t())
+        required("KeyName") => String.t() | atom(),
+        required("ProfileId") => String.t() | atom(),
+        required("Values") => list(String.t() | atom())
       }
 
   """
-  @type delete_profile_key_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_profile_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1375,11 +1375,11 @@ defmodule AWS.CustomerProfiles do
       calculated_attribute_dimension() :: %{
         "ConditionOverrides" => condition_overrides(),
         "DimensionType" => list(any()),
-        "Values" => list(String.t() | Atom.t())
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type calculated_attribute_dimension() :: %{String.t() | Atom.t() => any()}
+  @type calculated_attribute_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1390,7 +1390,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type workflow_attributes() :: %{String.t() | Atom.t() => any()}
+  @type workflow_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1398,45 +1398,45 @@ defmodule AWS.CustomerProfiles do
 
       match_item() :: %{
         "ConfidenceScore" => float(),
-        "MatchId" => String.t() | Atom.t(),
-        "ProfileIds" => list(String.t() | Atom.t())
+        "MatchId" => String.t() | atom(),
+        "ProfileIds" => list(String.t() | atom())
       }
 
   """
-  @type match_item() :: %{String.t() | Atom.t() => any()}
+  @type match_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_profile_request() :: %{
-        optional("AccountNumber") => String.t() | Atom.t(),
-        optional("AdditionalInformation") => String.t() | Atom.t(),
+        optional("AccountNumber") => String.t() | atom(),
+        optional("AdditionalInformation") => String.t() | atom(),
         optional("Address") => address(),
         optional("Attributes") => map(),
         optional("BillingAddress") => address(),
-        optional("BirthDate") => String.t() | Atom.t(),
-        optional("BusinessEmailAddress") => String.t() | Atom.t(),
-        optional("BusinessName") => String.t() | Atom.t(),
-        optional("BusinessPhoneNumber") => String.t() | Atom.t(),
-        optional("EmailAddress") => String.t() | Atom.t(),
-        optional("FirstName") => String.t() | Atom.t(),
+        optional("BirthDate") => String.t() | atom(),
+        optional("BusinessEmailAddress") => String.t() | atom(),
+        optional("BusinessName") => String.t() | atom(),
+        optional("BusinessPhoneNumber") => String.t() | atom(),
+        optional("EmailAddress") => String.t() | atom(),
+        optional("FirstName") => String.t() | atom(),
         optional("Gender") => list(any()),
-        optional("GenderString") => String.t() | Atom.t(),
-        optional("HomePhoneNumber") => String.t() | Atom.t(),
-        optional("LastName") => String.t() | Atom.t(),
+        optional("GenderString") => String.t() | atom(),
+        optional("HomePhoneNumber") => String.t() | atom(),
+        optional("LastName") => String.t() | atom(),
         optional("MailingAddress") => address(),
-        optional("MiddleName") => String.t() | Atom.t(),
-        optional("MobilePhoneNumber") => String.t() | Atom.t(),
+        optional("MiddleName") => String.t() | atom(),
+        optional("MobilePhoneNumber") => String.t() | atom(),
         optional("PartyType") => list(any()),
-        optional("PartyTypeString") => String.t() | Atom.t(),
-        optional("PersonalEmailAddress") => String.t() | Atom.t(),
-        optional("PhoneNumber") => String.t() | Atom.t(),
+        optional("PartyTypeString") => String.t() | atom(),
+        optional("PersonalEmailAddress") => String.t() | atom(),
+        optional("PhoneNumber") => String.t() | atom(),
         optional("ShippingAddress") => address()
       }
 
   """
-  @type create_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type create_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1453,16 +1453,16 @@ defmodule AWS.CustomerProfiles do
 
       get_segment_definition_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
-        "SegmentDefinitionArn" => String.t() | Atom.t(),
-        "SegmentDefinitionName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "SegmentDefinitionArn" => String.t() | atom(),
+        "SegmentDefinitionName" => String.t() | atom(),
         "SegmentGroups" => segment_group(),
         "Tags" => map()
       }
 
   """
-  @type get_segment_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type get_segment_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1480,7 +1480,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type rule_based_matching_response() :: %{String.t() | Atom.t() => any()}
+  @type rule_based_matching_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1488,11 +1488,11 @@ defmodule AWS.CustomerProfiles do
 
       update_calculated_attribute_definition_response() :: %{
         "AttributeDetails" => attribute_details(),
-        "CalculatedAttributeName" => String.t() | Atom.t(),
+        "CalculatedAttributeName" => String.t() | atom(),
         "Conditions" => conditions(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
         "Readiness" => readiness(),
         "Statistic" => list(any()),
@@ -1502,43 +1502,43 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type update_calculated_attribute_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type update_calculated_attribute_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       additional_search_key() :: %{
-        "KeyName" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "KeyName" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type additional_search_key() :: %{String.t() | Atom.t() => any()}
+  @type additional_search_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       profile_query_failures() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ProfileId" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
+        "ProfileId" => String.t() | atom(),
         "Status" => integer()
       }
 
   """
-  @type profile_query_failures() :: %{String.t() | Atom.t() => any()}
+  @type profile_query_failures() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1550,18 +1550,18 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type segment_group_structure() :: %{String.t() | Atom.t() => any()}
+  @type segment_group_structure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_integration_request() :: %{
-        required("Uri") => String.t() | Atom.t()
+        required("Uri") => String.t() | atom()
       }
 
   """
-  @type delete_integration_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1577,8 +1577,8 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       create_domain_request() :: %{
-        optional("DeadLetterQueueUrl") => String.t() | Atom.t(),
-        optional("DefaultEncryptionKey") => String.t() | Atom.t(),
+        optional("DeadLetterQueueUrl") => String.t() | atom(),
+        optional("DefaultEncryptionKey") => String.t() | atom(),
         optional("Matching") => matching_request(),
         optional("RuleBasedMatching") => rule_based_matching_request(),
         optional("Tags") => map(),
@@ -1586,56 +1586,56 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type create_domain_request() :: %{String.t() | Atom.t() => any()}
+  @type create_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_profile_request() :: %{
-        optional("AccountNumber") => String.t() | Atom.t(),
-        optional("AdditionalInformation") => String.t() | Atom.t(),
+        optional("AccountNumber") => String.t() | atom(),
+        optional("AdditionalInformation") => String.t() | atom(),
         optional("Address") => update_address(),
         optional("Attributes") => map(),
         optional("BillingAddress") => update_address(),
-        optional("BirthDate") => String.t() | Atom.t(),
-        optional("BusinessEmailAddress") => String.t() | Atom.t(),
-        optional("BusinessName") => String.t() | Atom.t(),
-        optional("BusinessPhoneNumber") => String.t() | Atom.t(),
-        optional("EmailAddress") => String.t() | Atom.t(),
-        optional("FirstName") => String.t() | Atom.t(),
+        optional("BirthDate") => String.t() | atom(),
+        optional("BusinessEmailAddress") => String.t() | atom(),
+        optional("BusinessName") => String.t() | atom(),
+        optional("BusinessPhoneNumber") => String.t() | atom(),
+        optional("EmailAddress") => String.t() | atom(),
+        optional("FirstName") => String.t() | atom(),
         optional("Gender") => list(any()),
-        optional("GenderString") => String.t() | Atom.t(),
-        optional("HomePhoneNumber") => String.t() | Atom.t(),
-        optional("LastName") => String.t() | Atom.t(),
+        optional("GenderString") => String.t() | atom(),
+        optional("HomePhoneNumber") => String.t() | atom(),
+        optional("LastName") => String.t() | atom(),
         optional("MailingAddress") => update_address(),
-        optional("MiddleName") => String.t() | Atom.t(),
-        optional("MobilePhoneNumber") => String.t() | Atom.t(),
+        optional("MiddleName") => String.t() | atom(),
+        optional("MobilePhoneNumber") => String.t() | atom(),
         optional("PartyType") => list(any()),
-        optional("PartyTypeString") => String.t() | Atom.t(),
-        optional("PersonalEmailAddress") => String.t() | Atom.t(),
-        optional("PhoneNumber") => String.t() | Atom.t(),
+        optional("PartyTypeString") => String.t() | atom(),
+        optional("PersonalEmailAddress") => String.t() | atom(),
+        optional("PhoneNumber") => String.t() | atom(),
         optional("ShippingAddress") => update_address(),
-        required("ProfileId") => String.t() | Atom.t()
+        required("ProfileId") => String.t() | atom()
       }
 
   """
-  @type update_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type update_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_calculated_attribute_for_profile_response() :: %{
-        "CalculatedAttributeName" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
-        "IsDataPartial" => String.t() | Atom.t(),
+        "CalculatedAttributeName" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "IsDataPartial" => String.t() | atom(),
         "LastObjectTimestamp" => non_neg_integer(),
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type get_calculated_attribute_for_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type get_calculated_attribute_for_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1643,27 +1643,27 @@ defmodule AWS.CustomerProfiles do
 
       list_rule_based_matches_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_rule_based_matches_request() :: %{String.t() | Atom.t() => any()}
+  @type list_rule_based_matches_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_event_trigger_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("EventTriggerLimits") => event_trigger_limits(),
-        optional("SegmentFilter") => String.t() | Atom.t(),
+        optional("SegmentFilter") => String.t() | atom(),
         optional("Tags") => map(),
         required("EventTriggerConditions") => list(event_trigger_condition()),
-        required("ObjectTypeName") => String.t() | Atom.t()
+        required("ObjectTypeName") => String.t() | atom()
       }
 
   """
-  @type create_event_trigger_request() :: %{String.t() | Atom.t() => any()}
+  @type create_event_trigger_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1671,11 +1671,11 @@ defmodule AWS.CustomerProfiles do
 
       profile_dimension() :: %{
         "DimensionType" => list(any()),
-        "Values" => list(String.t() | Atom.t())
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type profile_dimension() :: %{String.t() | Atom.t() => any()}
+  @type profile_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1688,7 +1688,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type batch_get_calculated_attribute_for_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_calculated_attribute_for_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1696,11 +1696,11 @@ defmodule AWS.CustomerProfiles do
 
       list_event_streams_response() :: %{
         "Items" => list(event_stream_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_event_streams_response() :: %{String.t() | Atom.t() => any()}
+  @type list_event_streams_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1708,11 +1708,11 @@ defmodule AWS.CustomerProfiles do
 
       list_object_type_attributes_response() :: %{
         "Items" => list(list_object_type_attribute_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_object_type_attributes_response() :: %{String.t() | Atom.t() => any()}
+  @type list_object_type_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1720,11 +1720,11 @@ defmodule AWS.CustomerProfiles do
 
       list_profile_objects_response() :: %{
         "Items" => list(list_profile_objects_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_profile_objects_response() :: %{String.t() | Atom.t() => any()}
+  @type list_profile_objects_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1734,13 +1734,13 @@ defmodule AWS.CustomerProfiles do
         "CreatedAt" => non_neg_integer(),
         "LastUpdatedAt" => non_neg_integer(),
         "Status" => list(any()),
-        "StatusDescription" => String.t() | Atom.t(),
-        "WorkflowId" => String.t() | Atom.t(),
+        "StatusDescription" => String.t() | atom(),
+        "WorkflowId" => String.t() | atom(),
         "WorkflowType" => list(any())
       }
 
   """
-  @type list_workflows_item() :: %{String.t() | Atom.t() => any()}
+  @type list_workflows_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1748,12 +1748,12 @@ defmodule AWS.CustomerProfiles do
 
       merge_profiles_request() :: %{
         optional("FieldSourceProfileIds") => field_source_profile_ids(),
-        required("MainProfileId") => String.t() | Atom.t(),
-        required("ProfileIdsToBeMerged") => list(String.t() | Atom.t())
+        required("MainProfileId") => String.t() | atom(),
+        required("ProfileIdsToBeMerged") => list(String.t() | atom())
       }
 
   """
-  @type merge_profiles_request() :: %{String.t() | Atom.t() => any()}
+  @type merge_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1766,7 +1766,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type appflow_integration_workflow_metrics() :: %{String.t() | Atom.t() => any()}
+  @type appflow_integration_workflow_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1774,18 +1774,18 @@ defmodule AWS.CustomerProfiles do
 
       get_event_trigger_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "EventTriggerConditions" => list(event_trigger_condition()),
         "EventTriggerLimits" => event_trigger_limits(),
-        "EventTriggerName" => String.t() | Atom.t(),
+        "EventTriggerName" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
-        "ObjectTypeName" => String.t() | Atom.t(),
-        "SegmentFilter" => String.t() | Atom.t(),
+        "ObjectTypeName" => String.t() | atom(),
+        "SegmentFilter" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type get_event_trigger_response() :: %{String.t() | Atom.t() => any()}
+  @type get_event_trigger_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1793,22 +1793,22 @@ defmodule AWS.CustomerProfiles do
 
       list_domains_response() :: %{
         "Items" => list(list_domain_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_domains_response() :: %{String.t() | Atom.t() => any()}
+  @type list_domains_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_upload_job_response() :: %{
-        "JobId" => String.t() | Atom.t()
+        "JobId" => String.t() | atom()
       }
 
   """
-  @type create_upload_job_response() :: %{String.t() | Atom.t() => any()}
+  @type create_upload_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1818,25 +1818,25 @@ defmodule AWS.CustomerProfiles do
         "AllowProfileCreation" => boolean(),
         "Fields" => map(),
         "Keys" => map(),
-        "SourceLastUpdatedTimestampFormat" => String.t() | Atom.t(),
-        "SourceName" => String.t() | Atom.t(),
-        "SourceObject" => String.t() | Atom.t(),
-        "TemplateId" => String.t() | Atom.t()
+        "SourceLastUpdatedTimestampFormat" => String.t() | atom(),
+        "SourceName" => String.t() | atom(),
+        "SourceObject" => String.t() | atom(),
+        "TemplateId" => String.t() | atom()
       }
 
   """
-  @type get_profile_object_type_template_response() :: %{String.t() | Atom.t() => any()}
+  @type get_profile_object_type_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_profile_response() :: %{
-        "ProfileId" => String.t() | Atom.t()
+        "ProfileId" => String.t() | atom()
       }
 
   """
-  @type create_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type create_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1844,11 +1844,11 @@ defmodule AWS.CustomerProfiles do
 
       get_matches_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_matches_request() :: %{String.t() | Atom.t() => any()}
+  @type get_matches_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1856,11 +1856,11 @@ defmodule AWS.CustomerProfiles do
 
       list_profile_object_types_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_profile_object_types_request() :: %{String.t() | Atom.t() => any()}
+  @type list_profile_object_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1868,7 +1868,7 @@ defmodule AWS.CustomerProfiles do
 
       list_workflows_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("QueryEndDate") => non_neg_integer(),
         optional("QueryStartDate") => non_neg_integer(),
         optional("Status") => list(any()),
@@ -1876,7 +1876,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type list_workflows_request() :: %{String.t() | Atom.t() => any()}
+  @type list_workflows_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1888,7 +1888,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type batch_get_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1899,7 +1899,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type exporting_config() :: %{String.t() | Atom.t() => any()}
+  @type exporting_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1908,11 +1908,11 @@ defmodule AWS.CustomerProfiles do
       destination_summary() :: %{
         "Status" => list(any()),
         "UnhealthySince" => non_neg_integer(),
-        "Uri" => String.t() | Atom.t()
+        "Uri" => String.t() | atom()
       }
 
   """
-  @type destination_summary() :: %{String.t() | Atom.t() => any()}
+  @type destination_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1920,19 +1920,19 @@ defmodule AWS.CustomerProfiles do
 
       update_domain_layout_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
         "IsDefault" => boolean(),
         "LastUpdatedAt" => non_neg_integer(),
-        "Layout" => String.t() | Atom.t(),
-        "LayoutDefinitionName" => String.t() | Atom.t(),
+        "Layout" => String.t() | atom(),
+        "LayoutDefinitionName" => String.t() | atom(),
         "LayoutType" => list(any()),
         "Tags" => map(),
-        "Version" => String.t() | Atom.t()
+        "Version" => String.t() | atom()
       }
 
   """
-  @type update_domain_layout_response() :: %{String.t() | Atom.t() => any()}
+  @type update_domain_layout_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1941,27 +1941,27 @@ defmodule AWS.CustomerProfiles do
       get_event_stream_response() :: %{
         "CreatedAt" => non_neg_integer(),
         "DestinationDetails" => event_stream_destination_details(),
-        "DomainName" => String.t() | Atom.t(),
-        "EventStreamArn" => String.t() | Atom.t(),
+        "DomainName" => String.t() | atom(),
+        "EventStreamArn" => String.t() | atom(),
         "State" => list(any()),
         "StoppedSince" => non_neg_integer(),
         "Tags" => map()
       }
 
   """
-  @type get_event_stream_response() :: %{String.t() | Atom.t() => any()}
+  @type get_event_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_exporting_location() :: %{
-        "S3BucketName" => String.t() | Atom.t(),
-        "S3KeyName" => String.t() | Atom.t()
+        "S3BucketName" => String.t() | atom(),
+        "S3KeyName" => String.t() | atom()
       }
 
   """
-  @type s3_exporting_location() :: %{String.t() | Atom.t() => any()}
+  @type s3_exporting_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1969,15 +1969,15 @@ defmodule AWS.CustomerProfiles do
 
       create_segment_definition_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
-        "SegmentDefinitionArn" => String.t() | Atom.t(),
-        "SegmentDefinitionName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "SegmentDefinitionArn" => String.t() | atom(),
+        "SegmentDefinitionName" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type create_segment_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type create_segment_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1991,7 +1991,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type matching_response() :: %{String.t() | Atom.t() => any()}
+  @type matching_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2004,18 +2004,18 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type conditions() :: %{String.t() | Atom.t() => any()}
+  @type conditions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       source_segment() :: %{
-        "SegmentDefinitionName" => String.t() | Atom.t()
+        "SegmentDefinitionName" => String.t() | atom()
       }
 
   """
-  @type source_segment() :: %{String.t() | Atom.t() => any()}
+  @type source_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2028,7 +2028,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type get_auto_merging_preview_request() :: %{String.t() | Atom.t() => any()}
+  @type get_auto_merging_preview_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2039,7 +2039,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2054,7 +2054,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type source_connector_properties() :: %{String.t() | Atom.t() => any()}
+  @type source_connector_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2070,11 +2070,11 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       get_integration_request() :: %{
-        required("Uri") => String.t() | Atom.t()
+        required("Uri") => String.t() | atom()
       }
 
   """
-  @type get_integration_request() :: %{String.t() | Atom.t() => any()}
+  @type get_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2085,7 +2085,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type event_trigger_dimension() :: %{String.t() | Atom.t() => any()}
+  @type event_trigger_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2093,37 +2093,37 @@ defmodule AWS.CustomerProfiles do
 
       list_calculated_attribute_definitions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_calculated_attribute_definitions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_calculated_attribute_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       consolidation() :: %{
-        "MatchingAttributesList" => list(list(String.t() | Atom.t())())
+        "MatchingAttributesList" => list(list(String.t() | atom())())
       }
 
   """
-  @type consolidation() :: %{String.t() | Atom.t() => any()}
+  @type consolidation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_domain_layout_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("DisplayName") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
         optional("IsDefault") => boolean(),
-        optional("Layout") => String.t() | Atom.t(),
+        optional("Layout") => String.t() | atom(),
         optional("LayoutType") => list(any())
       }
 
   """
-  @type update_domain_layout_request() :: %{String.t() | Atom.t() => any()}
+  @type update_domain_layout_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2140,19 +2140,19 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type rule_based_matching_request() :: %{String.t() | Atom.t() => any()}
+  @type rule_based_matching_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       object_type_key() :: %{
-        "FieldNames" => list(String.t() | Atom.t()),
+        "FieldNames" => list(String.t() | atom()),
         "StandardIdentifiers" => list(list(any())())
       }
 
   """
-  @type object_type_key() :: %{String.t() | Atom.t() => any()}
+  @type object_type_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2161,12 +2161,12 @@ defmodule AWS.CustomerProfiles do
       get_matches_response() :: %{
         "MatchGenerationDate" => non_neg_integer(),
         "Matches" => list(match_item()),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "PotentialMatches" => integer()
       }
 
   """
-  @type get_matches_response() :: %{String.t() | Atom.t() => any()}
+  @type get_matches_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2183,29 +2183,29 @@ defmodule AWS.CustomerProfiles do
 
       update_event_trigger_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "EventTriggerConditions" => list(event_trigger_condition()),
         "EventTriggerLimits" => event_trigger_limits(),
-        "EventTriggerName" => String.t() | Atom.t(),
+        "EventTriggerName" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
-        "ObjectTypeName" => String.t() | Atom.t(),
-        "SegmentFilter" => String.t() | Atom.t(),
+        "ObjectTypeName" => String.t() | atom(),
+        "SegmentFilter" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type update_event_trigger_response() :: %{String.t() | Atom.t() => any()}
+  @type update_event_trigger_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_segment_snapshot_response() :: %{
-        "SnapshotId" => String.t() | Atom.t()
+        "SnapshotId" => String.t() | atom()
       }
 
   """
-  @type create_segment_snapshot_response() :: %{String.t() | Atom.t() => any()}
+  @type create_segment_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2217,7 +2217,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type filter() :: %{String.t() | Atom.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2225,29 +2225,29 @@ defmodule AWS.CustomerProfiles do
 
       get_segment_snapshot_response() :: %{
         "DataFormat" => list(any()),
-        "DestinationUri" => String.t() | Atom.t(),
-        "EncryptionKey" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
-        "SnapshotId" => String.t() | Atom.t(),
+        "DestinationUri" => String.t() | atom(),
+        "EncryptionKey" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "SnapshotId" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type get_segment_snapshot_response() :: %{String.t() | Atom.t() => any()}
+  @type get_segment_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_profile_objects_item() :: %{
-        "Object" => String.t() | Atom.t(),
-        "ObjectTypeName" => String.t() | Atom.t(),
-        "ProfileObjectUniqueKey" => String.t() | Atom.t()
+        "Object" => String.t() | atom(),
+        "ObjectTypeName" => String.t() | atom(),
+        "ProfileObjectUniqueKey" => String.t() | atom()
       }
 
   """
-  @type list_profile_objects_item() :: %{String.t() | Atom.t() => any()}
+  @type list_profile_objects_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2255,11 +2255,11 @@ defmodule AWS.CustomerProfiles do
 
       list_calculated_attributes_for_profile_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_calculated_attributes_for_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type list_calculated_attributes_for_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2267,10 +2267,10 @@ defmodule AWS.CustomerProfiles do
 
       get_domain_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DeadLetterQueueUrl" => String.t() | Atom.t(),
-        "DefaultEncryptionKey" => String.t() | Atom.t(),
+        "DeadLetterQueueUrl" => String.t() | atom(),
+        "DefaultEncryptionKey" => String.t() | atom(),
         "DefaultExpirationDays" => integer(),
-        "DomainName" => String.t() | Atom.t(),
+        "DomainName" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
         "Matching" => matching_response(),
         "RuleBasedMatching" => rule_based_matching_response(),
@@ -2279,52 +2279,52 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type get_domain_response() :: %{String.t() | Atom.t() => any()}
+  @type get_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       field_source_profile_ids() :: %{
-        "AccountNumber" => String.t() | Atom.t(),
-        "AdditionalInformation" => String.t() | Atom.t(),
-        "Address" => String.t() | Atom.t(),
+        "AccountNumber" => String.t() | atom(),
+        "AdditionalInformation" => String.t() | atom(),
+        "Address" => String.t() | atom(),
         "Attributes" => map(),
-        "BillingAddress" => String.t() | Atom.t(),
-        "BirthDate" => String.t() | Atom.t(),
-        "BusinessEmailAddress" => String.t() | Atom.t(),
-        "BusinessName" => String.t() | Atom.t(),
-        "BusinessPhoneNumber" => String.t() | Atom.t(),
-        "EmailAddress" => String.t() | Atom.t(),
-        "FirstName" => String.t() | Atom.t(),
-        "Gender" => String.t() | Atom.t(),
-        "HomePhoneNumber" => String.t() | Atom.t(),
-        "LastName" => String.t() | Atom.t(),
-        "MailingAddress" => String.t() | Atom.t(),
-        "MiddleName" => String.t() | Atom.t(),
-        "MobilePhoneNumber" => String.t() | Atom.t(),
-        "PartyType" => String.t() | Atom.t(),
-        "PersonalEmailAddress" => String.t() | Atom.t(),
-        "PhoneNumber" => String.t() | Atom.t(),
-        "ShippingAddress" => String.t() | Atom.t()
+        "BillingAddress" => String.t() | atom(),
+        "BirthDate" => String.t() | atom(),
+        "BusinessEmailAddress" => String.t() | atom(),
+        "BusinessName" => String.t() | atom(),
+        "BusinessPhoneNumber" => String.t() | atom(),
+        "EmailAddress" => String.t() | atom(),
+        "FirstName" => String.t() | atom(),
+        "Gender" => String.t() | atom(),
+        "HomePhoneNumber" => String.t() | atom(),
+        "LastName" => String.t() | atom(),
+        "MailingAddress" => String.t() | atom(),
+        "MiddleName" => String.t() | atom(),
+        "MobilePhoneNumber" => String.t() | atom(),
+        "PartyType" => String.t() | atom(),
+        "PersonalEmailAddress" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "ShippingAddress" => String.t() | atom()
       }
 
   """
-  @type field_source_profile_ids() :: %{String.t() | Atom.t() => any()}
+  @type field_source_profile_ids() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       event_stream_destination_details() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "Status" => list(any()),
         "UnhealthySince" => non_neg_integer(),
-        "Uri" => String.t() | Atom.t()
+        "Uri" => String.t() | atom()
       }
 
   """
-  @type event_stream_destination_details() :: %{String.t() | Atom.t() => any()}
+  @type event_stream_destination_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2332,11 +2332,11 @@ defmodule AWS.CustomerProfiles do
 
       filter_attribute_dimension() :: %{
         "DimensionType" => list(any()),
-        "Values" => list(String.t() | Atom.t())
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type filter_attribute_dimension() :: %{String.t() | Atom.t() => any()}
+  @type filter_attribute_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2348,7 +2348,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type segment_group() :: %{String.t() | Atom.t() => any()}
+  @type segment_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2367,13 +2367,13 @@ defmodule AWS.CustomerProfiles do
         optional("AdditionalSearchKeys") => list(additional_search_key()),
         optional("LogicalOperator") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("KeyName") => String.t() | Atom.t(),
-        required("Values") => list(String.t() | Atom.t())
+        optional("NextToken") => String.t() | atom(),
+        required("KeyName") => String.t() | atom(),
+        required("Values") => list(String.t() | atom())
       }
 
   """
-  @type search_profiles_request() :: %{String.t() | Atom.t() => any()}
+  @type search_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2381,27 +2381,27 @@ defmodule AWS.CustomerProfiles do
 
       list_segment_definitions_response() :: %{
         "Items" => list(segment_definition_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_segment_definitions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_segment_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_segment_estimate_response() :: %{
-        "DomainName" => String.t() | Atom.t(),
-        "Estimate" => String.t() | Atom.t(),
-        "EstimateId" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t(),
+        "DomainName" => String.t() | atom(),
+        "Estimate" => String.t() | atom(),
+        "EstimateId" => String.t() | atom(),
+        "Message" => String.t() | atom(),
         "Status" => list(any()),
         "StatusCode" => integer()
       }
 
   """
-  @type get_segment_estimate_response() :: %{String.t() | Atom.t() => any()}
+  @type get_segment_estimate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2418,11 +2418,11 @@ defmodule AWS.CustomerProfiles do
 
       list_domains_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_domains_request() :: %{String.t() | Atom.t() => any()}
+  @type list_domains_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2438,25 +2438,25 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       source_flow_config() :: %{
-        "ConnectorProfileName" => String.t() | Atom.t(),
+        "ConnectorProfileName" => String.t() | atom(),
         "ConnectorType" => list(any()),
         "IncrementalPullConfig" => incremental_pull_config(),
         "SourceConnectorProperties" => source_connector_properties()
       }
 
   """
-  @type source_flow_config() :: %{String.t() | Atom.t() => any()}
+  @type source_flow_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2464,18 +2464,18 @@ defmodule AWS.CustomerProfiles do
 
       create_event_trigger_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "EventTriggerConditions" => list(event_trigger_condition()),
         "EventTriggerLimits" => event_trigger_limits(),
-        "EventTriggerName" => String.t() | Atom.t(),
+        "EventTriggerName" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
-        "ObjectTypeName" => String.t() | Atom.t(),
-        "SegmentFilter" => String.t() | Atom.t(),
+        "ObjectTypeName" => String.t() | atom(),
+        "SegmentFilter" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type create_event_trigger_response() :: %{String.t() | Atom.t() => any()}
+  @type create_event_trigger_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2483,13 +2483,13 @@ defmodule AWS.CustomerProfiles do
 
       object_attribute() :: %{
         "ComparisonOperator" => list(any()),
-        "FieldName" => String.t() | Atom.t(),
-        "Source" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "FieldName" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type object_attribute() :: %{String.t() | Atom.t() => any()}
+  @type object_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2501,7 +2501,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type value_range() :: %{String.t() | Atom.t() => any()}
+  @type value_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2519,11 +2519,11 @@ defmodule AWS.CustomerProfiles do
       salesforce_source_properties() :: %{
         "EnableDynamicFieldUpdate" => boolean(),
         "IncludeDeletedRecords" => boolean(),
-        "Object" => String.t() | Atom.t()
+        "Object" => String.t() | atom()
       }
 
   """
-  @type salesforce_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type salesforce_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2531,13 +2531,13 @@ defmodule AWS.CustomerProfiles do
 
       get_workflow_steps_response() :: %{
         "Items" => list(workflow_step_item()),
-        "NextToken" => String.t() | Atom.t(),
-        "WorkflowId" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
+        "WorkflowId" => String.t() | atom(),
         "WorkflowType" => list(any())
       }
 
   """
-  @type get_workflow_steps_response() :: %{String.t() | Atom.t() => any()}
+  @type get_workflow_steps_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2546,14 +2546,14 @@ defmodule AWS.CustomerProfiles do
       create_domain_layout_request() :: %{
         optional("IsDefault") => boolean(),
         optional("Tags") => map(),
-        required("Description") => String.t() | Atom.t(),
-        required("DisplayName") => String.t() | Atom.t(),
-        required("Layout") => String.t() | Atom.t(),
+        required("Description") => String.t() | atom(),
+        required("DisplayName") => String.t() | atom(),
+        required("Layout") => String.t() | atom(),
         required("LayoutType") => list(any())
       }
 
   """
-  @type create_domain_layout_request() :: %{String.t() | Atom.t() => any()}
+  @type create_domain_layout_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2561,11 +2561,11 @@ defmodule AWS.CustomerProfiles do
 
       list_calculated_attributes_for_profile_response() :: %{
         "Items" => list(list_calculated_attribute_for_profile_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_calculated_attributes_for_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type list_calculated_attributes_for_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2573,22 +2573,22 @@ defmodule AWS.CustomerProfiles do
 
       get_workflow_steps_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_workflow_steps_request() :: %{String.t() | Atom.t() => any()}
+  @type get_workflow_steps_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_segment_membership_request() :: %{
-        required("ProfileIds") => list(String.t() | Atom.t())
+        required("ProfileIds") => list(String.t() | atom())
       }
 
   """
-  @type get_segment_membership_request() :: %{String.t() | Atom.t() => any()}
+  @type get_segment_membership_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2608,32 +2608,32 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type filter_dimension() :: %{String.t() | Atom.t() => any()}
+  @type filter_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_auto_merging_preview_response() :: %{
-        "DomainName" => String.t() | Atom.t(),
+        "DomainName" => String.t() | atom(),
         "NumberOfMatchesInSample" => float(),
         "NumberOfProfilesInSample" => float(),
         "NumberOfProfilesWillBeMerged" => float()
       }
 
   """
-  @type get_auto_merging_preview_response() :: %{String.t() | Atom.t() => any()}
+  @type get_auto_merging_preview_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2641,23 +2641,23 @@ defmodule AWS.CustomerProfiles do
 
       search_profiles_response() :: %{
         "Items" => list(profile()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type search_profiles_response() :: %{String.t() | Atom.t() => any()}
+  @type search_profiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_integration_workflow_response() :: %{
-        "Message" => String.t() | Atom.t(),
-        "WorkflowId" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "WorkflowId" => String.t() | atom()
       }
 
   """
-  @type create_integration_workflow_response() :: %{String.t() | Atom.t() => any()}
+  @type create_integration_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2665,26 +2665,26 @@ defmodule AWS.CustomerProfiles do
 
       update_calculated_attribute_definition_request() :: %{
         optional("Conditions") => conditions(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("DisplayName") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom()
       }
 
   """
-  @type update_calculated_attribute_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type update_calculated_attribute_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_segment_definition_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
-        required("DisplayName") => String.t() | Atom.t(),
+        required("DisplayName") => String.t() | atom(),
         required("SegmentGroups") => segment_group()
       }
 
   """
-  @type create_segment_definition_request() :: %{String.t() | Atom.t() => any()}
+  @type create_segment_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2700,18 +2700,18 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       identity_resolution_job() :: %{
-        "DomainName" => String.t() | Atom.t(),
+        "DomainName" => String.t() | atom(),
         "ExportingLocation" => exporting_location(),
         "JobEndTime" => non_neg_integer(),
-        "JobId" => String.t() | Atom.t(),
+        "JobId" => String.t() | atom(),
         "JobStartTime" => non_neg_integer(),
         "JobStats" => job_stats(),
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type identity_resolution_job() :: %{String.t() | Atom.t() => any()}
+  @type identity_resolution_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2719,11 +2719,11 @@ defmodule AWS.CustomerProfiles do
 
       batch_get_calculated_attribute_for_profile_request() :: %{
         optional("ConditionOverrides") => condition_overrides(),
-        required("ProfileIds") => list(String.t() | Atom.t())
+        required("ProfileIds") => list(String.t() | atom())
       }
 
   """
-  @type batch_get_calculated_attribute_for_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_calculated_attribute_for_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2739,14 +2739,14 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       attribute_types_selector() :: %{
-        "Address" => list(String.t() | Atom.t()),
+        "Address" => list(String.t() | atom()),
         "AttributeMatchingModel" => list(any()),
-        "EmailAddress" => list(String.t() | Atom.t()),
-        "PhoneNumber" => list(String.t() | Atom.t())
+        "EmailAddress" => list(String.t() | atom()),
+        "PhoneNumber" => list(String.t() | atom())
       }
 
   """
-  @type attribute_types_selector() :: %{String.t() | Atom.t() => any()}
+  @type attribute_types_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2756,38 +2756,38 @@ defmodule AWS.CustomerProfiles do
         "CompletedAt" => non_neg_integer(),
         "CreatedAt" => non_neg_integer(),
         "DataExpiry" => integer(),
-        "DisplayName" => String.t() | Atom.t(),
-        "JobId" => String.t() | Atom.t(),
+        "DisplayName" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
         "Status" => list(any()),
         "StatusReason" => list(any())
       }
 
   """
-  @type upload_job_item() :: %{String.t() | Atom.t() => any()}
+  @type upload_job_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_profile_response() :: %{
-        "ProfileId" => String.t() | Atom.t()
+        "ProfileId" => String.t() | atom()
       }
 
   """
-  @type update_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type update_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_upload_job_path_response() :: %{
-        "ClientToken" => String.t() | Atom.t(),
-        "Url" => String.t() | Atom.t(),
+        "ClientToken" => String.t() | atom(),
+        "Url" => String.t() | atom(),
         "ValidUntil" => non_neg_integer()
       }
 
   """
-  @type get_upload_job_path_response() :: %{String.t() | Atom.t() => any()}
+  @type get_upload_job_path_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2795,19 +2795,19 @@ defmodule AWS.CustomerProfiles do
 
       put_profile_object_type_request() :: %{
         optional("AllowProfileCreation") => boolean(),
-        optional("EncryptionKey") => String.t() | Atom.t(),
+        optional("EncryptionKey") => String.t() | atom(),
         optional("ExpirationDays") => integer(),
         optional("Fields") => map(),
         optional("Keys") => map(),
         optional("MaxProfileObjectCount") => integer(),
-        optional("SourceLastUpdatedTimestampFormat") => String.t() | Atom.t(),
+        optional("SourceLastUpdatedTimestampFormat") => String.t() | atom(),
         optional("Tags") => map(),
-        optional("TemplateId") => String.t() | Atom.t(),
-        required("Description") => String.t() | Atom.t()
+        optional("TemplateId") => String.t() | atom(),
+        required("Description") => String.t() | atom()
       }
 
   """
-  @type put_profile_object_type_request() :: %{String.t() | Atom.t() => any()}
+  @type put_profile_object_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2819,7 +2819,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type batch() :: %{String.t() | Atom.t() => any()}
+  @type batch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2837,34 +2837,34 @@ defmodule AWS.CustomerProfiles do
       get_segment_membership_response() :: %{
         "Failures" => list(profile_query_failures()),
         "Profiles" => list(profile_query_result()),
-        "SegmentDefinitionName" => String.t() | Atom.t()
+        "SegmentDefinitionName" => String.t() | atom()
       }
 
   """
-  @type get_segment_membership_response() :: %{String.t() | Atom.t() => any()}
+  @type get_segment_membership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_exporting_config() :: %{
-        "S3BucketName" => String.t() | Atom.t(),
-        "S3KeyName" => String.t() | Atom.t()
+        "S3BucketName" => String.t() | atom(),
+        "S3KeyName" => String.t() | atom()
       }
 
   """
-  @type s3_exporting_config() :: %{String.t() | Atom.t() => any()}
+  @type s3_exporting_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2872,11 +2872,11 @@ defmodule AWS.CustomerProfiles do
 
       attribute_dimension() :: %{
         "DimensionType" => list(any()),
-        "Values" => list(String.t() | Atom.t())
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type attribute_dimension() :: %{String.t() | Atom.t() => any()}
+  @type attribute_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2890,7 +2890,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type group() :: %{String.t() | Atom.t() => any()}
+  @type group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2898,10 +2898,10 @@ defmodule AWS.CustomerProfiles do
 
       create_domain_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DeadLetterQueueUrl" => String.t() | Atom.t(),
-        "DefaultEncryptionKey" => String.t() | Atom.t(),
+        "DeadLetterQueueUrl" => String.t() | atom(),
+        "DefaultEncryptionKey" => String.t() | atom(),
         "DefaultExpirationDays" => integer(),
-        "DomainName" => String.t() | Atom.t(),
+        "DomainName" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
         "Matching" => matching_response(),
         "RuleBasedMatching" => rule_based_matching_response(),
@@ -2909,7 +2909,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type create_domain_response() :: %{String.t() | Atom.t() => any()}
+  @type create_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2917,14 +2917,14 @@ defmodule AWS.CustomerProfiles do
 
       list_profile_objects_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ObjectFilter") => object_filter(),
-        required("ObjectTypeName") => String.t() | Atom.t(),
-        required("ProfileId") => String.t() | Atom.t()
+        required("ObjectTypeName") => String.t() | atom(),
+        required("ProfileId") => String.t() | atom()
       }
 
   """
-  @type list_profile_objects_request() :: %{String.t() | Atom.t() => any()}
+  @type list_profile_objects_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2932,13 +2932,13 @@ defmodule AWS.CustomerProfiles do
 
       create_upload_job_request() :: %{
         optional("DataExpiry") => integer(),
-        required("DisplayName") => String.t() | Atom.t(),
+        required("DisplayName") => String.t() | atom(),
         required("Fields") => map(),
-        required("UniqueKey") => String.t() | Atom.t()
+        required("UniqueKey") => String.t() | atom()
       }
 
   """
-  @type create_upload_job_request() :: %{String.t() | Atom.t() => any()}
+  @type create_upload_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2946,11 +2946,11 @@ defmodule AWS.CustomerProfiles do
 
       list_profile_object_type_templates_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_profile_object_type_templates_request() :: %{String.t() | Atom.t() => any()}
+  @type list_profile_object_type_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2958,15 +2958,15 @@ defmodule AWS.CustomerProfiles do
 
       event_trigger_summary_item() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "EventTriggerName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "EventTriggerName" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
-        "ObjectTypeName" => String.t() | Atom.t(),
+        "ObjectTypeName" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type event_trigger_summary_item() :: %{String.t() | Atom.t() => any()}
+  @type event_trigger_summary_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2974,11 +2974,11 @@ defmodule AWS.CustomerProfiles do
 
       create_event_stream_request() :: %{
         optional("Tags") => map(),
-        required("Uri") => String.t() | Atom.t()
+        required("Uri") => String.t() | atom()
       }
 
   """
-  @type create_event_stream_request() :: %{String.t() | Atom.t() => any()}
+  @type create_event_stream_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2986,11 +2986,11 @@ defmodule AWS.CustomerProfiles do
 
       threshold() :: %{
         "Operator" => list(any()),
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type threshold() :: %{String.t() | Atom.t() => any()}
+  @type threshold() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2999,11 +2999,11 @@ defmodule AWS.CustomerProfiles do
       detected_profile_object_type() :: %{
         "Fields" => map(),
         "Keys" => map(),
-        "SourceLastUpdatedTimestampFormat" => String.t() | Atom.t()
+        "SourceLastUpdatedTimestampFormat" => String.t() | atom()
       }
 
   """
-  @type detected_profile_object_type() :: %{String.t() | Atom.t() => any()}
+  @type detected_profile_object_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3011,33 +3011,33 @@ defmodule AWS.CustomerProfiles do
 
       list_upload_jobs_response() :: %{
         "Items" => list(upload_job_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_upload_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_upload_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_profile_request() :: %{
-        required("ProfileIds") => list(String.t() | Atom.t())
+        required("ProfileIds") => list(String.t() | atom())
       }
 
   """
-  @type batch_get_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_segment_definition_response() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type delete_segment_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_segment_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3053,26 +3053,26 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       update_event_trigger_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("EventTriggerConditions") => list(event_trigger_condition()),
         optional("EventTriggerLimits") => event_trigger_limits(),
-        optional("ObjectTypeName") => String.t() | Atom.t(),
-        optional("SegmentFilter") => String.t() | Atom.t()
+        optional("ObjectTypeName") => String.t() | atom(),
+        optional("SegmentFilter") => String.t() | atom()
       }
 
   """
-  @type update_event_trigger_request() :: %{String.t() | Atom.t() => any()}
+  @type update_event_trigger_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3086,7 +3086,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type period() :: %{String.t() | Atom.t() => any()}
+  @type period() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3101,7 +3101,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type connector_operator() :: %{String.t() | Atom.t() => any()}
+  @type connector_operator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3126,12 +3126,12 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       put_profile_object_request() :: %{
-        required("Object") => String.t() | Atom.t(),
-        required("ObjectTypeName") => String.t() | Atom.t()
+        required("Object") => String.t() | atom(),
+        required("ObjectTypeName") => String.t() | atom()
       }
 
   """
-  @type put_profile_object_request() :: %{String.t() | Atom.t() => any()}
+  @type put_profile_object_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3148,17 +3148,17 @@ defmodule AWS.CustomerProfiles do
 
       layout_item() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
         "IsDefault" => boolean(),
         "LastUpdatedAt" => non_neg_integer(),
-        "LayoutDefinitionName" => String.t() | Atom.t(),
+        "LayoutDefinitionName" => String.t() | atom(),
         "LayoutType" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type layout_item() :: %{String.t() | Atom.t() => any()}
+  @type layout_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3170,7 +3170,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type appflow_integration() :: %{String.t() | Atom.t() => any()}
+  @type appflow_integration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3178,26 +3178,26 @@ defmodule AWS.CustomerProfiles do
 
       list_domain_layouts_response() :: %{
         "Items" => list(layout_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_domain_layouts_response() :: %{String.t() | Atom.t() => any()}
+  @type list_domain_layouts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_calculated_attribute_for_profile_item() :: %{
-        "CalculatedAttributeName" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
-        "IsDataPartial" => String.t() | Atom.t(),
+        "CalculatedAttributeName" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "IsDataPartial" => String.t() | atom(),
         "LastObjectTimestamp" => non_neg_integer(),
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type list_calculated_attribute_for_profile_item() :: %{String.t() | Atom.t() => any()}
+  @type list_calculated_attribute_for_profile_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3205,58 +3205,58 @@ defmodule AWS.CustomerProfiles do
 
       list_event_streams_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_event_streams_request() :: %{String.t() | Atom.t() => any()}
+  @type list_event_streams_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       address() :: %{
-        "Address1" => String.t() | Atom.t(),
-        "Address2" => String.t() | Atom.t(),
-        "Address3" => String.t() | Atom.t(),
-        "Address4" => String.t() | Atom.t(),
-        "City" => String.t() | Atom.t(),
-        "Country" => String.t() | Atom.t(),
-        "County" => String.t() | Atom.t(),
-        "PostalCode" => String.t() | Atom.t(),
-        "Province" => String.t() | Atom.t(),
-        "State" => String.t() | Atom.t()
+        "Address1" => String.t() | atom(),
+        "Address2" => String.t() | atom(),
+        "Address3" => String.t() | atom(),
+        "Address4" => String.t() | atom(),
+        "City" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "County" => String.t() | atom(),
+        "PostalCode" => String.t() | atom(),
+        "Province" => String.t() | atom(),
+        "State" => String.t() | atom()
       }
 
   """
-  @type address() :: %{String.t() | Atom.t() => any()}
+  @type address() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       profile_attribute_values_response() :: %{
-        "AttributeName" => String.t() | Atom.t(),
-        "DomainName" => String.t() | Atom.t(),
+        "AttributeName" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
         "Items" => list(attribute_value_item()),
         "StatusCode" => integer()
       }
 
   """
-  @type profile_attribute_values_response() :: %{String.t() | Atom.t() => any()}
+  @type profile_attribute_values_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_profile_object_request() :: %{
-        required("ObjectTypeName") => String.t() | Atom.t(),
-        required("ProfileId") => String.t() | Atom.t(),
-        required("ProfileObjectUniqueKey") => String.t() | Atom.t()
+        required("ObjectTypeName") => String.t() | atom(),
+        required("ProfileId") => String.t() | atom(),
+        required("ProfileObjectUniqueKey") => String.t() | atom()
       }
 
   """
-  @type delete_profile_object_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_profile_object_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3264,11 +3264,11 @@ defmodule AWS.CustomerProfiles do
 
       list_calculated_attribute_definitions_response() :: %{
         "Items" => list(list_calculated_attribute_definition_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_calculated_attribute_definitions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_calculated_attribute_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3285,23 +3285,23 @@ defmodule AWS.CustomerProfiles do
 
       list_workflows_response() :: %{
         "Items" => list(list_workflows_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_workflows_response() :: %{String.t() | Atom.t() => any()}
+  @type list_workflows_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       readiness() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "ProgressPercentage" => integer()
       }
 
   """
-  @type readiness() :: %{String.t() | Atom.t() => any()}
+  @type readiness() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3309,11 +3309,11 @@ defmodule AWS.CustomerProfiles do
 
       extra_length_value_profile_dimension() :: %{
         "DimensionType" => list(any()),
-        "Values" => list(String.t() | Atom.t())
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type extra_length_value_profile_dimension() :: %{String.t() | Atom.t() => any()}
+  @type extra_length_value_profile_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3326,7 +3326,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type results_summary() :: %{String.t() | Atom.t() => any()}
+  @type results_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3343,22 +3343,22 @@ defmodule AWS.CustomerProfiles do
 
       list_profile_object_type_templates_response() :: %{
         "Items" => list(list_profile_object_type_template_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_profile_object_type_templates_response() :: %{String.t() | Atom.t() => any()}
+  @type list_profile_object_type_templates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_profile_object_type_response() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type delete_profile_object_type_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_profile_object_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3366,22 +3366,22 @@ defmodule AWS.CustomerProfiles do
 
       list_account_integrations_response() :: %{
         "Items" => list(list_integration_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_account_integrations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_account_integrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_now_source_properties() :: %{
-        "Object" => String.t() | Atom.t()
+        "Object" => String.t() | atom()
       }
 
   """
-  @type service_now_source_properties() :: %{String.t() | Atom.t() => any()}
+  @type service_now_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3389,20 +3389,20 @@ defmodule AWS.CustomerProfiles do
 
       list_integration_item() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DomainName" => String.t() | Atom.t(),
-        "EventTriggerNames" => list(String.t() | Atom.t()),
+        "DomainName" => String.t() | atom(),
+        "EventTriggerNames" => list(String.t() | atom()),
         "IsUnstructured" => boolean(),
         "LastUpdatedAt" => non_neg_integer(),
-        "ObjectTypeName" => String.t() | Atom.t(),
+        "ObjectTypeName" => String.t() | atom(),
         "ObjectTypeNames" => map(),
-        "RoleArn" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | atom(),
         "Tags" => map(),
-        "Uri" => String.t() | Atom.t(),
-        "WorkflowId" => String.t() | Atom.t()
+        "Uri" => String.t() | atom(),
+        "WorkflowId" => String.t() | atom()
       }
 
   """
-  @type list_integration_item() :: %{String.t() | Atom.t() => any()}
+  @type list_integration_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3422,7 +3422,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type workflow_metrics() :: %{String.t() | Atom.t() => any()}
+  @type workflow_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3438,24 +3438,24 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       incremental_pull_config() :: %{
-        "DatetimeTypeFieldName" => String.t() | Atom.t()
+        "DatetimeTypeFieldName" => String.t() | atom()
       }
 
   """
-  @type incremental_pull_config() :: %{String.t() | Atom.t() => any()}
+  @type incremental_pull_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_profile_error() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t(),
-        "ProfileId" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "ProfileId" => String.t() | atom()
       }
 
   """
-  @type batch_get_profile_error() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_profile_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3463,23 +3463,23 @@ defmodule AWS.CustomerProfiles do
 
       list_domain_layouts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_domain_layouts_request() :: %{String.t() | Atom.t() => any()}
+  @type list_domain_layouts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_event_stream_response() :: %{
-        "EventStreamArn" => String.t() | Atom.t(),
+        "EventStreamArn" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type create_event_stream_response() :: %{String.t() | Atom.t() => any()}
+  @type create_event_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3500,20 +3500,20 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type trigger_config() :: %{String.t() | Atom.t() => any()}
+  @type trigger_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       add_profile_key_request() :: %{
-        required("KeyName") => String.t() | Atom.t(),
-        required("ProfileId") => String.t() | Atom.t(),
-        required("Values") => list(String.t() | Atom.t())
+        required("KeyName") => String.t() | atom(),
+        required("ProfileId") => String.t() | atom(),
+        required("Values") => list(String.t() | atom())
       }
 
   """
-  @type add_profile_key_request() :: %{String.t() | Atom.t() => any()}
+  @type add_profile_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3527,7 +3527,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type matching_request() :: %{String.t() | Atom.t() => any()}
+  @type matching_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3558,7 +3558,7 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type profile_attributes() :: %{String.t() | Atom.t() => any()}
+  @type profile_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3566,11 +3566,11 @@ defmodule AWS.CustomerProfiles do
 
       get_calculated_attribute_definition_response() :: %{
         "AttributeDetails" => attribute_details(),
-        "CalculatedAttributeName" => String.t() | Atom.t(),
+        "CalculatedAttributeName" => String.t() | atom(),
         "Conditions" => conditions(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
         "Filter" => filter(),
         "LastUpdatedAt" => non_neg_integer(),
         "Readiness" => readiness(),
@@ -3581,20 +3581,20 @@ defmodule AWS.CustomerProfiles do
       }
 
   """
-  @type get_calculated_attribute_definition_response() :: %{String.t() | Atom.t() => any()}
+  @type get_calculated_attribute_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_segment_estimate_response() :: %{
-        "DomainName" => String.t() | Atom.t(),
-        "EstimateId" => String.t() | Atom.t(),
+        "DomainName" => String.t() | atom(),
+        "EstimateId" => String.t() | atom(),
         "StatusCode" => integer()
       }
 
   """
-  @type create_segment_estimate_response() :: %{String.t() | Atom.t() => any()}
+  @type create_segment_estimate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3602,11 +3602,11 @@ defmodule AWS.CustomerProfiles do
 
       list_profile_object_types_response() :: %{
         "Items" => list(list_profile_object_type_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_profile_object_types_response() :: %{String.t() | Atom.t() => any()}
+  @type list_profile_object_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3623,11 +3623,11 @@ defmodule AWS.CustomerProfiles do
 
       list_integrations_response() :: %{
         "Items" => list(list_integration_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_integrations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_integrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3635,17 +3635,17 @@ defmodule AWS.CustomerProfiles do
 
       get_workflow_response() :: %{
         "Attributes" => workflow_attributes(),
-        "ErrorDescription" => String.t() | Atom.t(),
+        "ErrorDescription" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
         "Metrics" => workflow_metrics(),
         "StartDate" => non_neg_integer(),
         "Status" => list(any()),
-        "WorkflowId" => String.t() | Atom.t(),
+        "WorkflowId" => String.t() | atom(),
         "WorkflowType" => list(any())
       }
 
   """
-  @type get_workflow_response() :: %{String.t() | Atom.t() => any()}
+  @type get_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3653,16 +3653,16 @@ defmodule AWS.CustomerProfiles do
 
       event_stream_summary() :: %{
         "DestinationSummary" => destination_summary(),
-        "DomainName" => String.t() | Atom.t(),
-        "EventStreamArn" => String.t() | Atom.t(),
-        "EventStreamName" => String.t() | Atom.t(),
+        "DomainName" => String.t() | atom(),
+        "EventStreamArn" => String.t() | atom(),
+        "EventStreamName" => String.t() | atom(),
         "State" => list(any()),
         "StoppedSince" => non_neg_integer(),
         "Tags" => map()
       }
 
   """
-  @type event_stream_summary() :: %{String.t() | Atom.t() => any()}
+  @type event_stream_summary() :: %{(String.t() | atom()) => any()}
 
   @type add_profile_key_errors() ::
           bad_request_exception()
@@ -4242,7 +4242,7 @@ defmodule AWS.CustomerProfiles do
   that can
   be used to identify the profile that it belongs to.
   """
-  @spec add_profile_key(map(), String.t() | Atom.t(), add_profile_key_request(), list()) ::
+  @spec add_profile_key(map(), String.t() | atom(), add_profile_key_request(), list()) ::
           {:ok, add_profile_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4273,8 +4273,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec batch_get_calculated_attribute_for_profile(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           batch_get_calculated_attribute_for_profile_request(),
           list()
         ) ::
@@ -4314,7 +4314,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Get a batch of profiles.
   """
-  @spec batch_get_profile(map(), String.t() | Atom.t(), batch_get_profile_request(), list()) ::
+  @spec batch_get_profile(map(), String.t() | atom(), batch_get_profile_request(), list()) ::
           {:ok, batch_get_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4356,8 +4356,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec create_calculated_attribute_definition(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_calculated_attribute_definition_request(),
           list()
         ) ::
@@ -4426,7 +4426,7 @@ defmodule AWS.CustomerProfiles do
   Amazon Connect instances
   can be associated with one domain.
   """
-  @spec create_domain(map(), String.t() | Atom.t(), create_domain_request(), list()) ::
+  @spec create_domain(map(), String.t() | atom(), create_domain_request(), list()) ::
           {:ok, create_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4460,8 +4460,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec create_domain_layout(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_domain_layout_request(),
           list()
         ) ::
@@ -4509,8 +4509,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec create_event_stream(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_event_stream_request(),
           list()
         ) ::
@@ -4558,8 +4558,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec create_event_trigger(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_event_trigger_request(),
           list()
         ) ::
@@ -4605,7 +4605,7 @@ defmodule AWS.CustomerProfiles do
   """
   @spec create_integration_workflow(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_integration_workflow_request(),
           list()
         ) ::
@@ -4641,7 +4641,7 @@ defmodule AWS.CustomerProfiles do
   a
   domain.
   """
-  @spec create_profile(map(), String.t() | Atom.t(), create_profile_request(), list()) ::
+  @spec create_profile(map(), String.t() | atom(), create_profile_request(), list()) ::
           {:ok, create_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4672,8 +4672,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec create_segment_definition(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_segment_definition_request(),
           list()
         ) ::
@@ -4715,7 +4715,7 @@ defmodule AWS.CustomerProfiles do
   """
   @spec create_segment_estimate(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_segment_estimate_request(),
           list()
         ) ::
@@ -4749,8 +4749,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec create_segment_snapshot(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_segment_snapshot_request(),
           list()
         ) ::
@@ -4793,7 +4793,7 @@ defmodule AWS.CustomerProfiles do
   The metadata is created for
   the job with the provided field mapping and unique key.
   """
-  @spec create_upload_job(map(), String.t() | Atom.t(), create_upload_job_request(), list()) ::
+  @spec create_upload_job(map(), String.t() | atom(), create_upload_job_request(), list()) ::
           {:ok, create_upload_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4830,8 +4830,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec delete_calculated_attribute_definition(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_calculated_attribute_definition_request(),
           list()
         ) ::
@@ -4872,7 +4872,7 @@ defmodule AWS.CustomerProfiles do
   Deletes a specific domain and all of its customer data, such as customer profile
   attributes and their related objects.
   """
-  @spec delete_domain(map(), String.t() | Atom.t(), delete_domain_request(), list()) ::
+  @spec delete_domain(map(), String.t() | atom(), delete_domain_request(), list()) ::
           {:ok, delete_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4906,8 +4906,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec delete_domain_layout(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_domain_layout_request(),
           list()
         ) ::
@@ -4949,8 +4949,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec delete_event_stream(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_event_stream_request(),
           list()
         ) ::
@@ -4994,8 +4994,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec delete_event_trigger(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_event_trigger_request(),
           list()
         ) ::
@@ -5035,7 +5035,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Removes an integration from a specific domain.
   """
-  @spec delete_integration(map(), String.t() | Atom.t(), delete_integration_request(), list()) ::
+  @spec delete_integration(map(), String.t() | atom(), delete_integration_request(), list()) ::
           {:ok, delete_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5064,7 +5064,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Deletes the standard customer profile and all data pertaining to the profile.
   """
-  @spec delete_profile(map(), String.t() | Atom.t(), delete_profile_request(), list()) ::
+  @spec delete_profile(map(), String.t() | atom(), delete_profile_request(), list()) ::
           {:ok, delete_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5093,7 +5093,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Removes a searchable key from a customer profile.
   """
-  @spec delete_profile_key(map(), String.t() | Atom.t(), delete_profile_key_request(), list()) ::
+  @spec delete_profile_key(map(), String.t() | atom(), delete_profile_key_request(), list()) ::
           {:ok, delete_profile_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5122,12 +5122,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Removes an object associated with a profile of a given ProfileObjectType.
   """
-  @spec delete_profile_object(
-          map(),
-          String.t() | Atom.t(),
-          delete_profile_object_request(),
-          list()
-        ) ::
+  @spec delete_profile_object(map(), String.t() | atom(), delete_profile_object_request(), list()) ::
           {:ok, delete_profile_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5164,8 +5159,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec delete_profile_object_type(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_profile_object_type_request(),
           list()
         ) ::
@@ -5207,8 +5202,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec delete_segment_definition(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_segment_definition_request(),
           list()
         ) ::
@@ -5253,8 +5248,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec delete_workflow(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_workflow_request(),
           list()
         ) ::
@@ -5290,7 +5285,7 @@ defmodule AWS.CustomerProfiles do
   """
   @spec detect_profile_object_type(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           detect_profile_object_type_request(),
           list()
         ) ::
@@ -5343,7 +5338,7 @@ defmodule AWS.CustomerProfiles do
   """
   @spec get_auto_merging_preview(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           get_auto_merging_preview_request(),
           list()
         ) ::
@@ -5380,8 +5375,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec get_calculated_attribute_definition(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_calculated_attribute_definition_response(), any()}
@@ -5410,9 +5405,9 @@ defmodule AWS.CustomerProfiles do
   """
   @spec get_calculated_attribute_for_profile(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_calculated_attribute_for_profile_response(), any()}
@@ -5440,7 +5435,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Returns information about a specific domain.
   """
-  @spec get_domain(map(), String.t() | Atom.t(), list()) ::
+  @spec get_domain(map(), String.t() | atom(), list()) ::
           {:ok, get_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5461,7 +5456,7 @@ defmodule AWS.CustomerProfiles do
   This API can only be invoked from
   the Amazon Connect admin website.
   """
-  @spec get_domain_layout(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_domain_layout(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_domain_layout_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5481,7 +5476,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Returns information about the specified event stream in a specific domain.
   """
-  @spec get_event_stream(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_event_stream(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5501,7 +5496,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Get a specific Event Trigger from the domain.
   """
-  @spec get_event_trigger(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_event_trigger(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_event_trigger_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5525,7 +5520,7 @@ defmodule AWS.CustomerProfiles do
   more information, see [Use Identity Resolution to consolidate similar
   profiles](https://docs.aws.amazon.com/connect/latest/adminguide/use-identity-resolution.html).
   """
-  @spec get_identity_resolution_job(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_identity_resolution_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_identity_resolution_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5545,7 +5540,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Returns an integration for a domain.
   """
-  @spec get_integration(map(), String.t() | Atom.t(), get_integration_request(), list()) ::
+  @spec get_integration(map(), String.t() | atom(), get_integration_request(), list()) ::
           {:ok, get_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5630,9 +5625,9 @@ defmodule AWS.CustomerProfiles do
   """
   @spec get_matches(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_matches_response(), any()}
@@ -5672,7 +5667,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Returns the object types for a specific domain.
   """
-  @spec get_profile_object_type(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_profile_object_type(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_profile_object_type_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5699,7 +5694,7 @@ defmodule AWS.CustomerProfiles do
   from the
   template.
   """
-  @spec get_profile_object_type_template(map(), String.t() | Atom.t(), list()) ::
+  @spec get_profile_object_type_template(map(), String.t() | atom(), list()) ::
           {:ok, get_profile_object_type_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5717,7 +5712,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Gets a segment definition from the domain.
   """
-  @spec get_segment_definition(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_segment_definition(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_segment_definition_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5742,7 +5737,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Gets the result of a segment estimate query.
   """
-  @spec get_segment_estimate(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_segment_estimate(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_segment_estimate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5764,8 +5759,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec get_segment_membership(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           get_segment_membership_request(),
           list()
         ) ::
@@ -5807,9 +5802,9 @@ defmodule AWS.CustomerProfiles do
   """
   @spec get_segment_snapshot(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_segment_snapshot_response(), any()}
@@ -5842,7 +5837,7 @@ defmodule AWS.CustomerProfiles do
   matching that you want for finding similar profiles using either
   `RULE_BASED_MATCHING` or `ML_BASED_MATCHING`.
   """
-  @spec get_similar_profiles(map(), String.t() | Atom.t(), get_similar_profiles_request(), list()) ::
+  @spec get_similar_profiles(map(), String.t() | atom(), get_similar_profiles_request(), list()) ::
           {:ok, get_similar_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5877,7 +5872,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   This API retrieves the details of a specific upload job.
   """
-  @spec get_upload_job(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_upload_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_upload_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5899,7 +5894,7 @@ defmodule AWS.CustomerProfiles do
   associated
   with the upload job.
   """
-  @spec get_upload_job_path(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_upload_job_path(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_upload_job_path_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5919,7 +5914,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Get details of specified workflow.
   """
-  @spec get_workflow(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_workflow(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_workflow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5941,10 +5936,10 @@ defmodule AWS.CustomerProfiles do
   """
   @spec get_workflow_steps(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_workflow_steps_response(), any()}
@@ -6025,9 +6020,9 @@ defmodule AWS.CustomerProfiles do
   """
   @spec list_calculated_attribute_definitions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_calculated_attribute_definitions_response(), any()}
@@ -6069,10 +6064,10 @@ defmodule AWS.CustomerProfiles do
   """
   @spec list_calculated_attributes_for_profile(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_calculated_attributes_for_profile_response(), any()}
@@ -6120,9 +6115,9 @@ defmodule AWS.CustomerProfiles do
   """
   @spec list_domain_layouts(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_domain_layouts_response(), any()}
@@ -6162,7 +6157,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Returns a list of all the domains for an AWS account that have been created.
   """
-  @spec list_domains(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_domains(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_domains_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6196,9 +6191,9 @@ defmodule AWS.CustomerProfiles do
   """
   @spec list_event_streams(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_event_streams_response(), any()}
@@ -6240,9 +6235,9 @@ defmodule AWS.CustomerProfiles do
   """
   @spec list_event_triggers(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_event_triggers_response(), any()}
@@ -6287,9 +6282,9 @@ defmodule AWS.CustomerProfiles do
   """
   @spec list_identity_resolution_jobs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_identity_resolution_jobs_response(), any()}
@@ -6331,10 +6326,10 @@ defmodule AWS.CustomerProfiles do
   """
   @spec list_integrations(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_integrations_response(), any()}
@@ -6384,10 +6379,10 @@ defmodule AWS.CustomerProfiles do
   """
   @spec list_object_type_attributes(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_object_type_attributes_response(), any()}
@@ -6430,7 +6425,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Fetch the possible attribute values given the attribute name.
   """
-  @spec list_profile_attribute_values(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec list_profile_attribute_values(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, profile_attribute_values_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6457,8 +6452,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec list_profile_object_type_templates(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_profile_object_type_templates_response(), any()}
@@ -6499,9 +6494,9 @@ defmodule AWS.CustomerProfiles do
   """
   @spec list_profile_object_types(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_profile_object_types_response(), any()}
@@ -6542,7 +6537,7 @@ defmodule AWS.CustomerProfiles do
   Returns a list of objects associated with a profile of a given
   ProfileObjectType.
   """
-  @spec list_profile_objects(map(), String.t() | Atom.t(), list_profile_objects_request(), list()) ::
+  @spec list_profile_objects(map(), String.t() | atom(), list_profile_objects_request(), list()) ::
           {:ok, list_profile_objects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6579,9 +6574,9 @@ defmodule AWS.CustomerProfiles do
   """
   @spec list_rule_based_matches(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_rule_based_matches_response(), any()}
@@ -6623,9 +6618,9 @@ defmodule AWS.CustomerProfiles do
   """
   @spec list_segment_definitions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_segment_definitions_response(), any()}
@@ -6669,7 +6664,7 @@ defmodule AWS.CustomerProfiles do
   Customer Profiles, domains, profile object types, and integrations can be
   tagged.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6689,9 +6684,9 @@ defmodule AWS.CustomerProfiles do
   """
   @spec list_upload_jobs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_upload_jobs_response(), any()}
@@ -6731,7 +6726,7 @@ defmodule AWS.CustomerProfiles do
   @doc """
   Query to list all workflows.
   """
-  @spec list_workflows(map(), String.t() | Atom.t(), list_workflows_request(), list()) ::
+  @spec list_workflows(map(), String.t() | atom(), list_workflows_request(), list()) ::
           {:ok, list_workflows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6807,7 +6802,7 @@ defmodule AWS.CustomerProfiles do
   matching
   system. After profiles have been merged, they cannot be separated (unmerged).
   """
-  @spec merge_profiles(map(), String.t() | Atom.t(), merge_profiles_request(), list()) ::
+  @spec merge_profiles(map(), String.t() | atom(), merge_profiles_request(), list()) ::
           {:ok, merge_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6845,7 +6840,7 @@ defmodule AWS.CustomerProfiles do
 
   UntagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html).
   """
-  @spec put_integration(map(), String.t() | Atom.t(), put_integration_request(), list()) ::
+  @spec put_integration(map(), String.t() | atom(), put_integration_request(), list()) ::
           {:ok, put_integration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6890,7 +6885,7 @@ defmodule AWS.CustomerProfiles do
   PutProfileObject needs an ObjectType, which can be created using
   PutProfileObjectType.
   """
-  @spec put_profile_object(map(), String.t() | Atom.t(), put_profile_object_request(), list()) ::
+  @spec put_profile_object(map(), String.t() | atom(), put_profile_object_request(), list()) ::
           {:ok, put_profile_object_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6924,8 +6919,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec put_profile_object_type(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           put_profile_object_type_request(),
           list()
         ) ::
@@ -6976,7 +6971,7 @@ defmodule AWS.CustomerProfiles do
   pair and
   up to 5 key-value(s) pairs using either `AND` or `OR` logic.
   """
-  @spec search_profiles(map(), String.t() | Atom.t(), search_profiles_request(), list()) ::
+  @spec search_profiles(map(), String.t() | atom(), search_profiles_request(), list()) ::
           {:ok, search_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7013,8 +7008,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec start_upload_job(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           start_upload_job_request(),
           list()
         ) ::
@@ -7050,8 +7045,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec stop_upload_job(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           stop_upload_job_request(),
           list()
         ) ::
@@ -7108,7 +7103,7 @@ defmodule AWS.CustomerProfiles do
 
   You can associate as many as 50 tags with a resource.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7142,7 +7137,7 @@ defmodule AWS.CustomerProfiles do
   Customer Profiles, domains, profile object types, and integrations can be
   tagged.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7183,8 +7178,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec update_calculated_attribute_definition(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_calculated_attribute_definition_request(),
           list()
         ) ::
@@ -7242,7 +7237,7 @@ defmodule AWS.CustomerProfiles do
   To add or remove tags on an existing Domain, see
   [TagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html)/[UntagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html).
   """
-  @spec update_domain(map(), String.t() | Atom.t(), update_domain_request(), list()) ::
+  @spec update_domain(map(), String.t() | atom(), update_domain_request(), list()) ::
           {:ok, update_domain_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7276,8 +7271,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec update_domain_layout(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_domain_layout_request(),
           list()
         ) ::
@@ -7319,8 +7314,8 @@ defmodule AWS.CustomerProfiles do
   """
   @spec update_event_trigger(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_event_trigger_request(),
           list()
         ) ::
@@ -7369,7 +7364,7 @@ defmodule AWS.CustomerProfiles do
   value already
   there will be kept.
   """
-  @spec update_profile(map(), String.t() | Atom.t(), update_profile_request(), list()) ::
+  @spec update_profile(map(), String.t() | atom(), update_profile_request(), list()) ::
           {:ok, update_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

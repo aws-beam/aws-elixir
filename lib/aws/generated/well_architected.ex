@@ -22,14 +22,14 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       import_lens_input() :: %{
-        optional("LensAlias") => String.t() | Atom.t(),
+        optional("LensAlias") => String.t() | atom(),
         optional("Tags") => map(),
-        required("ClientRequestToken") => String.t() | Atom.t(),
-        required("JSONString") => String.t() | Atom.t()
+        required("ClientRequestToken") => String.t() | atom(),
+        required("JSONString") => String.t() | atom()
       }
 
   """
-  @type import_lens_input() :: %{String.t() | Atom.t() => any()}
+  @type import_lens_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -37,19 +37,19 @@ defmodule AWS.WellArchitected do
 
       profile() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Owner" => String.t() | Atom.t(),
-        "ProfileArn" => String.t() | Atom.t(),
-        "ProfileDescription" => String.t() | Atom.t(),
-        "ProfileName" => String.t() | Atom.t(),
+        "Owner" => String.t() | atom(),
+        "ProfileArn" => String.t() | atom(),
+        "ProfileDescription" => String.t() | atom(),
+        "ProfileName" => String.t() | atom(),
         "ProfileQuestions" => list(profile_question()),
-        "ProfileVersion" => String.t() | Atom.t(),
-        "ShareInvitationId" => String.t() | Atom.t(),
+        "ProfileVersion" => String.t() | atom(),
+        "ShareInvitationId" => String.t() | atom(),
         "Tags" => map(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type profile() :: %{String.t() | Atom.t() => any()}
+  @type profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -58,13 +58,13 @@ defmodule AWS.WellArchitected do
       update_answer_input() :: %{
         optional("ChoiceUpdates") => map(),
         optional("IsApplicable") => boolean(),
-        optional("Notes") => String.t() | Atom.t(),
+        optional("Notes") => String.t() | atom(),
         optional("Reason") => list(any()),
-        optional("SelectedChoices") => list(String.t() | Atom.t())
+        optional("SelectedChoices") => list(String.t() | atom())
       }
 
   """
-  @type update_answer_input() :: %{String.t() | Atom.t() => any()}
+  @type update_answer_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -74,27 +74,27 @@ defmodule AWS.WellArchitected do
         "MaxSelectedChoices" => integer(),
         "MinSelectedChoices" => integer(),
         "QuestionChoices" => list(profile_choice()),
-        "QuestionDescription" => String.t() | Atom.t(),
-        "QuestionId" => String.t() | Atom.t(),
-        "QuestionTitle" => String.t() | Atom.t(),
-        "SelectedChoiceIds" => list(String.t() | Atom.t())
+        "QuestionDescription" => String.t() | atom(),
+        "QuestionId" => String.t() | atom(),
+        "QuestionTitle" => String.t() | atom(),
+        "SelectedChoiceIds" => list(String.t() | atom())
       }
 
   """
-  @type profile_question() :: %{String.t() | Atom.t() => any()}
+  @type profile_question() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       choice_answer_summary() :: %{
-        "ChoiceId" => String.t() | Atom.t(),
+        "ChoiceId" => String.t() | atom(),
         "Reason" => list(any()),
         "Status" => list(any())
       }
 
   """
-  @type choice_answer_summary() :: %{String.t() | Atom.t() => any()}
+  @type choice_answer_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -102,11 +102,11 @@ defmodule AWS.WellArchitected do
 
       list_lenses_output() :: %{
         "LensSummaries" => list(lens_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_lenses_output() :: %{String.t() | Atom.t() => any()}
+  @type list_lenses_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -117,7 +117,7 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type get_profile_output() :: %{String.t() | Atom.t() => any()}
+  @type get_profile_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -125,24 +125,24 @@ defmodule AWS.WellArchitected do
 
       question_metric() :: %{
         "BestPractices" => list(best_practice()),
-        "QuestionId" => String.t() | Atom.t(),
+        "QuestionId" => String.t() | atom(),
         "Risk" => list(any())
       }
 
   """
-  @type question_metric() :: %{String.t() | Atom.t() => any()}
+  @type question_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_workload_share_output() :: %{
-        "WorkloadId" => String.t() | Atom.t(),
+        "WorkloadId" => String.t() | atom(),
         "WorkloadShare" => workload_share()
       }
 
   """
-  @type update_workload_share_output() :: %{String.t() | Atom.t() => any()}
+  @type update_workload_share_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -150,13 +150,13 @@ defmodule AWS.WellArchitected do
 
       lens_review() :: %{
         "JiraConfiguration" => jira_selected_question_configuration(),
-        "LensAlias" => String.t() | Atom.t(),
-        "LensArn" => String.t() | Atom.t(),
-        "LensName" => String.t() | Atom.t(),
+        "LensAlias" => String.t() | atom(),
+        "LensArn" => String.t() | atom(),
+        "LensName" => String.t() | atom(),
         "LensStatus" => list(any()),
-        "LensVersion" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
-        "Notes" => String.t() | Atom.t(),
+        "LensVersion" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Notes" => String.t() | atom(),
         "PillarReviewSummaries" => list(pillar_review_summary()),
         "PrioritizedRiskCounts" => map(),
         "Profiles" => list(workload_profile()),
@@ -165,7 +165,7 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type lens_review() :: %{String.t() | Atom.t() => any()}
+  @type lens_review() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -176,7 +176,7 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type get_workload_output() :: %{String.t() | Atom.t() => any()}
+  @type get_workload_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -193,14 +193,14 @@ defmodule AWS.WellArchitected do
 
       workload_share_summary() :: %{
         "PermissionType" => list(any()),
-        "ShareId" => String.t() | Atom.t(),
-        "SharedWith" => String.t() | Atom.t(),
+        "ShareId" => String.t() | atom(),
+        "SharedWith" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type workload_share_summary() :: %{String.t() | Atom.t() => any()}
+  @type workload_share_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -208,19 +208,19 @@ defmodule AWS.WellArchitected do
 
       workload_summary() :: %{
         "ImprovementStatus" => list(any()),
-        "Lenses" => list(String.t() | Atom.t()),
-        "Owner" => String.t() | Atom.t(),
+        "Lenses" => list(String.t() | atom()),
+        "Owner" => String.t() | atom(),
         "PrioritizedRiskCounts" => map(),
         "Profiles" => list(workload_profile()),
         "RiskCounts" => map(),
         "UpdatedAt" => non_neg_integer(),
-        "WorkloadArn" => String.t() | Atom.t(),
-        "WorkloadId" => String.t() | Atom.t(),
-        "WorkloadName" => String.t() | Atom.t()
+        "WorkloadArn" => String.t() | atom(),
+        "WorkloadId" => String.t() | atom(),
+        "WorkloadName" => String.t() | atom()
       }
 
   """
-  @type workload_summary() :: %{String.t() | Atom.t() => any()}
+  @type workload_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -228,27 +228,27 @@ defmodule AWS.WellArchitected do
 
       list_lens_review_improvements_output() :: %{
         "ImprovementSummaries" => list(improvement_summary()),
-        "LensAlias" => String.t() | Atom.t(),
-        "LensArn" => String.t() | Atom.t(),
+        "LensAlias" => String.t() | atom(),
+        "LensArn" => String.t() | atom(),
         "MilestoneNumber" => integer(),
-        "NextToken" => String.t() | Atom.t(),
-        "WorkloadId" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom(),
+        "WorkloadId" => String.t() | atom()
       }
 
   """
-  @type list_lens_review_improvements_output() :: %{String.t() | Atom.t() => any()}
+  @type list_lens_review_improvements_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       best_practice() :: %{
-        "ChoiceId" => String.t() | Atom.t(),
-        "ChoiceTitle" => String.t() | Atom.t()
+        "ChoiceId" => String.t() | atom(),
+        "ChoiceTitle" => String.t() | atom()
       }
 
   """
-  @type best_practice() :: %{String.t() | Atom.t() => any()}
+  @type best_practice() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -257,12 +257,12 @@ defmodule AWS.WellArchitected do
       workload_jira_configuration_output() :: %{
         "IssueManagementStatus" => list(any()),
         "IssueManagementType" => list(any()),
-        "JiraProjectKey" => String.t() | Atom.t(),
-        "StatusMessage" => String.t() | Atom.t()
+        "JiraProjectKey" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type workload_jira_configuration_output() :: %{String.t() | Atom.t() => any()}
+  @type workload_jira_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -272,13 +272,13 @@ defmodule AWS.WellArchitected do
         "IntegrationStatus" => list(any()),
         "IssueManagementStatus" => list(any()),
         "IssueManagementType" => list(any()),
-        "JiraProjectKey" => String.t() | Atom.t(),
-        "StatusMessage" => String.t() | Atom.t(),
-        "Subdomain" => String.t() | Atom.t()
+        "JiraProjectKey" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
+        "Subdomain" => String.t() | atom()
       }
 
   """
-  @type account_jira_configuration_output() :: %{String.t() | Atom.t() => any()}
+  @type account_jira_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -287,11 +287,11 @@ defmodule AWS.WellArchitected do
       get_lens_review_output() :: %{
         "LensReview" => lens_review(),
         "MilestoneNumber" => integer(),
-        "WorkloadId" => String.t() | Atom.t()
+        "WorkloadId" => String.t() | atom()
       }
 
   """
-  @type get_lens_review_output() :: %{String.t() | Atom.t() => any()}
+  @type get_lens_review_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -299,12 +299,12 @@ defmodule AWS.WellArchitected do
 
       list_workloads_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("WorkloadNamePrefix") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("WorkloadNamePrefix") => String.t() | atom()
       }
 
   """
-  @type list_workloads_input() :: %{String.t() | Atom.t() => any()}
+  @type list_workloads_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -315,7 +315,7 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type jira_selected_question_configuration() :: %{String.t() | Atom.t() => any()}
+  @type jira_selected_question_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -323,45 +323,45 @@ defmodule AWS.WellArchitected do
 
       list_check_details_output() :: %{
         "CheckDetails" => list(check_detail()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_check_details_output() :: %{String.t() | Atom.t() => any()}
+  @type list_check_details_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_profiles_input() :: %{
-        required("ProfileArns") => list(String.t() | Atom.t())
+        required("ProfileArns") => list(String.t() | atom())
       }
 
   """
-  @type associate_profiles_input() :: %{String.t() | Atom.t() => any()}
+  @type associate_profiles_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       check_detail() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "ChoiceId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "ChoiceId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "FlaggedResources" => integer(),
-        "Id" => String.t() | Atom.t(),
-        "LensArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "PillarId" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
+        "LensArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PillarId" => String.t() | atom(),
         "Provider" => list(any()),
-        "QuestionId" => String.t() | Atom.t(),
+        "QuestionId" => String.t() | atom(),
         "Reason" => list(any()),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type check_detail() :: %{String.t() | Atom.t() => any()}
+  @type check_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -370,87 +370,87 @@ defmodule AWS.WellArchitected do
       get_consolidated_report_input() :: %{
         optional("IncludeSharedResources") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         required("Format") => list(any())
       }
 
   """
-  @type get_consolidated_report_input() :: %{String.t() | Atom.t() => any()}
+  @type get_consolidated_report_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_profile_output() :: %{
-        "ProfileArn" => String.t() | Atom.t(),
-        "ProfileVersion" => String.t() | Atom.t()
+        "ProfileArn" => String.t() | atom(),
+        "ProfileVersion" => String.t() | atom()
       }
 
   """
-  @type create_profile_output() :: %{String.t() | Atom.t() => any()}
+  @type create_profile_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       review_template_pillar_review_summary() :: %{
-        "Notes" => String.t() | Atom.t(),
-        "PillarId" => String.t() | Atom.t(),
-        "PillarName" => String.t() | Atom.t(),
+        "Notes" => String.t() | atom(),
+        "PillarId" => String.t() | atom(),
+        "PillarName" => String.t() | atom(),
         "QuestionCounts" => map()
       }
 
   """
-  @type review_template_pillar_review_summary() :: %{String.t() | Atom.t() => any()}
+  @type review_template_pillar_review_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template_share_summary() :: %{
-        "ShareId" => String.t() | Atom.t(),
-        "SharedWith" => String.t() | Atom.t(),
+        "ShareId" => String.t() | atom(),
+        "SharedWith" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type template_share_summary() :: %{String.t() | Atom.t() => any()}
+  @type template_share_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_lens_version_output() :: %{
-        "LensArn" => String.t() | Atom.t(),
-        "LensVersion" => String.t() | Atom.t()
+        "LensArn" => String.t() | atom(),
+        "LensVersion" => String.t() | atom()
       }
 
   """
-  @type create_lens_version_output() :: %{String.t() | Atom.t() => any()}
+  @type create_lens_version_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       share_invitation_summary() :: %{
-        "LensArn" => String.t() | Atom.t(),
-        "LensName" => String.t() | Atom.t(),
+        "LensArn" => String.t() | atom(),
+        "LensName" => String.t() | atom(),
         "PermissionType" => list(any()),
-        "ProfileArn" => String.t() | Atom.t(),
-        "ProfileName" => String.t() | Atom.t(),
-        "ShareInvitationId" => String.t() | Atom.t(),
+        "ProfileArn" => String.t() | atom(),
+        "ProfileName" => String.t() | atom(),
+        "ShareInvitationId" => String.t() | atom(),
         "ShareResourceType" => list(any()),
-        "SharedBy" => String.t() | Atom.t(),
-        "SharedWith" => String.t() | Atom.t(),
-        "TemplateArn" => String.t() | Atom.t(),
-        "TemplateName" => String.t() | Atom.t(),
-        "WorkloadId" => String.t() | Atom.t(),
-        "WorkloadName" => String.t() | Atom.t()
+        "SharedBy" => String.t() | atom(),
+        "SharedWith" => String.t() | atom(),
+        "TemplateArn" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "WorkloadId" => String.t() | atom(),
+        "WorkloadName" => String.t() | atom()
       }
 
   """
-  @type share_invitation_summary() :: %{String.t() | Atom.t() => any()}
+  @type share_invitation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -461,32 +461,32 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type update_share_invitation_output() :: %{String.t() | Atom.t() => any()}
+  @type update_share_invitation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       profile_share_summary() :: %{
-        "ShareId" => String.t() | Atom.t(),
-        "SharedWith" => String.t() | Atom.t(),
+        "ShareId" => String.t() | atom(),
+        "SharedWith" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type profile_share_summary() :: %{String.t() | Atom.t() => any()}
+  @type profile_share_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_review_template_output() :: %{
-        "TemplateArn" => String.t() | Atom.t()
+        "TemplateArn" => String.t() | atom()
       }
 
   """
-  @type create_review_template_output() :: %{String.t() | Atom.t() => any()}
+  @type create_review_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -494,23 +494,23 @@ defmodule AWS.WellArchitected do
 
       list_lens_shares_output() :: %{
         "LensShareSummaries" => list(lens_share_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_lens_shares_output() :: %{String.t() | Atom.t() => any()}
+  @type list_lens_shares_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_integration_input() :: %{
-        required("ClientRequestToken") => String.t() | Atom.t(),
+        required("ClientRequestToken") => String.t() | atom(),
         required("IntegratingService") => list(any())
       }
 
   """
-  @type update_integration_input() :: %{String.t() | Atom.t() => any()}
+  @type update_integration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -518,15 +518,15 @@ defmodule AWS.WellArchitected do
 
       list_check_details_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ChoiceId") => String.t() | Atom.t(),
-        required("LensArn") => String.t() | Atom.t(),
-        required("PillarId") => String.t() | Atom.t(),
-        required("QuestionId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ChoiceId") => String.t() | atom(),
+        required("LensArn") => String.t() | atom(),
+        required("PillarId") => String.t() | atom(),
+        required("QuestionId") => String.t() | atom()
       }
 
   """
-  @type list_check_details_input() :: %{String.t() | Atom.t() => any()}
+  @type list_check_details_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -534,13 +534,13 @@ defmodule AWS.WellArchitected do
 
       list_lens_shares_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("SharedWithPrefix") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SharedWithPrefix") => String.t() | atom(),
         optional("Status") => list(any())
       }
 
   """
-  @type list_lens_shares_input() :: %{String.t() | Atom.t() => any()}
+  @type list_lens_shares_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -548,11 +548,11 @@ defmodule AWS.WellArchitected do
 
       update_lens_review_output() :: %{
         "LensReview" => lens_review(),
-        "WorkloadId" => String.t() | Atom.t()
+        "WorkloadId" => String.t() | atom()
       }
 
   """
-  @type update_lens_review_output() :: %{String.t() | Atom.t() => any()}
+  @type update_lens_review_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -560,12 +560,12 @@ defmodule AWS.WellArchitected do
 
       list_milestones_output() :: %{
         "MilestoneSummaries" => list(milestone_summary()),
-        "NextToken" => String.t() | Atom.t(),
-        "WorkloadId" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom(),
+        "WorkloadId" => String.t() | atom()
       }
 
   """
-  @type list_milestones_output() :: %{String.t() | Atom.t() => any()}
+  @type list_milestones_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -576,7 +576,7 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type get_answer_input() :: %{String.t() | Atom.t() => any()}
+  @type get_answer_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -584,12 +584,12 @@ defmodule AWS.WellArchitected do
 
       create_lens_version_input() :: %{
         optional("IsMajorVersion") => boolean(),
-        required("ClientRequestToken") => String.t() | Atom.t(),
-        required("LensVersion") => String.t() | Atom.t()
+        required("ClientRequestToken") => String.t() | atom(),
+        required("LensVersion") => String.t() | atom()
       }
 
   """
-  @type create_lens_version_input() :: %{String.t() | Atom.t() => any()}
+  @type create_lens_version_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -597,13 +597,13 @@ defmodule AWS.WellArchitected do
 
       list_notifications_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("ResourceArn") => String.t() | Atom.t(),
-        optional("WorkloadId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceArn") => String.t() | atom(),
+        optional("WorkloadId") => String.t() | atom()
       }
 
   """
-  @type list_notifications_input() :: %{String.t() | Atom.t() => any()}
+  @type list_notifications_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -611,75 +611,75 @@ defmodule AWS.WellArchitected do
 
       create_milestone_output() :: %{
         "MilestoneNumber" => integer(),
-        "WorkloadId" => String.t() | Atom.t()
+        "WorkloadId" => String.t() | atom()
       }
 
   """
-  @type create_milestone_output() :: %{String.t() | Atom.t() => any()}
+  @type create_milestone_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_lens_input() :: %{
-        required("ClientRequestToken") => String.t() | Atom.t(),
+        required("ClientRequestToken") => String.t() | atom(),
         required("LensStatus") => list(any())
       }
 
   """
-  @type delete_lens_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_lens_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       profile_question_update() :: %{
-        "QuestionId" => String.t() | Atom.t(),
-        "SelectedChoiceIds" => list(String.t() | Atom.t())
+        "QuestionId" => String.t() | atom(),
+        "SelectedChoiceIds" => list(String.t() | atom())
       }
 
   """
-  @type profile_question_update() :: %{String.t() | Atom.t() => any()}
+  @type profile_question_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_lens_share_input() :: %{
-        required("ClientRequestToken") => String.t() | Atom.t()
+        required("ClientRequestToken") => String.t() | atom()
       }
 
   """
-  @type delete_lens_share_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_lens_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_profile_shares_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ProfileShareSummaries" => list(profile_share_summary())
       }
 
   """
-  @type list_profile_shares_output() :: %{String.t() | Atom.t() => any()}
+  @type list_profile_shares_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       share_invitation() :: %{
-        "LensAlias" => String.t() | Atom.t(),
-        "LensArn" => String.t() | Atom.t(),
-        "ProfileArn" => String.t() | Atom.t(),
-        "ShareInvitationId" => String.t() | Atom.t(),
+        "LensAlias" => String.t() | atom(),
+        "LensArn" => String.t() | atom(),
+        "ProfileArn" => String.t() | atom(),
+        "ShareInvitationId" => String.t() | atom(),
         "ShareResourceType" => list(any()),
-        "TemplateArn" => String.t() | Atom.t(),
-        "WorkloadId" => String.t() | Atom.t()
+        "TemplateArn" => String.t() | atom(),
+        "WorkloadId" => String.t() | atom()
       }
 
   """
-  @type share_invitation() :: %{String.t() | Atom.t() => any()}
+  @type share_invitation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -687,14 +687,14 @@ defmodule AWS.WellArchitected do
 
       create_profile_input() :: %{
         optional("Tags") => map(),
-        required("ClientRequestToken") => String.t() | Atom.t(),
-        required("ProfileDescription") => String.t() | Atom.t(),
-        required("ProfileName") => String.t() | Atom.t(),
+        required("ClientRequestToken") => String.t() | atom(),
+        required("ProfileDescription") => String.t() | atom(),
+        required("ProfileName") => String.t() | atom(),
         required("ProfileQuestions") => list(profile_question_update())
       }
 
   """
-  @type create_profile_input() :: %{String.t() | Atom.t() => any()}
+  @type create_profile_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -705,19 +705,19 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_profiles_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ProfileSummaries" => list(profile_summary())
       }
 
   """
-  @type list_profiles_output() :: %{String.t() | Atom.t() => any()}
+  @type list_profiles_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -725,11 +725,11 @@ defmodule AWS.WellArchitected do
 
       list_milestones_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_milestones_input() :: %{String.t() | Atom.t() => any()}
+  @type list_milestones_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -737,23 +737,23 @@ defmodule AWS.WellArchitected do
 
       update_lens_review_input() :: %{
         optional("JiraConfiguration") => jira_selected_question_configuration(),
-        optional("LensNotes") => String.t() | Atom.t(),
+        optional("LensNotes") => String.t() | atom(),
         optional("PillarNotes") => map()
       }
 
   """
-  @type update_lens_review_input() :: %{String.t() | Atom.t() => any()}
+  @type update_lens_review_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_lenses_input() :: %{
-        required("LensAliases") => list(String.t() | Atom.t())
+        required("LensAliases") => list(String.t() | atom())
       }
 
   """
-  @type associate_lenses_input() :: %{String.t() | Atom.t() => any()}
+  @type associate_lenses_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -764,7 +764,7 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type update_review_template_output() :: %{String.t() | Atom.t() => any()}
+  @type update_review_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -780,11 +780,11 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       lens_review_summary() :: %{
-        "LensAlias" => String.t() | Atom.t(),
-        "LensArn" => String.t() | Atom.t(),
-        "LensName" => String.t() | Atom.t(),
+        "LensAlias" => String.t() | atom(),
+        "LensArn" => String.t() | atom(),
+        "LensName" => String.t() | atom(),
         "LensStatus" => list(any()),
-        "LensVersion" => String.t() | Atom.t(),
+        "LensVersion" => String.t() | atom(),
         "PrioritizedRiskCounts" => map(),
         "Profiles" => list(workload_profile()),
         "RiskCounts" => map(),
@@ -792,46 +792,46 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type lens_review_summary() :: %{String.t() | Atom.t() => any()}
+  @type lens_review_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_template_shares_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "TemplateArn" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
+        "TemplateArn" => String.t() | atom(),
         "TemplateShareSummaries" => list(template_share_summary())
       }
 
   """
-  @type list_template_shares_output() :: %{String.t() | Atom.t() => any()}
+  @type list_template_shares_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_profile_input() :: %{
-        required("ClientRequestToken") => String.t() | Atom.t()
+        required("ClientRequestToken") => String.t() | atom()
       }
 
   """
-  @type delete_profile_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_profile_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_review_template_input() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("LensesToAssociate") => list(String.t() | Atom.t()),
-        optional("LensesToDisassociate") => list(String.t() | Atom.t()),
-        optional("Notes") => String.t() | Atom.t(),
-        optional("TemplateName") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        optional("LensesToAssociate") => list(String.t() | atom()),
+        optional("LensesToDisassociate") => list(String.t() | atom()),
+        optional("Notes") => String.t() | atom(),
+        optional("TemplateName") => String.t() | atom()
       }
 
   """
-  @type update_review_template_input() :: %{String.t() | Atom.t() => any()}
+  @type update_review_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -839,25 +839,25 @@ defmodule AWS.WellArchitected do
 
       list_workload_shares_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("SharedWithPrefix") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SharedWithPrefix") => String.t() | atom(),
         optional("Status") => list(any())
       }
 
   """
-  @type list_workload_shares_input() :: %{String.t() | Atom.t() => any()}
+  @type list_workload_shares_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       import_lens_output() :: %{
-        "LensArn" => String.t() | Atom.t(),
+        "LensArn" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type import_lens_output() :: %{String.t() | Atom.t() => any()}
+  @type import_lens_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -865,25 +865,25 @@ defmodule AWS.WellArchitected do
 
       get_milestone_output() :: %{
         "Milestone" => milestone(),
-        "WorkloadId" => String.t() | Atom.t()
+        "WorkloadId" => String.t() | atom()
       }
 
   """
-  @type get_milestone_output() :: %{String.t() | Atom.t() => any()}
+  @type get_milestone_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lens_share_summary() :: %{
-        "ShareId" => String.t() | Atom.t(),
-        "SharedWith" => String.t() | Atom.t(),
+        "ShareId" => String.t() | atom(),
+        "SharedWith" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type lens_share_summary() :: %{String.t() | Atom.t() => any()}
+  @type lens_share_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -895,26 +895,26 @@ defmodule AWS.WellArchitected do
         "MetricType" => list(any()),
         "RiskCounts" => map(),
         "UpdatedAt" => non_neg_integer(),
-        "WorkloadArn" => String.t() | Atom.t(),
-        "WorkloadId" => String.t() | Atom.t(),
-        "WorkloadName" => String.t() | Atom.t()
+        "WorkloadArn" => String.t() | atom(),
+        "WorkloadId" => String.t() | atom(),
+        "WorkloadName" => String.t() | atom()
       }
 
   """
-  @type consolidated_report_metric() :: %{String.t() | Atom.t() => any()}
+  @type consolidated_report_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       profile_choice() :: %{
-        "ChoiceDescription" => String.t() | Atom.t(),
-        "ChoiceId" => String.t() | Atom.t(),
-        "ChoiceTitle" => String.t() | Atom.t()
+        "ChoiceDescription" => String.t() | atom(),
+        "ChoiceId" => String.t() | atom(),
+        "ChoiceTitle" => String.t() | atom()
       }
 
   """
-  @type profile_choice() :: %{String.t() | Atom.t() => any()}
+  @type profile_choice() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -926,35 +926,35 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type workload_discovery_config() :: %{String.t() | Atom.t() => any()}
+  @type workload_discovery_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       upgrade_lens_review_input() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        required("MilestoneName") => String.t() | Atom.t()
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("MilestoneName") => String.t() | atom()
       }
 
   """
-  @type upgrade_lens_review_input() :: %{String.t() | Atom.t() => any()}
+  @type upgrade_lens_review_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_review_template_input() :: %{
-        optional("Notes") => String.t() | Atom.t(),
+        optional("Notes") => String.t() | atom(),
         optional("Tags") => map(),
-        required("ClientRequestToken") => String.t() | Atom.t(),
-        required("Description") => String.t() | Atom.t(),
-        required("Lenses") => list(String.t() | Atom.t()),
-        required("TemplateName") => String.t() | Atom.t()
+        required("ClientRequestToken") => String.t() | atom(),
+        required("Description") => String.t() | atom(),
+        required("Lenses") => list(String.t() | atom()),
+        required("TemplateName") => String.t() | atom()
       }
 
   """
-  @type create_review_template_input() :: %{String.t() | Atom.t() => any()}
+  @type create_review_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -963,11 +963,11 @@ defmodule AWS.WellArchitected do
       workload_jira_configuration_input() :: %{
         "IssueManagementStatus" => list(any()),
         "IssueManagementType" => list(any()),
-        "JiraProjectKey" => String.t() | Atom.t()
+        "JiraProjectKey" => String.t() | atom()
       }
 
   """
-  @type workload_jira_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type workload_jira_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -978,31 +978,31 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type update_workload_share_input() :: %{String.t() | Atom.t() => any()}
+  @type update_workload_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_profiles_input() :: %{
-        required("ProfileArns") => list(String.t() | Atom.t())
+        required("ProfileArns") => list(String.t() | atom())
       }
 
   """
-  @type disassociate_profiles_input() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_profiles_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       profile_template_choice() :: %{
-        "ChoiceDescription" => String.t() | Atom.t(),
-        "ChoiceId" => String.t() | Atom.t(),
-        "ChoiceTitle" => String.t() | Atom.t()
+        "ChoiceDescription" => String.t() | atom(),
+        "ChoiceId" => String.t() | atom(),
+        "ChoiceTitle" => String.t() | atom()
       }
 
   """
-  @type profile_template_choice() :: %{String.t() | Atom.t() => any()}
+  @type profile_template_choice() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1010,64 +1010,64 @@ defmodule AWS.WellArchitected do
 
       list_review_template_answers_output() :: %{
         "AnswerSummaries" => list(review_template_answer_summary()),
-        "LensAlias" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
-        "TemplateArn" => String.t() | Atom.t()
+        "LensAlias" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "TemplateArn" => String.t() | atom()
       }
 
   """
-  @type list_review_template_answers_output() :: %{String.t() | Atom.t() => any()}
+  @type list_review_template_answers_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       workload() :: %{
-        "AccountIds" => list(String.t() | Atom.t()),
-        "Applications" => list(String.t() | Atom.t()),
-        "ArchitecturalDesign" => String.t() | Atom.t(),
-        "AwsRegions" => list(String.t() | Atom.t()),
-        "Description" => String.t() | Atom.t(),
+        "AccountIds" => list(String.t() | atom()),
+        "Applications" => list(String.t() | atom()),
+        "ArchitecturalDesign" => String.t() | atom(),
+        "AwsRegions" => list(String.t() | atom()),
+        "Description" => String.t() | atom(),
         "DiscoveryConfig" => workload_discovery_config(),
         "Environment" => list(any()),
         "ImprovementStatus" => list(any()),
-        "Industry" => String.t() | Atom.t(),
-        "IndustryType" => String.t() | Atom.t(),
+        "Industry" => String.t() | atom(),
+        "IndustryType" => String.t() | atom(),
         "IsReviewOwnerUpdateAcknowledged" => boolean(),
         "JiraConfiguration" => workload_jira_configuration_output(),
-        "Lenses" => list(String.t() | Atom.t()),
-        "NonAwsRegions" => list(String.t() | Atom.t()),
-        "Notes" => String.t() | Atom.t(),
-        "Owner" => String.t() | Atom.t(),
-        "PillarPriorities" => list(String.t() | Atom.t()),
+        "Lenses" => list(String.t() | atom()),
+        "NonAwsRegions" => list(String.t() | atom()),
+        "Notes" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "PillarPriorities" => list(String.t() | atom()),
         "PrioritizedRiskCounts" => map(),
         "Profiles" => list(workload_profile()),
-        "ReviewOwner" => String.t() | Atom.t(),
+        "ReviewOwner" => String.t() | atom(),
         "ReviewRestrictionDate" => non_neg_integer(),
         "RiskCounts" => map(),
-        "ShareInvitationId" => String.t() | Atom.t(),
+        "ShareInvitationId" => String.t() | atom(),
         "Tags" => map(),
         "UpdatedAt" => non_neg_integer(),
-        "WorkloadArn" => String.t() | Atom.t(),
-        "WorkloadId" => String.t() | Atom.t(),
-        "WorkloadName" => String.t() | Atom.t()
+        "WorkloadArn" => String.t() | atom(),
+        "WorkloadId" => String.t() | atom(),
+        "WorkloadName" => String.t() | atom()
       }
 
   """
-  @type workload() :: %{String.t() | Atom.t() => any()}
+  @type workload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1075,44 +1075,44 @@ defmodule AWS.WellArchitected do
 
       get_answer_output() :: %{
         "Answer" => answer(),
-        "LensAlias" => String.t() | Atom.t(),
-        "LensArn" => String.t() | Atom.t(),
+        "LensAlias" => String.t() | atom(),
+        "LensArn" => String.t() | atom(),
         "MilestoneNumber" => integer(),
-        "WorkloadId" => String.t() | Atom.t()
+        "WorkloadId" => String.t() | atom()
       }
 
   """
-  @type get_answer_output() :: %{String.t() | Atom.t() => any()}
+  @type get_answer_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       review_template_summary() :: %{
-        "Description" => String.t() | Atom.t(),
-        "Lenses" => list(String.t() | Atom.t()),
-        "Owner" => String.t() | Atom.t(),
-        "TemplateArn" => String.t() | Atom.t(),
-        "TemplateName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Lenses" => list(String.t() | atom()),
+        "Owner" => String.t() | atom(),
+        "TemplateArn" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
         "UpdateStatus" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type review_template_summary() :: %{String.t() | Atom.t() => any()}
+  @type review_template_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1121,23 +1121,23 @@ defmodule AWS.WellArchitected do
       answer() :: %{
         "ChoiceAnswers" => list(choice_answer()),
         "Choices" => list(choice()),
-        "HelpfulResourceDisplayText" => String.t() | Atom.t(),
-        "HelpfulResourceUrl" => String.t() | Atom.t(),
-        "ImprovementPlanUrl" => String.t() | Atom.t(),
+        "HelpfulResourceDisplayText" => String.t() | atom(),
+        "HelpfulResourceUrl" => String.t() | atom(),
+        "ImprovementPlanUrl" => String.t() | atom(),
         "IsApplicable" => boolean(),
         "JiraConfiguration" => jira_configuration(),
-        "Notes" => String.t() | Atom.t(),
-        "PillarId" => String.t() | Atom.t(),
-        "QuestionDescription" => String.t() | Atom.t(),
-        "QuestionId" => String.t() | Atom.t(),
-        "QuestionTitle" => String.t() | Atom.t(),
+        "Notes" => String.t() | atom(),
+        "PillarId" => String.t() | atom(),
+        "QuestionDescription" => String.t() | atom(),
+        "QuestionId" => String.t() | atom(),
+        "QuestionTitle" => String.t() | atom(),
         "Reason" => list(any()),
         "Risk" => list(any()),
-        "SelectedChoices" => list(String.t() | Atom.t())
+        "SelectedChoices" => list(String.t() | atom())
       }
 
   """
-  @type answer() :: %{String.t() | Atom.t() => any()}
+  @type answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1148,66 +1148,66 @@ defmodule AWS.WellArchitected do
         "ChoiceAnswerSummaries" => list(choice_answer_summary()),
         "Choices" => list(choice()),
         "IsApplicable" => boolean(),
-        "PillarId" => String.t() | Atom.t(),
-        "QuestionId" => String.t() | Atom.t(),
-        "QuestionTitle" => String.t() | Atom.t(),
+        "PillarId" => String.t() | atom(),
+        "QuestionId" => String.t() | atom(),
+        "QuestionTitle" => String.t() | atom(),
         "QuestionType" => list(any()),
         "Reason" => list(any()),
-        "SelectedChoices" => list(String.t() | Atom.t())
+        "SelectedChoices" => list(String.t() | atom())
       }
 
   """
-  @type review_template_answer_summary() :: %{String.t() | Atom.t() => any()}
+  @type review_template_answer_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workload_share_output() :: %{
-        "ShareId" => String.t() | Atom.t(),
-        "WorkloadId" => String.t() | Atom.t()
+        "ShareId" => String.t() | atom(),
+        "WorkloadId" => String.t() | atom()
       }
 
   """
-  @type create_workload_share_output() :: %{String.t() | Atom.t() => any()}
+  @type create_workload_share_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_review_template_lens_review_input() :: %{
-        optional("LensNotes") => String.t() | Atom.t(),
+        optional("LensNotes") => String.t() | atom(),
         optional("PillarNotes") => map()
       }
 
   """
-  @type update_review_template_lens_review_input() :: %{String.t() | Atom.t() => any()}
+  @type update_review_template_lens_review_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_workload_share_input() :: %{
-        required("ClientRequestToken") => String.t() | Atom.t()
+        required("ClientRequestToken") => String.t() | atom()
       }
 
   """
-  @type delete_workload_share_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_workload_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "QuotaCode" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t(),
-        "ServiceCode" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "QuotaCode" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1215,24 +1215,24 @@ defmodule AWS.WellArchitected do
 
       get_review_template_lens_review_output() :: %{
         "LensReview" => review_template_lens_review(),
-        "TemplateArn" => String.t() | Atom.t()
+        "TemplateArn" => String.t() | atom()
       }
 
   """
-  @type get_review_template_lens_review_output() :: %{String.t() | Atom.t() => any()}
+  @type get_review_template_lens_review_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lens_review_report() :: %{
-        "Base64String" => String.t() | Atom.t(),
-        "LensAlias" => String.t() | Atom.t(),
-        "LensArn" => String.t() | Atom.t()
+        "Base64String" => String.t() | atom(),
+        "LensAlias" => String.t() | atom(),
+        "LensArn" => String.t() | atom()
       }
 
   """
-  @type lens_review_report() :: %{String.t() | Atom.t() => any()}
+  @type lens_review_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1243,51 +1243,51 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type get_profile_template_output() :: %{String.t() | Atom.t() => any()}
+  @type get_profile_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_review_templates_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ReviewTemplates" => list(review_template_summary())
       }
 
   """
-  @type list_review_templates_output() :: %{String.t() | Atom.t() => any()}
+  @type list_review_templates_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lens_upgrade_summary() :: %{
-        "CurrentLensVersion" => String.t() | Atom.t(),
-        "LatestLensVersion" => String.t() | Atom.t(),
-        "LensAlias" => String.t() | Atom.t(),
-        "LensArn" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t(),
-        "ResourceName" => String.t() | Atom.t(),
-        "WorkloadId" => String.t() | Atom.t(),
-        "WorkloadName" => String.t() | Atom.t()
+        "CurrentLensVersion" => String.t() | atom(),
+        "LatestLensVersion" => String.t() | atom(),
+        "LensAlias" => String.t() | atom(),
+        "LensArn" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "WorkloadId" => String.t() | atom(),
+        "WorkloadName" => String.t() | atom()
       }
 
   """
-  @type lens_upgrade_summary() :: %{String.t() | Atom.t() => any()}
+  @type lens_upgrade_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       milestone() :: %{
-        "MilestoneName" => String.t() | Atom.t(),
+        "MilestoneName" => String.t() | atom(),
         "MilestoneNumber" => integer(),
         "RecordedAt" => non_neg_integer(),
         "Workload" => workload()
       }
 
   """
-  @type milestone() :: %{String.t() | Atom.t() => any()}
+  @type milestone() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1298,18 +1298,18 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type get_lens_review_report_input() :: %{String.t() | Atom.t() => any()}
+  @type get_lens_review_report_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_lens_input() :: %{
-        optional("LensVersion") => String.t() | Atom.t()
+        optional("LensVersion") => String.t() | atom()
       }
 
   """
-  @type export_lens_input() :: %{String.t() | Atom.t() => any()}
+  @type export_lens_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1325,113 +1325,113 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       review_template_lens_review() :: %{
-        "LensAlias" => String.t() | Atom.t(),
-        "LensArn" => String.t() | Atom.t(),
-        "LensName" => String.t() | Atom.t(),
+        "LensAlias" => String.t() | atom(),
+        "LensArn" => String.t() | atom(),
+        "LensName" => String.t() | atom(),
         "LensStatus" => list(any()),
-        "LensVersion" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
-        "Notes" => String.t() | Atom.t(),
+        "LensVersion" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Notes" => String.t() | atom(),
         "PillarReviewSummaries" => list(review_template_pillar_review_summary()),
         "QuestionCounts" => map(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type review_template_lens_review() :: %{String.t() | Atom.t() => any()}
+  @type review_template_lens_review() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_milestone_input() :: %{
-        required("ClientRequestToken") => String.t() | Atom.t(),
-        required("MilestoneName") => String.t() | Atom.t()
+        required("ClientRequestToken") => String.t() | atom(),
+        required("MilestoneName") => String.t() | atom()
       }
 
   """
-  @type create_milestone_input() :: %{String.t() | Atom.t() => any()}
+  @type create_milestone_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_review_template_input() :: %{
-        required("ClientRequestToken") => String.t() | Atom.t()
+        required("ClientRequestToken") => String.t() | atom()
       }
 
   """
-  @type delete_review_template_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_review_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_template_share_input() :: %{
-        required("ClientRequestToken") => String.t() | Atom.t(),
-        required("SharedWith") => String.t() | Atom.t()
+        required("ClientRequestToken") => String.t() | atom(),
+        required("SharedWith") => String.t() | atom()
       }
 
   """
-  @type create_template_share_input() :: %{String.t() | Atom.t() => any()}
+  @type create_template_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_template_share_output() :: %{
-        "ShareId" => String.t() | Atom.t(),
-        "TemplateArn" => String.t() | Atom.t()
+        "ShareId" => String.t() | atom(),
+        "TemplateArn" => String.t() | atom()
       }
 
   """
-  @type create_template_share_output() :: %{String.t() | Atom.t() => any()}
+  @type create_template_share_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       review_template() :: %{
-        "Description" => String.t() | Atom.t(),
-        "Lenses" => list(String.t() | Atom.t()),
-        "Notes" => String.t() | Atom.t(),
-        "Owner" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Lenses" => list(String.t() | atom()),
+        "Notes" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
         "QuestionCounts" => map(),
-        "ShareInvitationId" => String.t() | Atom.t(),
+        "ShareInvitationId" => String.t() | atom(),
         "Tags" => map(),
-        "TemplateArn" => String.t() | Atom.t(),
-        "TemplateName" => String.t() | Atom.t(),
+        "TemplateArn" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
         "UpdateStatus" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type review_template() :: %{String.t() | Atom.t() => any()}
+  @type review_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_workload_shares_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "WorkloadId" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
+        "WorkloadId" => String.t() | atom(),
         "WorkloadShareSummaries" => list(workload_share_summary())
       }
 
   """
-  @type list_workload_shares_output() :: %{String.t() | Atom.t() => any()}
+  @type list_workload_shares_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1440,11 +1440,11 @@ defmodule AWS.WellArchitected do
       get_lens_review_report_output() :: %{
         "LensReviewReport" => lens_review_report(),
         "MilestoneNumber" => integer(),
-        "WorkloadId" => String.t() | Atom.t()
+        "WorkloadId" => String.t() | atom()
       }
 
   """
-  @type get_lens_review_report_output() :: %{String.t() | Atom.t() => any()}
+  @type get_lens_review_report_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1452,15 +1452,15 @@ defmodule AWS.WellArchitected do
 
       choice() :: %{
         "AdditionalResources" => list(additional_resources()),
-        "ChoiceId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "ChoiceId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "HelpfulResource" => choice_content(),
         "ImprovementPlan" => choice_content(),
-        "Title" => String.t() | Atom.t()
+        "Title" => String.t() | atom()
       }
 
   """
-  @type choice() :: %{String.t() | Atom.t() => any()}
+  @type choice() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1468,13 +1468,13 @@ defmodule AWS.WellArchitected do
 
       list_profile_shares_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("SharedWithPrefix") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SharedWithPrefix") => String.t() | atom(),
         optional("Status") => list(any())
       }
 
   """
-  @type list_profile_shares_input() :: %{String.t() | Atom.t() => any()}
+  @type list_profile_shares_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1485,7 +1485,7 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type tag_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1494,26 +1494,26 @@ defmodule AWS.WellArchitected do
       update_review_template_answer_input() :: %{
         optional("ChoiceUpdates") => map(),
         optional("IsApplicable") => boolean(),
-        optional("Notes") => String.t() | Atom.t(),
+        optional("Notes") => String.t() | atom(),
         optional("Reason") => list(any()),
-        optional("SelectedChoices") => list(String.t() | Atom.t())
+        optional("SelectedChoices") => list(String.t() | atom())
       }
 
   """
-  @type update_review_template_answer_input() :: %{String.t() | Atom.t() => any()}
+  @type update_review_template_answer_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pillar_metric() :: %{
-        "PillarId" => String.t() | Atom.t(),
+        "PillarId" => String.t() | atom(),
         "Questions" => list(question_metric()),
         "RiskCounts" => map()
       }
 
   """
-  @type pillar_metric() :: %{String.t() | Atom.t() => any()}
+  @type pillar_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1521,27 +1521,27 @@ defmodule AWS.WellArchitected do
 
       list_profiles_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("ProfileNamePrefix") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ProfileNamePrefix") => String.t() | atom(),
         optional("ProfileOwnerType") => list(any())
       }
 
   """
-  @type list_profiles_input() :: %{String.t() | Atom.t() => any()}
+  @type list_profiles_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       milestone_summary() :: %{
-        "MilestoneName" => String.t() | Atom.t(),
+        "MilestoneName" => String.t() | atom(),
         "MilestoneNumber" => integer(),
         "RecordedAt" => non_neg_integer(),
         "WorkloadSummary" => workload_summary()
       }
 
   """
-  @type milestone_summary() :: %{String.t() | Atom.t() => any()}
+  @type milestone_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1558,24 +1558,24 @@ defmodule AWS.WellArchitected do
 
       question_difference() :: %{
         "DifferenceStatus" => list(any()),
-        "QuestionId" => String.t() | Atom.t(),
-        "QuestionTitle" => String.t() | Atom.t()
+        "QuestionId" => String.t() | atom(),
+        "QuestionTitle" => String.t() | atom()
       }
 
   """
-  @type question_difference() :: %{String.t() | Atom.t() => any()}
+  @type question_difference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_profile_share_input() :: %{
-        required("ClientRequestToken") => String.t() | Atom.t(),
-        required("SharedWith") => String.t() | Atom.t()
+        required("ClientRequestToken") => String.t() | atom(),
+        required("SharedWith") => String.t() | atom()
       }
 
   """
-  @type create_profile_share_input() :: %{String.t() | Atom.t() => any()}
+  @type create_profile_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1583,11 +1583,11 @@ defmodule AWS.WellArchitected do
 
       list_review_templates_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_review_templates_input() :: %{String.t() | Atom.t() => any()}
+  @type list_review_templates_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1603,15 +1603,15 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       pillar_review_summary() :: %{
-        "Notes" => String.t() | Atom.t(),
-        "PillarId" => String.t() | Atom.t(),
-        "PillarName" => String.t() | Atom.t(),
+        "Notes" => String.t() | atom(),
+        "PillarId" => String.t() | atom(),
+        "PillarName" => String.t() | atom(),
         "PrioritizedRiskCounts" => map(),
         "RiskCounts" => map()
       }
 
   """
-  @type pillar_review_summary() :: %{String.t() | Atom.t() => any()}
+  @type pillar_review_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1622,18 +1622,18 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type update_share_invitation_input() :: %{String.t() | Atom.t() => any()}
+  @type update_share_invitation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1641,38 +1641,38 @@ defmodule AWS.WellArchitected do
 
       pillar_difference() :: %{
         "DifferenceStatus" => list(any()),
-        "PillarId" => String.t() | Atom.t(),
-        "PillarName" => String.t() | Atom.t(),
+        "PillarId" => String.t() | atom(),
+        "PillarName" => String.t() | atom(),
         "QuestionDifferences" => list(question_difference())
       }
 
   """
-  @type pillar_difference() :: %{String.t() | Atom.t() => any()}
+  @type pillar_difference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lens_metric() :: %{
-        "LensArn" => String.t() | Atom.t(),
+        "LensArn" => String.t() | atom(),
         "Pillars" => list(pillar_metric()),
         "RiskCounts" => map()
       }
 
   """
-  @type lens_metric() :: %{String.t() | Atom.t() => any()}
+  @type lens_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       choice_content() :: %{
-        "DisplayText" => String.t() | Atom.t(),
-        "Url" => String.t() | Atom.t()
+        "DisplayText" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type choice_content() :: %{String.t() | Atom.t() => any()}
+  @type choice_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1680,70 +1680,70 @@ defmodule AWS.WellArchitected do
 
       list_review_template_answers_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("PillarId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("PillarId") => String.t() | atom()
       }
 
   """
-  @type list_review_template_answers_input() :: %{String.t() | Atom.t() => any()}
+  @type list_review_template_answers_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_share_invitations_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ShareInvitationSummaries" => list(share_invitation_summary())
       }
 
   """
-  @type list_share_invitations_output() :: %{String.t() | Atom.t() => any()}
+  @type list_share_invitations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       selected_pillar() :: %{
-        "PillarId" => String.t() | Atom.t(),
-        "SelectedQuestionIds" => list(String.t() | Atom.t())
+        "PillarId" => String.t() | atom(),
+        "SelectedQuestionIds" => list(String.t() | atom())
       }
 
   """
-  @type selected_pillar() :: %{String.t() | Atom.t() => any()}
+  @type selected_pillar() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_profile_input() :: %{
-        optional("ProfileVersion") => String.t() | Atom.t()
+        optional("ProfileVersion") => String.t() | atom()
       }
 
   """
-  @type get_profile_input() :: %{String.t() | Atom.t() => any()}
+  @type get_profile_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_lens_input() :: %{
-        optional("LensVersion") => String.t() | Atom.t()
+        optional("LensVersion") => String.t() | atom()
       }
 
   """
-  @type get_lens_input() :: %{String.t() | Atom.t() => any()}
+  @type get_lens_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       upgrade_profile_version_input() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("MilestoneName") => String.t() | Atom.t()
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("MilestoneName") => String.t() | atom()
       }
 
   """
-  @type upgrade_profile_version_input() :: %{String.t() | Atom.t() => any()}
+  @type upgrade_profile_version_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1755,19 +1755,19 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type additional_resources() :: %{String.t() | Atom.t() => any()}
+  @type additional_resources() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_notifications_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "NotificationSummaries" => list(notification_summary())
       }
 
   """
-  @type list_notifications_output() :: %{String.t() | Atom.t() => any()}
+  @type list_notifications_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1775,13 +1775,13 @@ defmodule AWS.WellArchitected do
 
       update_answer_output() :: %{
         "Answer" => answer(),
-        "LensAlias" => String.t() | Atom.t(),
-        "LensArn" => String.t() | Atom.t(),
-        "WorkloadId" => String.t() | Atom.t()
+        "LensAlias" => String.t() | atom(),
+        "LensArn" => String.t() | atom(),
+        "WorkloadId" => String.t() | atom()
       }
 
   """
-  @type update_answer_output() :: %{String.t() | Atom.t() => any()}
+  @type update_answer_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1789,60 +1789,60 @@ defmodule AWS.WellArchitected do
 
       profile_template() :: %{
         "CreatedAt" => non_neg_integer(),
-        "TemplateName" => String.t() | Atom.t(),
+        "TemplateName" => String.t() | atom(),
         "TemplateQuestions" => list(profile_template_question()),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type profile_template() :: %{String.t() | Atom.t() => any()}
+  @type profile_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       choice_answer() :: %{
-        "ChoiceId" => String.t() | Atom.t(),
-        "Notes" => String.t() | Atom.t(),
+        "ChoiceId" => String.t() | atom(),
+        "Notes" => String.t() | atom(),
         "Reason" => list(any()),
         "Status" => list(any())
       }
 
   """
-  @type choice_answer() :: %{String.t() | Atom.t() => any()}
+  @type choice_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_template_share_input() :: %{
-        required("ClientRequestToken") => String.t() | Atom.t()
+        required("ClientRequestToken") => String.t() | atom()
       }
 
   """
-  @type delete_template_share_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_template_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1853,46 +1853,46 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type update_workload_output() :: %{String.t() | Atom.t() => any()}
+  @type update_workload_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_profile_share_input() :: %{
-        required("ClientRequestToken") => String.t() | Atom.t()
+        required("ClientRequestToken") => String.t() | atom()
       }
 
   """
-  @type delete_profile_share_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_profile_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_lens_version_difference_output() :: %{
-        "BaseLensVersion" => String.t() | Atom.t(),
-        "LatestLensVersion" => String.t() | Atom.t(),
-        "LensAlias" => String.t() | Atom.t(),
-        "LensArn" => String.t() | Atom.t(),
-        "TargetLensVersion" => String.t() | Atom.t(),
+        "BaseLensVersion" => String.t() | atom(),
+        "LatestLensVersion" => String.t() | atom(),
+        "LensAlias" => String.t() | atom(),
+        "LensArn" => String.t() | atom(),
+        "TargetLensVersion" => String.t() | atom(),
         "VersionDifferences" => version_differences()
       }
 
   """
-  @type get_lens_version_difference_output() :: %{String.t() | Atom.t() => any()}
+  @type get_lens_version_difference_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_workloads_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "WorkloadSummaries" => list(workload_summary())
       }
 
   """
-  @type list_workloads_output() :: %{String.t() | Atom.t() => any()}
+  @type list_workloads_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1900,12 +1900,12 @@ defmodule AWS.WellArchitected do
 
       update_review_template_answer_output() :: %{
         "Answer" => review_template_answer(),
-        "LensAlias" => String.t() | Atom.t(),
-        "TemplateArn" => String.t() | Atom.t()
+        "LensAlias" => String.t() | atom(),
+        "TemplateArn" => String.t() | atom()
       }
 
   """
-  @type update_review_template_answer_output() :: %{String.t() | Atom.t() => any()}
+  @type update_review_template_answer_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1918,36 +1918,36 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type update_global_settings_input() :: %{String.t() | Atom.t() => any()}
+  @type update_global_settings_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_profile_notifications_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "NotificationSummaries" => list(profile_notification_summary())
       }
 
   """
-  @type list_profile_notifications_output() :: %{String.t() | Atom.t() => any()}
+  @type list_profile_notifications_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       improvement_summary() :: %{
-        "ImprovementPlanUrl" => String.t() | Atom.t(),
+        "ImprovementPlanUrl" => String.t() | atom(),
         "ImprovementPlans" => list(choice_improvement_plan()),
         "JiraConfiguration" => jira_configuration(),
-        "PillarId" => String.t() | Atom.t(),
-        "QuestionId" => String.t() | Atom.t(),
-        "QuestionTitle" => String.t() | Atom.t(),
+        "PillarId" => String.t() | atom(),
+        "QuestionId" => String.t() | atom(),
+        "QuestionTitle" => String.t() | atom(),
         "Risk" => list(any())
       }
 
   """
-  @type improvement_summary() :: %{String.t() | Atom.t() => any()}
+  @type improvement_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1956,23 +1956,23 @@ defmodule AWS.WellArchitected do
       list_lens_reviews_output() :: %{
         "LensReviewSummaries" => list(lens_review_summary()),
         "MilestoneNumber" => integer(),
-        "NextToken" => String.t() | Atom.t(),
-        "WorkloadId" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom(),
+        "WorkloadId" => String.t() | atom()
       }
 
   """
-  @type list_lens_reviews_output() :: %{String.t() | Atom.t() => any()}
+  @type list_lens_reviews_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_lenses_input() :: %{
-        required("LensAliases") => list(String.t() | Atom.t())
+        required("LensAliases") => list(String.t() | atom())
       }
 
   """
-  @type disassociate_lenses_input() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_lenses_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1981,13 +1981,13 @@ defmodule AWS.WellArchitected do
       list_lens_review_improvements_input() :: %{
         optional("MaxResults") => integer(),
         optional("MilestoneNumber") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("PillarId") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PillarId") => String.t() | atom(),
         optional("QuestionPriority") => list(any())
       }
 
   """
-  @type list_lens_review_improvements_input() :: %{String.t() | Atom.t() => any()}
+  @type list_lens_review_improvements_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1998,18 +1998,18 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type update_profile_output() :: %{String.t() | Atom.t() => any()}
+  @type update_profile_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       upgrade_review_template_lens_review_input() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t()
+        optional("ClientRequestToken") => String.t() | atom()
       }
 
   """
-  @type upgrade_review_template_lens_review_input() :: %{String.t() | Atom.t() => any()}
+  @type upgrade_review_template_lens_review_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2019,11 +2019,11 @@ defmodule AWS.WellArchitected do
         "IntegrationStatus" => list(any()),
         "IssueManagementStatus" => list(any()),
         "IssueManagementType" => list(any()),
-        "JiraProjectKey" => String.t() | Atom.t()
+        "JiraProjectKey" => String.t() | atom()
       }
 
   """
-  @type account_jira_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type account_jira_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2031,12 +2031,12 @@ defmodule AWS.WellArchitected do
 
       validation_exception() :: %{
         "Fields" => list(validation_exception_field()),
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "Reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2062,45 +2062,45 @@ defmodule AWS.WellArchitected do
 
       list_check_summaries_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ChoiceId") => String.t() | Atom.t(),
-        required("LensArn") => String.t() | Atom.t(),
-        required("PillarId") => String.t() | Atom.t(),
-        required("QuestionId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ChoiceId") => String.t() | atom(),
+        required("LensArn") => String.t() | atom(),
+        required("PillarId") => String.t() | atom(),
+        required("QuestionId") => String.t() | atom()
       }
 
   """
-  @type list_check_summaries_input() :: %{String.t() | Atom.t() => any()}
+  @type list_check_summaries_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workload_input() :: %{
-        optional("AccountIds") => list(String.t() | Atom.t()),
-        optional("Applications") => list(String.t() | Atom.t()),
-        optional("ArchitecturalDesign") => String.t() | Atom.t(),
-        optional("AwsRegions") => list(String.t() | Atom.t()),
+        optional("AccountIds") => list(String.t() | atom()),
+        optional("Applications") => list(String.t() | atom()),
+        optional("ArchitecturalDesign") => String.t() | atom(),
+        optional("AwsRegions") => list(String.t() | atom()),
         optional("DiscoveryConfig") => workload_discovery_config(),
-        optional("Industry") => String.t() | Atom.t(),
-        optional("IndustryType") => String.t() | Atom.t(),
+        optional("Industry") => String.t() | atom(),
+        optional("IndustryType") => String.t() | atom(),
         optional("JiraConfiguration") => workload_jira_configuration_input(),
-        optional("NonAwsRegions") => list(String.t() | Atom.t()),
-        optional("Notes") => String.t() | Atom.t(),
-        optional("PillarPriorities") => list(String.t() | Atom.t()),
-        optional("ProfileArns") => list(String.t() | Atom.t()),
-        optional("ReviewOwner") => String.t() | Atom.t(),
-        optional("ReviewTemplateArns") => list(String.t() | Atom.t()),
+        optional("NonAwsRegions") => list(String.t() | atom()),
+        optional("Notes") => String.t() | atom(),
+        optional("PillarPriorities") => list(String.t() | atom()),
+        optional("ProfileArns") => list(String.t() | atom()),
+        optional("ReviewOwner") => String.t() | atom(),
+        optional("ReviewTemplateArns") => list(String.t() | atom()),
         optional("Tags") => map(),
-        required("ClientRequestToken") => String.t() | Atom.t(),
-        required("Description") => String.t() | Atom.t(),
+        required("ClientRequestToken") => String.t() | atom(),
+        required("Description") => String.t() | atom(),
         required("Environment") => list(any()),
-        required("Lenses") => list(String.t() | Atom.t()),
-        required("WorkloadName") => String.t() | Atom.t()
+        required("Lenses") => list(String.t() | atom()),
+        required("WorkloadName") => String.t() | atom()
       }
 
   """
-  @type create_workload_input() :: %{String.t() | Atom.t() => any()}
+  @type create_workload_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2109,24 +2109,24 @@ defmodule AWS.WellArchitected do
       list_lens_reviews_input() :: %{
         optional("MaxResults") => integer(),
         optional("MilestoneNumber") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_lens_reviews_input() :: %{String.t() | Atom.t() => any()}
+  @type list_lens_reviews_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "QuotaCode" => String.t() | Atom.t(),
-        "ServiceCode" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "QuotaCode" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2134,24 +2134,24 @@ defmodule AWS.WellArchitected do
 
       list_profile_notifications_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("WorkloadId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("WorkloadId") => String.t() | atom()
       }
 
   """
-  @type list_profile_notifications_input() :: %{String.t() | Atom.t() => any()}
+  @type list_profile_notifications_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_lens_share_input() :: %{
-        required("ClientRequestToken") => String.t() | Atom.t(),
-        required("SharedWith") => String.t() | Atom.t()
+        required("ClientRequestToken") => String.t() | atom(),
+        required("SharedWith") => String.t() | atom()
       }
 
   """
-  @type create_lens_share_input() :: %{String.t() | Atom.t() => any()}
+  @type create_lens_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2162,31 +2162,31 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type get_lens_output() :: %{String.t() | Atom.t() => any()}
+  @type get_lens_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_profile_share_output() :: %{
-        "ProfileArn" => String.t() | Atom.t(),
-        "ShareId" => String.t() | Atom.t()
+        "ProfileArn" => String.t() | atom(),
+        "ShareId" => String.t() | atom()
       }
 
   """
-  @type create_profile_share_output() :: %{String.t() | Atom.t() => any()}
+  @type create_profile_share_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       jira_configuration() :: %{
-        "JiraIssueUrl" => String.t() | Atom.t(),
+        "JiraIssueUrl" => String.t() | atom(),
         "LastSyncedTime" => non_neg_integer()
       }
 
   """
-  @type jira_configuration() :: %{String.t() | Atom.t() => any()}
+  @type jira_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2197,69 +2197,69 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type get_lens_review_input() :: %{String.t() | Atom.t() => any()}
+  @type get_lens_review_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       choice_update() :: %{
-        "Notes" => String.t() | Atom.t(),
+        "Notes" => String.t() | atom(),
         "Reason" => list(any()),
         "Status" => list(any())
       }
 
   """
-  @type choice_update() :: %{String.t() | Atom.t() => any()}
+  @type choice_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_consolidated_report_output() :: %{
-        "Base64String" => String.t() | Atom.t(),
+        "Base64String" => String.t() | atom(),
         "Metrics" => list(consolidated_report_metric()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_consolidated_report_output() :: %{String.t() | Atom.t() => any()}
+  @type get_consolidated_report_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_lens_share_output() :: %{
-        "ShareId" => String.t() | Atom.t()
+        "ShareId" => String.t() | atom()
       }
 
   """
-  @type create_lens_share_output() :: %{String.t() | Atom.t() => any()}
+  @type create_lens_share_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workload_share_input() :: %{
-        required("ClientRequestToken") => String.t() | Atom.t(),
+        required("ClientRequestToken") => String.t() | atom(),
         required("PermissionType") => list(any()),
-        required("SharedWith") => String.t() | Atom.t()
+        required("SharedWith") => String.t() | atom()
       }
 
   """
-  @type create_workload_share_input() :: %{String.t() | Atom.t() => any()}
+  @type create_workload_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_lens_version_difference_input() :: %{
-        optional("BaseLensVersion") => String.t() | Atom.t(),
-        optional("TargetLensVersion") => String.t() | Atom.t()
+        optional("BaseLensVersion") => String.t() | atom(),
+        optional("TargetLensVersion") => String.t() | atom()
       }
 
   """
-  @type get_lens_version_difference_input() :: %{String.t() | Atom.t() => any()}
+  @type get_lens_version_difference_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2267,11 +2267,11 @@ defmodule AWS.WellArchitected do
 
       update_review_template_lens_review_output() :: %{
         "LensReview" => review_template_lens_review(),
-        "TemplateArn" => String.t() | Atom.t()
+        "TemplateArn" => String.t() | atom()
       }
 
   """
-  @type update_review_template_lens_review_output() :: %{String.t() | Atom.t() => any()}
+  @type update_review_template_lens_review_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2296,12 +2296,12 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       create_workload_output() :: %{
-        "WorkloadArn" => String.t() | Atom.t(),
-        "WorkloadId" => String.t() | Atom.t()
+        "WorkloadArn" => String.t() | atom(),
+        "WorkloadId" => String.t() | atom()
       }
 
   """
-  @type create_workload_output() :: %{String.t() | Atom.t() => any()}
+  @type create_workload_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2309,20 +2309,20 @@ defmodule AWS.WellArchitected do
 
       check_summary() :: %{
         "AccountSummary" => map(),
-        "ChoiceId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LensArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "PillarId" => String.t() | Atom.t(),
+        "ChoiceId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LensArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PillarId" => String.t() | atom(),
         "Provider" => list(any()),
-        "QuestionId" => String.t() | Atom.t(),
+        "QuestionId" => String.t() | atom(),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type check_summary() :: %{String.t() | Atom.t() => any()}
+  @type check_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2335,7 +2335,7 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type get_global_settings_output() :: %{String.t() | Atom.t() => any()}
+  @type get_global_settings_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2346,7 +2346,7 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type version_differences() :: %{String.t() | Atom.t() => any()}
+  @type version_differences() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2355,13 +2355,13 @@ defmodule AWS.WellArchitected do
       list_answers_input() :: %{
         optional("MaxResults") => integer(),
         optional("MilestoneNumber") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("PillarId") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PillarId") => String.t() | atom(),
         optional("QuestionPriority") => list(any())
       }
 
   """
-  @type list_answers_input() :: %{String.t() | Atom.t() => any()}
+  @type list_answers_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2369,11 +2369,11 @@ defmodule AWS.WellArchitected do
 
       list_check_summaries_output() :: %{
         "CheckSummaries" => list(check_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_check_summaries_output() :: %{String.t() | Atom.t() => any()}
+  @type list_check_summaries_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2381,19 +2381,19 @@ defmodule AWS.WellArchitected do
 
       lens_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "LensAlias" => String.t() | Atom.t(),
-        "LensArn" => String.t() | Atom.t(),
-        "LensName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "LensAlias" => String.t() | atom(),
+        "LensArn" => String.t() | atom(),
+        "LensName" => String.t() | atom(),
         "LensStatus" => list(any()),
         "LensType" => list(any()),
-        "LensVersion" => String.t() | Atom.t(),
-        "Owner" => String.t() | Atom.t(),
+        "LensVersion" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type lens_summary() :: %{String.t() | Atom.t() => any()}
+  @type lens_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2401,15 +2401,15 @@ defmodule AWS.WellArchitected do
 
       list_answers_output() :: %{
         "AnswerSummaries" => list(answer_summary()),
-        "LensAlias" => String.t() | Atom.t(),
-        "LensArn" => String.t() | Atom.t(),
+        "LensAlias" => String.t() | atom(),
+        "LensArn" => String.t() | atom(),
         "MilestoneNumber" => integer(),
-        "NextToken" => String.t() | Atom.t(),
-        "WorkloadId" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom(),
+        "WorkloadId" => String.t() | atom()
       }
 
   """
-  @type list_answers_output() :: %{String.t() | Atom.t() => any()}
+  @type list_answers_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2421,20 +2421,20 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type notification_summary() :: %{String.t() | Atom.t() => any()}
+  @type notification_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       choice_improvement_plan() :: %{
-        "ChoiceId" => String.t() | Atom.t(),
-        "DisplayText" => String.t() | Atom.t(),
-        "ImprovementPlanUrl" => String.t() | Atom.t()
+        "ChoiceId" => String.t() | atom(),
+        "DisplayText" => String.t() | atom(),
+        "ImprovementPlanUrl" => String.t() | atom()
       }
 
   """
-  @type choice_improvement_plan() :: %{String.t() | Atom.t() => any()}
+  @type choice_improvement_plan() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2442,99 +2442,99 @@ defmodule AWS.WellArchitected do
 
       workload_share() :: %{
         "PermissionType" => list(any()),
-        "ShareId" => String.t() | Atom.t(),
-        "SharedBy" => String.t() | Atom.t(),
-        "SharedWith" => String.t() | Atom.t(),
+        "ShareId" => String.t() | atom(),
+        "SharedBy" => String.t() | atom(),
+        "SharedWith" => String.t() | atom(),
         "Status" => list(any()),
-        "WorkloadId" => String.t() | Atom.t(),
-        "WorkloadName" => String.t() | Atom.t()
+        "WorkloadId" => String.t() | atom(),
+        "WorkloadName" => String.t() | atom()
       }
 
   """
-  @type workload_share() :: %{String.t() | Atom.t() => any()}
+  @type workload_share() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       profile_notification_summary() :: %{
-        "CurrentProfileVersion" => String.t() | Atom.t(),
-        "LatestProfileVersion" => String.t() | Atom.t(),
-        "ProfileArn" => String.t() | Atom.t(),
-        "ProfileName" => String.t() | Atom.t(),
+        "CurrentProfileVersion" => String.t() | atom(),
+        "LatestProfileVersion" => String.t() | atom(),
+        "ProfileArn" => String.t() | atom(),
+        "ProfileName" => String.t() | atom(),
         "Type" => list(any()),
-        "WorkloadId" => String.t() | Atom.t(),
-        "WorkloadName" => String.t() | Atom.t()
+        "WorkloadId" => String.t() | atom(),
+        "WorkloadName" => String.t() | atom()
       }
 
   """
-  @type profile_notification_summary() :: %{String.t() | Atom.t() => any()}
+  @type profile_notification_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lens() :: %{
-        "Description" => String.t() | Atom.t(),
-        "LensArn" => String.t() | Atom.t(),
-        "LensVersion" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "Owner" => String.t() | Atom.t(),
-        "ShareInvitationId" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "LensArn" => String.t() | atom(),
+        "LensVersion" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "ShareInvitationId" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type lens() :: %{String.t() | Atom.t() => any()}
+  @type lens() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_workload_input() :: %{
-        optional("AccountIds") => list(String.t() | Atom.t()),
-        optional("Applications") => list(String.t() | Atom.t()),
-        optional("ArchitecturalDesign") => String.t() | Atom.t(),
-        optional("AwsRegions") => list(String.t() | Atom.t()),
-        optional("Description") => String.t() | Atom.t(),
+        optional("AccountIds") => list(String.t() | atom()),
+        optional("Applications") => list(String.t() | atom()),
+        optional("ArchitecturalDesign") => String.t() | atom(),
+        optional("AwsRegions") => list(String.t() | atom()),
+        optional("Description") => String.t() | atom(),
         optional("DiscoveryConfig") => workload_discovery_config(),
         optional("Environment") => list(any()),
         optional("ImprovementStatus") => list(any()),
-        optional("Industry") => String.t() | Atom.t(),
-        optional("IndustryType") => String.t() | Atom.t(),
+        optional("Industry") => String.t() | atom(),
+        optional("IndustryType") => String.t() | atom(),
         optional("IsReviewOwnerUpdateAcknowledged") => boolean(),
         optional("JiraConfiguration") => workload_jira_configuration_input(),
-        optional("NonAwsRegions") => list(String.t() | Atom.t()),
-        optional("Notes") => String.t() | Atom.t(),
-        optional("PillarPriorities") => list(String.t() | Atom.t()),
-        optional("ReviewOwner") => String.t() | Atom.t(),
-        optional("WorkloadName") => String.t() | Atom.t()
+        optional("NonAwsRegions") => list(String.t() | atom()),
+        optional("Notes") => String.t() | atom(),
+        optional("PillarPriorities") => list(String.t() | atom()),
+        optional("ReviewOwner") => String.t() | atom(),
+        optional("WorkloadName") => String.t() | atom()
       }
 
   """
-  @type update_workload_input() :: %{String.t() | Atom.t() => any()}
+  @type update_workload_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_workload_input() :: %{
-        required("ClientRequestToken") => String.t() | Atom.t()
+        required("ClientRequestToken") => String.t() | atom()
       }
 
   """
-  @type delete_workload_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_workload_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_lens_output() :: %{
-        "LensJSON" => String.t() | Atom.t()
+        "LensJSON" => String.t() | atom()
       }
 
   """
-  @type export_lens_output() :: %{String.t() | Atom.t() => any()}
+  @type export_lens_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2544,13 +2544,13 @@ defmodule AWS.WellArchitected do
         "MaxSelectedChoices" => integer(),
         "MinSelectedChoices" => integer(),
         "QuestionChoices" => list(profile_template_choice()),
-        "QuestionDescription" => String.t() | Atom.t(),
-        "QuestionId" => String.t() | Atom.t(),
-        "QuestionTitle" => String.t() | Atom.t()
+        "QuestionDescription" => String.t() | atom(),
+        "QuestionId" => String.t() | atom(),
+        "QuestionTitle" => String.t() | atom()
       }
 
   """
-  @type profile_template_question() :: %{String.t() | Atom.t() => any()}
+  @type profile_template_question() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2560,33 +2560,33 @@ defmodule AWS.WellArchitected do
         "AnswerStatus" => list(any()),
         "ChoiceAnswers" => list(choice_answer()),
         "Choices" => list(choice()),
-        "HelpfulResourceDisplayText" => String.t() | Atom.t(),
-        "HelpfulResourceUrl" => String.t() | Atom.t(),
-        "ImprovementPlanUrl" => String.t() | Atom.t(),
+        "HelpfulResourceDisplayText" => String.t() | atom(),
+        "HelpfulResourceUrl" => String.t() | atom(),
+        "ImprovementPlanUrl" => String.t() | atom(),
         "IsApplicable" => boolean(),
-        "Notes" => String.t() | Atom.t(),
-        "PillarId" => String.t() | Atom.t(),
-        "QuestionDescription" => String.t() | Atom.t(),
-        "QuestionId" => String.t() | Atom.t(),
-        "QuestionTitle" => String.t() | Atom.t(),
+        "Notes" => String.t() | atom(),
+        "PillarId" => String.t() | atom(),
+        "QuestionDescription" => String.t() | atom(),
+        "QuestionId" => String.t() | atom(),
+        "QuestionTitle" => String.t() | atom(),
         "Reason" => list(any()),
-        "SelectedChoices" => list(String.t() | Atom.t())
+        "SelectedChoices" => list(String.t() | atom())
       }
 
   """
-  @type review_template_answer() :: %{String.t() | Atom.t() => any()}
+  @type review_template_answer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_profile_input() :: %{
-        optional("ProfileDescription") => String.t() | Atom.t(),
+        optional("ProfileDescription") => String.t() | atom(),
         optional("ProfileQuestions") => list(profile_question_update())
       }
 
   """
-  @type update_profile_input() :: %{String.t() | Atom.t() => any()}
+  @type update_profile_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2597,24 +2597,24 @@ defmodule AWS.WellArchitected do
       }
 
   """
-  @type get_review_template_output() :: %{String.t() | Atom.t() => any()}
+  @type get_review_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_share_invitations_input() :: %{
-        optional("LensNamePrefix") => String.t() | Atom.t(),
+        optional("LensNamePrefix") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("ProfileNamePrefix") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ProfileNamePrefix") => String.t() | atom(),
         optional("ShareResourceType") => list(any()),
-        optional("TemplateNamePrefix") => String.t() | Atom.t(),
-        optional("WorkloadNamePrefix") => String.t() | Atom.t()
+        optional("TemplateNamePrefix") => String.t() | atom(),
+        optional("WorkloadNamePrefix") => String.t() | atom()
       }
 
   """
-  @type list_share_invitations_input() :: %{String.t() | Atom.t() => any()}
+  @type list_share_invitations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2625,32 +2625,32 @@ defmodule AWS.WellArchitected do
         "Choices" => list(choice()),
         "IsApplicable" => boolean(),
         "JiraConfiguration" => jira_configuration(),
-        "PillarId" => String.t() | Atom.t(),
-        "QuestionId" => String.t() | Atom.t(),
-        "QuestionTitle" => String.t() | Atom.t(),
+        "PillarId" => String.t() | atom(),
+        "QuestionId" => String.t() | atom(),
+        "QuestionTitle" => String.t() | atom(),
         "QuestionType" => list(any()),
         "Reason" => list(any()),
         "Risk" => list(any()),
-        "SelectedChoices" => list(String.t() | Atom.t())
+        "SelectedChoices" => list(String.t() | atom())
       }
 
   """
-  @type answer_summary() :: %{String.t() | Atom.t() => any()}
+  @type answer_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_lenses_input() :: %{
-        optional("LensName") => String.t() | Atom.t(),
+        optional("LensName") => String.t() | atom(),
         optional("LensStatus") => list(any()),
         optional("LensType") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_lenses_input() :: %{String.t() | Atom.t() => any()}
+  @type list_lenses_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2658,16 +2658,16 @@ defmodule AWS.WellArchitected do
 
       profile_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Owner" => String.t() | Atom.t(),
-        "ProfileArn" => String.t() | Atom.t(),
-        "ProfileDescription" => String.t() | Atom.t(),
-        "ProfileName" => String.t() | Atom.t(),
-        "ProfileVersion" => String.t() | Atom.t(),
+        "Owner" => String.t() | atom(),
+        "ProfileArn" => String.t() | atom(),
+        "ProfileDescription" => String.t() | atom(),
+        "ProfileName" => String.t() | atom(),
+        "ProfileVersion" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type profile_summary() :: %{String.t() | Atom.t() => any()}
+  @type profile_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2675,24 +2675,24 @@ defmodule AWS.WellArchitected do
 
       get_review_template_answer_output() :: %{
         "Answer" => review_template_answer(),
-        "LensAlias" => String.t() | Atom.t(),
-        "TemplateArn" => String.t() | Atom.t()
+        "LensAlias" => String.t() | atom(),
+        "TemplateArn" => String.t() | atom()
       }
 
   """
-  @type get_review_template_answer_output() :: %{String.t() | Atom.t() => any()}
+  @type get_review_template_answer_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       workload_profile() :: %{
-        "ProfileArn" => String.t() | Atom.t(),
-        "ProfileVersion" => String.t() | Atom.t()
+        "ProfileArn" => String.t() | atom(),
+        "ProfileVersion" => String.t() | atom()
       }
 
   """
-  @type workload_profile() :: %{String.t() | Atom.t() => any()}
+  @type workload_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2700,13 +2700,13 @@ defmodule AWS.WellArchitected do
 
       list_template_shares_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("SharedWithPrefix") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SharedWithPrefix") => String.t() | atom(),
         optional("Status") => list(any())
       }
 
   """
-  @type list_template_shares_input() :: %{String.t() | Atom.t() => any()}
+  @type list_template_shares_input() :: %{(String.t() | atom()) => any()}
 
   @type associate_lenses_errors() ::
           throttling_exception()
@@ -3266,7 +3266,7 @@ defmodule AWS.WellArchitected do
   are
   Third Party Content as defined in the Amazon Web Services Customer Agreement.
   """
-  @spec associate_lenses(map(), String.t() | Atom.t(), associate_lenses_input(), list()) ::
+  @spec associate_lenses(map(), String.t() | atom(), associate_lenses_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3295,7 +3295,7 @@ defmodule AWS.WellArchitected do
   @doc """
   Associate a profile with a workload.
   """
-  @spec associate_profiles(map(), String.t() | Atom.t(), associate_profiles_input(), list()) ::
+  @spec associate_profiles(map(), String.t() | atom(), associate_profiles_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3350,7 +3350,7 @@ defmodule AWS.WellArchitected do
   from your own Amazon Web Services account or terminate
   your Amazon Web Services account.
   """
-  @spec create_lens_share(map(), String.t() | Atom.t(), create_lens_share_input(), list()) ::
+  @spec create_lens_share(map(), String.t() | atom(), create_lens_share_input(), list()) ::
           {:ok, create_lens_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3388,7 +3388,7 @@ defmodule AWS.WellArchitected do
   Amazon Web Services accounts and users in the same Amazon Web Services Region.
   Only the owner of a lens can delete it.
   """
-  @spec create_lens_version(map(), String.t() | Atom.t(), create_lens_version_input(), list()) ::
+  @spec create_lens_version(map(), String.t() | atom(), create_lens_version_input(), list()) ::
           {:ok, create_lens_version_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3417,7 +3417,7 @@ defmodule AWS.WellArchitected do
   @doc """
   Create a milestone for an existing workload.
   """
-  @spec create_milestone(map(), String.t() | Atom.t(), create_milestone_input(), list()) ::
+  @spec create_milestone(map(), String.t() | atom(), create_milestone_input(), list()) ::
           {:ok, create_milestone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3475,7 +3475,7 @@ defmodule AWS.WellArchitected do
   @doc """
   Create a profile share.
   """
-  @spec create_profile_share(map(), String.t() | Atom.t(), create_profile_share_input(), list()) ::
+  @spec create_profile_share(map(), String.t() | atom(), create_profile_share_input(), list()) ::
           {:ok, create_profile_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3562,7 +3562,7 @@ defmodule AWS.WellArchitected do
   acknowledge that Amazon Web Services will make your review template available to
   those other accounts.
   """
-  @spec create_template_share(map(), String.t() | Atom.t(), create_template_share_input(), list()) ::
+  @spec create_template_share(map(), String.t() | atom(), create_template_share_input(), list()) ::
           {:ok, create_template_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3669,7 +3669,7 @@ defmodule AWS.WellArchitected do
   in the
   *Well-Architected Tool User Guide*.
   """
-  @spec create_workload_share(map(), String.t() | Atom.t(), create_workload_share_input(), list()) ::
+  @spec create_workload_share(map(), String.t() | atom(), create_workload_share_input(), list()) ::
           {:ok, create_workload_share_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3713,7 +3713,7 @@ defmodule AWS.WellArchitected do
   from your own Amazon Web Services account or terminate
   your Amazon Web Services account.
   """
-  @spec delete_lens(map(), String.t() | Atom.t(), delete_lens_input(), list()) ::
+  @spec delete_lens(map(), String.t() | atom(), delete_lens_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3766,8 +3766,8 @@ defmodule AWS.WellArchitected do
   """
   @spec delete_lens_share(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_lens_share_input(),
           list()
         ) ::
@@ -3816,7 +3816,7 @@ defmodule AWS.WellArchitected do
   from your own Amazon Web Services account or terminate
   your Amazon Web Services account.
   """
-  @spec delete_profile(map(), String.t() | Atom.t(), delete_profile_input(), list()) ::
+  @spec delete_profile(map(), String.t() | atom(), delete_profile_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3852,8 +3852,8 @@ defmodule AWS.WellArchitected do
   """
   @spec delete_profile_share(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_profile_share_input(),
           list()
         ) ::
@@ -3899,12 +3899,7 @@ defmodule AWS.WellArchitected do
   template with
   will no longer be able to apply it to new workloads.
   """
-  @spec delete_review_template(
-          map(),
-          String.t() | Atom.t(),
-          delete_review_template_input(),
-          list()
-        ) ::
+  @spec delete_review_template(map(), String.t() | atom(), delete_review_template_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3945,8 +3940,8 @@ defmodule AWS.WellArchitected do
   """
   @spec delete_template_share(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_template_share_input(),
           list()
         ) ::
@@ -3985,7 +3980,7 @@ defmodule AWS.WellArchitected do
   @doc """
   Delete an existing workload.
   """
-  @spec delete_workload(map(), String.t() | Atom.t(), delete_workload_input(), list()) ::
+  @spec delete_workload(map(), String.t() | atom(), delete_workload_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4021,8 +4016,8 @@ defmodule AWS.WellArchitected do
   """
   @spec delete_workload_share(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_workload_share_input(),
           list()
         ) ::
@@ -4067,7 +4062,7 @@ defmodule AWS.WellArchitected do
   cannot be
   removed from a workload.
   """
-  @spec disassociate_lenses(map(), String.t() | Atom.t(), disassociate_lenses_input(), list()) ::
+  @spec disassociate_lenses(map(), String.t() | atom(), disassociate_lenses_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4096,7 +4091,7 @@ defmodule AWS.WellArchitected do
   @doc """
   Disassociate a profile from a workload.
   """
-  @spec disassociate_profiles(map(), String.t() | Atom.t(), disassociate_profiles_input(), list()) ::
+  @spec disassociate_profiles(map(), String.t() | atom(), disassociate_profiles_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4142,7 +4137,7 @@ defmodule AWS.WellArchitected do
   with applicable law, providing adequate privacy notices, and obtaining necessary
   consents for processing such data.
   """
-  @spec export_lens(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec export_lens(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, export_lens_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4169,10 +4164,10 @@ defmodule AWS.WellArchitected do
   """
   @spec get_answer(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_answer_output(), any()}
@@ -4212,10 +4207,10 @@ defmodule AWS.WellArchitected do
   """
   @spec get_consolidated_report(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_consolidated_report_output(), any()}
@@ -4288,7 +4283,7 @@ defmodule AWS.WellArchitected do
   @doc """
   Get an existing lens.
   """
-  @spec get_lens(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec get_lens(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_lens_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4315,9 +4310,9 @@ defmodule AWS.WellArchitected do
   """
   @spec get_lens_review(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_lens_review_output(), any()}
@@ -4354,9 +4349,9 @@ defmodule AWS.WellArchitected do
   """
   @spec get_lens_review_report(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_lens_review_report_output(), any()}
@@ -4393,9 +4388,9 @@ defmodule AWS.WellArchitected do
   """
   @spec get_lens_version_difference(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_lens_version_difference_output(), any()}
@@ -4435,7 +4430,7 @@ defmodule AWS.WellArchitected do
   @doc """
   Get a milestone for an existing workload.
   """
-  @spec get_milestone(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_milestone(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_milestone_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4455,7 +4450,7 @@ defmodule AWS.WellArchitected do
   @doc """
   Get profile information.
   """
-  @spec get_profile(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec get_profile(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4498,7 +4493,7 @@ defmodule AWS.WellArchitected do
   @doc """
   Get review template.
   """
-  @spec get_review_template(map(), String.t() | Atom.t(), list()) ::
+  @spec get_review_template(map(), String.t() | atom(), list()) ::
           {:ok, get_review_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4518,9 +4513,9 @@ defmodule AWS.WellArchitected do
   """
   @spec get_review_template_answer(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_review_template_answer_output(), any()}
@@ -4548,12 +4543,7 @@ defmodule AWS.WellArchitected do
   @doc """
   Get a lens review associated with a review template.
   """
-  @spec get_review_template_lens_review(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec get_review_template_lens_review(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_review_template_lens_review_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4573,7 +4563,7 @@ defmodule AWS.WellArchitected do
   @doc """
   Get an existing workload.
   """
-  @spec get_workload(map(), String.t() | Atom.t(), list()) ::
+  @spec get_workload(map(), String.t() | atom(), list()) ::
           {:ok, get_workload_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4645,13 +4635,13 @@ defmodule AWS.WellArchitected do
   """
   @spec list_answers(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_answers_output(), any()}
@@ -4718,7 +4708,7 @@ defmodule AWS.WellArchitected do
   @doc """
   List of Trusted Advisor check details by account related to the workload.
   """
-  @spec list_check_details(map(), String.t() | Atom.t(), list_check_details_input(), list()) ::
+  @spec list_check_details(map(), String.t() | atom(), list_check_details_input(), list()) ::
           {:ok, list_check_details_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4748,7 +4738,7 @@ defmodule AWS.WellArchitected do
   List of Trusted Advisor checks summarized for all accounts related to the
   workload.
   """
-  @spec list_check_summaries(map(), String.t() | Atom.t(), list_check_summaries_input(), list()) ::
+  @spec list_check_summaries(map(), String.t() | atom(), list_check_summaries_input(), list()) ::
           {:ok, list_check_summaries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4779,13 +4769,13 @@ defmodule AWS.WellArchitected do
   """
   @spec list_lens_review_improvements(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_lens_review_improvements_output(), any()}
@@ -4854,10 +4844,10 @@ defmodule AWS.WellArchitected do
   """
   @spec list_lens_reviews(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_lens_reviews_output(), any()}
@@ -4907,11 +4897,11 @@ defmodule AWS.WellArchitected do
   """
   @spec list_lens_shares(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_lens_shares_output(), any()}
@@ -4969,11 +4959,11 @@ defmodule AWS.WellArchitected do
   """
   @spec list_lenses(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_lenses_output(), any()}
@@ -5036,7 +5026,7 @@ defmodule AWS.WellArchitected do
   @doc """
   List all milestones for an existing workload.
   """
-  @spec list_milestones(map(), String.t() | Atom.t(), list_milestones_input(), list()) ::
+  @spec list_milestones(map(), String.t() | atom(), list_milestones_input(), list()) ::
           {:ok, list_milestones_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5096,9 +5086,9 @@ defmodule AWS.WellArchitected do
   """
   @spec list_profile_notifications(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_profile_notifications_output(), any()}
@@ -5147,11 +5137,11 @@ defmodule AWS.WellArchitected do
   """
   @spec list_profile_shares(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_profile_shares_output(), any()}
@@ -5209,10 +5199,10 @@ defmodule AWS.WellArchitected do
   """
   @spec list_profiles(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_profiles_output(), any()}
@@ -5269,11 +5259,11 @@ defmodule AWS.WellArchitected do
   """
   @spec list_review_template_answers(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_review_template_answers_output(), any()}
@@ -5324,12 +5314,7 @@ defmodule AWS.WellArchitected do
   @doc """
   List review templates.
   """
-  @spec list_review_templates(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec list_review_templates(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_review_templates_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5372,13 +5357,13 @@ defmodule AWS.WellArchitected do
   """
   @spec list_share_invitations(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_share_invitations_output(), any()}
@@ -5460,7 +5445,7 @@ defmodule AWS.WellArchitected do
   The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile
   ARN, or review template ARN.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5480,11 +5465,11 @@ defmodule AWS.WellArchitected do
   """
   @spec list_template_shares(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_template_shares_output(), any()}
@@ -5542,11 +5527,11 @@ defmodule AWS.WellArchitected do
   """
   @spec list_workload_shares(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_workload_shares_output(), any()}
@@ -5634,7 +5619,7 @@ defmodule AWS.WellArchitected do
   The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile
   ARN, or review template ARN.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5670,7 +5655,7 @@ defmodule AWS.WellArchitected do
 
   `DELETE /tags/WorkloadArn?tagKeys=key1&tagKeys=key2`
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5706,9 +5691,9 @@ defmodule AWS.WellArchitected do
   """
   @spec update_answer(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_answer_input(),
           list()
         ) ::
@@ -5779,7 +5764,7 @@ defmodule AWS.WellArchitected do
   @doc """
   Update integration features.
   """
-  @spec update_integration(map(), String.t() | Atom.t(), update_integration_input(), list()) ::
+  @spec update_integration(map(), String.t() | atom(), update_integration_input(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5810,8 +5795,8 @@ defmodule AWS.WellArchitected do
   """
   @spec update_lens_review(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_lens_review_input(),
           list()
         ) ::
@@ -5845,7 +5830,7 @@ defmodule AWS.WellArchitected do
   @doc """
   Update a profile.
   """
-  @spec update_profile(map(), String.t() | Atom.t(), update_profile_input(), list()) ::
+  @spec update_profile(map(), String.t() | atom(), update_profile_input(), list()) ::
           {:ok, update_profile_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5874,12 +5859,7 @@ defmodule AWS.WellArchitected do
   @doc """
   Update a review template.
   """
-  @spec update_review_template(
-          map(),
-          String.t() | Atom.t(),
-          update_review_template_input(),
-          list()
-        ) ::
+  @spec update_review_template(map(), String.t() | atom(), update_review_template_input(), list()) ::
           {:ok, update_review_template_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5910,9 +5890,9 @@ defmodule AWS.WellArchitected do
   """
   @spec update_review_template_answer(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_review_template_answer_input(),
           list()
         ) ::
@@ -5955,8 +5935,8 @@ defmodule AWS.WellArchitected do
   """
   @spec update_review_template_lens_review(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_review_template_lens_review_input(),
           list()
         ) ::
@@ -6001,7 +5981,7 @@ defmodule AWS.WellArchitected do
   """
   @spec update_share_invitation(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_share_invitation_input(),
           list()
         ) ::
@@ -6033,7 +6013,7 @@ defmodule AWS.WellArchitected do
   @doc """
   Update an existing workload.
   """
-  @spec update_workload(map(), String.t() | Atom.t(), update_workload_input(), list()) ::
+  @spec update_workload(map(), String.t() | atom(), update_workload_input(), list()) ::
           {:ok, update_workload_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6064,8 +6044,8 @@ defmodule AWS.WellArchitected do
   """
   @spec update_workload_share(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_workload_share_input(),
           list()
         ) ::
@@ -6101,8 +6081,8 @@ defmodule AWS.WellArchitected do
   """
   @spec upgrade_lens_review(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           upgrade_lens_review_input(),
           list()
         ) ::
@@ -6138,8 +6118,8 @@ defmodule AWS.WellArchitected do
   """
   @spec upgrade_profile_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           upgrade_profile_version_input(),
           list()
         ) ::
@@ -6175,8 +6155,8 @@ defmodule AWS.WellArchitected do
   """
   @spec upgrade_review_template_lens_review(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           upgrade_review_template_lens_review_input(),
           list()
         ) ::

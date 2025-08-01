@@ -71,316 +71,316 @@ defmodule AWS.SSOOIDC do
   ## Example:
 
       access_denied_exception() :: %{
-        "error" => String.t() | Atom.t(),
-        "error_description" => String.t() | Atom.t()
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       authorization_pending_exception() :: %{
-        "error" => String.t() | Atom.t(),
-        "error_description" => String.t() | Atom.t()
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
       }
 
   """
-  @type authorization_pending_exception() :: %{String.t() | Atom.t() => any()}
+  @type authorization_pending_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_additional_details() :: %{
-        "identityContext" => String.t() | Atom.t()
+        "identityContext" => String.t() | atom()
       }
 
   """
-  @type aws_additional_details() :: %{String.t() | Atom.t() => any()}
+  @type aws_additional_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_token_request() :: %{
-        optional("code") => String.t() | Atom.t(),
-        optional("codeVerifier") => String.t() | Atom.t(),
-        optional("deviceCode") => String.t() | Atom.t(),
-        optional("redirectUri") => String.t() | Atom.t(),
-        optional("refreshToken") => String.t() | Atom.t(),
-        optional("scope") => list(String.t() | Atom.t()),
-        required("clientId") => String.t() | Atom.t(),
-        required("clientSecret") => String.t() | Atom.t(),
-        required("grantType") => String.t() | Atom.t()
+        optional("code") => String.t() | atom(),
+        optional("codeVerifier") => String.t() | atom(),
+        optional("deviceCode") => String.t() | atom(),
+        optional("redirectUri") => String.t() | atom(),
+        optional("refreshToken") => String.t() | atom(),
+        optional("scope") => list(String.t() | atom()),
+        required("clientId") => String.t() | atom(),
+        required("clientSecret") => String.t() | atom(),
+        required("grantType") => String.t() | atom()
       }
 
   """
-  @type create_token_request() :: %{String.t() | Atom.t() => any()}
+  @type create_token_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_token_response() :: %{
-        "accessToken" => String.t() | Atom.t(),
+        "accessToken" => String.t() | atom(),
         "expiresIn" => integer(),
-        "idToken" => String.t() | Atom.t(),
-        "refreshToken" => String.t() | Atom.t(),
-        "tokenType" => String.t() | Atom.t()
+        "idToken" => String.t() | atom(),
+        "refreshToken" => String.t() | atom(),
+        "tokenType" => String.t() | atom()
       }
 
   """
-  @type create_token_response() :: %{String.t() | Atom.t() => any()}
+  @type create_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_token_with_iam_request() :: %{
-        optional("assertion") => String.t() | Atom.t(),
-        optional("code") => String.t() | Atom.t(),
-        optional("codeVerifier") => String.t() | Atom.t(),
-        optional("redirectUri") => String.t() | Atom.t(),
-        optional("refreshToken") => String.t() | Atom.t(),
-        optional("requestedTokenType") => String.t() | Atom.t(),
-        optional("scope") => list(String.t() | Atom.t()),
-        optional("subjectToken") => String.t() | Atom.t(),
-        optional("subjectTokenType") => String.t() | Atom.t(),
-        required("clientId") => String.t() | Atom.t(),
-        required("grantType") => String.t() | Atom.t()
+        optional("assertion") => String.t() | atom(),
+        optional("code") => String.t() | atom(),
+        optional("codeVerifier") => String.t() | atom(),
+        optional("redirectUri") => String.t() | atom(),
+        optional("refreshToken") => String.t() | atom(),
+        optional("requestedTokenType") => String.t() | atom(),
+        optional("scope") => list(String.t() | atom()),
+        optional("subjectToken") => String.t() | atom(),
+        optional("subjectTokenType") => String.t() | atom(),
+        required("clientId") => String.t() | atom(),
+        required("grantType") => String.t() | atom()
       }
 
   """
-  @type create_token_with_iam_request() :: %{String.t() | Atom.t() => any()}
+  @type create_token_with_iam_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_token_with_iam_response() :: %{
-        "accessToken" => String.t() | Atom.t(),
+        "accessToken" => String.t() | atom(),
         "awsAdditionalDetails" => aws_additional_details(),
         "expiresIn" => integer(),
-        "idToken" => String.t() | Atom.t(),
-        "issuedTokenType" => String.t() | Atom.t(),
-        "refreshToken" => String.t() | Atom.t(),
-        "scope" => list(String.t() | Atom.t()),
-        "tokenType" => String.t() | Atom.t()
+        "idToken" => String.t() | atom(),
+        "issuedTokenType" => String.t() | atom(),
+        "refreshToken" => String.t() | atom(),
+        "scope" => list(String.t() | atom()),
+        "tokenType" => String.t() | atom()
       }
 
   """
-  @type create_token_with_iam_response() :: %{String.t() | Atom.t() => any()}
+  @type create_token_with_iam_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       expired_token_exception() :: %{
-        "error" => String.t() | Atom.t(),
-        "error_description" => String.t() | Atom.t()
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
       }
 
   """
-  @type expired_token_exception() :: %{String.t() | Atom.t() => any()}
+  @type expired_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "error" => String.t() | Atom.t(),
-        "error_description" => String.t() | Atom.t()
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_client_exception() :: %{
-        "error" => String.t() | Atom.t(),
-        "error_description" => String.t() | Atom.t()
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
       }
 
   """
-  @type invalid_client_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_client_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_client_metadata_exception() :: %{
-        "error" => String.t() | Atom.t(),
-        "error_description" => String.t() | Atom.t()
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
       }
 
   """
-  @type invalid_client_metadata_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_client_metadata_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_grant_exception() :: %{
-        "error" => String.t() | Atom.t(),
-        "error_description" => String.t() | Atom.t()
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
       }
 
   """
-  @type invalid_grant_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_grant_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_redirect_uri_exception() :: %{
-        "error" => String.t() | Atom.t(),
-        "error_description" => String.t() | Atom.t()
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
       }
 
   """
-  @type invalid_redirect_uri_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_redirect_uri_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "error" => String.t() | Atom.t(),
-        "error_description" => String.t() | Atom.t()
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_region_exception() :: %{
-        "endpoint" => String.t() | Atom.t(),
-        "error" => String.t() | Atom.t(),
-        "error_description" => String.t() | Atom.t(),
-        "region" => String.t() | Atom.t()
+        "endpoint" => String.t() | atom(),
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom(),
+        "region" => String.t() | atom()
       }
 
   """
-  @type invalid_request_region_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_request_region_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_scope_exception() :: %{
-        "error" => String.t() | Atom.t(),
-        "error_description" => String.t() | Atom.t()
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
       }
 
   """
-  @type invalid_scope_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_scope_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_client_request() :: %{
-        optional("entitledApplicationArn") => String.t() | Atom.t(),
-        optional("grantTypes") => list(String.t() | Atom.t()),
-        optional("issuerUrl") => String.t() | Atom.t(),
-        optional("redirectUris") => list(String.t() | Atom.t()),
-        optional("scopes") => list(String.t() | Atom.t()),
-        required("clientName") => String.t() | Atom.t(),
-        required("clientType") => String.t() | Atom.t()
+        optional("entitledApplicationArn") => String.t() | atom(),
+        optional("grantTypes") => list(String.t() | atom()),
+        optional("issuerUrl") => String.t() | atom(),
+        optional("redirectUris") => list(String.t() | atom()),
+        optional("scopes") => list(String.t() | atom()),
+        required("clientName") => String.t() | atom(),
+        required("clientType") => String.t() | atom()
       }
 
   """
-  @type register_client_request() :: %{String.t() | Atom.t() => any()}
+  @type register_client_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_client_response() :: %{
-        "authorizationEndpoint" => String.t() | Atom.t(),
-        "clientId" => String.t() | Atom.t(),
+        "authorizationEndpoint" => String.t() | atom(),
+        "clientId" => String.t() | atom(),
         "clientIdIssuedAt" => float(),
-        "clientSecret" => String.t() | Atom.t(),
+        "clientSecret" => String.t() | atom(),
         "clientSecretExpiresAt" => float(),
-        "tokenEndpoint" => String.t() | Atom.t()
+        "tokenEndpoint" => String.t() | atom()
       }
 
   """
-  @type register_client_response() :: %{String.t() | Atom.t() => any()}
+  @type register_client_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       slow_down_exception() :: %{
-        "error" => String.t() | Atom.t(),
-        "error_description" => String.t() | Atom.t()
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
       }
 
   """
-  @type slow_down_exception() :: %{String.t() | Atom.t() => any()}
+  @type slow_down_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_device_authorization_request() :: %{
-        required("clientId") => String.t() | Atom.t(),
-        required("clientSecret") => String.t() | Atom.t(),
-        required("startUrl") => String.t() | Atom.t()
+        required("clientId") => String.t() | atom(),
+        required("clientSecret") => String.t() | atom(),
+        required("startUrl") => String.t() | atom()
       }
 
   """
-  @type start_device_authorization_request() :: %{String.t() | Atom.t() => any()}
+  @type start_device_authorization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_device_authorization_response() :: %{
-        "deviceCode" => String.t() | Atom.t(),
+        "deviceCode" => String.t() | atom(),
         "expiresIn" => integer(),
         "interval" => integer(),
-        "userCode" => String.t() | Atom.t(),
-        "verificationUri" => String.t() | Atom.t(),
-        "verificationUriComplete" => String.t() | Atom.t()
+        "userCode" => String.t() | atom(),
+        "verificationUri" => String.t() | atom(),
+        "verificationUriComplete" => String.t() | atom()
       }
 
   """
-  @type start_device_authorization_response() :: %{String.t() | Atom.t() => any()}
+  @type start_device_authorization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_client_exception() :: %{
-        "error" => String.t() | Atom.t(),
-        "error_description" => String.t() | Atom.t()
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
       }
 
   """
-  @type unauthorized_client_exception() :: %{String.t() | Atom.t() => any()}
+  @type unauthorized_client_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unsupported_grant_type_exception() :: %{
-        "error" => String.t() | Atom.t(),
-        "error_description" => String.t() | Atom.t()
+        "error" => String.t() | atom(),
+        "error_description" => String.t() | atom()
       }
 
   """
-  @type unsupported_grant_type_exception() :: %{String.t() | Atom.t() => any()}
+  @type unsupported_grant_type_exception() :: %{(String.t() | atom()) => any()}
 
   @type create_token_errors() ::
           unsupported_grant_type_exception()

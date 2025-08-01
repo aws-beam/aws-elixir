@@ -62,11 +62,11 @@ defmodule AWS.ResourceGroups do
 
       resource_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t() | Atom.t())
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type resource_filter() :: %{String.t() | Atom.t() => any()}
+  @type resource_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -75,39 +75,39 @@ defmodule AWS.ResourceGroups do
       list_tag_sync_tasks_input() :: %{
         optional("Filters") => list(list_tag_sync_tasks_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_tag_sync_tasks_input() :: %{String.t() | Atom.t() => any()}
+  @type list_tag_sync_tasks_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() | Atom.t() => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_tag_sync_task_output() :: %{
-        "GroupArn" => String.t() | Atom.t(),
-        "GroupName" => String.t() | Atom.t(),
+        "GroupArn" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
         "ResourceQuery" => resource_query(),
-        "RoleArn" => String.t() | Atom.t(),
-        "TagKey" => String.t() | Atom.t(),
-        "TagValue" => String.t() | Atom.t(),
-        "TaskArn" => String.t() | Atom.t()
+        "RoleArn" => String.t() | atom(),
+        "TagKey" => String.t() | atom(),
+        "TagValue" => String.t() | atom(),
+        "TaskArn" => String.t() | atom()
       }
 
   """
-  @type start_tag_sync_task_output() :: %{String.t() | Atom.t() => any()}
+  @type start_tag_sync_task_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -116,16 +116,16 @@ defmodule AWS.ResourceGroups do
       create_group_input() :: %{
         optional("Configuration") => list(group_configuration_item()),
         optional("Criticality") => integer(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("DisplayName") => String.t() | Atom.t(),
-        optional("Owner") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        optional("Owner") => String.t() | atom(),
         optional("ResourceQuery") => resource_query(),
         optional("Tags") => map(),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_group_input() :: %{String.t() | Atom.t() => any()}
+  @type create_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -136,31 +136,31 @@ defmodule AWS.ResourceGroups do
       }
 
   """
-  @type update_group_query_output() :: %{String.t() | Atom.t() => any()}
+  @type update_group_query_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_tag_sync_task_input() :: %{
-        required("TaskArn") => String.t() | Atom.t()
+        required("TaskArn") => String.t() | atom()
       }
 
   """
-  @type cancel_tag_sync_task_input() :: %{String.t() | Atom.t() => any()}
+  @type cancel_tag_sync_task_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_grouping_statuses_output() :: %{
-        "Group" => String.t() | Atom.t(),
+        "Group" => String.t() | atom(),
         "GroupingStatuses" => list(grouping_statuses_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_grouping_statuses_output() :: %{String.t() | Atom.t() => any()}
+  @type list_grouping_statuses_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -172,77 +172,77 @@ defmodule AWS.ResourceGroups do
       }
 
   """
-  @type list_group_resources_item() :: %{String.t() | Atom.t() => any()}
+  @type list_group_resources_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       forbidden_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() | Atom.t() => any()}
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_output() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type tag_output() :: %{String.t() | Atom.t() => any()}
+  @type tag_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       method_not_allowed_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type method_not_allowed_exception() :: %{String.t() | Atom.t() => any()}
+  @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_group_query_input() :: %{
-        optional("Group") => String.t() | Atom.t(),
-        optional("GroupName") => String.t() | Atom.t(),
+        optional("Group") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom(),
         required("ResourceQuery") => resource_query()
       }
 
   """
-  @type update_group_query_input() :: %{String.t() | Atom.t() => any()}
+  @type update_group_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tag_sync_tasks_filter() :: %{
-        "GroupArn" => String.t() | Atom.t(),
-        "GroupName" => String.t() | Atom.t()
+        "GroupArn" => String.t() | atom(),
+        "GroupName" => String.t() | atom()
       }
 
   """
-  @type list_tag_sync_tasks_filter() :: %{String.t() | Atom.t() => any()}
+  @type list_tag_sync_tasks_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_group_configuration_input() :: %{
-        optional("Group") => String.t() | Atom.t()
+        optional("Group") => String.t() | atom()
       }
 
   """
-  @type get_group_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type get_group_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -253,30 +253,30 @@ defmodule AWS.ResourceGroups do
       }
 
   """
-  @type resource_status() :: %{String.t() | Atom.t() => any()}
+  @type resource_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_query() :: %{
-        "Query" => String.t() | Atom.t(),
+        "Query" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type resource_query() :: %{String.t() | Atom.t() => any()}
+  @type resource_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -284,14 +284,14 @@ defmodule AWS.ResourceGroups do
 
       start_tag_sync_task_input() :: %{
         optional("ResourceQuery") => resource_query(),
-        optional("TagKey") => String.t() | Atom.t(),
-        optional("TagValue") => String.t() | Atom.t(),
-        required("Group") => String.t() | Atom.t(),
-        required("RoleArn") => String.t() | Atom.t()
+        optional("TagKey") => String.t() | atom(),
+        optional("TagValue") => String.t() | atom(),
+        required("Group") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
       }
 
   """
-  @type start_tag_sync_task_input() :: %{String.t() | Atom.t() => any()}
+  @type start_tag_sync_task_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -299,38 +299,38 @@ defmodule AWS.ResourceGroups do
 
       group_identifier() :: %{
         "Criticality" => integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
-        "GroupArn" => String.t() | Atom.t(),
-        "GroupName" => String.t() | Atom.t(),
-        "Owner" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "GroupArn" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "Owner" => String.t() | atom()
       }
 
   """
-  @type group_identifier() :: %{String.t() | Atom.t() => any()}
+  @type group_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_tags_output() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type get_tags_output() :: %{String.t() | Atom.t() => any()}
+  @type get_tags_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_input() :: %{
-        required("Keys") => list(String.t() | Atom.t())
+        required("Keys") => list(String.t() | atom())
       }
 
   """
-  @type untag_input() :: %{String.t() | Atom.t() => any()}
+  @type untag_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -341,7 +341,7 @@ defmodule AWS.ResourceGroups do
       }
 
   """
-  @type update_group_output() :: %{String.t() | Atom.t() => any()}
+  @type update_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -349,11 +349,11 @@ defmodule AWS.ResourceGroups do
 
       put_group_configuration_input() :: %{
         optional("Configuration") => list(group_configuration_item()),
-        optional("Group") => String.t() | Atom.t()
+        optional("Group") => String.t() | atom()
       }
 
   """
-  @type put_group_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type put_group_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -362,23 +362,23 @@ defmodule AWS.ResourceGroups do
       list_groups_output() :: %{
         "GroupIdentifiers" => list(group_identifier()),
         "Groups" => list(group()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_groups_output() :: %{String.t() | Atom.t() => any()}
+  @type list_groups_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_group_query_input() :: %{
-        optional("Group") => String.t() | Atom.t(),
-        optional("GroupName") => String.t() | Atom.t()
+        optional("Group") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom()
       }
 
   """
-  @type get_group_query_input() :: %{String.t() | Atom.t() => any()}
+  @type get_group_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -389,18 +389,18 @@ defmodule AWS.ResourceGroups do
       }
 
   """
-  @type get_group_configuration_output() :: %{String.t() | Atom.t() => any()}
+  @type get_group_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pending_resource() :: %{
-        "ResourceArn" => String.t() | Atom.t()
+        "ResourceArn" => String.t() | atom()
       }
 
   """
-  @type pending_resource() :: %{String.t() | Atom.t() => any()}
+  @type pending_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -411,7 +411,7 @@ defmodule AWS.ResourceGroups do
       }
 
   """
-  @type get_group_query_output() :: %{String.t() | Atom.t() => any()}
+  @type get_group_query_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -420,23 +420,23 @@ defmodule AWS.ResourceGroups do
       group_resources_output() :: %{
         "Failed" => list(failed_resource()),
         "Pending" => list(pending_resource()),
-        "Succeeded" => list(String.t() | Atom.t())
+        "Succeeded" => list(String.t() | atom())
       }
 
   """
-  @type group_resources_output() :: %{String.t() | Atom.t() => any()}
+  @type group_resources_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_identifier() :: %{
-        "ResourceArn" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "ResourceArn" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type resource_identifier() :: %{String.t() | Atom.t() => any()}
+  @type resource_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -445,24 +445,24 @@ defmodule AWS.ResourceGroups do
       list_grouping_statuses_input() :: %{
         optional("Filters") => list(list_grouping_statuses_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("Group") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("Group") => String.t() | atom()
       }
 
   """
-  @type list_grouping_statuses_input() :: %{String.t() | Atom.t() => any()}
+  @type list_grouping_statuses_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       group_configuration_parameter() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Values" => list(String.t() | Atom.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type group_configuration_parameter() :: %{String.t() | Atom.t() => any()}
+  @type group_configuration_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -476,7 +476,7 @@ defmodule AWS.ResourceGroups do
       }
 
   """
-  @type create_group_output() :: %{String.t() | Atom.t() => any()}
+  @type create_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -485,11 +485,11 @@ defmodule AWS.ResourceGroups do
       ungroup_resources_output() :: %{
         "Failed" => list(failed_resource()),
         "Pending" => list(pending_resource()),
-        "Succeeded" => list(String.t() | Atom.t())
+        "Succeeded" => list(String.t() | atom())
       }
 
   """
-  @type ungroup_resources_output() :: %{String.t() | Atom.t() => any()}
+  @type ungroup_resources_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -497,12 +497,12 @@ defmodule AWS.ResourceGroups do
 
       search_resources_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         required("ResourceQuery") => resource_query()
       }
 
   """
-  @type search_resources_input() :: %{String.t() | Atom.t() => any()}
+  @type search_resources_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -510,30 +510,30 @@ defmodule AWS.ResourceGroups do
 
       get_tag_sync_task_output() :: %{
         "CreatedAt" => non_neg_integer(),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "GroupArn" => String.t() | Atom.t(),
-        "GroupName" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | atom(),
+        "GroupArn" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
         "ResourceQuery" => resource_query(),
-        "RoleArn" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | atom(),
         "Status" => list(any()),
-        "TagKey" => String.t() | Atom.t(),
-        "TagValue" => String.t() | Atom.t(),
-        "TaskArn" => String.t() | Atom.t()
+        "TagKey" => String.t() | atom(),
+        "TagValue" => String.t() | atom(),
+        "TaskArn" => String.t() | atom()
       }
 
   """
-  @type get_tag_sync_task_output() :: %{String.t() | Atom.t() => any()}
+  @type get_tag_sync_task_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -541,50 +541,50 @@ defmodule AWS.ResourceGroups do
 
       group_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t() | Atom.t())
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type group_filter() :: %{String.t() | Atom.t() => any()}
+  @type group_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       group_resources_input() :: %{
-        required("Group") => String.t() | Atom.t(),
-        required("ResourceArns") => list(String.t() | Atom.t())
+        required("Group") => String.t() | atom(),
+        required("ResourceArns") => list(String.t() | atom())
       }
 
   """
-  @type group_resources_input() :: %{String.t() | Atom.t() => any()}
+  @type group_resources_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_resources_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "QueryErrors" => list(query_error()),
         "ResourceIdentifiers" => list(resource_identifier())
       }
 
   """
-  @type search_resources_output() :: %{String.t() | Atom.t() => any()}
+  @type search_resources_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_group_resources_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "QueryErrors" => list(query_error()),
         "ResourceIdentifiers" => list(resource_identifier()),
         "Resources" => list(list_group_resources_item())
       }
 
   """
-  @type list_group_resources_output() :: %{String.t() | Atom.t() => any()}
+  @type list_group_resources_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -592,43 +592,43 @@ defmodule AWS.ResourceGroups do
 
       tag_sync_task_item() :: %{
         "CreatedAt" => non_neg_integer(),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "GroupArn" => String.t() | Atom.t(),
-        "GroupName" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | atom(),
+        "GroupArn" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
         "ResourceQuery" => resource_query(),
-        "RoleArn" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | atom(),
         "Status" => list(any()),
-        "TagKey" => String.t() | Atom.t(),
-        "TagValue" => String.t() | Atom.t(),
-        "TaskArn" => String.t() | Atom.t()
+        "TagKey" => String.t() | atom(),
+        "TagValue" => String.t() | atom(),
+        "TaskArn" => String.t() | atom()
       }
 
   """
-  @type tag_sync_task_item() :: %{String.t() | Atom.t() => any()}
+  @type tag_sync_task_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_group_input() :: %{
-        optional("Group") => String.t() | Atom.t(),
-        optional("GroupName") => String.t() | Atom.t()
+        optional("Group") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom()
       }
 
   """
-  @type delete_group_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       group_query() :: %{
-        "GroupName" => String.t() | Atom.t(),
+        "GroupName" => String.t() | atom(),
         "ResourceQuery" => resource_query()
       }
 
   """
-  @type group_query() :: %{String.t() | Atom.t() => any()}
+  @type group_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -639,7 +639,7 @@ defmodule AWS.ResourceGroups do
       }
 
   """
-  @type update_account_settings_input() :: %{String.t() | Atom.t() => any()}
+  @type update_account_settings_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -650,7 +650,7 @@ defmodule AWS.ResourceGroups do
       }
 
   """
-  @type get_group_output() :: %{String.t() | Atom.t() => any()}
+  @type get_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -661,19 +661,19 @@ defmodule AWS.ResourceGroups do
       }
 
   """
-  @type update_account_settings_output() :: %{String.t() | Atom.t() => any()}
+  @type update_account_settings_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_group_input() :: %{
-        optional("Group") => String.t() | Atom.t(),
-        optional("GroupName") => String.t() | Atom.t()
+        optional("Group") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom()
       }
 
   """
-  @type get_group_input() :: %{String.t() | Atom.t() => any()}
+  @type get_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -681,14 +681,14 @@ defmodule AWS.ResourceGroups do
 
       list_group_resources_input() :: %{
         optional("Filters") => list(resource_filter()),
-        optional("Group") => String.t() | Atom.t(),
-        optional("GroupName") => String.t() | Atom.t(),
+        optional("Group") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_group_resources_input() :: %{String.t() | Atom.t() => any()}
+  @type list_group_resources_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -697,22 +697,22 @@ defmodule AWS.ResourceGroups do
       account_settings() :: %{
         "GroupLifecycleEventsDesiredStatus" => list(any()),
         "GroupLifecycleEventsStatus" => list(any()),
-        "GroupLifecycleEventsStatusMessage" => String.t() | Atom.t()
+        "GroupLifecycleEventsStatusMessage" => String.t() | atom()
       }
 
   """
-  @type account_settings() :: %{String.t() | Atom.t() => any()}
+  @type account_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_tag_sync_task_input() :: %{
-        required("TaskArn") => String.t() | Atom.t()
+        required("TaskArn") => String.t() | atom()
       }
 
   """
-  @type get_tag_sync_task_input() :: %{String.t() | Atom.t() => any()}
+  @type get_tag_sync_task_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -720,26 +720,26 @@ defmodule AWS.ResourceGroups do
 
       update_group_input() :: %{
         optional("Criticality") => integer(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("DisplayName") => String.t() | Atom.t(),
-        optional("Group") => String.t() | Atom.t(),
-        optional("GroupName") => String.t() | Atom.t(),
-        optional("Owner") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        optional("Group") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom(),
+        optional("Owner") => String.t() | atom()
       }
 
   """
-  @type update_group_input() :: %{String.t() | Atom.t() => any()}
+  @type update_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_error_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_error_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -756,15 +756,15 @@ defmodule AWS.ResourceGroups do
 
       grouping_statuses_item() :: %{
         "Action" => list(any()),
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t(),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type grouping_statuses_item() :: %{String.t() | Atom.t() => any()}
+  @type grouping_statuses_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -773,15 +773,15 @@ defmodule AWS.ResourceGroups do
       group() :: %{
         "ApplicationTag" => map(),
         "Criticality" => integer(),
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
-        "GroupArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "Owner" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "GroupArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom()
       }
 
   """
-  @type group() :: %{String.t() | Atom.t() => any()}
+  @type group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -792,19 +792,19 @@ defmodule AWS.ResourceGroups do
       }
 
   """
-  @type get_account_settings_output() :: %{String.t() | Atom.t() => any()}
+  @type get_account_settings_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ungroup_resources_input() :: %{
-        required("Group") => String.t() | Atom.t(),
-        required("ResourceArns") => list(String.t() | Atom.t())
+        required("Group") => String.t() | atom(),
+        required("ResourceArns") => list(String.t() | atom())
       }
 
   """
-  @type ungroup_resources_input() :: %{String.t() | Atom.t() => any()}
+  @type ungroup_resources_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -813,11 +813,11 @@ defmodule AWS.ResourceGroups do
       list_groups_input() :: %{
         optional("Filters") => list(group_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_groups_input() :: %{String.t() | Atom.t() => any()}
+  @type list_groups_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -825,47 +825,47 @@ defmodule AWS.ResourceGroups do
 
       list_grouping_statuses_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t() | Atom.t())
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type list_grouping_statuses_filter() :: %{String.t() | Atom.t() => any()}
+  @type list_grouping_statuses_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_output() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Keys" => list(String.t() | Atom.t())
+        "Arn" => String.t() | atom(),
+        "Keys" => list(String.t() | atom())
       }
 
   """
-  @type untag_output() :: %{String.t() | Atom.t() => any()}
+  @type untag_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       failed_resource() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t()
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
       }
 
   """
-  @type failed_resource() :: %{String.t() | Atom.t() => any()}
+  @type failed_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -876,7 +876,7 @@ defmodule AWS.ResourceGroups do
       }
 
   """
-  @type delete_group_output() :: %{String.t() | Atom.t() => any()}
+  @type delete_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -884,13 +884,13 @@ defmodule AWS.ResourceGroups do
 
       group_configuration() :: %{
         "Configuration" => list(group_configuration_item()),
-        "FailureReason" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | atom(),
         "ProposedConfiguration" => list(group_configuration_item()),
         "Status" => list(any())
       }
 
   """
-  @type group_configuration() :: %{String.t() | Atom.t() => any()}
+  @type group_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -898,23 +898,23 @@ defmodule AWS.ResourceGroups do
 
       query_error() :: %{
         "ErrorCode" => list(any()),
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type query_error() :: %{String.t() | Atom.t() => any()}
+  @type query_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tag_sync_tasks_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "TagSyncTasks" => list(tag_sync_task_item())
       }
 
   """
-  @type list_tag_sync_tasks_output() :: %{String.t() | Atom.t() => any()}
+  @type list_tag_sync_tasks_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -931,11 +931,11 @@ defmodule AWS.ResourceGroups do
 
       group_configuration_item() :: %{
         "Parameters" => list(group_configuration_parameter()),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type group_configuration_item() :: %{String.t() | Atom.t() => any()}
+  @type group_configuration_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -946,7 +946,7 @@ defmodule AWS.ResourceGroups do
       }
 
   """
-  @type tag_input() :: %{String.t() | Atom.t() => any()}
+  @type tag_input() :: %{(String.t() | atom()) => any()}
 
   @type cancel_tag_sync_task_errors() ::
           bad_request_exception()
@@ -1472,7 +1472,7 @@ defmodule AWS.ResourceGroups do
 
   `resource-groups:GetTags`
   """
-  @spec get_tags(map(), String.t() | Atom.t(), list()) ::
+  @spec get_tags(map(), String.t() | atom(), list()) ::
           {:ok, get_tags_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1877,7 +1877,7 @@ defmodule AWS.ResourceGroups do
 
   `resource-groups:Tag`
   """
-  @spec tag(map(), String.t() | Atom.t(), tag_input(), list()) ::
+  @spec tag(map(), String.t() | atom(), tag_input(), list()) ::
           {:ok, tag_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1957,7 +1957,7 @@ defmodule AWS.ResourceGroups do
 
   `resource-groups:Untag`
   """
-  @spec untag(map(), String.t() | Atom.t(), untag_input(), list()) ::
+  @spec untag(map(), String.t() | atom(), untag_input(), list()) ::
           {:ok, untag_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

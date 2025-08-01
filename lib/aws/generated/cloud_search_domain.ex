@@ -24,11 +24,11 @@ defmodule AWS.CloudSearchDomain do
 
       bucket() :: %{
         "count" => float(),
-        "value" => String.t() | Atom.t()
+        "value" => String.t() | atom()
       }
 
   """
-  @type bucket() :: %{String.t() | Atom.t() => any()}
+  @type bucket() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -39,30 +39,30 @@ defmodule AWS.CloudSearchDomain do
       }
 
   """
-  @type bucket_info() :: %{String.t() | Atom.t() => any()}
+  @type bucket_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       document_service_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type document_service_exception() :: %{String.t() | Atom.t() => any()}
+  @type document_service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       document_service_warning() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type document_service_warning() :: %{String.t() | Atom.t() => any()}
+  @type document_service_warning() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -70,9 +70,9 @@ defmodule AWS.CloudSearchDomain do
 
       field_stats() :: %{
         "count" => float(),
-        "max" => String.t() | Atom.t(),
-        "mean" => String.t() | Atom.t(),
-        "min" => String.t() | Atom.t(),
+        "max" => String.t() | atom(),
+        "mean" => String.t() | atom(),
+        "min" => String.t() | atom(),
         "missing" => float(),
         "stddev" => float(),
         "sum" => float(),
@@ -80,7 +80,7 @@ defmodule AWS.CloudSearchDomain do
       }
 
   """
-  @type field_stats() :: %{String.t() | Atom.t() => any()}
+  @type field_stats() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -90,60 +90,60 @@ defmodule AWS.CloudSearchDomain do
         "exprs" => map(),
         "fields" => map(),
         "highlights" => map(),
-        "id" => String.t() | Atom.t()
+        "id" => String.t() | atom()
       }
 
   """
-  @type hit() :: %{String.t() | Atom.t() => any()}
+  @type hit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       hits() :: %{
-        "cursor" => String.t() | Atom.t(),
+        "cursor" => String.t() | atom(),
         "found" => float(),
         "hit" => list(hit()),
         "start" => float()
       }
 
   """
-  @type hits() :: %{String.t() | Atom.t() => any()}
+  @type hits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type search_exception() :: %{String.t() | Atom.t() => any()}
+  @type search_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_request() :: %{
-        optional("cursor") => String.t() | Atom.t(),
-        optional("expr") => String.t() | Atom.t(),
-        optional("facet") => String.t() | Atom.t(),
-        optional("filterQuery") => String.t() | Atom.t(),
-        optional("highlight") => String.t() | Atom.t(),
+        optional("cursor") => String.t() | atom(),
+        optional("expr") => String.t() | atom(),
+        optional("facet") => String.t() | atom(),
+        optional("filterQuery") => String.t() | atom(),
+        optional("highlight") => String.t() | atom(),
         optional("partial") => boolean(),
-        optional("queryOptions") => String.t() | Atom.t(),
+        optional("queryOptions") => String.t() | atom(),
         optional("queryParser") => list(any()),
-        optional("return") => String.t() | Atom.t(),
+        optional("return") => String.t() | atom(),
         optional("size") => float(),
-        optional("sort") => String.t() | Atom.t(),
+        optional("sort") => String.t() | atom(),
         optional("start") => float(),
-        optional("stats") => String.t() | Atom.t(),
-        required("query") => String.t() | Atom.t()
+        optional("stats") => String.t() | atom(),
+        required("query") => String.t() | atom()
       }
 
   """
-  @type search_request() :: %{String.t() | Atom.t() => any()}
+  @type search_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -157,19 +157,19 @@ defmodule AWS.CloudSearchDomain do
       }
 
   """
-  @type search_response() :: %{String.t() | Atom.t() => any()}
+  @type search_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_status() :: %{
-        "rid" => String.t() | Atom.t(),
+        "rid" => String.t() | atom(),
         "timems" => float()
       }
 
   """
-  @type search_status() :: %{String.t() | Atom.t() => any()}
+  @type search_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -177,12 +177,12 @@ defmodule AWS.CloudSearchDomain do
 
       suggest_model() :: %{
         "found" => float(),
-        "query" => String.t() | Atom.t(),
+        "query" => String.t() | atom(),
         "suggestions" => list(suggestion_match())
       }
 
   """
-  @type suggest_model() :: %{String.t() | Atom.t() => any()}
+  @type suggest_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -190,12 +190,12 @@ defmodule AWS.CloudSearchDomain do
 
       suggest_request() :: %{
         optional("size") => float(),
-        required("query") => String.t() | Atom.t(),
-        required("suggester") => String.t() | Atom.t()
+        required("query") => String.t() | atom(),
+        required("suggester") => String.t() | atom()
       }
 
   """
-  @type suggest_request() :: %{String.t() | Atom.t() => any()}
+  @type suggest_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -207,32 +207,32 @@ defmodule AWS.CloudSearchDomain do
       }
 
   """
-  @type suggest_response() :: %{String.t() | Atom.t() => any()}
+  @type suggest_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       suggest_status() :: %{
-        "rid" => String.t() | Atom.t(),
+        "rid" => String.t() | atom(),
         "timems" => float()
       }
 
   """
-  @type suggest_status() :: %{String.t() | Atom.t() => any()}
+  @type suggest_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       suggestion_match() :: %{
-        "id" => String.t() | Atom.t(),
+        "id" => String.t() | atom(),
         "score" => float(),
-        "suggestion" => String.t() | Atom.t()
+        "suggestion" => String.t() | atom()
       }
 
   """
-  @type suggestion_match() :: %{String.t() | Atom.t() => any()}
+  @type suggestion_match() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -244,7 +244,7 @@ defmodule AWS.CloudSearchDomain do
       }
 
   """
-  @type upload_documents_request() :: %{String.t() | Atom.t() => any()}
+  @type upload_documents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -253,12 +253,12 @@ defmodule AWS.CloudSearchDomain do
       upload_documents_response() :: %{
         "adds" => float(),
         "deletes" => float(),
-        "status" => String.t() | Atom.t(),
+        "status" => String.t() | atom(),
         "warnings" => list(document_service_warning())
       }
 
   """
-  @type upload_documents_response() :: %{String.t() | Atom.t() => any()}
+  @type upload_documents_response() :: %{(String.t() | atom()) => any()}
 
   @type search_errors() :: search_exception()
 
@@ -312,20 +312,20 @@ defmodule AWS.CloudSearchDomain do
   """
   @spec search(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, search_response(), any()}
@@ -479,9 +479,9 @@ defmodule AWS.CloudSearchDomain do
   """
   @spec suggest(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, suggest_response(), any()}

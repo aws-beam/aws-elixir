@@ -15,12 +15,12 @@ defmodule AWS.LexRuntimeV2 do
   ## Example:
 
       recognized_bot_member() :: %{
-        "botId" => String.t() | Atom.t(),
-        "botName" => String.t() | Atom.t()
+        "botId" => String.t() | atom(),
+        "botName" => String.t() | atom()
       }
 
   """
-  @type recognized_bot_member() :: %{String.t() | Atom.t() => any()}
+  @type recognized_bot_member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -29,12 +29,12 @@ defmodule AWS.LexRuntimeV2 do
       get_session_response() :: %{
         "interpretations" => list(interpretation()),
         "messages" => list(message()),
-        "sessionId" => String.t() | Atom.t(),
+        "sessionId" => String.t() | atom(),
         "sessionState" => session_state()
       }
 
   """
-  @type get_session_response() :: %{String.t() | Atom.t() => any()}
+  @type get_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -43,24 +43,24 @@ defmodule AWS.LexRuntimeV2 do
       put_session_request() :: %{
         optional("messages") => list(message()),
         optional("requestAttributes") => map(),
-        optional("responseContentType") => String.t() | Atom.t(),
+        optional("responseContentType") => String.t() | atom(),
         required("sessionState") => session_state()
       }
 
   """
-  @type put_session_request() :: %{String.t() | Atom.t() => any()}
+  @type put_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       elicit_sub_slot() :: %{
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "subSlotToElicit" => elicit_sub_slot()
       }
 
   """
-  @type elicit_sub_slot() :: %{String.t() | Atom.t() => any()}
+  @type elicit_sub_slot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -69,22 +69,22 @@ defmodule AWS.LexRuntimeV2 do
       recognize_text_request() :: %{
         optional("requestAttributes") => map(),
         optional("sessionState") => session_state(),
-        required("text") => String.t() | Atom.t()
+        required("text") => String.t() | atom()
       }
 
   """
-  @type recognize_text_request() :: %{String.t() | Atom.t() => any()}
+  @type recognize_text_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_gateway_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type bad_gateway_exception() :: %{String.t() | Atom.t() => any()}
+  @type bad_gateway_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -98,18 +98,18 @@ defmodule AWS.LexRuntimeV2 do
       }
 
   """
-  @type slot() :: %{String.t() | Atom.t() => any()}
+  @type slot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dependency_failed_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type dependency_failed_exception() :: %{String.t() | Atom.t() => any()}
+  @type dependency_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -117,12 +117,12 @@ defmodule AWS.LexRuntimeV2 do
 
       d_t_m_f_input_event() :: %{
         "clientTimestampMillis" => float(),
-        "eventId" => String.t() | Atom.t(),
-        "inputCharacter" => String.t() | Atom.t()
+        "eventId" => String.t() | atom(),
+        "inputCharacter" => String.t() | atom()
       }
 
   """
-  @type d_t_m_f_input_event() :: %{String.t() | Atom.t() => any()}
+  @type d_t_m_f_input_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -130,27 +130,27 @@ defmodule AWS.LexRuntimeV2 do
 
       recognize_utterance_request() :: %{
         optional("inputStream") => binary(),
-        optional("requestAttributes") => String.t() | Atom.t(),
-        optional("responseContentType") => String.t() | Atom.t(),
-        optional("sessionState") => String.t() | Atom.t(),
-        required("requestContentType") => String.t() | Atom.t()
+        optional("requestAttributes") => String.t() | atom(),
+        optional("responseContentType") => String.t() | atom(),
+        optional("sessionState") => String.t() | atom(),
+        required("requestContentType") => String.t() | atom()
       }
 
   """
-  @type recognize_utterance_request() :: %{String.t() | Atom.t() => any()}
+  @type recognize_utterance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       value() :: %{
-        "interpretedValue" => String.t() | Atom.t(),
-        "originalValue" => String.t() | Atom.t(),
-        "resolvedValues" => list(String.t() | Atom.t())
+        "interpretedValue" => String.t() | atom(),
+        "originalValue" => String.t() | atom(),
+        "resolvedValues" => list(String.t() | atom())
       }
 
   """
-  @type value() :: %{String.t() | Atom.t() => any()}
+  @type value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -162,7 +162,7 @@ defmodule AWS.LexRuntimeV2 do
       }
 
   """
-  @type sentiment_response() :: %{String.t() | Atom.t() => any()}
+  @type sentiment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -174,7 +174,7 @@ defmodule AWS.LexRuntimeV2 do
       }
 
   """
-  @type active_context_time_to_live() :: %{String.t() | Atom.t() => any()}
+  @type active_context_time_to_live() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -182,12 +182,12 @@ defmodule AWS.LexRuntimeV2 do
 
       text_input_event() :: %{
         "clientTimestampMillis" => float(),
-        "eventId" => String.t() | Atom.t(),
-        "text" => String.t() | Atom.t()
+        "eventId" => String.t() | atom(),
+        "text" => String.t() | atom()
       }
 
   """
-  @type text_input_event() :: %{String.t() | Atom.t() => any()}
+  @type text_input_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -195,13 +195,13 @@ defmodule AWS.LexRuntimeV2 do
 
       image_response_card() :: %{
         "buttons" => list(button()),
-        "imageUrl" => String.t() | Atom.t(),
-        "subtitle" => String.t() | Atom.t(),
-        "title" => String.t() | Atom.t()
+        "imageUrl" => String.t() | atom(),
+        "subtitle" => String.t() | atom(),
+        "title" => String.t() | atom()
       }
 
   """
-  @type image_response_card() :: %{String.t() | Atom.t() => any()}
+  @type image_response_card() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -218,15 +218,15 @@ defmodule AWS.LexRuntimeV2 do
 
       put_session_response() :: %{
         "audioStream" => binary(),
-        "contentType" => String.t() | Atom.t(),
-        "messages" => String.t() | Atom.t(),
-        "requestAttributes" => String.t() | Atom.t(),
-        "sessionId" => String.t() | Atom.t(),
-        "sessionState" => String.t() | Atom.t()
+        "contentType" => String.t() | atom(),
+        "messages" => String.t() | atom(),
+        "requestAttributes" => String.t() | atom(),
+        "sessionId" => String.t() | atom(),
+        "sessionState" => String.t() | atom()
       }
 
   """
-  @type put_session_response() :: %{String.t() | Atom.t() => any()}
+  @type put_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -234,35 +234,35 @@ defmodule AWS.LexRuntimeV2 do
 
       intent() :: %{
         "confirmationState" => list(any()),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "slots" => map(),
         "state" => list(any())
       }
 
   """
-  @type intent() :: %{String.t() | Atom.t() => any()}
+  @type intent() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -276,50 +276,50 @@ defmodule AWS.LexRuntimeV2 do
       }
 
   """
-  @type sentiment_score() :: %{String.t() | Atom.t() => any()}
+  @type sentiment_score() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       intent_result_event() :: %{
-        "eventId" => String.t() | Atom.t(),
+        "eventId" => String.t() | atom(),
         "inputMode" => list(any()),
         "interpretations" => list(interpretation()),
         "recognizedBotMember" => recognized_bot_member(),
         "requestAttributes" => map(),
-        "sessionId" => String.t() | Atom.t(),
+        "sessionId" => String.t() | atom(),
         "sessionState" => session_state()
       }
 
   """
-  @type intent_result_event() :: %{String.t() | Atom.t() => any()}
+  @type intent_result_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_session_response() :: %{
-        "botAliasId" => String.t() | Atom.t(),
-        "botId" => String.t() | Atom.t(),
-        "localeId" => String.t() | Atom.t(),
-        "sessionId" => String.t() | Atom.t()
+        "botAliasId" => String.t() | atom(),
+        "botId" => String.t() | atom(),
+        "localeId" => String.t() | atom(),
+        "sessionId" => String.t() | atom()
       }
 
   """
-  @type delete_session_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       text_response_event() :: %{
-        "eventId" => String.t() | Atom.t(),
+        "eventId" => String.t() | atom(),
         "messages" => list(message())
       }
 
   """
-  @type text_response_event() :: %{String.t() | Atom.t() => any()}
+  @type text_response_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -327,12 +327,12 @@ defmodule AWS.LexRuntimeV2 do
 
       active_context() :: %{
         "contextAttributes" => map(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "timeToLive" => active_context_time_to_live()
       }
 
   """
-  @type active_context() :: %{String.t() | Atom.t() => any()}
+  @type active_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -343,7 +343,7 @@ defmodule AWS.LexRuntimeV2 do
       }
 
   """
-  @type confidence_score() :: %{String.t() | Atom.t() => any()}
+  @type confidence_score() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -351,11 +351,11 @@ defmodule AWS.LexRuntimeV2 do
 
       disconnection_event() :: %{
         "clientTimestampMillis" => float(),
-        "eventId" => String.t() | Atom.t()
+        "eventId" => String.t() | atom()
       }
 
   """
-  @type disconnection_event() :: %{String.t() | Atom.t() => any()}
+  @type disconnection_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -365,13 +365,13 @@ defmodule AWS.LexRuntimeV2 do
         "activeContexts" => list(active_context()),
         "dialogAction" => dialog_action(),
         "intent" => intent(),
-        "originatingRequestId" => String.t() | Atom.t(),
+        "originatingRequestId" => String.t() | atom(),
         "runtimeHints" => runtime_hints(),
         "sessionAttributes" => map()
       }
 
   """
-  @type session_state() :: %{String.t() | Atom.t() => any()}
+  @type session_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -382,12 +382,12 @@ defmodule AWS.LexRuntimeV2 do
         "messages" => list(message()),
         "recognizedBotMember" => recognized_bot_member(),
         "requestAttributes" => map(),
-        "sessionId" => String.t() | Atom.t(),
+        "sessionId" => String.t() | atom(),
         "sessionState" => session_state()
       }
 
   """
-  @type recognize_text_response() :: %{String.t() | Atom.t() => any()}
+  @type recognize_text_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -395,23 +395,23 @@ defmodule AWS.LexRuntimeV2 do
 
       audio_response_event() :: %{
         "audioChunk" => binary(),
-        "contentType" => String.t() | Atom.t(),
-        "eventId" => String.t() | Atom.t()
+        "contentType" => String.t() | atom(),
+        "eventId" => String.t() | atom()
       }
 
   """
-  @type audio_response_event() :: %{String.t() | Atom.t() => any()}
+  @type audio_response_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       runtime_hint_value() :: %{
-        "phrase" => String.t() | Atom.t()
+        "phrase" => String.t() | atom()
       }
 
   """
-  @type runtime_hint_value() :: %{String.t() | Atom.t() => any()}
+  @type runtime_hint_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -423,7 +423,7 @@ defmodule AWS.LexRuntimeV2 do
       }
 
   """
-  @type start_conversation_request() :: %{String.t() | Atom.t() => any()}
+  @type start_conversation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -431,41 +431,41 @@ defmodule AWS.LexRuntimeV2 do
 
       recognize_utterance_response() :: %{
         "audioStream" => binary(),
-        "contentType" => String.t() | Atom.t(),
-        "inputMode" => String.t() | Atom.t(),
-        "inputTranscript" => String.t() | Atom.t(),
-        "interpretations" => String.t() | Atom.t(),
-        "messages" => String.t() | Atom.t(),
-        "recognizedBotMember" => String.t() | Atom.t(),
-        "requestAttributes" => String.t() | Atom.t(),
-        "sessionId" => String.t() | Atom.t(),
-        "sessionState" => String.t() | Atom.t()
+        "contentType" => String.t() | atom(),
+        "inputMode" => String.t() | atom(),
+        "inputTranscript" => String.t() | atom(),
+        "interpretations" => String.t() | atom(),
+        "messages" => String.t() | atom(),
+        "recognizedBotMember" => String.t() | atom(),
+        "requestAttributes" => String.t() | atom(),
+        "sessionId" => String.t() | atom(),
+        "sessionState" => String.t() | atom()
       }
 
   """
-  @type recognize_utterance_response() :: %{String.t() | Atom.t() => any()}
+  @type recognize_utterance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -474,28 +474,28 @@ defmodule AWS.LexRuntimeV2 do
       configuration_event() :: %{
         "clientTimestampMillis" => float(),
         "disablePlayback" => boolean(),
-        "eventId" => String.t() | Atom.t(),
+        "eventId" => String.t() | atom(),
         "requestAttributes" => map(),
-        "responseContentType" => String.t() | Atom.t(),
+        "responseContentType" => String.t() | atom(),
         "sessionState" => session_state(),
         "welcomeMessages" => list(message())
       }
 
   """
-  @type configuration_event() :: %{String.t() | Atom.t() => any()}
+  @type configuration_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       playback_interruption_event() :: %{
-        "causedByEventId" => String.t() | Atom.t(),
-        "eventId" => String.t() | Atom.t(),
+        "causedByEventId" => String.t() | atom(),
+        "eventId" => String.t() | atom(),
         "eventReason" => list(any())
       }
 
   """
-  @type playback_interruption_event() :: %{String.t() | Atom.t() => any()}
+  @type playback_interruption_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -506,18 +506,18 @@ defmodule AWS.LexRuntimeV2 do
       }
 
   """
-  @type runtime_hints() :: %{String.t() | Atom.t() => any()}
+  @type runtime_hints() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -525,33 +525,33 @@ defmodule AWS.LexRuntimeV2 do
 
       playback_completion_event() :: %{
         "clientTimestampMillis" => float(),
-        "eventId" => String.t() | Atom.t()
+        "eventId" => String.t() | atom()
       }
 
   """
-  @type playback_completion_event() :: %{String.t() | Atom.t() => any()}
+  @type playback_completion_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       heartbeat_event() :: %{
-        "eventId" => String.t() | Atom.t()
+        "eventId" => String.t() | atom()
       }
 
   """
-  @type heartbeat_event() :: %{String.t() | Atom.t() => any()}
+  @type heartbeat_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -562,19 +562,19 @@ defmodule AWS.LexRuntimeV2 do
       }
 
   """
-  @type start_conversation_response() :: %{String.t() | Atom.t() => any()}
+  @type start_conversation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       button() :: %{
-        "text" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "text" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type button() :: %{String.t() | Atom.t() => any()}
+  @type button() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -582,13 +582,13 @@ defmodule AWS.LexRuntimeV2 do
 
       dialog_action() :: %{
         "slotElicitationStyle" => list(any()),
-        "slotToElicit" => String.t() | Atom.t(),
+        "slotToElicit" => String.t() | atom(),
         "subSlotToElicit" => elicit_sub_slot(),
         "type" => list(any())
       }
 
   """
-  @type dialog_action() :: %{String.t() | Atom.t() => any()}
+  @type dialog_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -600,19 +600,19 @@ defmodule AWS.LexRuntimeV2 do
       }
 
   """
-  @type runtime_hint_details() :: %{String.t() | Atom.t() => any()}
+  @type runtime_hint_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       transcript_event() :: %{
-        "eventId" => String.t() | Atom.t(),
-        "transcript" => String.t() | Atom.t()
+        "eventId" => String.t() | atom(),
+        "transcript" => String.t() | atom()
       }
 
   """
-  @type transcript_event() :: %{String.t() | Atom.t() => any()}
+  @type transcript_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -635,7 +635,7 @@ defmodule AWS.LexRuntimeV2 do
       }
 
   """
-  @type interpretation() :: %{String.t() | Atom.t() => any()}
+  @type interpretation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -644,25 +644,25 @@ defmodule AWS.LexRuntimeV2 do
       audio_input_event() :: %{
         "audioChunk" => binary(),
         "clientTimestampMillis" => float(),
-        "contentType" => String.t() | Atom.t(),
-        "eventId" => String.t() | Atom.t()
+        "contentType" => String.t() | atom(),
+        "eventId" => String.t() | atom()
       }
 
   """
-  @type audio_input_event() :: %{String.t() | Atom.t() => any()}
+  @type audio_input_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       message() :: %{
-        "content" => String.t() | Atom.t(),
+        "content" => String.t() | atom(),
         "contentType" => list(any()),
         "imageResponseCard" => image_response_card()
       }
 
   """
-  @type message() :: %{String.t() | Atom.t() => any()}
+  @type message() :: %{(String.t() | atom()) => any()}
 
   @type delete_session_errors() ::
           throttling_exception()
@@ -752,10 +752,10 @@ defmodule AWS.LexRuntimeV2 do
   """
   @spec delete_session(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_session_request(),
           list()
         ) ::
@@ -809,10 +809,10 @@ defmodule AWS.LexRuntimeV2 do
   """
   @spec get_session(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_session_response(), any()}
@@ -840,10 +840,10 @@ defmodule AWS.LexRuntimeV2 do
   """
   @spec put_session(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           put_session_request(),
           list()
         ) ::
@@ -940,10 +940,10 @@ defmodule AWS.LexRuntimeV2 do
   """
   @spec recognize_text(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           recognize_text_request(),
           list()
         ) ::
@@ -1052,10 +1052,10 @@ defmodule AWS.LexRuntimeV2 do
   """
   @spec recognize_utterance(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           recognize_utterance_request(),
           list()
         ) ::
@@ -1191,10 +1191,10 @@ defmodule AWS.LexRuntimeV2 do
   """
   @spec start_conversation(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           start_conversation_request(),
           list()
         ) ::

@@ -103,12 +103,12 @@ defmodule AWS.Lambda do
   ## Example:
 
       list_functions_by_code_signing_config_response() :: %{
-        "FunctionArns" => list(String.t() | Atom.t()),
-        "NextMarker" => String.t() | Atom.t()
+        "FunctionArns" => list(String.t() | atom()),
+        "NextMarker" => String.t() | atom()
       }
 
   """
-  @type list_functions_by_code_signing_config_response() :: %{String.t() | Atom.t() => any()}
+  @type list_functions_by_code_signing_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -120,7 +120,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type account_usage() :: %{String.t() | Atom.t() => any()}
+  @type account_usage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -128,14 +128,14 @@ defmodule AWS.Lambda do
 
       function_event_invoke_config() :: %{
         optional("DestinationConfig") => destination_config(),
-        optional("FunctionArn") => String.t() | Atom.t(),
+        optional("FunctionArn") => String.t() | atom(),
         optional("LastModified") => non_neg_integer(),
         optional("MaximumEventAgeInSeconds") => integer(),
         optional("MaximumRetryAttempts") => integer()
       }
 
   """
-  @type function_event_invoke_config() :: %{String.t() | Atom.t() => any()}
+  @type function_event_invoke_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -143,76 +143,76 @@ defmodule AWS.Lambda do
 
       list_aliases_response() :: %{
         "Aliases" => list(alias_configuration()),
-        "NextMarker" => String.t() | Atom.t()
+        "NextMarker" => String.t() | atom()
       }
 
   """
-  @type list_aliases_response() :: %{String.t() | Atom.t() => any()}
+  @type list_aliases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unsupported_media_type_exception() :: %{
-        "Type" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type unsupported_media_type_exception() :: %{String.t() | Atom.t() => any()}
+  @type unsupported_media_type_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kms_disabled_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type kms_disabled_exception() :: %{String.t() | Atom.t() => any()}
+  @type kms_disabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_aliases_request() :: %{
-        optional("FunctionVersion") => String.t() | Atom.t(),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("FunctionVersion") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_aliases_request() :: %{String.t() | Atom.t() => any()}
+  @type list_aliases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       function_code() :: %{
-        "ImageUri" => String.t() | Atom.t(),
-        "S3Bucket" => String.t() | Atom.t(),
-        "S3Key" => String.t() | Atom.t(),
-        "S3ObjectVersion" => String.t() | Atom.t(),
-        "SourceKMSKeyArn" => String.t() | Atom.t(),
+        "ImageUri" => String.t() | atom(),
+        "S3Bucket" => String.t() | atom(),
+        "S3Key" => String.t() | atom(),
+        "S3ObjectVersion" => String.t() | atom(),
+        "SourceKMSKeyArn" => String.t() | atom(),
         "ZipFile" => binary()
       }
 
   """
-  @type function_code() :: %{String.t() | Atom.t() => any()}
+  @type function_code() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_security_group_id_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type invalid_security_group_id_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_security_group_id_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -226,9 +226,9 @@ defmodule AWS.Lambda do
         optional("DocumentDBEventSourceConfig") => document_db_event_source_config(),
         optional("Enabled") => boolean(),
         optional("FilterCriteria") => filter_criteria(),
-        optional("FunctionName") => String.t() | Atom.t(),
+        optional("FunctionName") => String.t() | atom(),
         optional("FunctionResponseTypes") => list(list(any())()),
-        optional("KMSKeyArn") => String.t() | Atom.t(),
+        optional("KMSKeyArn") => String.t() | atom(),
         optional("MaximumBatchingWindowInSeconds") => integer(),
         optional("MaximumRecordAgeInSeconds") => integer(),
         optional("MaximumRetryAttempts") => integer(),
@@ -242,7 +242,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type update_event_source_mapping_request() :: %{String.t() | Atom.t() => any()}
+  @type update_event_source_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -250,11 +250,11 @@ defmodule AWS.Lambda do
 
       runtime_version_config() :: %{
         "Error" => runtime_version_error(),
-        "RuntimeVersionArn" => String.t() | Atom.t()
+        "RuntimeVersionArn" => String.t() | atom()
       }
 
   """
-  @type runtime_version_config() :: %{String.t() | Atom.t() => any()}
+  @type runtime_version_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -265,7 +265,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type snap_start() :: %{String.t() | Atom.t() => any()}
+  @type snap_start() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -276,7 +276,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -292,11 +292,11 @@ defmodule AWS.Lambda do
   ## Example:
 
       remove_layer_version_permission_request() :: %{
-        optional("RevisionId") => String.t() | Atom.t()
+        optional("RevisionId") => String.t() | atom()
       }
 
   """
-  @type remove_layer_version_permission_request() :: %{String.t() | Atom.t() => any()}
+  @type remove_layer_version_permission_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -316,7 +316,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type kafka_schema_validation_config() :: %{String.t() | Atom.t() => any()}
+  @type kafka_schema_validation_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -328,7 +328,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type environment_response() :: %{String.t() | Atom.t() => any()}
+  @type environment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -337,29 +337,29 @@ defmodule AWS.Lambda do
       provisioned_concurrency_config_list_item() :: %{
         "AllocatedProvisionedConcurrentExecutions" => integer(),
         "AvailableProvisionedConcurrentExecutions" => integer(),
-        "FunctionArn" => String.t() | Atom.t(),
-        "LastModified" => String.t() | Atom.t(),
+        "FunctionArn" => String.t() | atom(),
+        "LastModified" => String.t() | atom(),
         "RequestedProvisionedConcurrentExecutions" => integer(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | Atom.t()
+        "StatusReason" => String.t() | atom()
       }
 
   """
-  @type provisioned_concurrency_config_list_item() :: %{String.t() | Atom.t() => any()}
+  @type provisioned_concurrency_config_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_alias_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("FunctionVersion") => String.t() | Atom.t(),
-        optional("RevisionId") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("FunctionVersion") => String.t() | atom(),
+        optional("RevisionId") => String.t() | atom(),
         optional("RoutingConfig") => alias_routing_configuration()
       }
 
   """
-  @type update_alias_request() :: %{String.t() | Atom.t() => any()}
+  @type update_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -367,11 +367,11 @@ defmodule AWS.Lambda do
 
       list_functions_response() :: %{
         "Functions" => list(function_configuration()),
-        "NextMarker" => String.t() | Atom.t()
+        "NextMarker" => String.t() | atom()
       }
 
   """
-  @type list_functions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_functions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -382,31 +382,31 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type put_function_concurrency_request() :: %{String.t() | Atom.t() => any()}
+  @type put_function_concurrency_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       policy_length_exceeded_exception() :: %{
-        "Type" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type policy_length_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type policy_length_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_provisioned_concurrency_configs_response() :: %{
-        "NextMarker" => String.t() | Atom.t(),
+        "NextMarker" => String.t() | atom(),
         "ProvisionedConcurrencyConfigs" => list(provisioned_concurrency_config_list_item())
       }
 
   """
-  @type list_provisioned_concurrency_configs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_provisioned_concurrency_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -414,23 +414,23 @@ defmodule AWS.Lambda do
 
       list_code_signing_configs_response() :: %{
         "CodeSigningConfigs" => list(code_signing_config()),
-        "NextMarker" => String.t() | Atom.t()
+        "NextMarker" => String.t() | atom()
       }
 
   """
-  @type list_code_signing_configs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_code_signing_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       amazon_managed_kafka_event_source_config() :: %{
-        "ConsumerGroupId" => String.t() | Atom.t(),
+        "ConsumerGroupId" => String.t() | atom(),
         "SchemaRegistryConfig" => kafka_schema_registry_config()
       }
 
   """
-  @type amazon_managed_kafka_event_source_config() :: %{String.t() | Atom.t() => any()}
+  @type amazon_managed_kafka_event_source_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -438,13 +438,13 @@ defmodule AWS.Lambda do
 
       invoke_with_response_stream_response() :: %{
         "EventStream" => list(),
-        "ExecutedVersion" => String.t() | Atom.t(),
-        "ResponseStreamContentType" => String.t() | Atom.t(),
+        "ExecutedVersion" => String.t() | atom(),
+        "ResponseStreamContentType" => String.t() | atom(),
         "StatusCode" => integer()
       }
 
   """
-  @type invoke_with_response_stream_response() :: %{String.t() | Atom.t() => any()}
+  @type invoke_with_response_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -455,22 +455,22 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type filter_criteria() :: %{String.t() | Atom.t() => any()}
+  @type filter_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       function_code_location() :: %{
-        "ImageUri" => String.t() | Atom.t(),
-        "Location" => String.t() | Atom.t(),
-        "RepositoryType" => String.t() | Atom.t(),
-        "ResolvedImageUri" => String.t() | Atom.t(),
-        "SourceKMSKeyArn" => String.t() | Atom.t()
+        "ImageUri" => String.t() | atom(),
+        "Location" => String.t() | atom(),
+        "RepositoryType" => String.t() | atom(),
+        "ResolvedImageUri" => String.t() | atom(),
+        "SourceKMSKeyArn" => String.t() | atom()
       }
 
   """
-  @type function_code_location() :: %{String.t() | Atom.t() => any()}
+  @type function_code_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -486,38 +486,38 @@ defmodule AWS.Lambda do
   ## Example:
 
       create_alias_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("RoutingConfig") => alias_routing_configuration(),
-        required("FunctionVersion") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        required("FunctionVersion") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_alias_request() :: %{String.t() | Atom.t() => any()}
+  @type create_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_in_use_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_layer_version_policy_response() :: %{
-        "Policy" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t()
+        "Policy" => String.t() | atom(),
+        "RevisionId" => String.t() | atom()
       }
 
   """
-  @type get_layer_version_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type get_layer_version_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -529,18 +529,18 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type get_account_settings_response() :: %{String.t() | Atom.t() => any()}
+  @type get_account_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_policy_request() :: %{
-        optional("Qualifier") => String.t() | Atom.t()
+        optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type get_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type get_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -550,16 +550,16 @@ defmodule AWS.Lambda do
         optional("CompatibleArchitectures") => list(list(any())()),
         optional("CompatibleRuntimes") => list(list(any())()),
         optional("Content") => layer_version_content_output(),
-        optional("CreatedDate") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("LayerArn") => String.t() | Atom.t(),
-        optional("LayerVersionArn") => String.t() | Atom.t(),
-        optional("LicenseInfo") => String.t() | Atom.t(),
+        optional("CreatedDate") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("LayerArn") => String.t() | atom(),
+        optional("LayerVersionArn") => String.t() | atom(),
+        optional("LicenseInfo") => String.t() | atom(),
         optional("Version") => float()
       }
 
   """
-  @type get_layer_version_response() :: %{String.t() | Atom.t() => any()}
+  @type get_layer_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -570,7 +570,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type put_function_recursion_config_response() :: %{String.t() | Atom.t() => any()}
+  @type put_function_recursion_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -580,11 +580,11 @@ defmodule AWS.Lambda do
         optional("DestinationConfig") => destination_config(),
         optional("MaximumEventAgeInSeconds") => integer(),
         optional("MaximumRetryAttempts") => integer(),
-        optional("Qualifier") => String.t() | Atom.t()
+        optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type put_function_event_invoke_config_request() :: %{String.t() | Atom.t() => any()}
+  @type put_function_event_invoke_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -595,7 +595,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type invoke_async_request() :: %{String.t() | Atom.t() => any()}
+  @type invoke_async_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -603,11 +603,11 @@ defmodule AWS.Lambda do
 
       list_layers_response() :: %{
         "Layers" => list(layers_list_item()),
-        "NextMarker" => String.t() | Atom.t()
+        "NextMarker" => String.t() | atom()
       }
 
   """
-  @type list_layers_response() :: %{String.t() | Atom.t() => any()}
+  @type list_layers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -615,11 +615,11 @@ defmodule AWS.Lambda do
 
       source_access_configuration() :: %{
         "Type" => list(any()),
-        "URI" => String.t() | Atom.t()
+        "URI" => String.t() | atom()
       }
 
   """
-  @type source_access_configuration() :: %{String.t() | Atom.t() => any()}
+  @type source_access_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -635,27 +635,27 @@ defmodule AWS.Lambda do
   ## Example:
 
       list_code_signing_configs_request() :: %{
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_code_signing_configs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_code_signing_configs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       layer_version_content_output() :: %{
-        "CodeSha256" => String.t() | Atom.t(),
+        "CodeSha256" => String.t() | atom(),
         "CodeSize" => float(),
-        "Location" => String.t() | Atom.t(),
-        "SigningJobArn" => String.t() | Atom.t(),
-        "SigningProfileVersionArn" => String.t() | Atom.t()
+        "Location" => String.t() | atom(),
+        "SigningJobArn" => String.t() | atom(),
+        "SigningProfileVersionArn" => String.t() | atom()
       }
 
   """
-  @type layer_version_content_output() :: %{String.t() | Atom.t() => any()}
+  @type layer_version_content_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -666,33 +666,33 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type list_tags_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invocation_response() :: %{
-        "ExecutedVersion" => String.t() | Atom.t(),
-        "FunctionError" => String.t() | Atom.t(),
-        "LogResult" => String.t() | Atom.t(),
+        "ExecutedVersion" => String.t() | atom(),
+        "FunctionError" => String.t() | atom(),
+        "LogResult" => String.t() | atom(),
         "Payload" => binary(),
         "StatusCode" => integer()
       }
 
   """
-  @type invocation_response() :: %{String.t() | Atom.t() => any()}
+  @type invocation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_function_url_config_request() :: %{
-        optional("Qualifier") => String.t() | Atom.t()
+        optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type delete_function_url_config_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_function_url_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -708,12 +708,12 @@ defmodule AWS.Lambda do
   ## Example:
 
       ec2_access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type ec2_access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type ec2_access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -723,46 +723,46 @@ defmodule AWS.Lambda do
         optional("AuthType") => list(any()),
         optional("Cors") => cors(),
         optional("InvokeMode") => list(any()),
-        optional("Qualifier") => String.t() | Atom.t()
+        optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type update_function_url_config_request() :: %{String.t() | Atom.t() => any()}
+  @type update_function_url_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       self_managed_kafka_event_source_config() :: %{
-        "ConsumerGroupId" => String.t() | Atom.t(),
+        "ConsumerGroupId" => String.t() | atom(),
         "SchemaRegistryConfig" => kafka_schema_registry_config()
       }
 
   """
-  @type self_managed_kafka_event_source_config() :: %{String.t() | Atom.t() => any()}
+  @type self_managed_kafka_event_source_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       snap_start_not_ready_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type snap_start_not_ready_exception() :: %{String.t() | Atom.t() => any()}
+  @type snap_start_not_ready_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_function_configuration_request() :: %{
-        optional("Qualifier") => String.t() | Atom.t()
+        optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type get_function_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type get_function_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -777,7 +777,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type get_function_response() :: %{String.t() | Atom.t() => any()}
+  @type get_function_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -786,23 +786,23 @@ defmodule AWS.Lambda do
       logging_config() :: %{
         "ApplicationLogLevel" => list(any()),
         "LogFormat" => list(any()),
-        "LogGroup" => String.t() | Atom.t(),
+        "LogGroup" => String.t() | atom(),
         "SystemLogLevel" => list(any())
       }
 
   """
-  @type logging_config() :: %{String.t() | Atom.t() => any()}
+  @type logging_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -818,13 +818,13 @@ defmodule AWS.Lambda do
   ## Example:
 
       image_config() :: %{
-        "Command" => list(String.t() | Atom.t()),
-        "EntryPoint" => list(String.t() | Atom.t()),
-        "WorkingDirectory" => String.t() | Atom.t()
+        "Command" => list(String.t() | atom()),
+        "EntryPoint" => list(String.t() | atom()),
+        "WorkingDirectory" => String.t() | atom()
       }
 
   """
-  @type image_config() :: %{String.t() | Atom.t() => any()}
+  @type image_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -833,15 +833,15 @@ defmodule AWS.Lambda do
       update_function_url_config_response() :: %{
         "AuthType" => list(any()),
         "Cors" => cors(),
-        "CreationTime" => String.t() | Atom.t(),
-        "FunctionArn" => String.t() | Atom.t(),
-        "FunctionUrl" => String.t() | Atom.t(),
+        "CreationTime" => String.t() | atom(),
+        "FunctionArn" => String.t() | atom(),
+        "FunctionUrl" => String.t() | atom(),
         "InvokeMode" => list(any()),
-        "LastModifiedTime" => String.t() | Atom.t()
+        "LastModifiedTime" => String.t() | atom()
       }
 
   """
-  @type update_function_url_config_response() :: %{String.t() | Atom.t() => any()}
+  @type update_function_url_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -849,13 +849,13 @@ defmodule AWS.Lambda do
 
       too_many_requests_exception() :: %{
         "Reason" => list(any()),
-        "Type" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "retryAfterSeconds" => String.t() | Atom.t()
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => String.t() | atom()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -875,7 +875,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type put_function_recursion_config_request() :: %{String.t() | Atom.t() => any()}
+  @type put_function_recursion_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -887,19 +887,19 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type destination_config() :: %{String.t() | Atom.t() => any()}
+  @type destination_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       snap_start_timeout_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type snap_start_timeout_exception() :: %{String.t() | Atom.t() => any()}
+  @type snap_start_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -907,11 +907,11 @@ defmodule AWS.Lambda do
 
       put_provisioned_concurrency_config_request() :: %{
         required("ProvisionedConcurrentExecutions") => integer(),
-        required("Qualifier") => String.t() | Atom.t()
+        required("Qualifier") => String.t() | atom()
       }
 
   """
-  @type put_provisioned_concurrency_config_request() :: %{String.t() | Atom.t() => any()}
+  @type put_provisioned_concurrency_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -931,7 +931,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type create_code_signing_config_response() :: %{String.t() | Atom.t() => any()}
+  @type create_code_signing_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -942,7 +942,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type invoke_response_stream_update() :: %{String.t() | Atom.t() => any()}
+  @type invoke_response_stream_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -950,11 +950,11 @@ defmodule AWS.Lambda do
 
       list_function_event_invoke_configs_response() :: %{
         "FunctionEventInvokeConfigs" => list(function_event_invoke_config()),
-        "NextMarker" => String.t() | Atom.t()
+        "NextMarker" => String.t() | atom()
       }
 
   """
-  @type list_function_event_invoke_configs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_function_event_invoke_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -965,7 +965,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type get_function_concurrency_response() :: %{String.t() | Atom.t() => any()}
+  @type get_function_concurrency_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -981,24 +981,24 @@ defmodule AWS.Lambda do
   ## Example:
 
       recursive_invocation_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type recursive_invocation_exception() :: %{String.t() | Atom.t() => any()}
+  @type recursive_invocation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_runtime_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type invalid_runtime_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_runtime_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1023,11 +1023,11 @@ defmodule AWS.Lambda do
   ## Example:
 
       on_failure() :: %{
-        "Destination" => String.t() | Atom.t()
+        "Destination" => String.t() | atom()
       }
 
   """
-  @type on_failure() :: %{String.t() | Atom.t() => any()}
+  @type on_failure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1035,70 +1035,70 @@ defmodule AWS.Lambda do
 
       list_event_source_mappings_response() :: %{
         "EventSourceMappings" => list(event_source_mapping_configuration()),
-        "NextMarker" => String.t() | Atom.t()
+        "NextMarker" => String.t() | atom()
       }
 
   """
-  @type list_event_source_mappings_response() :: %{String.t() | Atom.t() => any()}
+  @type list_event_source_mappings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_runtime_management_config_request() :: %{
-        optional("Qualifier") => String.t() | Atom.t()
+        optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type get_runtime_management_config_request() :: %{String.t() | Atom.t() => any()}
+  @type get_runtime_management_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_content_exception() :: %{
-        "Type" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_request_content_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_request_content_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_runtime_management_config_request() :: %{
-        optional("Qualifier") => String.t() | Atom.t(),
-        optional("RuntimeVersionArn") => String.t() | Atom.t(),
+        optional("Qualifier") => String.t() | atom(),
+        optional("RuntimeVersionArn") => String.t() | atom(),
         required("UpdateRuntimeOn") => list(any())
       }
 
   """
-  @type put_runtime_management_config_request() :: %{String.t() | Atom.t() => any()}
+  @type put_runtime_management_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_function_request() :: %{
-        optional("Qualifier") => String.t() | Atom.t()
+        optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type get_function_request() :: %{String.t() | Atom.t() => any()}
+  @type get_function_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1108,29 +1108,29 @@ defmodule AWS.Lambda do
         "CompatibleArchitectures" => list(list(any())()),
         "CompatibleRuntimes" => list(list(any())()),
         "Content" => layer_version_content_output(),
-        "CreatedDate" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "LayerArn" => String.t() | Atom.t(),
-        "LayerVersionArn" => String.t() | Atom.t(),
-        "LicenseInfo" => String.t() | Atom.t(),
+        "CreatedDate" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LayerArn" => String.t() | atom(),
+        "LayerVersionArn" => String.t() | atom(),
+        "LicenseInfo" => String.t() | atom(),
         "Version" => float()
       }
 
   """
-  @type publish_layer_version_response() :: %{String.t() | Atom.t() => any()}
+  @type publish_layer_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       document_db_event_source_config() :: %{
-        "CollectionName" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "CollectionName" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
         "FullDocument" => list(any())
       }
 
   """
-  @type document_db_event_source_config() :: %{String.t() | Atom.t() => any()}
+  @type document_db_event_source_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1148,26 +1148,26 @@ defmodule AWS.Lambda do
       create_function_url_config_response() :: %{
         "AuthType" => list(any()),
         "Cors" => cors(),
-        "CreationTime" => String.t() | Atom.t(),
-        "FunctionArn" => String.t() | Atom.t(),
-        "FunctionUrl" => String.t() | Atom.t(),
+        "CreationTime" => String.t() | atom(),
+        "FunctionArn" => String.t() | atom(),
+        "FunctionUrl" => String.t() | atom(),
         "InvokeMode" => list(any())
       }
 
   """
-  @type create_function_url_config_response() :: %{String.t() | Atom.t() => any()}
+  @type create_function_url_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       code_signing_config_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type code_signing_config_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type code_signing_config_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1178,59 +1178,59 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type environment() :: %{String.t() | Atom.t() => any()}
+  @type environment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_function_request() :: %{
-        optional("Qualifier") => String.t() | Atom.t()
+        optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type delete_function_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_function_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       publish_version_request() :: %{
-        optional("CodeSha256") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("RevisionId") => String.t() | Atom.t()
+        optional("CodeSha256") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("RevisionId") => String.t() | atom()
       }
 
   """
-  @type publish_version_request() :: %{String.t() | Atom.t() => any()}
+  @type publish_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_function_code_signing_config_response() :: %{
-        "CodeSigningConfigArn" => String.t() | Atom.t(),
-        "FunctionName" => String.t() | Atom.t()
+        "CodeSigningConfigArn" => String.t() | atom(),
+        "FunctionName" => String.t() | atom()
       }
 
   """
-  @type put_function_code_signing_config_response() :: %{String.t() | Atom.t() => any()}
+  @type put_function_code_signing_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       alias_configuration() :: %{
-        "AliasArn" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "FunctionVersion" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t(),
+        "AliasArn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "FunctionVersion" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RevisionId" => String.t() | atom(),
         "RoutingConfig" => alias_routing_configuration()
       }
 
   """
-  @type alias_configuration() :: %{String.t() | Atom.t() => any()}
+  @type alias_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1239,18 +1239,18 @@ defmodule AWS.Lambda do
       update_function_code_request() :: %{
         optional("Architectures") => list(list(any())()),
         optional("DryRun") => boolean(),
-        optional("ImageUri") => String.t() | Atom.t(),
+        optional("ImageUri") => String.t() | atom(),
         optional("Publish") => boolean(),
-        optional("RevisionId") => String.t() | Atom.t(),
-        optional("S3Bucket") => String.t() | Atom.t(),
-        optional("S3Key") => String.t() | Atom.t(),
-        optional("S3ObjectVersion") => String.t() | Atom.t(),
-        optional("SourceKMSKeyArn") => String.t() | Atom.t(),
+        optional("RevisionId") => String.t() | atom(),
+        optional("S3Bucket") => String.t() | atom(),
+        optional("S3Key") => String.t() | atom(),
+        optional("S3ObjectVersion") => String.t() | atom(),
+        optional("SourceKMSKeyArn") => String.t() | atom(),
         optional("ZipFile") => binary()
       }
 
   """
-  @type update_function_code_request() :: %{String.t() | Atom.t() => any()}
+  @type update_function_code_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1258,25 +1258,25 @@ defmodule AWS.Lambda do
 
       create_code_signing_config_request() :: %{
         optional("CodeSigningPolicies") => code_signing_policies(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
         required("AllowedPublishers") => allowed_publishers()
       }
 
   """
-  @type create_code_signing_config_request() :: %{String.t() | Atom.t() => any()}
+  @type create_code_signing_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_value_exception() :: %{
-        "Type" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_parameter_value_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1288,37 +1288,37 @@ defmodule AWS.Lambda do
         "BisectBatchOnFunctionError" => boolean(),
         "DestinationConfig" => destination_config(),
         "DocumentDBEventSourceConfig" => document_db_event_source_config(),
-        "EventSourceArn" => String.t() | Atom.t(),
-        "EventSourceMappingArn" => String.t() | Atom.t(),
+        "EventSourceArn" => String.t() | atom(),
+        "EventSourceMappingArn" => String.t() | atom(),
         "FilterCriteria" => filter_criteria(),
         "FilterCriteriaError" => filter_criteria_error(),
-        "FunctionArn" => String.t() | Atom.t(),
+        "FunctionArn" => String.t() | atom(),
         "FunctionResponseTypes" => list(list(any())()),
-        "KMSKeyArn" => String.t() | Atom.t(),
+        "KMSKeyArn" => String.t() | atom(),
         "LastModified" => non_neg_integer(),
-        "LastProcessingResult" => String.t() | Atom.t(),
+        "LastProcessingResult" => String.t() | atom(),
         "MaximumBatchingWindowInSeconds" => integer(),
         "MaximumRecordAgeInSeconds" => integer(),
         "MaximumRetryAttempts" => integer(),
         "MetricsConfig" => event_source_mapping_metrics_config(),
         "ParallelizationFactor" => integer(),
         "ProvisionedPollerConfig" => provisioned_poller_config(),
-        "Queues" => list(String.t() | Atom.t()),
+        "Queues" => list(String.t() | atom()),
         "ScalingConfig" => scaling_config(),
         "SelfManagedEventSource" => self_managed_event_source(),
         "SelfManagedKafkaEventSourceConfig" => self_managed_kafka_event_source_config(),
         "SourceAccessConfigurations" => list(source_access_configuration()),
         "StartingPosition" => list(any()),
         "StartingPositionTimestamp" => non_neg_integer(),
-        "State" => String.t() | Atom.t(),
-        "StateTransitionReason" => String.t() | Atom.t(),
-        "Topics" => list(String.t() | Atom.t()),
+        "State" => String.t() | atom(),
+        "StateTransitionReason" => String.t() | atom(),
+        "Topics" => list(String.t() | atom()),
         "TumblingWindowInSeconds" => integer(),
-        "UUID" => String.t() | Atom.t()
+        "UUID" => String.t() | atom()
       }
 
   """
-  @type event_source_mapping_configuration() :: %{String.t() | Atom.t() => any()}
+  @type event_source_mapping_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1330,7 +1330,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type provisioned_poller_config() :: %{String.t() | Atom.t() => any()}
+  @type provisioned_poller_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1343,17 +1343,17 @@ defmodule AWS.Lambda do
         optional("DestinationConfig") => destination_config(),
         optional("DocumentDBEventSourceConfig") => document_db_event_source_config(),
         optional("Enabled") => boolean(),
-        optional("EventSourceArn") => String.t() | Atom.t(),
+        optional("EventSourceArn") => String.t() | atom(),
         optional("FilterCriteria") => filter_criteria(),
         optional("FunctionResponseTypes") => list(list(any())()),
-        optional("KMSKeyArn") => String.t() | Atom.t(),
+        optional("KMSKeyArn") => String.t() | atom(),
         optional("MaximumBatchingWindowInSeconds") => integer(),
         optional("MaximumRecordAgeInSeconds") => integer(),
         optional("MaximumRetryAttempts") => integer(),
         optional("MetricsConfig") => event_source_mapping_metrics_config(),
         optional("ParallelizationFactor") => integer(),
         optional("ProvisionedPollerConfig") => provisioned_poller_config(),
-        optional("Queues") => list(String.t() | Atom.t()),
+        optional("Queues") => list(String.t() | atom()),
         optional("ScalingConfig") => scaling_config(),
         optional("SelfManagedEventSource") => self_managed_event_source(),
         optional("SelfManagedKafkaEventSourceConfig") => self_managed_kafka_event_source_config(),
@@ -1361,13 +1361,13 @@ defmodule AWS.Lambda do
         optional("StartingPosition") => list(any()),
         optional("StartingPositionTimestamp") => non_neg_integer(),
         optional("Tags") => map(),
-        optional("Topics") => list(String.t() | Atom.t()),
+        optional("Topics") => list(String.t() | atom()),
         optional("TumblingWindowInSeconds") => integer(),
-        required("FunctionName") => String.t() | Atom.t()
+        required("FunctionName") => String.t() | atom()
       }
 
   """
-  @type create_event_source_mapping_request() :: %{String.t() | Atom.t() => any()}
+  @type create_event_source_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1376,26 +1376,26 @@ defmodule AWS.Lambda do
       create_function_url_config_request() :: %{
         optional("Cors") => cors(),
         optional("InvokeMode") => list(any()),
-        optional("Qualifier") => String.t() | Atom.t(),
+        optional("Qualifier") => String.t() | atom(),
         required("AuthType") => list(any())
       }
 
   """
-  @type create_function_url_config_request() :: %{String.t() | Atom.t() => any()}
+  @type create_function_url_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       layer() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CodeSize" => float(),
-        "SigningJobArn" => String.t() | Atom.t(),
-        "SigningProfileVersionArn" => String.t() | Atom.t()
+        "SigningJobArn" => String.t() | atom(),
+        "SigningProfileVersionArn" => String.t() | atom()
       }
 
   """
-  @type layer() :: %{String.t() | Atom.t() => any()}
+  @type layer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1404,14 +1404,14 @@ defmodule AWS.Lambda do
       get_provisioned_concurrency_config_response() :: %{
         "AllocatedProvisionedConcurrentExecutions" => integer(),
         "AvailableProvisionedConcurrentExecutions" => integer(),
-        "LastModified" => String.t() | Atom.t(),
+        "LastModified" => String.t() | atom(),
         "RequestedProvisionedConcurrentExecutions" => integer(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | Atom.t()
+        "StatusReason" => String.t() | atom()
       }
 
   """
-  @type get_provisioned_concurrency_config_response() :: %{String.t() | Atom.t() => any()}
+  @type get_provisioned_concurrency_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1419,24 +1419,24 @@ defmodule AWS.Lambda do
 
       vpc_config() :: %{
         "Ipv6AllowedForDualStack" => boolean(),
-        "SecurityGroupIds" => list(String.t() | Atom.t()),
-        "SubnetIds" => list(String.t() | Atom.t())
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
       }
 
   """
-  @type vpc_config() :: %{String.t() | Atom.t() => any()}
+  @type vpc_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type service_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1445,37 +1445,37 @@ defmodule AWS.Lambda do
       publish_layer_version_request() :: %{
         optional("CompatibleArchitectures") => list(list(any())()),
         optional("CompatibleRuntimes") => list(list(any())()),
-        optional("Description") => String.t() | Atom.t(),
-        optional("LicenseInfo") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("LicenseInfo") => String.t() | atom(),
         required("Content") => layer_version_content_input()
       }
 
   """
-  @type publish_layer_version_request() :: %{String.t() | Atom.t() => any()}
+  @type publish_layer_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       subnet_ip_address_limit_reached_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type subnet_ip_address_limit_reached_exception() :: %{String.t() | Atom.t() => any()}
+  @type subnet_ip_address_limit_reached_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_permission_request() :: %{
-        optional("Qualifier") => String.t() | Atom.t(),
-        optional("RevisionId") => String.t() | Atom.t()
+        optional("Qualifier") => String.t() | atom(),
+        optional("RevisionId") => String.t() | atom()
       }
 
   """
-  @type remove_permission_request() :: %{String.t() | Atom.t() => any()}
+  @type remove_permission_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1490,7 +1490,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type account_limit() :: %{String.t() | Atom.t() => any()}
+  @type account_limit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1500,11 +1500,11 @@ defmodule AWS.Lambda do
         optional("DestinationConfig") => destination_config(),
         optional("MaximumEventAgeInSeconds") => integer(),
         optional("MaximumRetryAttempts") => integer(),
-        optional("Qualifier") => String.t() | Atom.t()
+        optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type update_function_event_invoke_config_request() :: %{String.t() | Atom.t() => any()}
+  @type update_function_event_invoke_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1520,12 +1520,12 @@ defmodule AWS.Lambda do
   ## Example:
 
       file_system_config() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "LocalMountPath" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "LocalMountPath" => String.t() | atom()
       }
 
   """
-  @type file_system_config() :: %{String.t() | Atom.t() => any()}
+  @type file_system_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1536,30 +1536,30 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type tracing_config() :: %{String.t() | Atom.t() => any()}
+  @type tracing_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_layer_version_by_arn_request() :: %{
-        required("Arn") => String.t() | Atom.t()
+        required("Arn") => String.t() | atom()
       }
 
   """
-  @type get_layer_version_by_arn_request() :: %{String.t() | Atom.t() => any()}
+  @type get_layer_version_by_arn_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       code_verification_failed_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type code_verification_failed_exception() :: %{String.t() | Atom.t() => any()}
+  @type code_verification_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1570,7 +1570,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type ephemeral_storage() :: %{String.t() | Atom.t() => any()}
+  @type ephemeral_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1579,25 +1579,25 @@ defmodule AWS.Lambda do
       put_provisioned_concurrency_config_response() :: %{
         "AllocatedProvisionedConcurrentExecutions" => integer(),
         "AvailableProvisionedConcurrentExecutions" => integer(),
-        "LastModified" => String.t() | Atom.t(),
+        "LastModified" => String.t() | atom(),
         "RequestedProvisionedConcurrentExecutions" => integer(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | Atom.t()
+        "StatusReason" => String.t() | atom()
       }
 
   """
-  @type put_provisioned_concurrency_config_response() :: %{String.t() | Atom.t() => any()}
+  @type put_provisioned_concurrency_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filter() :: %{
-        "Pattern" => String.t() | Atom.t()
+        "Pattern" => String.t() | atom()
       }
 
   """
-  @type filter() :: %{String.t() | Atom.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1606,15 +1606,15 @@ defmodule AWS.Lambda do
       layer_versions_list_item() :: %{
         "CompatibleArchitectures" => list(list(any())()),
         "CompatibleRuntimes" => list(list(any())()),
-        "CreatedDate" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "LayerVersionArn" => String.t() | Atom.t(),
-        "LicenseInfo" => String.t() | Atom.t(),
+        "CreatedDate" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LayerVersionArn" => String.t() | atom(),
+        "LicenseInfo" => String.t() | atom(),
         "Version" => float()
       }
 
   """
-  @type layer_versions_list_item() :: %{String.t() | Atom.t() => any()}
+  @type layer_versions_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1622,11 +1622,11 @@ defmodule AWS.Lambda do
 
       list_layer_versions_response() :: %{
         "LayerVersions" => list(layer_versions_list_item()),
-        "NextMarker" => String.t() | Atom.t()
+        "NextMarker" => String.t() | atom()
       }
 
   """
-  @type list_layer_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_layer_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1637,31 +1637,31 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type invoke_async_response() :: %{String.t() | Atom.t() => any()}
+  @type invoke_async_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_versions_by_function_request() :: %{
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_versions_by_function_request() :: %{String.t() | Atom.t() => any()}
+  @type list_versions_by_function_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       request_too_large_exception() :: %{
-        "Type" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type request_too_large_exception() :: %{String.t() | Atom.t() => any()}
+  @type request_too_large_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1672,30 +1672,30 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type scaling_config() :: %{String.t() | Atom.t() => any()}
+  @type scaling_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_policy_response() :: %{
-        "Policy" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t()
+        "Policy" => String.t() | atom(),
+        "RevisionId" => String.t() | atom()
       }
 
   """
-  @type get_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type get_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_provisioned_concurrency_config_request() :: %{
-        required("Qualifier") => String.t() | Atom.t()
+        required("Qualifier") => String.t() | atom()
       }
 
   """
-  @type get_provisioned_concurrency_config_request() :: %{String.t() | Atom.t() => any()}
+  @type get_provisioned_concurrency_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1703,66 +1703,66 @@ defmodule AWS.Lambda do
 
       list_functions_request() :: %{
         optional("FunctionVersion") => list(any()),
-        optional("Marker") => String.t() | Atom.t(),
-        optional("MasterRegion") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
+        optional("MasterRegion") => String.t() | atom(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_functions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_functions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       add_layer_version_permission_request() :: %{
-        optional("OrganizationId") => String.t() | Atom.t(),
-        optional("RevisionId") => String.t() | Atom.t(),
-        required("Action") => String.t() | Atom.t(),
-        required("Principal") => String.t() | Atom.t(),
-        required("StatementId") => String.t() | Atom.t()
+        optional("OrganizationId") => String.t() | atom(),
+        optional("RevisionId") => String.t() | atom(),
+        required("Action") => String.t() | atom(),
+        required("Principal") => String.t() | atom(),
+        required("StatementId") => String.t() | atom()
       }
 
   """
-  @type add_layer_version_permission_request() :: %{String.t() | Atom.t() => any()}
+  @type add_layer_version_permission_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_functions_by_code_signing_config_request() :: %{
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_functions_by_code_signing_config_request() :: %{String.t() | Atom.t() => any()}
+  @type list_functions_by_code_signing_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_event_source_mappings_request() :: %{
-        optional("EventSourceArn") => String.t() | Atom.t(),
-        optional("FunctionName") => String.t() | Atom.t(),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("EventSourceArn") => String.t() | atom(),
+        optional("FunctionName") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_event_source_mappings_request() :: %{String.t() | Atom.t() => any()}
+  @type list_event_source_mappings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kms_access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type kms_access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type kms_access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1771,34 +1771,34 @@ defmodule AWS.Lambda do
       update_code_signing_config_request() :: %{
         optional("AllowedPublishers") => allowed_publishers(),
         optional("CodeSigningPolicies") => code_signing_policies(),
-        optional("Description") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom()
       }
 
   """
-  @type update_code_signing_config_request() :: %{String.t() | Atom.t() => any()}
+  @type update_code_signing_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_function_code_signing_config_request() :: %{
-        required("CodeSigningConfigArn") => String.t() | Atom.t()
+        required("CodeSigningConfigArn") => String.t() | atom()
       }
 
   """
-  @type put_function_code_signing_config_request() :: %{String.t() | Atom.t() => any()}
+  @type put_function_code_signing_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       add_layer_version_permission_response() :: %{
-        "RevisionId" => String.t() | Atom.t(),
-        "Statement" => String.t() | Atom.t()
+        "RevisionId" => String.t() | atom(),
+        "Statement" => String.t() | atom()
       }
 
   """
-  @type add_layer_version_permission_response() :: %{String.t() | Atom.t() => any()}
+  @type add_layer_version_permission_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1815,38 +1815,38 @@ defmodule AWS.Lambda do
 
       kafka_schema_registry_access_config() :: %{
         "Type" => list(any()),
-        "URI" => String.t() | Atom.t()
+        "URI" => String.t() | atom()
       }
 
   """
-  @type kafka_schema_registry_access_config() :: %{String.t() | Atom.t() => any()}
+  @type kafka_schema_registry_access_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invocation_request() :: %{
-        optional("ClientContext") => String.t() | Atom.t(),
+        optional("ClientContext") => String.t() | atom(),
         optional("InvocationType") => list(any()),
         optional("LogType") => list(any()),
         optional("Payload") => binary(),
-        optional("Qualifier") => String.t() | Atom.t()
+        optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type invocation_request() :: %{String.t() | Atom.t() => any()}
+  @type invocation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_zip_file_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type invalid_zip_file_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_zip_file_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1857,58 +1857,58 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type event_source_mapping_metrics_config() :: %{String.t() | Atom.t() => any()}
+  @type event_source_mapping_metrics_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invoke_with_response_stream_complete_event() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorDetails" => String.t() | Atom.t(),
-        "LogResult" => String.t() | Atom.t()
+        "ErrorCode" => String.t() | atom(),
+        "ErrorDetails" => String.t() | atom(),
+        "LogResult" => String.t() | atom()
       }
 
   """
-  @type invoke_with_response_stream_complete_event() :: %{String.t() | Atom.t() => any()}
+  @type invoke_with_response_stream_complete_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kms_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type kms_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type kms_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invoke_with_response_stream_request() :: %{
-        optional("ClientContext") => String.t() | Atom.t(),
+        optional("ClientContext") => String.t() | atom(),
         optional("InvocationType") => list(any()),
         optional("LogType") => list(any()),
         optional("Payload") => binary(),
-        optional("Qualifier") => String.t() | Atom.t()
+        optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type invoke_with_response_stream_request() :: %{String.t() | Atom.t() => any()}
+  @type invoke_with_response_stream_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_function_url_config_request() :: %{
-        optional("Qualifier") => String.t() | Atom.t()
+        optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type get_function_url_config_request() :: %{String.t() | Atom.t() => any()}
+  @type get_function_url_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1919,53 +1919,53 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type update_code_signing_config_response() :: %{String.t() | Atom.t() => any()}
+  @type update_code_signing_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dead_letter_config() :: %{
-        "TargetArn" => String.t() | Atom.t()
+        "TargetArn" => String.t() | atom()
       }
 
   """
-  @type dead_letter_config() :: %{String.t() | Atom.t() => any()}
+  @type dead_letter_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       e_f_s_mount_timeout_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type e_f_s_mount_timeout_exception() :: %{String.t() | Atom.t() => any()}
+  @type e_f_s_mount_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_provisioned_concurrency_config_request() :: %{
-        required("Qualifier") => String.t() | Atom.t()
+        required("Qualifier") => String.t() | atom()
       }
 
   """
-  @type delete_provisioned_concurrency_config_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_provisioned_concurrency_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       image_config_error() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type image_config_error() :: %{String.t() | Atom.t() => any()}
+  @type image_config_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1974,24 +1974,24 @@ defmodule AWS.Lambda do
       list_layers_request() :: %{
         optional("CompatibleArchitecture") => list(any()),
         optional("CompatibleRuntime") => list(any()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_layers_request() :: %{String.t() | Atom.t() => any()}
+  @type list_layers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       provisioned_concurrency_config_not_found_exception() :: %{
-        "Type" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type provisioned_concurrency_config_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type provisioned_concurrency_config_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2002,19 +2002,19 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type get_code_signing_config_response() :: %{String.t() | Atom.t() => any()}
+  @type get_code_signing_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       runtime_version_error() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type runtime_version_error() :: %{String.t() | Atom.t() => any()}
+  @type runtime_version_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2033,105 +2033,105 @@ defmodule AWS.Lambda do
         "VpcConfig" => vpc_config_response(),
         "TracingConfig" => tracing_config_response(),
         "MemorySize" => integer(),
-        "Version" => String.t() | Atom.t(),
-        "Handler" => String.t() | Atom.t(),
-        "KMSKeyArn" => String.t() | Atom.t(),
-        "SigningProfileVersionArn" => String.t() | Atom.t(),
-        "MasterArn" => String.t() | Atom.t(),
-        "Role" => String.t() | Atom.t(),
+        "Version" => String.t() | atom(),
+        "Handler" => String.t() | atom(),
+        "KMSKeyArn" => String.t() | atom(),
+        "SigningProfileVersionArn" => String.t() | atom(),
+        "MasterArn" => String.t() | atom(),
+        "Role" => String.t() | atom(),
         "PackageType" => list(any()),
-        "StateReason" => String.t() | Atom.t(),
+        "StateReason" => String.t() | atom(),
         "State" => list(any()),
         "LastUpdateStatus" => list(any()),
         "Architectures" => list(list(any())()),
         "Environment" => environment_response(),
         "Timeout" => integer(),
-        "LastModified" => String.t() | Atom.t(),
+        "LastModified" => String.t() | atom(),
         "StateReasonCode" => list(any()),
         "DeadLetterConfig" => dead_letter_config(),
         "EphemeralStorage" => ephemeral_storage(),
         "Layers" => list(layer()),
-        "CodeSha256" => String.t() | Atom.t(),
+        "CodeSha256" => String.t() | atom(),
         "FileSystemConfigs" => list(file_system_config()),
-        "LastUpdateStatusReason" => String.t() | Atom.t(),
+        "LastUpdateStatusReason" => String.t() | atom(),
         "LastUpdateStatusReasonCode" => list(any()),
         "SnapStart" => snap_start_response(),
         "Runtime" => list(any()),
         "ImageConfigResponse" => image_config_response(),
-        "Description" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t(),
-        "FunctionArn" => String.t() | Atom.t(),
-        "SigningJobArn" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "RevisionId" => String.t() | atom(),
+        "FunctionArn" => String.t() | atom(),
+        "SigningJobArn" => String.t() | atom(),
         "LoggingConfig" => logging_config(),
         "CodeSize" => float(),
         "RuntimeVersionConfig" => runtime_version_config(),
-        "FunctionName" => String.t() | Atom.t()
+        "FunctionName" => String.t() | atom()
       }
 
   """
-  @type function_configuration() :: %{String.t() | Atom.t() => any()}
+  @type function_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       e_f_s_mount_connectivity_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type e_f_s_mount_connectivity_exception() :: %{String.t() | Atom.t() => any()}
+  @type e_f_s_mount_connectivity_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_runtime_management_config_response() :: %{
-        "FunctionArn" => String.t() | Atom.t(),
-        "RuntimeVersionArn" => String.t() | Atom.t(),
+        "FunctionArn" => String.t() | atom(),
+        "RuntimeVersionArn" => String.t() | atom(),
         "UpdateRuntimeOn" => list(any())
       }
 
   """
-  @type get_runtime_management_config_response() :: %{String.t() | Atom.t() => any()}
+  @type get_runtime_management_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_runtime_management_config_response() :: %{
-        "FunctionArn" => String.t() | Atom.t(),
-        "RuntimeVersionArn" => String.t() | Atom.t(),
+        "FunctionArn" => String.t() | atom(),
+        "RuntimeVersionArn" => String.t() | atom(),
         "UpdateRuntimeOn" => list(any())
       }
 
   """
-  @type put_runtime_management_config_response() :: %{String.t() | Atom.t() => any()}
+  @type put_runtime_management_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       e_n_i_limit_reached_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type e_n_i_limit_reached_exception() :: %{String.t() | Atom.t() => any()}
+  @type e_n_i_limit_reached_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_function_url_configs_request() :: %{
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_function_url_configs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_function_url_configs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2140,35 +2140,35 @@ defmodule AWS.Lambda do
       list_layer_versions_request() :: %{
         optional("CompatibleArchitecture") => list(any()),
         optional("CompatibleRuntime") => list(any()),
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_layer_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_layer_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_function_event_invoke_config_request() :: %{
-        optional("Qualifier") => String.t() | Atom.t()
+        optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type delete_function_event_invoke_config_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_function_event_invoke_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       e_f_s_mount_failure_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type e_f_s_mount_failure_exception() :: %{String.t() | Atom.t() => any()}
+  @type e_f_s_mount_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2176,15 +2176,15 @@ defmodule AWS.Lambda do
 
       cors() :: %{
         "AllowCredentials" => boolean(),
-        "AllowHeaders" => list(String.t() | Atom.t()),
-        "AllowMethods" => list(String.t() | Atom.t()),
-        "AllowOrigins" => list(String.t() | Atom.t()),
-        "ExposeHeaders" => list(String.t() | Atom.t()),
+        "AllowHeaders" => list(String.t() | atom()),
+        "AllowMethods" => list(String.t() | atom()),
+        "AllowOrigins" => list(String.t() | atom()),
+        "ExposeHeaders" => list(String.t() | atom()),
         "MaxAge" => integer()
       }
 
   """
-  @type cors() :: %{String.t() | Atom.t() => any()}
+  @type cors() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2193,26 +2193,26 @@ defmodule AWS.Lambda do
       function_url_config() :: %{
         "AuthType" => list(any()),
         "Cors" => cors(),
-        "CreationTime" => String.t() | Atom.t(),
-        "FunctionArn" => String.t() | Atom.t(),
-        "FunctionUrl" => String.t() | Atom.t(),
+        "CreationTime" => String.t() | atom(),
+        "FunctionArn" => String.t() | atom(),
+        "FunctionUrl" => String.t() | atom(),
         "InvokeMode" => list(any()),
-        "LastModifiedTime" => String.t() | Atom.t()
+        "LastModifiedTime" => String.t() | atom()
       }
 
   """
-  @type function_url_config() :: %{String.t() | Atom.t() => any()}
+  @type function_url_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       on_success() :: %{
-        "Destination" => String.t() | Atom.t()
+        "Destination" => String.t() | atom()
       }
 
   """
-  @type on_success() :: %{String.t() | Atom.t() => any()}
+  @type on_success() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2223,7 +2223,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type self_managed_event_source() :: %{String.t() | Atom.t() => any()}
+  @type self_managed_event_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2231,18 +2231,18 @@ defmodule AWS.Lambda do
 
       update_function_configuration_request() :: %{
         optional("DeadLetterConfig") => dead_letter_config(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("Environment") => environment(),
         optional("EphemeralStorage") => ephemeral_storage(),
         optional("FileSystemConfigs") => list(file_system_config()),
-        optional("Handler") => String.t() | Atom.t(),
+        optional("Handler") => String.t() | atom(),
         optional("ImageConfig") => image_config(),
-        optional("KMSKeyArn") => String.t() | Atom.t(),
-        optional("Layers") => list(String.t() | Atom.t()),
+        optional("KMSKeyArn") => String.t() | atom(),
+        optional("Layers") => list(String.t() | atom()),
         optional("LoggingConfig") => logging_config(),
         optional("MemorySize") => integer(),
-        optional("RevisionId") => String.t() | Atom.t(),
-        optional("Role") => String.t() | Atom.t(),
+        optional("RevisionId") => String.t() | atom(),
+        optional("Role") => String.t() | atom(),
         optional("Runtime") => list(any()),
         optional("SnapStart") => snap_start(),
         optional("Timeout") => integer(),
@@ -2251,7 +2251,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type update_function_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_function_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2260,36 +2260,36 @@ defmodule AWS.Lambda do
       kafka_schema_registry_config() :: %{
         "AccessConfigs" => list(kafka_schema_registry_access_config()),
         "EventRecordFormat" => list(any()),
-        "SchemaRegistryURI" => String.t() | Atom.t(),
+        "SchemaRegistryURI" => String.t() | atom(),
         "SchemaValidationConfigs" => list(kafka_schema_validation_config())
       }
 
   """
-  @type kafka_schema_registry_config() :: %{String.t() | Atom.t() => any()}
+  @type kafka_schema_registry_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_function_code_signing_config_response() :: %{
-        "CodeSigningConfigArn" => String.t() | Atom.t(),
-        "FunctionName" => String.t() | Atom.t()
+        "CodeSigningConfigArn" => String.t() | atom(),
+        "FunctionName" => String.t() | atom()
       }
 
   """
-  @type get_function_code_signing_config_response() :: %{String.t() | Atom.t() => any()}
+  @type get_function_code_signing_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_code_signature_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type invalid_code_signature_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_code_signature_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2297,34 +2297,34 @@ defmodule AWS.Lambda do
 
       list_function_url_configs_response() :: %{
         "FunctionUrlConfigs" => list(function_url_config()),
-        "NextMarker" => String.t() | Atom.t()
+        "NextMarker" => String.t() | atom()
       }
 
   """
-  @type list_function_url_configs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_function_url_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       allowed_publishers() :: %{
-        "SigningProfileVersionArns" => list(String.t() | Atom.t())
+        "SigningProfileVersionArns" => list(String.t() | atom())
       }
 
   """
-  @type allowed_publishers() :: %{String.t() | Atom.t() => any()}
+  @type allowed_publishers() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_versions_by_function_response() :: %{
-        "NextMarker" => String.t() | Atom.t(),
+        "NextMarker" => String.t() | atom(),
         "Versions" => list(function_configuration())
       }
 
   """
-  @type list_versions_by_function_response() :: %{String.t() | Atom.t() => any()}
+  @type list_versions_by_function_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2332,26 +2332,26 @@ defmodule AWS.Lambda do
 
       vpc_config_response() :: %{
         "Ipv6AllowedForDualStack" => boolean(),
-        "SecurityGroupIds" => list(String.t() | Atom.t()),
-        "SubnetIds" => list(String.t() | Atom.t()),
-        "VpcId" => String.t() | Atom.t()
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type vpc_config_response() :: %{String.t() | Atom.t() => any()}
+  @type vpc_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ec2_unexpected_exception() :: %{
-        "EC2ErrorCode" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "EC2ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type ec2_unexpected_exception() :: %{String.t() | Atom.t() => any()}
+  @type ec2_unexpected_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2360,26 +2360,26 @@ defmodule AWS.Lambda do
       get_function_url_config_response() :: %{
         "AuthType" => list(any()),
         "Cors" => cors(),
-        "CreationTime" => String.t() | Atom.t(),
-        "FunctionArn" => String.t() | Atom.t(),
-        "FunctionUrl" => String.t() | Atom.t(),
+        "CreationTime" => String.t() | atom(),
+        "FunctionArn" => String.t() | atom(),
+        "FunctionUrl" => String.t() | atom(),
         "InvokeMode" => list(any()),
-        "LastModifiedTime" => String.t() | Atom.t()
+        "LastModifiedTime" => String.t() | atom()
       }
 
   """
-  @type get_function_url_config_response() :: %{String.t() | Atom.t() => any()}
+  @type get_function_url_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_function_event_invoke_config_request() :: %{
-        optional("Qualifier") => String.t() | Atom.t()
+        optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type get_function_event_invoke_config_request() :: %{String.t() | Atom.t() => any()}
+  @type get_function_event_invoke_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2387,16 +2387,16 @@ defmodule AWS.Lambda do
 
       create_function_request() :: %{
         optional("Architectures") => list(list(any())()),
-        optional("CodeSigningConfigArn") => String.t() | Atom.t(),
+        optional("CodeSigningConfigArn") => String.t() | atom(),
         optional("DeadLetterConfig") => dead_letter_config(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("Environment") => environment(),
         optional("EphemeralStorage") => ephemeral_storage(),
         optional("FileSystemConfigs") => list(file_system_config()),
-        optional("Handler") => String.t() | Atom.t(),
+        optional("Handler") => String.t() | atom(),
         optional("ImageConfig") => image_config(),
-        optional("KMSKeyArn") => String.t() | Atom.t(),
-        optional("Layers") => list(String.t() | Atom.t()),
+        optional("KMSKeyArn") => String.t() | atom(),
+        optional("Layers") => list(String.t() | atom()),
         optional("LoggingConfig") => logging_config(),
         optional("MemorySize") => integer(),
         optional("PackageType") => list(any()),
@@ -2408,48 +2408,48 @@ defmodule AWS.Lambda do
         optional("TracingConfig") => tracing_config(),
         optional("VpcConfig") => vpc_config(),
         required("Code") => function_code(),
-        required("FunctionName") => String.t() | Atom.t(),
-        required("Role") => String.t() | Atom.t()
+        required("FunctionName") => String.t() | atom(),
+        required("Role") => String.t() | atom()
       }
 
   """
-  @type create_function_request() :: %{String.t() | Atom.t() => any()}
+  @type create_function_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       environment_error() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type environment_error() :: %{String.t() | Atom.t() => any()}
+  @type environment_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tags_error() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type tags_error() :: %{String.t() | Atom.t() => any()}
+  @type tags_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ec2_throttled_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type ec2_throttled_exception() :: %{String.t() | Atom.t() => any()}
+  @type ec2_throttled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2465,24 +2465,24 @@ defmodule AWS.Lambda do
   ## Example:
 
       e_f_s_i_o_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type e_f_s_i_o_exception() :: %{String.t() | Atom.t() => any()}
+  @type e_f_s_i_o_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kms_invalid_state_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type kms_invalid_state_exception() :: %{String.t() | Atom.t() => any()}
+  @type kms_invalid_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2490,12 +2490,12 @@ defmodule AWS.Lambda do
 
       layers_list_item() :: %{
         "LatestMatchingVersion" => layer_versions_list_item(),
-        "LayerArn" => String.t() | Atom.t(),
-        "LayerName" => String.t() | Atom.t()
+        "LayerArn" => String.t() | atom(),
+        "LayerName" => String.t() | atom()
       }
 
   """
-  @type layers_list_item() :: %{String.t() | Atom.t() => any()}
+  @type layers_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2506,7 +2506,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type alias_routing_configuration() :: %{String.t() | Atom.t() => any()}
+  @type alias_routing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2518,19 +2518,19 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type image_config_response() :: %{String.t() | Atom.t() => any()}
+  @type image_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_subnet_id_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type invalid_subnet_id_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_subnet_id_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2542,45 +2542,45 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type snap_start_response() :: %{String.t() | Atom.t() => any()}
+  @type snap_start_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       code_storage_exceeded_exception() :: %{
-        "Type" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type code_storage_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type code_storage_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       layer_version_content_input() :: %{
-        "S3Bucket" => String.t() | Atom.t(),
-        "S3Key" => String.t() | Atom.t(),
-        "S3ObjectVersion" => String.t() | Atom.t(),
+        "S3Bucket" => String.t() | atom(),
+        "S3Key" => String.t() | atom(),
+        "S3ObjectVersion" => String.t() | atom(),
         "ZipFile" => binary()
       }
 
   """
-  @type layer_version_content_input() :: %{String.t() | Atom.t() => any()}
+  @type layer_version_content_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_ready_exception() :: %{
-        "Type" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_ready_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_ready_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2591,43 +2591,43 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type code_signing_policies() :: %{String.t() | Atom.t() => any()}
+  @type code_signing_policies() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       precondition_failed_exception() :: %{
-        "Type" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type precondition_failed_exception() :: %{String.t() | Atom.t() => any()}
+  @type precondition_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_function_event_invoke_configs_request() :: %{
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_function_event_invoke_configs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_function_event_invoke_configs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_conflict_exception() :: %{
-        "Type" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2638,7 +2638,7 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type concurrency() :: %{String.t() | Atom.t() => any()}
+  @type concurrency() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2654,44 +2654,44 @@ defmodule AWS.Lambda do
   ## Example:
 
       list_provisioned_concurrency_configs_request() :: %{
-        optional("Marker") => String.t() | Atom.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_provisioned_concurrency_configs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_provisioned_concurrency_configs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       add_permission_request() :: %{
-        optional("EventSourceToken") => String.t() | Atom.t(),
+        optional("EventSourceToken") => String.t() | atom(),
         optional("FunctionUrlAuthType") => list(any()),
-        optional("PrincipalOrgID") => String.t() | Atom.t(),
-        optional("Qualifier") => String.t() | Atom.t(),
-        optional("RevisionId") => String.t() | Atom.t(),
-        optional("SourceAccount") => String.t() | Atom.t(),
-        optional("SourceArn") => String.t() | Atom.t(),
-        required("Action") => String.t() | Atom.t(),
-        required("Principal") => String.t() | Atom.t(),
-        required("StatementId") => String.t() | Atom.t()
+        optional("PrincipalOrgID") => String.t() | atom(),
+        optional("Qualifier") => String.t() | atom(),
+        optional("RevisionId") => String.t() | atom(),
+        optional("SourceAccount") => String.t() | atom(),
+        optional("SourceArn") => String.t() | atom(),
+        required("Action") => String.t() | atom(),
+        required("Principal") => String.t() | atom(),
+        required("StatementId") => String.t() | atom()
       }
 
   """
-  @type add_permission_request() :: %{String.t() | Atom.t() => any()}
+  @type add_permission_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filter_criteria_error() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type filter_criteria_error() :: %{String.t() | Atom.t() => any()}
+  @type filter_criteria_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2702,19 +2702,19 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type tracing_config_response() :: %{String.t() | Atom.t() => any()}
+  @type tracing_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       snap_start_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type snap_start_exception() :: %{String.t() | Atom.t() => any()}
+  @type snap_start_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2725,18 +2725,18 @@ defmodule AWS.Lambda do
       }
 
   """
-  @type get_function_recursion_config_response() :: %{String.t() | Atom.t() => any()}
+  @type get_function_recursion_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       add_permission_response() :: %{
-        "Statement" => String.t() | Atom.t()
+        "Statement" => String.t() | atom()
       }
 
   """
-  @type add_permission_response() :: %{String.t() | Atom.t() => any()}
+  @type add_permission_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2744,15 +2744,15 @@ defmodule AWS.Lambda do
 
       code_signing_config() :: %{
         "AllowedPublishers" => allowed_publishers(),
-        "CodeSigningConfigArn" => String.t() | Atom.t(),
-        "CodeSigningConfigId" => String.t() | Atom.t(),
+        "CodeSigningConfigArn" => String.t() | atom(),
+        "CodeSigningConfigId" => String.t() | atom(),
         "CodeSigningPolicies" => code_signing_policies(),
-        "Description" => String.t() | Atom.t(),
-        "LastModified" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "LastModified" => String.t() | atom()
       }
 
   """
-  @type code_signing_config() :: %{String.t() | Atom.t() => any()}
+  @type code_signing_config() :: %{(String.t() | atom()) => any()}
 
   @type add_layer_version_permission_errors() ::
           resource_conflict_exception()
@@ -3281,8 +3281,8 @@ defmodule AWS.Lambda do
   """
   @spec add_layer_version_permission(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           add_layer_version_permission_request(),
           list()
         ) ::
@@ -3354,7 +3354,7 @@ defmodule AWS.Lambda do
   about function policies, see [Using resource-based policies for
   Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
   """
-  @spec add_permission(map(), String.t() | Atom.t(), add_permission_request(), list()) ::
+  @spec add_permission(map(), String.t() | atom(), add_permission_request(), list()) ::
           {:ok, add_permission_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3401,7 +3401,7 @@ defmodule AWS.Lambda do
   invocation requests that
   it receives.
   """
-  @spec create_alias(map(), String.t() | Atom.t(), create_alias_request(), list()) ::
+  @spec create_alias(map(), String.t() | atom(), create_alias_request(), list()) ::
           {:ok, alias_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3726,7 +3726,7 @@ defmodule AWS.Lambda do
   """
   @spec create_function_url_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_function_url_config_request(),
           list()
         ) ::
@@ -3766,8 +3766,8 @@ defmodule AWS.Lambda do
   """
   @spec delete_alias(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_alias_request(),
           list()
         ) ::
@@ -3806,7 +3806,7 @@ defmodule AWS.Lambda do
   """
   @spec delete_code_signing_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_code_signing_config_request(),
           list()
         ) ::
@@ -3852,7 +3852,7 @@ defmodule AWS.Lambda do
   """
   @spec delete_event_source_mapping(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_event_source_mapping_request(),
           list()
         ) ::
@@ -3894,7 +3894,7 @@ defmodule AWS.Lambda do
   invoke your function
   directly, delete the trigger in the service where you originally configured it.
   """
-  @spec delete_function(map(), String.t() | Atom.t(), delete_function_request(), list()) ::
+  @spec delete_function(map(), String.t() | atom(), delete_function_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3930,7 +3930,7 @@ defmodule AWS.Lambda do
   """
   @spec delete_function_code_signing_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_function_code_signing_config_request(),
           list()
         ) ::
@@ -3964,7 +3964,7 @@ defmodule AWS.Lambda do
   """
   @spec delete_function_concurrency(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_function_concurrency_request(),
           list()
         ) ::
@@ -4002,7 +4002,7 @@ defmodule AWS.Lambda do
   """
   @spec delete_function_event_invoke_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_function_event_invoke_config_request(),
           list()
         ) ::
@@ -4045,7 +4045,7 @@ defmodule AWS.Lambda do
   """
   @spec delete_function_url_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_function_url_config_request(),
           list()
         ) ::
@@ -4088,8 +4088,8 @@ defmodule AWS.Lambda do
   """
   @spec delete_layer_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_layer_version_request(),
           list()
         ) ::
@@ -4125,7 +4125,7 @@ defmodule AWS.Lambda do
   """
   @spec delete_provisioned_concurrency_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_provisioned_concurrency_config_request(),
           list()
         ) ::
@@ -4190,7 +4190,7 @@ defmodule AWS.Lambda do
   Returns details about a Lambda function
   [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html).
   """
-  @spec get_alias(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_alias(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, alias_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4210,7 +4210,7 @@ defmodule AWS.Lambda do
   @doc """
   Returns information about the specified code signing configuration.
   """
-  @spec get_code_signing_config(map(), String.t() | Atom.t(), list()) ::
+  @spec get_code_signing_config(map(), String.t() | atom(), list()) ::
           {:ok, get_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4231,7 +4231,7 @@ defmodule AWS.Lambda do
   You can get the identifier of a mapping from the output of
   `ListEventSourceMappings`.
   """
-  @spec get_event_source_mapping(map(), String.t() | Atom.t(), list()) ::
+  @spec get_event_source_mapping(map(), String.t() | atom(), list()) ::
           {:ok, event_source_mapping_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4255,7 +4255,7 @@ defmodule AWS.Lambda do
   version are
   returned.
   """
-  @spec get_function(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec get_function(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_function_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4280,7 +4280,7 @@ defmodule AWS.Lambda do
   @doc """
   Returns the code signing configuration for the specified function.
   """
-  @spec get_function_code_signing_config(map(), String.t() | Atom.t(), list()) ::
+  @spec get_function_code_signing_config(map(), String.t() | atom(), list()) ::
           {:ok, get_function_code_signing_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4301,7 +4301,7 @@ defmodule AWS.Lambda do
   To set a concurrency limit for a
   function, use `PutFunctionConcurrency`.
   """
-  @spec get_function_concurrency(map(), String.t() | Atom.t(), list()) ::
+  @spec get_function_concurrency(map(), String.t() | atom(), list()) ::
           {:ok, get_function_concurrency_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4326,12 +4326,7 @@ defmodule AWS.Lambda do
   To get all of a function's details, including function-level settings, use
   `GetFunction`.
   """
-  @spec get_function_configuration(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec get_function_configuration(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4367,8 +4362,8 @@ defmodule AWS.Lambda do
   """
   @spec get_function_event_invoke_config(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, function_event_invoke_config(), any()}
@@ -4401,7 +4396,7 @@ defmodule AWS.Lambda do
   Returns your function's [recursive loop detection](https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html)
   configuration.
   """
-  @spec get_function_recursion_config(map(), String.t() | Atom.t(), list()) ::
+  @spec get_function_recursion_config(map(), String.t() | atom(), list()) ::
           {:ok, get_function_recursion_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4419,7 +4414,7 @@ defmodule AWS.Lambda do
   @doc """
   Returns details about a Lambda function URL.
   """
-  @spec get_function_url_config(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec get_function_url_config(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_function_url_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4446,7 +4441,7 @@ defmodule AWS.Lambda do
   with a link to download the layer archive
   that's valid for 10 minutes.
   """
-  @spec get_layer_version(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_layer_version(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_layer_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4468,7 +4463,7 @@ defmodule AWS.Lambda do
   with a link to download the layer archive
   that's valid for 10 minutes.
   """
-  @spec get_layer_version_by_arn(map(), String.t() | Atom.t(), list()) ::
+  @spec get_layer_version_by_arn(map(), String.t() | atom(), list()) ::
           {:ok, get_layer_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4495,7 +4490,7 @@ defmodule AWS.Lambda do
 
   For more information, see `AddLayerVersionPermission`.
   """
-  @spec get_layer_version_policy(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_layer_version_policy(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_layer_version_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4516,7 +4511,7 @@ defmodule AWS.Lambda do
   Returns the [resource-based IAM policy](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)
   for a function, version, or alias.
   """
-  @spec get_policy(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec get_policy(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4544,8 +4539,8 @@ defmodule AWS.Lambda do
   """
   @spec get_provisioned_concurrency_config(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_provisioned_concurrency_config_response(), any()}
@@ -4587,8 +4582,8 @@ defmodule AWS.Lambda do
   """
   @spec get_runtime_management_config(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_runtime_management_config_response(), any()}
@@ -4673,7 +4668,7 @@ defmodule AWS.Lambda do
   permissions for cross-account invocations, see [Granting function access to other
   accounts](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke).
   """
-  @spec invoke(map(), String.t() | Atom.t(), invocation_request(), list()) ::
+  @spec invoke(map(), String.t() | atom(), invocation_request(), list()) ::
           {:ok, invocation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4733,7 +4728,7 @@ defmodule AWS.Lambda do
   X-Ray active tracing. Trace ID is not
   propagated to the function, even if X-Ray active tracing is turned on.
   """
-  @spec invoke_async(map(), String.t() | Atom.t(), invoke_async_request(), list()) ::
+  @spec invoke_async(map(), String.t() | atom(), invoke_async_request(), list()) ::
           {:ok, invoke_async_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4772,7 +4767,7 @@ defmodule AWS.Lambda do
   """
   @spec invoke_with_response_stream(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           invoke_with_response_stream_request(),
           list()
         ) ::
@@ -4832,10 +4827,10 @@ defmodule AWS.Lambda do
   """
   @spec list_aliases(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_aliases_response(), any()}
@@ -4890,8 +4885,8 @@ defmodule AWS.Lambda do
   """
   @spec list_code_signing_configs(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_code_signing_configs_response(), any()}
@@ -4935,10 +4930,10 @@ defmodule AWS.Lambda do
   """
   @spec list_event_source_mappings(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_event_source_mappings_response(), any()}
@@ -4998,9 +4993,9 @@ defmodule AWS.Lambda do
   """
   @spec list_function_event_invoke_configs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_function_event_invoke_configs_response(), any()}
@@ -5044,9 +5039,9 @@ defmodule AWS.Lambda do
   """
   @spec list_function_url_configs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_function_url_configs_response(), any()}
@@ -5103,10 +5098,10 @@ defmodule AWS.Lambda do
   """
   @spec list_functions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_functions_response(), any()}
@@ -5166,9 +5161,9 @@ defmodule AWS.Lambda do
   """
   @spec list_functions_by_code_signing_config(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_functions_by_code_signing_config_response(), any()}
@@ -5218,11 +5213,11 @@ defmodule AWS.Lambda do
   """
   @spec list_layer_versions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_layer_versions_response(), any()}
@@ -5288,10 +5283,10 @@ defmodule AWS.Lambda do
   """
   @spec list_layers(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_layers_response(), any()}
@@ -5348,9 +5343,9 @@ defmodule AWS.Lambda do
   """
   @spec list_provisioned_concurrency_configs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_provisioned_concurrency_configs_response(), any()}
@@ -5396,7 +5391,7 @@ defmodule AWS.Lambda do
   You can
   also view function tags with `GetFunction`.
   """
-  @spec list_tags(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5420,9 +5415,9 @@ defmodule AWS.Lambda do
   """
   @spec list_versions_by_function(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_versions_by_function_response(), any()}
@@ -5469,12 +5464,7 @@ defmodule AWS.Lambda do
   Add layers to your function with `CreateFunction` or
   `UpdateFunctionConfiguration`.
   """
-  @spec publish_layer_version(
-          map(),
-          String.t() | Atom.t(),
-          publish_layer_version_request(),
-          list()
-        ) ::
+  @spec publish_layer_version(map(), String.t() | atom(), publish_layer_version_request(), list()) ::
           {:ok, publish_layer_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5517,7 +5507,7 @@ defmodule AWS.Lambda do
   Clients can invoke versions directly or with an alias. To create an alias, use
   `CreateAlias`.
   """
-  @spec publish_version(map(), String.t() | Atom.t(), publish_version_request(), list()) ::
+  @spec publish_version(map(), String.t() | atom(), publish_version_request(), list()) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5551,7 +5541,7 @@ defmodule AWS.Lambda do
   """
   @spec put_function_code_signing_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           put_function_code_signing_config_request(),
           list()
         ) ::
@@ -5602,7 +5592,7 @@ defmodule AWS.Lambda do
   """
   @spec put_function_concurrency(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           put_function_concurrency_request(),
           list()
         ) ::
@@ -5663,7 +5653,7 @@ defmodule AWS.Lambda do
   """
   @spec put_function_event_invoke_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           put_function_event_invoke_config_request(),
           list()
         ) ::
@@ -5717,7 +5707,7 @@ defmodule AWS.Lambda do
   """
   @spec put_function_recursion_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           put_function_recursion_config_request(),
           list()
         ) ::
@@ -5751,7 +5741,7 @@ defmodule AWS.Lambda do
   """
   @spec put_provisioned_concurrency_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           put_provisioned_concurrency_config_request(),
           list()
         ) ::
@@ -5795,7 +5785,7 @@ defmodule AWS.Lambda do
   """
   @spec put_runtime_management_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           put_runtime_management_config_request(),
           list()
         ) ::
@@ -5839,9 +5829,9 @@ defmodule AWS.Lambda do
   """
   @spec remove_layer_version_permission(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           remove_layer_version_permission_request(),
           list()
         ) ::
@@ -5893,8 +5883,8 @@ defmodule AWS.Lambda do
   """
   @spec remove_permission(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           remove_permission_request(),
           list()
         ) ::
@@ -5935,7 +5925,7 @@ defmodule AWS.Lambda do
   Adds [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to a
   function, event source mapping, or code signing configuration.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5965,7 +5955,7 @@ defmodule AWS.Lambda do
   Removes [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) from a
   function, event source mapping, or code signing configuration.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6002,8 +5992,8 @@ defmodule AWS.Lambda do
   """
   @spec update_alias(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_alias_request(),
           list()
         ) ::
@@ -6042,7 +6032,7 @@ defmodule AWS.Lambda do
   """
   @spec update_code_signing_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_code_signing_config_request(),
           list()
         ) ::
@@ -6205,7 +6195,7 @@ defmodule AWS.Lambda do
   """
   @spec update_event_source_mapping(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_event_source_mapping_request(),
           list()
         ) ::
@@ -6266,7 +6256,7 @@ defmodule AWS.Lambda do
   automatically
   update the function.
   """
-  @spec update_function_code(map(), String.t() | Atom.t(), update_function_code_request(), list()) ::
+  @spec update_function_code(map(), String.t() | atom(), update_function_code_request(), list()) ::
           {:ok, function_configuration(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6319,7 +6309,7 @@ defmodule AWS.Lambda do
   """
   @spec update_function_configuration(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_function_configuration_request(),
           list()
         ) ::
@@ -6357,7 +6347,7 @@ defmodule AWS.Lambda do
   """
   @spec update_function_event_invoke_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_function_event_invoke_config_request(),
           list()
         ) ::
@@ -6396,7 +6386,7 @@ defmodule AWS.Lambda do
   """
   @spec update_function_url_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_function_url_config_request(),
           list()
         ) ::

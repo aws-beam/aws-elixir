@@ -36,26 +36,26 @@ defmodule AWS.SSO do
   ## Example:
 
       account_info() :: %{
-        "accountId" => String.t() | Atom.t(),
-        "accountName" => String.t() | Atom.t(),
-        "emailAddress" => String.t() | Atom.t()
+        "accountId" => String.t() | atom(),
+        "accountName" => String.t() | atom(),
+        "emailAddress" => String.t() | atom()
       }
 
   """
-  @type account_info() :: %{String.t() | Atom.t() => any()}
+  @type account_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_role_credentials_request() :: %{
-        required("accessToken") => String.t() | Atom.t(),
-        required("accountId") => String.t() | Atom.t(),
-        required("roleName") => String.t() | Atom.t()
+        required("accessToken") => String.t() | atom(),
+        required("accountId") => String.t() | atom(),
+        required("roleName") => String.t() | atom()
       }
 
   """
-  @type get_role_credentials_request() :: %{String.t() | Atom.t() => any()}
+  @type get_role_credentials_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -66,18 +66,18 @@ defmodule AWS.SSO do
       }
 
   """
-  @type get_role_credentials_response() :: %{String.t() | Atom.t() => any()}
+  @type get_role_credentials_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -85,25 +85,25 @@ defmodule AWS.SSO do
 
       list_account_roles_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("accessToken") => String.t() | Atom.t(),
-        required("accountId") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("accessToken") => String.t() | atom(),
+        required("accountId") => String.t() | atom()
       }
 
   """
-  @type list_account_roles_request() :: %{String.t() | Atom.t() => any()}
+  @type list_account_roles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_account_roles_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "roleList" => list(role_info())
       }
 
   """
-  @type list_account_roles_response() :: %{String.t() | Atom.t() => any()}
+  @type list_account_roles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -111,12 +111,12 @@ defmodule AWS.SSO do
 
       list_accounts_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("accessToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("accessToken") => String.t() | atom()
       }
 
   """
-  @type list_accounts_request() :: %{String.t() | Atom.t() => any()}
+  @type list_accounts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -124,81 +124,81 @@ defmodule AWS.SSO do
 
       list_accounts_response() :: %{
         "accountList" => list(account_info()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_accounts_response() :: %{String.t() | Atom.t() => any()}
+  @type list_accounts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       logout_request() :: %{
-        required("accessToken") => String.t() | Atom.t()
+        required("accessToken") => String.t() | atom()
       }
 
   """
-  @type logout_request() :: %{String.t() | Atom.t() => any()}
+  @type logout_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       role_credentials() :: %{
-        "accessKeyId" => String.t() | Atom.t(),
+        "accessKeyId" => String.t() | atom(),
         "expiration" => float(),
-        "secretAccessKey" => String.t() | Atom.t(),
-        "sessionToken" => String.t() | Atom.t()
+        "secretAccessKey" => String.t() | atom(),
+        "sessionToken" => String.t() | atom()
       }
 
   """
-  @type role_credentials() :: %{String.t() | Atom.t() => any()}
+  @type role_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       role_info() :: %{
-        "accountId" => String.t() | Atom.t(),
-        "roleName" => String.t() | Atom.t()
+        "accountId" => String.t() | atom(),
+        "roleName" => String.t() | atom()
       }
 
   """
-  @type role_info() :: %{String.t() | Atom.t() => any()}
+  @type role_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() | Atom.t() => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @type get_role_credentials_errors() ::
           unauthorized_exception()
@@ -244,9 +244,9 @@ defmodule AWS.SSO do
   """
   @spec get_role_credentials(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_role_credentials_response(), any()}
@@ -290,10 +290,10 @@ defmodule AWS.SSO do
   """
   @spec list_account_roles(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_account_roles_response(), any()}
@@ -356,9 +356,9 @@ defmodule AWS.SSO do
   """
   @spec list_accounts(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_accounts_response(), any()}

@@ -48,12 +48,12 @@ defmodule AWS.EBS do
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "Reason" => list(any())
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -61,11 +61,11 @@ defmodule AWS.EBS do
 
       block() :: %{
         "BlockIndex" => integer(),
-        "BlockToken" => String.t() | Atom.t()
+        "BlockToken" => String.t() | atom()
       }
 
   """
-  @type block() :: %{String.t() | Atom.t() => any()}
+  @type block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -73,26 +73,26 @@ defmodule AWS.EBS do
 
       changed_block() :: %{
         "BlockIndex" => integer(),
-        "FirstBlockToken" => String.t() | Atom.t(),
-        "SecondBlockToken" => String.t() | Atom.t()
+        "FirstBlockToken" => String.t() | atom(),
+        "SecondBlockToken" => String.t() | atom()
       }
 
   """
-  @type changed_block() :: %{String.t() | Atom.t() => any()}
+  @type changed_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       complete_snapshot_request() :: %{
-        optional("Checksum") => String.t() | Atom.t(),
+        optional("Checksum") => String.t() | atom(),
         optional("ChecksumAggregationMethod") => list(any()),
         optional("ChecksumAlgorithm") => list(any()),
         required("ChangedBlocksCount") => integer()
       }
 
   """
-  @type complete_snapshot_request() :: %{String.t() | Atom.t() => any()}
+  @type complete_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -103,40 +103,40 @@ defmodule AWS.EBS do
       }
 
   """
-  @type complete_snapshot_response() :: %{String.t() | Atom.t() => any()}
+  @type complete_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       concurrent_limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type concurrent_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type concurrent_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_snapshot_block_request() :: %{
-        required("BlockToken") => String.t() | Atom.t()
+        required("BlockToken") => String.t() | atom()
       }
 
   """
-  @type get_snapshot_block_request() :: %{String.t() | Atom.t() => any()}
+  @type get_snapshot_block_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -144,38 +144,38 @@ defmodule AWS.EBS do
 
       get_snapshot_block_response() :: %{
         "BlockData" => binary(),
-        "Checksum" => String.t() | Atom.t(),
+        "Checksum" => String.t() | atom(),
         "ChecksumAlgorithm" => list(any()),
         "DataLength" => integer()
       }
 
   """
-  @type get_snapshot_block_response() :: %{String.t() | Atom.t() => any()}
+  @type get_snapshot_block_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_changed_blocks_request() :: %{
-        optional("FirstSnapshotId") => String.t() | Atom.t(),
+        optional("FirstSnapshotId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("StartingBlockIndex") => integer()
       }
 
   """
-  @type list_changed_blocks_request() :: %{String.t() | Atom.t() => any()}
+  @type list_changed_blocks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -185,12 +185,12 @@ defmodule AWS.EBS do
         "BlockSize" => integer(),
         "ChangedBlocks" => list(changed_block()),
         "ExpiryTime" => non_neg_integer(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "VolumeSize" => float()
       }
 
   """
-  @type list_changed_blocks_response() :: %{String.t() | Atom.t() => any()}
+  @type list_changed_blocks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -198,12 +198,12 @@ defmodule AWS.EBS do
 
       list_snapshot_blocks_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("StartingBlockIndex") => integer()
       }
 
   """
-  @type list_snapshot_blocks_request() :: %{String.t() | Atom.t() => any()}
+  @type list_snapshot_blocks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -213,12 +213,12 @@ defmodule AWS.EBS do
         "BlockSize" => integer(),
         "Blocks" => list(block()),
         "ExpiryTime" => non_neg_integer(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "VolumeSize" => float()
       }
 
   """
-  @type list_snapshot_blocks_response() :: %{String.t() | Atom.t() => any()}
+  @type list_snapshot_blocks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -227,79 +227,79 @@ defmodule AWS.EBS do
       put_snapshot_block_request() :: %{
         optional("Progress") => integer(),
         required("BlockData") => binary(),
-        required("Checksum") => String.t() | Atom.t(),
+        required("Checksum") => String.t() | atom(),
         required("ChecksumAlgorithm") => list(any()),
         required("DataLength") => integer()
       }
 
   """
-  @type put_snapshot_block_request() :: %{String.t() | Atom.t() => any()}
+  @type put_snapshot_block_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_snapshot_block_response() :: %{
-        "Checksum" => String.t() | Atom.t(),
+        "Checksum" => String.t() | atom(),
         "ChecksumAlgorithm" => list(any())
       }
 
   """
-  @type put_snapshot_block_response() :: %{String.t() | Atom.t() => any()}
+  @type put_snapshot_block_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       request_throttled_exception() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "Reason" => list(any())
       }
 
   """
-  @type request_throttled_exception() :: %{String.t() | Atom.t() => any()}
+  @type request_throttled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "Reason" => list(any())
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "Reason" => list(any())
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_snapshot_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Encrypted") => boolean(),
-        optional("KmsKeyArn") => String.t() | Atom.t(),
-        optional("ParentSnapshotId") => String.t() | Atom.t(),
+        optional("KmsKeyArn") => String.t() | atom(),
+        optional("ParentSnapshotId") => String.t() | atom(),
         optional("Tags") => list(tag()),
         optional("Timeout") => integer(),
         required("VolumeSize") => float()
       }
 
   """
-  @type start_snapshot_request() :: %{String.t() | Atom.t() => any()}
+  @type start_snapshot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -307,11 +307,11 @@ defmodule AWS.EBS do
 
       start_snapshot_response() :: %{
         "BlockSize" => integer(),
-        "Description" => String.t() | Atom.t(),
-        "KmsKeyArn" => String.t() | Atom.t(),
-        "OwnerId" => String.t() | Atom.t(),
-        "ParentSnapshotId" => String.t() | Atom.t(),
-        "SnapshotId" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "KmsKeyArn" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "ParentSnapshotId" => String.t() | atom(),
+        "SnapshotId" => String.t() | atom(),
         "SseType" => list(any()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
@@ -320,31 +320,31 @@ defmodule AWS.EBS do
       }
 
   """
-  @type start_snapshot_response() :: %{String.t() | Atom.t() => any()}
+  @type start_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "Reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type complete_snapshot_errors() ::
           validation_exception()
@@ -426,7 +426,7 @@ defmodule AWS.EBS do
   in the
   *Amazon Elastic Compute Cloud User Guide*.
   """
-  @spec complete_snapshot(map(), String.t() | Atom.t(), complete_snapshot_request(), list()) ::
+  @spec complete_snapshot(map(), String.t() | atom(), complete_snapshot_request(), list()) ::
           {:ok, complete_snapshot_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -472,9 +472,9 @@ defmodule AWS.EBS do
   """
   @spec get_snapshot_block(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_snapshot_block_response(), any()}
@@ -523,11 +523,11 @@ defmodule AWS.EBS do
   """
   @spec list_changed_blocks(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_changed_blocks_response(), any()}
@@ -591,10 +591,10 @@ defmodule AWS.EBS do
   """
   @spec list_snapshot_blocks(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_snapshot_blocks_response(), any()}
@@ -656,8 +656,8 @@ defmodule AWS.EBS do
   """
   @spec put_snapshot_block(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           put_snapshot_block_request(),
           list()
         ) ::

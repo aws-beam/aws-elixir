@@ -22,11 +22,11 @@ defmodule AWS.DataBrew do
 
       batch_delete_recipe_version_response() :: %{
         "Errors" => list(recipe_version_error_detail()),
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type batch_delete_recipe_version_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_recipe_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -34,23 +34,23 @@ defmodule AWS.DataBrew do
 
       describe_project_response() :: %{
         "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | Atom.t(),
-        "DatasetName" => String.t() | Atom.t(),
-        "LastModifiedBy" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | atom(),
+        "DatasetName" => String.t() | atom(),
+        "LastModifiedBy" => String.t() | atom(),
         "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "OpenDate" => non_neg_integer(),
-        "OpenedBy" => String.t() | Atom.t(),
-        "RecipeName" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
+        "OpenedBy" => String.t() | atom(),
+        "RecipeName" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "Sample" => sample(),
         "SessionStatus" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type describe_project_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -59,60 +59,60 @@ defmodule AWS.DataBrew do
       database_output() :: %{
         "DatabaseOptions" => database_table_output_options(),
         "DatabaseOutputMode" => list(any()),
-        "GlueConnectionName" => String.t() | Atom.t()
+        "GlueConnectionName" => String.t() | atom()
       }
 
   """
-  @type database_output() :: %{String.t() | Atom.t() => any()}
+  @type database_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_ruleset_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
-        required("Name") => String.t() | Atom.t(),
+        required("Name") => String.t() | atom(),
         required("Rules") => list(rule()),
-        required("TargetArn") => String.t() | Atom.t()
+        required("TargetArn") => String.t() | atom()
       }
 
   """
-  @type create_ruleset_request() :: %{String.t() | Atom.t() => any()}
+  @type create_ruleset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       recipe_reference() :: %{
-        "Name" => String.t() | Atom.t(),
-        "RecipeVersion" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "RecipeVersion" => String.t() | atom()
       }
 
   """
-  @type recipe_reference() :: %{String.t() | Atom.t() => any()}
+  @type recipe_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_ruleset_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type update_ruleset_response() :: %{String.t() | Atom.t() => any()}
+  @type update_ruleset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_schedule_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type update_schedule_response() :: %{String.t() | Atom.t() => any()}
+  @type update_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -123,21 +123,21 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_recipe_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
-        required("Name") => String.t() | Atom.t(),
+        required("Name") => String.t() | atom(),
         required("Steps") => list(recipe_step())
       }
 
   """
-  @type create_recipe_request() :: %{String.t() | Atom.t() => any()}
+  @type create_recipe_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -148,19 +148,19 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type s3_table_output_options() :: %{String.t() | Atom.t() => any()}
+  @type s3_table_output_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_recipes_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Recipes" => list(recipe())
       }
 
   """
-  @type list_recipes_response() :: %{String.t() | Atom.t() => any()}
+  @type list_recipes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -168,7 +168,7 @@ defmodule AWS.DataBrew do
 
       create_profile_job_request() :: %{
         optional("Configuration") => profile_configuration(),
-        optional("EncryptionKeyArn") => String.t() | Atom.t(),
+        optional("EncryptionKeyArn") => String.t() | atom(),
         optional("EncryptionMode") => list(any()),
         optional("JobSample") => job_sample(),
         optional("LogSubscription") => list(any()),
@@ -177,14 +177,14 @@ defmodule AWS.DataBrew do
         optional("Tags") => map(),
         optional("Timeout") => integer(),
         optional("ValidationConfigurations") => list(validation_configuration()),
-        required("DatasetName") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
+        required("DatasetName") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("OutputLocation") => s3_location(),
-        required("RoleArn") => String.t() | Atom.t()
+        required("RoleArn") => String.t() | atom()
       }
 
   """
-  @type create_profile_job_request() :: %{String.t() | Atom.t() => any()}
+  @type create_profile_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -192,25 +192,25 @@ defmodule AWS.DataBrew do
 
       describe_job_response() :: %{
         "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | atom(),
         "DataCatalogOutputs" => list(data_catalog_output()),
         "DatabaseOutputs" => list(database_output()),
-        "DatasetName" => String.t() | Atom.t(),
-        "EncryptionKeyArn" => String.t() | Atom.t(),
+        "DatasetName" => String.t() | atom(),
+        "EncryptionKeyArn" => String.t() | atom(),
         "EncryptionMode" => list(any()),
         "JobSample" => job_sample(),
-        "LastModifiedBy" => String.t() | Atom.t(),
+        "LastModifiedBy" => String.t() | atom(),
         "LastModifiedDate" => non_neg_integer(),
         "LogSubscription" => list(any()),
         "MaxCapacity" => integer(),
         "MaxRetries" => integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Outputs" => list(output()),
         "ProfileConfiguration" => profile_configuration(),
-        "ProjectName" => String.t() | Atom.t(),
+        "ProjectName" => String.t() | atom(),
         "RecipeReference" => recipe_reference(),
-        "ResourceArn" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "Tags" => map(),
         "Timeout" => integer(),
         "Type" => list(any()),
@@ -218,7 +218,7 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type describe_job_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -227,48 +227,48 @@ defmodule AWS.DataBrew do
       view_frame() :: %{
         "Analytics" => list(any()),
         "ColumnRange" => integer(),
-        "HiddenColumns" => list(String.t() | Atom.t()),
+        "HiddenColumns" => list(String.t() | atom()),
         "RowRange" => integer(),
         "StartColumnIndex" => integer(),
         "StartRowIndex" => integer()
       }
 
   """
-  @type view_frame() :: %{String.t() | Atom.t() => any()}
+  @type view_frame() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_dataset_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type delete_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_dataset_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type update_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type update_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       statistics_configuration() :: %{
-        "IncludedStatistics" => list(String.t() | Atom.t()),
+        "IncludedStatistics" => list(String.t() | atom()),
         "Overrides" => list(statistic_override())
       }
 
   """
-  @type statistics_configuration() :: %{String.t() | Atom.t() => any()}
+  @type statistics_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -279,24 +279,24 @@ defmodule AWS.DataBrew do
         "CompletedOn" => non_neg_integer(),
         "DataCatalogOutputs" => list(data_catalog_output()),
         "DatabaseOutputs" => list(database_output()),
-        "DatasetName" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "DatasetName" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
         "ExecutionTime" => integer(),
-        "JobName" => String.t() | Atom.t(),
+        "JobName" => String.t() | atom(),
         "JobSample" => job_sample(),
-        "LogGroupName" => String.t() | Atom.t(),
+        "LogGroupName" => String.t() | atom(),
         "LogSubscription" => list(any()),
         "Outputs" => list(output()),
         "RecipeReference" => recipe_reference(),
-        "RunId" => String.t() | Atom.t(),
-        "StartedBy" => String.t() | Atom.t(),
+        "RunId" => String.t() | atom(),
+        "StartedBy" => String.t() | atom(),
         "StartedOn" => non_neg_integer(),
         "State" => list(any()),
         "ValidationConfigurations" => list(validation_configuration())
       }
 
   """
-  @type job_run() :: %{String.t() | Atom.t() => any()}
+  @type job_run() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -312,24 +312,24 @@ defmodule AWS.DataBrew do
   ## Example:
 
       publish_recipe_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type publish_recipe_response() :: %{String.t() | Atom.t() => any()}
+  @type publish_recipe_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       datetime_options() :: %{
-        "Format" => String.t() | Atom.t(),
-        "LocaleCode" => String.t() | Atom.t(),
-        "TimezoneOffset" => String.t() | Atom.t()
+        "Format" => String.t() | atom(),
+        "LocaleCode" => String.t() | atom(),
+        "TimezoneOffset" => String.t() | atom()
       }
 
   """
-  @type datetime_options() :: %{String.t() | Atom.t() => any()}
+  @type datetime_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -342,21 +342,21 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type path_options() :: %{String.t() | Atom.t() => any()}
+  @type path_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_jobs_request() :: %{
-        optional("DatasetName") => String.t() | Atom.t(),
+        optional("DatasetName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("ProjectName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("ProjectName") => String.t() | atom()
       }
 
   """
-  @type list_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -381,11 +381,11 @@ defmodule AWS.DataBrew do
   ## Example:
 
       batch_delete_recipe_version_request() :: %{
-        required("RecipeVersions") => list(String.t() | Atom.t())
+        required("RecipeVersions") => list(String.t() | atom())
       }
 
   """
-  @type batch_delete_recipe_version_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_recipe_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -396,25 +396,25 @@ defmodule AWS.DataBrew do
         "CompletedOn" => non_neg_integer(),
         "DataCatalogOutputs" => list(data_catalog_output()),
         "DatabaseOutputs" => list(database_output()),
-        "DatasetName" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "DatasetName" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
         "ExecutionTime" => integer(),
-        "JobName" => String.t() | Atom.t(),
+        "JobName" => String.t() | atom(),
         "JobSample" => job_sample(),
-        "LogGroupName" => String.t() | Atom.t(),
+        "LogGroupName" => String.t() | atom(),
         "LogSubscription" => list(any()),
         "Outputs" => list(output()),
         "ProfileConfiguration" => profile_configuration(),
         "RecipeReference" => recipe_reference(),
-        "RunId" => String.t() | Atom.t(),
-        "StartedBy" => String.t() | Atom.t(),
+        "RunId" => String.t() | atom(),
+        "StartedBy" => String.t() | atom(),
         "StartedOn" => non_neg_integer(),
         "State" => list(any()),
         "ValidationConfigurations" => list(validation_configuration())
       }
 
   """
-  @type describe_job_run_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_job_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -422,33 +422,33 @@ defmodule AWS.DataBrew do
 
       list_job_runs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_job_runs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_job_runs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_recipe_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_recipe_response() :: %{String.t() | Atom.t() => any()}
+  @type create_recipe_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metadata() :: %{
-        "SourceArn" => String.t() | Atom.t()
+        "SourceArn" => String.t() | atom()
       }
 
   """
-  @type metadata() :: %{String.t() | Atom.t() => any()}
+  @type metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -456,23 +456,23 @@ defmodule AWS.DataBrew do
 
       list_datasets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_datasets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_project_session_response() :: %{
-        "ClientSessionId" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "ClientSessionId" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type start_project_session_response() :: %{String.t() | Atom.t() => any()}
+  @type start_project_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -480,19 +480,19 @@ defmodule AWS.DataBrew do
 
       describe_ruleset_response() :: %{
         "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "LastModifiedBy" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LastModifiedBy" => String.t() | atom(),
         "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
         "Rules" => list(rule()),
         "Tags" => map(),
-        "TargetArn" => String.t() | Atom.t()
+        "TargetArn" => String.t() | atom()
       }
 
   """
-  @type describe_ruleset_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_ruleset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -500,11 +500,11 @@ defmodule AWS.DataBrew do
 
       entity_detector_configuration() :: %{
         "AllowedStatistics" => list(allowed_statistics()),
-        "EntityTypes" => list(String.t() | Atom.t())
+        "EntityTypes" => list(String.t() | atom())
       }
 
   """
-  @type entity_detector_configuration() :: %{String.t() | Atom.t() => any()}
+  @type entity_detector_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -513,23 +513,23 @@ defmodule AWS.DataBrew do
       create_recipe_job_request() :: %{
         optional("DataCatalogOutputs") => list(data_catalog_output()),
         optional("DatabaseOutputs") => list(database_output()),
-        optional("DatasetName") => String.t() | Atom.t(),
-        optional("EncryptionKeyArn") => String.t() | Atom.t(),
+        optional("DatasetName") => String.t() | atom(),
+        optional("EncryptionKeyArn") => String.t() | atom(),
         optional("EncryptionMode") => list(any()),
         optional("LogSubscription") => list(any()),
         optional("MaxCapacity") => integer(),
         optional("MaxRetries") => integer(),
         optional("Outputs") => list(output()),
-        optional("ProjectName") => String.t() | Atom.t(),
+        optional("ProjectName") => String.t() | atom(),
         optional("RecipeReference") => recipe_reference(),
         optional("Tags") => map(),
         optional("Timeout") => integer(),
-        required("Name") => String.t() | Atom.t(),
-        required("RoleArn") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
       }
 
   """
-  @type create_recipe_job_request() :: %{String.t() | Atom.t() => any()}
+  @type create_recipe_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -545,11 +545,11 @@ defmodule AWS.DataBrew do
   ## Example:
 
       update_recipe_job_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type update_recipe_job_response() :: %{String.t() | Atom.t() => any()}
+  @type update_recipe_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -557,49 +557,49 @@ defmodule AWS.DataBrew do
 
       list_jobs_response() :: %{
         "Jobs" => list(job()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_catalog_output() :: %{
-        "CatalogId" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "CatalogId" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
         "DatabaseOptions" => database_table_output_options(),
         "Overwrite" => boolean(),
         "S3Options" => s3_table_output_options(),
-        "TableName" => String.t() | Atom.t()
+        "TableName" => String.t() | atom()
       }
 
   """
-  @type data_catalog_output() :: %{String.t() | Atom.t() => any()}
+  @type data_catalog_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_schedule_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type delete_schedule_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -607,23 +607,23 @@ defmodule AWS.DataBrew do
 
       update_project_response() :: %{
         "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type update_project_response() :: %{String.t() | Atom.t() => any()}
+  @type update_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_schedules_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Schedules" => list(schedule())
       }
 
   """
-  @type list_schedules_response() :: %{String.t() | Atom.t() => any()}
+  @type list_schedules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -631,7 +631,7 @@ defmodule AWS.DataBrew do
 
       update_profile_job_request() :: %{
         optional("Configuration") => profile_configuration(),
-        optional("EncryptionKeyArn") => String.t() | Atom.t(),
+        optional("EncryptionKeyArn") => String.t() | atom(),
         optional("EncryptionMode") => list(any()),
         optional("JobSample") => job_sample(),
         optional("LogSubscription") => list(any()),
@@ -640,45 +640,45 @@ defmodule AWS.DataBrew do
         optional("Timeout") => integer(),
         optional("ValidationConfigurations") => list(validation_configuration()),
         required("OutputLocation") => s3_location(),
-        required("RoleArn") => String.t() | Atom.t()
+        required("RoleArn") => String.t() | atom()
       }
 
   """
-  @type update_profile_job_request() :: %{String.t() | Atom.t() => any()}
+  @type update_profile_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_ruleset_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type delete_ruleset_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_ruleset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dataset() :: %{
-        "AccountId" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
         "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | atom(),
         "Format" => list(any()),
         "FormatOptions" => format_options(),
         "Input" => input(),
-        "LastModifiedBy" => String.t() | Atom.t(),
+        "LastModifiedBy" => String.t() | atom(),
         "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "PathOptions" => path_options(),
-        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | atom(),
         "Source" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type dataset() :: %{String.t() | Atom.t() => any()}
+  @type dataset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -686,18 +686,18 @@ defmodule AWS.DataBrew do
 
       describe_schedule_response() :: %{
         "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | Atom.t(),
-        "CronExpression" => String.t() | Atom.t(),
-        "JobNames" => list(String.t() | Atom.t()),
-        "LastModifiedBy" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | atom(),
+        "CronExpression" => String.t() | atom(),
+        "JobNames" => list(String.t() | atom()),
+        "LastModifiedBy" => String.t() | atom(),
         "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type describe_schedule_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -708,18 +708,18 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type output_format_options() :: %{String.t() | Atom.t() => any()}
+  @type output_format_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_dataset_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -731,7 +731,7 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type job_sample() :: %{String.t() | Atom.t() => any()}
+  @type job_sample() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -744,19 +744,19 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type files_limit() :: %{String.t() | Atom.t() => any()}
+  @type files_limit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       csv_options() :: %{
-        "Delimiter" => String.t() | Atom.t(),
+        "Delimiter" => String.t() | atom(),
         "HeaderRow" => boolean()
       }
 
   """
-  @type csv_options() :: %{String.t() | Atom.t() => any()}
+  @type csv_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -779,121 +779,121 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type input() :: %{String.t() | Atom.t() => any()}
+  @type input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_project_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_project_response() :: %{String.t() | Atom.t() => any()}
+  @type create_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_job_run_response() :: %{
-        "RunId" => String.t() | Atom.t()
+        "RunId" => String.t() | atom()
       }
 
   """
-  @type start_job_run_response() :: %{String.t() | Atom.t() => any()}
+  @type start_job_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       project() :: %{
-        "AccountId" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
         "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | Atom.t(),
-        "DatasetName" => String.t() | Atom.t(),
-        "LastModifiedBy" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | atom(),
+        "DatasetName" => String.t() | atom(),
+        "LastModifiedBy" => String.t() | atom(),
         "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "OpenDate" => non_neg_integer(),
-        "OpenedBy" => String.t() | Atom.t(),
-        "RecipeName" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
+        "OpenedBy" => String.t() | atom(),
+        "RecipeName" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "Sample" => sample(),
         "Tags" => map()
       }
 
   """
-  @type project() :: %{String.t() | Atom.t() => any()}
+  @type project() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_configuration() :: %{
-        "RulesetArn" => String.t() | Atom.t(),
+        "RulesetArn" => String.t() | atom(),
         "ValidationMode" => list(any())
       }
 
   """
-  @type validation_configuration() :: %{String.t() | Atom.t() => any()}
+  @type validation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       publish_recipe_request() :: %{
-        optional("Description") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom()
       }
 
   """
-  @type publish_recipe_request() :: %{String.t() | Atom.t() => any()}
+  @type publish_recipe_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_rulesets_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Rulesets" => list(ruleset_item())
       }
 
   """
-  @type list_rulesets_response() :: %{String.t() | Atom.t() => any()}
+  @type list_rulesets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -904,18 +904,18 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type start_project_session_request() :: %{String.t() | Atom.t() => any()}
+  @type start_project_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       csv_output_options() :: %{
-        "Delimiter" => String.t() | Atom.t()
+        "Delimiter" => String.t() | atom()
       }
 
   """
-  @type csv_output_options() :: %{String.t() | Atom.t() => any()}
+  @type csv_output_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -923,24 +923,24 @@ defmodule AWS.DataBrew do
 
       list_recipe_versions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type list_recipe_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_recipe_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       recipe_action() :: %{
-        "Operation" => String.t() | Atom.t(),
+        "Operation" => String.t() | atom(),
         "Parameters" => map()
       }
 
   """
-  @type recipe_action() :: %{String.t() | Atom.t() => any()}
+  @type recipe_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -948,22 +948,22 @@ defmodule AWS.DataBrew do
 
       describe_recipe_response() :: %{
         "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "LastModifiedBy" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LastModifiedBy" => String.t() | atom(),
         "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
-        "ProjectName" => String.t() | Atom.t(),
-        "PublishedBy" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "ProjectName" => String.t() | atom(),
+        "PublishedBy" => String.t() | atom(),
         "PublishedDate" => non_neg_integer(),
-        "RecipeVersion" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t(),
+        "RecipeVersion" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
         "Steps" => list(recipe_step()),
         "Tags" => map()
       }
 
   """
-  @type describe_recipe_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_recipe_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -971,11 +971,11 @@ defmodule AWS.DataBrew do
 
       list_job_runs_response() :: %{
         "JobRuns" => list(job_run()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_job_runs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_job_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -988,7 +988,7 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type format_options() :: %{String.t() | Atom.t() => any()}
+  @type format_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -996,12 +996,12 @@ defmodule AWS.DataBrew do
 
       list_rulesets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("TargetArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("TargetArn") => String.t() | atom()
       }
 
   """
-  @type list_rulesets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_rulesets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1009,22 +1009,22 @@ defmodule AWS.DataBrew do
 
       recipe() :: %{
         "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "LastModifiedBy" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LastModifiedBy" => String.t() | atom(),
         "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
-        "ProjectName" => String.t() | Atom.t(),
-        "PublishedBy" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "ProjectName" => String.t() | atom(),
+        "PublishedBy" => String.t() | atom(),
         "PublishedDate" => non_neg_integer(),
-        "RecipeVersion" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t(),
+        "RecipeVersion" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
         "Steps" => list(recipe_step()),
         "Tags" => map()
       }
 
   """
-  @type recipe() :: %{String.t() | Atom.t() => any()}
+  @type recipe() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1036,31 +1036,31 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type sample() :: %{String.t() | Atom.t() => any()}
+  @type sample() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_projects_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Projects" => list(project())
       }
 
   """
-  @type list_projects_response() :: %{String.t() | Atom.t() => any()}
+  @type list_projects_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_recipe_versions_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Recipes" => list(recipe())
       }
 
   """
-  @type list_recipe_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_recipe_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1080,67 +1080,67 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_catalog_input_definition() :: %{
-        "CatalogId" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t(),
-        "TableName" => String.t() | Atom.t(),
+        "CatalogId" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "TableName" => String.t() | atom(),
         "TempDirectory" => s3_location()
       }
 
   """
-  @type data_catalog_input_definition() :: %{String.t() | Atom.t() => any()}
+  @type data_catalog_input_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ruleset_item() :: %{
-        "AccountId" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
         "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "LastModifiedBy" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LastModifiedBy" => String.t() | atom(),
         "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
         "RuleCount" => integer(),
         "Tags" => map(),
-        "TargetArn" => String.t() | Atom.t()
+        "TargetArn" => String.t() | atom()
       }
 
   """
-  @type ruleset_item() :: %{String.t() | Atom.t() => any()}
+  @type ruleset_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filter_expression() :: %{
-        "Expression" => String.t() | Atom.t(),
+        "Expression" => String.t() | atom(),
         "ValuesMap" => map()
       }
 
   """
-  @type filter_expression() :: %{String.t() | Atom.t() => any()}
+  @type filter_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_location() :: %{
-        "Bucket" => String.t() | Atom.t(),
-        "BucketOwner" => String.t() | Atom.t(),
-        "Key" => String.t() | Atom.t()
+        "Bucket" => String.t() | atom(),
+        "BucketOwner" => String.t() | atom(),
+        "Key" => String.t() | atom()
       }
 
   """
-  @type s3_location() :: %{String.t() | Atom.t() => any()}
+  @type s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1154,46 +1154,46 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type update_dataset_request() :: %{String.t() | Atom.t() => any()}
+  @type update_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       database_table_output_options() :: %{
-        "TableName" => String.t() | Atom.t(),
+        "TableName" => String.t() | atom(),
         "TempDirectory" => s3_location()
       }
 
   """
-  @type database_table_output_options() :: %{String.t() | Atom.t() => any()}
+  @type database_table_output_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rule() :: %{
-        "CheckExpression" => String.t() | Atom.t(),
+        "CheckExpression" => String.t() | atom(),
         "ColumnSelectors" => list(column_selector()),
         "Disabled" => boolean(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "SubstitutionMap" => map(),
         "Threshold" => threshold()
       }
 
   """
-  @type rule() :: %{String.t() | Atom.t() => any()}
+  @type rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_recipe_job_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_recipe_job_response() :: %{String.t() | Atom.t() => any()}
+  @type create_recipe_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1203,76 +1203,76 @@ defmodule AWS.DataBrew do
         "CreateColumn" => boolean(),
         "DatetimeOptions" => datetime_options(),
         "Filter" => filter_expression(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type dataset_parameter() :: %{String.t() | Atom.t() => any()}
+  @type dataset_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_recipe_request() :: %{
-        optional("RecipeVersion") => String.t() | Atom.t()
+        optional("RecipeVersion") => String.t() | atom()
       }
 
   """
-  @type describe_recipe_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_recipe_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       schedule() :: %{
-        "AccountId" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
         "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | Atom.t(),
-        "CronExpression" => String.t() | Atom.t(),
-        "JobNames" => list(String.t() | Atom.t()),
-        "LastModifiedBy" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | atom(),
+        "CronExpression" => String.t() | atom(),
+        "JobNames" => list(String.t() | atom()),
+        "LastModifiedBy" => String.t() | atom(),
         "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type schedule() :: %{String.t() | Atom.t() => any()}
+  @type schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_project_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type delete_project_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_job_run_response() :: %{
-        "RunId" => String.t() | Atom.t()
+        "RunId" => String.t() | atom()
       }
 
   """
-  @type stop_job_run_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_job_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1289,11 +1289,11 @@ defmodule AWS.DataBrew do
 
       update_project_request() :: %{
         optional("Sample") => sample(),
-        required("RoleArn") => String.t() | Atom.t()
+        required("RoleArn") => String.t() | atom()
       }
 
   """
-  @type update_project_request() :: %{String.t() | Atom.t() => any()}
+  @type update_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1307,19 +1307,19 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type profile_configuration() :: %{String.t() | Atom.t() => any()}
+  @type profile_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_ruleset_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         required("Rules") => list(rule())
       }
 
   """
-  @type update_ruleset_request() :: %{String.t() | Atom.t() => any()}
+  @type update_ruleset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1331,32 +1331,32 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type recipe_step() :: %{String.t() | Atom.t() => any()}
+  @type recipe_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       database_input_definition() :: %{
-        "DatabaseTableName" => String.t() | Atom.t(),
-        "GlueConnectionName" => String.t() | Atom.t(),
-        "QueryString" => String.t() | Atom.t(),
+        "DatabaseTableName" => String.t() | atom(),
+        "GlueConnectionName" => String.t() | atom(),
+        "QueryString" => String.t() | atom(),
         "TempDirectory" => s3_location()
       }
 
   """
-  @type database_input_definition() :: %{String.t() | Atom.t() => any()}
+  @type database_input_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1381,12 +1381,12 @@ defmodule AWS.DataBrew do
   ## Example:
 
       column_selector() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Regex" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Regex" => String.t() | atom()
       }
 
   """
-  @type column_selector() :: %{String.t() | Atom.t() => any()}
+  @type column_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1397,19 +1397,19 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type json_options() :: %{String.t() | Atom.t() => any()}
+  @type json_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_schedule_request() :: %{
-        optional("JobNames") => list(String.t() | Atom.t()),
-        required("CronExpression") => String.t() | Atom.t()
+        optional("JobNames") => list(String.t() | atom()),
+        required("CronExpression") => String.t() | atom()
       }
 
   """
-  @type update_schedule_request() :: %{String.t() | Atom.t() => any()}
+  @type update_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1425,13 +1425,13 @@ defmodule AWS.DataBrew do
   ## Example:
 
       recipe_version_error_detail() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "RecipeVersion" => String.t() | Atom.t()
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "RecipeVersion" => String.t() | atom()
       }
 
   """
-  @type recipe_version_error_detail() :: %{String.t() | Atom.t() => any()}
+  @type recipe_version_error_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1443,30 +1443,30 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type column_statistics_configuration() :: %{String.t() | Atom.t() => any()}
+  @type column_statistics_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_ruleset_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_ruleset_response() :: %{String.t() | Atom.t() => any()}
+  @type create_ruleset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_recipe_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("Steps") => list(recipe_step())
       }
 
   """
-  @type update_recipe_request() :: %{String.t() | Atom.t() => any()}
+  @type update_recipe_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1474,32 +1474,32 @@ defmodule AWS.DataBrew do
 
       describe_dataset_response() :: %{
         "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | atom(),
         "Format" => list(any()),
         "FormatOptions" => format_options(),
         "Input" => input(),
-        "LastModifiedBy" => String.t() | Atom.t(),
+        "LastModifiedBy" => String.t() | atom(),
         "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "PathOptions" => path_options(),
-        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | atom(),
         "Source" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type describe_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1515,26 +1515,26 @@ defmodule AWS.DataBrew do
   ## Example:
 
       job() :: %{
-        "AccountId" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
         "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | Atom.t(),
+        "CreatedBy" => String.t() | atom(),
         "DataCatalogOutputs" => list(data_catalog_output()),
         "DatabaseOutputs" => list(database_output()),
-        "DatasetName" => String.t() | Atom.t(),
-        "EncryptionKeyArn" => String.t() | Atom.t(),
+        "DatasetName" => String.t() | atom(),
+        "EncryptionKeyArn" => String.t() | atom(),
         "EncryptionMode" => list(any()),
         "JobSample" => job_sample(),
-        "LastModifiedBy" => String.t() | Atom.t(),
+        "LastModifiedBy" => String.t() | atom(),
         "LastModifiedDate" => non_neg_integer(),
         "LogSubscription" => list(any()),
         "MaxCapacity" => integer(),
         "MaxRetries" => integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Outputs" => list(output()),
-        "ProjectName" => String.t() | Atom.t(),
+        "ProjectName" => String.t() | atom(),
         "RecipeReference" => recipe_reference(),
-        "ResourceArn" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "Tags" => map(),
         "Timeout" => integer(),
         "Type" => list(any()),
@@ -1542,7 +1542,7 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type job() :: %{String.t() | Atom.t() => any()}
+  @type job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1554,11 +1554,11 @@ defmodule AWS.DataBrew do
         optional("PathOptions") => path_options(),
         optional("Tags") => map(),
         required("Input") => input(),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_dataset_request() :: %{String.t() | Atom.t() => any()}
+  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1567,32 +1567,32 @@ defmodule AWS.DataBrew do
       update_recipe_job_request() :: %{
         optional("DataCatalogOutputs") => list(data_catalog_output()),
         optional("DatabaseOutputs") => list(database_output()),
-        optional("EncryptionKeyArn") => String.t() | Atom.t(),
+        optional("EncryptionKeyArn") => String.t() | atom(),
         optional("EncryptionMode") => list(any()),
         optional("LogSubscription") => list(any()),
         optional("MaxCapacity") => integer(),
         optional("MaxRetries") => integer(),
         optional("Outputs") => list(output()),
         optional("Timeout") => integer(),
-        required("RoleArn") => String.t() | Atom.t()
+        required("RoleArn") => String.t() | atom()
       }
 
   """
-  @type update_recipe_job_request() :: %{String.t() | Atom.t() => any()}
+  @type update_recipe_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_schedule_request() :: %{
-        optional("JobNames") => list(String.t() | Atom.t()),
+        optional("JobNames") => list(String.t() | atom()),
         optional("Tags") => map(),
-        required("CronExpression") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        required("CronExpression") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_schedule_request() :: %{String.t() | Atom.t() => any()}
+  @type create_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1601,27 +1601,27 @@ defmodule AWS.DataBrew do
       create_project_request() :: %{
         optional("Sample") => sample(),
         optional("Tags") => map(),
-        required("DatasetName") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
-        required("RecipeName") => String.t() | Atom.t(),
-        required("RoleArn") => String.t() | Atom.t()
+        required("DatasetName") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("RecipeName") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
       }
 
   """
-  @type create_project_request() :: %{String.t() | Atom.t() => any()}
+  @type create_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       condition_expression() :: %{
-        "Condition" => String.t() | Atom.t(),
-        "TargetColumn" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Condition" => String.t() | atom(),
+        "TargetColumn" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type condition_expression() :: %{String.t() | Atom.t() => any()}
+  @type condition_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1629,11 +1629,11 @@ defmodule AWS.DataBrew do
 
       list_projects_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_projects_request() :: %{String.t() | Atom.t() => any()}
+  @type list_projects_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1646,18 +1646,18 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type threshold() :: %{String.t() | Atom.t() => any()}
+  @type threshold() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_schedule_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_schedule_response() :: %{String.t() | Atom.t() => any()}
+  @type create_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1673,13 +1673,13 @@ defmodule AWS.DataBrew do
   ## Example:
 
       list_schedules_request() :: %{
-        optional("JobName") => String.t() | Atom.t(),
+        optional("JobName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_schedules_request() :: %{String.t() | Atom.t() => any()}
+  @type list_schedules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1688,22 +1688,22 @@ defmodule AWS.DataBrew do
       excel_options() :: %{
         "HeaderRow" => boolean(),
         "SheetIndexes" => list(integer()),
-        "SheetNames" => list(String.t() | Atom.t())
+        "SheetNames" => list(String.t() | atom())
       }
 
   """
-  @type excel_options() :: %{String.t() | Atom.t() => any()}
+  @type excel_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       allowed_statistics() :: %{
-        "Statistics" => list(String.t() | Atom.t())
+        "Statistics" => list(String.t() | atom())
       }
 
   """
-  @type allowed_statistics() :: %{String.t() | Atom.t() => any()}
+  @type allowed_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1729,11 +1729,11 @@ defmodule AWS.DataBrew do
 
       list_datasets_response() :: %{
         "Datasets" => list(dataset()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_datasets_response() :: %{String.t() | Atom.t() => any()}
+  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1749,34 +1749,34 @@ defmodule AWS.DataBrew do
   ## Example:
 
       update_profile_job_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type update_profile_job_response() :: %{String.t() | Atom.t() => any()}
+  @type update_profile_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_job_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type delete_job_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_recipe_version_response() :: %{
-        "Name" => String.t() | Atom.t(),
-        "RecipeVersion" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "RecipeVersion" => String.t() | atom()
       }
 
   """
-  @type delete_recipe_version_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_recipe_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1784,22 +1784,22 @@ defmodule AWS.DataBrew do
 
       statistic_override() :: %{
         "Parameters" => map(),
-        "Statistic" => String.t() | Atom.t()
+        "Statistic" => String.t() | atom()
       }
 
   """
-  @type statistic_override() :: %{String.t() | Atom.t() => any()}
+  @type statistic_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_profile_job_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_profile_job_response() :: %{String.t() | Atom.t() => any()}
+  @type create_profile_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1816,19 +1816,19 @@ defmodule AWS.DataBrew do
 
       list_recipes_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("RecipeVersion") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("RecipeVersion") => String.t() | atom()
       }
 
   """
-  @type list_recipes_request() :: %{String.t() | Atom.t() => any()}
+  @type list_recipes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       send_project_session_action_request() :: %{
-        optional("ClientSessionId") => String.t() | Atom.t(),
+        optional("ClientSessionId") => String.t() | atom(),
         optional("Preview") => boolean(),
         optional("RecipeStep") => recipe_step(),
         optional("StepIndex") => integer(),
@@ -1836,7 +1836,7 @@ defmodule AWS.DataBrew do
       }
 
   """
-  @type send_project_session_action_request() :: %{String.t() | Atom.t() => any()}
+  @type send_project_session_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1844,12 +1844,12 @@ defmodule AWS.DataBrew do
 
       send_project_session_action_response() :: %{
         "ActionId" => integer(),
-        "Name" => String.t() | Atom.t(),
-        "Result" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Result" => String.t() | atom()
       }
 
   """
-  @type send_project_session_action_response() :: %{String.t() | Atom.t() => any()}
+  @type send_project_session_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1862,11 +1862,11 @@ defmodule AWS.DataBrew do
         "Location" => s3_location(),
         "MaxOutputFiles" => integer(),
         "Overwrite" => boolean(),
-        "PartitionColumns" => list(String.t() | Atom.t())
+        "PartitionColumns" => list(String.t() | atom())
       }
 
   """
-  @type output() :: %{String.t() | Atom.t() => any()}
+  @type output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1882,11 +1882,11 @@ defmodule AWS.DataBrew do
   ## Example:
 
       update_recipe_response() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type update_recipe_response() :: %{String.t() | Atom.t() => any()}
+  @type update_recipe_response() :: %{(String.t() | atom()) => any()}
 
   @type batch_delete_recipe_version_errors() ::
           validation_exception() | resource_not_found_exception() | conflict_exception()
@@ -2082,7 +2082,7 @@ defmodule AWS.DataBrew do
   """
   @spec batch_delete_recipe_version(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           batch_delete_recipe_version_request(),
           list()
         ) ::
@@ -2322,7 +2322,7 @@ defmodule AWS.DataBrew do
   @doc """
   Deletes a dataset from DataBrew.
   """
-  @spec delete_dataset(map(), String.t() | Atom.t(), delete_dataset_request(), list()) ::
+  @spec delete_dataset(map(), String.t() | atom(), delete_dataset_request(), list()) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2351,7 +2351,7 @@ defmodule AWS.DataBrew do
   @doc """
   Deletes the specified DataBrew job.
   """
-  @spec delete_job(map(), String.t() | Atom.t(), delete_job_request(), list()) ::
+  @spec delete_job(map(), String.t() | atom(), delete_job_request(), list()) ::
           {:ok, delete_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2380,7 +2380,7 @@ defmodule AWS.DataBrew do
   @doc """
   Deletes an existing DataBrew project.
   """
-  @spec delete_project(map(), String.t() | Atom.t(), delete_project_request(), list()) ::
+  @spec delete_project(map(), String.t() | atom(), delete_project_request(), list()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2411,8 +2411,8 @@ defmodule AWS.DataBrew do
   """
   @spec delete_recipe_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_recipe_version_request(),
           list()
         ) ::
@@ -2446,7 +2446,7 @@ defmodule AWS.DataBrew do
   @doc """
   Deletes a ruleset.
   """
-  @spec delete_ruleset(map(), String.t() | Atom.t(), delete_ruleset_request(), list()) ::
+  @spec delete_ruleset(map(), String.t() | atom(), delete_ruleset_request(), list()) ::
           {:ok, delete_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2475,7 +2475,7 @@ defmodule AWS.DataBrew do
   @doc """
   Deletes the specified DataBrew schedule.
   """
-  @spec delete_schedule(map(), String.t() | Atom.t(), delete_schedule_request(), list()) ::
+  @spec delete_schedule(map(), String.t() | atom(), delete_schedule_request(), list()) ::
           {:ok, delete_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2504,7 +2504,7 @@ defmodule AWS.DataBrew do
   @doc """
   Returns the definition of a specific DataBrew dataset.
   """
-  @spec describe_dataset(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_dataset(map(), String.t() | atom(), list()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2522,7 +2522,7 @@ defmodule AWS.DataBrew do
   @doc """
   Returns the definition of a specific DataBrew job.
   """
-  @spec describe_job(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_job(map(), String.t() | atom(), list()) ::
           {:ok, describe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2540,7 +2540,7 @@ defmodule AWS.DataBrew do
   @doc """
   Represents one run of a DataBrew job.
   """
-  @spec describe_job_run(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec describe_job_run(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2558,7 +2558,7 @@ defmodule AWS.DataBrew do
   @doc """
   Returns the definition of a specific DataBrew project.
   """
-  @spec describe_project(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_project(map(), String.t() | atom(), list()) ::
           {:ok, describe_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2578,7 +2578,7 @@ defmodule AWS.DataBrew do
   particular
   version.
   """
-  @spec describe_recipe(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec describe_recipe(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, describe_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2603,7 +2603,7 @@ defmodule AWS.DataBrew do
   @doc """
   Retrieves detailed information about the ruleset.
   """
-  @spec describe_ruleset(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_ruleset(map(), String.t() | atom(), list()) ::
           {:ok, describe_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2621,7 +2621,7 @@ defmodule AWS.DataBrew do
   @doc """
   Returns the definition of a specific DataBrew schedule.
   """
-  @spec describe_schedule(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_schedule(map(), String.t() | atom(), list()) ::
           {:ok, describe_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2639,7 +2639,7 @@ defmodule AWS.DataBrew do
   @doc """
   Lists all of the DataBrew datasets.
   """
-  @spec list_datasets(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_datasets(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2673,9 +2673,9 @@ defmodule AWS.DataBrew do
   """
   @spec list_job_runs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_job_runs_response(), any()}
@@ -2717,10 +2717,10 @@ defmodule AWS.DataBrew do
   """
   @spec list_jobs(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_jobs_response(), any()}
@@ -2775,7 +2775,7 @@ defmodule AWS.DataBrew do
   @doc """
   Lists all of the DataBrew projects that are defined.
   """
-  @spec list_projects(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_projects(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2810,9 +2810,9 @@ defmodule AWS.DataBrew do
   """
   @spec list_recipe_versions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_recipe_versions_response(), any()}
@@ -2861,9 +2861,9 @@ defmodule AWS.DataBrew do
   """
   @spec list_recipes(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_recipes_response(), any()}
@@ -2913,9 +2913,9 @@ defmodule AWS.DataBrew do
   """
   @spec list_rulesets(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_rulesets_response(), any()}
@@ -2964,9 +2964,9 @@ defmodule AWS.DataBrew do
   """
   @spec list_schedules(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_schedules_response(), any()}
@@ -3013,7 +3013,7 @@ defmodule AWS.DataBrew do
   @doc """
   Lists all the tags for a DataBrew resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3031,7 +3031,7 @@ defmodule AWS.DataBrew do
   @doc """
   Publishes a new version of a DataBrew recipe.
   """
-  @spec publish_recipe(map(), String.t() | Atom.t(), publish_recipe_request(), list()) ::
+  @spec publish_recipe(map(), String.t() | atom(), publish_recipe_request(), list()) ::
           {:ok, publish_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3063,7 +3063,7 @@ defmodule AWS.DataBrew do
   """
   @spec send_project_session_action(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           send_project_session_action_request(),
           list()
         ) ::
@@ -3095,7 +3095,7 @@ defmodule AWS.DataBrew do
   @doc """
   Runs a DataBrew job.
   """
-  @spec start_job_run(map(), String.t() | Atom.t(), start_job_run_request(), list()) ::
+  @spec start_job_run(map(), String.t() | atom(), start_job_run_request(), list()) ::
           {:ok, start_job_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3125,12 +3125,7 @@ defmodule AWS.DataBrew do
   Creates an interactive session, enabling you to manipulate data in a DataBrew
   project.
   """
-  @spec start_project_session(
-          map(),
-          String.t() | Atom.t(),
-          start_project_session_request(),
-          list()
-        ) ::
+  @spec start_project_session(map(), String.t() | atom(), start_project_session_request(), list()) ::
           {:ok, start_project_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3161,8 +3156,8 @@ defmodule AWS.DataBrew do
   """
   @spec stop_job_run(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           stop_job_run_request(),
           list()
         ) ::
@@ -3198,7 +3193,7 @@ defmodule AWS.DataBrew do
   job, or
   schedule.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3227,7 +3222,7 @@ defmodule AWS.DataBrew do
   @doc """
   Removes metadata tags from a DataBrew resource.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3261,7 +3256,7 @@ defmodule AWS.DataBrew do
   @doc """
   Modifies the definition of an existing DataBrew dataset.
   """
-  @spec update_dataset(map(), String.t() | Atom.t(), update_dataset_request(), list()) ::
+  @spec update_dataset(map(), String.t() | atom(), update_dataset_request(), list()) ::
           {:ok, update_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3290,7 +3285,7 @@ defmodule AWS.DataBrew do
   @doc """
   Modifies the definition of an existing profile job.
   """
-  @spec update_profile_job(map(), String.t() | Atom.t(), update_profile_job_request(), list()) ::
+  @spec update_profile_job(map(), String.t() | atom(), update_profile_job_request(), list()) ::
           {:ok, update_profile_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3319,7 +3314,7 @@ defmodule AWS.DataBrew do
   @doc """
   Modifies the definition of an existing DataBrew project.
   """
-  @spec update_project(map(), String.t() | Atom.t(), update_project_request(), list()) ::
+  @spec update_project(map(), String.t() | atom(), update_project_request(), list()) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3349,7 +3344,7 @@ defmodule AWS.DataBrew do
   Modifies the definition of the `LATEST_WORKING` version of a DataBrew
   recipe.
   """
-  @spec update_recipe(map(), String.t() | Atom.t(), update_recipe_request(), list()) ::
+  @spec update_recipe(map(), String.t() | atom(), update_recipe_request(), list()) ::
           {:ok, update_recipe_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3378,7 +3373,7 @@ defmodule AWS.DataBrew do
   @doc """
   Modifies the definition of an existing DataBrew recipe job.
   """
-  @spec update_recipe_job(map(), String.t() | Atom.t(), update_recipe_job_request(), list()) ::
+  @spec update_recipe_job(map(), String.t() | atom(), update_recipe_job_request(), list()) ::
           {:ok, update_recipe_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3407,7 +3402,7 @@ defmodule AWS.DataBrew do
   @doc """
   Updates specified ruleset.
   """
-  @spec update_ruleset(map(), String.t() | Atom.t(), update_ruleset_request(), list()) ::
+  @spec update_ruleset(map(), String.t() | atom(), update_ruleset_request(), list()) ::
           {:ok, update_ruleset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3436,7 +3431,7 @@ defmodule AWS.DataBrew do
   @doc """
   Modifies the definition of an existing DataBrew schedule.
   """
-  @spec update_schedule(map(), String.t() | Atom.t(), update_schedule_request(), list()) ::
+  @spec update_schedule(map(), String.t() | atom(), update_schedule_request(), list()) ::
           {:ok, update_schedule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

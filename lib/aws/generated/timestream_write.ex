@@ -38,29 +38,29 @@ defmodule AWS.TimestreamWrite do
       
       partition_key() :: %{
         "EnforcementInRecord" => list(any()),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type partition_key() :: %{String.t() | Atom.t() => any()}
+  @type partition_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_batch_load_task_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("DataModelConfiguration") => data_model_configuration(),
         optional("RecordVersion") => float(),
         required("DataSourceConfiguration") => data_source_configuration(),
         required("ReportConfiguration") => report_configuration(),
-        required("TargetDatabaseName") => String.t() | Atom.t(),
-        required("TargetTableName") => String.t() | Atom.t()
+        required("TargetDatabaseName") => String.t() | atom(),
+        required("TargetTableName") => String.t() | atom()
       }
       
   """
-  @type create_batch_load_task_request() :: %{String.t() | Atom.t() => any()}
+  @type create_batch_load_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,7 +71,7 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type magnetic_store_rejected_data_location() :: %{String.t() | Atom.t() => any()}
+  @type magnetic_store_rejected_data_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -79,45 +79,45 @@ defmodule AWS.TimestreamWrite do
       
       record() :: %{
         "Dimensions" => list(dimension()),
-        "MeasureName" => String.t() | Atom.t(),
-        "MeasureValue" => String.t() | Atom.t(),
+        "MeasureName" => String.t() | atom(),
+        "MeasureValue" => String.t() | atom(),
         "MeasureValueType" => list(any()),
         "MeasureValues" => list(measure_value()),
-        "Time" => String.t() | Atom.t(),
+        "Time" => String.t() | atom(),
         "TimeUnit" => list(any()),
         "Version" => float()
       }
       
   """
-  @type record() :: %{String.t() | Atom.t() => any()}
+  @type record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
+        required("ResourceARN") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       database() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "DatabaseName" => String.t() | Atom.t(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
         "TableCount" => float()
       }
       
   """
-  @type database() :: %{String.t() | Atom.t() => any()}
+  @type database() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -127,12 +127,12 @@ defmodule AWS.TimestreamWrite do
         optional("MagneticStoreWriteProperties") => magnetic_store_write_properties(),
         optional("RetentionProperties") => retention_properties(),
         optional("Schema") => schema(),
-        required("DatabaseName") => String.t() | Atom.t(),
-        required("TableName") => String.t() | Atom.t()
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type update_table_request() :: %{String.t() | Atom.t() => any()}
+  @type update_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -144,7 +144,7 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type magnetic_store_write_properties() :: %{String.t() | Atom.t() => any()}
+  @type magnetic_store_write_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -157,7 +157,7 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type data_source_configuration() :: %{String.t() | Atom.t() => any()}
+  @type data_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -173,13 +173,13 @@ defmodule AWS.TimestreamWrite do
   ## Example:
       
       measure_value() :: %{
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Type" => list(any()),
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type measure_value() :: %{String.t() | Atom.t() => any()}
+  @type measure_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -192,19 +192,19 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type records_ingested() :: %{String.t() | Atom.t() => any()}
+  @type records_ingested() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_table_request() :: %{
-        required("DatabaseName") => String.t() | Atom.t(),
-        required("TableName") => String.t() | Atom.t()
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type delete_table_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -215,7 +215,7 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type describe_database_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_database_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -225,20 +225,20 @@ defmodule AWS.TimestreamWrite do
         "CreationTime" => non_neg_integer(),
         "DataModelConfiguration" => data_model_configuration(),
         "DataSourceConfiguration" => data_source_configuration(),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
         "ProgressReport" => batch_load_progress_report(),
         "RecordVersion" => float(),
         "ReportConfiguration" => report_configuration(),
         "ResumableUntil" => non_neg_integer(),
-        "TargetDatabaseName" => String.t() | Atom.t(),
-        "TargetTableName" => String.t() | Atom.t(),
-        "TaskId" => String.t() | Atom.t(),
+        "TargetDatabaseName" => String.t() | atom(),
+        "TargetTableName" => String.t() | atom(),
+        "TaskId" => String.t() | atom(),
         "TaskStatus" => list(any())
       }
       
   """
-  @type batch_load_task_description() :: %{String.t() | Atom.t() => any()}
+  @type batch_load_task_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -246,63 +246,63 @@ defmodule AWS.TimestreamWrite do
       
       multi_measure_attribute_mapping() :: %{
         "MeasureValueType" => list(any()),
-        "SourceColumn" => String.t() | Atom.t(),
-        "TargetMultiMeasureAttributeName" => String.t() | Atom.t()
+        "SourceColumn" => String.t() | atom(),
+        "TargetMultiMeasureAttributeName" => String.t() | atom()
       }
       
   """
-  @type multi_measure_attribute_mapping() :: %{String.t() | Atom.t() => any()}
+  @type multi_measure_attribute_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       csv_configuration() :: %{
-        "ColumnSeparator" => String.t() | Atom.t(),
-        "EscapeChar" => String.t() | Atom.t(),
-        "NullValue" => String.t() | Atom.t(),
-        "QuoteChar" => String.t() | Atom.t(),
+        "ColumnSeparator" => String.t() | atom(),
+        "EscapeChar" => String.t() | atom(),
+        "NullValue" => String.t() | atom(),
+        "QuoteChar" => String.t() | atom(),
         "TrimWhiteSpace" => boolean()
       }
       
   """
-  @type csv_configuration() :: %{String.t() | Atom.t() => any()}
+  @type csv_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       report_s3_configuration() :: %{
-        "BucketName" => String.t() | Atom.t(),
+        "BucketName" => String.t() | atom(),
         "EncryptionOption" => list(any()),
-        "KmsKeyId" => String.t() | Atom.t(),
-        "ObjectKeyPrefix" => String.t() | Atom.t()
+        "KmsKeyId" => String.t() | atom(),
+        "ObjectKeyPrefix" => String.t() | atom()
       }
       
   """
-  @type report_s3_configuration() :: %{String.t() | Atom.t() => any()}
+  @type report_s3_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_endpoint_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_endpoint_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_endpoint_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_database_request() :: %{
-        required("DatabaseName") => String.t() | Atom.t()
+        required("DatabaseName") => String.t() | atom()
       }
       
   """
-  @type describe_database_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_database_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -313,7 +313,7 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type describe_endpoints_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -324,12 +324,12 @@ defmodule AWS.TimestreamWrite do
         optional("RetentionProperties") => retention_properties(),
         optional("Schema") => schema(),
         optional("Tags") => list(tag()),
-        required("DatabaseName") => String.t() | Atom.t(),
-        required("TableName") => String.t() | Atom.t()
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type create_table_request() :: %{String.t() | Atom.t() => any()}
+  @type create_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -340,19 +340,19 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type describe_table_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_table_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -363,7 +363,7 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type describe_batch_load_task_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_batch_load_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -371,16 +371,16 @@ defmodule AWS.TimestreamWrite do
       
       batch_load_task() :: %{
         "CreationTime" => non_neg_integer(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
         "ResumableUntil" => non_neg_integer(),
-        "TableName" => String.t() | Atom.t(),
-        "TaskId" => String.t() | Atom.t(),
+        "TableName" => String.t() | atom(),
+        "TaskId" => String.t() | atom(),
         "TaskStatus" => list(any())
       }
       
   """
-  @type batch_load_task() :: %{String.t() | Atom.t() => any()}
+  @type batch_load_task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -392,7 +392,7 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type data_model_configuration() :: %{String.t() | Atom.t() => any()}
+  @type data_model_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -409,45 +409,45 @@ defmodule AWS.TimestreamWrite do
       
       list_databases_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_databases_request() :: %{String.t() | Atom.t() => any()}
+  @type list_databases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tables_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Tables" => list(table())
       }
       
   """
-  @type list_tables_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tables_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -463,23 +463,23 @@ defmodule AWS.TimestreamWrite do
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_batch_load_task_request() :: %{
-        required("TaskId") => String.t() | Atom.t()
+        required("TaskId") => String.t() | atom()
       }
       
   """
-  @type describe_batch_load_task_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_batch_load_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -490,29 +490,29 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type create_table_response() :: %{String.t() | Atom.t() => any()}
+  @type create_table_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resume_batch_load_task_request() :: %{
-        required("TaskId") => String.t() | Atom.t()
+        required("TaskId") => String.t() | atom()
       }
       
   """
-  @type resume_batch_load_task_request() :: %{String.t() | Atom.t() => any()}
+  @type resume_batch_load_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -523,7 +523,7 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type report_configuration() :: %{String.t() | Atom.t() => any()}
+  @type report_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -534,7 +534,7 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type schema() :: %{String.t() | Atom.t() => any()}
+  @type schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -545,30 +545,30 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_batch_load_task_response() :: %{
-        "TaskId" => String.t() | Atom.t()
+        "TaskId" => String.t() | atom()
       }
       
   """
-  @type create_batch_load_task_response() :: %{String.t() | Atom.t() => any()}
+  @type create_batch_load_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_table_request() :: %{
-        required("DatabaseName") => String.t() | Atom.t(),
-        required("TableName") => String.t() | Atom.t()
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type describe_table_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_table_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -576,35 +576,35 @@ defmodule AWS.TimestreamWrite do
       
       list_batch_load_tasks_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("TaskStatus") => list(any())
       }
       
   """
-  @type list_batch_load_tasks_request() :: %{String.t() | Atom.t() => any()}
+  @type list_batch_load_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint() :: %{
-        "Address" => String.t() | Atom.t(),
+        "Address" => String.t() | atom(),
         "CachePeriodInMinutes" => float()
       }
       
   """
-  @type endpoint() :: %{String.t() | Atom.t() => any()}
+  @type endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -612,11 +612,11 @@ defmodule AWS.TimestreamWrite do
       
       list_batch_load_tasks_response() :: %{
         "BatchLoadTasks" => list(batch_load_task()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_batch_load_tasks_response() :: %{String.t() | Atom.t() => any()}
+  @type list_batch_load_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -624,13 +624,13 @@ defmodule AWS.TimestreamWrite do
       
       write_records_request() :: %{
         optional("CommonAttributes") => record(),
-        required("DatabaseName") => String.t() | Atom.t(),
+        required("DatabaseName") => String.t() | atom(),
         required("Records") => list(record()),
-        required("TableName") => String.t() | Atom.t()
+        required("TableName") => String.t() | atom()
       }
       
   """
-  @type write_records_request() :: %{String.t() | Atom.t() => any()}
+  @type write_records_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -638,34 +638,34 @@ defmodule AWS.TimestreamWrite do
       
       multi_measure_mappings() :: %{
         "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()),
-        "TargetMultiMeasureName" => String.t() | Atom.t()
+        "TargetMultiMeasureName" => String.t() | atom()
       }
       
   """
-  @type multi_measure_mappings() :: %{String.t() | Atom.t() => any()}
+  @type multi_measure_mappings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_source_s3_configuration() :: %{
-        "BucketName" => String.t() | Atom.t(),
-        "ObjectKeyPrefix" => String.t() | Atom.t()
+        "BucketName" => String.t() | atom(),
+        "ObjectKeyPrefix" => String.t() | atom()
       }
       
   """
-  @type data_source_s3_configuration() :: %{String.t() | Atom.t() => any()}
+  @type data_source_s3_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -681,22 +681,22 @@ defmodule AWS.TimestreamWrite do
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t()
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -708,44 +708,44 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type retention_properties() :: %{String.t() | Atom.t() => any()}
+  @type retention_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_model_s3_configuration() :: %{
-        "BucketName" => String.t() | Atom.t(),
-        "ObjectKey" => String.t() | Atom.t()
+        "BucketName" => String.t() | atom(),
+        "ObjectKey" => String.t() | atom()
       }
       
   """
-  @type data_model_s3_configuration() :: %{String.t() | Atom.t() => any()}
+  @type data_model_s3_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_configuration() :: %{
-        "BucketName" => String.t() | Atom.t(),
+        "BucketName" => String.t() | atom(),
         "EncryptionOption" => list(any()),
-        "KmsKeyId" => String.t() | Atom.t(),
-        "ObjectKeyPrefix" => String.t() | Atom.t()
+        "KmsKeyId" => String.t() | atom(),
+        "ObjectKeyPrefix" => String.t() | atom()
       }
       
   """
-  @type s3_configuration() :: %{String.t() | Atom.t() => any()}
+  @type s3_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -753,30 +753,30 @@ defmodule AWS.TimestreamWrite do
       
       data_model() :: %{
         "DimensionMappings" => list(dimension_mapping()),
-        "MeasureNameColumn" => String.t() | Atom.t(),
+        "MeasureNameColumn" => String.t() | atom(),
         "MixedMeasureMappings" => list(mixed_measure_mapping()),
         "MultiMeasureMappings" => multi_measure_mappings(),
-        "TimeColumn" => String.t() | Atom.t(),
+        "TimeColumn" => String.t() | atom(),
         "TimeUnit" => list(any())
       }
       
   """
-  @type data_model() :: %{String.t() | Atom.t() => any()}
+  @type data_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       mixed_measure_mapping() :: %{
-        "MeasureName" => String.t() | Atom.t(),
+        "MeasureName" => String.t() | atom(),
         "MeasureValueType" => list(any()),
         "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()),
-        "SourceColumn" => String.t() | Atom.t(),
-        "TargetMeasureName" => String.t() | Atom.t()
+        "SourceColumn" => String.t() | atom(),
+        "TargetMeasureName" => String.t() | atom()
       }
       
   """
-  @type mixed_measure_mapping() :: %{String.t() | Atom.t() => any()}
+  @type mixed_measure_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -787,7 +787,7 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type update_database_response() :: %{String.t() | Atom.t() => any()}
+  @type update_database_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -795,12 +795,12 @@ defmodule AWS.TimestreamWrite do
       
       dimension() :: %{
         "DimensionValueType" => list(any()),
-        "Name" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type dimension() :: %{String.t() | Atom.t() => any()}
+  @type dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -811,7 +811,7 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type write_records_response() :: %{String.t() | Atom.t() => any()}
+  @type write_records_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -822,50 +822,50 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type update_table_response() :: %{String.t() | Atom.t() => any()}
+  @type update_table_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       table() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "DatabaseName" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
         "MagneticStoreWriteProperties" => magnetic_store_write_properties(),
         "RetentionProperties" => retention_properties(),
         "Schema" => schema(),
-        "TableName" => String.t() | Atom.t(),
+        "TableName" => String.t() | atom(),
         "TableStatus" => list(any())
       }
       
   """
-  @type table() :: %{String.t() | Atom.t() => any()}
+  @type table() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       dimension_mapping() :: %{
-        "DestinationColumn" => String.t() | Atom.t(),
-        "SourceColumn" => String.t() | Atom.t()
+        "DestinationColumn" => String.t() | atom(),
+        "SourceColumn" => String.t() | atom()
       }
       
   """
-  @type dimension_mapping() :: %{String.t() | Atom.t() => any()}
+  @type dimension_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rejected_records_exception() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "RejectedRecords" => list(rejected_record())
       }
       
   """
-  @type rejected_records_exception() :: %{String.t() | Atom.t() => any()}
+  @type rejected_records_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -873,11 +873,11 @@ defmodule AWS.TimestreamWrite do
       
       list_databases_response() :: %{
         "Databases" => list(database()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_databases_response() :: %{String.t() | Atom.t() => any()}
+  @type list_databases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -888,32 +888,32 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type create_database_response() :: %{String.t() | Atom.t() => any()}
+  @type create_database_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_database_request() :: %{
-        optional("KmsKeyId") => String.t() | Atom.t(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("DatabaseName") => String.t() | Atom.t()
+        required("DatabaseName") => String.t() | atom()
       }
       
   """
-  @type create_database_request() :: %{String.t() | Atom.t() => any()}
+  @type create_database_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_database_request() :: %{
-        required("DatabaseName") => String.t() | Atom.t(),
-        required("KmsKeyId") => String.t() | Atom.t()
+        required("DatabaseName") => String.t() | atom(),
+        required("KmsKeyId") => String.t() | atom()
       }
       
   """
-  @type update_database_request() :: %{String.t() | Atom.t() => any()}
+  @type update_database_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -929,7 +929,7 @@ defmodule AWS.TimestreamWrite do
       }
       
   """
-  @type batch_load_progress_report() :: %{String.t() | Atom.t() => any()}
+  @type batch_load_progress_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -937,36 +937,36 @@ defmodule AWS.TimestreamWrite do
       
       rejected_record() :: %{
         "ExistingVersion" => float(),
-        "Reason" => String.t() | Atom.t(),
+        "Reason" => String.t() | atom(),
         "RecordIndex" => integer()
       }
       
   """
-  @type rejected_record() :: %{String.t() | Atom.t() => any()}
+  @type rejected_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tables_request() :: %{
-        optional("DatabaseName") => String.t() | Atom.t(),
+        optional("DatabaseName") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_tables_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tables_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_database_request() :: %{
-        required("DatabaseName") => String.t() | Atom.t()
+        required("DatabaseName") => String.t() | atom()
       }
       
   """
-  @type delete_database_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_database_request() :: %{(String.t() | atom()) => any()}
 
   @type create_batch_load_task_errors() ::
           throttling_exception()

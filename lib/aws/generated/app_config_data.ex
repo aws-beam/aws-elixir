@@ -79,23 +79,23 @@ defmodule AWS.AppConfigData do
 
       bad_request_exception() :: %{
         "Details" => list(),
-        "Message" => String.t() | Atom.t(),
-        "Reason" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "Reason" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_latest_configuration_request() :: %{
-        required("ConfigurationToken") => String.t() | Atom.t()
+        required("ConfigurationToken") => String.t() | atom()
       }
 
   """
-  @type get_latest_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type get_latest_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -103,49 +103,49 @@ defmodule AWS.AppConfigData do
 
       get_latest_configuration_response() :: %{
         optional("Configuration") => binary(),
-        optional("ContentType") => String.t() | Atom.t(),
-        optional("NextPollConfigurationToken") => String.t() | Atom.t(),
+        optional("ContentType") => String.t() | atom(),
+        optional("NextPollConfigurationToken") => String.t() | atom(),
         optional("NextPollIntervalInSeconds") => integer(),
-        optional("VersionLabel") => String.t() | Atom.t()
+        optional("VersionLabel") => String.t() | atom()
       }
 
   """
-  @type get_latest_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_latest_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_detail() :: %{
-        "Problem" => String.t() | Atom.t()
+        "Problem" => String.t() | atom()
       }
 
   """
-  @type invalid_parameter_detail() :: %{String.t() | Atom.t() => any()}
+  @type invalid_parameter_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "ReferencedBy" => map(),
-        "ResourceType" => String.t() | Atom.t()
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -153,35 +153,35 @@ defmodule AWS.AppConfigData do
 
       start_configuration_session_request() :: %{
         optional("RequiredMinimumPollIntervalInSeconds") => integer(),
-        required("ApplicationIdentifier") => String.t() | Atom.t(),
-        required("ConfigurationProfileIdentifier") => String.t() | Atom.t(),
-        required("EnvironmentIdentifier") => String.t() | Atom.t()
+        required("ApplicationIdentifier") => String.t() | atom(),
+        required("ConfigurationProfileIdentifier") => String.t() | atom(),
+        required("EnvironmentIdentifier") => String.t() | atom()
       }
 
   """
-  @type start_configuration_session_request() :: %{String.t() | Atom.t() => any()}
+  @type start_configuration_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_configuration_session_response() :: %{
-        optional("InitialConfigurationToken") => String.t() | Atom.t()
+        optional("InitialConfigurationToken") => String.t() | atom()
       }
 
   """
-  @type start_configuration_session_response() :: %{String.t() | Atom.t() => any()}
+  @type start_configuration_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @type get_latest_configuration_errors() ::
           throttling_exception()
@@ -235,7 +235,7 @@ defmodule AWS.AppConfigData do
   `GetLatestConfiguration` is a priced call. For more information, see
   [Pricing](https://aws.amazon.com/systems-manager/pricing/).
   """
-  @spec get_latest_configuration(map(), String.t() | Atom.t(), list()) ::
+  @spec get_latest_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_latest_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

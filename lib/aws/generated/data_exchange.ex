@@ -49,37 +49,37 @@ defmodule AWS.DataExchange do
   ## Example:
 
       redshift_data_share_details() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Database" => String.t() | Atom.t(),
-        "Function" => String.t() | Atom.t(),
-        "Schema" => String.t() | Atom.t(),
-        "Table" => String.t() | Atom.t(),
-        "View" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "Database" => String.t() | atom(),
+        "Function" => String.t() | atom(),
+        "Schema" => String.t() | atom(),
+        "Table" => String.t() | atom(),
+        "View" => String.t() | atom()
       }
 
   """
-  @type redshift_data_share_details() :: %{String.t() | Atom.t() => any()}
+  @type redshift_data_share_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       import_asset_from_api_gateway_api_response_details() :: %{
-        "ApiDescription" => String.t() | Atom.t(),
-        "ApiId" => String.t() | Atom.t(),
-        "ApiKey" => String.t() | Atom.t(),
-        "ApiName" => String.t() | Atom.t(),
-        "ApiSpecificationMd5Hash" => String.t() | Atom.t(),
-        "ApiSpecificationUploadUrl" => String.t() | Atom.t(),
+        "ApiDescription" => String.t() | atom(),
+        "ApiId" => String.t() | atom(),
+        "ApiKey" => String.t() | atom(),
+        "ApiName" => String.t() | atom(),
+        "ApiSpecificationMd5Hash" => String.t() | atom(),
+        "ApiSpecificationUploadUrl" => String.t() | atom(),
         "ApiSpecificationUploadUrlExpiresAt" => non_neg_integer(),
-        "DataSetId" => String.t() | Atom.t(),
-        "ProtocolType" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t(),
-        "Stage" => String.t() | Atom.t()
+        "DataSetId" => String.t() | atom(),
+        "ProtocolType" => String.t() | atom(),
+        "RevisionId" => String.t() | atom(),
+        "Stage" => String.t() | atom()
       }
 
   """
-  @type import_asset_from_api_gateway_api_response_details() :: %{String.t() | Atom.t() => any()}
+  @type import_asset_from_api_gateway_api_response_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -96,15 +96,15 @@ defmodule AWS.DataExchange do
 
       event_action_entry() :: %{
         "Action" => action(),
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
         "Event" => event(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type event_action_entry() :: %{String.t() | Atom.t() => any()}
+  @type event_action_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -117,28 +117,28 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type scope_details() :: %{String.t() | Atom.t() => any()}
+  @type scope_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_data_set_response() :: %{
-        optional("Arn") => String.t() | Atom.t(),
-        optional("AssetType") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
+        optional("AssetType") => String.t() | atom(),
         optional("CreatedAt") => non_neg_integer(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("Id") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("Origin") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("Id") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Origin") => String.t() | atom(),
         optional("OriginDetails") => origin_details(),
-        optional("SourceId") => String.t() | Atom.t(),
+        optional("SourceId") => String.t() | atom(),
         optional("Tags") => map(),
         optional("UpdatedAt") => non_neg_integer()
       }
 
   """
-  @type get_data_set_response() :: %{String.t() | Atom.t() => any()}
+  @type get_data_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -158,63 +158,63 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_revision_response() :: %{
-        optional("Arn") => String.t() | Atom.t(),
-        optional("Comment") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
+        optional("Comment") => String.t() | atom(),
         optional("CreatedAt") => non_neg_integer(),
-        optional("DataSetId") => String.t() | Atom.t(),
+        optional("DataSetId") => String.t() | atom(),
         optional("Finalized") => boolean(),
-        optional("Id") => String.t() | Atom.t(),
-        optional("RevocationComment") => String.t() | Atom.t(),
+        optional("Id") => String.t() | atom(),
+        optional("RevocationComment") => String.t() | atom(),
         optional("Revoked") => boolean(),
         optional("RevokedAt") => non_neg_integer(),
-        optional("SourceId") => String.t() | Atom.t(),
+        optional("SourceId") => String.t() | atom(),
         optional("UpdatedAt") => non_neg_integer()
       }
 
   """
-  @type update_revision_response() :: %{String.t() | Atom.t() => any()}
+  @type update_revision_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_revision_response() :: %{
-        optional("Arn") => String.t() | Atom.t(),
-        optional("Comment") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
+        optional("Comment") => String.t() | atom(),
         optional("CreatedAt") => non_neg_integer(),
-        optional("DataSetId") => String.t() | Atom.t(),
+        optional("DataSetId") => String.t() | atom(),
         optional("Finalized") => boolean(),
-        optional("Id") => String.t() | Atom.t(),
-        optional("RevocationComment") => String.t() | Atom.t(),
+        optional("Id") => String.t() | atom(),
+        optional("RevocationComment") => String.t() | atom(),
         optional("Revoked") => boolean(),
         optional("RevokedAt") => non_neg_integer(),
-        optional("SourceId") => String.t() | Atom.t(),
+        optional("SourceId") => String.t() | atom(),
         optional("Tags") => map(),
         optional("UpdatedAt") => non_neg_integer()
       }
 
   """
-  @type get_revision_response() :: %{String.t() | Atom.t() => any()}
+  @type get_revision_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_received_data_grants_request() :: %{
-        optional("AcceptanceState") => list(String.t() | Atom.t()),
+        optional("AcceptanceState") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_received_data_grants_request() :: %{String.t() | Atom.t() => any()}
+  @type list_received_data_grants_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -222,78 +222,78 @@ defmodule AWS.DataExchange do
 
       list_data_sets_response() :: %{
         optional("DataSets") => list(data_set_entry()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_data_sets_response() :: %{String.t() | Atom.t() => any()}
+  @type list_data_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_revisions_to_s3_response_details() :: %{
-        "DataSetId" => String.t() | Atom.t(),
+        "DataSetId" => String.t() | atom(),
         "Encryption" => export_server_side_encryption(),
-        "EventActionArn" => String.t() | Atom.t(),
+        "EventActionArn" => String.t() | atom(),
         "RevisionDestinations" => list(revision_destination_entry())
       }
 
   """
-  @type export_revisions_to_s3_response_details() :: %{String.t() | Atom.t() => any()}
+  @type export_revisions_to_s3_response_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_job_response() :: %{
-        optional("Arn") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
         optional("CreatedAt") => non_neg_integer(),
         optional("Details") => response_details(),
         optional("Errors") => list(job_error()),
-        optional("Id") => String.t() | Atom.t(),
-        optional("State") => String.t() | Atom.t(),
-        optional("Type") => String.t() | Atom.t(),
+        optional("Id") => String.t() | atom(),
+        optional("State") => String.t() | atom(),
+        optional("Type") => String.t() | atom(),
         optional("UpdatedAt") => non_neg_integer()
       }
 
   """
-  @type create_job_response() :: %{String.t() | Atom.t() => any()}
+  @type create_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_received_data_grant_response() :: %{
-        "AcceptanceState" => String.t() | Atom.t(),
+        "AcceptanceState" => String.t() | atom(),
         "AcceptedAt" => non_neg_integer(),
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "DataSetId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "DataSetId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "EndsAt" => non_neg_integer(),
-        "GrantDistributionScope" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "ReceiverPrincipal" => String.t() | Atom.t(),
-        "SenderPrincipal" => String.t() | Atom.t(),
+        "GrantDistributionScope" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ReceiverPrincipal" => String.t() | atom(),
+        "SenderPrincipal" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type get_received_data_grant_response() :: %{String.t() | Atom.t() => any()}
+  @type get_received_data_grant_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       l_f_tag() :: %{
-        "TagKey" => [String.t() | Atom.t()],
-        "TagValues" => list([String.t() | Atom.t()]())
+        "TagKey" => [String.t() | atom()],
+        "TagValues" => list([String.t() | atom()]())
       }
 
   """
-  @type l_f_tag() :: %{String.t() | Atom.t() => any()}
+  @type l_f_tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -301,22 +301,22 @@ defmodule AWS.DataExchange do
 
       list_received_data_grants_response() :: %{
         "DataGrantSummaries" => list(received_data_grant_summaries_entry()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_received_data_grants_response() :: %{String.t() | Atom.t() => any()}
+  @type list_received_data_grants_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       redshift_data_share_asset_source_entry() :: %{
-        "DataShareArn" => String.t() | Atom.t()
+        "DataShareArn" => String.t() | atom()
       }
 
   """
-  @type redshift_data_share_asset_source_entry() :: %{String.t() | Atom.t() => any()}
+  @type redshift_data_share_asset_source_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -329,22 +329,22 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type create_event_action_request() :: %{String.t() | Atom.t() => any()}
+  @type create_event_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       send_data_set_notification_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Comment") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Comment") => String.t() | atom(),
         optional("Details") => notification_details(),
         optional("Scope") => scope_details(),
-        required("Type") => String.t() | Atom.t()
+        required("Type") => String.t() | atom()
       }
 
   """
-  @type send_data_set_notification_request() :: %{String.t() | Atom.t() => any()}
+  @type send_data_set_notification_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -360,50 +360,50 @@ defmodule AWS.DataExchange do
   ## Example:
 
       import_asset_from_signed_url_job_error_details() :: %{
-        "AssetName" => String.t() | Atom.t()
+        "AssetName" => String.t() | atom()
       }
 
   """
-  @type import_asset_from_signed_url_job_error_details() :: %{String.t() | Atom.t() => any()}
+  @type import_asset_from_signed_url_job_error_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_jobs_request() :: %{
-        optional("DataSetId") => String.t() | Atom.t(),
+        optional("DataSetId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("RevisionId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("RevisionId") => String.t() | atom()
       }
 
   """
-  @type list_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_grant_response() :: %{
-        "AcceptanceState" => String.t() | Atom.t(),
+        "AcceptanceState" => String.t() | atom(),
         "AcceptedAt" => non_neg_integer(),
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "DataSetId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "DataSetId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "EndsAt" => non_neg_integer(),
-        "GrantDistributionScope" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "ReceiverPrincipal" => String.t() | Atom.t(),
-        "SenderPrincipal" => String.t() | Atom.t(),
-        "SourceDataSetId" => String.t() | Atom.t(),
+        "GrantDistributionScope" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ReceiverPrincipal" => String.t() | atom(),
+        "SenderPrincipal" => String.t() | atom(),
+        "SourceDataSetId" => String.t() | atom(),
         "Tags" => map(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type create_data_grant_response() :: %{String.t() | Atom.t() => any()}
+  @type create_data_grant_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -419,11 +419,11 @@ defmodule AWS.DataExchange do
   ## Example:
 
       redshift_data_share_asset() :: %{
-        "Arn" => String.t() | Atom.t()
+        "Arn" => String.t() | atom()
       }
 
   """
-  @type redshift_data_share_asset() :: %{String.t() | Atom.t() => any()}
+  @type redshift_data_share_asset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -431,12 +431,12 @@ defmodule AWS.DataExchange do
 
       list_data_sets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("Origin") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("Origin") => String.t() | atom()
       }
 
   """
-  @type list_data_sets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_data_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -449,27 +449,27 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type notification_details() :: %{String.t() | Atom.t() => any()}
+  @type notification_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_set_entry() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "AssetType" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "AssetType" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "Origin" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Origin" => String.t() | atom(),
         "OriginDetails" => origin_details(),
-        "SourceId" => String.t() | Atom.t(),
+        "SourceId" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type data_set_entry() :: %{String.t() | Atom.t() => any()}
+  @type data_set_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -477,11 +477,11 @@ defmodule AWS.DataExchange do
 
       list_jobs_response() :: %{
         optional("Jobs") => list(job_entry()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -489,22 +489,22 @@ defmodule AWS.DataExchange do
 
       create_job_request() :: %{
         required("Details") => request_details(),
-        required("Type") => String.t() | Atom.t()
+        required("Type") => String.t() | atom()
       }
 
   """
-  @type create_job_request() :: %{String.t() | Atom.t() => any()}
+  @type create_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -512,168 +512,168 @@ defmodule AWS.DataExchange do
 
       database_l_f_tag_policy_and_permissions() :: %{
         "Expression" => list(l_f_tag()),
-        "Permissions" => list(String.t() | Atom.t())
+        "Permissions" => list(String.t() | atom())
       }
 
   """
-  @type database_l_f_tag_policy_and_permissions() :: %{String.t() | Atom.t() => any()}
+  @type database_l_f_tag_policy_and_permissions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       import_asset_from_api_gateway_api_request_details() :: %{
-        "ApiDescription" => String.t() | Atom.t(),
-        "ApiId" => String.t() | Atom.t(),
-        "ApiKey" => String.t() | Atom.t(),
-        "ApiName" => String.t() | Atom.t(),
-        "ApiSpecificationMd5Hash" => String.t() | Atom.t(),
-        "DataSetId" => String.t() | Atom.t(),
-        "ProtocolType" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t(),
-        "Stage" => String.t() | Atom.t()
+        "ApiDescription" => String.t() | atom(),
+        "ApiId" => String.t() | atom(),
+        "ApiKey" => String.t() | atom(),
+        "ApiName" => String.t() | atom(),
+        "ApiSpecificationMd5Hash" => String.t() | atom(),
+        "DataSetId" => String.t() | atom(),
+        "ProtocolType" => String.t() | atom(),
+        "RevisionId" => String.t() | atom(),
+        "Stage" => String.t() | atom()
       }
 
   """
-  @type import_asset_from_api_gateway_api_request_details() :: %{String.t() | Atom.t() => any()}
+  @type import_asset_from_api_gateway_api_request_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kms_key_to_grant() :: %{
-        "KmsKeyArn" => String.t() | Atom.t()
+        "KmsKeyArn" => String.t() | atom()
       }
 
   """
-  @type kms_key_to_grant() :: %{String.t() | Atom.t() => any()}
+  @type kms_key_to_grant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       send_api_asset_response() :: %{
-        optional("Body") => String.t() | Atom.t(),
+        optional("Body") => String.t() | atom(),
         optional("ResponseHeaders") => map()
       }
 
   """
-  @type send_api_asset_response() :: %{String.t() | Atom.t() => any()}
+  @type send_api_asset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_server_side_encryption() :: %{
-        "KmsKeyArn" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "KmsKeyArn" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type export_server_side_encryption() :: %{String.t() | Atom.t() => any()}
+  @type export_server_side_encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lake_formation_tag_policy_details() :: %{
-        "Database" => String.t() | Atom.t(),
-        "Table" => String.t() | Atom.t()
+        "Database" => String.t() | atom(),
+        "Table" => String.t() | atom()
       }
 
   """
-  @type lake_formation_tag_policy_details() :: %{String.t() | Atom.t() => any()}
+  @type lake_formation_tag_policy_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_data_set_response() :: %{
-        optional("Arn") => String.t() | Atom.t(),
-        optional("AssetType") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
+        optional("AssetType") => String.t() | atom(),
         optional("CreatedAt") => non_neg_integer(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("Id") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("Origin") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("Id") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Origin") => String.t() | atom(),
         optional("OriginDetails") => origin_details(),
-        optional("SourceId") => String.t() | Atom.t(),
+        optional("SourceId") => String.t() | atom(),
         optional("UpdatedAt") => non_neg_integer()
       }
 
   """
-  @type update_data_set_response() :: %{String.t() | Atom.t() => any()}
+  @type update_data_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       revision_entry() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Comment" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "Comment" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "DataSetId" => String.t() | Atom.t(),
+        "DataSetId" => String.t() | atom(),
         "Finalized" => boolean(),
-        "Id" => String.t() | Atom.t(),
-        "RevocationComment" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
+        "RevocationComment" => String.t() | atom(),
         "Revoked" => boolean(),
         "RevokedAt" => non_neg_integer(),
-        "SourceId" => String.t() | Atom.t(),
+        "SourceId" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type revision_entry() :: %{String.t() | Atom.t() => any()}
+  @type revision_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_asset_response() :: %{
-        optional("Arn") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
         optional("AssetDetails") => asset_details(),
-        optional("AssetType") => String.t() | Atom.t(),
+        optional("AssetType") => String.t() | atom(),
         optional("CreatedAt") => non_neg_integer(),
-        optional("DataSetId") => String.t() | Atom.t(),
-        optional("Id") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("RevisionId") => String.t() | Atom.t(),
-        optional("SourceId") => String.t() | Atom.t(),
+        optional("DataSetId") => String.t() | atom(),
+        optional("Id") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("RevisionId") => String.t() | atom(),
+        optional("SourceId") => String.t() | atom(),
         optional("UpdatedAt") => non_neg_integer()
       }
 
   """
-  @type update_asset_response() :: %{String.t() | Atom.t() => any()}
+  @type update_asset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       schema_change_details() :: %{
-        "Description" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type schema_change_details() :: %{String.t() | Atom.t() => any()}
+  @type schema_change_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_grant_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("EndsAt") => non_neg_integer(),
         optional("Tags") => map(),
-        required("GrantDistributionScope") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
-        required("ReceiverPrincipal") => String.t() | Atom.t(),
-        required("SourceDataSetId") => String.t() | Atom.t()
+        required("GrantDistributionScope") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("ReceiverPrincipal") => String.t() | atom(),
+        required("SourceDataSetId") => String.t() | atom()
       }
 
   """
-  @type create_data_grant_request() :: %{String.t() | Atom.t() => any()}
+  @type create_data_grant_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -689,40 +689,40 @@ defmodule AWS.DataExchange do
   ## Example:
 
       list_data_set_revisions_response() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Revisions") => list(revision_entry())
       }
 
   """
-  @type list_data_set_revisions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_data_set_revisions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_asset_to_signed_url_response_details() :: %{
-        "AssetId" => String.t() | Atom.t(),
-        "DataSetId" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t(),
-        "SignedUrl" => String.t() | Atom.t(),
+        "AssetId" => String.t() | atom(),
+        "DataSetId" => String.t() | atom(),
+        "RevisionId" => String.t() | atom(),
+        "SignedUrl" => String.t() | atom(),
         "SignedUrlExpiresAt" => non_neg_integer()
       }
 
   """
-  @type export_asset_to_signed_url_response_details() :: %{String.t() | Atom.t() => any()}
+  @type export_asset_to_signed_url_response_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_asset_to_signed_url_request_details() :: %{
-        "AssetId" => String.t() | Atom.t(),
-        "DataSetId" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t()
+        "AssetId" => String.t() | atom(),
+        "DataSetId" => String.t() | atom(),
+        "RevisionId" => String.t() | atom()
       }
 
   """
-  @type export_asset_to_signed_url_request_details() :: %{String.t() | Atom.t() => any()}
+  @type export_asset_to_signed_url_request_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -730,55 +730,54 @@ defmodule AWS.DataExchange do
 
       list_revision_assets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_revision_assets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_revision_assets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       import_assets_from_lake_formation_tag_policy_response_details() :: %{
-        "CatalogId" => String.t() | Atom.t(),
-        "DataSetId" => String.t() | Atom.t(),
+        "CatalogId" => String.t() | atom(),
+        "DataSetId" => String.t() | atom(),
         "Database" => database_l_f_tag_policy_and_permissions(),
-        "RevisionId" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
+        "RevisionId" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "Table" => table_l_f_tag_policy_and_permissions()
       }
 
   """
   @type import_assets_from_lake_formation_tag_policy_response_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -787,11 +786,11 @@ defmodule AWS.DataExchange do
 
       table_l_f_tag_policy_and_permissions() :: %{
         "Expression" => list(l_f_tag()),
-        "Permissions" => list(String.t() | Atom.t())
+        "Permissions" => list(String.t() | atom())
       }
 
   """
-  @type table_l_f_tag_policy_and_permissions() :: %{String.t() | Atom.t() => any()}
+  @type table_l_f_tag_policy_and_permissions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -799,36 +798,36 @@ defmodule AWS.DataExchange do
 
       export_assets_to_s3_request_details() :: %{
         "AssetDestinations" => list(asset_destination_entry()),
-        "DataSetId" => String.t() | Atom.t(),
+        "DataSetId" => String.t() | atom(),
         "Encryption" => export_server_side_encryption(),
-        "RevisionId" => String.t() | Atom.t()
+        "RevisionId" => String.t() | atom()
       }
 
   """
-  @type export_assets_to_s3_request_details() :: %{String.t() | Atom.t() => any()}
+  @type export_assets_to_s3_request_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       accept_data_grant_response() :: %{
-        "AcceptanceState" => String.t() | Atom.t(),
+        "AcceptanceState" => String.t() | atom(),
         "AcceptedAt" => non_neg_integer(),
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "DataSetId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "DataSetId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "EndsAt" => non_neg_integer(),
-        "GrantDistributionScope" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "ReceiverPrincipal" => String.t() | Atom.t(),
-        "SenderPrincipal" => String.t() | Atom.t(),
+        "GrantDistributionScope" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ReceiverPrincipal" => String.t() | atom(),
+        "SenderPrincipal" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type accept_data_grant_response() :: %{String.t() | Atom.t() => any()}
+  @type accept_data_grant_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -836,13 +835,13 @@ defmodule AWS.DataExchange do
 
       create_data_set_request() :: %{
         optional("Tags") => map(),
-        required("AssetType") => String.t() | Atom.t(),
-        required("Description") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        required("AssetType") => String.t() | atom(),
+        required("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_data_set_request() :: %{String.t() | Atom.t() => any()}
+  @type create_data_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -850,13 +849,13 @@ defmodule AWS.DataExchange do
 
       export_assets_to_s3_response_details() :: %{
         "AssetDestinations" => list(asset_destination_entry()),
-        "DataSetId" => String.t() | Atom.t(),
+        "DataSetId" => String.t() | atom(),
         "Encryption" => export_server_side_encryption(),
-        "RevisionId" => String.t() | Atom.t()
+        "RevisionId" => String.t() | atom()
       }
 
   """
-  @type export_assets_to_s3_response_details() :: %{String.t() | Atom.t() => any()}
+  @type export_assets_to_s3_response_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -864,11 +863,11 @@ defmodule AWS.DataExchange do
 
       list_revision_assets_response() :: %{
         optional("Assets") => list(asset_entry()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_revision_assets_response() :: %{String.t() | Atom.t() => any()}
+  @type list_revision_assets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -880,7 +879,7 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type details() :: %{String.t() | Atom.t() => any()}
+  @type details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -888,16 +887,16 @@ defmodule AWS.DataExchange do
 
       get_event_action_response() :: %{
         optional("Action") => action(),
-        optional("Arn") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
         optional("CreatedAt") => non_neg_integer(),
         optional("Event") => event(),
-        optional("Id") => String.t() | Atom.t(),
+        optional("Id") => String.t() | atom(),
         optional("Tags") => map(),
         optional("UpdatedAt") => non_neg_integer()
       }
 
   """
-  @type get_event_action_response() :: %{String.t() | Atom.t() => any()}
+  @type get_event_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -914,14 +913,13 @@ defmodule AWS.DataExchange do
 
       create_s3_data_access_from_s3_bucket_request_details() :: %{
         "AssetSource" => s3_data_access_asset_source_entry(),
-        "DataSetId" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t()
+        "DataSetId" => String.t() | atom(),
+        "RevisionId" => String.t() | atom()
       }
 
   """
   @type create_s3_data_access_from_s3_bucket_request_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -943,28 +941,28 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type schema_change_request_details() :: %{String.t() | Atom.t() => any()}
+  @type schema_change_request_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_set_response() :: %{
-        optional("Arn") => String.t() | Atom.t(),
-        optional("AssetType") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
+        optional("AssetType") => String.t() | atom(),
         optional("CreatedAt") => non_neg_integer(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("Id") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("Origin") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("Id") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Origin") => String.t() | atom(),
         optional("OriginDetails") => origin_details(),
-        optional("SourceId") => String.t() | Atom.t(),
+        optional("SourceId") => String.t() | atom(),
         optional("Tags") => map(),
         optional("UpdatedAt") => non_neg_integer()
       }
 
   """
-  @type create_data_set_response() :: %{String.t() | Atom.t() => any()}
+  @type create_data_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -975,23 +973,23 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type database_l_f_tag_policy() :: %{String.t() | Atom.t() => any()}
+  @type database_l_f_tag_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_data_access_asset() :: %{
-        "Bucket" => String.t() | Atom.t(),
-        "KeyPrefixes" => list(String.t() | Atom.t()),
-        "Keys" => list(String.t() | Atom.t()),
+        "Bucket" => String.t() | atom(),
+        "KeyPrefixes" => list(String.t() | atom()),
+        "Keys" => list(String.t() | atom()),
         "KmsKeysToGrant" => list(kms_key_to_grant()),
-        "S3AccessPointAlias" => String.t() | Atom.t(),
-        "S3AccessPointArn" => String.t() | Atom.t()
+        "S3AccessPointAlias" => String.t() | atom(),
+        "S3AccessPointArn" => String.t() | atom()
       }
 
   """
-  @type s3_data_access_asset() :: %{String.t() | Atom.t() => any()}
+  @type s3_data_access_asset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1002,18 +1000,18 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       revoke_revision_request() :: %{
-        required("RevocationComment") => String.t() | Atom.t()
+        required("RevocationComment") => String.t() | atom()
       }
 
   """
-  @type revoke_revision_request() :: %{String.t() | Atom.t() => any()}
+  @type revoke_revision_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1024,7 +1022,7 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type table_l_f_tag_policy() :: %{String.t() | Atom.t() => any()}
+  @type table_l_f_tag_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1035,7 +1033,7 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type update_event_action_request() :: %{String.t() | Atom.t() => any()}
+  @type update_event_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1055,27 +1053,27 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type lake_formation_data_permission_details() :: %{String.t() | Atom.t() => any()}
+  @type lake_formation_data_permission_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_asset_response() :: %{
-        optional("Arn") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
         optional("AssetDetails") => asset_details(),
-        optional("AssetType") => String.t() | Atom.t(),
+        optional("AssetType") => String.t() | atom(),
         optional("CreatedAt") => non_neg_integer(),
-        optional("DataSetId") => String.t() | Atom.t(),
-        optional("Id") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("RevisionId") => String.t() | Atom.t(),
-        optional("SourceId") => String.t() | Atom.t(),
+        optional("DataSetId") => String.t() | atom(),
+        optional("Id") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("RevisionId") => String.t() | atom(),
+        optional("SourceId") => String.t() | atom(),
         optional("UpdatedAt") => non_neg_integer()
       }
 
   """
-  @type get_asset_response() :: %{String.t() | Atom.t() => any()}
+  @type get_asset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1092,29 +1090,29 @@ defmodule AWS.DataExchange do
 
       update_event_action_response() :: %{
         optional("Action") => action(),
-        optional("Arn") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
         optional("CreatedAt") => non_neg_integer(),
         optional("Event") => event(),
-        optional("Id") => String.t() | Atom.t(),
+        optional("Id") => String.t() | atom(),
         optional("UpdatedAt") => non_neg_integer()
       }
 
   """
-  @type update_event_action_response() :: %{String.t() | Atom.t() => any()}
+  @type update_event_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_data_access_asset_source_entry() :: %{
-        "Bucket" => String.t() | Atom.t(),
-        "KeyPrefixes" => list(String.t() | Atom.t()),
-        "Keys" => list(String.t() | Atom.t()),
+        "Bucket" => String.t() | atom(),
+        "KeyPrefixes" => list(String.t() | atom()),
+        "Keys" => list(String.t() | atom()),
         "KmsKeysToGrant" => list(kms_key_to_grant())
       }
 
   """
-  @type s3_data_access_asset_source_entry() :: %{String.t() | Atom.t() => any()}
+  @type s3_data_access_asset_source_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1122,14 +1120,13 @@ defmodule AWS.DataExchange do
 
       create_s3_data_access_from_s3_bucket_response_details() :: %{
         "AssetSource" => s3_data_access_asset_source_entry(),
-        "DataSetId" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t()
+        "DataSetId" => String.t() | atom(),
+        "RevisionId" => String.t() | atom()
       }
 
   """
   @type create_s3_data_access_from_s3_bucket_response_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1141,49 +1138,49 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type data_update_request_details() :: %{String.t() | Atom.t() => any()}
+  @type data_update_request_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       api_gateway_api_asset() :: %{
-        "ApiDescription" => String.t() | Atom.t(),
-        "ApiEndpoint" => String.t() | Atom.t(),
-        "ApiId" => String.t() | Atom.t(),
-        "ApiKey" => String.t() | Atom.t(),
-        "ApiName" => String.t() | Atom.t(),
-        "ApiSpecificationDownloadUrl" => String.t() | Atom.t(),
+        "ApiDescription" => String.t() | atom(),
+        "ApiEndpoint" => String.t() | atom(),
+        "ApiId" => String.t() | atom(),
+        "ApiKey" => String.t() | atom(),
+        "ApiName" => String.t() | atom(),
+        "ApiSpecificationDownloadUrl" => String.t() | atom(),
         "ApiSpecificationDownloadUrlExpiresAt" => non_neg_integer(),
-        "ProtocolType" => String.t() | Atom.t(),
-        "Stage" => String.t() | Atom.t()
+        "ProtocolType" => String.t() | atom(),
+        "Stage" => String.t() | atom()
       }
 
   """
-  @type api_gateway_api_asset() :: %{String.t() | Atom.t() => any()}
+  @type api_gateway_api_asset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       origin_details() :: %{
-        "DataGrantId" => String.t() | Atom.t(),
-        "ProductId" => String.t() | Atom.t()
+        "DataGrantId" => String.t() | atom(),
+        "ProductId" => String.t() | atom()
       }
 
   """
-  @type origin_details() :: %{String.t() | Atom.t() => any()}
+  @type origin_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1213,61 +1210,61 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type l_f_resource_details() :: %{String.t() | Atom.t() => any()}
+  @type l_f_resource_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_revision_response() :: %{
-        optional("Arn") => String.t() | Atom.t(),
-        optional("Comment") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
+        optional("Comment") => String.t() | atom(),
         optional("CreatedAt") => non_neg_integer(),
-        optional("DataSetId") => String.t() | Atom.t(),
+        optional("DataSetId") => String.t() | atom(),
         optional("Finalized") => boolean(),
-        optional("Id") => String.t() | Atom.t(),
-        optional("RevocationComment") => String.t() | Atom.t(),
+        optional("Id") => String.t() | atom(),
+        optional("RevocationComment") => String.t() | atom(),
         optional("Revoked") => boolean(),
         optional("RevokedAt") => non_neg_integer(),
-        optional("SourceId") => String.t() | Atom.t(),
+        optional("SourceId") => String.t() | atom(),
         optional("Tags") => map(),
         optional("UpdatedAt") => non_neg_integer()
       }
 
   """
-  @type create_revision_response() :: %{String.t() | Atom.t() => any()}
+  @type create_revision_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_entry() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "AssetDetails" => asset_details(),
-        "AssetType" => String.t() | Atom.t(),
+        "AssetType" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "DataSetId" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t(),
-        "SourceId" => String.t() | Atom.t(),
+        "DataSetId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RevisionId" => String.t() | atom(),
+        "SourceId" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type asset_entry() :: %{String.t() | Atom.t() => any()}
+  @type asset_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_data_access_details() :: %{
-        "KeyPrefixes" => list(String.t() | Atom.t()),
-        "Keys" => list(String.t() | Atom.t())
+        "KeyPrefixes" => list(String.t() | atom()),
+        "Keys" => list(String.t() | atom())
       }
 
   """
-  @type s3_data_access_details() :: %{String.t() | Atom.t() => any()}
+  @type s3_data_access_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1282,7 +1279,7 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type asset_details() :: %{String.t() | Atom.t() => any()}
+  @type asset_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1293,7 +1290,7 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type event() :: %{String.t() | Atom.t() => any()}
+  @type event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1304,7 +1301,7 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type action() :: %{String.t() | Atom.t() => any()}
+  @type action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1312,12 +1309,12 @@ defmodule AWS.DataExchange do
 
       import_assets_from_s3_response_details() :: %{
         "AssetSources" => list(asset_source_entry()),
-        "DataSetId" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t()
+        "DataSetId" => String.t() | atom(),
+        "RevisionId" => String.t() | atom()
       }
 
   """
-  @type import_assets_from_s3_response_details() :: %{String.t() | Atom.t() => any()}
+  @type import_assets_from_s3_response_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1334,14 +1331,13 @@ defmodule AWS.DataExchange do
 
       import_assets_from_redshift_data_shares_request_details() :: %{
         "AssetSources" => list(redshift_data_share_asset_source_entry()),
-        "DataSetId" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t()
+        "DataSetId" => String.t() | atom(),
+        "RevisionId" => String.t() | atom()
       }
 
   """
   @type import_assets_from_redshift_data_shares_request_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1349,33 +1345,33 @@ defmodule AWS.DataExchange do
   ## Example:
 
       revision_published() :: %{
-        "DataSetId" => String.t() | Atom.t()
+        "DataSetId" => String.t() | atom()
       }
 
   """
-  @type revision_published() :: %{String.t() | Atom.t() => any()}
+  @type revision_published() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_asset_request() :: %{
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type update_asset_request() :: %{String.t() | Atom.t() => any()}
+  @type update_asset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1383,14 +1379,13 @@ defmodule AWS.DataExchange do
 
       import_assets_from_redshift_data_shares_response_details() :: %{
         "AssetSources" => list(redshift_data_share_asset_source_entry()),
-        "DataSetId" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t()
+        "DataSetId" => String.t() | atom(),
+        "RevisionId" => String.t() | atom()
       }
 
   """
   @type import_assets_from_redshift_data_shares_response_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1398,64 +1393,64 @@ defmodule AWS.DataExchange do
   ## Example:
 
       auto_export_revision_destination_entry() :: %{
-        "Bucket" => String.t() | Atom.t(),
-        "KeyPattern" => String.t() | Atom.t()
+        "Bucket" => String.t() | atom(),
+        "KeyPattern" => String.t() | atom()
       }
 
   """
-  @type auto_export_revision_destination_entry() :: %{String.t() | Atom.t() => any()}
+  @type auto_export_revision_destination_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_source_entry() :: %{
-        "Bucket" => String.t() | Atom.t(),
-        "Key" => String.t() | Atom.t()
+        "Bucket" => String.t() | atom(),
+        "Key" => String.t() | atom()
       }
 
   """
-  @type asset_source_entry() :: %{String.t() | Atom.t() => any()}
+  @type asset_source_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_grant_summary_entry() :: %{
-        "AcceptanceState" => String.t() | Atom.t(),
+        "AcceptanceState" => String.t() | atom(),
         "AcceptedAt" => non_neg_integer(),
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "DataSetId" => String.t() | Atom.t(),
+        "DataSetId" => String.t() | atom(),
         "EndsAt" => non_neg_integer(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "ReceiverPrincipal" => String.t() | Atom.t(),
-        "SenderPrincipal" => String.t() | Atom.t(),
-        "SourceDataSetId" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ReceiverPrincipal" => String.t() | atom(),
+        "SenderPrincipal" => String.t() | atom(),
+        "SourceDataSetId" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type data_grant_summary_entry() :: %{String.t() | Atom.t() => any()}
+  @type data_grant_summary_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_job_response() :: %{
-        optional("Arn") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
         optional("CreatedAt") => non_neg_integer(),
         optional("Details") => response_details(),
         optional("Errors") => list(job_error()),
-        optional("Id") => String.t() | Atom.t(),
-        optional("State") => String.t() | Atom.t(),
-        optional("Type") => String.t() | Atom.t(),
+        optional("Id") => String.t() | atom(),
+        optional("State") => String.t() | atom(),
+        optional("Type") => String.t() | atom(),
         optional("UpdatedAt") => non_neg_integer()
       }
 
   """
-  @type get_job_response() :: %{String.t() | Atom.t() => any()}
+  @type get_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1471,12 +1466,12 @@ defmodule AWS.DataExchange do
   ## Example:
 
       validation_exception() :: %{
-        "ExceptionCause" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "ExceptionCause" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1497,20 +1492,20 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type auto_export_revision_to_s3_request_details() :: %{String.t() | Atom.t() => any()}
+  @type auto_export_revision_to_s3_request_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       l_f_tag_policy_details() :: %{
-        "CatalogId" => String.t() | Atom.t(),
+        "CatalogId" => String.t() | atom(),
         "ResourceDetails" => l_f_resource_details(),
-        "ResourceType" => String.t() | Atom.t()
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type l_f_tag_policy_details() :: %{String.t() | Atom.t() => any()}
+  @type l_f_tag_policy_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1521,20 +1516,20 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type deprecation_request_details() :: %{String.t() | Atom.t() => any()}
+  @type deprecation_request_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_limit_exceeded_exception() :: %{
-        "LimitName" => String.t() | Atom.t(),
+        "LimitName" => String.t() | atom(),
         "LimitValue" => float(),
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type service_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1551,11 +1546,11 @@ defmodule AWS.DataExchange do
 
       list_data_grants_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_data_grants_request() :: %{String.t() | Atom.t() => any()}
+  @type list_data_grants_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1571,11 +1566,11 @@ defmodule AWS.DataExchange do
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1591,18 +1586,18 @@ defmodule AWS.DataExchange do
   ## Example:
 
       send_api_asset_request() :: %{
-        optional("Body") => String.t() | Atom.t(),
-        optional("Method") => String.t() | Atom.t(),
-        optional("Path") => String.t() | Atom.t(),
+        optional("Body") => String.t() | atom(),
+        optional("Method") => String.t() | atom(),
+        optional("Path") => String.t() | atom(),
         optional("QueryStringParameters") => map(),
         optional("RequestHeaders") => map(),
-        required("AssetId") => String.t() | Atom.t(),
-        required("DataSetId") => String.t() | Atom.t(),
-        required("RevisionId") => String.t() | Atom.t()
+        required("AssetId") => String.t() | atom(),
+        required("DataSetId") => String.t() | atom(),
+        required("RevisionId") => String.t() | atom()
       }
 
   """
-  @type send_api_asset_request() :: %{String.t() | Atom.t() => any()}
+  @type send_api_asset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1618,12 +1613,12 @@ defmodule AWS.DataExchange do
   ## Example:
 
       create_revision_request() :: %{
-        optional("Comment") => String.t() | Atom.t(),
+        optional("Comment") => String.t() | atom(),
         optional("Tags") => map()
       }
 
   """
-  @type create_revision_request() :: %{String.t() | Atom.t() => any()}
+  @type create_revision_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1631,12 +1626,12 @@ defmodule AWS.DataExchange do
 
       import_assets_from_s3_request_details() :: %{
         "AssetSources" => list(asset_source_entry()),
-        "DataSetId" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t()
+        "DataSetId" => String.t() | atom(),
+        "RevisionId" => String.t() | atom()
       }
 
   """
-  @type import_assets_from_s3_request_details() :: %{String.t() | Atom.t() => any()}
+  @type import_assets_from_s3_request_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1644,26 +1639,26 @@ defmodule AWS.DataExchange do
 
       lake_formation_data_permission_asset() :: %{
         "LakeFormationDataPermissionDetails" => lake_formation_data_permission_details(),
-        "LakeFormationDataPermissionType" => String.t() | Atom.t(),
-        "Permissions" => list(String.t() | Atom.t()),
-        "RoleArn" => String.t() | Atom.t()
+        "LakeFormationDataPermissionType" => String.t() | atom(),
+        "Permissions" => list(String.t() | atom()),
+        "RoleArn" => String.t() | atom()
       }
 
   """
-  @type lake_formation_data_permission_asset() :: %{String.t() | Atom.t() => any()}
+  @type lake_formation_data_permission_asset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_event_actions_request() :: %{
-        optional("EventSourceId") => String.t() | Atom.t(),
+        optional("EventSourceId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_event_actions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_event_actions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1671,11 +1666,11 @@ defmodule AWS.DataExchange do
 
       list_data_grants_response() :: %{
         "DataGrantSummaries" => list(data_grant_summary_entry()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_data_grants_response() :: %{String.t() | Atom.t() => any()}
+  @type list_data_grants_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1683,49 +1678,49 @@ defmodule AWS.DataExchange do
 
       list_data_set_revisions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_data_set_revisions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_data_set_revisions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_destination_entry() :: %{
-        "AssetId" => String.t() | Atom.t(),
-        "Bucket" => String.t() | Atom.t(),
-        "Key" => String.t() | Atom.t()
+        "AssetId" => String.t() | atom(),
+        "Bucket" => String.t() | atom(),
+        "Key" => String.t() | atom()
       }
 
   """
-  @type asset_destination_entry() :: %{String.t() | Atom.t() => any()}
+  @type asset_destination_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_data_grant_response() :: %{
-        "AcceptanceState" => String.t() | Atom.t(),
+        "AcceptanceState" => String.t() | atom(),
         "AcceptedAt" => non_neg_integer(),
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "DataSetId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "DataSetId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "EndsAt" => non_neg_integer(),
-        "GrantDistributionScope" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "ReceiverPrincipal" => String.t() | Atom.t(),
-        "SenderPrincipal" => String.t() | Atom.t(),
-        "SourceDataSetId" => String.t() | Atom.t(),
+        "GrantDistributionScope" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ReceiverPrincipal" => String.t() | atom(),
+        "SenderPrincipal" => String.t() | atom(),
+        "SourceDataSetId" => String.t() | atom(),
         "Tags" => map(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type get_data_grant_response() :: %{String.t() | Atom.t() => any()}
+  @type get_data_grant_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1733,11 +1728,11 @@ defmodule AWS.DataExchange do
 
       list_event_actions_response() :: %{
         optional("EventActions") => list(event_action_entry()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_event_actions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_event_actions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1756,55 +1751,55 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type request_details() :: %{String.t() | Atom.t() => any()}
+  @type request_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_entry() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
         "Details" => response_details(),
         "Errors" => list(job_error()),
-        "Id" => String.t() | Atom.t(),
-        "State" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
+        "State" => String.t() | atom(),
+        "Type" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type job_entry() :: %{String.t() | Atom.t() => any()}
+  @type job_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       import_asset_from_signed_url_request_details() :: %{
-        "AssetName" => String.t() | Atom.t(),
-        "DataSetId" => String.t() | Atom.t(),
-        "Md5Hash" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t()
+        "AssetName" => String.t() | atom(),
+        "DataSetId" => String.t() | atom(),
+        "Md5Hash" => String.t() | atom(),
+        "RevisionId" => String.t() | atom()
       }
 
   """
-  @type import_asset_from_signed_url_request_details() :: %{String.t() | Atom.t() => any()}
+  @type import_asset_from_signed_url_request_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       import_asset_from_signed_url_response_details() :: %{
-        "AssetName" => String.t() | Atom.t(),
-        "DataSetId" => String.t() | Atom.t(),
-        "Md5Hash" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t(),
-        "SignedUrl" => String.t() | Atom.t(),
+        "AssetName" => String.t() | atom(),
+        "DataSetId" => String.t() | atom(),
+        "Md5Hash" => String.t() | atom(),
+        "RevisionId" => String.t() | atom(),
+        "SignedUrl" => String.t() | atom(),
         "SignedUrlExpiresAt" => non_neg_integer()
       }
 
   """
-  @type import_asset_from_signed_url_response_details() :: %{String.t() | Atom.t() => any()}
+  @type import_asset_from_signed_url_response_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1823,25 +1818,24 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type response_details() :: %{String.t() | Atom.t() => any()}
+  @type response_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       import_assets_from_lake_formation_tag_policy_request_details() :: %{
-        "CatalogId" => String.t() | Atom.t(),
-        "DataSetId" => String.t() | Atom.t(),
+        "CatalogId" => String.t() | atom(),
+        "DataSetId" => String.t() | atom(),
         "Database" => database_l_f_tag_policy_and_permissions(),
-        "RevisionId" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
+        "RevisionId" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "Table" => table_l_f_tag_policy_and_permissions()
       }
 
   """
   @type import_assets_from_lake_formation_tag_policy_request_details() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1849,33 +1843,33 @@ defmodule AWS.DataExchange do
   ## Example:
 
       received_data_grant_summaries_entry() :: %{
-        "AcceptanceState" => String.t() | Atom.t(),
+        "AcceptanceState" => String.t() | atom(),
         "AcceptedAt" => non_neg_integer(),
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "DataSetId" => String.t() | Atom.t(),
+        "DataSetId" => String.t() | atom(),
         "EndsAt" => non_neg_integer(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "ReceiverPrincipal" => String.t() | Atom.t(),
-        "SenderPrincipal" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ReceiverPrincipal" => String.t() | atom(),
+        "SenderPrincipal" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type received_data_grant_summaries_entry() :: %{String.t() | Atom.t() => any()}
+  @type received_data_grant_summaries_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_revision_request() :: %{
-        optional("Comment") => String.t() | Atom.t(),
+        optional("Comment") => String.t() | atom(),
         optional("Finalized") => boolean()
       }
 
   """
-  @type update_revision_request() :: %{String.t() | Atom.t() => any()}
+  @type update_revision_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1886,83 +1880,83 @@ defmodule AWS.DataExchange do
       }
 
   """
-  @type s3_snapshot_asset() :: %{String.t() | Atom.t() => any()}
+  @type s3_snapshot_asset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_revisions_to_s3_request_details() :: %{
-        "DataSetId" => String.t() | Atom.t(),
+        "DataSetId" => String.t() | atom(),
         "Encryption" => export_server_side_encryption(),
         "RevisionDestinations" => list(revision_destination_entry())
       }
 
   """
-  @type export_revisions_to_s3_request_details() :: %{String.t() | Atom.t() => any()}
+  @type export_revisions_to_s3_request_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       revoke_revision_response() :: %{
-        optional("Arn") => String.t() | Atom.t(),
-        optional("Comment") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
+        optional("Comment") => String.t() | atom(),
         optional("CreatedAt") => non_neg_integer(),
-        optional("DataSetId") => String.t() | Atom.t(),
+        optional("DataSetId") => String.t() | atom(),
         optional("Finalized") => boolean(),
-        optional("Id") => String.t() | Atom.t(),
-        optional("RevocationComment") => String.t() | Atom.t(),
+        optional("Id") => String.t() | atom(),
+        optional("RevocationComment") => String.t() | atom(),
         optional("Revoked") => boolean(),
         optional("RevokedAt") => non_neg_integer(),
-        optional("SourceId") => String.t() | Atom.t(),
+        optional("SourceId") => String.t() | atom(),
         optional("UpdatedAt") => non_neg_integer()
       }
 
   """
-  @type revoke_revision_response() :: %{String.t() | Atom.t() => any()}
+  @type revoke_revision_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_error() :: %{
-        "Code" => String.t() | Atom.t(),
+        "Code" => String.t() | atom(),
         "Details" => details(),
-        "LimitName" => String.t() | Atom.t(),
+        "LimitName" => String.t() | atom(),
         "LimitValue" => float(),
-        "Message" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type job_error() :: %{String.t() | Atom.t() => any()}
+  @type job_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_data_set_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_data_set_request() :: %{String.t() | Atom.t() => any()}
+  @type update_data_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       revision_destination_entry() :: %{
-        "Bucket" => String.t() | Atom.t(),
-        "KeyPattern" => String.t() | Atom.t(),
-        "RevisionId" => String.t() | Atom.t()
+        "Bucket" => String.t() | atom(),
+        "KeyPattern" => String.t() | atom(),
+        "RevisionId" => String.t() | atom()
       }
 
   """
-  @type revision_destination_entry() :: %{String.t() | Atom.t() => any()}
+  @type revision_destination_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1970,16 +1964,16 @@ defmodule AWS.DataExchange do
 
       create_event_action_response() :: %{
         optional("Action") => action(),
-        optional("Arn") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
         optional("CreatedAt") => non_neg_integer(),
         optional("Event") => event(),
-        optional("Id") => String.t() | Atom.t(),
+        optional("Id") => String.t() | atom(),
         optional("Tags") => map(),
         optional("UpdatedAt") => non_neg_integer()
       }
 
   """
-  @type create_event_action_response() :: %{String.t() | Atom.t() => any()}
+  @type create_event_action_response() :: %{(String.t() | atom()) => any()}
 
   @type accept_data_grant_errors() ::
           throttling_exception()
@@ -2238,7 +2232,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation accepts a data grant.
   """
-  @spec accept_data_grant(map(), String.t() | Atom.t(), accept_data_grant_request(), list()) ::
+  @spec accept_data_grant(map(), String.t() | atom(), accept_data_grant_request(), list()) ::
           {:ok, accept_data_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2270,7 +2264,7 @@ defmodule AWS.DataExchange do
   Jobs can be cancelled only when they are in the WAITING
   state.
   """
-  @spec cancel_job(map(), String.t() | Atom.t(), cancel_job_request(), list()) ::
+  @spec cancel_job(map(), String.t() | atom(), cancel_job_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2415,7 +2409,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation creates a revision for a data set.
   """
-  @spec create_revision(map(), String.t() | Atom.t(), create_revision_request(), list()) ::
+  @spec create_revision(map(), String.t() | atom(), create_revision_request(), list()) ::
           {:ok, create_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2446,9 +2440,9 @@ defmodule AWS.DataExchange do
   """
   @spec delete_asset(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_asset_request(),
           list()
         ) ::
@@ -2482,7 +2476,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation deletes a data grant.
   """
-  @spec delete_data_grant(map(), String.t() | Atom.t(), delete_data_grant_request(), list()) ::
+  @spec delete_data_grant(map(), String.t() | atom(), delete_data_grant_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2511,7 +2505,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation deletes a data set.
   """
-  @spec delete_data_set(map(), String.t() | Atom.t(), delete_data_set_request(), list()) ::
+  @spec delete_data_set(map(), String.t() | atom(), delete_data_set_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2540,7 +2534,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation deletes the event action.
   """
-  @spec delete_event_action(map(), String.t() | Atom.t(), delete_event_action_request(), list()) ::
+  @spec delete_event_action(map(), String.t() | atom(), delete_event_action_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2571,8 +2565,8 @@ defmodule AWS.DataExchange do
   """
   @spec delete_revision(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_revision_request(),
           list()
         ) ::
@@ -2606,13 +2600,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation returns information about an asset.
   """
-  @spec get_asset(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec get_asset(map(), String.t() | atom(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2632,7 +2620,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation returns information about a data grant.
   """
-  @spec get_data_grant(map(), String.t() | Atom.t(), list()) ::
+  @spec get_data_grant(map(), String.t() | atom(), list()) ::
           {:ok, get_data_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2650,7 +2638,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation returns information about a data set.
   """
-  @spec get_data_set(map(), String.t() | Atom.t(), list()) ::
+  @spec get_data_set(map(), String.t() | atom(), list()) ::
           {:ok, get_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2668,7 +2656,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation retrieves information about an event action.
   """
-  @spec get_event_action(map(), String.t() | Atom.t(), list()) ::
+  @spec get_event_action(map(), String.t() | atom(), list()) ::
           {:ok, get_event_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2686,7 +2674,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation returns information about a job.
   """
-  @spec get_job(map(), String.t() | Atom.t(), list()) ::
+  @spec get_job(map(), String.t() | atom(), list()) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2704,7 +2692,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation returns information about a received data grant.
   """
-  @spec get_received_data_grant(map(), String.t() | Atom.t(), list()) ::
+  @spec get_received_data_grant(map(), String.t() | atom(), list()) ::
           {:ok, get_received_data_grant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2722,7 +2710,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation returns information about a revision.
   """
-  @spec get_revision(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_revision(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2742,7 +2730,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation returns information about all data grants.
   """
-  @spec list_data_grants(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_data_grants(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_data_grants_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2777,9 +2765,9 @@ defmodule AWS.DataExchange do
   """
   @spec list_data_set_revisions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_data_set_revisions_response(), any()}
@@ -2825,9 +2813,9 @@ defmodule AWS.DataExchange do
   """
   @spec list_data_sets(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_data_sets_response(), any()}
@@ -2876,9 +2864,9 @@ defmodule AWS.DataExchange do
   """
   @spec list_event_actions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_event_actions_response(), any()}
@@ -2927,10 +2915,10 @@ defmodule AWS.DataExchange do
   """
   @spec list_jobs(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_jobs_response(), any()}
@@ -2987,9 +2975,9 @@ defmodule AWS.DataExchange do
   """
   @spec list_received_data_grants(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_received_data_grants_response(), any()}
@@ -3039,10 +3027,10 @@ defmodule AWS.DataExchange do
   """
   @spec list_revision_assets(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_revision_assets_response(), any()}
@@ -3085,7 +3073,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation lists the tags on the resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3104,8 +3092,8 @@ defmodule AWS.DataExchange do
   """
   @spec revoke_revision(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           revoke_revision_request(),
           list()
         ) ::
@@ -3206,7 +3194,7 @@ defmodule AWS.DataExchange do
   """
   @spec send_data_set_notification(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           send_data_set_notification_request(),
           list()
         ) ::
@@ -3238,7 +3226,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation starts a job.
   """
-  @spec start_job(map(), String.t() | Atom.t(), start_job_request(), list()) ::
+  @spec start_job(map(), String.t() | atom(), start_job_request(), list()) ::
           {:ok, start_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3267,7 +3255,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation tags a resource.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3295,7 +3283,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation removes one or more tags from a resource.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3330,9 +3318,9 @@ defmodule AWS.DataExchange do
   """
   @spec update_asset(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_asset_request(),
           list()
         ) ::
@@ -3366,7 +3354,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation updates a data set.
   """
-  @spec update_data_set(map(), String.t() | Atom.t(), update_data_set_request(), list()) ::
+  @spec update_data_set(map(), String.t() | atom(), update_data_set_request(), list()) ::
           {:ok, update_data_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3395,7 +3383,7 @@ defmodule AWS.DataExchange do
   @doc """
   This operation updates the event action.
   """
-  @spec update_event_action(map(), String.t() | Atom.t(), update_event_action_request(), list()) ::
+  @spec update_event_action(map(), String.t() | atom(), update_event_action_request(), list()) ::
           {:ok, update_event_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3426,8 +3414,8 @@ defmodule AWS.DataExchange do
   """
   @spec update_revision(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_revision_request(),
           list()
         ) ::

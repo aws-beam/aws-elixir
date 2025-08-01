@@ -141,12 +141,12 @@ defmodule AWS.MarketplaceMetering do
   ## Example:
       
       batch_meter_usage_request() :: %{
-        required("ProductCode") => String.t() | Atom.t(),
+        required("ProductCode") => String.t() | atom(),
         required("UsageRecords") => list(usage_record())
       }
       
   """
-  @type batch_meter_usage_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_meter_usage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -158,161 +158,161 @@ defmodule AWS.MarketplaceMetering do
       }
       
   """
-  @type batch_meter_usage_result() :: %{String.t() | Atom.t() => any()}
+  @type batch_meter_usage_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       customer_not_entitled_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type customer_not_entitled_exception() :: %{String.t() | Atom.t() => any()}
+  @type customer_not_entitled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disabled_api_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type disabled_api_exception() :: %{String.t() | Atom.t() => any()}
+  @type disabled_api_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       duplicate_request_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type duplicate_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type duplicate_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       expired_token_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type expired_token_exception() :: %{String.t() | Atom.t() => any()}
+  @type expired_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_service_error_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type internal_service_error_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_service_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_customer_identifier_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_customer_identifier_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_customer_identifier_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_endpoint_region_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_endpoint_region_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_endpoint_region_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_product_code_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_product_code_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_product_code_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_public_key_version_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_public_key_version_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_public_key_version_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_region_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_region_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_region_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_tag_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_tag_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_tag_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_token_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_token_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_usage_allocations_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_usage_allocations_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_usage_allocations_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_usage_dimension_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_usage_dimension_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_usage_dimension_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -322,48 +322,48 @@ defmodule AWS.MarketplaceMetering do
         optional("DryRun") => boolean(),
         optional("UsageAllocations") => list(usage_allocation()),
         optional("UsageQuantity") => integer(),
-        required("ProductCode") => String.t() | Atom.t(),
+        required("ProductCode") => String.t() | atom(),
         required("Timestamp") => non_neg_integer(),
-        required("UsageDimension") => String.t() | Atom.t()
+        required("UsageDimension") => String.t() | atom()
       }
       
   """
-  @type meter_usage_request() :: %{String.t() | Atom.t() => any()}
+  @type meter_usage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       meter_usage_result() :: %{
-        "MeteringRecordId" => String.t() | Atom.t()
+        "MeteringRecordId" => String.t() | atom()
       }
       
   """
-  @type meter_usage_result() :: %{String.t() | Atom.t() => any()}
+  @type meter_usage_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       platform_not_supported_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type platform_not_supported_exception() :: %{String.t() | Atom.t() => any()}
+  @type platform_not_supported_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_usage_request() :: %{
-        optional("Nonce") => String.t() | Atom.t(),
-        required("ProductCode") => String.t() | Atom.t(),
+        optional("Nonce") => String.t() | atom(),
+        required("ProductCode") => String.t() | atom(),
         required("PublicKeyVersion") => integer()
       }
       
   """
-  @type register_usage_request() :: %{String.t() | Atom.t() => any()}
+  @type register_usage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -371,69 +371,69 @@ defmodule AWS.MarketplaceMetering do
       
       register_usage_result() :: %{
         "PublicKeyRotationTimestamp" => non_neg_integer(),
-        "Signature" => String.t() | Atom.t()
+        "Signature" => String.t() | atom()
       }
       
   """
-  @type register_usage_result() :: %{String.t() | Atom.t() => any()}
+  @type register_usage_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resolve_customer_request() :: %{
-        required("RegistrationToken") => String.t() | Atom.t()
+        required("RegistrationToken") => String.t() | atom()
       }
       
   """
-  @type resolve_customer_request() :: %{String.t() | Atom.t() => any()}
+  @type resolve_customer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resolve_customer_result() :: %{
-        "CustomerAWSAccountId" => String.t() | Atom.t(),
-        "CustomerIdentifier" => String.t() | Atom.t(),
-        "ProductCode" => String.t() | Atom.t()
+        "CustomerAWSAccountId" => String.t() | atom(),
+        "CustomerIdentifier" => String.t() | atom(),
+        "ProductCode" => String.t() | atom()
       }
       
   """
-  @type resolve_customer_result() :: %{String.t() | Atom.t() => any()}
+  @type resolve_customer_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       timestamp_out_of_bounds_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type timestamp_out_of_bounds_exception() :: %{String.t() | Atom.t() => any()}
+  @type timestamp_out_of_bounds_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -445,36 +445,36 @@ defmodule AWS.MarketplaceMetering do
       }
       
   """
-  @type usage_allocation() :: %{String.t() | Atom.t() => any()}
+  @type usage_allocation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       usage_record() :: %{
-        "CustomerAWSAccountId" => String.t() | Atom.t(),
-        "CustomerIdentifier" => String.t() | Atom.t(),
-        "Dimension" => String.t() | Atom.t(),
+        "CustomerAWSAccountId" => String.t() | atom(),
+        "CustomerIdentifier" => String.t() | atom(),
+        "Dimension" => String.t() | atom(),
         "Quantity" => integer(),
         "Timestamp" => non_neg_integer(),
         "UsageAllocations" => list(usage_allocation())
       }
       
   """
-  @type usage_record() :: %{String.t() | Atom.t() => any()}
+  @type usage_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       usage_record_result() :: %{
-        "MeteringRecordId" => String.t() | Atom.t(),
+        "MeteringRecordId" => String.t() | atom(),
         "Status" => list(any()),
         "UsageRecord" => usage_record()
       }
       
   """
-  @type usage_record_result() :: %{String.t() | Atom.t() => any()}
+  @type usage_record_result() :: %{(String.t() | atom()) => any()}
 
   @type batch_meter_usage_errors() ::
           timestamp_out_of_bounds_exception()

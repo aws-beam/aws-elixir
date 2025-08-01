@@ -20,25 +20,25 @@ defmodule AWS.Mq do
 
       user_pending_changes() :: %{
         "ConsoleAccess" => boolean(),
-        "Groups" => list(String.t() | Atom.t()),
+        "Groups" => list(String.t() | atom()),
         "PendingChange" => list(any())
       }
 
   """
-  @type user_pending_changes() :: %{String.t() | Atom.t() => any()}
+  @type user_pending_changes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sanitization_warning() :: %{
-        "AttributeName" => String.t() | Atom.t(),
-        "ElementName" => String.t() | Atom.t(),
+        "AttributeName" => String.t() | atom(),
+        "ElementName" => String.t() | atom(),
         "Reason" => list(any())
       }
 
   """
-  @type sanitization_warning() :: %{String.t() | Atom.t() => any()}
+  @type sanitization_warning() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -46,99 +46,99 @@ defmodule AWS.Mq do
 
       user_summary() :: %{
         "PendingChange" => list(any()),
-        "Username" => String.t() | Atom.t()
+        "Username" => String.t() | atom()
       }
 
   """
-  @type user_summary() :: %{String.t() | Atom.t() => any()}
+  @type user_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_broker_response() :: %{
-        "PendingSecurityGroups" => list(String.t() | Atom.t()),
+        "PendingSecurityGroups" => list(String.t() | atom()),
         "Tags" => map(),
         "AuthenticationStrategy" => list(any()),
-        "BrokerName" => String.t() | Atom.t(),
+        "BrokerName" => String.t() | atom(),
         "PendingLdapServerMetadata" => ldap_server_metadata_output(),
         "Configurations" => configurations(),
         "Logs" => logs_summary(),
         "LdapServerMetadata" => ldap_server_metadata_output(),
-        "BrokerArn" => String.t() | Atom.t(),
+        "BrokerArn" => String.t() | atom(),
         "EngineType" => list(any()),
         "Created" => non_neg_integer(),
         "ActionsRequired" => list(action_required()),
         "AutoMinorVersionUpgrade" => boolean(),
-        "PendingHostInstanceType" => String.t() | Atom.t(),
+        "PendingHostInstanceType" => String.t() | atom(),
         "DataReplicationMode" => list(any()),
         "EncryptionOptions" => encryption_options(),
         "MaintenanceWindowStartTime" => weekly_start_time(),
-        "HostInstanceType" => String.t() | Atom.t(),
+        "HostInstanceType" => String.t() | atom(),
         "Users" => list(user_summary()),
         "DeploymentMode" => list(any()),
-        "PendingEngineVersion" => String.t() | Atom.t(),
-        "BrokerId" => String.t() | Atom.t(),
+        "PendingEngineVersion" => String.t() | atom(),
+        "BrokerId" => String.t() | atom(),
         "BrokerInstances" => list(broker_instance()),
         "PendingAuthenticationStrategy" => list(any()),
-        "SubnetIds" => list(String.t() | Atom.t()),
+        "SubnetIds" => list(String.t() | atom()),
         "StorageType" => list(any()),
         "PendingDataReplicationMetadata" => data_replication_metadata_output(),
         "BrokerState" => list(any()),
         "PubliclyAccessible" => boolean(),
-        "EngineVersion" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | atom(),
         "PendingDataReplicationMode" => list(any()),
         "DataReplicationMetadata" => data_replication_metadata_output(),
-        "SecurityGroups" => list(String.t() | Atom.t())
+        "SecurityGroups" => list(String.t() | atom())
       }
 
   """
-  @type describe_broker_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_broker_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       promote_response() :: %{
-        "BrokerId" => String.t() | Atom.t()
+        "BrokerId" => String.t() | atom()
       }
 
   """
-  @type promote_response() :: %{String.t() | Atom.t() => any()}
+  @type promote_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_tags_request() :: %{
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type delete_tags_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       availability_zone() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type availability_zone() :: %{String.t() | Atom.t() => any()}
+  @type availability_zone() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "ErrorAttribute" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "ErrorAttribute" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() | Atom.t() => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -148,40 +148,40 @@ defmodule AWS.Mq do
         optional("AuthenticationStrategy") => list(any()),
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("Configuration") => configuration_id(),
-        optional("CreatorRequestId") => String.t() | Atom.t(),
+        optional("CreatorRequestId") => String.t() | atom(),
         optional("DataReplicationMode") => list(any()),
-        optional("DataReplicationPrimaryBrokerArn") => String.t() | Atom.t(),
+        optional("DataReplicationPrimaryBrokerArn") => String.t() | atom(),
         optional("EncryptionOptions") => encryption_options(),
-        optional("EngineVersion") => String.t() | Atom.t(),
+        optional("EngineVersion") => String.t() | atom(),
         optional("LdapServerMetadata") => ldap_server_metadata_input(),
         optional("Logs") => logs(),
         optional("MaintenanceWindowStartTime") => weekly_start_time(),
-        optional("SecurityGroups") => list(String.t() | Atom.t()),
+        optional("SecurityGroups") => list(String.t() | atom()),
         optional("StorageType") => list(any()),
-        optional("SubnetIds") => list(String.t() | Atom.t()),
+        optional("SubnetIds") => list(String.t() | atom()),
         optional("Tags") => map(),
-        required("BrokerName") => String.t() | Atom.t(),
+        required("BrokerName") => String.t() | atom(),
         required("DeploymentMode") => list(any()),
         required("EngineType") => list(any()),
-        required("HostInstanceType") => String.t() | Atom.t(),
+        required("HostInstanceType") => String.t() | atom(),
         required("PubliclyAccessible") => boolean(),
         required("Users") => list(user())
       }
 
   """
-  @type create_broker_request() :: %{String.t() | Atom.t() => any()}
+  @type create_broker_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_configuration_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        required("Data") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        required("Data") => String.t() | atom()
       }
 
   """
-  @type update_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -190,23 +190,23 @@ defmodule AWS.Mq do
       describe_broker_engine_types_response() :: %{
         "BrokerEngineTypes" => list(broker_engine_type()),
         "MaxResults" => integer(),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type describe_broker_engine_types_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_broker_engine_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_broker_response() :: %{
-        "BrokerArn" => String.t() | Atom.t(),
-        "BrokerId" => String.t() | Atom.t()
+        "BrokerArn" => String.t() | atom(),
+        "BrokerId" => String.t() | atom()
       }
 
   """
-  @type create_broker_response() :: %{String.t() | Atom.t() => any()}
+  @type create_broker_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -222,23 +222,23 @@ defmodule AWS.Mq do
   ## Example:
 
       engine_version() :: %{
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type engine_version() :: %{String.t() | Atom.t() => any()}
+  @type engine_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       forbidden_exception() :: %{
-        "ErrorAttribute" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "ErrorAttribute" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() | Atom.t() => any()}
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -247,11 +247,11 @@ defmodule AWS.Mq do
       list_configurations_response() :: %{
         "Configurations" => list(configuration()),
         "MaxResults" => integer(),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_configurations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -268,11 +268,11 @@ defmodule AWS.Mq do
 
       data_replication_metadata_output() :: %{
         "DataReplicationCounterpart" => data_replication_counterpart(),
-        "DataReplicationRole" => String.t() | Atom.t()
+        "DataReplicationRole" => String.t() | atom()
       }
 
   """
-  @type data_replication_metadata_output() :: %{String.t() | Atom.t() => any()}
+  @type data_replication_metadata_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -283,38 +283,38 @@ defmodule AWS.Mq do
       }
 
   """
-  @type list_tags_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_broker_response() :: %{
-        "BrokerId" => String.t() | Atom.t()
+        "BrokerId" => String.t() | atom()
       }
 
   """
-  @type delete_broker_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_broker_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       configuration() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "AuthenticationStrategy" => list(any()),
         "Created" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "EngineType" => list(any()),
-        "EngineVersion" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "LatestRevision" => configuration_revision(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type configuration() :: %{String.t() | Atom.t() => any()}
+  @type configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -326,19 +326,19 @@ defmodule AWS.Mq do
       }
 
   """
-  @type logs() :: %{String.t() | Atom.t() => any()}
+  @type logs() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       encryption_options() :: %{
-        "KmsKeyId" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
         "UseAwsOwnedKey" => boolean()
       }
 
   """
-  @type encryption_options() :: %{String.t() | Atom.t() => any()}
+  @type encryption_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -346,22 +346,22 @@ defmodule AWS.Mq do
 
       list_configurations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_configurations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_configuration_response() :: %{
-        "ConfigurationId" => String.t() | Atom.t()
+        "ConfigurationId" => String.t() | atom()
       }
 
   """
-  @type delete_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -372,7 +372,7 @@ defmodule AWS.Mq do
       }
 
   """
-  @type create_tags_request() :: %{String.t() | Atom.t() => any()}
+  @type create_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -384,7 +384,7 @@ defmodule AWS.Mq do
       }
 
   """
-  @type pending_logs() :: %{String.t() | Atom.t() => any()}
+  @type pending_logs() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -392,23 +392,23 @@ defmodule AWS.Mq do
 
       list_brokers_response() :: %{
         "BrokerSummaries" => list(broker_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_brokers_response() :: %{String.t() | Atom.t() => any()}
+  @type list_brokers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "ErrorAttribute" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "ErrorAttribute" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -424,13 +424,13 @@ defmodule AWS.Mq do
   ## Example:
 
       describe_broker_engine_types_request() :: %{
-        optional("EngineType") => String.t() | Atom.t(),
+        optional("EngineType") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_broker_engine_types_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_broker_engine_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -441,7 +441,7 @@ defmodule AWS.Mq do
       }
 
   """
-  @type promote_request() :: %{String.t() | Atom.t() => any()}
+  @type promote_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -466,44 +466,44 @@ defmodule AWS.Mq do
   ## Example:
 
       list_users_response() :: %{
-        "BrokerId" => String.t() | Atom.t(),
+        "BrokerId" => String.t() | atom(),
         "MaxResults" => integer(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Users" => list(user_summary())
       }
 
   """
-  @type list_users_response() :: %{String.t() | Atom.t() => any()}
+  @type list_users_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "ErrorAttribute" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "ErrorAttribute" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       broker_summary() :: %{
-        "BrokerArn" => String.t() | Atom.t(),
-        "BrokerId" => String.t() | Atom.t(),
-        "BrokerName" => String.t() | Atom.t(),
+        "BrokerArn" => String.t() | atom(),
+        "BrokerId" => String.t() | atom(),
+        "BrokerName" => String.t() | atom(),
         "BrokerState" => list(any()),
         "Created" => non_neg_integer(),
         "DeploymentMode" => list(any()),
         "EngineType" => list(any()),
-        "HostInstanceType" => String.t() | Atom.t()
+        "HostInstanceType" => String.t() | atom()
       }
 
   """
-  @type broker_summary() :: %{String.t() | Atom.t() => any()}
+  @type broker_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -511,28 +511,28 @@ defmodule AWS.Mq do
 
       create_configuration_request() :: %{
         optional("AuthenticationStrategy") => list(any()),
-        optional("EngineVersion") => String.t() | Atom.t(),
+        optional("EngineVersion") => String.t() | atom(),
         optional("Tags") => map(),
         required("EngineType") => list(any()),
-        required("Name") => String.t() | Atom.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type create_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_configuration_revisions_response() :: %{
-        "ConfigurationId" => String.t() | Atom.t(),
+        "ConfigurationId" => String.t() | atom(),
         "MaxResults" => integer(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Revisions" => list(configuration_revision())
       }
 
   """
-  @type list_configuration_revisions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_configuration_revisions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -548,37 +548,37 @@ defmodule AWS.Mq do
   ## Example:
 
       create_configuration_response() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "AuthenticationStrategy" => list(any()),
         "Created" => non_neg_integer(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "LatestRevision" => configuration_revision(),
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type create_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ldap_server_metadata_input() :: %{
-        "Hosts" => list(String.t() | Atom.t()),
-        "RoleBase" => String.t() | Atom.t(),
-        "RoleName" => String.t() | Atom.t(),
-        "RoleSearchMatching" => String.t() | Atom.t(),
+        "Hosts" => list(String.t() | atom()),
+        "RoleBase" => String.t() | atom(),
+        "RoleName" => String.t() | atom(),
+        "RoleSearchMatching" => String.t() | atom(),
         "RoleSearchSubtree" => boolean(),
-        "ServiceAccountPassword" => String.t() | Atom.t(),
-        "ServiceAccountUsername" => String.t() | Atom.t(),
-        "UserBase" => String.t() | Atom.t(),
-        "UserRoleName" => String.t() | Atom.t(),
-        "UserSearchMatching" => String.t() | Atom.t(),
+        "ServiceAccountPassword" => String.t() | atom(),
+        "ServiceAccountUsername" => String.t() | atom(),
+        "UserBase" => String.t() | atom(),
+        "UserRoleName" => String.t() | atom(),
+        "UserSearchMatching" => String.t() | atom(),
         "UserSearchSubtree" => boolean()
       }
 
   """
-  @type ldap_server_metadata_input() :: %{String.t() | Atom.t() => any()}
+  @type ldap_server_metadata_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -603,31 +603,31 @@ defmodule AWS.Mq do
   ## Example:
 
       describe_broker_instance_options_request() :: %{
-        optional("EngineType") => String.t() | Atom.t(),
-        optional("HostInstanceType") => String.t() | Atom.t(),
+        optional("EngineType") => String.t() | atom(),
+        optional("HostInstanceType") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("StorageType") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("StorageType") => String.t() | atom()
       }
 
   """
-  @type describe_broker_instance_options_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_broker_instance_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_configuration_response() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "Created" => non_neg_integer(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "LatestRevision" => configuration_revision(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Warnings" => list(sanitization_warning())
       }
 
   """
-  @type update_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type update_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -639,90 +639,90 @@ defmodule AWS.Mq do
       }
 
   """
-  @type broker_engine_type() :: %{String.t() | Atom.t() => any()}
+  @type broker_engine_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_configuration_revision_response() :: %{
-        "ConfigurationId" => String.t() | Atom.t(),
+        "ConfigurationId" => String.t() | atom(),
         "Created" => non_neg_integer(),
-        "Data" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t()
+        "Data" => String.t() | atom(),
+        "Description" => String.t() | atom()
       }
 
   """
-  @type describe_configuration_revision_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_configuration_revision_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_user_response() :: %{
-        "BrokerId" => String.t() | Atom.t(),
+        "BrokerId" => String.t() | atom(),
         "ConsoleAccess" => boolean(),
-        "Groups" => list(String.t() | Atom.t()),
+        "Groups" => list(String.t() | atom()),
         "Pending" => user_pending_changes(),
         "ReplicationUser" => boolean(),
-        "Username" => String.t() | Atom.t()
+        "Username" => String.t() | atom()
       }
 
   """
-  @type describe_user_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ldap_server_metadata_output() :: %{
-        "Hosts" => list(String.t() | Atom.t()),
-        "RoleBase" => String.t() | Atom.t(),
-        "RoleName" => String.t() | Atom.t(),
-        "RoleSearchMatching" => String.t() | Atom.t(),
+        "Hosts" => list(String.t() | atom()),
+        "RoleBase" => String.t() | atom(),
+        "RoleName" => String.t() | atom(),
+        "RoleSearchMatching" => String.t() | atom(),
         "RoleSearchSubtree" => boolean(),
-        "ServiceAccountUsername" => String.t() | Atom.t(),
-        "UserBase" => String.t() | Atom.t(),
-        "UserRoleName" => String.t() | Atom.t(),
-        "UserSearchMatching" => String.t() | Atom.t(),
+        "ServiceAccountUsername" => String.t() | atom(),
+        "UserBase" => String.t() | atom(),
+        "UserRoleName" => String.t() | atom(),
+        "UserSearchMatching" => String.t() | atom(),
         "UserSearchSubtree" => boolean()
       }
 
   """
-  @type ldap_server_metadata_output() :: %{String.t() | Atom.t() => any()}
+  @type ldap_server_metadata_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       broker_instance() :: %{
-        "ConsoleURL" => String.t() | Atom.t(),
-        "Endpoints" => list(String.t() | Atom.t()),
-        "IpAddress" => String.t() | Atom.t()
+        "ConsoleURL" => String.t() | atom(),
+        "Endpoints" => list(String.t() | atom()),
+        "IpAddress" => String.t() | atom()
       }
 
   """
-  @type broker_instance() :: %{String.t() | Atom.t() => any()}
+  @type broker_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_configuration_response() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "AuthenticationStrategy" => list(any()),
         "Created" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "EngineType" => list(any()),
-        "EngineVersion" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "LatestRevision" => configuration_revision(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type describe_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -730,12 +730,12 @@ defmodule AWS.Mq do
 
       weekly_start_time() :: %{
         "DayOfWeek" => list(any()),
-        "TimeOfDay" => String.t() | Atom.t(),
-        "TimeZone" => String.t() | Atom.t()
+        "TimeOfDay" => String.t() | atom(),
+        "TimeZone" => String.t() | atom()
       }
 
   """
-  @type weekly_start_time() :: %{String.t() | Atom.t() => any()}
+  @type weekly_start_time() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -752,25 +752,25 @@ defmodule AWS.Mq do
 
       update_user_request() :: %{
         optional("ConsoleAccess") => boolean(),
-        optional("Groups") => list(String.t() | Atom.t()),
-        optional("Password") => String.t() | Atom.t(),
+        optional("Groups") => list(String.t() | atom()),
+        optional("Password") => String.t() | atom(),
         optional("ReplicationUser") => boolean()
       }
 
   """
-  @type update_user_request() :: %{String.t() | Atom.t() => any()}
+  @type update_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_error_exception() :: %{
-        "ErrorAttribute" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "ErrorAttribute" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_error_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -778,14 +778,14 @@ defmodule AWS.Mq do
 
       user() :: %{
         "ConsoleAccess" => boolean(),
-        "Groups" => list(String.t() | Atom.t()),
-        "Password" => String.t() | Atom.t(),
+        "Groups" => list(String.t() | atom()),
+        "Password" => String.t() | atom(),
         "ReplicationUser" => boolean(),
-        "Username" => String.t() | Atom.t()
+        "Username" => String.t() | atom()
       }
 
   """
-  @type user() :: %{String.t() | Atom.t() => any()}
+  @type user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -793,14 +793,14 @@ defmodule AWS.Mq do
 
       logs_summary() :: %{
         "Audit" => boolean(),
-        "AuditLogGroup" => String.t() | Atom.t(),
+        "AuditLogGroup" => String.t() | atom(),
         "General" => boolean(),
-        "GeneralLogGroup" => String.t() | Atom.t(),
+        "GeneralLogGroup" => String.t() | atom(),
         "Pending" => pending_logs()
       }
 
   """
-  @type logs_summary() :: %{String.t() | Atom.t() => any()}
+  @type logs_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -808,11 +808,11 @@ defmodule AWS.Mq do
 
       list_users_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_users_request() :: %{String.t() | Atom.t() => any()}
+  @type list_users_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -830,14 +830,14 @@ defmodule AWS.Mq do
       broker_instance_option() :: %{
         "AvailabilityZones" => list(availability_zone()),
         "EngineType" => list(any()),
-        "HostInstanceType" => String.t() | Atom.t(),
+        "HostInstanceType" => String.t() | atom(),
         "StorageType" => list(any()),
         "SupportedDeploymentModes" => list(list(any())()),
-        "SupportedEngineVersions" => list(String.t() | Atom.t())
+        "SupportedEngineVersions" => list(String.t() | atom())
       }
 
   """
-  @type broker_instance_option() :: %{String.t() | Atom.t() => any()}
+  @type broker_instance_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -853,24 +853,24 @@ defmodule AWS.Mq do
   ## Example:
 
       configuration_id() :: %{
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "Revision" => integer()
       }
 
   """
-  @type configuration_id() :: %{String.t() | Atom.t() => any()}
+  @type configuration_id() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "ErrorAttribute" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "ErrorAttribute" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -879,34 +879,34 @@ defmodule AWS.Mq do
       update_broker_response() :: %{
         "AuthenticationStrategy" => list(any()),
         "AutoMinorVersionUpgrade" => boolean(),
-        "BrokerId" => String.t() | Atom.t(),
+        "BrokerId" => String.t() | atom(),
         "Configuration" => configuration_id(),
         "DataReplicationMetadata" => data_replication_metadata_output(),
         "DataReplicationMode" => list(any()),
-        "EngineVersion" => String.t() | Atom.t(),
-        "HostInstanceType" => String.t() | Atom.t(),
+        "EngineVersion" => String.t() | atom(),
+        "HostInstanceType" => String.t() | atom(),
         "LdapServerMetadata" => ldap_server_metadata_output(),
         "Logs" => logs(),
         "MaintenanceWindowStartTime" => weekly_start_time(),
         "PendingDataReplicationMetadata" => data_replication_metadata_output(),
         "PendingDataReplicationMode" => list(any()),
-        "SecurityGroups" => list(String.t() | Atom.t())
+        "SecurityGroups" => list(String.t() | atom())
       }
 
   """
-  @type update_broker_response() :: %{String.t() | Atom.t() => any()}
+  @type update_broker_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_replication_counterpart() :: %{
-        "BrokerId" => String.t() | Atom.t(),
-        "Region" => String.t() | Atom.t()
+        "BrokerId" => String.t() | atom(),
+        "Region" => String.t() | atom()
       }
 
   """
-  @type data_replication_counterpart() :: %{String.t() | Atom.t() => any()}
+  @type data_replication_counterpart() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -919,7 +919,7 @@ defmodule AWS.Mq do
       }
 
   """
-  @type configurations() :: %{String.t() | Atom.t() => any()}
+  @type configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -927,12 +927,12 @@ defmodule AWS.Mq do
 
       configuration_revision() :: %{
         "Created" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "Revision" => integer()
       }
 
   """
-  @type configuration_revision() :: %{String.t() | Atom.t() => any()}
+  @type configuration_revision() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -950,11 +950,11 @@ defmodule AWS.Mq do
       describe_broker_instance_options_response() :: %{
         "BrokerInstanceOptions" => list(broker_instance_option()),
         "MaxResults" => integer(),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type describe_broker_instance_options_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_broker_instance_options_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -965,16 +965,16 @@ defmodule AWS.Mq do
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("Configuration") => configuration_id(),
         optional("DataReplicationMode") => list(any()),
-        optional("EngineVersion") => String.t() | Atom.t(),
-        optional("HostInstanceType") => String.t() | Atom.t(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("HostInstanceType") => String.t() | atom(),
         optional("LdapServerMetadata") => ldap_server_metadata_input(),
         optional("Logs") => logs(),
         optional("MaintenanceWindowStartTime") => weekly_start_time(),
-        optional("SecurityGroups") => list(String.t() | Atom.t())
+        optional("SecurityGroups") => list(String.t() | atom())
       }
 
   """
-  @type update_broker_request() :: %{String.t() | Atom.t() => any()}
+  @type update_broker_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -990,12 +990,12 @@ defmodule AWS.Mq do
   ## Example:
 
       action_required() :: %{
-        "ActionRequiredCode" => String.t() | Atom.t(),
-        "ActionRequiredInfo" => String.t() | Atom.t()
+        "ActionRequiredCode" => String.t() | atom(),
+        "ActionRequiredInfo" => String.t() | atom()
       }
 
   """
-  @type action_required() :: %{String.t() | Atom.t() => any()}
+  @type action_required() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1003,11 +1003,11 @@ defmodule AWS.Mq do
 
       list_configuration_revisions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_configuration_revisions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_configuration_revisions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1015,11 +1015,11 @@ defmodule AWS.Mq do
 
       list_brokers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_brokers_request() :: %{String.t() | Atom.t() => any()}
+  @type list_brokers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1027,13 +1027,13 @@ defmodule AWS.Mq do
 
       create_user_request() :: %{
         optional("ConsoleAccess") => boolean(),
-        optional("Groups") => list(String.t() | Atom.t()),
+        optional("Groups") => list(String.t() | atom()),
         optional("ReplicationUser") => boolean(),
-        required("Password") => String.t() | Atom.t()
+        required("Password") => String.t() | atom()
       }
 
   """
-  @type create_user_request() :: %{String.t() | Atom.t() => any()}
+  @type create_user_request() :: %{(String.t() | atom()) => any()}
 
   @type create_broker_errors() ::
           bad_request_exception()
@@ -1290,7 +1290,7 @@ defmodule AWS.Mq do
   @doc """
   Add a tag to a resource.
   """
-  @spec create_tags(map(), String.t() | Atom.t(), create_tags_request(), list()) ::
+  @spec create_tags(map(), String.t() | atom(), create_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1326,8 +1326,8 @@ defmodule AWS.Mq do
   """
   @spec create_user(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_user_request(),
           list()
         ) ::
@@ -1363,7 +1363,7 @@ defmodule AWS.Mq do
 
   Note: This API is asynchronous.
   """
-  @spec delete_broker(map(), String.t() | Atom.t(), delete_broker_request(), list()) ::
+  @spec delete_broker(map(), String.t() | atom(), delete_broker_request(), list()) ::
           {:ok, delete_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1392,7 +1392,7 @@ defmodule AWS.Mq do
   @doc """
   Deletes the specified configuration.
   """
-  @spec delete_configuration(map(), String.t() | Atom.t(), delete_configuration_request(), list()) ::
+  @spec delete_configuration(map(), String.t() | atom(), delete_configuration_request(), list()) ::
           {:ok, delete_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1421,7 +1421,7 @@ defmodule AWS.Mq do
   @doc """
   Removes a tag from a resource.
   """
-  @spec delete_tags(map(), String.t() | Atom.t(), delete_tags_request(), list()) ::
+  @spec delete_tags(map(), String.t() | atom(), delete_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1457,8 +1457,8 @@ defmodule AWS.Mq do
   """
   @spec delete_user(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_user_request(),
           list()
         ) ::
@@ -1492,7 +1492,7 @@ defmodule AWS.Mq do
   @doc """
   Returns information about the specified broker.
   """
-  @spec describe_broker(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_broker(map(), String.t() | atom(), list()) ::
           {:ok, describe_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1512,9 +1512,9 @@ defmodule AWS.Mq do
   """
   @spec describe_broker_engine_types(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_broker_engine_types_response(), any()}
@@ -1563,11 +1563,11 @@ defmodule AWS.Mq do
   """
   @spec describe_broker_instance_options(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_broker_instance_options_response(), any()}
@@ -1630,7 +1630,7 @@ defmodule AWS.Mq do
   @doc """
   Returns information about the specified configuration.
   """
-  @spec describe_configuration(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_configuration(map(), String.t() | atom(), list()) ::
           {:ok, describe_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1648,12 +1648,7 @@ defmodule AWS.Mq do
   @doc """
   Returns the specified configuration revision for the specified configuration.
   """
-  @spec describe_configuration_revision(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec describe_configuration_revision(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_configuration_revision_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1678,7 +1673,7 @@ defmodule AWS.Mq do
   @doc """
   Returns information about an ActiveMQ user.
   """
-  @spec describe_user(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec describe_user(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_user_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1698,7 +1693,7 @@ defmodule AWS.Mq do
   @doc """
   Returns a list of all brokers.
   """
-  @spec list_brokers(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_brokers(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_brokers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1732,9 +1727,9 @@ defmodule AWS.Mq do
   """
   @spec list_configuration_revisions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_configuration_revisions_response(), any()}
@@ -1774,12 +1769,7 @@ defmodule AWS.Mq do
   @doc """
   Returns a list of all configurations.
   """
-  @spec list_configurations(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec list_configurations(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1816,7 +1806,7 @@ defmodule AWS.Mq do
   @doc """
   Lists tags for a resource.
   """
-  @spec list_tags(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1836,9 +1826,9 @@ defmodule AWS.Mq do
   """
   @spec list_users(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_users_response(), any()}
@@ -1878,7 +1868,7 @@ defmodule AWS.Mq do
   @doc """
   Promotes a data replication replica broker to the primary broker role.
   """
-  @spec promote(map(), String.t() | Atom.t(), promote_request(), list()) ::
+  @spec promote(map(), String.t() | atom(), promote_request(), list()) ::
           {:ok, promote_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1909,7 +1899,7 @@ defmodule AWS.Mq do
 
   Note: This API is asynchronous.
   """
-  @spec reboot_broker(map(), String.t() | Atom.t(), reboot_broker_request(), list()) ::
+  @spec reboot_broker(map(), String.t() | atom(), reboot_broker_request(), list()) ::
           {:ok, reboot_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1938,7 +1928,7 @@ defmodule AWS.Mq do
   @doc """
   Adds a pending configuration change to a broker.
   """
-  @spec update_broker(map(), String.t() | Atom.t(), update_broker_request(), list()) ::
+  @spec update_broker(map(), String.t() | atom(), update_broker_request(), list()) ::
           {:ok, update_broker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1967,7 +1957,7 @@ defmodule AWS.Mq do
   @doc """
   Updates the specified configuration.
   """
-  @spec update_configuration(map(), String.t() | Atom.t(), update_configuration_request(), list()) ::
+  @spec update_configuration(map(), String.t() | atom(), update_configuration_request(), list()) ::
           {:ok, update_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1998,8 +1988,8 @@ defmodule AWS.Mq do
   """
   @spec update_user(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_user_request(),
           list()
         ) ::

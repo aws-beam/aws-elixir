@@ -22,36 +22,36 @@ defmodule AWS.Wisdom do
 
       start_content_upload_response() :: %{
         required("headersToInclude") => map(),
-        required("uploadId") => String.t() | Atom.t(),
-        required("url") => String.t() | Atom.t(),
+        required("uploadId") => String.t() | atom(),
+        required("url") => String.t() | atom(),
         required("urlExpiry") => [non_neg_integer()]
       }
 
   """
-  @type start_content_upload_response() :: %{String.t() | Atom.t() => any()}
+  @type start_content_upload_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_knowledge_base_template_uri_request() :: %{
-        required("templateUri") => String.t() | Atom.t()
+        required("templateUri") => String.t() | atom()
       }
 
   """
-  @type update_knowledge_base_template_uri_request() :: %{String.t() | Atom.t() => any()}
+  @type update_knowledge_base_template_uri_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       query_assistant_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("results") => list(result_data())
       }
 
   """
-  @type query_assistant_response() :: %{String.t() | Atom.t() => any()}
+  @type query_assistant_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -62,21 +62,21 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       session_summary() :: %{
-        "assistantArn" => String.t() | Atom.t(),
-        "assistantId" => String.t() | Atom.t(),
-        "sessionArn" => String.t() | Atom.t(),
-        "sessionId" => String.t() | Atom.t()
+        "assistantArn" => String.t() | atom(),
+        "assistantId" => String.t() | atom(),
+        "sessionArn" => String.t() | atom(),
+        "sessionId" => String.t() | atom()
       }
 
   """
-  @type session_summary() :: %{String.t() | Atom.t() => any()}
+  @type session_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -87,7 +87,7 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type create_quick_response_response() :: %{String.t() | Atom.t() => any()}
+  @type create_quick_response_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -98,7 +98,7 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type get_session_response() :: %{String.t() | Atom.t() => any()}
+  @type get_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -107,12 +107,12 @@ defmodule AWS.Wisdom do
       search_quick_responses_request() :: %{
         optional("attributes") => map(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("searchExpression") => quick_response_search_expression()
       }
 
   """
-  @type search_quick_responses_request() :: %{String.t() | Atom.t() => any()}
+  @type search_quick_responses_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -134,7 +134,7 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type quick_response_search_expression() :: %{String.t() | Atom.t() => any()}
+  @type quick_response_search_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -146,31 +146,31 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type highlight() :: %{String.t() | Atom.t() => any()}
+  @type highlight() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       app_integrations_configuration() :: %{
-        "appIntegrationArn" => String.t() | Atom.t(),
-        "objectFields" => list(String.t() | Atom.t())
+        "appIntegrationArn" => String.t() | atom(),
+        "objectFields" => list(String.t() | atom())
       }
 
   """
-  @type app_integrations_configuration() :: %{String.t() | Atom.t() => any()}
+  @type app_integrations_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_contents_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("contentSummaries") => list(content_summary())
       }
 
   """
-  @type list_contents_response() :: %{String.t() | Atom.t() => any()}
+  @type list_contents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -178,13 +178,13 @@ defmodule AWS.Wisdom do
 
       quick_response_filter_field() :: %{
         "includeNoExistence" => [boolean()],
-        "name" => String.t() | Atom.t(),
-        "operator" => String.t() | Atom.t(),
-        "values" => list(String.t() | Atom.t())
+        "name" => String.t() | atom(),
+        "operator" => String.t() | atom(),
+        "values" => list(String.t() | atom())
       }
 
   """
-  @type quick_response_filter_field() :: %{String.t() | Atom.t() => any()}
+  @type quick_response_filter_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -192,11 +192,11 @@ defmodule AWS.Wisdom do
 
       external_source_configuration() :: %{
         "configuration" => list(),
-        "source" => String.t() | Atom.t()
+        "source" => String.t() | atom()
       }
 
   """
-  @type external_source_configuration() :: %{String.t() | Atom.t() => any()}
+  @type external_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -204,14 +204,14 @@ defmodule AWS.Wisdom do
 
       recommendation_data() :: %{
         "document" => document(),
-        "recommendationId" => [String.t() | Atom.t()],
-        "relevanceLevel" => String.t() | Atom.t(),
+        "recommendationId" => [String.t() | atom()],
+        "relevanceLevel" => String.t() | atom(),
         "relevanceScore" => float(),
-        "type" => String.t() | Atom.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type recommendation_data() :: %{String.t() | Atom.t() => any()}
+  @type recommendation_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -219,11 +219,11 @@ defmodule AWS.Wisdom do
 
       list_contents_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_contents_request() :: %{String.t() | Atom.t() => any()}
+  @type list_contents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -252,18 +252,18 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type get_content_summary_response() :: %{String.t() | Atom.t() => any()}
+  @type get_content_summary_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       assistant_integration_configuration() :: %{
-        "topicIntegrationArn" => String.t() | Atom.t()
+        "topicIntegrationArn" => String.t() | atom()
       }
 
   """
-  @type assistant_integration_configuration() :: %{String.t() | Atom.t() => any()}
+  @type assistant_integration_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -283,7 +283,7 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type create_content_response() :: %{String.t() | Atom.t() => any()}
+  @type create_content_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -294,7 +294,7 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type get_assistant_response() :: %{String.t() | Atom.t() => any()}
+  @type get_assistant_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -306,33 +306,33 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type get_recommendations_response() :: %{String.t() | Atom.t() => any()}
+  @type get_recommendations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       request_timeout_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type request_timeout_exception() :: %{String.t() | Atom.t() => any()}
+  @type request_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_import_job_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("externalSourceConfiguration") => external_source_configuration(),
         optional("metadata") => map(),
-        required("importJobType") => String.t() | Atom.t(),
-        required("uploadId") => String.t() | Atom.t()
+        required("importJobType") => String.t() | atom(),
+        required("uploadId") => String.t() | atom()
       }
 
   """
-  @type start_import_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_import_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -343,18 +343,18 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type create_knowledge_base_response() :: %{String.t() | Atom.t() => any()}
+  @type create_knowledge_base_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -365,51 +365,51 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type get_assistant_association_response() :: %{String.t() | Atom.t() => any()}
+  @type get_assistant_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_quick_response_request() :: %{
-        optional("channels") => list(String.t() | Atom.t()),
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("contentType") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
+        optional("channels") => list(String.t() | atom()),
+        optional("clientToken") => String.t() | atom(),
+        optional("contentType") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("groupingConfiguration") => grouping_configuration(),
         optional("isActive") => [boolean()],
-        optional("language") => String.t() | Atom.t(),
-        optional("shortcutKey") => String.t() | Atom.t(),
+        optional("language") => String.t() | atom(),
+        optional("shortcutKey") => String.t() | atom(),
         optional("tags") => map(),
         required("content") => list(),
-        required("name") => String.t() | Atom.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_quick_response_request() :: %{String.t() | Atom.t() => any()}
+  @type create_quick_response_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connect_configuration() :: %{
-        "instanceId" => String.t() | Atom.t()
+        "instanceId" => String.t() | atom()
       }
 
   """
-  @type connect_configuration() :: %{String.t() | Atom.t() => any()}
+  @type connect_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_content_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("contentSummaries") => list(content_summary())
       }
 
   """
-  @type search_content_response() :: %{String.t() | Atom.t() => any()}
+  @type search_content_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -426,11 +426,11 @@ defmodule AWS.Wisdom do
 
       list_quick_responses_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_quick_responses_request() :: %{String.t() | Atom.t() => any()}
+  @type list_quick_responses_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -438,11 +438,11 @@ defmodule AWS.Wisdom do
 
       start_content_upload_request() :: %{
         optional("presignedUrlTimeToLive") => integer(),
-        required("contentType") => String.t() | Atom.t()
+        required("contentType") => String.t() | atom()
       }
 
   """
-  @type start_content_upload_request() :: %{String.t() | Atom.t() => any()}
+  @type start_content_upload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -458,14 +458,14 @@ defmodule AWS.Wisdom do
   ## Example:
 
       create_session_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("tags") => map(),
-        required("name") => String.t() | Atom.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_session_request() :: %{String.t() | Atom.t() => any()}
+  @type create_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -476,25 +476,25 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type update_knowledge_base_template_uri_response() :: %{String.t() | Atom.t() => any()}
+  @type update_knowledge_base_template_uri_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_knowledge_base_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("renderingConfiguration") => rendering_configuration(),
         optional("serverSideEncryptionConfiguration") => server_side_encryption_configuration(),
         optional("sourceConfiguration") => list(),
         optional("tags") => map(),
-        required("knowledgeBaseType") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t()
+        required("knowledgeBaseType") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_knowledge_base_request() :: %{String.t() | Atom.t() => any()}
+  @type create_knowledge_base_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -502,43 +502,43 @@ defmodule AWS.Wisdom do
 
       list_import_jobs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_import_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_import_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       knowledge_base_summary() :: %{
-        "description" => String.t() | Atom.t(),
-        "knowledgeBaseArn" => String.t() | Atom.t(),
-        "knowledgeBaseId" => String.t() | Atom.t(),
-        "knowledgeBaseType" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "knowledgeBaseType" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "renderingConfiguration" => rendering_configuration(),
         "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
         "sourceConfiguration" => list(),
-        "status" => String.t() | Atom.t(),
+        "status" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type knowledge_base_summary() :: %{String.t() | Atom.t() => any()}
+  @type knowledge_base_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_quick_responses_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "quickResponseSummaries" => list(quick_response_summary())
       }
 
   """
-  @type list_quick_responses_response() :: %{String.t() | Atom.t() => any()}
+  @type list_quick_responses_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -546,34 +546,34 @@ defmodule AWS.Wisdom do
 
       list_knowledge_bases_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_knowledge_bases_request() :: %{String.t() | Atom.t() => any()}
+  @type list_knowledge_bases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "resourceName" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "resourceName" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -582,59 +582,59 @@ defmodule AWS.Wisdom do
       import_job_data() :: %{
         "createdTime" => [non_neg_integer()],
         "externalSourceConfiguration" => external_source_configuration(),
-        "failedRecordReport" => String.t() | Atom.t(),
-        "importJobId" => String.t() | Atom.t(),
-        "importJobType" => String.t() | Atom.t(),
-        "knowledgeBaseArn" => String.t() | Atom.t(),
-        "knowledgeBaseId" => String.t() | Atom.t(),
+        "failedRecordReport" => String.t() | atom(),
+        "importJobId" => String.t() | atom(),
+        "importJobType" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
         "lastModifiedTime" => [non_neg_integer()],
         "metadata" => map(),
-        "status" => String.t() | Atom.t(),
-        "uploadId" => String.t() | Atom.t(),
-        "url" => String.t() | Atom.t(),
+        "status" => String.t() | atom(),
+        "uploadId" => String.t() | atom(),
+        "url" => String.t() | atom(),
         "urlExpiry" => [non_neg_integer()]
       }
 
   """
-  @type import_job_data() :: %{String.t() | Atom.t() => any()}
+  @type import_job_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       knowledge_base_data() :: %{
-        "description" => String.t() | Atom.t(),
-        "knowledgeBaseArn" => String.t() | Atom.t(),
-        "knowledgeBaseId" => String.t() | Atom.t(),
-        "knowledgeBaseType" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "knowledgeBaseType" => String.t() | atom(),
         "lastContentModificationTime" => [non_neg_integer()],
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "renderingConfiguration" => rendering_configuration(),
         "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
         "sourceConfiguration" => list(),
-        "status" => String.t() | Atom.t(),
+        "status" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type knowledge_base_data() :: %{String.t() | Atom.t() => any()}
+  @type knowledge_base_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       assistant_association_data() :: %{
-        "assistantArn" => String.t() | Atom.t(),
-        "assistantAssociationArn" => String.t() | Atom.t(),
-        "assistantAssociationId" => String.t() | Atom.t(),
-        "assistantId" => String.t() | Atom.t(),
+        "assistantArn" => String.t() | atom(),
+        "assistantAssociationArn" => String.t() | atom(),
+        "assistantAssociationId" => String.t() | atom(),
+        "assistantId" => String.t() | atom(),
         "associationData" => list(),
-        "associationType" => String.t() | Atom.t(),
+        "associationType" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type assistant_association_data() :: %{String.t() | Atom.t() => any()}
+  @type assistant_association_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -642,11 +642,11 @@ defmodule AWS.Wisdom do
 
       document_text() :: %{
         "highlights" => list(highlight()),
-        "text" => String.t() | Atom.t()
+        "text" => String.t() | atom()
       }
 
   """
-  @type document_text() :: %{String.t() | Atom.t() => any()}
+  @type document_text() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -676,7 +676,7 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type quick_response_contents() :: %{String.t() | Atom.t() => any()}
+  @type quick_response_contents() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -692,30 +692,30 @@ defmodule AWS.Wisdom do
   ## Example:
 
       assistant_data() :: %{
-        "assistantArn" => String.t() | Atom.t(),
-        "assistantId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "assistantArn" => String.t() | atom(),
+        "assistantId" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "integrationConfiguration" => assistant_integration_configuration(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
-        "status" => String.t() | Atom.t(),
+        "status" => String.t() | atom(),
         "tags" => map(),
-        "type" => String.t() | Atom.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type assistant_data() :: %{String.t() | Atom.t() => any()}
+  @type assistant_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -726,31 +726,31 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type create_assistant_response() :: %{String.t() | Atom.t() => any()}
+  @type create_assistant_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       quick_response_summary() :: %{
-        "channels" => list(String.t() | Atom.t()),
-        "contentType" => String.t() | Atom.t(),
+        "channels" => list(String.t() | atom()),
+        "contentType" => String.t() | atom(),
         "createdTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "isActive" => [boolean()],
-        "knowledgeBaseArn" => String.t() | Atom.t(),
-        "knowledgeBaseId" => String.t() | Atom.t(),
-        "lastModifiedBy" => String.t() | Atom.t(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "lastModifiedBy" => String.t() | atom(),
         "lastModifiedTime" => [non_neg_integer()],
-        "name" => String.t() | Atom.t(),
-        "quickResponseArn" => String.t() | Atom.t(),
-        "quickResponseId" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "quickResponseArn" => String.t() | atom(),
+        "quickResponseId" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type quick_response_summary() :: %{String.t() | Atom.t() => any()}
+  @type quick_response_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -761,7 +761,7 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type get_quick_response_response() :: %{String.t() | Atom.t() => any()}
+  @type get_quick_response_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -777,16 +777,16 @@ defmodule AWS.Wisdom do
   ## Example:
 
       create_assistant_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("serverSideEncryptionConfiguration") => server_side_encryption_configuration(),
         optional("tags") => map(),
-        required("name") => String.t() | Atom.t(),
-        required("type") => String.t() | Atom.t()
+        required("name") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
 
   """
-  @type create_assistant_request() :: %{String.t() | Atom.t() => any()}
+  @type create_assistant_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -798,30 +798,30 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type get_recommendations_request() :: %{String.t() | Atom.t() => any()}
+  @type get_recommendations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       query_recommendation_trigger_data() :: %{
-        "text" => String.t() | Atom.t()
+        "text" => String.t() | atom()
       }
 
   """
-  @type query_recommendation_trigger_data() :: %{String.t() | Atom.t() => any()}
+  @type query_recommendation_trigger_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_sessions_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("sessionSummaries") => list(session_summary())
       }
 
   """
-  @type search_sessions_response() :: %{String.t() | Atom.t() => any()}
+  @type search_sessions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -829,73 +829,73 @@ defmodule AWS.Wisdom do
 
       notify_recommendations_received_response() :: %{
         optional("errors") => list(notify_recommendations_received_error()),
-        optional("recommendationIds") => list([String.t() | Atom.t()]())
+        optional("recommendationIds") => list([String.t() | atom()]())
       }
 
   """
-  @type notify_recommendations_received_response() :: %{String.t() | Atom.t() => any()}
+  @type notify_recommendations_received_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_quick_response_request() :: %{
-        optional("channels") => list(String.t() | Atom.t()),
+        optional("channels") => list(String.t() | atom()),
         optional("content") => list(),
-        optional("contentType") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
+        optional("contentType") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("groupingConfiguration") => grouping_configuration(),
         optional("isActive") => [boolean()],
-        optional("language") => String.t() | Atom.t(),
-        optional("name") => String.t() | Atom.t(),
+        optional("language") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
         optional("removeDescription") => [boolean()],
         optional("removeGroupingConfiguration") => [boolean()],
         optional("removeShortcutKey") => [boolean()],
-        optional("shortcutKey") => String.t() | Atom.t()
+        optional("shortcutKey") => String.t() | atom()
       }
 
   """
-  @type update_quick_response_request() :: %{String.t() | Atom.t() => any()}
+  @type update_quick_response_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       quick_response_data() :: %{
-        "channels" => list(String.t() | Atom.t()),
-        "contentType" => String.t() | Atom.t(),
+        "channels" => list(String.t() | atom()),
+        "contentType" => String.t() | atom(),
         "contents" => quick_response_contents(),
         "createdTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "groupingConfiguration" => grouping_configuration(),
         "isActive" => [boolean()],
-        "knowledgeBaseArn" => String.t() | Atom.t(),
-        "knowledgeBaseId" => String.t() | Atom.t(),
-        "language" => String.t() | Atom.t(),
-        "lastModifiedBy" => String.t() | Atom.t(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "language" => String.t() | atom(),
+        "lastModifiedBy" => String.t() | atom(),
         "lastModifiedTime" => [non_neg_integer()],
-        "name" => String.t() | Atom.t(),
-        "quickResponseArn" => String.t() | Atom.t(),
-        "quickResponseId" => String.t() | Atom.t(),
-        "shortcutKey" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "quickResponseArn" => String.t() | atom(),
+        "quickResponseId" => String.t() | atom(),
+        "shortcutKey" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type quick_response_data() :: %{String.t() | Atom.t() => any()}
+  @type quick_response_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       knowledge_base_association_data() :: %{
-        "knowledgeBaseArn" => String.t() | Atom.t(),
-        "knowledgeBaseId" => String.t() | Atom.t()
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom()
       }
 
   """
-  @type knowledge_base_association_data() :: %{String.t() | Atom.t() => any()}
+  @type knowledge_base_association_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -906,7 +906,7 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -914,11 +914,11 @@ defmodule AWS.Wisdom do
 
       list_assistant_associations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_assistant_associations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_assistant_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -938,26 +938,26 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type update_quick_response_response() :: %{String.t() | Atom.t() => any()}
+  @type update_quick_response_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       assistant_summary() :: %{
-        "assistantArn" => String.t() | Atom.t(),
-        "assistantId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "assistantArn" => String.t() | atom(),
+        "assistantId" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "integrationConfiguration" => assistant_integration_configuration(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
-        "status" => String.t() | Atom.t(),
+        "status" => String.t() | atom(),
         "tags" => map(),
-        "type" => String.t() | Atom.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type assistant_summary() :: %{String.t() | Atom.t() => any()}
+  @type assistant_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -968,47 +968,47 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type search_expression() :: %{String.t() | Atom.t() => any()}
+  @type search_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filter() :: %{
-        "field" => String.t() | Atom.t(),
-        "operator" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "field" => String.t() | atom(),
+        "operator" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type filter() :: %{String.t() | Atom.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       server_side_encryption_configuration() :: %{
-        "kmsKeyId" => String.t() | Atom.t()
+        "kmsKeyId" => String.t() | atom()
       }
 
   """
-  @type server_side_encryption_configuration() :: %{String.t() | Atom.t() => any()}
+  @type server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       session_data() :: %{
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "integrationConfiguration" => session_integration_configuration(),
-        "name" => String.t() | Atom.t(),
-        "sessionArn" => String.t() | Atom.t(),
-        "sessionId" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "sessionArn" => String.t() | atom(),
+        "sessionId" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type session_data() :: %{String.t() | Atom.t() => any()}
+  @type session_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1016,12 +1016,12 @@ defmodule AWS.Wisdom do
 
       search_sessions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("searchExpression") => search_expression()
       }
 
   """
-  @type search_sessions_request() :: %{String.t() | Atom.t() => any()}
+  @type search_sessions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1029,11 +1029,11 @@ defmodule AWS.Wisdom do
 
       list_import_jobs_response() :: %{
         "importJobSummaries" => list(import_job_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_import_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_import_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1049,24 +1049,24 @@ defmodule AWS.Wisdom do
   ## Example:
 
       search_quick_responses_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "results" => list(quick_response_search_result_data())
       }
 
   """
-  @type search_quick_responses_response() :: %{String.t() | Atom.t() => any()}
+  @type search_quick_responses_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       notify_recommendations_received_error() :: %{
-        "message" => String.t() | Atom.t(),
-        "recommendationId" => [String.t() | Atom.t()]
+        "message" => String.t() | atom(),
+        "recommendationId" => [String.t() | atom()]
       }
 
   """
-  @type notify_recommendations_received_error() :: %{String.t() | Atom.t() => any()}
+  @type notify_recommendations_received_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1077,7 +1077,7 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type get_import_job_response() :: %{String.t() | Atom.t() => any()}
+  @type get_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1088,7 +1088,7 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type update_content_response() :: %{String.t() | Atom.t() => any()}
+  @type update_content_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1104,11 +1104,11 @@ defmodule AWS.Wisdom do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1119,24 +1119,24 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type create_assistant_association_response() :: %{String.t() | Atom.t() => any()}
+  @type create_assistant_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_content_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("metadata") => map(),
-        optional("overrideLinkOutUri") => String.t() | Atom.t(),
+        optional("overrideLinkOutUri") => String.t() | atom(),
         optional("tags") => map(),
-        optional("title") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t(),
-        required("uploadId") => String.t() | Atom.t()
+        optional("title") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("uploadId") => String.t() | atom()
       }
 
   """
-  @type create_content_request() :: %{String.t() | Atom.t() => any()}
+  @type create_content_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1154,18 +1154,18 @@ defmodule AWS.Wisdom do
       import_job_summary() :: %{
         "createdTime" => [non_neg_integer()],
         "externalSourceConfiguration" => external_source_configuration(),
-        "importJobId" => String.t() | Atom.t(),
-        "importJobType" => String.t() | Atom.t(),
-        "knowledgeBaseArn" => String.t() | Atom.t(),
-        "knowledgeBaseId" => String.t() | Atom.t(),
+        "importJobId" => String.t() | atom(),
+        "importJobType" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
         "lastModifiedTime" => [non_neg_integer()],
         "metadata" => map(),
-        "status" => String.t() | Atom.t(),
-        "uploadId" => String.t() | Atom.t()
+        "status" => String.t() | atom(),
+        "uploadId" => String.t() | atom()
       }
 
   """
-  @type import_job_summary() :: %{String.t() | Atom.t() => any()}
+  @type import_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1173,53 +1173,53 @@ defmodule AWS.Wisdom do
 
       query_assistant_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("queryText") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("queryText") => String.t() | atom()
       }
 
   """
-  @type query_assistant_request() :: %{String.t() | Atom.t() => any()}
+  @type query_assistant_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       quick_response_search_result_data() :: %{
-        "attributesInterpolated" => list(String.t() | Atom.t()),
-        "attributesNotInterpolated" => list(String.t() | Atom.t()),
-        "channels" => list(String.t() | Atom.t()),
-        "contentType" => String.t() | Atom.t(),
+        "attributesInterpolated" => list(String.t() | atom()),
+        "attributesNotInterpolated" => list(String.t() | atom()),
+        "channels" => list(String.t() | atom()),
+        "contentType" => String.t() | atom(),
         "contents" => quick_response_contents(),
         "createdTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "groupingConfiguration" => grouping_configuration(),
         "isActive" => [boolean()],
-        "knowledgeBaseArn" => String.t() | Atom.t(),
-        "knowledgeBaseId" => String.t() | Atom.t(),
-        "language" => String.t() | Atom.t(),
-        "lastModifiedBy" => String.t() | Atom.t(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "language" => String.t() | atom(),
+        "lastModifiedBy" => String.t() | atom(),
         "lastModifiedTime" => [non_neg_integer()],
-        "name" => String.t() | Atom.t(),
-        "quickResponseArn" => String.t() | Atom.t(),
-        "quickResponseId" => String.t() | Atom.t(),
-        "shortcutKey" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "quickResponseArn" => String.t() | atom(),
+        "quickResponseId" => String.t() | atom(),
+        "shortcutKey" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type quick_response_search_result_data() :: %{String.t() | Atom.t() => any()}
+  @type quick_response_search_result_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rendering_configuration() :: %{
-        "templateUri" => String.t() | Atom.t()
+        "templateUri" => String.t() | atom()
       }
 
   """
-  @type rendering_configuration() :: %{String.t() | Atom.t() => any()}
+  @type rendering_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1253,11 +1253,11 @@ defmodule AWS.Wisdom do
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1273,59 +1273,59 @@ defmodule AWS.Wisdom do
   ## Example:
 
       content_reference() :: %{
-        "contentArn" => String.t() | Atom.t(),
-        "contentId" => String.t() | Atom.t(),
-        "knowledgeBaseArn" => String.t() | Atom.t(),
-        "knowledgeBaseId" => String.t() | Atom.t()
+        "contentArn" => String.t() | atom(),
+        "contentId" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom()
       }
 
   """
-  @type content_reference() :: %{String.t() | Atom.t() => any()}
+  @type content_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       content_data() :: %{
-        "contentArn" => String.t() | Atom.t(),
-        "contentId" => String.t() | Atom.t(),
-        "contentType" => String.t() | Atom.t(),
-        "knowledgeBaseArn" => String.t() | Atom.t(),
-        "knowledgeBaseId" => String.t() | Atom.t(),
-        "linkOutUri" => String.t() | Atom.t(),
+        "contentArn" => String.t() | atom(),
+        "contentId" => String.t() | atom(),
+        "contentType" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "linkOutUri" => String.t() | atom(),
         "metadata" => map(),
-        "name" => String.t() | Atom.t(),
-        "revisionId" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "revisionId" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "tags" => map(),
-        "title" => String.t() | Atom.t(),
-        "url" => String.t() | Atom.t(),
+        "title" => String.t() | atom(),
+        "url" => String.t() | atom(),
         "urlExpiry" => [non_neg_integer()]
       }
 
   """
-  @type content_data() :: %{String.t() | Atom.t() => any()}
+  @type content_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       content_summary() :: %{
-        "contentArn" => String.t() | Atom.t(),
-        "contentId" => String.t() | Atom.t(),
-        "contentType" => String.t() | Atom.t(),
-        "knowledgeBaseArn" => String.t() | Atom.t(),
-        "knowledgeBaseId" => String.t() | Atom.t(),
+        "contentArn" => String.t() | atom(),
+        "contentId" => String.t() | atom(),
+        "contentType" => String.t() | atom(),
+        "knowledgeBaseArn" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
         "metadata" => map(),
-        "name" => String.t() | Atom.t(),
-        "revisionId" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "revisionId" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "tags" => map(),
-        "title" => String.t() | Atom.t()
+        "title" => String.t() | atom()
       }
 
   """
-  @type content_summary() :: %{String.t() | Atom.t() => any()}
+  @type content_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1336,7 +1336,7 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type get_content_response() :: %{String.t() | Atom.t() => any()}
+  @type get_content_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1344,37 +1344,37 @@ defmodule AWS.Wisdom do
 
       recommendation_trigger() :: %{
         "data" => list(),
-        "id" => String.t() | Atom.t(),
-        "recommendationIds" => list([String.t() | Atom.t()]()),
-        "source" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t()
+        "id" => String.t() | atom(),
+        "recommendationIds" => list([String.t() | atom()]()),
+        "source" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type recommendation_trigger() :: %{String.t() | Atom.t() => any()}
+  @type recommendation_trigger() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       notify_recommendations_received_request() :: %{
-        required("recommendationIds") => list([String.t() | Atom.t()]())
+        required("recommendationIds") => list([String.t() | atom()]())
       }
 
   """
-  @type notify_recommendations_received_request() :: %{String.t() | Atom.t() => any()}
+  @type notify_recommendations_received_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_knowledge_bases_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("knowledgeBaseSummaries") => list(knowledge_base_summary())
       }
 
   """
-  @type list_knowledge_bases_response() :: %{String.t() | Atom.t() => any()}
+  @type list_knowledge_bases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1385,19 +1385,19 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type get_knowledge_base_response() :: %{String.t() | Atom.t() => any()}
+  @type get_knowledge_base_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_assistant_associations_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("assistantAssociationSummaries") => list(assistant_association_summary())
       }
 
   """
-  @type list_assistant_associations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_assistant_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1406,11 +1406,11 @@ defmodule AWS.Wisdom do
       result_data() :: %{
         "document" => document(),
         "relevanceScore" => float(),
-        "resultId" => String.t() | Atom.t()
+        "resultId" => String.t() | atom()
       }
 
   """
-  @type result_data() :: %{String.t() | Atom.t() => any()}
+  @type result_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1421,7 +1421,7 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type start_import_job_response() :: %{String.t() | Atom.t() => any()}
+  @type start_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1429,32 +1429,32 @@ defmodule AWS.Wisdom do
 
       update_content_request() :: %{
         optional("metadata") => map(),
-        optional("overrideLinkOutUri") => String.t() | Atom.t(),
+        optional("overrideLinkOutUri") => String.t() | atom(),
         optional("removeOverrideLinkOutUri") => [boolean()],
-        optional("revisionId") => String.t() | Atom.t(),
-        optional("title") => String.t() | Atom.t(),
-        optional("uploadId") => String.t() | Atom.t()
+        optional("revisionId") => String.t() | atom(),
+        optional("title") => String.t() | atom(),
+        optional("uploadId") => String.t() | atom()
       }
 
   """
-  @type update_content_request() :: %{String.t() | Atom.t() => any()}
+  @type update_content_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       assistant_association_summary() :: %{
-        "assistantArn" => String.t() | Atom.t(),
-        "assistantAssociationArn" => String.t() | Atom.t(),
-        "assistantAssociationId" => String.t() | Atom.t(),
-        "assistantId" => String.t() | Atom.t(),
+        "assistantArn" => String.t() | atom(),
+        "assistantAssociationArn" => String.t() | atom(),
+        "assistantAssociationId" => String.t() | atom(),
+        "assistantId" => String.t() | atom(),
         "associationData" => list(),
-        "associationType" => String.t() | Atom.t(),
+        "associationType" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type assistant_association_summary() :: %{String.t() | Atom.t() => any()}
+  @type assistant_association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1471,14 +1471,14 @@ defmodule AWS.Wisdom do
 
       quick_response_query_field() :: %{
         "allowFuzziness" => [boolean()],
-        "name" => String.t() | Atom.t(),
-        "operator" => String.t() | Atom.t(),
-        "priority" => String.t() | Atom.t(),
-        "values" => list(String.t() | Atom.t())
+        "name" => String.t() | atom(),
+        "operator" => String.t() | atom(),
+        "priority" => String.t() | atom(),
+        "values" => list(String.t() | atom())
       }
 
   """
-  @type quick_response_query_field() :: %{String.t() | Atom.t() => any()}
+  @type quick_response_query_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1512,24 +1512,24 @@ defmodule AWS.Wisdom do
   ## Example:
 
       quick_response_order_field() :: %{
-        "name" => String.t() | Atom.t(),
-        "order" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "order" => String.t() | atom()
       }
 
   """
-  @type quick_response_order_field() :: %{String.t() | Atom.t() => any()}
+  @type quick_response_order_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_assistants_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("assistantSummaries") => list(assistant_summary())
       }
 
   """
-  @type list_assistants_response() :: %{String.t() | Atom.t() => any()}
+  @type list_assistants_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1546,38 +1546,38 @@ defmodule AWS.Wisdom do
 
       search_content_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("searchExpression") => search_expression()
       }
 
   """
-  @type search_content_request() :: %{String.t() | Atom.t() => any()}
+  @type search_content_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       grouping_configuration() :: %{
-        "criteria" => String.t() | Atom.t(),
-        "values" => list(String.t() | Atom.t())
+        "criteria" => String.t() | atom(),
+        "values" => list(String.t() | atom())
       }
 
   """
-  @type grouping_configuration() :: %{String.t() | Atom.t() => any()}
+  @type grouping_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_assistant_association_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("tags") => map(),
         required("association") => list(),
-        required("associationType") => String.t() | Atom.t()
+        required("associationType") => String.t() | atom()
       }
 
   """
-  @type create_assistant_association_request() :: %{String.t() | Atom.t() => any()}
+  @type create_assistant_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1588,18 +1588,18 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type create_session_response() :: %{String.t() | Atom.t() => any()}
+  @type create_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       precondition_failed_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type precondition_failed_exception() :: %{String.t() | Atom.t() => any()}
+  @type precondition_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1621,7 +1621,7 @@ defmodule AWS.Wisdom do
       }
 
   """
-  @type document() :: %{String.t() | Atom.t() => any()}
+  @type document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1629,22 +1629,22 @@ defmodule AWS.Wisdom do
 
       list_assistants_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_assistants_request() :: %{String.t() | Atom.t() => any()}
+  @type list_assistants_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       session_integration_configuration() :: %{
-        "topicIntegrationArn" => String.t() | Atom.t()
+        "topicIntegrationArn" => String.t() | atom()
       }
 
   """
-  @type session_integration_configuration() :: %{String.t() | Atom.t() => any()}
+  @type session_integration_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1660,12 +1660,12 @@ defmodule AWS.Wisdom do
   ## Example:
 
       too_many_tags_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "resourceName" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "resourceName" => [String.t() | atom()]
       }
 
   """
-  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @type create_assistant_errors() ::
           validation_exception()
@@ -1881,7 +1881,7 @@ defmodule AWS.Wisdom do
   """
   @spec create_assistant_association(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_assistant_association_request(),
           list()
         ) ::
@@ -1918,7 +1918,7 @@ defmodule AWS.Wisdom do
   to
   upload an asset.
   """
-  @spec create_content(map(), String.t() | Atom.t(), create_content_request(), list()) ::
+  @spec create_content(map(), String.t() | atom(), create_content_request(), list()) ::
           {:ok, create_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2003,12 +2003,7 @@ defmodule AWS.Wisdom do
   @doc """
   Creates a Wisdom quick response.
   """
-  @spec create_quick_response(
-          map(),
-          String.t() | Atom.t(),
-          create_quick_response_request(),
-          list()
-        ) ::
+  @spec create_quick_response(map(), String.t() | atom(), create_quick_response_request(), list()) ::
           {:ok, create_quick_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2042,7 +2037,7 @@ defmodule AWS.Wisdom do
   which
   Wisdom is enabled.
   """
-  @spec create_session(map(), String.t() | Atom.t(), create_session_request(), list()) ::
+  @spec create_session(map(), String.t() | atom(), create_session_request(), list()) ::
           {:ok, create_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2071,7 +2066,7 @@ defmodule AWS.Wisdom do
   @doc """
   Deletes an assistant.
   """
-  @spec delete_assistant(map(), String.t() | Atom.t(), delete_assistant_request(), list()) ::
+  @spec delete_assistant(map(), String.t() | atom(), delete_assistant_request(), list()) ::
           {:ok, delete_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2102,8 +2097,8 @@ defmodule AWS.Wisdom do
   """
   @spec delete_assistant_association(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_assistant_association_request(),
           list()
         ) ::
@@ -2145,8 +2140,8 @@ defmodule AWS.Wisdom do
   """
   @spec delete_content(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_content_request(),
           list()
         ) ::
@@ -2182,8 +2177,8 @@ defmodule AWS.Wisdom do
   """
   @spec delete_import_job(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_import_job_request(),
           list()
         ) ::
@@ -2234,12 +2229,7 @@ defmodule AWS.Wisdom do
   in the *Amazon AppIntegrations API
   Reference*.
   """
-  @spec delete_knowledge_base(
-          map(),
-          String.t() | Atom.t(),
-          delete_knowledge_base_request(),
-          list()
-        ) ::
+  @spec delete_knowledge_base(map(), String.t() | atom(), delete_knowledge_base_request(), list()) ::
           {:ok, delete_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2270,8 +2260,8 @@ defmodule AWS.Wisdom do
   """
   @spec delete_quick_response(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_quick_response_request(),
           list()
         ) ::
@@ -2311,7 +2301,7 @@ defmodule AWS.Wisdom do
   @doc """
   Retrieves information about an assistant.
   """
-  @spec get_assistant(map(), String.t() | Atom.t(), list()) ::
+  @spec get_assistant(map(), String.t() | atom(), list()) ::
           {:ok, get_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2329,7 +2319,7 @@ defmodule AWS.Wisdom do
   @doc """
   Retrieves information about an assistant association.
   """
-  @spec get_assistant_association(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_assistant_association(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_assistant_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2354,7 +2344,7 @@ defmodule AWS.Wisdom do
   @doc """
   Retrieves content, including a pre-signed URL to download the content.
   """
-  @spec get_content(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_content(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2374,7 +2364,7 @@ defmodule AWS.Wisdom do
   @doc """
   Retrieves summary information about the content.
   """
-  @spec get_content_summary(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_content_summary(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_content_summary_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2394,7 +2384,7 @@ defmodule AWS.Wisdom do
   @doc """
   Retrieves the started import job.
   """
-  @spec get_import_job(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_import_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2414,7 +2404,7 @@ defmodule AWS.Wisdom do
   @doc """
   Retrieves information about the knowledge base.
   """
-  @spec get_knowledge_base(map(), String.t() | Atom.t(), list()) ::
+  @spec get_knowledge_base(map(), String.t() | atom(), list()) ::
           {:ok, get_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2432,7 +2422,7 @@ defmodule AWS.Wisdom do
   @doc """
   Retrieves the quick response.
   """
-  @spec get_quick_response(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_quick_response(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_quick_response_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2462,10 +2452,10 @@ defmodule AWS.Wisdom do
   """
   @spec get_recommendations(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_recommendations_response(), any()}
@@ -2508,7 +2498,7 @@ defmodule AWS.Wisdom do
   @doc """
   Retrieves information for a specified session.
   """
-  @spec get_session(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_session(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2530,9 +2520,9 @@ defmodule AWS.Wisdom do
   """
   @spec list_assistant_associations(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_assistant_associations_response(), any()}
@@ -2572,7 +2562,7 @@ defmodule AWS.Wisdom do
   @doc """
   Lists information about assistants.
   """
-  @spec list_assistants(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_assistants(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_assistants_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2606,9 +2596,9 @@ defmodule AWS.Wisdom do
   """
   @spec list_contents(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_contents_response(), any()}
@@ -2650,9 +2640,9 @@ defmodule AWS.Wisdom do
   """
   @spec list_import_jobs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_import_jobs_response(), any()}
@@ -2692,12 +2682,7 @@ defmodule AWS.Wisdom do
   @doc """
   Lists the knowledge bases.
   """
-  @spec list_knowledge_bases(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec list_knowledge_bases(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_knowledge_bases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2736,9 +2721,9 @@ defmodule AWS.Wisdom do
   """
   @spec list_quick_responses(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_quick_responses_response(), any()}
@@ -2778,7 +2763,7 @@ defmodule AWS.Wisdom do
   @doc """
   Lists the tags for the specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2805,8 +2790,8 @@ defmodule AWS.Wisdom do
   """
   @spec notify_recommendations_received(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           notify_recommendations_received_request(),
           list()
         ) ::
@@ -2850,7 +2835,7 @@ defmodule AWS.Wisdom do
   an assistant, use
   [GetRecommendations](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html).
   """
-  @spec query_assistant(map(), String.t() | Atom.t(), query_assistant_request(), list()) ::
+  @spec query_assistant(map(), String.t() | atom(), query_assistant_request(), list()) ::
           {:ok, query_assistant_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2881,7 +2866,7 @@ defmodule AWS.Wisdom do
   """
   @spec remove_knowledge_base_template_uri(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           remove_knowledge_base_template_uri_request(),
           list()
         ) ::
@@ -2921,7 +2906,7 @@ defmodule AWS.Wisdom do
   Can be used to get a specific content
   resource by its name.
   """
-  @spec search_content(map(), String.t() | Atom.t(), search_content_request(), list()) ::
+  @spec search_content(map(), String.t() | atom(), search_content_request(), list()) ::
           {:ok, search_content_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2958,7 +2943,7 @@ defmodule AWS.Wisdom do
   """
   @spec search_quick_responses(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           search_quick_responses_request(),
           list()
         ) ::
@@ -2996,7 +2981,7 @@ defmodule AWS.Wisdom do
   @doc """
   Searches for sessions.
   """
-  @spec search_sessions(map(), String.t() | Atom.t(), search_sessions_request(), list()) ::
+  @spec search_sessions(map(), String.t() | atom(), search_sessions_request(), list()) ::
           {:ok, search_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3040,7 +3025,7 @@ defmodule AWS.Wisdom do
   to modify an existing resource. You can only upload content to a
   knowledge base of type CUSTOM.
   """
-  @spec start_content_upload(map(), String.t() | Atom.t(), start_content_upload_request(), list()) ::
+  @spec start_content_upload(map(), String.t() | atom(), start_content_upload_request(), list()) ::
           {:ok, start_content_upload_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3080,7 +3065,7 @@ defmodule AWS.Wisdom do
   importing quick responses, see [Import quick
   responses](https://docs.aws.amazon.com/console/connect/quick-responses/add-data).
   """
-  @spec start_import_job(map(), String.t() | Atom.t(), start_import_job_request(), list()) ::
+  @spec start_import_job(map(), String.t() | atom(), start_import_job_request(), list()) ::
           {:ok, start_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3109,7 +3094,7 @@ defmodule AWS.Wisdom do
   @doc """
   Adds the specified tags to the specified resource.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3138,7 +3123,7 @@ defmodule AWS.Wisdom do
   @doc """
   Removes the specified tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3174,8 +3159,8 @@ defmodule AWS.Wisdom do
   """
   @spec update_content(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_content_request(),
           list()
         ) ::
@@ -3218,7 +3203,7 @@ defmodule AWS.Wisdom do
   """
   @spec update_knowledge_base_template_uri(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_knowledge_base_template_uri_request(),
           list()
         ) ::
@@ -3257,8 +3242,8 @@ defmodule AWS.Wisdom do
   """
   @spec update_quick_response(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_quick_response_request(),
           list()
         ) ::

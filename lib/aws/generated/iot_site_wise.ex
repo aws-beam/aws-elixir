@@ -27,56 +27,56 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type delete_asset_model_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_asset_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       siemens_i_e() :: %{
-        "iotCoreThingName" => String.t() | Atom.t()
+        "iotCoreThingName" => String.t() | atom()
       }
 
   """
-  @type siemens_i_e() :: %{String.t() | Atom.t() => any()}
+  @type siemens_i_e() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_gateway_request() :: %{
-        required("gatewayName") => String.t() | Atom.t()
+        required("gatewayName") => String.t() | atom()
       }
 
   """
-  @type update_gateway_request() :: %{String.t() | Atom.t() => any()}
+  @type update_gateway_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       execute_query_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("queryStatement") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("queryStatement") => String.t() | atom()
       }
 
   """
-  @type execute_query_request() :: %{String.t() | Atom.t() => any()}
+  @type execute_query_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       action_summary() :: %{
-        "actionDefinitionId" => String.t() | Atom.t(),
-        "actionId" => String.t() | Atom.t(),
+        "actionDefinitionId" => String.t() | atom(),
+        "actionId" => String.t() | atom(),
         "targetResource" => target_resource()
       }
 
   """
-  @type action_summary() :: %{String.t() | Atom.t() => any()}
+  @type action_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -84,12 +84,12 @@ defmodule AWS.IoTSiteWise do
 
       list_dashboards_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("projectId") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("projectId") => String.t() | atom()
       }
 
   """
-  @type list_dashboards_request() :: %{String.t() | Atom.t() => any()}
+  @type list_dashboards_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -97,30 +97,30 @@ defmodule AWS.IoTSiteWise do
 
       batch_get_asset_property_aggregates_response() :: %{
         "errorEntries" => list(batch_get_asset_property_aggregates_error_entry()),
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "skippedEntries" => list(batch_get_asset_property_aggregates_skipped_entry()),
         "successEntries" => list(batch_get_asset_property_aggregates_success_entry())
       }
 
   """
-  @type batch_get_asset_property_aggregates_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_aggregates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_project_response() :: %{
-        "portalId" => String.t() | Atom.t(),
-        "projectArn" => String.t() | Atom.t(),
+        "portalId" => String.t() | atom(),
+        "projectArn" => String.t() | atom(),
         "projectCreationDate" => non_neg_integer(),
-        "projectDescription" => String.t() | Atom.t(),
-        "projectId" => String.t() | Atom.t(),
+        "projectDescription" => String.t() | atom(),
+        "projectId" => String.t() | atom(),
         "projectLastUpdateDate" => non_neg_integer(),
-        "projectName" => String.t() | Atom.t()
+        "projectName" => String.t() | atom()
       }
 
   """
-  @type describe_project_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -129,11 +129,11 @@ defmodule AWS.IoTSiteWise do
       put_default_encryption_configuration_response() :: %{
         "configurationStatus" => configuration_status(),
         "encryptionType" => list(any()),
-        "kmsKeyArn" => String.t() | Atom.t()
+        "kmsKeyArn" => String.t() | atom()
       }
 
   """
-  @type put_default_encryption_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type put_default_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -141,11 +141,11 @@ defmodule AWS.IoTSiteWise do
 
       list_composition_relationships_response() :: %{
         "compositionRelationshipSummaries" => list(composition_relationship_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_composition_relationships_response() :: %{String.t() | Atom.t() => any()}
+  @type list_composition_relationships_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -153,11 +153,11 @@ defmodule AWS.IoTSiteWise do
 
       list_access_policies_response() :: %{
         "accessPolicySummaries" => list(access_policy_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_access_policies_response() :: %{String.t() | Atom.t() => any()}
+  @type list_access_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -173,11 +173,11 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       portal_resource() :: %{
-        "id" => String.t() | Atom.t()
+        "id" => String.t() | atom()
       }
 
   """
-  @type portal_resource() :: %{String.t() | Atom.t() => any()}
+  @type portal_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -185,57 +185,57 @@ defmodule AWS.IoTSiteWise do
 
       describe_asset_model_composite_model_response() :: %{
         "actionDefinitions" => list(action_definition()),
-        "assetModelCompositeModelDescription" => String.t() | Atom.t(),
-        "assetModelCompositeModelExternalId" => String.t() | Atom.t(),
-        "assetModelCompositeModelId" => String.t() | Atom.t(),
-        "assetModelCompositeModelName" => String.t() | Atom.t(),
+        "assetModelCompositeModelDescription" => String.t() | atom(),
+        "assetModelCompositeModelExternalId" => String.t() | atom(),
+        "assetModelCompositeModelId" => String.t() | atom(),
+        "assetModelCompositeModelName" => String.t() | atom(),
         "assetModelCompositeModelPath" => list(asset_model_composite_model_path_segment()),
         "assetModelCompositeModelProperties" => list(asset_model_property()),
         "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()),
-        "assetModelCompositeModelType" => String.t() | Atom.t(),
-        "assetModelId" => String.t() | Atom.t(),
+        "assetModelCompositeModelType" => String.t() | atom(),
+        "assetModelId" => String.t() | atom(),
         "compositionDetails" => composition_details()
       }
 
   """
-  @type describe_asset_model_composite_model_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_asset_model_composite_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_dashboard_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("dashboardDescription") => String.t() | Atom.t(),
-        required("dashboardDefinition") => String.t() | Atom.t(),
-        required("dashboardName") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom(),
+        optional("dashboardDescription") => String.t() | atom(),
+        required("dashboardDefinition") => String.t() | atom(),
+        required("dashboardName") => String.t() | atom()
       }
 
   """
-  @type update_dashboard_request() :: %{String.t() | Atom.t() => any()}
+  @type update_dashboard_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("resourceArn") => String.t() | Atom.t(),
+        required("resourceArn") => String.t() | atom(),
         required("tags") => map()
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_failure_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_failure_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -246,50 +246,50 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type batch_associate_project_assets_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_associate_project_assets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_property() :: %{
-        "alias" => String.t() | Atom.t(),
+        "alias" => String.t() | atom(),
         "dataType" => list(any()),
-        "dataTypeSpec" => String.t() | Atom.t(),
-        "externalId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "dataTypeSpec" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "notification" => property_notification(),
         "path" => list(asset_property_path_segment()),
-        "unit" => String.t() | Atom.t()
+        "unit" => String.t() | atom()
       }
 
   """
-  @type asset_property() :: %{String.t() | Atom.t() => any()}
+  @type asset_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflicting_operation_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceArn" => String.t() | Atom.t(),
-        "resourceId" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "resourceId" => String.t() | atom()
       }
 
   """
-  @type conflicting_operation_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflicting_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_asset_model_composite_model_request() :: %{
-        optional("assetModelVersion") => String.t() | Atom.t()
+        optional("assetModelVersion") => String.t() | atom()
       }
 
   """
-  @type describe_asset_model_composite_model_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_asset_model_composite_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -297,11 +297,11 @@ defmodule AWS.IoTSiteWise do
 
       get_asset_property_aggregates_response() :: %{
         "aggregatedValues" => list(aggregated_value()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_asset_property_aggregates_response() :: %{String.t() | Atom.t() => any()}
+  @type get_asset_property_aggregates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -312,30 +312,30 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type delete_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() | Atom.t() => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_project_assets_response() :: %{
-        "assetIds" => list(String.t() | Atom.t()),
-        "nextToken" => String.t() | Atom.t()
+        "assetIds" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_project_assets_response() :: %{String.t() | Atom.t() => any()}
+  @type list_project_assets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -348,20 +348,20 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type dataset_source() :: %{String.t() | Atom.t() => any()}
+  @type dataset_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_dataset_response() :: %{
-        "datasetArn" => String.t() | Atom.t(),
-        "datasetId" => String.t() | Atom.t(),
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
         "datasetStatus" => dataset_status()
       }
 
   """
-  @type update_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type update_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -373,18 +373,18 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type interpolated_asset_property_value() :: %{String.t() | Atom.t() => any()}
+  @type interpolated_asset_property_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       greengrass() :: %{
-        "groupArn" => String.t() | Atom.t()
+        "groupArn" => String.t() | atom()
       }
 
   """
-  @type greengrass() :: %{String.t() | Atom.t() => any()}
+  @type greengrass() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -392,14 +392,14 @@ defmodule AWS.IoTSiteWise do
 
       project_summary() :: %{
         "creationDate" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "lastUpdateDate" => non_neg_integer(),
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type project_summary() :: %{String.t() | Atom.t() => any()}
+  @type project_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -416,51 +416,51 @@ defmodule AWS.IoTSiteWise do
 
       detailed_error() :: %{
         "code" => list(any()),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type detailed_error() :: %{String.t() | Atom.t() => any()}
+  @type detailed_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_model_hierarchy() :: %{
-        "childAssetModelId" => String.t() | Atom.t(),
-        "externalId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "childAssetModelId" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type asset_model_hierarchy() :: %{String.t() | Atom.t() => any()}
+  @type asset_model_hierarchy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_gateway_response() :: %{
-        "gatewayArn" => String.t() | Atom.t(),
-        "gatewayId" => String.t() | Atom.t()
+        "gatewayArn" => String.t() | atom(),
+        "gatewayId" => String.t() | atom()
       }
 
   """
-  @type create_gateway_response() :: %{String.t() | Atom.t() => any()}
+  @type create_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metric() :: %{
-        "expression" => String.t() | Atom.t(),
+        "expression" => String.t() | atom(),
         "processingConfig" => metric_processing_config(),
         "variables" => list(expression_variable()),
         "window" => metric_window()
       }
 
   """
-  @type metric() :: %{String.t() | Atom.t() => any()}
+  @type metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -477,23 +477,23 @@ defmodule AWS.IoTSiteWise do
 
       list_gateways_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_gateways_request() :: %{String.t() | Atom.t() => any()}
+  @type list_gateways_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       expression_variable() :: %{
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "value" => variable_value()
       }
 
   """
-  @type expression_variable() :: %{String.t() | Atom.t() => any()}
+  @type expression_variable() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -501,11 +501,11 @@ defmodule AWS.IoTSiteWise do
 
       list_asset_model_composite_models_response() :: %{
         "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_asset_model_composite_models_response() :: %{String.t() | Atom.t() => any()}
+  @type list_asset_model_composite_models_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -517,12 +517,12 @@ defmodule AWS.IoTSiteWise do
         required("errorReportLocation") => error_report_location(),
         required("files") => list(file()),
         required("jobConfiguration") => job_configuration(),
-        required("jobName") => String.t() | Atom.t(),
-        required("jobRoleArn") => String.t() | Atom.t()
+        required("jobName") => String.t() | atom(),
+        required("jobRoleArn") => String.t() | atom()
       }
 
   """
-  @type create_bulk_import_job_request() :: %{String.t() | Atom.t() => any()}
+  @type create_bulk_import_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -533,7 +533,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type get_asset_property_value_response() :: %{String.t() | Atom.t() => any()}
+  @type get_asset_property_value_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -546,7 +546,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type asset_property_value() :: %{String.t() | Atom.t() => any()}
+  @type asset_property_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -569,7 +569,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type identity() :: %{String.t() | Atom.t() => any()}
+  @type identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -581,7 +581,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type file_format() :: %{String.t() | Atom.t() => any()}
+  @type file_format() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -590,11 +590,11 @@ defmodule AWS.IoTSiteWise do
       list_bulk_import_jobs_request() :: %{
         optional("filter") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_bulk_import_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_bulk_import_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -603,11 +603,11 @@ defmodule AWS.IoTSiteWise do
       describe_default_encryption_configuration_response() :: %{
         "configurationStatus" => configuration_status(),
         "encryptionType" => list(any()),
-        "kmsKeyArn" => String.t() | Atom.t()
+        "kmsKeyArn" => String.t() | atom()
       }
 
   """
-  @type describe_default_encryption_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_default_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -623,15 +623,15 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       describe_action_response() :: %{
-        "actionDefinitionId" => String.t() | Atom.t(),
-        "actionId" => String.t() | Atom.t(),
+        "actionDefinitionId" => String.t() | atom(),
+        "actionId" => String.t() | atom(),
         "actionPayload" => action_payload(),
         "executionTime" => non_neg_integer(),
         "targetResource" => target_resource()
       }
 
   """
-  @type describe_action_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -651,45 +651,45 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type property_value_null_value() :: %{String.t() | Atom.t() => any()}
+  @type property_value_null_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_asset_response() :: %{
-        "assetArn" => String.t() | Atom.t(),
+        "assetArn" => String.t() | atom(),
         "assetCompositeModelSummaries" => list(asset_composite_model_summary()),
         "assetCompositeModels" => list(asset_composite_model()),
         "assetCreationDate" => non_neg_integer(),
-        "assetDescription" => String.t() | Atom.t(),
-        "assetExternalId" => String.t() | Atom.t(),
+        "assetDescription" => String.t() | atom(),
+        "assetExternalId" => String.t() | atom(),
         "assetHierarchies" => list(asset_hierarchy()),
-        "assetId" => String.t() | Atom.t(),
+        "assetId" => String.t() | atom(),
         "assetLastUpdateDate" => non_neg_integer(),
-        "assetModelId" => String.t() | Atom.t(),
-        "assetName" => String.t() | Atom.t(),
+        "assetModelId" => String.t() | atom(),
+        "assetName" => String.t() | atom(),
         "assetProperties" => list(asset_property()),
         "assetStatus" => asset_status()
       }
 
   """
-  @type describe_asset_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_asset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_asset_property_value_entry() :: %{
-        "assetId" => String.t() | Atom.t(),
-        "entryId" => String.t() | Atom.t(),
-        "propertyAlias" => String.t() | Atom.t(),
-        "propertyId" => String.t() | Atom.t(),
+        "assetId" => String.t() | atom(),
+        "entryId" => String.t() | atom(),
+        "propertyAlias" => String.t() | atom(),
+        "propertyId" => String.t() | atom(),
         "propertyValues" => list(asset_property_value())
       }
 
   """
-  @type put_asset_property_value_entry() :: %{String.t() | Atom.t() => any()}
+  @type put_asset_property_value_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -701,7 +701,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type retention_period() :: %{String.t() | Atom.t() => any()}
+  @type retention_period() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -709,23 +709,23 @@ defmodule AWS.IoTSiteWise do
 
       batch_get_asset_property_value_skipped_entry() :: %{
         "completionStatus" => list(any()),
-        "entryId" => String.t() | Atom.t(),
+        "entryId" => String.t() | atom(),
         "errorInfo" => batch_get_asset_property_value_error_info()
       }
 
   """
-  @type batch_get_asset_property_value_skipped_entry() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_value_skipped_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_access_policy_request() :: %{
-        optional("clientToken") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type delete_access_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_access_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -733,17 +733,17 @@ defmodule AWS.IoTSiteWise do
 
       asset_model_property() :: %{
         "dataType" => list(any()),
-        "dataTypeSpec" => String.t() | Atom.t(),
-        "externalId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "dataTypeSpec" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "path" => list(asset_model_property_path_segment()),
         "type" => property_type(),
-        "unit" => String.t() | Atom.t()
+        "unit" => String.t() | atom()
       }
 
   """
-  @type asset_model_property() :: %{String.t() | Atom.t() => any()}
+  @type asset_model_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -753,11 +753,11 @@ defmodule AWS.IoTSiteWise do
         "arrayValue" => list(datum()),
         "nullValue" => boolean(),
         "rowValue" => row(),
-        "scalarValue" => String.t() | Atom.t()
+        "scalarValue" => String.t() | atom()
       }
 
   """
-  @type datum() :: %{String.t() | Atom.t() => any()}
+  @type datum() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -769,62 +769,62 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type citation() :: %{String.t() | Atom.t() => any()}
+  @type citation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       project_resource() :: %{
-        "id" => String.t() | Atom.t()
+        "id" => String.t() | atom()
       }
 
   """
-  @type project_resource() :: %{String.t() | Atom.t() => any()}
+  @type project_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_portal_response() :: %{
-        "portalArn" => String.t() | Atom.t(),
-        "portalId" => String.t() | Atom.t(),
-        "portalStartUrl" => String.t() | Atom.t(),
+        "portalArn" => String.t() | atom(),
+        "portalId" => String.t() | atom(),
+        "portalStartUrl" => String.t() | atom(),
         "portalStatus" => portal_status(),
-        "ssoApplicationId" => String.t() | Atom.t()
+        "ssoApplicationId" => String.t() | atom()
       }
 
   """
-  @type create_portal_response() :: %{String.t() | Atom.t() => any()}
+  @type create_portal_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_asset_property_response() :: %{
-        "assetExternalId" => String.t() | Atom.t(),
-        "assetId" => String.t() | Atom.t(),
-        "assetModelId" => String.t() | Atom.t(),
-        "assetName" => String.t() | Atom.t(),
+        "assetExternalId" => String.t() | atom(),
+        "assetId" => String.t() | atom(),
+        "assetModelId" => String.t() | atom(),
+        "assetName" => String.t() | atom(),
         "assetProperty" => property(),
         "compositeModel" => composite_model_property()
       }
 
   """
-  @type describe_asset_property_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_asset_property_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_asset_property_value_request() :: %{
-        optional("assetId") => String.t() | Atom.t(),
-        optional("propertyAlias") => String.t() | Atom.t(),
-        optional("propertyId") => String.t() | Atom.t()
+        optional("assetId") => String.t() | atom(),
+        optional("propertyAlias") => String.t() | atom(),
+        optional("propertyId") => String.t() | atom()
       }
 
   """
-  @type get_asset_property_value_request() :: %{String.t() | Atom.t() => any()}
+  @type get_asset_property_value_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -832,69 +832,69 @@ defmodule AWS.IoTSiteWise do
 
       list_datasets_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("sourceType") => list(any())
       }
 
   """
-  @type list_datasets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_model_composite_model() :: %{
-        "description" => String.t() | Atom.t(),
-        "externalId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "properties" => list(asset_model_property()),
-        "type" => String.t() | Atom.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type asset_model_composite_model() :: %{String.t() | Atom.t() => any()}
+  @type asset_model_composite_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_access_policies_request() :: %{
-        optional("iamArn") => String.t() | Atom.t(),
-        optional("identityId") => String.t() | Atom.t(),
+        optional("iamArn") => String.t() | atom(),
+        optional("identityId") => String.t() | atom(),
         optional("identityType") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("resourceId") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceId") => String.t() | atom(),
         optional("resourceType") => list(any())
       }
 
   """
-  @type list_access_policies_request() :: %{String.t() | Atom.t() => any()}
+  @type list_access_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_access_policy_response() :: %{
-        "accessPolicyArn" => String.t() | Atom.t(),
-        "accessPolicyId" => String.t() | Atom.t()
+        "accessPolicyArn" => String.t() | atom(),
+        "accessPolicyId" => String.t() | atom()
       }
 
   """
-  @type create_access_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type create_access_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       error_report_location() :: %{
-        "bucket" => String.t() | Atom.t(),
-        "prefix" => String.t() | Atom.t()
+        "bucket" => String.t() | atom(),
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type error_report_location() :: %{String.t() | Atom.t() => any()}
+  @type error_report_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -902,14 +902,13 @@ defmodule AWS.IoTSiteWise do
 
       batch_get_asset_property_value_history_skipped_entry() :: %{
         "completionStatus" => list(any()),
-        "entryId" => String.t() | Atom.t(),
+        "entryId" => String.t() | atom(),
         "errorInfo" => batch_get_asset_property_value_history_error_info()
       }
 
   """
   @type batch_get_asset_property_value_history_skipped_entry() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -918,7 +917,7 @@ defmodule AWS.IoTSiteWise do
 
       access_policy_summary() :: %{
         "creationDate" => non_neg_integer(),
-        "id" => String.t() | Atom.t(),
+        "id" => String.t() | atom(),
         "identity" => identity(),
         "lastUpdateDate" => non_neg_integer(),
         "permission" => list(any()),
@@ -926,21 +925,21 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type access_policy_summary() :: %{String.t() | Atom.t() => any()}
+  @type access_policy_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_asset_model_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("ifMatch") => String.t() | Atom.t(),
-        optional("ifNoneMatch") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("ifMatch") => String.t() | atom(),
+        optional("ifNoneMatch") => String.t() | atom(),
         optional("matchForVersionType") => list(any())
       }
 
   """
-  @type delete_asset_model_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_asset_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -948,12 +947,12 @@ defmodule AWS.IoTSiteWise do
 
       batch_get_asset_property_aggregates_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("entries") => list(batch_get_asset_property_aggregates_entry())
       }
 
   """
-  @type batch_get_asset_property_aggregates_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_aggregates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -964,7 +963,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type describe_logging_options_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_logging_options_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -972,37 +971,37 @@ defmodule AWS.IoTSiteWise do
 
       composite_model_property() :: %{
         "assetProperty" => property(),
-        "externalId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t()
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type composite_model_property() :: %{String.t() | Atom.t() => any()}
+  @type composite_model_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       user_identity() :: %{
-        "id" => String.t() | Atom.t()
+        "id" => String.t() | atom()
       }
 
   """
-  @type user_identity() :: %{String.t() | Atom.t() => any()}
+  @type user_identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kendra_source_detail() :: %{
-        "knowledgeBaseArn" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "knowledgeBaseArn" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type kendra_source_detail() :: %{String.t() | Atom.t() => any()}
+  @type kendra_source_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1010,11 +1009,11 @@ defmodule AWS.IoTSiteWise do
 
       invocation_output() :: %{
         "citations" => list(citation()),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invocation_output() :: %{String.t() | Atom.t() => any()}
+  @type invocation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1025,35 +1024,35 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type metric_processing_config() :: %{String.t() | Atom.t() => any()}
+  @type metric_processing_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       group_identity() :: %{
-        "id" => String.t() | Atom.t()
+        "id" => String.t() | atom()
       }
 
   """
-  @type group_identity() :: %{String.t() | Atom.t() => any()}
+  @type group_identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_asset_request() :: %{
-        optional("assetDescription") => String.t() | Atom.t(),
-        optional("assetExternalId") => String.t() | Atom.t(),
-        optional("assetId") => String.t() | Atom.t(),
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("assetDescription") => String.t() | atom(),
+        optional("assetExternalId") => String.t() | atom(),
+        optional("assetId") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
         optional("tags") => map(),
-        required("assetModelId") => String.t() | Atom.t(),
-        required("assetName") => String.t() | Atom.t()
+        required("assetModelId") => String.t() | atom(),
+        required("assetName") => String.t() | atom()
       }
 
   """
-  @type create_asset_request() :: %{String.t() | Atom.t() => any()}
+  @type create_asset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1064,20 +1063,20 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type metric_window() :: %{String.t() | Atom.t() => any()}
+  @type metric_window() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       file() :: %{
-        "bucket" => String.t() | Atom.t(),
-        "key" => String.t() | Atom.t(),
-        "versionId" => String.t() | Atom.t()
+        "bucket" => String.t() | atom(),
+        "key" => String.t() | atom(),
+        "versionId" => String.t() | atom()
       }
 
   """
-  @type file() :: %{String.t() | Atom.t() => any()}
+  @type file() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1089,27 +1088,27 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type asset_status() :: %{String.t() | Atom.t() => any()}
+  @type asset_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_summary() :: %{
-        "arn" => String.t() | Atom.t(),
-        "assetModelId" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
+        "assetModelId" => String.t() | atom(),
         "creationDate" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "externalId" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
         "hierarchies" => list(asset_hierarchy()),
-        "id" => String.t() | Atom.t(),
+        "id" => String.t() | atom(),
         "lastUpdateDate" => non_neg_integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "status" => asset_status()
       }
 
   """
-  @type asset_summary() :: %{String.t() | Atom.t() => any()}
+  @type asset_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1117,24 +1116,24 @@ defmodule AWS.IoTSiteWise do
 
       batch_get_asset_property_aggregates_skipped_entry() :: %{
         "completionStatus" => list(any()),
-        "entryId" => String.t() | Atom.t(),
+        "entryId" => String.t() | atom(),
         "errorInfo" => batch_get_asset_property_aggregates_error_info()
       }
 
   """
-  @type batch_get_asset_property_aggregates_skipped_entry() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_aggregates_skipped_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("resourceArn") => String.t() | Atom.t(),
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1155,40 +1154,40 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type portal_status() :: %{String.t() | Atom.t() => any()}
+  @type portal_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_model_summary() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "assetModelType" => list(any()),
         "creationDate" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "externalId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "lastUpdateDate" => non_neg_integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "status" => asset_model_status(),
-        "version" => String.t() | Atom.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type asset_model_summary() :: %{String.t() | Atom.t() => any()}
+  @type asset_model_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_time_series_request() :: %{
-        optional("alias") => String.t() | Atom.t(),
-        optional("assetId") => String.t() | Atom.t(),
-        optional("propertyId") => String.t() | Atom.t()
+        optional("alias") => String.t() | atom(),
+        optional("assetId") => String.t() | atom(),
+        optional("propertyId") => String.t() | atom()
       }
 
   """
-  @type describe_time_series_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_time_series_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1199,33 +1198,33 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type iotsitewise_reference() :: %{String.t() | Atom.t() => any()}
+  @type iotsitewise_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       alarms() :: %{
-        "alarmRoleArn" => String.t() | Atom.t(),
-        "notificationLambdaArn" => String.t() | Atom.t()
+        "alarmRoleArn" => String.t() | atom(),
+        "notificationLambdaArn" => String.t() | atom()
       }
 
   """
-  @type alarms() :: %{String.t() | Atom.t() => any()}
+  @type alarms() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_associated_assets_request() :: %{
-        optional("hierarchyId") => String.t() | Atom.t(),
+        optional("hierarchyId") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("traversalDirection") => list(any())
       }
 
   """
-  @type list_associated_assets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_associated_assets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1237,7 +1236,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type configuration_status() :: %{String.t() | Atom.t() => any()}
+  @type configuration_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1245,13 +1244,13 @@ defmodule AWS.IoTSiteWise do
 
       batch_get_asset_property_value_history_response() :: %{
         "errorEntries" => list(batch_get_asset_property_value_history_error_entry()),
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "skippedEntries" => list(batch_get_asset_property_value_history_skipped_entry()),
         "successEntries" => list(batch_get_asset_property_value_history_success_entry())
       }
 
   """
-  @type batch_get_asset_property_value_history_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_value_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1262,18 +1261,18 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type multi_layer_storage() :: %{String.t() | Atom.t() => any()}
+  @type multi_layer_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       target_resource() :: %{
-        "assetId" => String.t() | Atom.t()
+        "assetId" => String.t() | atom()
       }
 
   """
-  @type target_resource() :: %{String.t() | Atom.t() => any()}
+  @type target_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1281,11 +1280,11 @@ defmodule AWS.IoTSiteWise do
 
       list_project_assets_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_project_assets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_project_assets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1307,40 +1306,40 @@ defmodule AWS.IoTSiteWise do
         "files" => list(file()),
         "jobConfiguration" => job_configuration(),
         "jobCreationDate" => non_neg_integer(),
-        "jobId" => String.t() | Atom.t(),
+        "jobId" => String.t() | atom(),
         "jobLastUpdateDate" => non_neg_integer(),
-        "jobName" => String.t() | Atom.t(),
-        "jobRoleArn" => String.t() | Atom.t(),
+        "jobName" => String.t() | atom(),
+        "jobRoleArn" => String.t() | atom(),
         "jobStatus" => list(any())
       }
 
   """
-  @type describe_bulk_import_job_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_bulk_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_associate_project_assets_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        required("assetIds") => list(String.t() | Atom.t())
+        optional("clientToken") => String.t() | atom(),
+        required("assetIds") => list(String.t() | atom())
       }
 
   """
-  @type batch_associate_project_assets_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_associate_project_assets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_asset_model_response() :: %{
-        "assetModelArn" => String.t() | Atom.t(),
-        "assetModelId" => String.t() | Atom.t(),
+        "assetModelArn" => String.t() | atom(),
+        "assetModelId" => String.t() | atom(),
         "assetModelStatus" => asset_model_status()
       }
 
   """
-  @type create_asset_model_response() :: %{String.t() | Atom.t() => any()}
+  @type create_asset_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1351,7 +1350,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type update_asset_response() :: %{String.t() | Atom.t() => any()}
+  @type update_asset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1367,24 +1366,24 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       batch_get_asset_property_value_error_entry() :: %{
-        "entryId" => String.t() | Atom.t(),
+        "entryId" => String.t() | atom(),
         "errorCode" => list(any()),
-        "errorMessage" => String.t() | Atom.t()
+        "errorMessage" => String.t() | atom()
       }
 
   """
-  @type batch_get_asset_property_value_error_entry() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_value_error_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       execute_action_response() :: %{
-        "actionId" => String.t() | Atom.t()
+        "actionId" => String.t() | atom()
       }
 
   """
-  @type execute_action_response() :: %{String.t() | Atom.t() => any()}
+  @type execute_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1393,15 +1392,15 @@ defmodule AWS.IoTSiteWise do
       gateway_summary() :: %{
         "creationDate" => non_neg_integer(),
         "gatewayCapabilitySummaries" => list(gateway_capability_summary()),
-        "gatewayId" => String.t() | Atom.t(),
-        "gatewayName" => String.t() | Atom.t(),
+        "gatewayId" => String.t() | atom(),
+        "gatewayName" => String.t() | atom(),
         "gatewayPlatform" => gateway_platform(),
-        "gatewayVersion" => String.t() | Atom.t(),
+        "gatewayVersion" => String.t() | atom(),
         "lastUpdateDate" => non_neg_integer()
       }
 
   """
-  @type gateway_summary() :: %{String.t() | Atom.t() => any()}
+  @type gateway_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1409,11 +1408,11 @@ defmodule AWS.IoTSiteWise do
 
       list_time_series_response() :: %{
         "TimeSeriesSummaries" => list(time_series_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_time_series_response() :: %{String.t() | Atom.t() => any()}
+  @type list_time_series_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1421,53 +1420,53 @@ defmodule AWS.IoTSiteWise do
 
       list_portals_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_portals_request() :: %{String.t() | Atom.t() => any()}
+  @type list_portals_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_dataset_response() :: %{
-        "datasetArn" => String.t() | Atom.t(),
-        "datasetId" => String.t() | Atom.t(),
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
         "datasetStatus" => dataset_status()
       }
 
   """
-  @type create_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_summary() :: %{
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type job_summary() :: %{String.t() | Atom.t() => any()}
+  @type job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_composite_model() :: %{
-        "description" => String.t() | Atom.t(),
-        "externalId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "properties" => list(asset_property()),
-        "type" => String.t() | Atom.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type asset_composite_model() :: %{String.t() | Atom.t() => any()}
+  @type asset_composite_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1483,42 +1482,42 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       update_gateway_capability_configuration_request() :: %{
-        required("capabilityConfiguration") => String.t() | Atom.t(),
-        required("capabilityNamespace") => String.t() | Atom.t()
+        required("capabilityConfiguration") => String.t() | atom(),
+        required("capabilityNamespace") => String.t() | atom()
       }
 
   """
-  @type update_gateway_capability_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_gateway_capability_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_portal_request() :: %{
-        optional("clientToken") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type delete_portal_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_portal_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_time_series_response() :: %{
-        "alias" => String.t() | Atom.t(),
-        "assetId" => String.t() | Atom.t(),
+        "alias" => String.t() | atom(),
+        "assetId" => String.t() | atom(),
         "dataType" => list(any()),
-        "dataTypeSpec" => String.t() | Atom.t(),
-        "propertyId" => String.t() | Atom.t(),
-        "timeSeriesArn" => String.t() | Atom.t(),
+        "dataTypeSpec" => String.t() | atom(),
+        "propertyId" => String.t() | atom(),
+        "timeSeriesArn" => String.t() | atom(),
         "timeSeriesCreationDate" => non_neg_integer(),
-        "timeSeriesId" => String.t() | Atom.t(),
+        "timeSeriesId" => String.t() | atom(),
         "timeSeriesLastUpdateDate" => non_neg_integer()
       }
 
   """
-  @type describe_time_series_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_time_series_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1526,46 +1525,46 @@ defmodule AWS.IoTSiteWise do
 
       batch_get_asset_property_aggregates_success_entry() :: %{
         "aggregatedValues" => list(aggregated_value()),
-        "entryId" => String.t() | Atom.t()
+        "entryId" => String.t() | atom()
       }
 
   """
-  @type batch_get_asset_property_aggregates_success_entry() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_aggregates_success_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_interpolated_asset_property_values_request() :: %{
-        optional("assetId") => String.t() | Atom.t(),
+        optional("assetId") => String.t() | atom(),
         optional("endTimeOffsetInNanos") => integer(),
         optional("intervalWindowInSeconds") => float(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("propertyAlias") => String.t() | Atom.t(),
-        optional("propertyId") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
+        optional("propertyAlias") => String.t() | atom(),
+        optional("propertyId") => String.t() | atom(),
         optional("startTimeOffsetInNanos") => integer(),
         required("endTimeInSeconds") => float(),
         required("intervalInSeconds") => float(),
         required("quality") => list(any()),
         required("startTimeInSeconds") => float(),
-        required("type") => String.t() | Atom.t()
+        required("type") => String.t() | atom()
       }
 
   """
-  @type get_interpolated_asset_property_values_request() :: %{String.t() | Atom.t() => any()}
+  @type get_interpolated_asset_property_values_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_project_response() :: %{
-        "projectArn" => String.t() | Atom.t(),
-        "projectId" => String.t() | Atom.t()
+        "projectArn" => String.t() | atom(),
+        "projectId" => String.t() | atom()
       }
 
   """
-  @type create_project_response() :: %{String.t() | Atom.t() => any()}
+  @type create_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1573,48 +1572,48 @@ defmodule AWS.IoTSiteWise do
 
       monitor_error_details() :: %{
         "code" => list(any()),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type monitor_error_details() :: %{String.t() | Atom.t() => any()}
+  @type monitor_error_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_asset_property_aggregates_error_entry() :: %{
-        "entryId" => String.t() | Atom.t(),
+        "entryId" => String.t() | atom(),
         "errorCode" => list(any()),
-        "errorMessage" => String.t() | Atom.t()
+        "errorMessage" => String.t() | atom()
       }
 
   """
-  @type batch_get_asset_property_aggregates_error_entry() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_aggregates_error_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invoke_assistant_request() :: %{
-        optional("conversationId") => String.t() | Atom.t(),
+        optional("conversationId") => String.t() | atom(),
         optional("enableTrace") => [boolean()],
-        required("message") => String.t() | Atom.t()
+        required("message") => String.t() | atom()
       }
 
   """
-  @type invoke_assistant_request() :: %{String.t() | Atom.t() => any()}
+  @type invoke_assistant_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1626,7 +1625,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type warm_tier_retention_period() :: %{String.t() | Atom.t() => any()}
+  @type warm_tier_retention_period() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1638,47 +1637,47 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type batch_get_asset_property_value_error_info() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_value_error_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dataset_summary() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationDate" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "lastUpdateDate" => non_neg_integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "status" => dataset_status()
       }
 
   """
-  @type dataset_summary() :: %{String.t() | Atom.t() => any()}
+  @type dataset_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_composite_model_path_segment() :: %{
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type asset_composite_model_path_segment() :: %{String.t() | Atom.t() => any()}
+  @type asset_composite_model_path_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1691,7 +1690,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type aggregated_value() :: %{String.t() | Atom.t() => any()}
+  @type aggregated_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1702,7 +1701,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type source_detail() :: %{String.t() | Atom.t() => any()}
+  @type source_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1713,23 +1712,22 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type row() :: %{String.t() | Atom.t() => any()}
+  @type row() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_time_series_from_asset_property_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        required("alias") => String.t() | Atom.t(),
-        required("assetId") => String.t() | Atom.t(),
-        required("propertyId") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom(),
+        required("alias") => String.t() | atom(),
+        required("assetId") => String.t() | atom(),
+        required("propertyId") => String.t() | atom()
       }
 
   """
   @type disassociate_time_series_from_asset_property_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1741,7 +1739,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type delete_portal_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_portal_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1749,19 +1747,19 @@ defmodule AWS.IoTSiteWise do
 
       update_asset_model_request() :: %{
         optional("assetModelCompositeModels") => list(asset_model_composite_model()),
-        optional("assetModelDescription") => String.t() | Atom.t(),
-        optional("assetModelExternalId") => String.t() | Atom.t(),
+        optional("assetModelDescription") => String.t() | atom(),
+        optional("assetModelExternalId") => String.t() | atom(),
         optional("assetModelHierarchies") => list(asset_model_hierarchy()),
         optional("assetModelProperties") => list(asset_model_property()),
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("ifMatch") => String.t() | Atom.t(),
-        optional("ifNoneMatch") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("ifMatch") => String.t() | atom(),
+        optional("ifNoneMatch") => String.t() | atom(),
         optional("matchForVersionType") => list(any()),
-        required("assetModelName") => String.t() | Atom.t()
+        required("assetModelName") => String.t() | atom()
       }
 
   """
-  @type update_asset_model_request() :: %{String.t() | Atom.t() => any()}
+  @type update_asset_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1769,53 +1767,53 @@ defmodule AWS.IoTSiteWise do
 
       create_portal_request() :: %{
         optional("alarms") => alarms(),
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("notificationSenderEmail") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("notificationSenderEmail") => String.t() | atom(),
         optional("portalAuthMode") => list(any()),
-        optional("portalDescription") => String.t() | Atom.t(),
+        optional("portalDescription") => String.t() | atom(),
         optional("portalLogoImageFile") => image_file(),
         optional("portalType") => list(any()),
         optional("portalTypeConfiguration") => map(),
         optional("tags") => map(),
-        required("portalContactEmail") => String.t() | Atom.t(),
-        required("portalName") => String.t() | Atom.t(),
-        required("roleArn") => String.t() | Atom.t()
+        required("portalContactEmail") => String.t() | atom(),
+        required("portalName") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type create_portal_request() :: %{String.t() | Atom.t() => any()}
+  @type create_portal_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associated_assets_summary() :: %{
-        "arn" => String.t() | Atom.t(),
-        "assetModelId" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
+        "assetModelId" => String.t() | atom(),
         "creationDate" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "externalId" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
         "hierarchies" => list(asset_hierarchy()),
-        "id" => String.t() | Atom.t(),
+        "id" => String.t() | atom(),
         "lastUpdateDate" => non_neg_integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "status" => asset_status()
       }
 
   """
-  @type associated_assets_summary() :: %{String.t() | Atom.t() => any()}
+  @type associated_assets_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       gateway_capability_summary() :: %{
-        "capabilityNamespace" => String.t() | Atom.t(),
+        "capabilityNamespace" => String.t() | atom(),
         "capabilitySyncStatus" => list(any())
       }
 
   """
-  @type gateway_capability_summary() :: %{String.t() | Atom.t() => any()}
+  @type gateway_capability_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1823,11 +1821,11 @@ defmodule AWS.IoTSiteWise do
 
       configuration_error_details() :: %{
         "code" => list(any()),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type configuration_error_details() :: %{String.t() | Atom.t() => any()}
+  @type configuration_error_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1838,54 +1836,54 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type update_portal_response() :: %{String.t() | Atom.t() => any()}
+  @type update_portal_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_gateway_capability_configuration_response() :: %{
-        "capabilityConfiguration" => String.t() | Atom.t(),
-        "capabilityNamespace" => String.t() | Atom.t(),
+        "capabilityConfiguration" => String.t() | atom(),
+        "capabilityNamespace" => String.t() | atom(),
         "capabilitySyncStatus" => list(any()),
-        "gatewayId" => String.t() | Atom.t()
+        "gatewayId" => String.t() | atom()
       }
 
   """
-  @type describe_gateway_capability_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_gateway_capability_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_property_summary() :: %{
-        "alias" => String.t() | Atom.t(),
-        "assetCompositeModelId" => String.t() | Atom.t(),
-        "externalId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "alias" => String.t() | atom(),
+        "assetCompositeModelId" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "notification" => property_notification(),
         "path" => list(asset_property_path_segment()),
-        "unit" => String.t() | Atom.t()
+        "unit" => String.t() | atom()
       }
 
   """
-  @type asset_property_summary() :: %{String.t() | Atom.t() => any()}
+  @type asset_property_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_model_composite_model_definition() :: %{
-        "description" => String.t() | Atom.t(),
-        "externalId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "properties" => list(asset_model_property_definition()),
-        "type" => String.t() | Atom.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type asset_model_composite_model_definition() :: %{String.t() | Atom.t() => any()}
+  @type asset_model_composite_model_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1896,7 +1894,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type csv() :: %{String.t() | Atom.t() => any()}
+  @type csv() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1913,30 +1911,30 @@ defmodule AWS.IoTSiteWise do
 
       list_asset_relationships_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("traversalType") => list(any())
       }
 
   """
-  @type list_asset_relationships_request() :: %{String.t() | Atom.t() => any()}
+  @type list_asset_relationships_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_dashboard_response() :: %{
-        "dashboardArn" => String.t() | Atom.t(),
+        "dashboardArn" => String.t() | atom(),
         "dashboardCreationDate" => non_neg_integer(),
-        "dashboardDefinition" => String.t() | Atom.t(),
-        "dashboardDescription" => String.t() | Atom.t(),
-        "dashboardId" => String.t() | Atom.t(),
+        "dashboardDefinition" => String.t() | atom(),
+        "dashboardDescription" => String.t() | atom(),
+        "dashboardId" => String.t() | atom(),
         "dashboardLastUpdateDate" => non_neg_integer(),
-        "dashboardName" => String.t() | Atom.t(),
-        "projectId" => String.t() | Atom.t()
+        "dashboardName" => String.t() | atom(),
+        "projectId" => String.t() | atom()
       }
 
   """
-  @type describe_dashboard_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_dashboard_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1944,50 +1942,50 @@ defmodule AWS.IoTSiteWise do
 
       describe_portal_response() :: %{
         "alarms" => alarms(),
-        "notificationSenderEmail" => String.t() | Atom.t(),
-        "portalArn" => String.t() | Atom.t(),
+        "notificationSenderEmail" => String.t() | atom(),
+        "portalArn" => String.t() | atom(),
         "portalAuthMode" => list(any()),
-        "portalClientId" => String.t() | Atom.t(),
-        "portalContactEmail" => String.t() | Atom.t(),
+        "portalClientId" => String.t() | atom(),
+        "portalContactEmail" => String.t() | atom(),
         "portalCreationDate" => non_neg_integer(),
-        "portalDescription" => String.t() | Atom.t(),
-        "portalId" => String.t() | Atom.t(),
+        "portalDescription" => String.t() | atom(),
+        "portalId" => String.t() | atom(),
         "portalLastUpdateDate" => non_neg_integer(),
         "portalLogoImageLocation" => image_location(),
-        "portalName" => String.t() | Atom.t(),
-        "portalStartUrl" => String.t() | Atom.t(),
+        "portalName" => String.t() | atom(),
+        "portalStartUrl" => String.t() | atom(),
         "portalStatus" => portal_status(),
         "portalType" => list(any()),
         "portalTypeConfiguration" => map(),
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type describe_portal_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_portal_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_model_property_path_segment() :: %{
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type asset_model_property_path_segment() :: %{String.t() | Atom.t() => any()}
+  @type asset_model_property_path_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_projects_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "projectSummaries" => list(project_summary())
       }
 
   """
-  @type list_projects_response() :: %{String.t() | Atom.t() => any()}
+  @type list_projects_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1998,7 +1996,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type delete_asset_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_asset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2009,7 +2007,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type job_configuration() :: %{String.t() | Atom.t() => any()}
+  @type job_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2018,11 +2016,11 @@ defmodule AWS.IoTSiteWise do
       error_details() :: %{
         "code" => list(any()),
         "details" => list(detailed_error()),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type error_details() :: %{String.t() | Atom.t() => any()}
+  @type error_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2030,11 +2028,11 @@ defmodule AWS.IoTSiteWise do
 
       property_notification() :: %{
         "state" => list(any()),
-        "topic" => String.t() | Atom.t()
+        "topic" => String.t() | atom()
       }
 
   """
-  @type property_notification() :: %{String.t() | Atom.t() => any()}
+  @type property_notification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2045,44 +2043,44 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_asset_property_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("propertyAlias") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("propertyAlias") => String.t() | atom(),
         optional("propertyNotificationState") => list(any()),
-        optional("propertyUnit") => String.t() | Atom.t()
+        optional("propertyUnit") => String.t() | atom()
       }
 
   """
-  @type update_asset_property_request() :: %{String.t() | Atom.t() => any()}
+  @type update_asset_property_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_gateway_capability_configuration_response() :: %{
-        "capabilityNamespace" => String.t() | Atom.t(),
+        "capabilityNamespace" => String.t() | atom(),
         "capabilitySyncStatus" => list(any())
       }
 
   """
-  @type update_gateway_capability_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type update_gateway_capability_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       action_payload() :: %{
-        "stringValue" => String.t() | Atom.t()
+        "stringValue" => String.t() | atom()
       }
 
   """
-  @type action_payload() :: %{String.t() | Atom.t() => any()}
+  @type action_payload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2090,59 +2088,59 @@ defmodule AWS.IoTSiteWise do
 
       list_actions_response() :: %{
         "actionSummaries" => list(action_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_actions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_actions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       customer_managed_s3_storage() :: %{
-        "roleArn" => String.t() | Atom.t(),
-        "s3ResourceArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom(),
+        "s3ResourceArn" => String.t() | atom()
       }
 
   """
-  @type customer_managed_s3_storage() :: %{String.t() | Atom.t() => any()}
+  @type customer_managed_s3_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       image_location() :: %{
-        "id" => String.t() | Atom.t(),
-        "url" => String.t() | Atom.t()
+        "id" => String.t() | atom(),
+        "url" => String.t() | atom()
       }
 
   """
-  @type image_location() :: %{String.t() | Atom.t() => any()}
+  @type image_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       composition_relationship_summary() :: %{
-        "assetModelCompositeModelId" => String.t() | Atom.t(),
-        "assetModelCompositeModelType" => String.t() | Atom.t(),
-        "assetModelId" => String.t() | Atom.t()
+        "assetModelCompositeModelId" => String.t() | atom(),
+        "assetModelCompositeModelType" => String.t() | atom(),
+        "assetModelId" => String.t() | atom()
       }
 
   """
-  @type composition_relationship_summary() :: %{String.t() | Atom.t() => any()}
+  @type composition_relationship_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2150,35 +2148,35 @@ defmodule AWS.IoTSiteWise do
 
       list_actions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("targetResourceId") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
+        required("targetResourceId") => String.t() | atom(),
         required("targetResourceType") => list(any())
       }
 
   """
-  @type list_actions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_actions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       location() :: %{
-        "uri" => String.t() | Atom.t()
+        "uri" => String.t() | atom()
       }
 
   """
-  @type location() :: %{String.t() | Atom.t() => any()}
+  @type location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       iam_role_identity() :: %{
-        "arn" => String.t() | Atom.t()
+        "arn" => String.t() | atom()
       }
 
   """
-  @type iam_role_identity() :: %{String.t() | Atom.t() => any()}
+  @type iam_role_identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2190,43 +2188,43 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type transform_processing_config() :: %{String.t() | Atom.t() => any()}
+  @type transform_processing_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_dataset_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("datasetDescription") => String.t() | Atom.t(),
-        required("datasetName") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("datasetDescription") => String.t() | atom(),
+        required("datasetName") => String.t() | atom(),
         required("datasetSource") => dataset_source()
       }
 
   """
-  @type update_dataset_request() :: %{String.t() | Atom.t() => any()}
+  @type update_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_asset_model_composite_model_request() :: %{
-        optional("assetModelCompositeModelDescription") => String.t() | Atom.t(),
-        optional("assetModelCompositeModelExternalId") => String.t() | Atom.t(),
-        optional("assetModelCompositeModelId") => String.t() | Atom.t(),
+        optional("assetModelCompositeModelDescription") => String.t() | atom(),
+        optional("assetModelCompositeModelExternalId") => String.t() | atom(),
+        optional("assetModelCompositeModelId") => String.t() | atom(),
         optional("assetModelCompositeModelProperties") => list(asset_model_property_definition()),
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("composedAssetModelId") => String.t() | Atom.t(),
-        optional("ifMatch") => String.t() | Atom.t(),
-        optional("ifNoneMatch") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("composedAssetModelId") => String.t() | atom(),
+        optional("ifMatch") => String.t() | atom(),
+        optional("ifNoneMatch") => String.t() | atom(),
         optional("matchForVersionType") => list(any()),
-        optional("parentAssetModelCompositeModelId") => String.t() | Atom.t(),
-        required("assetModelCompositeModelName") => String.t() | Atom.t(),
-        required("assetModelCompositeModelType") => String.t() | Atom.t()
+        optional("parentAssetModelCompositeModelId") => String.t() | atom(),
+        required("assetModelCompositeModelName") => String.t() | atom(),
+        required("assetModelCompositeModelType") => String.t() | atom()
       }
 
   """
-  @type create_asset_model_composite_model_request() :: %{String.t() | Atom.t() => any()}
+  @type create_asset_model_composite_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2238,19 +2236,19 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type image_file() :: %{String.t() | Atom.t() => any()}
+  @type image_file() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_asset_model_request() :: %{
-        optional("assetModelVersion") => String.t() | Atom.t(),
+        optional("assetModelVersion") => String.t() | atom(),
         optional("excludeProperties") => boolean()
       }
 
   """
-  @type describe_asset_model_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_asset_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2268,7 +2266,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type put_storage_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type put_storage_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2276,12 +2274,12 @@ defmodule AWS.IoTSiteWise do
 
       batch_get_asset_property_value_history_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("entries") => list(batch_get_asset_property_value_history_entry())
       }
 
   """
-  @type batch_get_asset_property_value_history_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_value_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2297,62 +2295,62 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       iam_user_identity() :: %{
-        "arn" => String.t() | Atom.t()
+        "arn" => String.t() | atom()
       }
 
   """
-  @type iam_user_identity() :: %{String.t() | Atom.t() => any()}
+  @type iam_user_identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_asset_property_value_history_error_entry() :: %{
-        "entryId" => String.t() | Atom.t(),
+        "entryId" => String.t() | atom(),
         "errorCode" => list(any()),
-        "errorMessage" => String.t() | Atom.t()
+        "errorMessage" => String.t() | atom()
       }
 
   """
-  @type batch_get_asset_property_value_history_error_entry() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_value_history_error_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_asset_model_composite_model_response() :: %{
-        "assetModelCompositeModelId" => String.t() | Atom.t(),
+        "assetModelCompositeModelId" => String.t() | atom(),
         "assetModelCompositeModelPath" => list(asset_model_composite_model_path_segment()),
         "assetModelStatus" => asset_model_status()
       }
 
   """
-  @type create_asset_model_composite_model_response() :: %{String.t() | Atom.t() => any()}
+  @type create_asset_model_composite_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_dashboard_request() :: %{
-        optional("clientToken") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type delete_dashboard_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_dashboard_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_asset_model_composite_model_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("ifMatch") => String.t() | Atom.t(),
-        optional("ifNoneMatch") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("ifMatch") => String.t() | atom(),
+        optional("ifNoneMatch") => String.t() | atom(),
         optional("matchForVersionType") => list(any())
       }
 
   """
-  @type delete_asset_model_composite_model_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_asset_model_composite_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2360,11 +2358,11 @@ defmodule AWS.IoTSiteWise do
 
       list_asset_models_response() :: %{
         "assetModelSummaries" => list(asset_model_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_asset_models_response() :: %{String.t() | Atom.t() => any()}
+  @type list_asset_models_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2385,7 +2383,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type asset_model_status() :: %{String.t() | Atom.t() => any()}
+  @type asset_model_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2401,13 +2399,13 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_asset_model_composite_models_request() :: %{
-        optional("assetModelVersion") => String.t() | Atom.t(),
+        optional("assetModelVersion") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_asset_model_composite_models_request() :: %{String.t() | Atom.t() => any()}
+  @type list_asset_model_composite_models_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2437,69 +2435,69 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type batch_put_asset_property_value_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_asset_property_value_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_model_hierarchy_definition() :: %{
-        "childAssetModelId" => String.t() | Atom.t(),
-        "externalId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "childAssetModelId" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type asset_model_hierarchy_definition() :: %{String.t() | Atom.t() => any()}
+  @type asset_model_hierarchy_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       trace() :: %{
-        "text" => String.t() | Atom.t()
+        "text" => String.t() | atom()
       }
 
   """
-  @type trace() :: %{String.t() | Atom.t() => any()}
+  @type trace() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_asset_model_response() :: %{
-        "assetModelArn" => String.t() | Atom.t(),
+        "assetModelArn" => String.t() | atom(),
         "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()),
         "assetModelCompositeModels" => list(asset_model_composite_model()),
         "assetModelCreationDate" => non_neg_integer(),
-        "assetModelDescription" => String.t() | Atom.t(),
-        "assetModelExternalId" => String.t() | Atom.t(),
+        "assetModelDescription" => String.t() | atom(),
+        "assetModelExternalId" => String.t() | atom(),
         "assetModelHierarchies" => list(asset_model_hierarchy()),
-        "assetModelId" => String.t() | Atom.t(),
+        "assetModelId" => String.t() | atom(),
         "assetModelLastUpdateDate" => non_neg_integer(),
-        "assetModelName" => String.t() | Atom.t(),
+        "assetModelName" => String.t() | atom(),
         "assetModelProperties" => list(asset_model_property()),
         "assetModelStatus" => asset_model_status(),
         "assetModelType" => list(any()),
-        "assetModelVersion" => String.t() | Atom.t(),
-        "eTag" => String.t() | Atom.t()
+        "assetModelVersion" => String.t() | atom(),
+        "eTag" => String.t() | atom()
       }
 
   """
-  @type describe_asset_model_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_asset_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       source() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "location" => location()
       }
 
   """
-  @type source() :: %{String.t() | Atom.t() => any()}
+  @type source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2507,23 +2505,23 @@ defmodule AWS.IoTSiteWise do
 
       batch_get_asset_property_value_success_entry() :: %{
         "assetPropertyValue" => asset_property_value(),
-        "entryId" => String.t() | Atom.t()
+        "entryId" => String.t() | atom()
       }
 
   """
-  @type batch_get_asset_property_value_success_entry() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_value_success_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_portals_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "portalSummaries" => list(portal_summary())
       }
 
   """
-  @type list_portals_response() :: %{String.t() | Atom.t() => any()}
+  @type list_portals_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2549,7 +2547,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type put_storage_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type put_storage_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2569,7 +2567,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type forwarding_config() :: %{String.t() | Atom.t() => any()}
+  @type forwarding_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2582,82 +2580,82 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type gateway_platform() :: %{String.t() | Atom.t() => any()}
+  @type gateway_platform() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_dashboard_response() :: %{
-        "dashboardArn" => String.t() | Atom.t(),
-        "dashboardId" => String.t() | Atom.t()
+        "dashboardArn" => String.t() | atom(),
+        "dashboardId" => String.t() | atom()
       }
 
   """
-  @type create_dashboard_response() :: %{String.t() | Atom.t() => any()}
+  @type create_dashboard_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_project_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("projectDescription") => String.t() | Atom.t(),
-        required("projectName") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom(),
+        optional("projectDescription") => String.t() | atom(),
+        required("projectName") => String.t() | atom()
       }
 
   """
-  @type update_project_request() :: %{String.t() | Atom.t() => any()}
+  @type update_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_gateway_request() :: %{
-        optional("gatewayVersion") => String.t() | Atom.t(),
+        optional("gatewayVersion") => String.t() | atom(),
         optional("tags") => map(),
-        required("gatewayName") => String.t() | Atom.t(),
+        required("gatewayName") => String.t() | atom(),
         required("gatewayPlatform") => gateway_platform()
       }
 
   """
-  @type create_gateway_request() :: %{String.t() | Atom.t() => any()}
+  @type create_gateway_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_bulk_import_job_response() :: %{
-        "jobId" => String.t() | Atom.t(),
-        "jobName" => String.t() | Atom.t(),
+        "jobId" => String.t() | atom(),
+        "jobName" => String.t() | atom(),
         "jobStatus" => list(any())
       }
 
   """
-  @type create_bulk_import_job_response() :: %{String.t() | Atom.t() => any()}
+  @type create_bulk_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_asset_model_properties_request() :: %{
-        optional("assetModelVersion") => String.t() | Atom.t(),
+        optional("assetModelVersion") => String.t() | atom(),
         optional("filter") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_asset_model_properties_request() :: %{String.t() | Atom.t() => any()}
+  @type list_asset_model_properties_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_access_policy_response() :: %{
-        "accessPolicyArn" => String.t() | Atom.t(),
+        "accessPolicyArn" => String.t() | atom(),
         "accessPolicyCreationDate" => non_neg_integer(),
-        "accessPolicyId" => String.t() | Atom.t(),
+        "accessPolicyId" => String.t() | atom(),
         "accessPolicyIdentity" => identity(),
         "accessPolicyLastUpdateDate" => non_neg_integer(),
         "accessPolicyPermission" => list(any()),
@@ -2665,19 +2663,19 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type describe_access_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_access_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_model_composite_model_path_segment() :: %{
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type asset_model_composite_model_path_segment() :: %{String.t() | Atom.t() => any()}
+  @type asset_model_composite_model_path_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2685,22 +2683,22 @@ defmodule AWS.IoTSiteWise do
 
       get_interpolated_asset_property_values_response() :: %{
         "interpolatedAssetPropertyValues" => list(interpolated_asset_property_value()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_interpolated_asset_property_values_response() :: %{String.t() | Atom.t() => any()}
+  @type get_interpolated_asset_property_values_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_asset_request() :: %{
-        optional("clientToken") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type delete_asset_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_asset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2708,24 +2706,24 @@ defmodule AWS.IoTSiteWise do
 
       image() :: %{
         "file" => image_file(),
-        "id" => String.t() | Atom.t()
+        "id" => String.t() | atom()
       }
 
   """
-  @type image() :: %{String.t() | Atom.t() => any()}
+  @type image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_assets_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        required("childAssetId") => String.t() | Atom.t(),
-        required("hierarchyId") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom(),
+        required("childAssetId") => String.t() | atom(),
+        required("hierarchyId") => String.t() | atom()
       }
 
   """
-  @type associate_assets_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_assets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2733,19 +2731,19 @@ defmodule AWS.IoTSiteWise do
 
       batch_get_asset_property_aggregates_entry() :: %{
         "aggregateTypes" => list(list(any())()),
-        "assetId" => String.t() | Atom.t(),
+        "assetId" => String.t() | atom(),
         "endDate" => non_neg_integer(),
-        "entryId" => String.t() | Atom.t(),
-        "propertyAlias" => String.t() | Atom.t(),
-        "propertyId" => String.t() | Atom.t(),
+        "entryId" => String.t() | atom(),
+        "propertyAlias" => String.t() | atom(),
+        "propertyId" => String.t() | atom(),
         "qualities" => list(list(any())()),
-        "resolution" => String.t() | Atom.t(),
+        "resolution" => String.t() | atom(),
         "startDate" => non_neg_integer(),
         "timeOrdering" => list(any())
       }
 
   """
-  @type batch_get_asset_property_aggregates_entry() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_aggregates_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2753,56 +2751,56 @@ defmodule AWS.IoTSiteWise do
 
       batch_get_asset_property_value_response() :: %{
         "errorEntries" => list(batch_get_asset_property_value_error_entry()),
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "skippedEntries" => list(batch_get_asset_property_value_skipped_entry()),
         "successEntries" => list(batch_get_asset_property_value_success_entry())
       }
 
   """
-  @type batch_get_asset_property_value_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_value_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       transform() :: %{
-        "expression" => String.t() | Atom.t(),
+        "expression" => String.t() | atom(),
         "processingConfig" => transform_processing_config(),
         "variables" => list(expression_variable())
       }
 
   """
-  @type transform() :: %{String.t() | Atom.t() => any()}
+  @type transform() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_asset_property_value_history_request() :: %{
-        optional("assetId") => String.t() | Atom.t(),
+        optional("assetId") => String.t() | atom(),
         optional("endDate") => non_neg_integer(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("propertyAlias") => String.t() | Atom.t(),
-        optional("propertyId") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
+        optional("propertyAlias") => String.t() | atom(),
+        optional("propertyId") => String.t() | atom(),
         optional("qualities") => list(list(any())()),
         optional("startDate") => non_neg_integer(),
         optional("timeOrdering") => list(any())
       }
 
   """
-  @type get_asset_property_value_history_request() :: %{String.t() | Atom.t() => any()}
+  @type get_asset_property_value_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2814,64 +2812,64 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type asset_relationship_summary() :: %{String.t() | Atom.t() => any()}
+  @type asset_relationship_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_composite_model_summary() :: %{
-        "description" => String.t() | Atom.t(),
-        "externalId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "path" => list(asset_composite_model_path_segment()),
-        "type" => String.t() | Atom.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type asset_composite_model_summary() :: %{String.t() | Atom.t() => any()}
+  @type asset_composite_model_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_asset_response() :: %{
-        "assetArn" => String.t() | Atom.t(),
-        "assetId" => String.t() | Atom.t(),
+        "assetArn" => String.t() | atom(),
+        "assetId" => String.t() | atom(),
         "assetStatus" => asset_status()
       }
 
   """
-  @type create_asset_response() :: %{String.t() | Atom.t() => any()}
+  @type create_asset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_access_policy_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         required("accessPolicyIdentity") => identity(),
         required("accessPolicyPermission") => list(any()),
         required("accessPolicyResource") => resource()
       }
 
   """
-  @type update_access_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type update_access_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_asset_request() :: %{
-        optional("assetDescription") => String.t() | Atom.t(),
-        optional("assetExternalId") => String.t() | Atom.t(),
-        optional("clientToken") => String.t() | Atom.t(),
-        required("assetName") => String.t() | Atom.t()
+        optional("assetDescription") => String.t() | atom(),
+        optional("assetExternalId") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        required("assetName") => String.t() | atom()
       }
 
   """
-  @type update_asset_request() :: %{String.t() | Atom.t() => any()}
+  @type update_asset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2888,14 +2886,14 @@ defmodule AWS.IoTSiteWise do
 
       dashboard_summary() :: %{
         "creationDate" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "lastUpdateDate" => non_neg_integer(),
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type dashboard_summary() :: %{String.t() | Atom.t() => any()}
+  @type dashboard_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2906,7 +2904,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type put_logging_options_request() :: %{String.t() | Atom.t() => any()}
+  @type put_logging_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2917,7 +2915,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type measurement_processing_config() :: %{String.t() | Atom.t() => any()}
+  @type measurement_processing_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2931,21 +2929,21 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type property_type() :: %{String.t() | Atom.t() => any()}
+  @type property_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_time_series_request() :: %{
-        optional("alias") => String.t() | Atom.t(),
-        optional("assetId") => String.t() | Atom.t(),
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("propertyId") => String.t() | Atom.t()
+        optional("alias") => String.t() | atom(),
+        optional("assetId") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("propertyId") => String.t() | atom()
       }
 
   """
-  @type delete_time_series_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_time_series_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2974,7 +2972,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type batch_disassociate_project_assets_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_disassociate_project_assets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2982,38 +2980,38 @@ defmodule AWS.IoTSiteWise do
 
       update_portal_request() :: %{
         optional("alarms") => alarms(),
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("notificationSenderEmail") => String.t() | Atom.t(),
-        optional("portalDescription") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("notificationSenderEmail") => String.t() | atom(),
+        optional("portalDescription") => String.t() | atom(),
         optional("portalLogoImage") => image(),
         optional("portalType") => list(any()),
         optional("portalTypeConfiguration") => map(),
-        required("portalContactEmail") => String.t() | Atom.t(),
-        required("portalName") => String.t() | Atom.t(),
-        required("roleArn") => String.t() | Atom.t()
+        required("portalContactEmail") => String.t() | atom(),
+        required("portalName") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type update_portal_request() :: %{String.t() | Atom.t() => any()}
+  @type update_portal_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_dataset_response() :: %{
-        "datasetArn" => String.t() | Atom.t(),
+        "datasetArn" => String.t() | atom(),
         "datasetCreationDate" => non_neg_integer(),
-        "datasetDescription" => String.t() | Atom.t(),
-        "datasetId" => String.t() | Atom.t(),
+        "datasetDescription" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
         "datasetLastUpdateDate" => non_neg_integer(),
-        "datasetName" => String.t() | Atom.t(),
+        "datasetName" => String.t() | atom(),
         "datasetSource" => dataset_source(),
         "datasetStatus" => dataset_status(),
-        "datasetVersion" => String.t() | Atom.t()
+        "datasetVersion" => String.t() | atom()
       }
 
   """
-  @type describe_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3032,20 +3030,20 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type describe_storage_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_storage_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_error_details() :: %{
-        "assetId" => String.t() | Atom.t(),
+        "assetId" => String.t() | atom(),
         "code" => list(any()),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type asset_error_details() :: %{String.t() | Atom.t() => any()}
+  @type asset_error_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3057,19 +3055,19 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type time_in_nanos() :: %{String.t() | Atom.t() => any()}
+  @type time_in_nanos() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tumbling_window() :: %{
-        "interval" => String.t() | Atom.t(),
-        "offset" => String.t() | Atom.t()
+        "interval" => String.t() | atom(),
+        "offset" => String.t() | atom()
       }
 
   """
-  @type tumbling_window() :: %{String.t() | Atom.t() => any()}
+  @type tumbling_window() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3080,29 +3078,29 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type measurement() :: %{String.t() | Atom.t() => any()}
+  @type measurement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t() | Atom.t()
+        required("resourceArn") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3114,7 +3112,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type batch_get_asset_property_value_history_error_info() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_value_history_error_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3125,42 +3123,42 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type delete_asset_model_composite_model_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_asset_model_composite_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_dataset_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("datasetDescription") => String.t() | Atom.t(),
-        optional("datasetId") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("datasetDescription") => String.t() | atom(),
+        optional("datasetId") => String.t() | atom(),
         optional("tags") => map(),
-        required("datasetName") => String.t() | Atom.t(),
+        required("datasetName") => String.t() | atom(),
         required("datasetSource") => dataset_source()
       }
 
   """
-  @type create_dataset_request() :: %{String.t() | Atom.t() => any()}
+  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       property() :: %{
-        "alias" => String.t() | Atom.t(),
+        "alias" => String.t() | atom(),
         "dataType" => list(any()),
-        "externalId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "notification" => property_notification(),
         "path" => list(asset_property_path_segment()),
         "type" => property_type(),
-        "unit" => String.t() | Atom.t()
+        "unit" => String.t() | atom()
       }
 
   """
-  @type property() :: %{String.t() | Atom.t() => any()}
+  @type property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3168,23 +3166,23 @@ defmodule AWS.IoTSiteWise do
 
       execute_query_response() :: %{
         "columns" => list(column_info()),
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "rows" => list(row())
       }
 
   """
-  @type execute_query_response() :: %{String.t() | Atom.t() => any()}
+  @type execute_query_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       query_timeout_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type query_timeout_exception() :: %{String.t() | Atom.t() => any()}
+  @type query_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3192,27 +3190,27 @@ defmodule AWS.IoTSiteWise do
 
       get_asset_property_value_history_response() :: %{
         "assetPropertyValueHistory" => list(asset_property_value()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_asset_property_value_history_response() :: %{String.t() | Atom.t() => any()}
+  @type get_asset_property_value_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_model_composite_model_summary() :: %{
-        "description" => String.t() | Atom.t(),
-        "externalId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "path" => list(asset_model_composite_model_path_segment()),
-        "type" => String.t() | Atom.t()
+        "type" => String.t() | atom()
       }
 
   """
-  @type asset_model_composite_model_summary() :: %{String.t() | Atom.t() => any()}
+  @type asset_model_composite_model_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3220,11 +3218,11 @@ defmodule AWS.IoTSiteWise do
 
       list_composition_relationships_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_composition_relationships_request() :: %{String.t() | Atom.t() => any()}
+  @type list_composition_relationships_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3235,33 +3233,33 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type composition_details() :: %{String.t() | Atom.t() => any()}
+  @type composition_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_project_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("projectDescription") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("projectDescription") => String.t() | atom(),
         optional("tags") => map(),
-        required("portalId") => String.t() | Atom.t(),
-        required("projectName") => String.t() | Atom.t()
+        required("portalId") => String.t() | atom(),
+        required("projectName") => String.t() | atom()
       }
 
   """
-  @type create_project_request() :: %{String.t() | Atom.t() => any()}
+  @type create_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3269,42 +3267,42 @@ defmodule AWS.IoTSiteWise do
 
       describe_gateway_response() :: %{
         "creationDate" => non_neg_integer(),
-        "gatewayArn" => String.t() | Atom.t(),
+        "gatewayArn" => String.t() | atom(),
         "gatewayCapabilitySummaries" => list(gateway_capability_summary()),
-        "gatewayId" => String.t() | Atom.t(),
-        "gatewayName" => String.t() | Atom.t(),
+        "gatewayId" => String.t() | atom(),
+        "gatewayName" => String.t() | atom(),
         "gatewayPlatform" => gateway_platform(),
-        "gatewayVersion" => String.t() | Atom.t(),
+        "gatewayVersion" => String.t() | atom(),
         "lastUpdateDate" => non_neg_integer()
       }
 
   """
-  @type describe_gateway_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_asset_property_value_request() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         required("entries") => list(batch_get_asset_property_value_entry())
       }
 
   """
-  @type batch_get_asset_property_value_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_value_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_assets_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        required("childAssetId") => String.t() | Atom.t(),
-        required("hierarchyId") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom(),
+        required("childAssetId") => String.t() | atom(),
+        required("hierarchyId") => String.t() | atom()
       }
 
   """
-  @type disassociate_assets_request() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_assets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3312,13 +3310,12 @@ defmodule AWS.IoTSiteWise do
 
       batch_get_asset_property_value_history_success_entry() :: %{
         "assetPropertyValueHistory" => list(asset_property_value()),
-        "entryId" => String.t() | Atom.t()
+        "entryId" => String.t() | atom()
       }
 
   """
   @type batch_get_asset_property_value_history_success_entry() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -3326,27 +3323,27 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       asset_property_path_segment() :: %{
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type asset_property_path_segment() :: %{String.t() | Atom.t() => any()}
+  @type asset_property_path_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_time_series_request() :: %{
-        optional("aliasPrefix") => String.t() | Atom.t(),
-        optional("assetId") => String.t() | Atom.t(),
+        optional("aliasPrefix") => String.t() | atom(),
+        optional("assetId") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("timeSeriesType") => list(any())
       }
 
   """
-  @type list_time_series_request() :: %{String.t() | Atom.t() => any()}
+  @type list_time_series_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3354,46 +3351,46 @@ defmodule AWS.IoTSiteWise do
 
       list_projects_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        required("portalId") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        required("portalId") => String.t() | atom()
       }
 
   """
-  @type list_projects_request() :: %{String.t() | Atom.t() => any()}
+  @type list_projects_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_dashboard_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("dashboardDescription") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("dashboardDescription") => String.t() | atom(),
         optional("tags") => map(),
-        required("dashboardDefinition") => String.t() | Atom.t(),
-        required("dashboardName") => String.t() | Atom.t(),
-        required("projectId") => String.t() | Atom.t()
+        required("dashboardDefinition") => String.t() | atom(),
+        required("dashboardName") => String.t() | atom(),
+        required("projectId") => String.t() | atom()
       }
 
   """
-  @type create_dashboard_request() :: %{String.t() | Atom.t() => any()}
+  @type create_dashboard_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_asset_model_composite_model_request() :: %{
-        optional("assetModelCompositeModelDescription") => String.t() | Atom.t(),
-        optional("assetModelCompositeModelExternalId") => String.t() | Atom.t(),
+        optional("assetModelCompositeModelDescription") => String.t() | atom(),
+        optional("assetModelCompositeModelExternalId") => String.t() | atom(),
         optional("assetModelCompositeModelProperties") => list(asset_model_property()),
-        optional("clientToken") => String.t() | Atom.t(),
-        optional("ifMatch") => String.t() | Atom.t(),
-        optional("ifNoneMatch") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("ifMatch") => String.t() | atom(),
+        optional("ifNoneMatch") => String.t() | atom(),
         optional("matchForVersionType") => list(any()),
-        required("assetModelCompositeModelName") => String.t() | Atom.t()
+        required("assetModelCompositeModelName") => String.t() | atom()
       }
 
   """
-  @type update_asset_model_composite_model_request() :: %{String.t() | Atom.t() => any()}
+  @type update_asset_model_composite_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3401,11 +3398,11 @@ defmodule AWS.IoTSiteWise do
 
       list_asset_relationships_response() :: %{
         "assetRelationshipSummaries" => list(asset_relationship_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_asset_relationships_response() :: %{String.t() | Atom.t() => any()}
+  @type list_asset_relationships_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3421,7 +3418,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type aggregates() :: %{String.t() | Atom.t() => any()}
+  @type aggregates() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3429,22 +3426,22 @@ defmodule AWS.IoTSiteWise do
 
       list_asset_model_properties_response() :: %{
         "assetModelPropertySummaries" => list(asset_model_property_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_asset_model_properties_response() :: %{String.t() | Atom.t() => any()}
+  @type list_asset_model_properties_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       attribute() :: %{
-        "defaultValue" => String.t() | Atom.t()
+        "defaultValue" => String.t() | atom()
       }
 
   """
-  @type attribute() :: %{String.t() | Atom.t() => any()}
+  @type attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3452,55 +3449,55 @@ defmodule AWS.IoTSiteWise do
 
       portal_summary() :: %{
         "creationDate" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "lastUpdateDate" => non_neg_integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "portalType" => list(any()),
-        "roleArn" => String.t() | Atom.t(),
-        "startUrl" => String.t() | Atom.t(),
+        "roleArn" => String.t() | atom(),
+        "startUrl" => String.t() | atom(),
         "status" => portal_status()
       }
 
   """
-  @type portal_summary() :: %{String.t() | Atom.t() => any()}
+  @type portal_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_assets_request() :: %{
-        optional("assetModelId") => String.t() | Atom.t(),
+        optional("assetModelId") => String.t() | atom(),
         optional("filter") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_assets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_assets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_disassociate_project_assets_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        required("assetIds") => list(String.t() | Atom.t())
+        optional("clientToken") => String.t() | atom(),
+        required("assetIds") => list(String.t() | atom())
       }
 
   """
-  @type batch_disassociate_project_assets_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_disassociate_project_assets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3511,7 +3508,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type batch_put_asset_property_value_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_asset_property_value_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3519,30 +3516,30 @@ defmodule AWS.IoTSiteWise do
 
       describe_asset_composite_model_response() :: %{
         "actionDefinitions" => list(action_definition()),
-        "assetCompositeModelDescription" => String.t() | Atom.t(),
-        "assetCompositeModelExternalId" => String.t() | Atom.t(),
-        "assetCompositeModelId" => String.t() | Atom.t(),
-        "assetCompositeModelName" => String.t() | Atom.t(),
+        "assetCompositeModelDescription" => String.t() | atom(),
+        "assetCompositeModelExternalId" => String.t() | atom(),
+        "assetCompositeModelId" => String.t() | atom(),
+        "assetCompositeModelName" => String.t() | atom(),
         "assetCompositeModelPath" => list(asset_composite_model_path_segment()),
         "assetCompositeModelProperties" => list(asset_property()),
         "assetCompositeModelSummaries" => list(asset_composite_model_summary()),
-        "assetCompositeModelType" => String.t() | Atom.t(),
-        "assetId" => String.t() | Atom.t()
+        "assetCompositeModelType" => String.t() | atom(),
+        "assetId" => String.t() | atom()
       }
 
   """
-  @type describe_asset_composite_model_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_asset_composite_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       composition_relationship_item() :: %{
-        "id" => String.t() | Atom.t()
+        "id" => String.t() | atom()
       }
 
   """
-  @type composition_relationship_item() :: %{String.t() | Atom.t() => any()}
+  @type composition_relationship_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3553,7 +3550,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type logging_options() :: %{String.t() | Atom.t() => any()}
+  @type logging_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3570,35 +3567,35 @@ defmodule AWS.IoTSiteWise do
 
       list_asset_properties_response() :: %{
         "assetPropertySummaries" => list(asset_property_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_asset_properties_response() :: %{String.t() | Atom.t() => any()}
+  @type list_asset_properties_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       content() :: %{
-        "text" => String.t() | Atom.t()
+        "text" => String.t() | atom()
       }
 
   """
-  @type content() :: %{String.t() | Atom.t() => any()}
+  @type content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_hierarchy() :: %{
-        "externalId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type asset_hierarchy() :: %{String.t() | Atom.t() => any()}
+  @type asset_hierarchy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3606,40 +3603,40 @@ defmodule AWS.IoTSiteWise do
 
       asset_model_property_definition() :: %{
         "dataType" => list(any()),
-        "dataTypeSpec" => String.t() | Atom.t(),
-        "externalId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "dataTypeSpec" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "type" => property_type(),
-        "unit" => String.t() | Atom.t()
+        "unit" => String.t() | atom()
       }
 
   """
-  @type asset_model_property_definition() :: %{String.t() | Atom.t() => any()}
+  @type asset_model_property_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_hierarchy_info() :: %{
-        "childAssetId" => String.t() | Atom.t(),
-        "parentAssetId" => String.t() | Atom.t()
+        "childAssetId" => String.t() | atom(),
+        "parentAssetId" => String.t() | atom()
       }
 
   """
-  @type asset_hierarchy_info() :: %{String.t() | Atom.t() => any()}
+  @type asset_hierarchy_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_put_asset_property_error_entry() :: %{
-        "entryId" => String.t() | Atom.t(),
+        "entryId" => String.t() | atom(),
         "errors" => list(batch_put_asset_property_error())
       }
 
   """
-  @type batch_put_asset_property_error_entry() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_asset_property_error_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3655,11 +3652,11 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       delete_dataset_request() :: %{
-        optional("clientToken") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type delete_dataset_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3667,11 +3664,11 @@ defmodule AWS.IoTSiteWise do
 
       list_datasets_response() :: %{
         "datasetSummaries" => list(dataset_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_datasets_response() :: %{String.t() | Atom.t() => any()}
+  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3680,24 +3677,24 @@ defmodule AWS.IoTSiteWise do
       list_asset_properties_request() :: %{
         optional("filter") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_asset_properties_request() :: %{String.t() | Atom.t() => any()}
+  @type list_asset_properties_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       variable_value() :: %{
-        "hierarchyId" => String.t() | Atom.t(),
-        "propertyId" => String.t() | Atom.t(),
+        "hierarchyId" => String.t() | atom(),
+        "propertyId" => String.t() | atom(),
         "propertyPath" => list(asset_model_property_path_segment())
       }
 
   """
-  @type variable_value() :: %{String.t() | Atom.t() => any()}
+  @type variable_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3713,78 +3710,78 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       resource_already_exists_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceArn" => String.t() | Atom.t(),
-        "resourceId" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "resourceId" => String.t() | atom()
       }
 
   """
-  @type resource_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       column_info() :: %{
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "type" => column_type()
       }
 
   """
-  @type column_info() :: %{String.t() | Atom.t() => any()}
+  @type column_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_set_reference() :: %{
-        "datasetArn" => String.t() | Atom.t(),
+        "datasetArn" => String.t() | atom(),
         "source" => source()
       }
 
   """
-  @type data_set_reference() :: %{String.t() | Atom.t() => any()}
+  @type data_set_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       time_series_summary() :: %{
-        "alias" => String.t() | Atom.t(),
-        "assetId" => String.t() | Atom.t(),
+        "alias" => String.t() | atom(),
+        "assetId" => String.t() | atom(),
         "dataType" => list(any()),
-        "dataTypeSpec" => String.t() | Atom.t(),
-        "propertyId" => String.t() | Atom.t(),
-        "timeSeriesArn" => String.t() | Atom.t(),
+        "dataTypeSpec" => String.t() | atom(),
+        "propertyId" => String.t() | atom(),
+        "timeSeriesArn" => String.t() | atom(),
         "timeSeriesCreationDate" => non_neg_integer(),
-        "timeSeriesId" => String.t() | Atom.t(),
+        "timeSeriesId" => String.t() | atom(),
         "timeSeriesLastUpdateDate" => non_neg_integer()
       }
 
   """
-  @type time_series_summary() :: %{String.t() | Atom.t() => any()}
+  @type time_series_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       portal_type_entry() :: %{
-        "portalTools" => list(String.t() | Atom.t())
+        "portalTools" => list(String.t() | atom())
       }
 
   """
-  @type portal_type_entry() :: %{String.t() | Atom.t() => any()}
+  @type portal_type_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_project_request() :: %{
-        optional("clientToken") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type delete_project_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3792,33 +3789,33 @@ defmodule AWS.IoTSiteWise do
 
       create_asset_model_request() :: %{
         optional("assetModelCompositeModels") => list(asset_model_composite_model_definition()),
-        optional("assetModelDescription") => String.t() | Atom.t(),
-        optional("assetModelExternalId") => String.t() | Atom.t(),
+        optional("assetModelDescription") => String.t() | atom(),
+        optional("assetModelExternalId") => String.t() | atom(),
         optional("assetModelHierarchies") => list(asset_model_hierarchy_definition()),
-        optional("assetModelId") => String.t() | Atom.t(),
+        optional("assetModelId") => String.t() | atom(),
         optional("assetModelProperties") => list(asset_model_property_definition()),
         optional("assetModelType") => list(any()),
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("tags") => map(),
-        required("assetModelName") => String.t() | Atom.t()
+        required("assetModelName") => String.t() | atom()
       }
 
   """
-  @type create_asset_model_request() :: %{String.t() | Atom.t() => any()}
+  @type create_asset_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       execute_action_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        required("actionDefinitionId") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
+        required("actionDefinitionId") => String.t() | atom(),
         required("actionPayload") => action_payload(),
         required("targetResource") => target_resource()
       }
 
   """
-  @type execute_action_request() :: %{String.t() | Atom.t() => any()}
+  @type execute_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3826,12 +3823,12 @@ defmodule AWS.IoTSiteWise do
 
       batch_put_asset_property_error() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => String.t() | Atom.t(),
+        "errorMessage" => String.t() | atom(),
         "timestamps" => list(time_in_nanos())
       }
 
   """
-  @type batch_put_asset_property_error() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_asset_property_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3839,11 +3836,11 @@ defmodule AWS.IoTSiteWise do
 
       list_assets_response() :: %{
         "assetSummaries" => list(asset_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_assets_response() :: %{String.t() | Atom.t() => any()}
+  @type list_assets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3854,7 +3851,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type update_asset_model_response() :: %{String.t() | Atom.t() => any()}
+  @type update_asset_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3865,7 +3862,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type describe_asset_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_asset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3873,25 +3870,25 @@ defmodule AWS.IoTSiteWise do
 
       list_dashboards_response() :: %{
         "dashboardSummaries" => list(dashboard_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_dashboards_response() :: %{String.t() | Atom.t() => any()}
+  @type list_dashboards_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_asset_property_value_entry() :: %{
-        "assetId" => String.t() | Atom.t(),
-        "entryId" => String.t() | Atom.t(),
-        "propertyAlias" => String.t() | Atom.t(),
-        "propertyId" => String.t() | Atom.t()
+        "assetId" => String.t() | atom(),
+        "entryId" => String.t() | atom(),
+        "propertyAlias" => String.t() | atom(),
+        "propertyId" => String.t() | atom()
       }
 
   """
-  @type batch_get_asset_property_value_entry() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_value_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3903,7 +3900,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type dataset_status() :: %{String.t() | Atom.t() => any()}
+  @type dataset_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3911,24 +3908,24 @@ defmodule AWS.IoTSiteWise do
 
       list_gateways_response() :: %{
         "gatewaySummaries" => list(gateway_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_gateways_response() :: %{String.t() | Atom.t() => any()}
+  @type list_gateways_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       precondition_failed_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceArn" => String.t() | Atom.t(),
-        "resourceId" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "resourceId" => String.t() | atom()
       }
 
   """
-  @type precondition_failed_exception() :: %{String.t() | Atom.t() => any()}
+  @type precondition_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3940,14 +3937,14 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type batch_get_asset_property_aggregates_error_info() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_aggregates_error_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_access_policy_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("tags") => map(),
         required("accessPolicyIdentity") => identity(),
         required("accessPolicyPermission") => list(any()),
@@ -3955,19 +3952,19 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type create_access_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type create_access_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_default_encryption_configuration_request() :: %{
-        optional("kmsKeyId") => String.t() | Atom.t(),
+        optional("kmsKeyId") => String.t() | atom(),
         required("encryptionType") => list(any())
       }
 
   """
-  @type put_default_encryption_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type put_default_encryption_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3975,50 +3972,50 @@ defmodule AWS.IoTSiteWise do
 
       greengrass_v2() :: %{
         "coreDeviceOperatingSystem" => list(any()),
-        "coreDeviceThingName" => String.t() | Atom.t()
+        "coreDeviceThingName" => String.t() | atom()
       }
 
   """
-  @type greengrass_v2() :: %{String.t() | Atom.t() => any()}
+  @type greengrass_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_asset_property_value_history_entry() :: %{
-        "assetId" => String.t() | Atom.t(),
+        "assetId" => String.t() | atom(),
         "endDate" => non_neg_integer(),
-        "entryId" => String.t() | Atom.t(),
-        "propertyAlias" => String.t() | Atom.t(),
-        "propertyId" => String.t() | Atom.t(),
+        "entryId" => String.t() | atom(),
+        "propertyAlias" => String.t() | atom(),
+        "propertyId" => String.t() | atom(),
         "qualities" => list(list(any())()),
         "startDate" => non_neg_integer(),
         "timeOrdering" => list(any())
       }
 
   """
-  @type batch_get_asset_property_value_history_entry() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_asset_property_value_history_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_asset_property_aggregates_request() :: %{
-        optional("assetId") => String.t() | Atom.t(),
+        optional("assetId") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("propertyAlias") => String.t() | Atom.t(),
-        optional("propertyId") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
+        optional("propertyAlias") => String.t() | atom(),
+        optional("propertyId") => String.t() | atom(),
         optional("qualities") => list(list(any())()),
         optional("timeOrdering") => list(any()),
         required("aggregateTypes") => list(list(any())()),
         required("endDate") => non_neg_integer(),
-        required("resolution") => String.t() | Atom.t(),
+        required("resolution") => String.t() | atom(),
         required("startDate") => non_neg_integer()
       }
 
   """
-  @type get_asset_property_aggregates_request() :: %{String.t() | Atom.t() => any()}
+  @type get_asset_property_aggregates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4029,11 +4026,11 @@ defmodule AWS.IoTSiteWise do
         "doubleValue" => float(),
         "integerValue" => integer(),
         "nullValue" => property_value_null_value(),
-        "stringValue" => String.t() | Atom.t()
+        "stringValue" => String.t() | atom()
       }
 
   """
-  @type variant() :: %{String.t() | Atom.t() => any()}
+  @type variant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4041,25 +4038,25 @@ defmodule AWS.IoTSiteWise do
 
       list_asset_models_request() :: %{
         optional("assetModelTypes") => list(list(any())()),
-        optional("assetModelVersion") => String.t() | Atom.t(),
+        optional("assetModelVersion") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_asset_models_request() :: %{String.t() | Atom.t() => any()}
+  @type list_asset_models_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_tags_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceName" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resourceName" => String.t() | atom()
       }
 
   """
-  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4067,11 +4064,11 @@ defmodule AWS.IoTSiteWise do
 
       list_associated_assets_response() :: %{
         "assetSummaries" => list(associated_assets_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_associated_assets_response() :: %{String.t() | Atom.t() => any()}
+  @type list_associated_assets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4092,7 +4089,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type update_asset_model_composite_model_response() :: %{String.t() | Atom.t() => any()}
+  @type update_asset_model_composite_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4100,43 +4097,43 @@ defmodule AWS.IoTSiteWise do
 
       invoke_assistant_response() :: %{
         "body" => list(),
-        "conversationId" => String.t() | Atom.t()
+        "conversationId" => String.t() | atom()
       }
 
   """
-  @type invoke_assistant_response() :: %{String.t() | Atom.t() => any()}
+  @type invoke_assistant_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       action_definition() :: %{
-        "actionDefinitionId" => String.t() | Atom.t(),
-        "actionName" => String.t() | Atom.t(),
-        "actionType" => String.t() | Atom.t()
+        "actionDefinitionId" => String.t() | atom(),
+        "actionName" => String.t() | atom(),
+        "actionType" => String.t() | atom()
       }
 
   """
-  @type action_definition() :: %{String.t() | Atom.t() => any()}
+  @type action_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       asset_model_property_summary() :: %{
-        "assetModelCompositeModelId" => String.t() | Atom.t(),
+        "assetModelCompositeModelId" => String.t() | atom(),
         "dataType" => list(any()),
-        "dataTypeSpec" => String.t() | Atom.t(),
-        "externalId" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "dataTypeSpec" => String.t() | atom(),
+        "externalId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "path" => list(asset_model_property_path_segment()),
         "type" => property_type(),
-        "unit" => String.t() | Atom.t()
+        "unit" => String.t() | atom()
       }
 
   """
-  @type asset_model_property_summary() :: %{String.t() | Atom.t() => any()}
+  @type asset_model_property_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4147,21 +4144,21 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type column_type() :: %{String.t() | Atom.t() => any()}
+  @type column_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_time_series_to_asset_property_request() :: %{
-        optional("clientToken") => String.t() | Atom.t(),
-        required("alias") => String.t() | Atom.t(),
-        required("assetId") => String.t() | Atom.t(),
-        required("propertyId") => String.t() | Atom.t()
+        optional("clientToken") => String.t() | atom(),
+        required("alias") => String.t() | atom(),
+        required("assetId") => String.t() | atom(),
+        required("propertyId") => String.t() | atom()
       }
 
   """
-  @type associate_time_series_to_asset_property_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_time_series_to_asset_property_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4173,7 +4170,7 @@ defmodule AWS.IoTSiteWise do
       }
 
   """
-  @type resource() :: %{String.t() | Atom.t() => any()}
+  @type resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4181,11 +4178,11 @@ defmodule AWS.IoTSiteWise do
 
       list_bulk_import_jobs_response() :: %{
         "jobSummaries" => list(job_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_bulk_import_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_bulk_import_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @type associate_assets_errors() ::
           resource_already_exists_exception()
@@ -4811,7 +4808,7 @@ defmodule AWS.IoTSiteWise do
   in the
   *IoT SiteWise User Guide*.
   """
-  @spec associate_assets(map(), String.t() | Atom.t(), associate_assets_request(), list()) ::
+  @spec associate_assets(map(), String.t() | atom(), associate_assets_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4882,7 +4879,7 @@ defmodule AWS.IoTSiteWise do
   """
   @spec batch_associate_project_assets(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           batch_associate_project_assets_request(),
           list()
         ) ::
@@ -4916,7 +4913,7 @@ defmodule AWS.IoTSiteWise do
   """
   @spec batch_disassociate_project_assets(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           batch_disassociate_project_assets_request(),
           list()
         ) ::
@@ -5269,7 +5266,7 @@ defmodule AWS.IoTSiteWise do
   """
   @spec create_asset_model_composite_model(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_asset_model_composite_model_request(),
           list()
         ) ::
@@ -5518,7 +5515,7 @@ defmodule AWS.IoTSiteWise do
   You can use this operation to revoke access to an IoT SiteWise Monitor
   resource.
   """
-  @spec delete_access_policy(map(), String.t() | Atom.t(), delete_access_policy_request(), list()) ::
+  @spec delete_access_policy(map(), String.t() | atom(), delete_access_policy_request(), list()) ::
           {:ok, delete_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5559,7 +5556,7 @@ defmodule AWS.IoTSiteWise do
   information, see
   [DisassociateAssets](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DisassociateAssets.html).
   """
-  @spec delete_asset(map(), String.t() | Atom.t(), delete_asset_request(), list()) ::
+  @spec delete_asset(map(), String.t() | atom(), delete_asset_request(), list()) ::
           {:ok, delete_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5603,7 +5600,7 @@ defmodule AWS.IoTSiteWise do
   in the
   *IoT SiteWise User Guide*.
   """
-  @spec delete_asset_model(map(), String.t() | Atom.t(), delete_asset_model_request(), list()) ::
+  @spec delete_asset_model(map(), String.t() | atom(), delete_asset_model_request(), list()) ::
           {:ok, delete_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5656,8 +5653,8 @@ defmodule AWS.IoTSiteWise do
   """
   @spec delete_asset_model_composite_model(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_asset_model_composite_model_request(),
           list()
         ) ::
@@ -5709,7 +5706,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Deletes a dashboard from IoT SiteWise Monitor.
   """
-  @spec delete_dashboard(map(), String.t() | Atom.t(), delete_dashboard_request(), list()) ::
+  @spec delete_dashboard(map(), String.t() | atom(), delete_dashboard_request(), list()) ::
           {:ok, delete_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5745,7 +5742,7 @@ defmodule AWS.IoTSiteWise do
 
   This cannot be undone.
   """
-  @spec delete_dataset(map(), String.t() | Atom.t(), delete_dataset_request(), list()) ::
+  @spec delete_dataset(map(), String.t() | atom(), delete_dataset_request(), list()) ::
           {:ok, delete_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5782,7 +5779,7 @@ defmodule AWS.IoTSiteWise do
   When you delete a gateway, some of the gateway's files remain
   in your gateway's file system.
   """
-  @spec delete_gateway(map(), String.t() | Atom.t(), delete_gateway_request(), list()) ::
+  @spec delete_gateway(map(), String.t() | atom(), delete_gateway_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5811,7 +5808,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Deletes a portal from IoT SiteWise Monitor.
   """
-  @spec delete_portal(map(), String.t() | Atom.t(), delete_portal_request(), list()) ::
+  @spec delete_portal(map(), String.t() | atom(), delete_portal_request(), list()) ::
           {:ok, delete_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5845,7 +5842,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Deletes a project from IoT SiteWise Monitor.
   """
-  @spec delete_project(map(), String.t() | Atom.t(), delete_project_request(), list()) ::
+  @spec delete_project(map(), String.t() | atom(), delete_project_request(), list()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5938,7 +5935,7 @@ defmodule AWS.IoTSiteWise do
   SiteWise Monitor portal or
   project.
   """
-  @spec describe_access_policy(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_access_policy(map(), String.t() | atom(), list()) ::
           {:ok, describe_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5956,7 +5953,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about an action.
   """
-  @spec describe_action(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_action(map(), String.t() | atom(), list()) ::
           {:ok, describe_action_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5974,7 +5971,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about an asset.
   """
-  @spec describe_asset(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec describe_asset(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, describe_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6006,12 +6003,7 @@ defmodule AWS.IoTSiteWise do
   based on, call
   [DescribeAssetModelCompositeModel](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModelCompositeModel.html).
   """
-  @spec describe_asset_composite_model(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec describe_asset_composite_model(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_asset_composite_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6038,9 +6030,9 @@ defmodule AWS.IoTSiteWise do
   """
   @spec describe_asset_model(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_asset_model_response(), any()}
@@ -6094,9 +6086,9 @@ defmodule AWS.IoTSiteWise do
   """
   @spec describe_asset_model_composite_model(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_asset_model_composite_model_response(), any()}
@@ -6142,7 +6134,7 @@ defmodule AWS.IoTSiteWise do
   asset property, use
   [GetAssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_GetAssetPropertyValue.html).
   """
-  @spec describe_asset_property(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec describe_asset_property(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_asset_property_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6166,7 +6158,7 @@ defmodule AWS.IoTSiteWise do
   (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html)
   in the *Amazon Simple Storage Service User Guide*.
   """
-  @spec describe_bulk_import_job(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_bulk_import_job(map(), String.t() | atom(), list()) ::
           {:ok, describe_bulk_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6184,7 +6176,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about a dashboard.
   """
-  @spec describe_dashboard(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_dashboard(map(), String.t() | atom(), list()) ::
           {:ok, describe_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6202,7 +6194,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about a dataset.
   """
-  @spec describe_dataset(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_dataset(map(), String.t() | atom(), list()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6244,7 +6236,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about a gateway.
   """
-  @spec describe_gateway(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_gateway(map(), String.t() | atom(), list()) ::
           {:ok, describe_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6273,8 +6265,8 @@ defmodule AWS.IoTSiteWise do
   """
   @spec describe_gateway_capability_configuration(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, describe_gateway_capability_configuration_response(), any()}
@@ -6319,7 +6311,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about a portal.
   """
-  @spec describe_portal(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_portal(map(), String.t() | atom(), list()) ::
           {:ok, describe_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6337,7 +6329,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves information about a project.
   """
-  @spec describe_project(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_project(map(), String.t() | atom(), list()) ::
           {:ok, describe_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6391,9 +6383,9 @@ defmodule AWS.IoTSiteWise do
   """
   @spec describe_time_series(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_time_series_response(), any()}
@@ -6442,7 +6434,7 @@ defmodule AWS.IoTSiteWise do
   defined in the
   parent asset's model.
   """
-  @spec disassociate_assets(map(), String.t() | Atom.t(), disassociate_assets_request(), list()) ::
+  @spec disassociate_assets(map(), String.t() | atom(), disassociate_assets_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6587,17 +6579,17 @@ defmodule AWS.IoTSiteWise do
   """
   @spec get_asset_property_aggregates(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_asset_property_aggregates_response(), any()}
@@ -6725,9 +6717,9 @@ defmodule AWS.IoTSiteWise do
   """
   @spec get_asset_property_value(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_asset_property_value_response(), any()}
@@ -6791,15 +6783,15 @@ defmodule AWS.IoTSiteWise do
   """
   @spec get_asset_property_value_history(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_asset_property_value_history_response(), any()}
@@ -6916,19 +6908,19 @@ defmodule AWS.IoTSiteWise do
   """
   @spec get_interpolated_asset_property_values(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_interpolated_asset_property_values_response(), any()}
@@ -7096,13 +7088,13 @@ defmodule AWS.IoTSiteWise do
   """
   @spec list_access_policies(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_access_policies_response(), any()}
@@ -7183,10 +7175,10 @@ defmodule AWS.IoTSiteWise do
   """
   @spec list_actions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_actions_response(), any()}
@@ -7243,10 +7235,10 @@ defmodule AWS.IoTSiteWise do
   """
   @spec list_asset_model_composite_models(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_asset_model_composite_models_response(), any()}
@@ -7300,11 +7292,11 @@ defmodule AWS.IoTSiteWise do
   """
   @spec list_asset_model_properties(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_asset_model_properties_response(), any()}
@@ -7362,10 +7354,10 @@ defmodule AWS.IoTSiteWise do
   """
   @spec list_asset_models(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_asset_models_response(), any()}
@@ -7426,10 +7418,10 @@ defmodule AWS.IoTSiteWise do
   """
   @spec list_asset_properties(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_asset_properties_response(), any()}
@@ -7484,10 +7476,10 @@ defmodule AWS.IoTSiteWise do
   """
   @spec list_asset_relationships(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_asset_relationships_response(), any()}
@@ -7552,10 +7544,10 @@ defmodule AWS.IoTSiteWise do
   """
   @spec list_assets(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_assets_response(), any()}
@@ -7622,11 +7614,11 @@ defmodule AWS.IoTSiteWise do
   """
   @spec list_associated_assets(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_associated_assets_response(), any()}
@@ -7688,9 +7680,9 @@ defmodule AWS.IoTSiteWise do
   """
   @spec list_bulk_import_jobs(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_bulk_import_jobs_response(), any()}
@@ -7741,9 +7733,9 @@ defmodule AWS.IoTSiteWise do
   """
   @spec list_composition_relationships(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_composition_relationships_response(), any()}
@@ -7785,9 +7777,9 @@ defmodule AWS.IoTSiteWise do
   """
   @spec list_dashboards(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_dashboards_response(), any()}
@@ -7836,9 +7828,9 @@ defmodule AWS.IoTSiteWise do
   """
   @spec list_datasets(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_datasets_response(), any()}
@@ -7885,7 +7877,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves a paginated list of gateways.
   """
-  @spec list_gateways(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_gateways(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_gateways_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7917,7 +7909,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves a paginated list of IoT SiteWise Monitor portals.
   """
-  @spec list_portals(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_portals(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_portals_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7952,9 +7944,9 @@ defmodule AWS.IoTSiteWise do
   """
   @spec list_project_assets(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_project_assets_response(), any()}
@@ -7996,9 +7988,9 @@ defmodule AWS.IoTSiteWise do
   """
   @spec list_projects(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_projects_response(), any()}
@@ -8045,7 +8037,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves the list of tags for an IoT SiteWise resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8072,11 +8064,11 @@ defmodule AWS.IoTSiteWise do
   """
   @spec list_time_series(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_time_series_response(), any()}
@@ -8309,7 +8301,7 @@ defmodule AWS.IoTSiteWise do
   SiteWise Monitor
   portal or project resource.
   """
-  @spec update_access_policy(map(), String.t() | Atom.t(), update_access_policy_request(), list()) ::
+  @spec update_access_policy(map(), String.t() | atom(), update_access_policy_request(), list()) ::
           {:ok, update_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8342,7 +8334,7 @@ defmodule AWS.IoTSiteWise do
   in the
   *IoT SiteWise User Guide*.
   """
-  @spec update_asset(map(), String.t() | Atom.t(), update_asset_request(), list()) ::
+  @spec update_asset(map(), String.t() | atom(), update_asset_request(), list()) ::
           {:ok, update_asset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8394,7 +8386,7 @@ defmodule AWS.IoTSiteWise do
   property. The new asset property will have the same `name` as the previous
   one and IoT SiteWise will generate a new unique `id`.
   """
-  @spec update_asset_model(map(), String.t() | Atom.t(), update_asset_model_request(), list()) ::
+  @spec update_asset_model(map(), String.t() | atom(), update_asset_model_request(), list()) ::
           {:ok, update_asset_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8459,8 +8451,8 @@ defmodule AWS.IoTSiteWise do
   """
   @spec update_asset_model_composite_model(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_asset_model_composite_model_request(),
           list()
         ) ::
@@ -8516,8 +8508,8 @@ defmodule AWS.IoTSiteWise do
   """
   @spec update_asset_property(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_asset_property_request(),
           list()
         ) ::
@@ -8551,7 +8543,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Updates an IoT SiteWise Monitor dashboard.
   """
-  @spec update_dashboard(map(), String.t() | Atom.t(), update_dashboard_request(), list()) ::
+  @spec update_dashboard(map(), String.t() | atom(), update_dashboard_request(), list()) ::
           {:ok, update_dashboard_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8580,7 +8572,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Updates a dataset.
   """
-  @spec update_dataset(map(), String.t() | Atom.t(), update_dataset_request(), list()) ::
+  @spec update_dataset(map(), String.t() | atom(), update_dataset_request(), list()) ::
           {:ok, update_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8609,7 +8601,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Updates a gateway's name.
   """
-  @spec update_gateway(map(), String.t() | Atom.t(), update_gateway_request(), list()) ::
+  @spec update_gateway(map(), String.t() | atom(), update_gateway_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8650,7 +8642,7 @@ defmodule AWS.IoTSiteWise do
   """
   @spec update_gateway_capability_configuration(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_gateway_capability_configuration_request(),
           list()
         ) ::
@@ -8687,7 +8679,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Updates an IoT SiteWise Monitor portal.
   """
-  @spec update_portal(map(), String.t() | Atom.t(), update_portal_request(), list()) ::
+  @spec update_portal(map(), String.t() | atom(), update_portal_request(), list()) ::
           {:ok, update_portal_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8716,7 +8708,7 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Updates an IoT SiteWise Monitor project.
   """
-  @spec update_project(map(), String.t() | Atom.t(), update_project_request(), list()) ::
+  @spec update_project(map(), String.t() | atom(), update_project_request(), list()) ::
           {:ok, update_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

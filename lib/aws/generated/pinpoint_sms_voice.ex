@@ -14,45 +14,45 @@ defmodule AWS.PinpointSMSVoice do
   ## Example:
 
       already_exists_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       call_instructions_message_type() :: %{
-        "Text" => String.t() | Atom.t()
+        "Text" => String.t() | atom()
       }
 
   """
-  @type call_instructions_message_type() :: %{String.t() | Atom.t() => any()}
+  @type call_instructions_message_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cloud_watch_logs_destination() :: %{
-        "IamRoleArn" => String.t() | Atom.t(),
-        "LogGroupArn" => String.t() | Atom.t()
+        "IamRoleArn" => String.t() | atom(),
+        "LogGroupArn" => String.t() | atom()
       }
 
   """
-  @type cloud_watch_logs_destination() :: %{String.t() | Atom.t() => any()}
+  @type cloud_watch_logs_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -60,11 +60,11 @@ defmodule AWS.PinpointSMSVoice do
 
       create_configuration_set_event_destination_request() :: %{
         optional("EventDestination") => event_destination_definition(),
-        optional("EventDestinationName") => String.t() | Atom.t()
+        optional("EventDestinationName") => String.t() | atom()
       }
 
   """
-  @type create_configuration_set_event_destination_request() :: %{String.t() | Atom.t() => any()}
+  @type create_configuration_set_event_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -80,11 +80,11 @@ defmodule AWS.PinpointSMSVoice do
   ## Example:
 
       create_configuration_set_request() :: %{
-        optional("ConfigurationSetName") => String.t() | Atom.t()
+        optional("ConfigurationSetName") => String.t() | atom()
       }
 
   """
-  @type create_configuration_set_request() :: %{String.t() | Atom.t() => any()}
+  @type create_configuration_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -140,12 +140,12 @@ defmodule AWS.PinpointSMSVoice do
         "Enabled" => boolean(),
         "KinesisFirehoseDestination" => kinesis_firehose_destination(),
         "MatchingEventTypes" => list(list(any())()),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "SnsDestination" => sns_destination()
       }
 
   """
-  @type event_destination() :: %{String.t() | Atom.t() => any()}
+  @type event_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -160,7 +160,7 @@ defmodule AWS.PinpointSMSVoice do
       }
 
   """
-  @type event_destination_definition() :: %{String.t() | Atom.t() => any()}
+  @type event_destination_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -180,150 +180,150 @@ defmodule AWS.PinpointSMSVoice do
       }
 
   """
-  @type get_configuration_set_event_destinations_response() :: %{String.t() | Atom.t() => any()}
+  @type get_configuration_set_event_destinations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_service_error_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_service_error_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_service_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kinesis_firehose_destination() :: %{
-        "DeliveryStreamArn" => String.t() | Atom.t(),
-        "IamRoleArn" => String.t() | Atom.t()
+        "DeliveryStreamArn" => String.t() | atom(),
+        "IamRoleArn" => String.t() | atom()
       }
 
   """
-  @type kinesis_firehose_destination() :: %{String.t() | Atom.t() => any()}
+  @type kinesis_firehose_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_configuration_sets_request() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("PageSize") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => String.t() | atom()
       }
 
   """
-  @type list_configuration_sets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_configuration_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_configuration_sets_response() :: %{
-        "ConfigurationSets" => list(String.t() | Atom.t()),
-        "NextToken" => String.t() | Atom.t()
+        "ConfigurationSets" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_configuration_sets_response() :: %{String.t() | Atom.t() => any()}
+  @type list_configuration_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       plain_text_message_type() :: %{
-        "LanguageCode" => String.t() | Atom.t(),
-        "Text" => String.t() | Atom.t(),
-        "VoiceId" => String.t() | Atom.t()
+        "LanguageCode" => String.t() | atom(),
+        "Text" => String.t() | atom(),
+        "VoiceId" => String.t() | atom()
       }
 
   """
-  @type plain_text_message_type() :: %{String.t() | Atom.t() => any()}
+  @type plain_text_message_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s_s_ml_message_type() :: %{
-        "LanguageCode" => String.t() | Atom.t(),
-        "Text" => String.t() | Atom.t(),
-        "VoiceId" => String.t() | Atom.t()
+        "LanguageCode" => String.t() | atom(),
+        "Text" => String.t() | atom(),
+        "VoiceId" => String.t() | atom()
       }
 
   """
-  @type s_s_ml_message_type() :: %{String.t() | Atom.t() => any()}
+  @type s_s_ml_message_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       send_voice_message_request() :: %{
-        optional("CallerId") => String.t() | Atom.t(),
-        optional("ConfigurationSetName") => String.t() | Atom.t(),
+        optional("CallerId") => String.t() | atom(),
+        optional("ConfigurationSetName") => String.t() | atom(),
         optional("Content") => voice_message_content(),
-        optional("DestinationPhoneNumber") => String.t() | Atom.t(),
-        optional("OriginationPhoneNumber") => String.t() | Atom.t()
+        optional("DestinationPhoneNumber") => String.t() | atom(),
+        optional("OriginationPhoneNumber") => String.t() | atom()
       }
 
   """
-  @type send_voice_message_request() :: %{String.t() | Atom.t() => any()}
+  @type send_voice_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       send_voice_message_response() :: %{
-        "MessageId" => String.t() | Atom.t()
+        "MessageId" => String.t() | atom()
       }
 
   """
-  @type send_voice_message_response() :: %{String.t() | Atom.t() => any()}
+  @type send_voice_message_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sns_destination() :: %{
-        "TopicArn" => String.t() | Atom.t()
+        "TopicArn" => String.t() | atom()
       }
 
   """
-  @type sns_destination() :: %{String.t() | Atom.t() => any()}
+  @type sns_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -334,7 +334,7 @@ defmodule AWS.PinpointSMSVoice do
       }
 
   """
-  @type update_configuration_set_event_destination_request() :: %{String.t() | Atom.t() => any()}
+  @type update_configuration_set_event_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -356,7 +356,7 @@ defmodule AWS.PinpointSMSVoice do
       }
 
   """
-  @type voice_message_content() :: %{String.t() | Atom.t() => any()}
+  @type voice_message_content() :: %{(String.t() | atom()) => any()}
 
   @type create_configuration_set_errors() ::
           too_many_requests_exception()
@@ -460,7 +460,7 @@ defmodule AWS.PinpointSMSVoice do
   """
   @spec create_configuration_set_event_destination(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_configuration_set_event_destination_request(),
           list()
         ) ::
@@ -501,7 +501,7 @@ defmodule AWS.PinpointSMSVoice do
   """
   @spec delete_configuration_set(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_configuration_set_request(),
           list()
         ) ::
@@ -535,8 +535,8 @@ defmodule AWS.PinpointSMSVoice do
   """
   @spec delete_configuration_set_event_destination(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_configuration_set_event_destination_request(),
           list()
         ) ::
@@ -578,7 +578,7 @@ defmodule AWS.PinpointSMSVoice do
   reports, the Amazon Resource Name (ARN) of the destination, and the name of the
   event destination.
   """
-  @spec get_configuration_set_event_destinations(map(), String.t() | Atom.t(), list()) ::
+  @spec get_configuration_set_event_destinations(map(), String.t() | atom(), list()) ::
           {:ok, get_configuration_set_event_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -605,8 +605,8 @@ defmodule AWS.PinpointSMSVoice do
   """
   @spec list_configuration_sets(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_configuration_sets_response(), any()}
@@ -680,8 +680,8 @@ defmodule AWS.PinpointSMSVoice do
   """
   @spec update_configuration_set_event_destination(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_configuration_set_event_destination_request(),
           list()
         ) ::

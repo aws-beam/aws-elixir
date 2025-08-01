@@ -14,36 +14,36 @@ defmodule AWS.Kendra do
   ## Example:
       
       one_drive_users() :: %{
-        "OneDriveUserList" => list(String.t() | Atom.t()),
+        "OneDriveUserList" => list(String.t() | atom()),
         "OneDriveUserS3Path" => s3_path()
       }
       
   """
-  @type one_drive_users() :: %{String.t() | Atom.t() => any()}
+  @type one_drive_users() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       saa_s_configuration() :: %{
-        "HostUrl" => String.t() | Atom.t(),
-        "OrganizationName" => String.t() | Atom.t()
+        "HostUrl" => String.t() | atom(),
+        "OrganizationName" => String.t() | atom()
       }
       
   """
-  @type saa_s_configuration() :: %{String.t() | Atom.t() => any()}
+  @type saa_s_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_experience_request() :: %{
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type delete_experience_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_experience_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -56,30 +56,30 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type salesforce_knowledge_article_configuration() :: %{String.t() | Atom.t() => any()}
+  @type salesforce_knowledge_article_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       entity_persona_configuration() :: %{
-        "EntityId" => String.t() | Atom.t(),
+        "EntityId" => String.t() | atom(),
         "Persona" => list(any())
       }
       
   """
-  @type entity_persona_configuration() :: %{String.t() | Atom.t() => any()}
+  @type entity_persona_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_control_configuration_summary() :: %{
-        "Id" => String.t() | Atom.t()
+        "Id" => String.t() | atom()
       }
       
   """
-  @type access_control_configuration_summary() :: %{String.t() | Atom.t() => any()}
+  @type access_control_configuration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -90,7 +90,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type suggestion_value() :: %{String.t() | Atom.t() => any()}
+  @type suggestion_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -100,49 +100,49 @@ defmodule AWS.Kendra do
         "AdditionalAttributes" => list(additional_result_attribute()),
         "DocumentAttributes" => list(document_attribute()),
         "DocumentExcerpt" => text_with_highlights(),
-        "DocumentId" => String.t() | Atom.t(),
+        "DocumentId" => String.t() | atom(),
         "DocumentTitle" => text_with_highlights(),
-        "DocumentURI" => String.t() | Atom.t(),
-        "FeedbackToken" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "DocumentURI" => String.t() | atom(),
+        "FeedbackToken" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type featured_results_item() :: %{String.t() | Atom.t() => any()}
+  @type featured_results_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_query_suggestions_block_list_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("RoleArn") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
         optional("SourceS3Path") => s3_path(),
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type update_query_suggestions_block_list_request() :: %{String.t() | Atom.t() => any()}
+  @type update_query_suggestions_block_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       retrieve_result_item() :: %{
-        "Content" => String.t() | Atom.t(),
+        "Content" => String.t() | atom(),
         "DocumentAttributes" => list(document_attribute()),
-        "DocumentId" => String.t() | Atom.t(),
-        "DocumentTitle" => String.t() | Atom.t(),
-        "DocumentURI" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "DocumentId" => String.t() | atom(),
+        "DocumentTitle" => String.t() | atom(),
+        "DocumentURI" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "ScoreAttributes" => score_attributes()
       }
       
   """
-  @type retrieve_result_item() :: %{String.t() | Atom.t() => any()}
+  @type retrieve_result_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -153,11 +153,11 @@ defmodule AWS.Kendra do
         "CrawlComments" => boolean(),
         "CrawlTasks" => boolean(),
         "CrawlWebLinks" => boolean(),
-        "EnterpriseId" => String.t() | Atom.t(),
-        "ExclusionPatterns" => list(String.t() | Atom.t()),
+        "EnterpriseId" => String.t() | atom(),
+        "ExclusionPatterns" => list(String.t() | atom()),
         "FileFieldMappings" => list(data_source_to_index_field_mapping()),
-        "InclusionPatterns" => list(String.t() | Atom.t()),
-        "SecretArn" => String.t() | Atom.t(),
+        "InclusionPatterns" => list(String.t() | atom()),
+        "SecretArn" => String.t() | atom(),
         "TaskFieldMappings" => list(data_source_to_index_field_mapping()),
         "UseChangeLog" => boolean(),
         "VpcConfiguration" => data_source_vpc_configuration(),
@@ -165,19 +165,19 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type box_configuration() :: %{String.t() | Atom.t() => any()}
+  @type box_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
+        required("ResourceARN") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -185,87 +185,87 @@ defmodule AWS.Kendra do
       
       update_access_control_configuration_request() :: %{
         optional("AccessControlList") => list(principal()),
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("HierarchicalAccessControlList") => list(hierarchical_principal()),
-        optional("Name") => String.t() | Atom.t(),
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        optional("Name") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type update_access_control_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_access_control_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_source_vpc_configuration() :: %{
-        "SecurityGroupIds" => list(String.t() | Atom.t()),
-        "SubnetIds" => list(String.t() | Atom.t())
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
       }
       
   """
-  @type data_source_vpc_configuration() :: %{String.t() | Atom.t() => any()}
+  @type data_source_vpc_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_data_source_request() :: %{
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type describe_data_source_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_data_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_path() :: %{
-        "Bucket" => String.t() | Atom.t(),
-        "Key" => String.t() | Atom.t()
+        "Bucket" => String.t() | atom(),
+        "Key" => String.t() | atom()
       }
       
   """
-  @type s3_path() :: %{String.t() | Atom.t() => any()}
+  @type s3_path() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_source_sync_job_metric_target() :: %{
-        "DataSourceId" => String.t() | Atom.t(),
-        "DataSourceSyncJobId" => String.t() | Atom.t()
+        "DataSourceId" => String.t() | atom(),
+        "DataSourceSyncJobId" => String.t() | atom()
       }
       
   """
-  @type data_source_sync_job_metric_target() :: %{String.t() | Atom.t() => any()}
+  @type data_source_sync_job_metric_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       document_attribute() :: %{
-        "Key" => String.t() | Atom.t(),
+        "Key" => String.t() | atom(),
         "Value" => document_attribute_value()
       }
       
   """
-  @type document_attribute() :: %{String.t() | Atom.t() => any()}
+  @type document_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_experience_request() :: %{
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type describe_experience_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_experience_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -273,46 +273,46 @@ defmodule AWS.Kendra do
       
       text_with_highlights() :: %{
         "Highlights" => list(highlight()),
-        "Text" => String.t() | Atom.t()
+        "Text" => String.t() | atom()
       }
       
   """
-  @type text_with_highlights() :: %{String.t() | Atom.t() => any()}
+  @type text_with_highlights() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       proxy_configuration() :: %{
-        "Credentials" => String.t() | Atom.t(),
-        "Host" => String.t() | Atom.t(),
+        "Credentials" => String.t() | atom(),
+        "Host" => String.t() | atom(),
         "Port" => integer()
       }
       
   """
-  @type proxy_configuration() :: %{String.t() | Atom.t() => any()}
+  @type proxy_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_data_source_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Configuration") => data_source_configuration(),
         optional("CustomDocumentEnrichmentConfiguration") => custom_document_enrichment_configuration(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("LanguageCode") => String.t() | Atom.t(),
-        optional("RoleArn") => String.t() | Atom.t(),
-        optional("Schedule") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("LanguageCode") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        optional("Schedule") => String.t() | atom(),
         optional("Tags") => list(tag()),
         optional("VpcConfiguration") => data_source_vpc_configuration(),
-        required("IndexId") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
+        required("IndexId") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Type") => list(any())
       }
       
   """
-  @type create_data_source_request() :: %{String.t() | Atom.t() => any()}
+  @type create_data_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -320,23 +320,23 @@ defmodule AWS.Kendra do
       
       confluence_page_to_index_field_mapping() :: %{
         "DataSourceFieldName" => list(any()),
-        "DateFieldFormat" => String.t() | Atom.t(),
-        "IndexFieldName" => String.t() | Atom.t()
+        "DateFieldFormat" => String.t() | atom(),
+        "IndexFieldName" => String.t() | atom()
       }
       
   """
-  @type confluence_page_to_index_field_mapping() :: %{String.t() | Atom.t() => any()}
+  @type confluence_page_to_index_field_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       site_maps_configuration() :: %{
-        "SiteMaps" => list(String.t() | Atom.t())
+        "SiteMaps" => list(String.t() | atom())
       }
       
   """
-  @type site_maps_configuration() :: %{String.t() | Atom.t() => any()}
+  @type site_maps_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -364,32 +364,32 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type data_source_configuration() :: %{String.t() | Atom.t() => any()}
+  @type data_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       content_source_configuration() :: %{
-        "DataSourceIds" => list(String.t() | Atom.t()),
+        "DataSourceIds" => list(String.t() | atom()),
         "DirectPutContent" => boolean(),
-        "FaqIds" => list(String.t() | Atom.t())
+        "FaqIds" => list(String.t() | atom())
       }
       
   """
-  @type content_source_configuration() :: %{String.t() | Atom.t() => any()}
+  @type content_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_thesauri_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ThesaurusSummaryItems" => list(thesaurus_summary())
       }
       
   """
-  @type list_thesauri_response() :: %{String.t() | Atom.t() => any()}
+  @type list_thesauri_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -405,13 +405,13 @@ defmodule AWS.Kendra do
   ## Example:
       
       conflicting_item() :: %{
-        "QueryText" => String.t() | Atom.t(),
-        "SetId" => String.t() | Atom.t(),
-        "SetName" => String.t() | Atom.t()
+        "QueryText" => String.t() | atom(),
+        "SetId" => String.t() | atom(),
+        "SetName" => String.t() | atom()
       }
       
   """
-  @type conflicting_item() :: %{String.t() | Atom.t() => any()}
+  @type conflicting_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -421,20 +421,20 @@ defmodule AWS.Kendra do
         "InlineConfigurations" => list(inline_custom_document_enrichment_configuration()),
         "PostExtractionHookConfiguration" => hook_configuration(),
         "PreExtractionHookConfiguration" => hook_configuration(),
-        "RoleArn" => String.t() | Atom.t()
+        "RoleArn" => String.t() | atom()
       }
       
   """
-  @type custom_document_enrichment_configuration() :: %{String.t() | Atom.t() => any()}
+  @type custom_document_enrichment_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       git_hub_configuration() :: %{
-        "ExclusionFileNamePatterns" => list(String.t() | Atom.t()),
-        "ExclusionFileTypePatterns" => list(String.t() | Atom.t()),
-        "ExclusionFolderNamePatterns" => list(String.t() | Atom.t()),
+        "ExclusionFileNamePatterns" => list(String.t() | atom()),
+        "ExclusionFileTypePatterns" => list(String.t() | atom()),
+        "ExclusionFolderNamePatterns" => list(String.t() | atom()),
         "GitHubCommitConfigurationFieldMappings" => list(data_source_to_index_field_mapping()),
         "GitHubDocumentCrawlProperties" => git_hub_document_crawl_properties(),
         "GitHubIssueAttachmentConfigurationFieldMappings" => list(data_source_to_index_field_mapping()),
@@ -444,44 +444,44 @@ defmodule AWS.Kendra do
         "GitHubPullRequestDocumentAttachmentConfigurationFieldMappings" => list(data_source_to_index_field_mapping()),
         "GitHubPullRequestDocumentConfigurationFieldMappings" => list(data_source_to_index_field_mapping()),
         "GitHubRepositoryConfigurationFieldMappings" => list(data_source_to_index_field_mapping()),
-        "InclusionFileNamePatterns" => list(String.t() | Atom.t()),
-        "InclusionFileTypePatterns" => list(String.t() | Atom.t()),
-        "InclusionFolderNamePatterns" => list(String.t() | Atom.t()),
+        "InclusionFileNamePatterns" => list(String.t() | atom()),
+        "InclusionFileTypePatterns" => list(String.t() | atom()),
+        "InclusionFolderNamePatterns" => list(String.t() | atom()),
         "OnPremiseConfiguration" => on_premise_configuration(),
-        "RepositoryFilter" => list(String.t() | Atom.t()),
+        "RepositoryFilter" => list(String.t() | atom()),
         "SaaSConfiguration" => saa_s_configuration(),
-        "SecretArn" => String.t() | Atom.t(),
+        "SecretArn" => String.t() | atom(),
         "Type" => list(any()),
         "UseChangeLog" => boolean(),
         "VpcConfiguration" => data_source_vpc_configuration()
       }
       
   """
-  @type git_hub_configuration() :: %{String.t() | Atom.t() => any()}
+  @type git_hub_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       member_group() :: %{
-        "DataSourceId" => String.t() | Atom.t(),
-        "GroupId" => String.t() | Atom.t()
+        "DataSourceId" => String.t() | atom(),
+        "GroupId" => String.t() | atom()
       }
       
   """
-  @type member_group() :: %{String.t() | Atom.t() => any()}
+  @type member_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       json_token_type_configuration() :: %{
-        "GroupAttributeField" => String.t() | Atom.t(),
-        "UserNameAttributeField" => String.t() | Atom.t()
+        "GroupAttributeField" => String.t() | atom(),
+        "UserNameAttributeField" => String.t() | atom()
       }
       
   """
-  @type json_token_type_configuration() :: %{String.t() | Atom.t() => any()}
+  @type json_token_type_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -495,18 +495,18 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type highlight() :: %{String.t() | Atom.t() => any()}
+  @type highlight() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -526,18 +526,18 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type describe_query_suggestions_config_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_query_suggestions_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_index_request() :: %{
-        required("Id") => String.t() | Atom.t()
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type delete_index_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_index_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -546,25 +546,25 @@ defmodule AWS.Kendra do
       index_configuration_summary() :: %{
         "CreatedAt" => non_neg_integer(),
         "Edition" => list(any()),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type index_configuration_summary() :: %{String.t() | Atom.t() => any()}
+  @type index_configuration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_access_control_configuration_response() :: %{
-        "Id" => String.t() | Atom.t()
+        "Id" => String.t() | atom()
       }
       
   """
-  @type create_access_control_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type create_access_control_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -575,7 +575,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type faq_statistics() :: %{String.t() | Atom.t() => any()}
+  @type faq_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -586,7 +586,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type user_group_resolution_configuration() :: %{String.t() | Atom.t() => any()}
+  @type user_group_resolution_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -596,36 +596,36 @@ defmodule AWS.Kendra do
         optional("AttributeSuggestionsConfig") => attribute_suggestions_get_config(),
         optional("MaxSuggestionsCount") => integer(),
         optional("SuggestionTypes") => list(list(any())()),
-        required("IndexId") => String.t() | Atom.t(),
-        required("QueryText") => String.t() | Atom.t()
+        required("IndexId") => String.t() | atom(),
+        required("QueryText") => String.t() | atom()
       }
       
   """
-  @type get_query_suggestions_request() :: %{String.t() | Atom.t() => any()}
+  @type get_query_suggestions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_experience_response() :: %{
-        "Id" => String.t() | Atom.t()
+        "Id" => String.t() | atom()
       }
       
   """
-  @type create_experience_response() :: %{String.t() | Atom.t() => any()}
+  @type create_experience_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       document_attribute_target() :: %{
-        "TargetDocumentAttributeKey" => String.t() | Atom.t(),
+        "TargetDocumentAttributeKey" => String.t() | atom(),
         "TargetDocumentAttributeValue" => document_attribute_value(),
         "TargetDocumentAttributeValueDeletion" => boolean()
       }
       
   """
-  @type document_attribute_target() :: %{String.t() | Atom.t() => any()}
+  @type document_attribute_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -633,87 +633,87 @@ defmodule AWS.Kendra do
       
       click_feedback() :: %{
         "ClickTime" => non_neg_integer(),
-        "ResultId" => String.t() | Atom.t()
+        "ResultId" => String.t() | atom()
       }
       
   """
-  @type click_feedback() :: %{String.t() | Atom.t() => any()}
+  @type click_feedback() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_query_suggestions_block_list_request() :: %{
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type delete_query_suggestions_block_list_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_query_suggestions_block_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_source_group() :: %{
-        "DataSourceId" => String.t() | Atom.t(),
-        "GroupId" => String.t() | Atom.t()
+        "DataSourceId" => String.t() | atom(),
+        "GroupId" => String.t() | atom()
       }
       
   """
-  @type data_source_group() :: %{String.t() | Atom.t() => any()}
+  @type data_source_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_unavailable_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_unavailable_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_query_suggestions_block_list_response() :: %{
-        "Id" => String.t() | Atom.t()
+        "Id" => String.t() | atom()
       }
       
   """
-  @type create_query_suggestions_block_list_response() :: %{String.t() | Atom.t() => any()}
+  @type create_query_suggestions_block_list_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_source_sync_job_metrics() :: %{
-        "DocumentsAdded" => String.t() | Atom.t(),
-        "DocumentsDeleted" => String.t() | Atom.t(),
-        "DocumentsFailed" => String.t() | Atom.t(),
-        "DocumentsModified" => String.t() | Atom.t(),
-        "DocumentsScanned" => String.t() | Atom.t()
+        "DocumentsAdded" => String.t() | atom(),
+        "DocumentsDeleted" => String.t() | atom(),
+        "DocumentsFailed" => String.t() | atom(),
+        "DocumentsModified" => String.t() | atom(),
+        "DocumentsScanned" => String.t() | atom()
       }
       
   """
-  @type data_source_sync_job_metrics() :: %{String.t() | Atom.t() => any()}
+  @type data_source_sync_job_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       connection_configuration() :: %{
-        "DatabaseHost" => String.t() | Atom.t(),
-        "DatabaseName" => String.t() | Atom.t(),
+        "DatabaseHost" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
         "DatabasePort" => integer(),
-        "SecretArn" => String.t() | Atom.t(),
-        "TableName" => String.t() | Atom.t()
+        "SecretArn" => String.t() | atom(),
+        "TableName" => String.t() | atom()
       }
       
   """
-  @type connection_configuration() :: %{String.t() | Atom.t() => any()}
+  @type connection_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -721,27 +721,26 @@ defmodule AWS.Kendra do
       
       batch_delete_featured_results_set_error() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t()
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom()
       }
       
   """
-  @type batch_delete_featured_results_set_error() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_featured_results_set_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       salesforce_standard_knowledge_article_type_configuration() :: %{
-        "DocumentDataFieldName" => String.t() | Atom.t(),
-        "DocumentTitleFieldName" => String.t() | Atom.t(),
+        "DocumentDataFieldName" => String.t() | atom(),
+        "DocumentTitleFieldName" => String.t() | atom(),
         "FieldMappings" => list(data_source_to_index_field_mapping())
       }
       
   """
   @type salesforce_standard_knowledge_article_type_configuration() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -749,11 +748,11 @@ defmodule AWS.Kendra do
   ## Example:
       
       clear_query_suggestions_request() :: %{
-        required("IndexId") => String.t() | Atom.t()
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type clear_query_suggestions_request() :: %{String.t() | Atom.t() => any()}
+  @type clear_query_suggestions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -761,36 +760,36 @@ defmodule AWS.Kendra do
       
       list_access_control_configurations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type list_access_control_configurations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_access_control_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       salesforce_standard_object_attachment_configuration() :: %{
-        "DocumentTitleFieldName" => String.t() | Atom.t(),
+        "DocumentTitleFieldName" => String.t() | atom(),
         "FieldMappings" => list(data_source_to_index_field_mapping())
       }
       
   """
-  @type salesforce_standard_object_attachment_configuration() :: %{String.t() | Atom.t() => any()}
+  @type salesforce_standard_object_attachment_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       failed_entity() :: %{
-        "EntityId" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t()
+        "EntityId" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom()
       }
       
   """
-  @type failed_entity() :: %{String.t() | Atom.t() => any()}
+  @type failed_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -807,47 +806,47 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type git_hub_document_crawl_properties() :: %{String.t() | Atom.t() => any()}
+  @type git_hub_document_crawl_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_experience_entities_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "SummaryItems" => list(experience_entities_summary())
       }
       
   """
-  @type list_experience_entities_response() :: %{String.t() | Atom.t() => any()}
+  @type list_experience_entities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       salesforce_standard_object_configuration() :: %{
-        "DocumentDataFieldName" => String.t() | Atom.t(),
-        "DocumentTitleFieldName" => String.t() | Atom.t(),
+        "DocumentDataFieldName" => String.t() | atom(),
+        "DocumentTitleFieldName" => String.t() | atom(),
         "FieldMappings" => list(data_source_to_index_field_mapping()),
         "Name" => list(any())
       }
       
   """
-  @type salesforce_standard_object_configuration() :: %{String.t() | Atom.t() => any()}
+  @type salesforce_standard_object_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       document_metadata_configuration() :: %{
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Relevance" => relevance(),
         "Search" => search(),
         "Type" => list(any())
       }
       
   """
-  @type document_metadata_configuration() :: %{String.t() | Atom.t() => any()}
+  @type document_metadata_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -855,12 +854,12 @@ defmodule AWS.Kendra do
       
       confluence_space_to_index_field_mapping() :: %{
         "DataSourceFieldName" => list(any()),
-        "DateFieldFormat" => String.t() | Atom.t(),
-        "IndexFieldName" => String.t() | Atom.t()
+        "DateFieldFormat" => String.t() | atom(),
+        "IndexFieldName" => String.t() | atom()
       }
       
   """
-  @type confluence_space_to_index_field_mapping() :: %{String.t() | Atom.t() => any()}
+  @type confluence_space_to_index_field_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -869,7 +868,7 @@ defmodule AWS.Kendra do
       query_result() :: %{
         "FacetResults" => list(facet_result()),
         "FeaturedResultsItems" => list(featured_results_item()),
-        "QueryId" => String.t() | Atom.t(),
+        "QueryId" => String.t() | atom(),
         "ResultItems" => list(query_result_item()),
         "SpellCorrectedQueries" => list(spell_corrected_query()),
         "TotalNumberOfResults" => integer(),
@@ -877,7 +876,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type query_result() :: %{String.t() | Atom.t() => any()}
+  @type query_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -889,7 +888,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type confluence_attachment_configuration() :: %{String.t() | Atom.t() => any()}
+  @type confluence_attachment_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -897,18 +896,18 @@ defmodule AWS.Kendra do
       
       describe_featured_results_set_response() :: %{
         "CreationTimestamp" => float(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "FeaturedDocumentsMissing" => list(featured_document_missing()),
         "FeaturedDocumentsWithMetadata" => list(featured_document_with_metadata()),
-        "FeaturedResultsSetId" => String.t() | Atom.t(),
-        "FeaturedResultsSetName" => String.t() | Atom.t(),
+        "FeaturedResultsSetId" => String.t() | atom(),
+        "FeaturedResultsSetName" => String.t() | atom(),
         "LastUpdatedTimestamp" => float(),
-        "QueryTexts" => list(String.t() | Atom.t()),
+        "QueryTexts" => list(String.t() | atom()),
         "Status" => list(any())
       }
       
   """
-  @type describe_featured_results_set_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_featured_results_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -916,13 +915,13 @@ defmodule AWS.Kendra do
       
       principal() :: %{
         "Access" => list(any()),
-        "DataSourceId" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "DataSourceId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type principal() :: %{String.t() | Atom.t() => any()}
+  @type principal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -930,21 +929,21 @@ defmodule AWS.Kendra do
       
       describe_query_suggestions_block_list_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
         "FileSizeBytes" => float(),
-        "Id" => String.t() | Atom.t(),
-        "IndexId" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
+        "IndexId" => String.t() | atom(),
         "ItemCount" => integer(),
-        "Name" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "SourceS3Path" => s3_path(),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type describe_query_suggestions_block_list_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_query_suggestions_block_list_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -960,52 +959,52 @@ defmodule AWS.Kendra do
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_index_request() :: %{
-        required("Id") => String.t() | Atom.t()
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type describe_index_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_index_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       on_premise_configuration() :: %{
-        "HostUrl" => String.t() | Atom.t(),
-        "OrganizationName" => String.t() | Atom.t(),
+        "HostUrl" => String.t() | atom(),
+        "OrganizationName" => String.t() | atom(),
         "SslCertificateS3Path" => s3_path()
       }
       
   """
-  @type on_premise_configuration() :: %{String.t() | Atom.t() => any()}
+  @type on_premise_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_experience_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Configuration") => experience_configuration(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("RoleArn") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        required("IndexId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_experience_request() :: %{String.t() | Atom.t() => any()}
+  @type create_experience_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1018,7 +1017,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type document_attribute_value_count_pair() :: %{String.t() | Atom.t() => any()}
+  @type document_attribute_value_count_pair() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1027,14 +1026,14 @@ defmodule AWS.Kendra do
       describe_index_response() :: %{
         "CapacityUnits" => capacity_units_configuration(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "DocumentMetadataConfigurations" => list(document_metadata_configuration()),
         "Edition" => list(any()),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "IndexStatistics" => index_statistics(),
-        "Name" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "ServerSideEncryptionConfiguration" => server_side_encryption_configuration(),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer(),
@@ -1044,18 +1043,18 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type describe_index_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_already_exist_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_already_exist_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_already_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1066,7 +1065,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type table_row() :: %{String.t() | Atom.t() => any()}
+  @type table_row() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1077,7 +1076,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type disassociate_entities_from_experience_response() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_entities_from_experience_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1085,36 +1084,36 @@ defmodule AWS.Kendra do
       
       confluence_attachment_to_index_field_mapping() :: %{
         "DataSourceFieldName" => list(any()),
-        "DateFieldFormat" => String.t() | Atom.t(),
-        "IndexFieldName" => String.t() | Atom.t()
+        "DateFieldFormat" => String.t() | atom(),
+        "IndexFieldName" => String.t() | atom()
       }
       
   """
-  @type confluence_attachment_to_index_field_mapping() :: %{String.t() | Atom.t() => any()}
+  @type confluence_attachment_to_index_field_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       user_identity_configuration() :: %{
-        "IdentityAttributeName" => String.t() | Atom.t()
+        "IdentityAttributeName" => String.t() | atom()
       }
       
   """
-  @type user_identity_configuration() :: %{String.t() | Atom.t() => any()}
+  @type user_identity_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       document_attribute_condition() :: %{
-        "ConditionDocumentAttributeKey" => String.t() | Atom.t(),
+        "ConditionDocumentAttributeKey" => String.t() | atom(),
         "ConditionOnValue" => document_attribute_value(),
         "Operator" => list(any())
       }
       
   """
-  @type document_attribute_condition() :: %{String.t() | Atom.t() => any()}
+  @type document_attribute_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1122,11 +1121,11 @@ defmodule AWS.Kendra do
       
       list_indices_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_indices_request() :: %{String.t() | Atom.t() => any()}
+  @type list_indices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1135,29 +1134,29 @@ defmodule AWS.Kendra do
       salesforce_configuration() :: %{
         "ChatterFeedConfiguration" => salesforce_chatter_feed_configuration(),
         "CrawlAttachments" => boolean(),
-        "ExcludeAttachmentFilePatterns" => list(String.t() | Atom.t()),
-        "IncludeAttachmentFilePatterns" => list(String.t() | Atom.t()),
+        "ExcludeAttachmentFilePatterns" => list(String.t() | atom()),
+        "IncludeAttachmentFilePatterns" => list(String.t() | atom()),
         "KnowledgeArticleConfiguration" => salesforce_knowledge_article_configuration(),
-        "SecretArn" => String.t() | Atom.t(),
-        "ServerUrl" => String.t() | Atom.t(),
+        "SecretArn" => String.t() | atom(),
+        "ServerUrl" => String.t() | atom(),
         "StandardObjectAttachmentConfiguration" => salesforce_standard_object_attachment_configuration(),
         "StandardObjectConfigurations" => list(salesforce_standard_object_configuration())
       }
       
   """
-  @type salesforce_configuration() :: %{String.t() | Atom.t() => any()}
+  @type salesforce_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sorting_configuration() :: %{
-        "DocumentAttributeKey" => String.t() | Atom.t(),
+        "DocumentAttributeKey" => String.t() | atom(),
         "SortOrder" => list(any())
       }
       
   """
-  @type sorting_configuration() :: %{String.t() | Atom.t() => any()}
+  @type sorting_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1165,14 +1164,14 @@ defmodule AWS.Kendra do
       
       thesaurus_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type thesaurus_summary() :: %{String.t() | Atom.t() => any()}
+  @type thesaurus_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1180,25 +1179,25 @@ defmodule AWS.Kendra do
       
       list_thesauri_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type list_thesauri_request() :: %{String.t() | Atom.t() => any()}
+  @type list_thesauri_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       additional_result_attribute() :: %{
-        "Key" => String.t() | Atom.t(),
+        "Key" => String.t() | atom(),
         "Value" => additional_result_attribute_value(),
         "ValueType" => list(any())
       }
       
   """
-  @type additional_result_attribute() :: %{String.t() | Atom.t() => any()}
+  @type additional_result_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1208,14 +1207,14 @@ defmodule AWS.Kendra do
         "Configuration" => data_source_configuration(),
         "CreatedAt" => non_neg_integer(),
         "CustomDocumentEnrichmentConfiguration" => custom_document_enrichment_configuration(),
-        "Description" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "IndexId" => String.t() | Atom.t(),
-        "LanguageCode" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
-        "Schedule" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "IndexId" => String.t() | atom(),
+        "LanguageCode" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "Schedule" => String.t() | atom(),
         "Status" => list(any()),
         "Type" => list(any()),
         "UpdatedAt" => non_neg_integer(),
@@ -1223,7 +1222,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type describe_data_source_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_data_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1233,19 +1232,19 @@ defmodule AWS.Kendra do
         "AttachmentConfiguration" => confluence_attachment_configuration(),
         "AuthenticationType" => list(any()),
         "BlogConfiguration" => confluence_blog_configuration(),
-        "ExclusionPatterns" => list(String.t() | Atom.t()),
-        "InclusionPatterns" => list(String.t() | Atom.t()),
+        "ExclusionPatterns" => list(String.t() | atom()),
+        "InclusionPatterns" => list(String.t() | atom()),
         "PageConfiguration" => confluence_page_configuration(),
         "ProxyConfiguration" => proxy_configuration(),
-        "SecretArn" => String.t() | Atom.t(),
-        "ServerUrl" => String.t() | Atom.t(),
+        "SecretArn" => String.t() | atom(),
+        "ServerUrl" => String.t() | atom(),
         "SpaceConfiguration" => confluence_space_configuration(),
         "Version" => list(any()),
         "VpcConfiguration" => data_source_vpc_configuration()
       }
       
   """
-  @type confluence_configuration() :: %{String.t() | Atom.t() => any()}
+  @type confluence_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1256,19 +1255,19 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type sql_configuration() :: %{String.t() | Atom.t() => any()}
+  @type sql_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_featured_results_set_request() :: %{
-        required("FeaturedResultsSetId") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("FeaturedResultsSetId") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type describe_featured_results_set_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_featured_results_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1282,14 +1281,14 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type search() :: %{String.t() | Atom.t() => any()}
+  @type search() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       collapse_configuration() :: %{
-        "DocumentAttributeKey" => String.t() | Atom.t(),
+        "DocumentAttributeKey" => String.t() | atom(),
         "Expand" => boolean(),
         "ExpandConfiguration" => expand_configuration(),
         "MissingAttributeKeyStrategy" => list(any()),
@@ -1297,7 +1296,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type collapse_configuration() :: %{String.t() | Atom.t() => any()}
+  @type collapse_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1306,56 +1305,56 @@ defmodule AWS.Kendra do
       experiences_summary() :: %{
         "CreatedAt" => non_neg_integer(),
         "Endpoints" => list(experience_endpoint()),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type experiences_summary() :: %{String.t() | Atom.t() => any()}
+  @type experiences_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       entity_display_data() :: %{
-        "FirstName" => String.t() | Atom.t(),
-        "GroupName" => String.t() | Atom.t(),
-        "IdentifiedUserName" => String.t() | Atom.t(),
-        "LastName" => String.t() | Atom.t(),
-        "UserName" => String.t() | Atom.t()
+        "FirstName" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "IdentifiedUserName" => String.t() | atom(),
+        "LastName" => String.t() | atom(),
+        "UserName" => String.t() | atom()
       }
       
   """
-  @type entity_display_data() :: %{String.t() | Atom.t() => any()}
+  @type entity_display_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       basic_authentication_configuration() :: %{
-        "Credentials" => String.t() | Atom.t(),
-        "Host" => String.t() | Atom.t(),
+        "Credentials" => String.t() | atom(),
+        "Host" => String.t() | atom(),
         "Port" => integer()
       }
       
   """
-  @type basic_authentication_configuration() :: %{String.t() | Atom.t() => any()}
+  @type basic_authentication_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_groups_older_than_ordering_id_request() :: %{
-        optional("DataSourceId") => String.t() | Atom.t(),
+        optional("DataSourceId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("IndexId") => String.t() | atom(),
         required("OrderingId") => float()
       }
       
   """
-  @type list_groups_older_than_ordering_id_request() :: %{String.t() | Atom.t() => any()}
+  @type list_groups_older_than_ordering_id_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1364,22 +1363,22 @@ defmodule AWS.Kendra do
       slack_configuration() :: %{
         "CrawlBotMessage" => boolean(),
         "ExcludeArchived" => boolean(),
-        "ExclusionPatterns" => list(String.t() | Atom.t()),
+        "ExclusionPatterns" => list(String.t() | atom()),
         "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "InclusionPatterns" => list(String.t() | Atom.t()),
+        "InclusionPatterns" => list(String.t() | atom()),
         "LookBackPeriod" => integer(),
-        "PrivateChannelFilter" => list(String.t() | Atom.t()),
-        "PublicChannelFilter" => list(String.t() | Atom.t()),
-        "SecretArn" => String.t() | Atom.t(),
-        "SinceCrawlDate" => String.t() | Atom.t(),
+        "PrivateChannelFilter" => list(String.t() | atom()),
+        "PublicChannelFilter" => list(String.t() | atom()),
+        "SecretArn" => String.t() | atom(),
+        "SinceCrawlDate" => String.t() | atom(),
         "SlackEntityList" => list(list(any())()),
-        "TeamId" => String.t() | Atom.t(),
+        "TeamId" => String.t() | atom(),
         "UseChangeLog" => boolean(),
         "VpcConfiguration" => data_source_vpc_configuration()
       }
       
   """
-  @type slack_configuration() :: %{String.t() | Atom.t() => any()}
+  @type slack_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1387,12 +1386,12 @@ defmodule AWS.Kendra do
       
       list_data_sources_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type list_data_sources_request() :: %{String.t() | Atom.t() => any()}
+  @type list_data_sources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1400,12 +1399,12 @@ defmodule AWS.Kendra do
       
       list_experiences_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type list_experiences_request() :: %{String.t() | Atom.t() => any()}
+  @type list_experiences_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1413,15 +1412,15 @@ defmodule AWS.Kendra do
       
       query_suggestions_block_list_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "ItemCount" => integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type query_suggestions_block_list_summary() :: %{String.t() | Atom.t() => any()}
+  @type query_suggestions_block_list_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1437,12 +1436,12 @@ defmodule AWS.Kendra do
   ## Example:
       
       describe_query_suggestions_block_list_request() :: %{
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type describe_query_suggestions_block_list_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_query_suggestions_block_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1450,13 +1449,13 @@ defmodule AWS.Kendra do
       
       personas_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "EntityId" => String.t() | Atom.t(),
+        "EntityId" => String.t() | atom(),
         "Persona" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type personas_summary() :: %{String.t() | Atom.t() => any()}
+  @type personas_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1464,56 +1463,56 @@ defmodule AWS.Kendra do
       
       relevance_feedback() :: %{
         "RelevanceValue" => list(any()),
-        "ResultId" => String.t() | Atom.t()
+        "ResultId" => String.t() | atom()
       }
       
   """
-  @type relevance_feedback() :: %{String.t() | Atom.t() => any()}
+  @type relevance_feedback() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_data_source_sync_job_request() :: %{
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type start_data_source_sync_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_data_source_sync_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       featured_document() :: %{
-        "Id" => String.t() | Atom.t()
+        "Id" => String.t() | atom()
       }
       
   """
-  @type featured_document() :: %{String.t() | Atom.t() => any()}
+  @type featured_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1521,40 +1520,40 @@ defmodule AWS.Kendra do
       
       work_docs_configuration() :: %{
         "CrawlComments" => boolean(),
-        "ExclusionPatterns" => list(String.t() | Atom.t()),
+        "ExclusionPatterns" => list(String.t() | atom()),
         "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "InclusionPatterns" => list(String.t() | Atom.t()),
-        "OrganizationId" => String.t() | Atom.t(),
+        "InclusionPatterns" => list(String.t() | atom()),
+        "OrganizationId" => String.t() | atom(),
         "UseChangeLog" => boolean()
       }
       
   """
-  @type work_docs_configuration() :: %{String.t() | Atom.t() => any()}
+  @type work_docs_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_principal_mapping_request() :: %{
-        optional("DataSourceId") => String.t() | Atom.t(),
+        optional("DataSourceId") => String.t() | atom(),
         optional("OrderingId") => float(),
-        required("GroupId") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("GroupId") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type delete_principal_mapping_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_principal_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_data_source_sync_job_response() :: %{
-        "ExecutionId" => String.t() | Atom.t()
+        "ExecutionId" => String.t() | atom()
       }
       
   """
-  @type start_data_source_sync_job_response() :: %{String.t() | Atom.t() => any()}
+  @type start_data_source_sync_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1566,31 +1565,31 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type attribute_suggestions_describe_config() :: %{String.t() | Atom.t() => any()}
+  @type attribute_suggestions_describe_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_access_control_configuration_request() :: %{
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type describe_access_control_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_access_control_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1602,48 +1601,47 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type capacity_units_configuration() :: %{String.t() | Atom.t() => any()}
+  @type capacity_units_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_snapshots_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "SnapShotTimeFilter" => time_range(),
-        "SnapshotsData" => list(list(String.t() | Atom.t())()),
-        "SnapshotsDataHeader" => list(String.t() | Atom.t())
+        "SnapshotsData" => list(list(String.t() | atom())()),
+        "SnapshotsDataHeader" => list(String.t() | atom())
       }
       
   """
-  @type get_snapshots_response() :: %{String.t() | Atom.t() => any()}
+  @type get_snapshots_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_request_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       salesforce_custom_knowledge_article_type_configuration() :: %{
-        "DocumentDataFieldName" => String.t() | Atom.t(),
-        "DocumentTitleFieldName" => String.t() | Atom.t(),
+        "DocumentDataFieldName" => String.t() | atom(),
+        "DocumentTitleFieldName" => String.t() | atom(),
         "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
       
   """
   @type salesforce_custom_knowledge_article_type_configuration() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1655,30 +1653,30 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type batch_delete_document_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_document_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_query_suggestions_response() :: %{
-        "QuerySuggestionsId" => String.t() | Atom.t(),
+        "QuerySuggestionsId" => String.t() | atom(),
         "Suggestions" => list(suggestion())
       }
       
   """
-  @type get_query_suggestions_response() :: %{String.t() | Atom.t() => any()}
+  @type get_query_suggestions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       member_user() :: %{
-        "UserId" => String.t() | Atom.t()
+        "UserId" => String.t() | atom()
       }
       
   """
-  @type member_user() :: %{String.t() | Atom.t() => any()}
+  @type member_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1690,7 +1688,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type experience_configuration() :: %{String.t() | Atom.t() => any()}
+  @type experience_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1702,43 +1700,43 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type table_excerpt() :: %{String.t() | Atom.t() => any()}
+  @type table_excerpt() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       salesforce_chatter_feed_configuration() :: %{
-        "DocumentDataFieldName" => String.t() | Atom.t(),
-        "DocumentTitleFieldName" => String.t() | Atom.t(),
+        "DocumentDataFieldName" => String.t() | atom(),
+        "DocumentTitleFieldName" => String.t() | atom(),
         "FieldMappings" => list(data_source_to_index_field_mapping()),
         "IncludeFilterTypes" => list(list(any())())
       }
       
   """
-  @type salesforce_chatter_feed_configuration() :: %{String.t() | Atom.t() => any()}
+  @type salesforce_chatter_feed_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_control_list_configuration() :: %{
-        "KeyPath" => String.t() | Atom.t()
+        "KeyPath" => String.t() | atom()
       }
       
   """
-  @type access_control_list_configuration() :: %{String.t() | Atom.t() => any()}
+  @type access_control_list_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1746,35 +1744,35 @@ defmodule AWS.Kendra do
       
       featured_results_conflict_exception() :: %{
         "ConflictingItems" => list(conflicting_item()),
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type featured_results_conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type featured_results_conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_query_suggestions_block_list_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("IndexId") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
-        required("RoleArn") => String.t() | Atom.t(),
+        required("IndexId") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom(),
         required("SourceS3Path") => s3_path()
       }
       
   """
-  @type create_query_suggestions_block_list_request() :: %{String.t() | Atom.t() => any()}
+  @type create_query_suggestions_block_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       group_ordering_id_summary() :: %{
-        "FailureReason" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
         "OrderingId" => float(),
         "ReceivedAt" => non_neg_integer(),
@@ -1782,24 +1780,24 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type group_ordering_id_summary() :: %{String.t() | Atom.t() => any()}
+  @type group_ordering_id_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_featured_results_set_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("FeaturedDocuments") => list(featured_document()),
-        optional("FeaturedResultsSetName") => String.t() | Atom.t(),
-        optional("QueryTexts") => list(String.t() | Atom.t()),
+        optional("FeaturedResultsSetName") => String.t() | atom(),
+        optional("QueryTexts") => list(String.t() | atom()),
         optional("Status") => list(any()),
-        required("FeaturedResultsSetId") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("FeaturedResultsSetId") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type update_featured_results_set_request() :: %{String.t() | Atom.t() => any()}
+  @type update_featured_results_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1812,48 +1810,48 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type inline_custom_document_enrichment_configuration() :: %{String.t() | Atom.t() => any()}
+  @type inline_custom_document_enrichment_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_data_sources_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "SummaryItems" => list(data_source_summary())
       }
       
   """
-  @type list_data_sources_response() :: %{String.t() | Atom.t() => any()}
+  @type list_data_sources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_data_source_request() :: %{
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type delete_data_source_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_data_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       google_drive_configuration() :: %{
-        "ExcludeMimeTypes" => list(String.t() | Atom.t()),
-        "ExcludeSharedDrives" => list(String.t() | Atom.t()),
-        "ExcludeUserAccounts" => list(String.t() | Atom.t()),
-        "ExclusionPatterns" => list(String.t() | Atom.t()),
+        "ExcludeMimeTypes" => list(String.t() | atom()),
+        "ExcludeSharedDrives" => list(String.t() | atom()),
+        "ExcludeUserAccounts" => list(String.t() | atom()),
+        "ExclusionPatterns" => list(String.t() | atom()),
         "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "InclusionPatterns" => list(String.t() | Atom.t()),
-        "SecretArn" => String.t() | Atom.t()
+        "InclusionPatterns" => list(String.t() | atom()),
+        "SecretArn" => String.t() | atom()
       }
       
   """
-  @type google_drive_configuration() :: %{String.t() | Atom.t() => any()}
+  @type google_drive_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1864,43 +1862,43 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type update_featured_results_set_response() :: %{String.t() | Atom.t() => any()}
+  @type update_featured_results_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       seed_url_configuration() :: %{
-        "SeedUrls" => list(String.t() | Atom.t()),
+        "SeedUrls" => list(String.t() | atom()),
         "WebCrawlerMode" => list(any())
       }
       
   """
-  @type seed_url_configuration() :: %{String.t() | Atom.t() => any()}
+  @type seed_url_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       retrieve_result() :: %{
-        "QueryId" => String.t() | Atom.t(),
+        "QueryId" => String.t() | atom(),
         "ResultItems" => list(retrieve_result_item())
       }
       
   """
-  @type retrieve_result() :: %{String.t() | Atom.t() => any()}
+  @type retrieve_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_thesaurus_request() :: %{
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type delete_thesaurus_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_thesaurus_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1911,7 +1909,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1919,11 +1917,11 @@ defmodule AWS.Kendra do
       
       list_access_control_configurations_response() :: %{
         "AccessControlConfigurations" => list(access_control_configuration_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_access_control_configurations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_access_control_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1931,12 +1929,12 @@ defmodule AWS.Kendra do
       
       experience_entities_summary() :: %{
         "DisplayData" => entity_display_data(),
-        "EntityId" => String.t() | Atom.t(),
+        "EntityId" => String.t() | atom(),
         "EntityType" => list(any())
       }
       
   """
-  @type experience_entities_summary() :: %{String.t() | Atom.t() => any()}
+  @type experience_entities_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1946,50 +1944,50 @@ defmodule AWS.Kendra do
         "AuthenticationType" => list(any()),
         "CrawlAttachments" => boolean(),
         "DisableLocalGroups" => boolean(),
-        "DocumentTitleFieldName" => String.t() | Atom.t(),
-        "ExclusionPatterns" => list(String.t() | Atom.t()),
+        "DocumentTitleFieldName" => String.t() | atom(),
+        "ExclusionPatterns" => list(String.t() | atom()),
         "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "InclusionPatterns" => list(String.t() | Atom.t()),
+        "InclusionPatterns" => list(String.t() | atom()),
         "ProxyConfiguration" => proxy_configuration(),
-        "SecretArn" => String.t() | Atom.t(),
+        "SecretArn" => String.t() | atom(),
         "SharePointVersion" => list(any()),
         "SslCertificateS3Path" => s3_path(),
-        "Urls" => list(String.t() | Atom.t()),
+        "Urls" => list(String.t() | atom()),
         "UseChangeLog" => boolean(),
         "VpcConfiguration" => data_source_vpc_configuration()
       }
       
   """
-  @type share_point_configuration() :: %{String.t() | Atom.t() => any()}
+  @type share_point_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       suggestable_config() :: %{
-        "AttributeName" => String.t() | Atom.t(),
+        "AttributeName" => String.t() | atom(),
         "Suggestable" => boolean()
       }
       
   """
-  @type suggestable_config() :: %{String.t() | Atom.t() => any()}
+  @type suggestable_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_thesaurus_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("IndexId") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
-        required("RoleArn") => String.t() | Atom.t(),
+        required("IndexId") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom(),
         required("SourceS3Path") => s3_path()
       }
       
   """
-  @type create_thesaurus_request() :: %{String.t() | Atom.t() => any()}
+  @type create_thesaurus_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1997,25 +1995,25 @@ defmodule AWS.Kendra do
       
       hook_configuration() :: %{
         "InvocationCondition" => document_attribute_condition(),
-        "LambdaArn" => String.t() | Atom.t(),
-        "S3Bucket" => String.t() | Atom.t()
+        "LambdaArn" => String.t() | atom(),
+        "S3Bucket" => String.t() | atom()
       }
       
   """
-  @type hook_configuration() :: %{String.t() | Atom.t() => any()}
+  @type hook_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_source_to_index_field_mapping() :: %{
-        "DataSourceFieldName" => String.t() | Atom.t(),
-        "DateFieldFormat" => String.t() | Atom.t(),
-        "IndexFieldName" => String.t() | Atom.t()
+        "DataSourceFieldName" => String.t() | atom(),
+        "DateFieldFormat" => String.t() | atom(),
+        "IndexFieldName" => String.t() | atom()
       }
       
   """
-  @type data_source_to_index_field_mapping() :: %{String.t() | Atom.t() => any()}
+  @type data_source_to_index_field_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2023,11 +2021,11 @@ defmodule AWS.Kendra do
       
       spell_corrected_query() :: %{
         "Corrections" => list(correction()),
-        "SuggestedQueryText" => String.t() | Atom.t()
+        "SuggestedQueryText" => String.t() | atom()
       }
       
   """
-  @type spell_corrected_query() :: %{String.t() | Atom.t() => any()}
+  @type spell_corrected_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2038,7 +2036,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type create_featured_results_set_response() :: %{String.t() | Atom.t() => any()}
+  @type create_featured_results_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2050,7 +2048,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type urls() :: %{String.t() | Atom.t() => any()}
+  @type urls() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2059,14 +2057,14 @@ defmodule AWS.Kendra do
       expanded_result_item() :: %{
         "DocumentAttributes" => list(document_attribute()),
         "DocumentExcerpt" => text_with_highlights(),
-        "DocumentId" => String.t() | Atom.t(),
+        "DocumentId" => String.t() | atom(),
         "DocumentTitle" => text_with_highlights(),
-        "DocumentURI" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t()
+        "DocumentURI" => String.t() | atom(),
+        "Id" => String.t() | atom()
       }
       
   """
-  @type expanded_result_item() :: %{String.t() | Atom.t() => any()}
+  @type expanded_result_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2074,11 +2072,11 @@ defmodule AWS.Kendra do
       
       list_indices_response() :: %{
         "IndexConfigurationSummaryItems" => list(index_configuration_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_indices_response() :: %{String.t() | Atom.t() => any()}
+  @type list_indices_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2090,38 +2088,38 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type user_token_configuration() :: %{String.t() | Atom.t() => any()}
+  @type user_token_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_source_sync_job() :: %{
-        "DataSourceErrorCode" => String.t() | Atom.t(),
+        "DataSourceErrorCode" => String.t() | atom(),
         "EndTime" => non_neg_integer(),
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "ExecutionId" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | atom(),
+        "ExecutionId" => String.t() | atom(),
         "Metrics" => data_source_sync_job_metrics(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type data_source_sync_job() :: %{String.t() | Atom.t() => any()}
+  @type data_source_sync_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       featured_document_with_metadata() :: %{
-        "Id" => String.t() | Atom.t(),
-        "Title" => String.t() | Atom.t(),
-        "URI" => String.t() | Atom.t()
+        "Id" => String.t() | atom(),
+        "Title" => String.t() | atom(),
+        "URI" => String.t() | atom()
       }
       
   """
-  @type featured_document_with_metadata() :: %{String.t() | Atom.t() => any()}
+  @type featured_document_with_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2129,13 +2127,13 @@ defmodule AWS.Kendra do
       
       describe_thesaurus_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
         "FileSizeBytes" => float(),
-        "Id" => String.t() | Atom.t(),
-        "IndexId" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
+        "IndexId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "SourceS3Path" => s3_path(),
         "Status" => list(any()),
         "SynonymRuleCount" => float(),
@@ -2144,7 +2142,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type describe_thesaurus_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_thesaurus_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2155,42 +2153,42 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type batch_delete_featured_results_set_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_featured_results_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       server_side_encryption_configuration() :: %{
-        "KmsKeyId" => String.t() | Atom.t()
+        "KmsKeyId" => String.t() | atom()
       }
       
   """
-  @type server_side_encryption_configuration() :: %{String.t() | Atom.t() => any()}
+  @type server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_data_source_sync_job_request() :: %{
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type stop_data_source_sync_job_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_data_source_sync_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_faq_request() :: %{
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type delete_faq_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_faq_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2198,28 +2196,28 @@ defmodule AWS.Kendra do
       
       suggestion_text_with_highlights() :: %{
         "Highlights" => list(suggestion_highlight()),
-        "Text" => String.t() | Atom.t()
+        "Text" => String.t() | atom()
       }
       
   """
-  @type suggestion_text_with_highlights() :: %{String.t() | Atom.t() => any()}
+  @type suggestion_text_with_highlights() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       fsx_configuration() :: %{
-        "ExclusionPatterns" => list(String.t() | Atom.t()),
+        "ExclusionPatterns" => list(String.t() | atom()),
         "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "FileSystemId" => String.t() | Atom.t(),
+        "FileSystemId" => String.t() | atom(),
         "FileSystemType" => list(any()),
-        "InclusionPatterns" => list(String.t() | Atom.t()),
-        "SecretArn" => String.t() | Atom.t(),
+        "InclusionPatterns" => list(String.t() | atom()),
+        "SecretArn" => String.t() | atom(),
         "VpcConfiguration" => data_source_vpc_configuration()
       }
       
   """
-  @type fsx_configuration() :: %{String.t() | Atom.t() => any()}
+  @type fsx_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2230,20 +2228,20 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type score_attributes() :: %{String.t() | Atom.t() => any()}
+  @type score_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_principal_mapping_request() :: %{
-        optional("DataSourceId") => String.t() | Atom.t(),
-        required("GroupId") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        optional("DataSourceId") => String.t() | atom(),
+        required("GroupId") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type describe_principal_mapping_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_principal_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2251,38 +2249,38 @@ defmodule AWS.Kendra do
       
       source_document() :: %{
         "AdditionalAttributes" => list(document_attribute()),
-        "DocumentId" => String.t() | Atom.t(),
-        "SuggestionAttributes" => list(String.t() | Atom.t())
+        "DocumentId" => String.t() | atom(),
+        "SuggestionAttributes" => list(String.t() | atom())
       }
       
   """
-  @type source_document() :: %{String.t() | Atom.t() => any()}
+  @type source_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_faq_request() :: %{
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type describe_faq_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_faq_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_delete_document_response_failed_document() :: %{
-        "DataSourceId" => String.t() | Atom.t(),
+        "DataSourceId" => String.t() | atom(),
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t()
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom()
       }
       
   """
-  @type batch_delete_document_response_failed_document() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_document_response_failed_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2290,15 +2288,15 @@ defmodule AWS.Kendra do
       
       service_now_configuration() :: %{
         "AuthenticationType" => list(any()),
-        "HostUrl" => String.t() | Atom.t(),
+        "HostUrl" => String.t() | atom(),
         "KnowledgeArticleConfiguration" => service_now_knowledge_article_configuration(),
-        "SecretArn" => String.t() | Atom.t(),
+        "SecretArn" => String.t() | atom(),
         "ServiceCatalogConfiguration" => service_now_service_catalog_configuration(),
         "ServiceNowBuildVersion" => list(any())
       }
       
   """
-  @type service_now_configuration() :: %{String.t() | Atom.t() => any()}
+  @type service_now_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2306,15 +2304,15 @@ defmodule AWS.Kendra do
       
       service_now_service_catalog_configuration() :: %{
         "CrawlAttachments" => boolean(),
-        "DocumentDataFieldName" => String.t() | Atom.t(),
-        "DocumentTitleFieldName" => String.t() | Atom.t(),
-        "ExcludeAttachmentFilePatterns" => list(String.t() | Atom.t()),
+        "DocumentDataFieldName" => String.t() | atom(),
+        "DocumentTitleFieldName" => String.t() | atom(),
+        "ExcludeAttachmentFilePatterns" => list(String.t() | atom()),
         "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "IncludeAttachmentFilePatterns" => list(String.t() | Atom.t())
+        "IncludeAttachmentFilePatterns" => list(String.t() | atom())
       }
       
   """
-  @type service_now_service_catalog_configuration() :: %{String.t() | Atom.t() => any()}
+  @type service_now_service_catalog_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2326,7 +2324,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type attribute_suggestions_update_config() :: %{String.t() | Atom.t() => any()}
+  @type attribute_suggestions_update_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2339,13 +2337,13 @@ defmodule AWS.Kendra do
         "MaxLinksPerPage" => integer(),
         "MaxUrlsPerMinuteCrawlRate" => integer(),
         "ProxyConfiguration" => proxy_configuration(),
-        "UrlExclusionPatterns" => list(String.t() | Atom.t()),
-        "UrlInclusionPatterns" => list(String.t() | Atom.t()),
+        "UrlExclusionPatterns" => list(String.t() | atom()),
+        "UrlInclusionPatterns" => list(String.t() | atom()),
         "Urls" => urls()
       }
       
   """
-  @type web_crawler_configuration() :: %{String.t() | Atom.t() => any()}
+  @type web_crawler_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2356,54 +2354,54 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type additional_result_attribute_value() :: %{String.t() | Atom.t() => any()}
+  @type additional_result_attribute_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       facet_result() :: %{
-        "DocumentAttributeKey" => String.t() | Atom.t(),
+        "DocumentAttributeKey" => String.t() | atom(),
         "DocumentAttributeValueCountPairs" => list(document_attribute_value_count_pair()),
         "DocumentAttributeValueType" => list(any())
       }
       
   """
-  @type facet_result() :: %{String.t() | Atom.t() => any()}
+  @type facet_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_experiences_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "SummaryItems" => list(experiences_summary())
       }
       
   """
-  @type list_experiences_response() :: %{String.t() | Atom.t() => any()}
+  @type list_experiences_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_data_source_response() :: %{
-        "Id" => String.t() | Atom.t()
+        "Id" => String.t() | atom()
       }
       
   """
-  @type create_data_source_response() :: %{String.t() | Atom.t() => any()}
+  @type create_data_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2411,12 +2409,12 @@ defmodule AWS.Kendra do
       
       batch_delete_document_request() :: %{
         optional("DataSourceSyncJobMetricTarget") => data_source_sync_job_metric_target(),
-        required("DocumentIdList") => list(String.t() | Atom.t()),
-        required("IndexId") => String.t() | Atom.t()
+        required("DocumentIdList") => list(String.t() | atom()),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type batch_delete_document_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_document_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2424,16 +2422,16 @@ defmodule AWS.Kendra do
       
       data_source_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Id" => String.t() | Atom.t(),
-        "LanguageCode" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
+        "LanguageCode" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
         "Type" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type data_source_summary() :: %{String.t() | Atom.t() => any()}
+  @type data_source_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2444,7 +2442,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type batch_put_document_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_document_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2452,58 +2450,58 @@ defmodule AWS.Kendra do
       
       list_entity_personas_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type list_entity_personas_request() :: %{String.t() | Atom.t() => any()}
+  @type list_entity_personas_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       suggestion() :: %{
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "SourceDocuments" => list(source_document()),
         "Value" => suggestion_value()
       }
       
   """
-  @type suggestion() :: %{String.t() | Atom.t() => any()}
+  @type suggestion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_delete_featured_results_set_request() :: %{
-        required("FeaturedResultsSetIds") => list(String.t() | Atom.t()),
-        required("IndexId") => String.t() | Atom.t()
+        required("FeaturedResultsSetIds") => list(String.t() | atom()),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type batch_delete_featured_results_set_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_delete_featured_results_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_index_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Edition") => list(any()),
         optional("ServerSideEncryptionConfiguration") => server_side_encryption_configuration(),
         optional("Tags") => list(tag()),
         optional("UserContextPolicy") => list(any()),
         optional("UserGroupResolutionConfiguration") => user_group_resolution_configuration(),
         optional("UserTokenConfigurations") => list(user_token_configuration()),
-        required("Name") => String.t() | Atom.t(),
-        required("RoleArn") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type create_index_request() :: %{String.t() | Atom.t() => any()}
+  @type create_index_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2511,33 +2509,33 @@ defmodule AWS.Kendra do
       
       update_index_request() :: %{
         optional("CapacityUnits") => capacity_units_configuration(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("DocumentMetadataConfigurationUpdates") => list(document_metadata_configuration()),
-        optional("Name") => String.t() | Atom.t(),
-        optional("RoleArn") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
         optional("UserContextPolicy") => list(any()),
         optional("UserGroupResolutionConfiguration") => user_group_resolution_configuration(),
         optional("UserTokenConfigurations") => list(user_token_configuration()),
-        required("Id") => String.t() | Atom.t()
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type update_index_request() :: %{String.t() | Atom.t() => any()}
+  @type update_index_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       column_configuration() :: %{
-        "ChangeDetectingColumns" => list(String.t() | Atom.t()),
-        "DocumentDataColumnName" => String.t() | Atom.t(),
-        "DocumentIdColumnName" => String.t() | Atom.t(),
-        "DocumentTitleColumnName" => String.t() | Atom.t(),
+        "ChangeDetectingColumns" => list(String.t() | atom()),
+        "DocumentDataColumnName" => String.t() | atom(),
+        "DocumentIdColumnName" => String.t() | atom(),
+        "DocumentTitleColumnName" => String.t() | atom(),
         "FieldMappings" => list(data_source_to_index_field_mapping())
       }
       
   """
-  @type column_configuration() :: %{String.t() | Atom.t() => any()}
+  @type column_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2548,7 +2546,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type hierarchical_principal() :: %{String.t() | Atom.t() => any()}
+  @type hierarchical_principal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2556,11 +2554,11 @@ defmodule AWS.Kendra do
       
       warning() :: %{
         "Code" => list(any()),
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type warning() :: %{String.t() | Atom.t() => any()}
+  @type warning() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2572,18 +2570,18 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type time_range() :: %{String.t() | Atom.t() => any()}
+  @type time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2591,16 +2589,16 @@ defmodule AWS.Kendra do
       
       service_now_knowledge_article_configuration() :: %{
         "CrawlAttachments" => boolean(),
-        "DocumentDataFieldName" => String.t() | Atom.t(),
-        "DocumentTitleFieldName" => String.t() | Atom.t(),
-        "ExcludeAttachmentFilePatterns" => list(String.t() | Atom.t()),
+        "DocumentDataFieldName" => String.t() | atom(),
+        "DocumentTitleFieldName" => String.t() | atom(),
+        "ExcludeAttachmentFilePatterns" => list(String.t() | atom()),
         "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "FilterQuery" => String.t() | Atom.t(),
-        "IncludeAttachmentFilePatterns" => list(String.t() | Atom.t())
+        "FilterQuery" => String.t() | atom(),
+        "IncludeAttachmentFilePatterns" => list(String.t() | atom())
       }
       
   """
-  @type service_now_knowledge_article_configuration() :: %{String.t() | Atom.t() => any()}
+  @type service_now_knowledge_article_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2616,28 +2614,28 @@ defmodule AWS.Kendra do
   ## Example:
       
       put_principal_mapping_request() :: %{
-        optional("DataSourceId") => String.t() | Atom.t(),
+        optional("DataSourceId") => String.t() | atom(),
         optional("OrderingId") => float(),
-        optional("RoleArn") => String.t() | Atom.t(),
-        required("GroupId") => String.t() | Atom.t(),
+        optional("RoleArn") => String.t() | atom(),
+        required("GroupId") => String.t() | atom(),
         required("GroupMembers") => group_members(),
-        required("IndexId") => String.t() | Atom.t()
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type put_principal_mapping_request() :: %{String.t() | Atom.t() => any()}
+  @type put_principal_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_thesaurus_request() :: %{
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type describe_thesaurus_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_thesaurus_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2646,12 +2644,12 @@ defmodule AWS.Kendra do
       document_attribute_value() :: %{
         "DateValue" => non_neg_integer(),
         "LongValue" => float(),
-        "StringListValue" => list(String.t() | Atom.t()),
-        "StringValue" => String.t() | Atom.t()
+        "StringListValue" => list(String.t() | atom()),
+        "StringValue" => String.t() | atom()
       }
       
   """
-  @type document_attribute_value() :: %{String.t() | Atom.t() => any()}
+  @type document_attribute_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2667,31 +2665,31 @@ defmodule AWS.Kendra do
   ## Example:
       
       create_faq_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("FileFormat") => list(any()),
-        optional("LanguageCode") => String.t() | Atom.t(),
+        optional("LanguageCode") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("IndexId") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
-        required("RoleArn") => String.t() | Atom.t(),
+        required("IndexId") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom(),
         required("S3Path") => s3_path()
       }
       
   """
-  @type create_faq_request() :: %{String.t() | Atom.t() => any()}
+  @type create_faq_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       experience_endpoint() :: %{
-        "Endpoint" => String.t() | Atom.t(),
+        "Endpoint" => String.t() | atom(),
         "EndpointType" => list(any())
       }
       
   """
-  @type experience_endpoint() :: %{String.t() | Atom.t() => any()}
+  @type experience_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2699,25 +2697,25 @@ defmodule AWS.Kendra do
       
       correction() :: %{
         "BeginOffset" => integer(),
-        "CorrectedTerm" => String.t() | Atom.t(),
+        "CorrectedTerm" => String.t() | atom(),
         "EndOffset" => integer(),
-        "Term" => String.t() | Atom.t()
+        "Term" => String.t() | atom()
       }
       
   """
-  @type correction() :: %{String.t() | Atom.t() => any()}
+  @type correction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       entity_configuration() :: %{
-        "EntityId" => String.t() | Atom.t(),
+        "EntityId" => String.t() | atom(),
         "EntityType" => list(any())
       }
       
   """
-  @type entity_configuration() :: %{String.t() | Atom.t() => any()}
+  @type entity_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2729,14 +2727,14 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type suggestion_highlight() :: %{String.t() | Atom.t() => any()}
+  @type suggestion_highlight() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       relevance() :: %{
-        "Duration" => String.t() | Atom.t(),
+        "Duration" => String.t() | atom(),
         "Freshness" => boolean(),
         "Importance" => integer(),
         "RankOrder" => list(any()),
@@ -2744,18 +2742,18 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type relevance() :: %{String.t() | Atom.t() => any()}
+  @type relevance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       featured_document_missing() :: %{
-        "Id" => String.t() | Atom.t()
+        "Id" => String.t() | atom()
       }
       
   """
-  @type featured_document_missing() :: %{String.t() | Atom.t() => any()}
+  @type featured_document_missing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2766,18 +2764,18 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type disassociate_personas_from_entities_response() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_personas_from_entities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       documents_metadata_configuration() :: %{
-        "S3Prefix" => String.t() | Atom.t()
+        "S3Prefix" => String.t() | atom()
       }
       
   """
-  @type documents_metadata_configuration() :: %{String.t() | Atom.t() => any()}
+  @type documents_metadata_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2785,14 +2783,14 @@ defmodule AWS.Kendra do
       
       get_snapshots_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("IndexId") => String.t() | atom(),
         required("Interval") => list(any()),
         required("MetricType") => list(any())
       }
       
   """
-  @type get_snapshots_request() :: %{String.t() | Atom.t() => any()}
+  @type get_snapshots_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2800,12 +2798,12 @@ defmodule AWS.Kendra do
       
       list_featured_results_sets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type list_featured_results_sets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_featured_results_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2814,19 +2812,19 @@ defmodule AWS.Kendra do
       describe_experience_response() :: %{
         "Configuration" => experience_configuration(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "Endpoints" => list(experience_endpoint()),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "IndexId" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "IndexId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type describe_experience_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_experience_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2834,51 +2832,51 @@ defmodule AWS.Kendra do
       
       associate_entities_to_experience_request() :: %{
         required("EntityList") => list(entity_configuration()),
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type associate_entities_to_experience_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_entities_to_experience_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t()
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       jwt_token_type_configuration() :: %{
-        "ClaimRegex" => String.t() | Atom.t(),
-        "GroupAttributeField" => String.t() | Atom.t(),
-        "Issuer" => String.t() | Atom.t(),
+        "ClaimRegex" => String.t() | atom(),
+        "GroupAttributeField" => String.t() | atom(),
+        "Issuer" => String.t() | atom(),
         "KeyLocation" => list(any()),
-        "SecretManagerArn" => String.t() | Atom.t(),
-        "URL" => String.t() | Atom.t(),
-        "UserNameAttributeField" => String.t() | Atom.t()
+        "SecretManagerArn" => String.t() | atom(),
+        "URL" => String.t() | atom(),
+        "UserNameAttributeField" => String.t() | atom()
       }
       
   """
-  @type jwt_token_type_configuration() :: %{String.t() | Atom.t() => any()}
+  @type jwt_token_type_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2886,14 +2884,14 @@ defmodule AWS.Kendra do
       
       describe_access_control_configuration_response() :: %{
         "AccessControlList" => list(principal()),
-        "Description" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
         "HierarchicalAccessControlList" => list(hierarchical_principal()),
-        "Name" => String.t() | Atom.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type describe_access_control_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_access_control_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2904,20 +2902,20 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type template_configuration() :: %{String.t() | Atom.t() => any()}
+  @type template_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       facet() :: %{
-        "DocumentAttributeKey" => String.t() | Atom.t(),
+        "DocumentAttributeKey" => String.t() | atom(),
         "Facets" => list(facet()),
         "MaxResults" => integer()
       }
       
   """
-  @type facet() :: %{String.t() | Atom.t() => any()}
+  @type facet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2926,18 +2924,18 @@ defmodule AWS.Kendra do
       update_data_source_request() :: %{
         optional("Configuration") => data_source_configuration(),
         optional("CustomDocumentEnrichmentConfiguration") => custom_document_enrichment_configuration(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("LanguageCode") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("RoleArn") => String.t() | Atom.t(),
-        optional("Schedule") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("LanguageCode") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        optional("Schedule") => String.t() | atom(),
         optional("VpcConfiguration") => data_source_vpc_configuration(),
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type update_data_source_request() :: %{String.t() | Atom.t() => any()}
+  @type update_data_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2949,7 +2947,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type expand_configuration() :: %{String.t() | Atom.t() => any()}
+  @type expand_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2957,37 +2955,37 @@ defmodule AWS.Kendra do
       
       batch_put_document_request() :: %{
         optional("CustomDocumentEnrichmentConfiguration") => custom_document_enrichment_configuration(),
-        optional("RoleArn") => String.t() | Atom.t(),
+        optional("RoleArn") => String.t() | atom(),
         required("Documents") => list(document()),
-        required("IndexId") => String.t() | Atom.t()
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type batch_put_document_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_document_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_experience_entities_request() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type list_experience_entities_request() :: %{String.t() | Atom.t() => any()}
+  @type list_experience_entities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3000,7 +2998,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type group_members() :: %{String.t() | Atom.t() => any()}
+  @type group_members() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3008,12 +3006,12 @@ defmodule AWS.Kendra do
       
       confluence_blog_to_index_field_mapping() :: %{
         "DataSourceFieldName" => list(any()),
-        "DateFieldFormat" => String.t() | Atom.t(),
-        "IndexFieldName" => String.t() | Atom.t()
+        "DateFieldFormat" => String.t() | atom(),
+        "IndexFieldName" => String.t() | atom()
       }
       
   """
-  @type confluence_blog_to_index_field_mapping() :: %{String.t() | Atom.t() => any()}
+  @type confluence_blog_to_index_field_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3021,21 +3019,21 @@ defmodule AWS.Kendra do
       
       describe_faq_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
         "FileFormat" => list(any()),
-        "Id" => String.t() | Atom.t(),
-        "IndexId" => String.t() | Atom.t(),
-        "LanguageCode" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
+        "IndexId" => String.t() | atom(),
+        "LanguageCode" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "S3Path" => s3_path(),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type describe_faq_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_faq_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3043,11 +3041,11 @@ defmodule AWS.Kendra do
       
       list_data_source_sync_jobs_response() :: %{
         "History" => list(data_source_sync_job()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_data_source_sync_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_data_source_sync_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3056,12 +3054,12 @@ defmodule AWS.Kendra do
       submit_feedback_request() :: %{
         optional("ClickFeedbackItems") => list(click_feedback()),
         optional("RelevanceFeedbackItems") => list(relevance_feedback()),
-        required("IndexId") => String.t() | Atom.t(),
-        required("QueryId") => String.t() | Atom.t()
+        required("IndexId") => String.t() | atom(),
+        required("QueryId") => String.t() | atom()
       }
       
   """
-  @type submit_feedback_request() :: %{String.t() | Atom.t() => any()}
+  @type submit_feedback_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3070,23 +3068,23 @@ defmodule AWS.Kendra do
       jira_configuration() :: %{
         "AttachmentFieldMappings" => list(data_source_to_index_field_mapping()),
         "CommentFieldMappings" => list(data_source_to_index_field_mapping()),
-        "ExclusionPatterns" => list(String.t() | Atom.t()),
-        "InclusionPatterns" => list(String.t() | Atom.t()),
+        "ExclusionPatterns" => list(String.t() | atom()),
+        "InclusionPatterns" => list(String.t() | atom()),
         "IssueFieldMappings" => list(data_source_to_index_field_mapping()),
         "IssueSubEntityFilter" => list(list(any())()),
-        "IssueType" => list(String.t() | Atom.t()),
-        "JiraAccountUrl" => String.t() | Atom.t(),
-        "Project" => list(String.t() | Atom.t()),
+        "IssueType" => list(String.t() | atom()),
+        "JiraAccountUrl" => String.t() | atom(),
+        "Project" => list(String.t() | atom()),
         "ProjectFieldMappings" => list(data_source_to_index_field_mapping()),
-        "SecretArn" => String.t() | Atom.t(),
-        "Status" => list(String.t() | Atom.t()),
+        "SecretArn" => String.t() | atom(),
+        "Status" => list(String.t() | atom()),
         "UseChangeLog" => boolean(),
         "VpcConfiguration" => data_source_vpc_configuration(),
         "WorkLogFieldMappings" => list(data_source_to_index_field_mapping())
       }
       
   """
-  @type jira_configuration() :: %{String.t() | Atom.t() => any()}
+  @type jira_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3097,18 +3095,18 @@ defmodule AWS.Kendra do
         "CrawlAttachments" => boolean(),
         "CrawlChatRooms" => boolean(),
         "CrawlFileComments" => boolean(),
-        "Domain" => String.t() | Atom.t(),
-        "ExclusionPatterns" => list(String.t() | Atom.t()),
-        "FolderIds" => list(String.t() | Atom.t()),
-        "InclusionPatterns" => list(String.t() | Atom.t()),
+        "Domain" => String.t() | atom(),
+        "ExclusionPatterns" => list(String.t() | atom()),
+        "FolderIds" => list(String.t() | atom()),
+        "InclusionPatterns" => list(String.t() | atom()),
         "MessageFieldMappings" => list(data_source_to_index_field_mapping()),
-        "SecretArn" => String.t() | Atom.t(),
+        "SecretArn" => String.t() | atom(),
         "ThreadFieldMappings" => list(data_source_to_index_field_mapping()),
         "VpcConfiguration" => data_source_vpc_configuration()
       }
       
   """
-  @type quip_configuration() :: %{String.t() | Atom.t() => any()}
+  @type quip_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3116,11 +3114,11 @@ defmodule AWS.Kendra do
       
       list_groups_older_than_ordering_id_response() :: %{
         "GroupsSummaries" => list(group_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_groups_older_than_ordering_id_response() :: %{String.t() | Atom.t() => any()}
+  @type list_groups_older_than_ordering_id_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3129,13 +3127,13 @@ defmodule AWS.Kendra do
       confluence_space_configuration() :: %{
         "CrawlArchivedSpaces" => boolean(),
         "CrawlPersonalSpaces" => boolean(),
-        "ExcludeSpaces" => list(String.t() | Atom.t()),
-        "IncludeSpaces" => list(String.t() | Atom.t()),
+        "ExcludeSpaces" => list(String.t() | atom()),
+        "IncludeSpaces" => list(String.t() | atom()),
         "SpaceFieldMappings" => list(confluence_space_to_index_field_mapping())
       }
       
   """
-  @type confluence_space_configuration() :: %{String.t() | Atom.t() => any()}
+  @type confluence_space_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3146,21 +3144,21 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type associate_personas_to_entities_response() :: %{String.t() | Atom.t() => any()}
+  @type associate_personas_to_entities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_document_status_response_error() :: %{
-        "DataSourceId" => String.t() | Atom.t(),
-        "DocumentId" => String.t() | Atom.t(),
+        "DataSourceId" => String.t() | atom(),
+        "DocumentId" => String.t() | atom(),
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | Atom.t()
+        "ErrorMessage" => String.t() | atom()
       }
       
   """
-  @type batch_get_document_status_response_error() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_document_status_response_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3180,7 +3178,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type attribute_filter() :: %{String.t() | Atom.t() => any()}
+  @type attribute_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3188,29 +3186,29 @@ defmodule AWS.Kendra do
       
       list_data_source_sync_jobs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("StartTimeFilter") => time_range(),
         optional("StatusFilter") => list(any()),
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type list_data_source_sync_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_data_source_sync_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_principal_mapping_response() :: %{
-        "DataSourceId" => String.t() | Atom.t(),
-        "GroupId" => String.t() | Atom.t(),
+        "DataSourceId" => String.t() | atom(),
+        "GroupId" => String.t() | atom(),
         "GroupOrderingIdSummaries" => list(group_ordering_id_summary()),
-        "IndexId" => String.t() | Atom.t()
+        "IndexId" => String.t() | atom()
       }
       
   """
-  @type describe_principal_mapping_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_principal_mapping_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3218,29 +3216,29 @@ defmodule AWS.Kendra do
       
       featured_results_set() :: %{
         "CreationTimestamp" => float(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "FeaturedDocuments" => list(featured_document()),
-        "FeaturedResultsSetId" => String.t() | Atom.t(),
-        "FeaturedResultsSetName" => String.t() | Atom.t(),
+        "FeaturedResultsSetId" => String.t() | atom(),
+        "FeaturedResultsSetName" => String.t() | atom(),
         "LastUpdatedTimestamp" => float(),
-        "QueryTexts" => list(String.t() | Atom.t()),
+        "QueryTexts" => list(String.t() | atom()),
         "Status" => list(any())
       }
       
   """
-  @type featured_results_set() :: %{String.t() | Atom.t() => any()}
+  @type featured_results_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_access_control_configuration_request() :: %{
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type delete_access_control_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_access_control_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3252,7 +3250,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type collapsed_result_detail() :: %{String.t() | Atom.t() => any()}
+  @type collapsed_result_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3260,25 +3258,25 @@ defmodule AWS.Kendra do
       
       list_query_suggestions_block_lists_response() :: %{
         "BlockListSummaryItems" => list(query_suggestions_block_list_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_query_suggestions_block_lists_response() :: %{String.t() | Atom.t() => any()}
+  @type list_query_suggestions_block_lists_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attribute_suggestions_get_config() :: %{
-        "AdditionalResponseAttributes" => list(String.t() | Atom.t()),
+        "AdditionalResponseAttributes" => list(String.t() | atom()),
         "AttributeFilter" => attribute_filter(),
-        "SuggestionAttributes" => list(String.t() | Atom.t()),
+        "SuggestionAttributes" => list(String.t() | atom()),
         "UserContext" => user_context()
       }
       
   """
-  @type attribute_suggestions_get_config() :: %{String.t() | Atom.t() => any()}
+  @type attribute_suggestions_get_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3292,18 +3290,18 @@ defmodule AWS.Kendra do
         optional("PageNumber") => integer(),
         optional("PageSize") => integer(),
         optional("QueryResultTypeFilter") => list(any()),
-        optional("QueryText") => String.t() | Atom.t(),
-        optional("RequestedDocumentAttributes") => list(String.t() | Atom.t()),
+        optional("QueryText") => String.t() | atom(),
+        optional("RequestedDocumentAttributes") => list(String.t() | atom()),
         optional("SortingConfiguration") => sorting_configuration(),
         optional("SortingConfigurations") => list(sorting_configuration()),
         optional("SpellCorrectionConfiguration") => spell_correction_configuration(),
         optional("UserContext") => user_context(),
-        optional("VisitorId") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        optional("VisitorId") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type query_request() :: %{String.t() | Atom.t() => any()}
+  @type query_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3311,25 +3309,25 @@ defmodule AWS.Kendra do
       
       user_context() :: %{
         "DataSourceGroups" => list(data_source_group()),
-        "Groups" => list(String.t() | Atom.t()),
-        "Token" => String.t() | Atom.t(),
-        "UserId" => String.t() | Atom.t()
+        "Groups" => list(String.t() | atom()),
+        "Token" => String.t() | atom(),
+        "UserId" => String.t() | atom()
       }
       
   """
-  @type user_context() :: %{String.t() | Atom.t() => any()}
+  @type user_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       group_summary() :: %{
-        "GroupId" => String.t() | Atom.t(),
+        "GroupId" => String.t() | atom(),
         "OrderingId" => float()
       }
       
   """
-  @type group_summary() :: %{String.t() | Atom.t() => any()}
+  @type group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3337,16 +3335,16 @@ defmodule AWS.Kendra do
       
       one_drive_configuration() :: %{
         "DisableLocalGroups" => boolean(),
-        "ExclusionPatterns" => list(String.t() | Atom.t()),
+        "ExclusionPatterns" => list(String.t() | atom()),
         "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "InclusionPatterns" => list(String.t() | Atom.t()),
+        "InclusionPatterns" => list(String.t() | atom()),
         "OneDriveUsers" => one_drive_users(),
-        "SecretArn" => String.t() | Atom.t(),
-        "TenantDomain" => String.t() | Atom.t()
+        "SecretArn" => String.t() | atom(),
+        "TenantDomain" => String.t() | atom()
       }
       
   """
-  @type one_drive_configuration() :: %{String.t() | Atom.t() => any()}
+  @type one_drive_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3357,19 +3355,19 @@ defmodule AWS.Kendra do
         "CollapsedResultDetail" => collapsed_result_detail(),
         "DocumentAttributes" => list(document_attribute()),
         "DocumentExcerpt" => text_with_highlights(),
-        "DocumentId" => String.t() | Atom.t(),
+        "DocumentId" => String.t() | atom(),
         "DocumentTitle" => text_with_highlights(),
-        "DocumentURI" => String.t() | Atom.t(),
-        "FeedbackToken" => String.t() | Atom.t(),
+        "DocumentURI" => String.t() | atom(),
+        "FeedbackToken" => String.t() | atom(),
         "Format" => list(any()),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "ScoreAttributes" => score_attributes(),
         "TableExcerpt" => table_excerpt(),
         "Type" => list(any())
       }
       
   """
-  @type query_result_item() :: %{String.t() | Atom.t() => any()}
+  @type query_result_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3380,18 +3378,18 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type associate_entities_to_experience_response() :: %{String.t() | Atom.t() => any()}
+  @type associate_entities_to_experience_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_index_response() :: %{
-        "Id" => String.t() | Atom.t()
+        "Id" => String.t() | atom()
       }
       
   """
-  @type create_index_response() :: %{String.t() | Atom.t() => any()}
+  @type create_index_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3402,7 +3400,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type confluence_blog_configuration() :: %{String.t() | Atom.t() => any()}
+  @type confluence_blog_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3415,11 +3413,11 @@ defmodule AWS.Kendra do
         optional("MinimumQueryCount") => integer(),
         optional("Mode") => list(any()),
         optional("QueryLogLookBackWindowInDays") => integer(),
-        required("IndexId") => String.t() | Atom.t()
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type update_query_suggestions_config_request() :: %{String.t() | Atom.t() => any()}
+  @type update_query_suggestions_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3427,26 +3425,26 @@ defmodule AWS.Kendra do
       
       list_query_suggestions_block_lists_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type list_query_suggestions_block_lists_request() :: %{String.t() | Atom.t() => any()}
+  @type list_query_suggestions_block_lists_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       status() :: %{
-        "DocumentId" => String.t() | Atom.t(),
+        "DocumentId" => String.t() | atom(),
         "DocumentStatus" => list(any()),
-        "FailureCode" => String.t() | Atom.t(),
-        "FailureReason" => String.t() | Atom.t()
+        "FailureCode" => String.t() | atom(),
+        "FailureReason" => String.t() | atom()
       }
       
   """
-  @type status() :: %{String.t() | Atom.t() => any()}
+  @type status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3457,18 +3455,18 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type authentication_configuration() :: %{String.t() | Atom.t() => any()}
+  @type authentication_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_faq_response() :: %{
-        "Id" => String.t() | Atom.t()
+        "Id" => String.t() | atom()
       }
       
   """
-  @type create_faq_response() :: %{String.t() | Atom.t() => any()}
+  @type create_faq_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3480,18 +3478,18 @@ defmodule AWS.Kendra do
         "CrawlSystemFolders" => boolean(),
         "DocumentLibraryFieldMappings" => list(data_source_to_index_field_mapping()),
         "EntityFilter" => list(list(any())()),
-        "ExclusionPatterns" => list(String.t() | Atom.t()),
-        "InclusionPatterns" => list(String.t() | Atom.t()),
-        "SecretArn" => String.t() | Atom.t(),
-        "SiteId" => String.t() | Atom.t(),
-        "SiteUrl" => String.t() | Atom.t(),
+        "ExclusionPatterns" => list(String.t() | atom()),
+        "InclusionPatterns" => list(String.t() | atom()),
+        "SecretArn" => String.t() | atom(),
+        "SiteId" => String.t() | atom(),
+        "SiteUrl" => String.t() | atom(),
         "SslCertificateS3Path" => s3_path(),
         "VpcConfiguration" => data_source_vpc_configuration(),
         "WikiFieldMappings" => list(data_source_to_index_field_mapping())
       }
       
   """
-  @type alfresco_configuration() :: %{String.t() | Atom.t() => any()}
+  @type alfresco_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3503,7 +3501,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type batch_get_document_status_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_document_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3514,20 +3512,20 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type confluence_page_configuration() :: %{String.t() | Atom.t() => any()}
+  @type confluence_page_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_personas_from_entities_request() :: %{
-        required("EntityIds") => list(String.t() | Atom.t()),
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("EntityIds") => list(String.t() | atom()),
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type disassociate_personas_from_entities_request() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_personas_from_entities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3539,7 +3537,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type text_document_statistics() :: %{String.t() | Atom.t() => any()}
+  @type text_document_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3547,15 +3545,15 @@ defmodule AWS.Kendra do
       
       update_experience_request() :: %{
         optional("Configuration") => experience_configuration(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("RoleArn") => String.t() | Atom.t(),
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type update_experience_request() :: %{String.t() | Atom.t() => any()}
+  @type update_experience_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3566,14 +3564,14 @@ defmodule AWS.Kendra do
         optional("DocumentRelevanceOverrideConfigurations") => list(document_relevance_configuration()),
         optional("PageNumber") => integer(),
         optional("PageSize") => integer(),
-        optional("RequestedDocumentAttributes") => list(String.t() | Atom.t()),
+        optional("RequestedDocumentAttributes") => list(String.t() | atom()),
         optional("UserContext") => user_context(),
-        required("IndexId") => String.t() | Atom.t(),
-        required("QueryText") => String.t() | Atom.t()
+        required("IndexId") => String.t() | atom(),
+        required("QueryText") => String.t() | atom()
       }
       
   """
-  @type retrieve_request() :: %{String.t() | Atom.t() => any()}
+  @type retrieve_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3581,38 +3579,38 @@ defmodule AWS.Kendra do
       
       list_featured_results_sets_response() :: %{
         "FeaturedResultsSetSummaryItems" => list(featured_results_set_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_featured_results_sets_response() :: %{String.t() | Atom.t() => any()}
+  @type list_featured_results_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       acl_configuration() :: %{
-        "AllowedGroupsColumnName" => String.t() | Atom.t()
+        "AllowedGroupsColumnName" => String.t() | atom()
       }
       
   """
-  @type acl_configuration() :: %{String.t() | Atom.t() => any()}
+  @type acl_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_thesaurus_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("RoleArn") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
         optional("SourceS3Path") => s3_path(),
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type update_thesaurus_request() :: %{String.t() | Atom.t() => any()}
+  @type update_thesaurus_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3622,11 +3620,11 @@ defmodule AWS.Kendra do
         "Header" => boolean(),
         "Highlighted" => boolean(),
         "TopAnswer" => boolean(),
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type table_cell() :: %{String.t() | Atom.t() => any()}
+  @type table_cell() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3634,15 +3632,15 @@ defmodule AWS.Kendra do
       
       create_access_control_configuration_request() :: %{
         optional("AccessControlList") => list(principal()),
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("HierarchicalAccessControlList") => list(hierarchical_principal()),
-        required("IndexId") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        required("IndexId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_access_control_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type create_access_control_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3650,23 +3648,23 @@ defmodule AWS.Kendra do
       
       document_info() :: %{
         "Attributes" => list(document_attribute()),
-        "DocumentId" => String.t() | Atom.t()
+        "DocumentId" => String.t() | atom()
       }
       
   """
-  @type document_info() :: %{String.t() | Atom.t() => any()}
+  @type document_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_entity_personas_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "SummaryItems" => list(personas_summary())
       }
       
   """
-  @type list_entity_personas_response() :: %{String.t() | Atom.t() => any()}
+  @type list_entity_personas_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3674,42 +3672,42 @@ defmodule AWS.Kendra do
       
       list_faqs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type list_faqs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_faqs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_thesaurus_response() :: %{
-        "Id" => String.t() | Atom.t()
+        "Id" => String.t() | atom()
       }
       
   """
-  @type create_thesaurus_response() :: %{String.t() | Atom.t() => any()}
+  @type create_thesaurus_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       document() :: %{
-        "AccessControlConfigurationId" => String.t() | Atom.t(),
+        "AccessControlConfigurationId" => String.t() | atom(),
         "AccessControlList" => list(principal()),
         "Attributes" => list(document_attribute()),
         "Blob" => binary(),
         "ContentType" => list(any()),
         "HierarchicalAccessControlList" => list(hierarchical_principal()),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "S3Path" => s3_path(),
-        "Title" => String.t() | Atom.t()
+        "Title" => String.t() | atom()
       }
       
   """
-  @type document() :: %{String.t() | Atom.t() => any()}
+  @type document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3717,11 +3715,11 @@ defmodule AWS.Kendra do
       
       list_faqs_response() :: %{
         "FaqSummaryItems" => list(faq_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_faqs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_faqs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3737,7 +3735,7 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type database_configuration() :: %{String.t() | Atom.t() => any()}
+  @type database_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3745,11 +3743,11 @@ defmodule AWS.Kendra do
       
       batch_get_document_status_request() :: %{
         required("DocumentInfoList") => list(document_info()),
-        required("IndexId") => String.t() | Atom.t()
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type batch_get_document_status_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_get_document_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3757,30 +3755,30 @@ defmodule AWS.Kendra do
       
       disassociate_entities_from_experience_request() :: %{
         required("EntityList") => list(entity_configuration()),
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type disassociate_entities_from_experience_request() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_entities_from_experience_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_featured_results_set_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("FeaturedDocuments") => list(featured_document()),
-        optional("QueryTexts") => list(String.t() | Atom.t()),
+        optional("QueryTexts") => list(String.t() | atom()),
         optional("Status") => list(any()),
         optional("Tags") => list(tag()),
-        required("FeaturedResultsSetName") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t()
+        required("FeaturedResultsSetName") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type create_featured_results_set_request() :: %{String.t() | Atom.t() => any()}
+  @type create_featured_results_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3788,14 +3786,14 @@ defmodule AWS.Kendra do
       
       featured_results_set_summary() :: %{
         "CreationTimestamp" => float(),
-        "FeaturedResultsSetId" => String.t() | Atom.t(),
-        "FeaturedResultsSetName" => String.t() | Atom.t(),
+        "FeaturedResultsSetId" => String.t() | atom(),
+        "FeaturedResultsSetName" => String.t() | atom(),
         "LastUpdatedTimestamp" => float(),
         "Status" => list(any())
       }
       
   """
-  @type featured_results_set_summary() :: %{String.t() | Atom.t() => any()}
+  @type featured_results_set_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3804,15 +3802,15 @@ defmodule AWS.Kendra do
       faq_summary() :: %{
         "CreatedAt" => non_neg_integer(),
         "FileFormat" => list(any()),
-        "Id" => String.t() | Atom.t(),
-        "LanguageCode" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
+        "LanguageCode" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type faq_summary() :: %{String.t() | Atom.t() => any()}
+  @type faq_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3820,15 +3818,15 @@ defmodule AWS.Kendra do
       
       s3_data_source_configuration() :: %{
         "AccessControlListConfiguration" => access_control_list_configuration(),
-        "BucketName" => String.t() | Atom.t(),
+        "BucketName" => String.t() | atom(),
         "DocumentsMetadataConfiguration" => documents_metadata_configuration(),
-        "ExclusionPatterns" => list(String.t() | Atom.t()),
-        "InclusionPatterns" => list(String.t() | Atom.t()),
-        "InclusionPrefixes" => list(String.t() | Atom.t())
+        "ExclusionPatterns" => list(String.t() | atom()),
+        "InclusionPatterns" => list(String.t() | atom()),
+        "InclusionPrefixes" => list(String.t() | atom())
       }
       
   """
-  @type s3_data_source_configuration() :: %{String.t() | Atom.t() => any()}
+  @type s3_data_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3840,43 +3838,43 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type index_statistics() :: %{String.t() | Atom.t() => any()}
+  @type index_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       document_relevance_configuration() :: %{
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Relevance" => relevance()
       }
       
   """
-  @type document_relevance_configuration() :: %{String.t() | Atom.t() => any()}
+  @type document_relevance_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_personas_to_entities_request() :: %{
-        required("Id") => String.t() | Atom.t(),
-        required("IndexId") => String.t() | Atom.t(),
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom(),
         required("Personas") => list(entity_persona_configuration())
       }
       
   """
-  @type associate_personas_to_entities_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_personas_to_entities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_query_suggestions_config_request() :: %{
-        required("IndexId") => String.t() | Atom.t()
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type describe_query_suggestions_config_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_query_suggestions_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3887,21 +3885,21 @@ defmodule AWS.Kendra do
       }
       
   """
-  @type spell_correction_configuration() :: %{String.t() | Atom.t() => any()}
+  @type spell_correction_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_put_document_response_failed_document() :: %{
-        "DataSourceId" => String.t() | Atom.t(),
+        "DataSourceId" => String.t() | atom(),
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t()
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom()
       }
       
   """
-  @type batch_put_document_response_failed_document() :: %{String.t() | Atom.t() => any()}
+  @type batch_put_document_response_failed_document() :: %{(String.t() | atom()) => any()}
 
   @type associate_entities_to_experience_errors() ::
           throttling_exception()

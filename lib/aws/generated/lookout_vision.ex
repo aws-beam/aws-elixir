@@ -31,32 +31,32 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type describe_project_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_dataset_entries_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         required("Changes") => binary()
       }
 
   """
-  @type update_dataset_entries_request() :: %{String.t() | Atom.t() => any()}
+  @type update_dataset_entries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       greengrass_output_details() :: %{
-        "ComponentName" => String.t() | Atom.t(),
-        "ComponentVersion" => String.t() | Atom.t(),
-        "ComponentVersionArn" => String.t() | Atom.t()
+        "ComponentName" => String.t() | atom(),
+        "ComponentVersion" => String.t() | atom(),
+        "ComponentVersionArn" => String.t() | atom()
       }
 
   """
-  @type greengrass_output_details() :: %{String.t() | Atom.t() => any()}
+  @type greengrass_output_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -64,11 +64,11 @@ defmodule AWS.LookoutVision do
 
       list_models_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_models_request() :: %{String.t() | Atom.t() => any()}
+  @type list_models_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -76,11 +76,11 @@ defmodule AWS.LookoutVision do
 
       list_models_response() :: %{
         "Models" => list(model_metadata()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_models_response() :: %{String.t() | Atom.t() => any()}
+  @type list_models_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -91,7 +91,7 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -100,12 +100,12 @@ defmodule AWS.LookoutVision do
       project_description() :: %{
         "CreationTimestamp" => non_neg_integer(),
         "Datasets" => list(dataset_metadata()),
-        "ProjectArn" => String.t() | Atom.t(),
-        "ProjectName" => String.t() | Atom.t()
+        "ProjectArn" => String.t() | atom(),
+        "ProjectName" => String.t() | atom()
       }
 
   """
-  @type project_description() :: %{String.t() | Atom.t() => any()}
+  @type project_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -116,7 +116,7 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type update_dataset_entries_response() :: %{String.t() | Atom.t() => any()}
+  @type update_dataset_entries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -136,7 +136,7 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type dataset_source() :: %{String.t() | Atom.t() => any()}
+  @type dataset_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -144,28 +144,28 @@ defmodule AWS.LookoutVision do
 
       model_metadata() :: %{
         "CreationTimestamp" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "ModelArn" => String.t() | Atom.t(),
-        "ModelVersion" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "ModelArn" => String.t() | atom(),
+        "ModelVersion" => String.t() | atom(),
         "Performance" => model_performance(),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type model_metadata() :: %{String.t() | Atom.t() => any()}
+  @type model_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pixel_anomaly() :: %{
-        "Color" => String.t() | Atom.t(),
+        "Color" => String.t() | atom(),
         "TotalPercentageArea" => float()
       }
 
   """
-  @type pixel_anomaly() :: %{String.t() | Atom.t() => any()}
+  @type pixel_anomaly() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -173,16 +173,16 @@ defmodule AWS.LookoutVision do
 
       dataset_description() :: %{
         "CreationTimestamp" => non_neg_integer(),
-        "DatasetType" => String.t() | Atom.t(),
+        "DatasetType" => String.t() | atom(),
         "ImageStats" => dataset_image_stats(),
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "ProjectName" => String.t() | Atom.t(),
+        "ProjectName" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type dataset_description() :: %{String.t() | Atom.t() => any()}
+  @type dataset_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -199,20 +199,20 @@ defmodule AWS.LookoutVision do
 
       model_packaging_description() :: %{
         "CreationTimestamp" => non_neg_integer(),
-        "JobName" => String.t() | Atom.t(),
+        "JobName" => String.t() | atom(),
         "LastUpdatedTimestamp" => non_neg_integer(),
         "ModelPackagingConfiguration" => model_packaging_configuration(),
-        "ModelPackagingJobDescription" => String.t() | Atom.t(),
-        "ModelPackagingMethod" => String.t() | Atom.t(),
+        "ModelPackagingJobDescription" => String.t() | atom(),
+        "ModelPackagingMethod" => String.t() | atom(),
         "ModelPackagingOutputDetails" => model_packaging_output_details(),
-        "ModelVersion" => String.t() | Atom.t(),
-        "ProjectName" => String.t() | Atom.t(),
+        "ModelVersion" => String.t() | atom(),
+        "ProjectName" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type model_packaging_description() :: %{String.t() | Atom.t() => any()}
+  @type model_packaging_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -228,12 +228,12 @@ defmodule AWS.LookoutVision do
   ## Example:
 
       output_s3_object() :: %{
-        "Bucket" => String.t() | Atom.t(),
-        "Key" => String.t() | Atom.t()
+        "Bucket" => String.t() | atom(),
+        "Key" => String.t() | atom()
       }
 
   """
-  @type output_s3_object() :: %{String.t() | Atom.t() => any()}
+  @type output_s3_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -249,15 +249,15 @@ defmodule AWS.LookoutVision do
   ## Example:
 
       create_model_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("KmsKeyId") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("OutputConfig") => output_config()
       }
 
   """
-  @type create_model_request() :: %{String.t() | Atom.t() => any()}
+  @type create_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -273,11 +273,11 @@ defmodule AWS.LookoutVision do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -288,7 +288,7 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type start_model_response() :: %{String.t() | Atom.t() => any()}
+  @type start_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -296,12 +296,12 @@ defmodule AWS.LookoutVision do
 
       project_metadata() :: %{
         "CreationTimestamp" => non_neg_integer(),
-        "ProjectArn" => String.t() | Atom.t(),
-        "ProjectName" => String.t() | Atom.t()
+        "ProjectArn" => String.t() | atom(),
+        "ProjectName" => String.t() | atom()
       }
 
   """
-  @type project_metadata() :: %{String.t() | Atom.t() => any()}
+  @type project_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -312,7 +312,7 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type describe_model_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -323,7 +323,7 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type detect_anomalies_response() :: %{String.t() | Atom.t() => any()}
+  @type detect_anomalies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -334,7 +334,7 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type create_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -345,45 +345,45 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type create_project_response() :: %{String.t() | Atom.t() => any()}
+  @type create_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
         "ResourceType" => list(any())
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
         "ResourceType" => list(any())
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -391,26 +391,26 @@ defmodule AWS.LookoutVision do
 
       list_model_packaging_jobs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_model_packaging_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_model_packaging_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "QuotaCode" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
+        "QuotaCode" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
         "ResourceType" => list(any()),
-        "ServiceCode" => String.t() | Atom.t()
+        "ServiceCode" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -424,30 +424,30 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type dataset_image_stats() :: %{String.t() | Atom.t() => any()}
+  @type dataset_image_stats() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_model_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t()
+        optional("ClientToken") => String.t() | atom()
       }
 
   """
-  @type stop_model_request() :: %{String.t() | Atom.t() => any()}
+  @type stop_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_projects_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Projects" => list(project_metadata())
       }
 
   """
-  @type list_projects_response() :: %{String.t() | Atom.t() => any()}
+  @type list_projects_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -455,16 +455,16 @@ defmodule AWS.LookoutVision do
 
       list_dataset_entries_request() :: %{
         optional("AfterCreationDate") => non_neg_integer(),
-        optional("AnomalyClass") => String.t() | Atom.t(),
+        optional("AnomalyClass") => String.t() | atom(),
         optional("BeforeCreationDate") => non_neg_integer(),
         optional("Labeled") => boolean(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("SourceRefContains") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("SourceRefContains") => String.t() | atom()
       }
 
   """
-  @type list_dataset_entries_request() :: %{String.t() | Atom.t() => any()}
+  @type list_dataset_entries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -475,32 +475,32 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_model_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("MaxInferenceUnits") => integer(),
         required("MinInferenceUnits") => integer()
       }
 
   """
-  @type start_model_request() :: %{String.t() | Atom.t() => any()}
+  @type start_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_location() :: %{
-        "Bucket" => String.t() | Atom.t(),
-        "Prefix" => String.t() | Atom.t()
+        "Bucket" => String.t() | atom(),
+        "Prefix" => String.t() | atom()
       }
 
   """
-  @type s3_location() :: %{String.t() | Atom.t() => any()}
+  @type s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -515,7 +515,7 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type detect_anomaly_result() :: %{String.t() | Atom.t() => any()}
+  @type detect_anomaly_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -526,18 +526,18 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type create_model_response() :: %{String.t() | Atom.t() => any()}
+  @type create_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       image_source() :: %{
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type image_source() :: %{String.t() | Atom.t() => any()}
+  @type image_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -548,7 +548,7 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type model_packaging_output_details() :: %{String.t() | Atom.t() => any()}
+  @type model_packaging_output_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -556,18 +556,18 @@ defmodule AWS.LookoutVision do
 
       model_packaging_job_metadata() :: %{
         "CreationTimestamp" => non_neg_integer(),
-        "JobName" => String.t() | Atom.t(),
+        "JobName" => String.t() | atom(),
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "ModelPackagingJobDescription" => String.t() | Atom.t(),
-        "ModelPackagingMethod" => String.t() | Atom.t(),
-        "ModelVersion" => String.t() | Atom.t(),
-        "ProjectName" => String.t() | Atom.t(),
+        "ModelPackagingJobDescription" => String.t() | atom(),
+        "ModelPackagingMethod" => String.t() | atom(),
+        "ModelVersion" => String.t() | atom(),
+        "ProjectName" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type model_packaging_job_metadata() :: %{String.t() | Atom.t() => any()}
+  @type model_packaging_job_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -575,11 +575,11 @@ defmodule AWS.LookoutVision do
 
       list_model_packaging_jobs_response() :: %{
         "ModelPackagingJobs" => list(model_packaging_job_metadata()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_model_packaging_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_model_packaging_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -587,11 +587,11 @@ defmodule AWS.LookoutVision do
 
       detect_anomalies_request() :: %{
         required("Body") => binary(),
-        required("ContentType") => String.t() | Atom.t()
+        required("ContentType") => String.t() | atom()
       }
 
   """
-  @type detect_anomalies_request() :: %{String.t() | Atom.t() => any()}
+  @type detect_anomalies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -604,19 +604,19 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type model_performance() :: %{String.t() | Atom.t() => any()}
+  @type model_performance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "RetryAfterSeconds" => integer()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -627,67 +627,67 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type dataset_ground_truth_manifest() :: %{String.t() | Atom.t() => any()}
+  @type dataset_ground_truth_manifest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_project_response() :: %{
-        "ProjectArn" => String.t() | Atom.t()
+        "ProjectArn" => String.t() | atom()
       }
 
   """
-  @type delete_project_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       anomaly() :: %{
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "PixelAnomaly" => pixel_anomaly()
       }
 
   """
-  @type anomaly() :: %{String.t() | Atom.t() => any()}
+  @type anomaly() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_model_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t()
+        optional("ClientToken") => String.t() | atom()
       }
 
   """
-  @type delete_model_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_model_packaging_job_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("JobName") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("JobName") => String.t() | atom(),
         required("Configuration") => model_packaging_configuration(),
-        required("ModelVersion") => String.t() | Atom.t()
+        required("ModelVersion") => String.t() | atom()
       }
 
   """
-  @type start_model_packaging_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_model_packaging_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -707,7 +707,7 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type output_config() :: %{String.t() | Atom.t() => any()}
+  @type output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -718,18 +718,18 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type describe_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -751,46 +751,46 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type target_platform() :: %{String.t() | Atom.t() => any()}
+  @type target_platform() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_dataset_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("DatasetSource") => dataset_source(),
-        required("DatasetType") => String.t() | Atom.t()
+        required("DatasetType") => String.t() | atom()
       }
 
   """
-  @type create_dataset_request() :: %{String.t() | Atom.t() => any()}
+  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "QuotaCode" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
+        "QuotaCode" => String.t() | atom(),
         "RetryAfterSeconds" => integer(),
-        "ServiceCode" => String.t() | Atom.t()
+        "ServiceCode" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_project_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        required("ProjectName") => String.t() | Atom.t()
+        optional("ClientToken") => String.t() | atom(),
+        required("ProjectName") => String.t() | atom()
       }
 
   """
-  @type create_project_request() :: %{String.t() | Atom.t() => any()}
+  @type create_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -798,11 +798,11 @@ defmodule AWS.LookoutVision do
 
       list_projects_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_projects_request() :: %{String.t() | Atom.t() => any()}
+  @type list_projects_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -813,17 +813,17 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type model_packaging_configuration() :: %{String.t() | Atom.t() => any()}
+  @type model_packaging_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       greengrass_configuration() :: %{
-        "CompilerOptions" => String.t() | Atom.t(),
-        "ComponentDescription" => String.t() | Atom.t(),
-        "ComponentName" => String.t() | Atom.t(),
-        "ComponentVersion" => String.t() | Atom.t(),
+        "CompilerOptions" => String.t() | atom(),
+        "ComponentDescription" => String.t() | atom(),
+        "ComponentName" => String.t() | atom(),
+        "ComponentVersion" => String.t() | atom(),
         "S3OutputLocation" => s3_location(),
         "Tags" => list(tag()),
         "TargetDevice" => list(any()),
@@ -831,7 +831,7 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type greengrass_configuration() :: %{String.t() | Atom.t() => any()}
+  @type greengrass_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -842,18 +842,18 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type describe_model_packaging_job_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_model_packaging_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_model_packaging_job_response() :: %{
-        "JobName" => String.t() | Atom.t()
+        "JobName" => String.t() | atom()
       }
 
   """
-  @type start_model_packaging_job_response() :: %{String.t() | Atom.t() => any()}
+  @type start_model_packaging_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -861,23 +861,23 @@ defmodule AWS.LookoutVision do
 
       model_description() :: %{
         "CreationTimestamp" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "EvaluationEndTimestamp" => non_neg_integer(),
         "EvaluationManifest" => output_s3_object(),
         "EvaluationResult" => output_s3_object(),
-        "KmsKeyId" => String.t() | Atom.t(),
+        "KmsKeyId" => String.t() | atom(),
         "MaxInferenceUnits" => integer(),
         "MinInferenceUnits" => integer(),
-        "ModelArn" => String.t() | Atom.t(),
-        "ModelVersion" => String.t() | Atom.t(),
+        "ModelArn" => String.t() | atom(),
+        "ModelVersion" => String.t() | atom(),
         "OutputConfig" => output_config(),
         "Performance" => model_performance(),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type model_description() :: %{String.t() | Atom.t() => any()}
+  @type model_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -893,11 +893,11 @@ defmodule AWS.LookoutVision do
   ## Example:
 
       delete_dataset_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t()
+        optional("ClientToken") => String.t() | atom()
       }
 
   """
-  @type delete_dataset_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -908,41 +908,41 @@ defmodule AWS.LookoutVision do
       }
 
   """
-  @type stop_model_response() :: %{String.t() | Atom.t() => any()}
+  @type stop_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_project_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t()
+        optional("ClientToken") => String.t() | atom()
       }
 
   """
-  @type delete_project_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_project_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_model_response() :: %{
-        "ModelArn" => String.t() | Atom.t()
+        "ModelArn" => String.t() | atom()
       }
 
   """
-  @type delete_model_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_dataset_entries_response() :: %{
-        "DatasetEntries" => list(String.t() | Atom.t()),
-        "NextToken" => String.t() | Atom.t()
+        "DatasetEntries" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_dataset_entries_response() :: %{String.t() | Atom.t() => any()}
+  @type list_dataset_entries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -950,26 +950,26 @@ defmodule AWS.LookoutVision do
 
       dataset_metadata() :: %{
         "CreationTimestamp" => non_neg_integer(),
-        "DatasetType" => String.t() | Atom.t(),
+        "DatasetType" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type dataset_metadata() :: %{String.t() | Atom.t() => any()}
+  @type dataset_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       input_s3_object() :: %{
-        "Bucket" => String.t() | Atom.t(),
-        "Key" => String.t() | Atom.t(),
-        "VersionId" => String.t() | Atom.t()
+        "Bucket" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
       }
 
   """
-  @type input_s3_object() :: %{String.t() | Atom.t() => any()}
+  @type input_s3_object() :: %{(String.t() | atom()) => any()}
 
   @type create_dataset_errors() ::
           throttling_exception()
@@ -1185,7 +1185,7 @@ defmodule AWS.LookoutVision do
   This operation requires permissions to perform the
   `lookoutvision:CreateDataset` operation.
   """
-  @spec create_dataset(map(), String.t() | Atom.t(), create_dataset_request(), list()) ::
+  @spec create_dataset(map(), String.t() | atom(), create_dataset_request(), list()) ::
           {:ok, create_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1243,7 +1243,7 @@ defmodule AWS.LookoutVision do
   require
   permission to the `lookoutvision:TagResource` operation.
   """
-  @spec create_model(map(), String.t() | Atom.t(), create_model_request(), list()) ::
+  @spec create_model(map(), String.t() | atom(), create_model_request(), list()) ::
           {:ok, create_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1339,8 +1339,8 @@ defmodule AWS.LookoutVision do
   """
   @spec delete_dataset(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_dataset_request(),
           list()
         ) ::
@@ -1392,8 +1392,8 @@ defmodule AWS.LookoutVision do
   """
   @spec delete_model(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_model_request(),
           list()
         ) ::
@@ -1444,7 +1444,7 @@ defmodule AWS.LookoutVision do
   This operation requires permissions to perform the
   `lookoutvision:DeleteProject` operation.
   """
-  @spec delete_project(map(), String.t() | Atom.t(), delete_project_request(), list()) ::
+  @spec delete_project(map(), String.t() | atom(), delete_project_request(), list()) ::
           {:ok, delete_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1482,7 +1482,7 @@ defmodule AWS.LookoutVision do
   This operation requires permissions to perform the
   `lookoutvision:DescribeDataset` operation.
   """
-  @spec describe_dataset(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec describe_dataset(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1505,7 +1505,7 @@ defmodule AWS.LookoutVision do
   This operation requires permissions to perform the
   `lookoutvision:DescribeModel` operation.
   """
-  @spec describe_model(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec describe_model(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1532,7 +1532,7 @@ defmodule AWS.LookoutVision do
   *Using your Amazon Lookout for Vision model on an edge device* in the Amazon
   Lookout for Vision Developer Guide.
   """
-  @spec describe_model_packaging_job(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec describe_model_packaging_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_model_packaging_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1555,7 +1555,7 @@ defmodule AWS.LookoutVision do
   This operation requires permissions to perform the
   `lookoutvision:DescribeProject` operation.
   """
-  @spec describe_project(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_project(map(), String.t() | atom(), list()) ::
           {:ok, describe_project_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1595,8 +1595,8 @@ defmodule AWS.LookoutVision do
   """
   @spec detect_anomalies(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           detect_anomalies_request(),
           list()
         ) ::
@@ -1644,15 +1644,15 @@ defmodule AWS.LookoutVision do
   """
   @spec list_dataset_entries(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_dataset_entries_response(), any()}
@@ -1745,9 +1745,9 @@ defmodule AWS.LookoutVision do
   """
   @spec list_model_packaging_jobs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_model_packaging_jobs_response(), any()}
@@ -1796,9 +1796,9 @@ defmodule AWS.LookoutVision do
   """
   @spec list_models(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_models_response(), any()}
@@ -1847,7 +1847,7 @@ defmodule AWS.LookoutVision do
   This operation requires permissions to perform the
   `lookoutvision:ListProjects` operation.
   """
-  @spec list_projects(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_projects(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_projects_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1883,7 +1883,7 @@ defmodule AWS.LookoutVision do
   This operation requires permissions to perform the
   `lookoutvision:ListTagsForResource` operation.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1918,8 +1918,8 @@ defmodule AWS.LookoutVision do
   """
   @spec start_model(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           start_model_request(),
           list()
         ) ::
@@ -2009,7 +2009,7 @@ defmodule AWS.LookoutVision do
   """
   @spec start_model_packaging_job(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           start_model_packaging_job_request(),
           list()
         ) ::
@@ -2055,13 +2055,7 @@ defmodule AWS.LookoutVision do
   This operation requires permissions to perform the
   `lookoutvision:StopModel` operation.
   """
-  @spec stop_model(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          stop_model_request(),
-          list()
-        ) ::
+  @spec stop_model(map(), String.t() | atom(), String.t() | atom(), stop_model_request(), list()) ::
           {:ok, stop_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2103,7 +2097,7 @@ defmodule AWS.LookoutVision do
   This operation requires permissions to perform the
   `lookoutvision:TagResource` operation.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2138,7 +2132,7 @@ defmodule AWS.LookoutVision do
   This operation requires permissions to perform the
   `lookoutvision:UntagResource` operation.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2196,8 +2190,8 @@ defmodule AWS.LookoutVision do
   """
   @spec update_dataset_entries(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_dataset_entries_request(),
           list()
         ) ::

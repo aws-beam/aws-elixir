@@ -15,57 +15,57 @@ defmodule AWS.CloudFrontKeyValueStore do
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_key_request() :: %{
-        required("IfMatch") => String.t() | Atom.t()
+        required("IfMatch") => String.t() | atom()
       }
 
   """
-  @type delete_key_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_key_request_list_item() :: %{
-        "Key" => String.t() | Atom.t()
+        "Key" => String.t() | atom()
       }
 
   """
-  @type delete_key_request_list_item() :: %{String.t() | Atom.t() => any()}
+  @type delete_key_request_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_key_response() :: %{
-        "ETag" => String.t() | Atom.t(),
+        "ETag" => String.t() | atom(),
         "ItemCount" => [integer()],
         "TotalSizeInBytes" => [float()]
       }
 
   """
-  @type delete_key_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -82,17 +82,17 @@ defmodule AWS.CloudFrontKeyValueStore do
 
       describe_key_value_store_response() :: %{
         "Created" => [non_neg_integer()],
-        "ETag" => String.t() | Atom.t(),
-        "FailureReason" => [String.t() | Atom.t()],
+        "ETag" => String.t() | atom(),
+        "FailureReason" => [String.t() | atom()],
         "ItemCount" => [integer()],
-        "KvsARN" => String.t() | Atom.t(),
+        "KvsARN" => String.t() | atom(),
         "LastModified" => [non_neg_integer()],
-        "Status" => [String.t() | Atom.t()],
+        "Status" => [String.t() | atom()],
         "TotalSizeInBytes" => [float()]
       }
 
   """
-  @type describe_key_value_store_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_key_value_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -109,24 +109,24 @@ defmodule AWS.CloudFrontKeyValueStore do
 
       get_key_response() :: %{
         "ItemCount" => [integer()],
-        "Key" => String.t() | Atom.t(),
+        "Key" => String.t() | atom(),
         "TotalSizeInBytes" => [float()],
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type get_key_response() :: %{String.t() | Atom.t() => any()}
+  @type get_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -134,11 +134,11 @@ defmodule AWS.CloudFrontKeyValueStore do
 
       list_keys_request() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => [String.t() | Atom.t()]
+        optional("NextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_keys_request() :: %{String.t() | Atom.t() => any()}
+  @type list_keys_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -146,82 +146,82 @@ defmodule AWS.CloudFrontKeyValueStore do
 
       list_keys_response() :: %{
         "Items" => list(list_keys_response_list_item()),
-        "NextToken" => [String.t() | Atom.t()]
+        "NextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_keys_response() :: %{String.t() | Atom.t() => any()}
+  @type list_keys_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_keys_response_list_item() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type list_keys_response_list_item() :: %{String.t() | Atom.t() => any()}
+  @type list_keys_response_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_key_request() :: %{
-        required("IfMatch") => String.t() | Atom.t(),
-        required("Value") => String.t() | Atom.t()
+        required("IfMatch") => String.t() | atom(),
+        required("Value") => String.t() | atom()
       }
 
   """
-  @type put_key_request() :: %{String.t() | Atom.t() => any()}
+  @type put_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_key_request_list_item() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type put_key_request_list_item() :: %{String.t() | Atom.t() => any()}
+  @type put_key_request_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_key_response() :: %{
-        "ETag" => String.t() | Atom.t(),
+        "ETag" => String.t() | atom(),
         "ItemCount" => [integer()],
         "TotalSizeInBytes" => [float()]
       }
 
   """
-  @type put_key_response() :: %{String.t() | Atom.t() => any()}
+  @type put_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -230,35 +230,35 @@ defmodule AWS.CloudFrontKeyValueStore do
       update_keys_request() :: %{
         optional("Deletes") => list(delete_key_request_list_item()),
         optional("Puts") => list(put_key_request_list_item()),
-        required("IfMatch") => String.t() | Atom.t()
+        required("IfMatch") => String.t() | atom()
       }
 
   """
-  @type update_keys_request() :: %{String.t() | Atom.t() => any()}
+  @type update_keys_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_keys_response() :: %{
-        "ETag" => String.t() | Atom.t(),
+        "ETag" => String.t() | atom(),
         "ItemCount" => [integer()],
         "TotalSizeInBytes" => [float()]
       }
 
   """
-  @type update_keys_response() :: %{String.t() | Atom.t() => any()}
+  @type update_keys_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => [String.t() | Atom.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type delete_key_errors() ::
           validation_exception()
@@ -322,13 +322,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   @doc """
   Deletes the key value pair specified by the key.
   """
-  @spec delete_key(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          delete_key_request(),
-          list()
-        ) ::
+  @spec delete_key(map(), String.t() | atom(), String.t() | atom(), delete_key_request(), list()) ::
           {:ok, delete_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -371,7 +365,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   @doc """
   Returns metadata information about Key Value Store.
   """
-  @spec describe_key_value_store(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_key_value_store(map(), String.t() | atom(), list()) ::
           {:ok, describe_key_value_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -396,7 +390,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   @doc """
   Returns a key value pair.
   """
-  @spec get_key(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_key(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -418,9 +412,9 @@ defmodule AWS.CloudFrontKeyValueStore do
   """
   @spec list_keys(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_keys_response(), any()}
@@ -454,7 +448,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   @doc """
   Creates a new key value pair or replaces the value of an existing key.
   """
-  @spec put_key(map(), String.t() | Atom.t(), String.t() | Atom.t(), put_key_request(), list()) ::
+  @spec put_key(map(), String.t() | atom(), String.t() | atom(), put_key_request(), list()) ::
           {:ok, put_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -497,7 +491,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   @doc """
   Puts or Deletes multiple key value pairs in a single, all-or-nothing operation.
   """
-  @spec update_keys(map(), String.t() | Atom.t(), update_keys_request(), list()) ::
+  @spec update_keys(map(), String.t() | atom(), update_keys_request(), list()) ::
           {:ok, update_keys_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

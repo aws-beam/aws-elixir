@@ -29,14 +29,14 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       branch() :: %{
-        "comment" => String.t() | Atom.t(),
-        "deprecationMessage" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "fullyQualifiedName" => String.t() | Atom.t()
+        "comment" => String.t() | atom(),
+        "deprecationMessage" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "fullyQualifiedName" => String.t() | atom()
       }
       
   """
-  @type branch() :: %{String.t() | Atom.t() => any()}
+  @type branch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -44,24 +44,24 @@ defmodule AWS.IoTFleetWise do
       
       list_fleets_for_vehicle_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_fleets_for_vehicle_request() :: %{String.t() | Atom.t() => any()}
+  @type list_fleets_for_vehicle_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       iam_registration_response() :: %{
-        "errorMessage" => String.t() | Atom.t(),
+        "errorMessage" => String.t() | atom(),
         "registrationStatus" => list(any()),
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
       
   """
-  @type iam_registration_response() :: %{String.t() | Atom.t() => any()}
+  @type iam_registration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -70,32 +70,32 @@ defmodule AWS.IoTFleetWise do
       create_vehicle_request_item() :: %{
         "associationBehavior" => list(any()),
         "attributes" => map(),
-        "decoderManifestArn" => String.t() | Atom.t(),
-        "modelManifestArn" => String.t() | Atom.t(),
+        "decoderManifestArn" => String.t() | atom(),
+        "modelManifestArn" => String.t() | atom(),
         "stateTemplates" => list(state_template_association()),
         "tags" => list(tag()),
-        "vehicleName" => String.t() | Atom.t()
+        "vehicleName" => String.t() | atom()
       }
       
   """
-  @type create_vehicle_request_item() :: %{String.t() | Atom.t() => any()}
+  @type create_vehicle_request_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_model_manifest_response() :: %{
-        optional("description") => String.t() | Atom.t(),
-        optional("signalCatalogArn") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
+        optional("signalCatalogArn") => String.t() | atom(),
         optional("status") => list(any()),
-        required("arn") => String.t() | Atom.t(),
+        required("arn") => String.t() | atom(),
         required("creationTime") => non_neg_integer(),
         required("lastModificationTime") => non_neg_integer(),
-        required("name") => String.t() | Atom.t()
+        required("name") => String.t() | atom()
       }
       
   """
-  @type get_model_manifest_response() :: %{String.t() | Atom.t() => any()}
+  @type get_model_manifest_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -112,7 +112,7 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type node_counts() :: %{String.t() | Atom.t() => any()}
+  @type node_counts() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -120,25 +120,25 @@ defmodule AWS.IoTFleetWise do
       
       update_vehicle_error() :: %{
         "code" => integer(),
-        "message" => String.t() | Atom.t(),
-        "vehicleName" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "vehicleName" => String.t() | atom()
       }
       
   """
-  @type update_vehicle_error() :: %{String.t() | Atom.t() => any()}
+  @type update_vehicle_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       vehicle_status() :: %{
-        "campaignName" => String.t() | Atom.t(),
+        "campaignName" => String.t() | atom(),
         "status" => list(any()),
-        "vehicleName" => String.t() | Atom.t()
+        "vehicleName" => String.t() | atom()
       }
       
   """
-  @type vehicle_status() :: %{String.t() | Atom.t() => any()}
+  @type vehicle_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -158,56 +158,56 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type time_based_collection_scheme() :: %{String.t() | Atom.t() => any()}
+  @type time_based_collection_scheme() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_campaign_response() :: %{
-        optional("arn") => String.t() | Atom.t(),
-        optional("name") => String.t() | Atom.t(),
+        optional("arn") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
         optional("status") => list(any())
       }
       
   """
-  @type update_campaign_response() :: %{String.t() | Atom.t() => any()}
+  @type update_campaign_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_signal_catalog_response() :: %{
-        required("arn") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t()
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
       
   """
-  @type create_signal_catalog_response() :: %{String.t() | Atom.t() => any()}
+  @type create_signal_catalog_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
+        required("ResourceARN") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_model_manifest_response() :: %{
-        required("arn") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t()
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
       
   """
-  @type create_model_manifest_response() :: %{String.t() | Atom.t() => any()}
+  @type create_model_manifest_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -224,15 +224,15 @@ defmodule AWS.IoTFleetWise do
       
       create_decoder_manifest_request() :: %{
         optional("defaultForUnmappedSignals") => list(any()),
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("networkInterfaces") => list(network_interface()),
         optional("signalDecoders") => list(signal_decoder()),
         optional("tags") => list(tag()),
-        required("modelManifestArn") => String.t() | Atom.t()
+        required("modelManifestArn") => String.t() | atom()
       }
       
   """
-  @type create_decoder_manifest_request() :: %{String.t() | Atom.t() => any()}
+  @type create_decoder_manifest_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -258,11 +258,11 @@ defmodule AWS.IoTFleetWise do
       
       message_signal() :: %{
         "structuredMessage" => list(),
-        "topicName" => String.t() | Atom.t()
+        "topicName" => String.t() | atom()
       }
       
   """
-  @type message_signal() :: %{String.t() | Atom.t() => any()}
+  @type message_signal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -271,43 +271,43 @@ defmodule AWS.IoTFleetWise do
       signal_decoder() :: %{
         "canSignal" => can_signal(),
         "customDecodingSignal" => custom_decoding_signal(),
-        "fullyQualifiedName" => String.t() | Atom.t(),
-        "interfaceId" => String.t() | Atom.t(),
+        "fullyQualifiedName" => String.t() | atom(),
+        "interfaceId" => String.t() | atom(),
         "messageSignal" => message_signal(),
         "obdSignal" => obd_signal(),
         "type" => list(any())
       }
       
   """
-  @type signal_decoder() :: %{String.t() | Atom.t() => any()}
+  @type signal_decoder() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_vehicles_request() :: %{
-        optional("attributeNames") => list(String.t() | Atom.t()),
-        optional("attributeValues") => list(String.t() | Atom.t()),
+        optional("attributeNames") => list(String.t() | atom()),
+        optional("attributeValues") => list(String.t() | atom()),
         optional("listResponseScope") => list(any()),
         optional("maxResults") => integer(),
-        optional("modelManifestArn") => String.t() | Atom.t(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("modelManifestArn") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_vehicles_request() :: %{String.t() | Atom.t() => any()}
+  @type list_vehicles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_signal_catalog_response() :: %{
-        required("arn") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t()
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
       
   """
-  @type delete_signal_catalog_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_signal_catalog_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -318,7 +318,7 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type periodic_state_template_update_strategy() :: %{String.t() | Atom.t() => any()}
+  @type periodic_state_template_update_strategy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -326,34 +326,34 @@ defmodule AWS.IoTFleetWise do
       
       list_vehicles_in_fleet_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_vehicles_in_fleet_request() :: %{String.t() | Atom.t() => any()}
+  @type list_vehicles_in_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       iam_resources() :: %{
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
       
   """
-  @type iam_resources() :: %{String.t() | Atom.t() => any()}
+  @type iam_resources() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_fleets_for_vehicle_response() :: %{
-        optional("fleets") => list(String.t() | Atom.t()),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("fleets") => list(String.t() | atom()),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_fleets_for_vehicle_response() :: %{String.t() | Atom.t() => any()}
+  @type list_fleets_for_vehicle_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -362,27 +362,27 @@ defmodule AWS.IoTFleetWise do
       obd_interface() :: %{
         "dtcRequestIntervalSeconds" => integer(),
         "hasTransmissionEcu" => [boolean()],
-        "name" => String.t() | Atom.t(),
-        "obdStandard" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "obdStandard" => String.t() | atom(),
         "pidRequestIntervalSeconds" => integer(),
         "requestMessageId" => integer(),
         "useExtendedIds" => [boolean()]
       }
       
   """
-  @type obd_interface() :: %{String.t() | Atom.t() => any()}
+  @type obd_interface() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_signal() :: %{
-        "name" => String.t() | Atom.t(),
-        "reason" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "reason" => String.t() | atom()
       }
       
   """
-  @type invalid_signal() :: %{String.t() | Atom.t() => any()}
+  @type invalid_signal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -397,7 +397,7 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type register_account_response() :: %{String.t() | Atom.t() => any()}
+  @type register_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -423,11 +423,11 @@ defmodule AWS.IoTFleetWise do
       
       data_partition_upload_options() :: %{
         "conditionLanguageVersion" => integer(),
-        "expression" => String.t() | Atom.t()
+        "expression" => String.t() | atom()
       }
       
   """
-  @type data_partition_upload_options() :: %{String.t() | Atom.t() => any()}
+  @type data_partition_upload_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -448,20 +448,20 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type register_account_request() :: %{String.t() | Atom.t() => any()}
+  @type register_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_fleet_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("signalCatalogArn") => String.t() | Atom.t()
+        required("signalCatalogArn") => String.t() | atom()
       }
       
   """
-  @type create_fleet_request() :: %{String.t() | Atom.t() => any()}
+  @type create_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -472,7 +472,7 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type batch_update_vehicle_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_vehicle_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -492,43 +492,43 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type import_decoder_manifest_request() :: %{String.t() | Atom.t() => any()}
+  @type import_decoder_manifest_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       timestream_config() :: %{
-        "executionRoleArn" => String.t() | Atom.t(),
-        "timestreamTableArn" => String.t() | Atom.t()
+        "executionRoleArn" => String.t() | atom(),
+        "timestreamTableArn" => String.t() | atom()
       }
       
   """
-  @type timestream_config() :: %{String.t() | Atom.t() => any()}
+  @type timestream_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_network_interface() :: %{
-        "interfaceId" => String.t() | Atom.t(),
+        "interfaceId" => String.t() | atom(),
         "reason" => list(any())
       }
       
   """
-  @type invalid_network_interface() :: %{String.t() | Atom.t() => any()}
+  @type invalid_network_interface() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_fleet_response() :: %{
-        optional("arn") => String.t() | Atom.t(),
-        optional("id") => String.t() | Atom.t()
+        optional("arn") => String.t() | atom(),
+        optional("id") => String.t() | atom()
       }
       
   """
-  @type delete_fleet_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_fleet_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -536,11 +536,11 @@ defmodule AWS.IoTFleetWise do
       
       structured_message_field_name_and_data_type_pair() :: %{
         "dataType" => list(),
-        "fieldName" => String.t() | Atom.t()
+        "fieldName" => String.t() | atom()
       }
       
   """
-  @type structured_message_field_name_and_data_type_pair() :: %{String.t() | Atom.t() => any()}
+  @type structured_message_field_name_and_data_type_pair() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -558,14 +558,14 @@ defmodule AWS.IoTFleetWise do
       network_interface() :: %{
         "canInterface" => can_interface(),
         "customDecodingInterface" => custom_decoding_interface(),
-        "interfaceId" => String.t() | Atom.t(),
+        "interfaceId" => String.t() | atom(),
         "obdInterface" => obd_interface(),
         "type" => list(any()),
         "vehicleMiddleware" => vehicle_middleware()
       }
       
   """
-  @type network_interface() :: %{String.t() | Atom.t() => any()}
+  @type network_interface() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -574,53 +574,53 @@ defmodule AWS.IoTFleetWise do
       list_model_manifests_request() :: %{
         optional("listResponseScope") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("signalCatalogArn") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("signalCatalogArn") => String.t() | atom()
       }
       
   """
-  @type list_model_manifests_request() :: %{String.t() | Atom.t() => any()}
+  @type list_model_manifests_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_manifest_summary() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "lastModificationTime" => non_neg_integer(),
-        "name" => String.t() | Atom.t(),
-        "signalCatalogArn" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "signalCatalogArn" => String.t() | atom(),
         "status" => list(any())
       }
       
   """
-  @type model_manifest_summary() :: %{String.t() | Atom.t() => any()}
+  @type model_manifest_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_decoder_manifest_response() :: %{
-        required("arn") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t()
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
       
   """
-  @type delete_decoder_manifest_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_decoder_manifest_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       vehicle_middleware() :: %{
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "protocolName" => list(any())
       }
       
   """
-  @type vehicle_middleware() :: %{String.t() | Atom.t() => any()}
+  @type vehicle_middleware() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -629,11 +629,11 @@ defmodule AWS.IoTFleetWise do
       list_fleets_request() :: %{
         optional("listResponseScope") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_fleets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_fleets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -642,12 +642,12 @@ defmodule AWS.IoTFleetWise do
       list_decoder_manifests_request() :: %{
         optional("listResponseScope") => list(any()),
         optional("maxResults") => integer(),
-        optional("modelManifestArn") => String.t() | Atom.t(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("modelManifestArn") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_decoder_manifests_request() :: %{String.t() | Atom.t() => any()}
+  @type list_decoder_manifests_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -655,11 +655,11 @@ defmodule AWS.IoTFleetWise do
       
       list_campaigns_response() :: %{
         optional("campaignSummaries") => list(campaign_summary()),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_campaigns_response() :: %{String.t() | Atom.t() => any()}
+  @type list_campaigns_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -677,24 +677,24 @@ defmodule AWS.IoTFleetWise do
       put_encryption_configuration_response() :: %{
         "encryptionStatus" => list(any()),
         "encryptionType" => list(any()),
-        "kmsKeyId" => [String.t() | Atom.t()]
+        "kmsKeyId" => [String.t() | atom()]
       }
       
   """
-  @type put_encryption_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type put_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_signal_catalog_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("tags") => list(tag()),
         optional("vss") => list()
       }
       
   """
-  @type import_signal_catalog_request() :: %{String.t() | Atom.t() => any()}
+  @type import_signal_catalog_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -702,11 +702,11 @@ defmodule AWS.IoTFleetWise do
       
       list_fleets_response() :: %{
         optional("fleetSummaries") => list(fleet_summary()),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_fleets_response() :: %{String.t() | Atom.t() => any()}
+  @type list_fleets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -717,44 +717,44 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type batch_create_vehicle_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_create_vehicle_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       timestream_resources() :: %{
-        "timestreamDatabaseName" => String.t() | Atom.t(),
-        "timestreamTableName" => String.t() | Atom.t()
+        "timestreamDatabaseName" => String.t() | atom(),
+        "timestreamTableName" => String.t() | atom()
       }
       
   """
-  @type timestream_resources() :: %{String.t() | Atom.t() => any()}
+  @type timestream_resources() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_vehicle_error() :: %{
-        "code" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "vehicleName" => String.t() | Atom.t()
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "vehicleName" => String.t() | atom()
       }
       
   """
-  @type create_vehicle_error() :: %{String.t() | Atom.t() => any()}
+  @type create_vehicle_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -766,33 +766,33 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type time_period() :: %{String.t() | Atom.t() => any()}
+  @type time_period() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       signal_fetch_information() :: %{
-        "actions" => list(String.t() | Atom.t()),
+        "actions" => list(String.t() | atom()),
         "conditionLanguageVersion" => integer(),
-        "fullyQualifiedName" => String.t() | Atom.t(),
+        "fullyQualifiedName" => String.t() | atom(),
         "signalFetchConfig" => list()
       }
       
   """
-  @type signal_fetch_information() :: %{String.t() | Atom.t() => any()}
+  @type signal_fetch_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_signal_catalog_response() :: %{
-        required("arn") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t()
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
       
   """
-  @type update_signal_catalog_response() :: %{String.t() | Atom.t() => any()}
+  @type update_signal_catalog_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -808,12 +808,12 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       put_encryption_configuration_request() :: %{
-        optional("kmsKeyId") => [String.t() | Atom.t()],
+        optional("kmsKeyId") => [String.t() | atom()],
         required("encryptionType") => list(any())
       }
       
   """
-  @type put_encryption_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type put_encryption_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -827,19 +827,19 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type r_o_s2_primitive_message_definition() :: %{String.t() | Atom.t() => any()}
+  @type r_o_s2_primitive_message_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_signal_catalog_nodes_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("nodes") => list(list())
       }
       
   """
-  @type list_signal_catalog_nodes_response() :: %{String.t() | Atom.t() => any()}
+  @type list_signal_catalog_nodes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -848,24 +848,24 @@ defmodule AWS.IoTFleetWise do
       list_campaigns_request() :: %{
         optional("listResponseScope") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("status") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => String.t() | atom()
       }
       
   """
-  @type list_campaigns_request() :: %{String.t() | Atom.t() => any()}
+  @type list_campaigns_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_decoder_manifest_response() :: %{
-        required("arn") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t()
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
       
   """
-  @type import_decoder_manifest_response() :: %{String.t() | Atom.t() => any()}
+  @type import_decoder_manifest_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -877,56 +877,56 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type storage_maximum_size() :: %{String.t() | Atom.t() => any()}
+  @type storage_maximum_size() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_vehicle_response() :: %{
-        required("arn") => String.t() | Atom.t(),
-        required("vehicleName") => String.t() | Atom.t()
+        required("arn") => String.t() | atom(),
+        required("vehicleName") => String.t() | atom()
       }
       
   """
-  @type delete_vehicle_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_vehicle_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resource" => String.t() | Atom.t(),
-        "resourceType" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceId" => String.t() | Atom.t(),
-        "resourceType" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_decoding_interface() :: %{
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type custom_decoding_interface() :: %{String.t() | Atom.t() => any()}
+  @type custom_decoding_interface() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -934,18 +934,18 @@ defmodule AWS.IoTFleetWise do
       
       update_decoder_manifest_request() :: %{
         optional("defaultForUnmappedSignals") => list(any()),
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("networkInterfacesToAdd") => list(network_interface()),
-        optional("networkInterfacesToRemove") => list(String.t() | Atom.t()),
+        optional("networkInterfacesToRemove") => list(String.t() | atom()),
         optional("networkInterfacesToUpdate") => list(network_interface()),
         optional("signalDecodersToAdd") => list(signal_decoder()),
-        optional("signalDecodersToRemove") => list(String.t() | Atom.t()),
+        optional("signalDecodersToRemove") => list(String.t() | atom()),
         optional("signalDecodersToUpdate") => list(signal_decoder()),
         optional("status") => list(any())
       }
       
   """
-  @type update_decoder_manifest_request() :: %{String.t() | Atom.t() => any()}
+  @type update_decoder_manifest_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -961,36 +961,36 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       delete_campaign_response() :: %{
-        optional("arn") => String.t() | Atom.t(),
-        optional("name") => String.t() | Atom.t()
+        optional("arn") => String.t() | atom(),
+        optional("name") => String.t() | atom()
       }
       
   """
-  @type delete_campaign_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_campaign_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       mqtt_topic_config() :: %{
-        "executionRoleArn" => String.t() | Atom.t(),
-        "mqttTopicArn" => String.t() | Atom.t()
+        "executionRoleArn" => String.t() | atom(),
+        "mqttTopicArn" => String.t() | atom()
       }
       
   """
-  @type mqtt_topic_config() :: %{String.t() | Atom.t() => any()}
+  @type mqtt_topic_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1006,11 +1006,11 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       update_fleet_request() :: %{
-        optional("description") => String.t() | Atom.t()
+        optional("description") => String.t() | atom()
       }
       
   """
-  @type update_fleet_request() :: %{String.t() | Atom.t() => any()}
+  @type update_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1018,11 +1018,11 @@ defmodule AWS.IoTFleetWise do
       
       get_vehicle_status_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type get_vehicle_status_request() :: %{String.t() | Atom.t() => any()}
+  @type get_vehicle_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1038,14 +1038,14 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       s3_config() :: %{
-        "bucketArn" => String.t() | Atom.t(),
+        "bucketArn" => String.t() | atom(),
         "dataFormat" => list(any()),
-        "prefix" => String.t() | Atom.t(),
+        "prefix" => String.t() | atom(),
         "storageCompressionFormat" => list(any())
       }
       
   """
-  @type s3_config() :: %{String.t() | Atom.t() => any()}
+  @type s3_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1056,7 +1056,7 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type get_logging_options_response() :: %{String.t() | Atom.t() => any()}
+  @type get_logging_options_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1066,69 +1066,69 @@ defmodule AWS.IoTFleetWise do
         optional("timestreamRegistrationResponse") => timestream_registration_response(),
         required("accountStatus") => list(any()),
         required("creationTime") => non_neg_integer(),
-        required("customerAccountId") => String.t() | Atom.t(),
+        required("customerAccountId") => String.t() | atom(),
         required("iamRegistrationResponse") => iam_registration_response(),
         required("lastModificationTime") => non_neg_integer()
       }
       
   """
-  @type get_register_account_status_response() :: %{String.t() | Atom.t() => any()}
+  @type get_register_account_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_signal_catalog_response() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("nodeCounts") => node_counts(),
-        required("arn") => String.t() | Atom.t(),
+        required("arn") => String.t() | atom(),
         required("creationTime") => non_neg_integer(),
         required("lastModificationTime") => non_neg_integer(),
-        required("name") => String.t() | Atom.t()
+        required("name") => String.t() | atom()
       }
       
   """
-  @type get_signal_catalog_response() :: %{String.t() | Atom.t() => any()}
+  @type get_signal_catalog_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       fleet_summary() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "lastModificationTime" => non_neg_integer(),
-        "signalCatalogArn" => String.t() | Atom.t()
+        "signalCatalogArn" => String.t() | atom()
       }
       
   """
-  @type fleet_summary() :: %{String.t() | Atom.t() => any()}
+  @type fleet_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_decoder_manifest_signals_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("signalDecoders") => list(signal_decoder())
       }
       
   """
-  @type list_decoder_manifest_signals_response() :: %{String.t() | Atom.t() => any()}
+  @type list_decoder_manifest_signals_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_signal_catalogs_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("summaries") => list(signal_catalog_summary())
       }
       
   """
-  @type list_signal_catalogs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_signal_catalogs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1140,28 +1140,28 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type batch_update_vehicle_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_update_vehicle_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       actuator() :: %{
-        "allowedValues" => list(String.t() | Atom.t()),
-        "assignedValue" => String.t() | Atom.t(),
-        "comment" => String.t() | Atom.t(),
+        "allowedValues" => list(String.t() | atom()),
+        "assignedValue" => String.t() | atom(),
+        "comment" => String.t() | atom(),
         "dataType" => list(any()),
-        "deprecationMessage" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "fullyQualifiedName" => String.t() | Atom.t(),
+        "deprecationMessage" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "fullyQualifiedName" => String.t() | atom(),
         "max" => float(),
         "min" => float(),
-        "structFullyQualifiedName" => String.t() | Atom.t(),
-        "unit" => String.t() | Atom.t()
+        "structFullyQualifiedName" => String.t() | atom(),
+        "unit" => String.t() | atom()
       }
       
   """
-  @type actuator() :: %{String.t() | Atom.t() => any()}
+  @type actuator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1178,23 +1178,23 @@ defmodule AWS.IoTFleetWise do
       
       list_model_manifest_nodes_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_model_manifest_nodes_request() :: %{String.t() | Atom.t() => any()}
+  @type list_model_manifest_nodes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_vehicles_in_fleet_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("vehicles") => list(String.t() | Atom.t())
+        optional("nextToken") => String.t() | atom(),
+        optional("vehicles") => list(String.t() | atom())
       }
       
   """
-  @type list_vehicles_in_fleet_response() :: %{String.t() | Atom.t() => any()}
+  @type list_vehicles_in_fleet_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1210,36 +1210,36 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       disassociate_vehicle_fleet_request() :: %{
-        required("fleetId") => String.t() | Atom.t()
+        required("fleetId") => String.t() | atom()
       }
       
   """
-  @type disassociate_vehicle_fleet_request() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_vehicle_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_vehicle_response() :: %{
-        optional("arn") => String.t() | Atom.t(),
-        optional("thingArn") => String.t() | Atom.t(),
-        optional("vehicleName") => String.t() | Atom.t()
+        optional("arn") => String.t() | atom(),
+        optional("thingArn") => String.t() | atom(),
+        optional("vehicleName") => String.t() | atom()
       }
       
   """
-  @type create_vehicle_response() :: %{String.t() | Atom.t() => any()}
+  @type create_vehicle_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_state_templates_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "summaries" => list(state_template_summary())
       }
       
   """
-  @type list_state_templates_response() :: %{String.t() | Atom.t() => any()}
+  @type list_state_templates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1255,12 +1255,12 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       condition_based_signal_fetch_config() :: %{
-        "conditionExpression" => String.t() | Atom.t(),
+        "conditionExpression" => String.t() | atom(),
         "triggerMode" => list(any())
       }
       
   """
-  @type condition_based_signal_fetch_config() :: %{String.t() | Atom.t() => any()}
+  @type condition_based_signal_fetch_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1271,50 +1271,50 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_decoder_manifest_response() :: %{
-        optional("description") => String.t() | Atom.t(),
-        optional("message") => String.t() | Atom.t(),
-        optional("modelManifestArn") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
+        optional("message") => String.t() | atom(),
+        optional("modelManifestArn") => String.t() | atom(),
         optional("status") => list(any()),
-        required("arn") => String.t() | Atom.t(),
+        required("arn") => String.t() | atom(),
         required("creationTime") => non_neg_integer(),
         required("lastModificationTime") => non_neg_integer(),
-        required("name") => String.t() | Atom.t()
+        required("name") => String.t() | atom()
       }
       
   """
-  @type get_decoder_manifest_response() :: %{String.t() | Atom.t() => any()}
+  @type get_decoder_manifest_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_partition() :: %{
-        "id" => String.t() | Atom.t(),
+        "id" => String.t() | atom(),
         "storageOptions" => data_partition_storage_options(),
         "uploadOptions" => data_partition_upload_options()
       }
       
   """
-  @type data_partition() :: %{String.t() | Atom.t() => any()}
+  @type data_partition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception_field() :: %{
-        "message" => [String.t() | Atom.t()],
-        "name" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
       
   """
-  @type validation_exception_field() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1330,20 +1330,20 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       get_state_template_response() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "dataExtraDimensions" => list(String.t() | Atom.t()),
-        "description" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "dataExtraDimensions" => list(String.t() | atom()),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "lastModificationTime" => non_neg_integer(),
-        "metadataExtraDimensions" => list(String.t() | Atom.t()),
-        "name" => String.t() | Atom.t(),
-        "signalCatalogArn" => String.t() | Atom.t(),
-        "stateTemplateProperties" => list(String.t() | Atom.t())
+        "metadataExtraDimensions" => list(String.t() | atom()),
+        "name" => String.t() | atom(),
+        "signalCatalogArn" => String.t() | atom(),
+        "stateTemplateProperties" => list(String.t() | atom())
       }
       
   """
-  @type get_state_template_response() :: %{String.t() | Atom.t() => any()}
+  @type get_state_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1352,30 +1352,30 @@ defmodule AWS.IoTFleetWise do
       update_vehicle_request_item() :: %{
         "attributeUpdateMode" => list(any()),
         "attributes" => map(),
-        "decoderManifestArn" => String.t() | Atom.t(),
-        "modelManifestArn" => String.t() | Atom.t(),
+        "decoderManifestArn" => String.t() | atom(),
+        "modelManifestArn" => String.t() | atom(),
         "stateTemplatesToAdd" => list(state_template_association()),
-        "stateTemplatesToRemove" => list(String.t() | Atom.t()),
+        "stateTemplatesToRemove" => list(String.t() | atom()),
         "stateTemplatesToUpdate" => list(state_template_association()),
-        "vehicleName" => String.t() | Atom.t()
+        "vehicleName" => String.t() | atom()
       }
       
   """
-  @type update_vehicle_request_item() :: %{String.t() | Atom.t() => any()}
+  @type update_vehicle_request_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_model_manifest_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("nodes") => list(String.t() | Atom.t()),
-        required("signalCatalogArn") => String.t() | Atom.t()
+        required("nodes") => list(String.t() | atom()),
+        required("signalCatalogArn") => String.t() | atom()
       }
       
   """
-  @type create_model_manifest_request() :: %{String.t() | Atom.t() => any()}
+  @type create_model_manifest_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1387,14 +1387,14 @@ defmodule AWS.IoTFleetWise do
         "isSigned" => [boolean()],
         "length" => integer(),
         "messageId" => integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "offset" => float(),
         "signalValueType" => list(any()),
         "startBit" => integer()
       }
       
   """
-  @type can_signal() :: %{String.t() | Atom.t() => any()}
+  @type can_signal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1402,12 +1402,12 @@ defmodule AWS.IoTFleetWise do
       
       list_signal_catalog_nodes_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("signalNodeType") => list(any())
       }
       
   """
-  @type list_signal_catalog_nodes_request() :: %{String.t() | Atom.t() => any()}
+  @type list_signal_catalog_nodes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1419,32 +1419,32 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type storage_minimum_time_to_live() :: %{String.t() | Atom.t() => any()}
+  @type storage_minimum_time_to_live() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_vehicle_response_item() :: %{
-        "arn" => String.t() | Atom.t(),
-        "thingArn" => String.t() | Atom.t(),
-        "vehicleName" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "thingArn" => String.t() | atom(),
+        "vehicleName" => String.t() | atom()
       }
       
   """
-  @type create_vehicle_response_item() :: %{String.t() | Atom.t() => any()}
+  @type create_vehicle_response_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_fleet_response() :: %{
-        optional("arn") => String.t() | Atom.t(),
-        optional("id") => String.t() | Atom.t()
+        optional("arn") => String.t() | atom(),
+        optional("id") => String.t() | atom()
       }
       
   """
-  @type update_fleet_response() :: %{String.t() | Atom.t() => any()}
+  @type update_fleet_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1452,11 +1452,11 @@ defmodule AWS.IoTFleetWise do
       
       list_signal_catalogs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_signal_catalogs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_signal_catalogs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1464,11 +1464,11 @@ defmodule AWS.IoTFleetWise do
       
       list_decoder_manifest_signals_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_decoder_manifest_signals_request() :: %{String.t() | Atom.t() => any()}
+  @type list_decoder_manifest_signals_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1476,13 +1476,13 @@ defmodule AWS.IoTFleetWise do
       
       condition_based_collection_scheme() :: %{
         "conditionLanguageVersion" => integer(),
-        "expression" => String.t() | Atom.t(),
+        "expression" => String.t() | atom(),
         "minimumTriggerIntervalMs" => float(),
         "triggerMode" => list(any())
       }
       
   """
-  @type condition_based_collection_scheme() :: %{String.t() | Atom.t() => any()}
+  @type condition_based_collection_scheme() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1490,77 +1490,77 @@ defmodule AWS.IoTFleetWise do
       
       invalid_node_exception() :: %{
         "invalidNodes" => list(list()),
-        "message" => String.t() | Atom.t(),
-        "reason" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "reason" => String.t() | atom()
       }
       
   """
-  @type invalid_node_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_node_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_state_template_response() :: %{
-        "arn" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
       
   """
-  @type delete_state_template_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_state_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
         "retryAfterSeconds" => integer()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_state_template_request() :: %{
-        optional("dataExtraDimensions") => list(String.t() | Atom.t()),
-        optional("description") => String.t() | Atom.t(),
-        optional("metadataExtraDimensions") => list(String.t() | Atom.t()),
-        optional("stateTemplatePropertiesToAdd") => list(String.t() | Atom.t()),
-        optional("stateTemplatePropertiesToRemove") => list(String.t() | Atom.t())
+        optional("dataExtraDimensions") => list(String.t() | atom()),
+        optional("description") => String.t() | atom(),
+        optional("metadataExtraDimensions") => list(String.t() | atom()),
+        optional("stateTemplatePropertiesToAdd") => list(String.t() | atom()),
+        optional("stateTemplatePropertiesToRemove") => list(String.t() | atom())
       }
       
   """
-  @type update_state_template_request() :: %{String.t() | Atom.t() => any()}
+  @type update_state_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_decoder_manifest_response() :: %{
-        required("arn") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t()
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
       
   """
-  @type create_decoder_manifest_response() :: %{String.t() | Atom.t() => any()}
+  @type create_decoder_manifest_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_signal_catalog_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("nodes") => list(list()),
         optional("tags") => list(tag())
       }
       
   """
-  @type create_signal_catalog_request() :: %{String.t() | Atom.t() => any()}
+  @type create_signal_catalog_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1568,12 +1568,12 @@ defmodule AWS.IoTFleetWise do
       
       can_dbc_definition() :: %{
         "canDbcFiles" => list(binary()),
-        "networkInterface" => String.t() | Atom.t(),
+        "networkInterface" => String.t() | atom(),
         "signalsMap" => map()
       }
       
   """
-  @type can_dbc_definition() :: %{String.t() | Atom.t() => any()}
+  @type can_dbc_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1589,28 +1589,28 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       state_template_summary() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "lastModificationTime" => non_neg_integer(),
-        "name" => String.t() | Atom.t(),
-        "signalCatalogArn" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "signalCatalogArn" => String.t() | atom()
       }
       
   """
-  @type state_template_summary() :: %{String.t() | Atom.t() => any()}
+  @type state_template_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1628,9 +1628,9 @@ defmodule AWS.IoTFleetWise do
       create_campaign_request() :: %{
         optional("compression") => list(any()),
         optional("dataDestinationConfigs") => list(list()),
-        optional("dataExtraDimensions") => list(String.t() | Atom.t()),
+        optional("dataExtraDimensions") => list(String.t() | atom()),
         optional("dataPartitions") => list(data_partition()),
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("diagnosticsMode") => list(any()),
         optional("expiryTime") => non_neg_integer(),
         optional("postTriggerCollectionDuration") => float(),
@@ -1641,12 +1641,12 @@ defmodule AWS.IoTFleetWise do
         optional("startTime") => non_neg_integer(),
         optional("tags") => list(tag()),
         required("collectionScheme") => list(),
-        required("signalCatalogArn") => String.t() | Atom.t(),
-        required("targetArn") => String.t() | Atom.t()
+        required("signalCatalogArn") => String.t() | atom(),
+        required("targetArn") => String.t() | atom()
       }
       
   """
-  @type create_campaign_request() :: %{String.t() | Atom.t() => any()}
+  @type create_campaign_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1657,7 +1657,7 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type put_logging_options_request() :: %{String.t() | Atom.t() => any()}
+  @type put_logging_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1665,36 +1665,36 @@ defmodule AWS.IoTFleetWise do
       
       get_vehicle_status_response() :: %{
         optional("campaigns") => list(vehicle_status()),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type get_vehicle_status_response() :: %{String.t() | Atom.t() => any()}
+  @type get_vehicle_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_state_template_response() :: %{
-        "arn" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
       
   """
-  @type create_state_template_response() :: %{String.t() | Atom.t() => any()}
+  @type create_state_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_decoder_manifest_response() :: %{
-        required("arn") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t()
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
       
   """
-  @type update_decoder_manifest_response() :: %{String.t() | Atom.t() => any()}
+  @type update_decoder_manifest_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1704,13 +1704,13 @@ defmodule AWS.IoTFleetWise do
         "creationTime" => non_neg_integer(),
         "encryptionStatus" => list(any()),
         "encryptionType" => list(any()),
-        "errorMessage" => String.t() | Atom.t(),
-        "kmsKeyId" => [String.t() | Atom.t()],
+        "errorMessage" => String.t() | atom(),
+        "kmsKeyId" => [String.t() | atom()],
         "lastModificationTime" => non_neg_integer()
       }
       
   """
-  @type get_encryption_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1731,7 +1731,7 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type obd_signal() :: %{String.t() | Atom.t() => any()}
+  @type obd_signal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1747,66 +1747,66 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       custom_property() :: %{
-        "comment" => String.t() | Atom.t(),
+        "comment" => String.t() | atom(),
         "dataEncoding" => list(any()),
         "dataType" => list(any()),
-        "deprecationMessage" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "fullyQualifiedName" => String.t() | Atom.t(),
-        "structFullyQualifiedName" => String.t() | Atom.t()
+        "deprecationMessage" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "fullyQualifiedName" => String.t() | atom(),
+        "structFullyQualifiedName" => String.t() | atom()
       }
       
   """
-  @type custom_property() :: %{String.t() | Atom.t() => any()}
+  @type custom_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       signal_information() :: %{
-        "dataPartitionId" => String.t() | Atom.t(),
+        "dataPartitionId" => String.t() | atom(),
         "maxSampleCount" => float(),
         "minimumSamplingIntervalMs" => float(),
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type signal_information() :: %{String.t() | Atom.t() => any()}
+  @type signal_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_model_manifests_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("summaries") => list(model_manifest_summary())
       }
       
   """
-  @type list_model_manifests_response() :: %{String.t() | Atom.t() => any()}
+  @type list_model_manifests_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_decoding_signal() :: %{
-        "id" => String.t() | Atom.t()
+        "id" => String.t() | atom()
       }
       
   """
-  @type custom_decoding_signal() :: %{String.t() | Atom.t() => any()}
+  @type custom_decoding_signal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_model_manifest_response() :: %{
-        required("arn") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t()
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
       
   """
-  @type update_model_manifest_response() :: %{String.t() | Atom.t() => any()}
+  @type update_model_manifest_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1814,36 +1814,36 @@ defmodule AWS.IoTFleetWise do
       
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
         "reason" => list(any())
       }
       
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | Atom.t()
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_state_template_response() :: %{
-        "arn" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
       
   """
-  @type update_state_template_response() :: %{String.t() | Atom.t() => any()}
+  @type update_state_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1854,7 +1854,7 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type time_based_signal_fetch_config() :: %{String.t() | Atom.t() => any()}
+  @type time_based_signal_fetch_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1862,88 +1862,88 @@ defmodule AWS.IoTFleetWise do
       
       invalid_signals_exception() :: %{
         "invalidSignals" => list(invalid_signal()),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_signals_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_signals_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "quotaCode" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
         "retryAfterSeconds" => integer(),
-        "serviceCode" => String.t() | Atom.t()
+        "serviceCode" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_campaign_response() :: %{
-        optional("arn") => String.t() | Atom.t(),
+        optional("arn") => String.t() | atom(),
         optional("collectionScheme") => list(),
         optional("compression") => list(any()),
         optional("creationTime") => non_neg_integer(),
         optional("dataDestinationConfigs") => list(list()),
-        optional("dataExtraDimensions") => list(String.t() | Atom.t()),
+        optional("dataExtraDimensions") => list(String.t() | atom()),
         optional("dataPartitions") => list(data_partition()),
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("diagnosticsMode") => list(any()),
         optional("expiryTime") => non_neg_integer(),
         optional("lastModificationTime") => non_neg_integer(),
-        optional("name") => String.t() | Atom.t(),
+        optional("name") => String.t() | atom(),
         optional("postTriggerCollectionDuration") => float(),
         optional("priority") => integer(),
-        optional("signalCatalogArn") => String.t() | Atom.t(),
+        optional("signalCatalogArn") => String.t() | atom(),
         optional("signalsToCollect") => list(signal_information()),
         optional("signalsToFetch") => list(signal_fetch_information()),
         optional("spoolingMode") => list(any()),
         optional("startTime") => non_neg_integer(),
         optional("status") => list(any()),
-        optional("targetArn") => String.t() | Atom.t()
+        optional("targetArn") => String.t() | atom()
       }
       
   """
-  @type get_campaign_response() :: %{String.t() | Atom.t() => any()}
+  @type get_campaign_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sensor() :: %{
-        "allowedValues" => list(String.t() | Atom.t()),
-        "comment" => String.t() | Atom.t(),
+        "allowedValues" => list(String.t() | atom()),
+        "comment" => String.t() | atom(),
         "dataType" => list(any()),
-        "deprecationMessage" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "fullyQualifiedName" => String.t() | Atom.t(),
+        "deprecationMessage" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "fullyQualifiedName" => String.t() | atom(),
         "max" => float(),
         "min" => float(),
-        "structFullyQualifiedName" => String.t() | Atom.t(),
-        "unit" => String.t() | Atom.t()
+        "structFullyQualifiedName" => String.t() | atom(),
+        "unit" => String.t() | atom()
       }
       
   """
-  @type sensor() :: %{String.t() | Atom.t() => any()}
+  @type sensor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_vehicle_response() :: %{
-        optional("arn") => String.t() | Atom.t(),
-        optional("vehicleName") => String.t() | Atom.t()
+        optional("arn") => String.t() | atom(),
+        optional("vehicleName") => String.t() | atom()
       }
       
   """
-  @type update_vehicle_response() :: %{String.t() | Atom.t() => any()}
+  @type update_vehicle_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1952,114 +1952,114 @@ defmodule AWS.IoTFleetWise do
       update_vehicle_request() :: %{
         optional("attributeUpdateMode") => list(any()),
         optional("attributes") => map(),
-        optional("decoderManifestArn") => String.t() | Atom.t(),
-        optional("modelManifestArn") => String.t() | Atom.t(),
+        optional("decoderManifestArn") => String.t() | atom(),
+        optional("modelManifestArn") => String.t() | atom(),
         optional("stateTemplatesToAdd") => list(state_template_association()),
-        optional("stateTemplatesToRemove") => list(String.t() | Atom.t()),
+        optional("stateTemplatesToRemove") => list(String.t() | atom()),
         optional("stateTemplatesToUpdate") => list(state_template_association())
       }
       
   """
-  @type update_vehicle_request() :: %{String.t() | Atom.t() => any()}
+  @type update_vehicle_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attribute() :: %{
-        "allowedValues" => list(String.t() | Atom.t()),
-        "assignedValue" => String.t() | Atom.t(),
-        "comment" => String.t() | Atom.t(),
+        "allowedValues" => list(String.t() | atom()),
+        "assignedValue" => String.t() | atom(),
+        "comment" => String.t() | atom(),
         "dataType" => list(any()),
-        "defaultValue" => String.t() | Atom.t(),
-        "deprecationMessage" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "fullyQualifiedName" => String.t() | Atom.t(),
+        "defaultValue" => String.t() | atom(),
+        "deprecationMessage" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "fullyQualifiedName" => String.t() | atom(),
         "max" => float(),
         "min" => float(),
-        "unit" => String.t() | Atom.t()
+        "unit" => String.t() | atom()
       }
       
   """
-  @type attribute() :: %{String.t() | Atom.t() => any()}
+  @type attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_decoder_manifests_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("summaries") => list(decoder_manifest_summary())
       }
       
   """
-  @type list_decoder_manifests_response() :: %{String.t() | Atom.t() => any()}
+  @type list_decoder_manifests_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_struct() :: %{
-        "comment" => String.t() | Atom.t(),
-        "deprecationMessage" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "fullyQualifiedName" => String.t() | Atom.t()
+        "comment" => String.t() | atom(),
+        "deprecationMessage" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "fullyQualifiedName" => String.t() | atom()
       }
       
   """
-  @type custom_struct() :: %{String.t() | Atom.t() => any()}
+  @type custom_struct() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t(),
-        "resourceId" => String.t() | Atom.t(),
-        "resourceType" => String.t() | Atom.t()
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_signal_catalog_response() :: %{
-        required("arn") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t()
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
       
   """
-  @type import_signal_catalog_response() :: %{String.t() | Atom.t() => any()}
+  @type import_signal_catalog_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_signal_catalog_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("nodesToAdd") => list(list()),
-        optional("nodesToRemove") => list(String.t() | Atom.t()),
+        optional("nodesToRemove") => list(String.t() | atom()),
         optional("nodesToUpdate") => list(list())
       }
       
   """
-  @type update_signal_catalog_request() :: %{String.t() | Atom.t() => any()}
+  @type update_signal_catalog_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_signal_decoder() :: %{
-        "hint" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "hint" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "reason" => list(any())
       }
       
   """
-  @type invalid_signal_decoder() :: %{String.t() | Atom.t() => any()}
+  @type invalid_signal_decoder() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2076,35 +2076,35 @@ defmodule AWS.IoTFleetWise do
       
       list_decoder_manifest_network_interfaces_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_decoder_manifest_network_interfaces_request() :: %{String.t() | Atom.t() => any()}
+  @type list_decoder_manifest_network_interfaces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_watch_log_delivery_options() :: %{
-        "logGroupName" => String.t() | Atom.t(),
+        "logGroupName" => String.t() | atom(),
         "logType" => list(any())
       }
       
   """
-  @type cloud_watch_log_delivery_options() :: %{String.t() | Atom.t() => any()}
+  @type cloud_watch_log_delivery_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_vehicles_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("vehicleSummaries") => list(vehicle_summary())
       }
       
   """
-  @type list_vehicles_response() :: %{String.t() | Atom.t() => any()}
+  @type list_vehicles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2113,24 +2113,24 @@ defmodule AWS.IoTFleetWise do
       list_state_templates_request() :: %{
         optional("listResponseScope") => list(any()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_state_templates_request() :: %{String.t() | Atom.t() => any()}
+  @type list_state_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_campaign_request() :: %{
-        optional("dataExtraDimensions") => list(String.t() | Atom.t()),
-        optional("description") => String.t() | Atom.t(),
+        optional("dataExtraDimensions") => list(String.t() | atom()),
+        optional("description") => String.t() | atom(),
         required("action") => list(any())
       }
       
   """
-  @type update_campaign_request() :: %{String.t() | Atom.t() => any()}
+  @type update_campaign_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2142,48 +2142,48 @@ defmodule AWS.IoTFleetWise do
       }
       
   """
-  @type batch_create_vehicle_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_create_vehicle_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_vehicle_fleet_request() :: %{
-        required("fleetId") => String.t() | Atom.t()
+        required("fleetId") => String.t() | atom()
       }
       
   """
-  @type associate_vehicle_fleet_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_vehicle_fleet_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       decoder_manifest_summary() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "lastModificationTime" => non_neg_integer(),
-        "message" => String.t() | Atom.t(),
-        "modelManifestArn" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "message" => String.t() | atom(),
+        "modelManifestArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any())
       }
       
   """
-  @type decoder_manifest_summary() :: %{String.t() | Atom.t() => any()}
+  @type decoder_manifest_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_model_manifest_response() :: %{
-        required("arn") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t()
+        required("arn") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
       
   """
-  @type delete_model_manifest_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_model_manifest_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2191,35 +2191,35 @@ defmodule AWS.IoTFleetWise do
       
       list_decoder_manifest_network_interfaces_response() :: %{
         optional("networkInterfaces") => list(network_interface()),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_decoder_manifest_network_interfaces_response() :: %{String.t() | Atom.t() => any()}
+  @type list_decoder_manifest_network_interfaces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_fleet_response() :: %{
-        required("arn") => String.t() | Atom.t(),
-        required("id") => String.t() | Atom.t()
+        required("arn") => String.t() | atom(),
+        required("id") => String.t() | atom()
       }
       
   """
-  @type create_fleet_response() :: %{String.t() | Atom.t() => any()}
+  @type create_fleet_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       state_template_association() :: %{
-        "identifier" => String.t() | Atom.t(),
+        "identifier" => String.t() | atom(),
         "stateTemplateUpdateStrategy" => list()
       }
       
   """
-  @type state_template_association() :: %{String.t() | Atom.t() => any()}
+  @type state_template_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2228,69 +2228,69 @@ defmodule AWS.IoTFleetWise do
       data_partition_storage_options() :: %{
         "maximumSize" => storage_maximum_size(),
         "minimumTimeToLive" => storage_minimum_time_to_live(),
-        "storageLocation" => String.t() | Atom.t()
+        "storageLocation" => String.t() | atom()
       }
       
   """
-  @type data_partition_storage_options() :: %{String.t() | Atom.t() => any()}
+  @type data_partition_storage_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_campaign_response() :: %{
-        optional("arn") => String.t() | Atom.t(),
-        optional("name") => String.t() | Atom.t()
+        optional("arn") => String.t() | atom(),
+        optional("name") => String.t() | atom()
       }
       
   """
-  @type create_campaign_response() :: %{String.t() | Atom.t() => any()}
+  @type create_campaign_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       vehicle_summary() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "attributes" => map(),
         "creationTime" => non_neg_integer(),
-        "decoderManifestArn" => String.t() | Atom.t(),
+        "decoderManifestArn" => String.t() | atom(),
         "lastModificationTime" => non_neg_integer(),
-        "modelManifestArn" => String.t() | Atom.t(),
-        "vehicleName" => String.t() | Atom.t()
+        "modelManifestArn" => String.t() | atom(),
+        "vehicleName" => String.t() | atom()
       }
       
   """
-  @type vehicle_summary() :: %{String.t() | Atom.t() => any()}
+  @type vehicle_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_fleet_response() :: %{
-        optional("description") => String.t() | Atom.t(),
-        required("arn") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
+        required("arn") => String.t() | atom(),
         required("creationTime") => non_neg_integer(),
-        required("id") => String.t() | Atom.t(),
+        required("id") => String.t() | atom(),
         required("lastModificationTime") => non_neg_integer(),
-        required("signalCatalogArn") => String.t() | Atom.t()
+        required("signalCatalogArn") => String.t() | atom()
       }
       
   """
-  @type get_fleet_response() :: %{String.t() | Atom.t() => any()}
+  @type get_fleet_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       can_interface() :: %{
-        "name" => String.t() | Atom.t(),
-        "protocolName" => String.t() | Atom.t(),
-        "protocolVersion" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "protocolName" => String.t() | atom(),
+        "protocolVersion" => String.t() | atom()
       }
       
   """
-  @type can_interface() :: %{String.t() | Atom.t() => any()}
+  @type can_interface() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2300,23 +2300,23 @@ defmodule AWS.IoTFleetWise do
         "capacity" => integer(),
         "listType" => list(any()),
         "memberType" => list(),
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type structured_message_list_definition() :: %{String.t() | Atom.t() => any()}
+  @type structured_message_list_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_model_manifest_nodes_response() :: %{
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("nodes") => list(list())
       }
       
   """
-  @type list_model_manifest_nodes_response() :: %{String.t() | Atom.t() => any()}
+  @type list_model_manifest_nodes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2327,12 +2327,12 @@ defmodule AWS.IoTFleetWise do
         optional("attributes") => map(),
         optional("stateTemplates") => list(state_template_association()),
         optional("tags") => list(tag()),
-        required("decoderManifestArn") => String.t() | Atom.t(),
-        required("modelManifestArn") => String.t() | Atom.t()
+        required("decoderManifestArn") => String.t() | atom(),
+        required("modelManifestArn") => String.t() | atom()
       }
       
   """
-  @type create_vehicle_request() :: %{String.t() | Atom.t() => any()}
+  @type create_vehicle_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2348,78 +2348,78 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       update_vehicle_response_item() :: %{
-        "arn" => String.t() | Atom.t(),
-        "vehicleName" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "vehicleName" => String.t() | atom()
       }
       
   """
-  @type update_vehicle_response_item() :: %{String.t() | Atom.t() => any()}
+  @type update_vehicle_response_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       campaign_summary() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "lastModificationTime" => non_neg_integer(),
-        "name" => String.t() | Atom.t(),
-        "signalCatalogArn" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "signalCatalogArn" => String.t() | atom(),
         "status" => list(any()),
-        "targetArn" => String.t() | Atom.t()
+        "targetArn" => String.t() | atom()
       }
       
   """
-  @type campaign_summary() :: %{String.t() | Atom.t() => any()}
+  @type campaign_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_vehicle_response() :: %{
-        optional("arn") => String.t() | Atom.t(),
+        optional("arn") => String.t() | atom(),
         optional("attributes") => map(),
         optional("creationTime") => non_neg_integer(),
-        optional("decoderManifestArn") => String.t() | Atom.t(),
+        optional("decoderManifestArn") => String.t() | atom(),
         optional("lastModificationTime") => non_neg_integer(),
-        optional("modelManifestArn") => String.t() | Atom.t(),
+        optional("modelManifestArn") => String.t() | atom(),
         optional("stateTemplates") => list(state_template_association()),
-        optional("vehicleName") => String.t() | Atom.t()
+        optional("vehicleName") => String.t() | atom()
       }
       
   """
-  @type get_vehicle_response() :: %{String.t() | Atom.t() => any()}
+  @type get_vehicle_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       signal_catalog_summary() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
         "lastModificationTime" => non_neg_integer(),
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type signal_catalog_summary() :: %{String.t() | Atom.t() => any()}
+  @type signal_catalog_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       timestream_registration_response() :: %{
-        "errorMessage" => String.t() | Atom.t(),
+        "errorMessage" => String.t() | atom(),
         "registrationStatus" => list(any()),
-        "timestreamDatabaseArn" => String.t() | Atom.t(),
-        "timestreamDatabaseName" => String.t() | Atom.t(),
-        "timestreamTableArn" => String.t() | Atom.t(),
-        "timestreamTableName" => String.t() | Atom.t()
+        "timestreamDatabaseArn" => String.t() | atom(),
+        "timestreamDatabaseName" => String.t() | atom(),
+        "timestreamTableArn" => String.t() | atom(),
+        "timestreamTableName" => String.t() | atom()
       }
       
   """
-  @type timestream_registration_response() :: %{String.t() | Atom.t() => any()}
+  @type timestream_registration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2428,41 +2428,41 @@ defmodule AWS.IoTFleetWise do
       decoder_manifest_validation_exception() :: %{
         "invalidNetworkInterfaces" => list(invalid_network_interface()),
         "invalidSignals" => list(invalid_signal_decoder()),
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type decoder_manifest_validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type decoder_manifest_validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_state_template_request() :: %{
-        optional("dataExtraDimensions") => list(String.t() | Atom.t()),
-        optional("description") => String.t() | Atom.t(),
-        optional("metadataExtraDimensions") => list(String.t() | Atom.t()),
+        optional("dataExtraDimensions") => list(String.t() | atom()),
+        optional("description") => String.t() | atom(),
+        optional("metadataExtraDimensions") => list(String.t() | atom()),
         optional("tags") => list(tag()),
-        required("signalCatalogArn") => String.t() | Atom.t(),
-        required("stateTemplateProperties") => list(String.t() | Atom.t())
+        required("signalCatalogArn") => String.t() | atom(),
+        required("stateTemplateProperties") => list(String.t() | atom())
       }
       
   """
-  @type create_state_template_request() :: %{String.t() | Atom.t() => any()}
+  @type create_state_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_model_manifest_request() :: %{
-        optional("description") => String.t() | Atom.t(),
-        optional("nodesToAdd") => list(String.t() | Atom.t()),
-        optional("nodesToRemove") => list(String.t() | Atom.t()),
+        optional("description") => String.t() | atom(),
+        optional("nodesToAdd") => list(String.t() | atom()),
+        optional("nodesToRemove") => list(String.t() | atom()),
         optional("status") => list(any())
       }
       
   """
-  @type update_model_manifest_request() :: %{String.t() | Atom.t() => any()}
+  @type update_model_manifest_request() :: %{(String.t() | atom()) => any()}
 
   @type associate_vehicle_fleet_errors() ::
           limit_exceeded_exception()

@@ -33,12 +33,12 @@ defmodule AWS.EKS do
   ## Example:
 
       list_nodegroups_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
-        "nodegroups" => list(String.t() | Atom.t())
+        "nextToken" => String.t() | atom(),
+        "nodegroups" => list(String.t() | atom())
       }
 
   """
-  @type list_nodegroups_response() :: %{String.t() | Atom.t() => any()}
+  @type list_nodegroups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -58,7 +58,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type delete_fargate_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_fargate_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -66,11 +66,11 @@ defmodule AWS.EKS do
 
       list_access_policies_response() :: %{
         "accessPolicies" => list(access_policy()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_access_policies_response() :: %{String.t() | Atom.t() => any()}
+  @type list_access_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -78,29 +78,29 @@ defmodule AWS.EKS do
 
       insight_summary() :: %{
         "category" => list(any()),
-        "description" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "insightStatus" => insight_status(),
-        "kubernetesVersion" => String.t() | Atom.t(),
+        "kubernetesVersion" => String.t() | atom(),
         "lastRefreshTime" => non_neg_integer(),
         "lastTransitionTime" => non_neg_integer(),
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type insight_summary() :: %{String.t() | Atom.t() => any()}
+  @type insight_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_policy() :: %{
-        "arn" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t()
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type access_policy() :: %{String.t() | Atom.t() => any()}
+  @type access_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -108,12 +108,12 @@ defmodule AWS.EKS do
 
       addon_issue() :: %{
         "code" => list(any()),
-        "message" => String.t() | Atom.t(),
-        "resourceIds" => list(String.t() | Atom.t())
+        "message" => String.t() | atom(),
+        "resourceIds" => list(String.t() | atom())
       }
 
   """
-  @type addon_issue() :: %{String.t() | Atom.t() => any()}
+  @type addon_issue() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -122,11 +122,11 @@ defmodule AWS.EKS do
       list_insights_request() :: %{
         optional("filter") => insights_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_insights_request() :: %{String.t() | Atom.t() => any()}
+  @type list_insights_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -137,7 +137,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type describe_insight_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_insight_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -148,7 +148,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -156,11 +156,11 @@ defmodule AWS.EKS do
 
       encryption_config() :: %{
         "provider" => provider(),
-        "resources" => list(String.t() | Atom.t())
+        "resources" => list(String.t() | atom())
       }
 
   """
-  @type encryption_config() :: %{String.t() | Atom.t() => any()}
+  @type encryption_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -168,11 +168,11 @@ defmodule AWS.EKS do
 
       update_labels_payload() :: %{
         "addOrUpdateLabels" => map(),
-        "removeLabels" => list(String.t() | Atom.t())
+        "removeLabels" => list(String.t() | atom())
       }
 
   """
-  @type update_labels_payload() :: %{String.t() | Atom.t() => any()}
+  @type update_labels_payload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -183,20 +183,20 @@ defmodule AWS.EKS do
       }
 
   """
-  @type describe_eks_anywhere_subscription_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_eks_anywhere_subscription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       outpost_config_response() :: %{
-        "controlPlaneInstanceType" => String.t() | Atom.t(),
+        "controlPlaneInstanceType" => String.t() | atom(),
         "controlPlanePlacement" => control_plane_placement_response(),
-        "outpostArns" => list(String.t() | Atom.t())
+        "outpostArns" => list(String.t() | atom())
       }
 
   """
-  @type outpost_config_response() :: %{String.t() | Atom.t() => any()}
+  @type outpost_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -204,25 +204,25 @@ defmodule AWS.EKS do
 
       compute_config_response() :: %{
         "enabled" => boolean(),
-        "nodePools" => list(String.t() | Atom.t()),
-        "nodeRoleArn" => String.t() | Atom.t()
+        "nodePools" => list(String.t() | atom()),
+        "nodeRoleArn" => String.t() | atom()
       }
 
   """
-  @type compute_config_response() :: %{String.t() | Atom.t() => any()}
+  @type compute_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       compatibility() :: %{
-        "clusterVersion" => String.t() | Atom.t(),
+        "clusterVersion" => String.t() | atom(),
         "defaultVersion" => boolean(),
-        "platformVersions" => list(String.t() | Atom.t())
+        "platformVersions" => list(String.t() | atom())
       }
 
   """
-  @type compatibility() :: %{String.t() | Atom.t() => any()}
+  @type compatibility() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -233,7 +233,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type describe_addon_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_addon_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -242,26 +242,26 @@ defmodule AWS.EKS do
       create_nodegroup_request() :: %{
         optional("amiType") => list(any()),
         optional("capacityType") => list(any()),
-        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("diskSize") => integer(),
-        optional("instanceTypes") => list(String.t() | Atom.t()),
+        optional("instanceTypes") => list(String.t() | atom()),
         optional("labels") => map(),
         optional("launchTemplate") => launch_template_specification(),
         optional("nodeRepairConfig") => node_repair_config(),
-        optional("releaseVersion") => String.t() | Atom.t(),
+        optional("releaseVersion") => String.t() | atom(),
         optional("remoteAccess") => remote_access_config(),
         optional("scalingConfig") => nodegroup_scaling_config(),
         optional("tags") => map(),
         optional("taints") => list(taint()),
         optional("updateConfig") => nodegroup_update_config(),
-        optional("version") => String.t() | Atom.t(),
-        required("nodeRole") => String.t() | Atom.t(),
-        required("nodegroupName") => String.t() | Atom.t(),
-        required("subnets") => list(String.t() | Atom.t())
+        optional("version") => String.t() | atom(),
+        required("nodeRole") => String.t() | atom(),
+        required("nodegroupName") => String.t() | atom(),
+        required("subnets") => list(String.t() | atom())
       }
 
   """
-  @type create_nodegroup_request() :: %{String.t() | Atom.t() => any()}
+  @type create_nodegroup_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -272,7 +272,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type delete_addon_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_addon_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -283,21 +283,21 @@ defmodule AWS.EKS do
       }
 
   """
-  @type describe_cluster_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unsupported_availability_zone_exception() :: %{
-        "clusterName" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "nodegroupName" => String.t() | Atom.t(),
-        "validZones" => list(String.t() | Atom.t())
+        "clusterName" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "nodegroupName" => String.t() | atom(),
+        "validZones" => list(String.t() | atom())
       }
 
   """
-  @type unsupported_availability_zone_exception() :: %{String.t() | Atom.t() => any()}
+  @type unsupported_availability_zone_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -313,7 +313,7 @@ defmodule AWS.EKS do
   ## Example:
 
       update_nodegroup_config_request() :: %{
-        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("labels") => update_labels_payload(),
         optional("nodeRepairConfig") => node_repair_config(),
         optional("scalingConfig") => nodegroup_scaling_config(),
@@ -322,19 +322,19 @@ defmodule AWS.EKS do
       }
 
   """
-  @type update_nodegroup_config_request() :: %{String.t() | Atom.t() => any()}
+  @type update_nodegroup_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_scope() :: %{
-        "namespaces" => list(String.t() | Atom.t()),
+        "namespaces" => list(String.t() | atom()),
         "type" => list(any())
       }
 
   """
-  @type access_scope() :: %{String.t() | Atom.t() => any()}
+  @type access_scope() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -342,13 +342,13 @@ defmodule AWS.EKS do
 
       list_associated_access_policies_response() :: %{
         "associatedAccessPolicies" => list(associated_access_policy()),
-        "clusterName" => String.t() | Atom.t(),
-        "nextToken" => String.t() | Atom.t(),
-        "principalArn" => String.t() | Atom.t()
+        "clusterName" => String.t() | atom(),
+        "nextToken" => String.t() | atom(),
+        "principalArn" => String.t() | atom()
       }
 
   """
-  @type list_associated_access_policies_response() :: %{String.t() | Atom.t() => any()}
+  @type list_associated_access_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -359,7 +359,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type delete_addon_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_addon_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -379,7 +379,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type create_fargate_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type create_fargate_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -391,7 +391,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type remote_network_config_request() :: %{String.t() | Atom.t() => any()}
+  @type remote_network_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -402,44 +402,44 @@ defmodule AWS.EKS do
       }
 
   """
-  @type create_cluster_response() :: %{String.t() | Atom.t() => any()}
+  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pod_identity_association() :: %{
-        "associationArn" => String.t() | Atom.t(),
-        "associationId" => String.t() | Atom.t(),
-        "clusterName" => String.t() | Atom.t(),
+        "associationArn" => String.t() | atom(),
+        "associationId" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "disableSessionTags" => boolean(),
-        "externalId" => String.t() | Atom.t(),
+        "externalId" => String.t() | atom(),
         "modifiedAt" => non_neg_integer(),
-        "namespace" => String.t() | Atom.t(),
-        "ownerArn" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
-        "serviceAccount" => String.t() | Atom.t(),
+        "namespace" => String.t() | atom(),
+        "ownerArn" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "serviceAccount" => String.t() | atom(),
         "tags" => map(),
-        "targetRoleArn" => String.t() | Atom.t()
+        "targetRoleArn" => String.t() | atom()
       }
 
   """
-  @type pod_identity_association() :: %{String.t() | Atom.t() => any()}
+  @type pod_identity_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_in_use_exception() :: %{
-        "addonName" => String.t() | Atom.t(),
-        "clusterName" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "nodegroupName" => String.t() | Atom.t()
+        "addonName" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "nodegroupName" => String.t() | atom()
       }
 
   """
-  @type resource_in_use_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -450,21 +450,21 @@ defmodule AWS.EKS do
       }
 
   """
-  @type describe_identity_provider_config_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_identity_provider_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_addon_configuration_response() :: %{
-        "addonName" => String.t() | Atom.t(),
-        "addonVersion" => String.t() | Atom.t(),
-        "configurationSchema" => String.t() | Atom.t(),
+        "addonName" => String.t() | atom(),
+        "addonVersion" => String.t() | atom(),
+        "configurationSchema" => String.t() | atom(),
         "podIdentityConfiguration" => list(addon_pod_identity_configuration())
       }
 
   """
-  @type describe_addon_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_addon_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -475,7 +475,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type identity() :: %{String.t() | Atom.t() => any()}
+  @type identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -488,7 +488,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type nodegroup_update_config() :: %{String.t() | Atom.t() => any()}
+  @type nodegroup_update_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -500,19 +500,19 @@ defmodule AWS.EKS do
       }
 
   """
-  @type associate_identity_provider_config_response() :: %{String.t() | Atom.t() => any()}
+  @type associate_identity_provider_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       identity_provider_config() :: %{
-        "name" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type identity_provider_config() :: %{String.t() | Atom.t() => any()}
+  @type identity_provider_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -528,49 +528,49 @@ defmodule AWS.EKS do
   ## Example:
 
       addon_pod_identity_configuration() :: %{
-        "recommendedManagedPolicies" => list(String.t() | Atom.t()),
-        "serviceAccount" => String.t() | Atom.t()
+        "recommendedManagedPolicies" => list(String.t() | atom()),
+        "serviceAccount" => String.t() | atom()
       }
 
   """
-  @type addon_pod_identity_configuration() :: %{String.t() | Atom.t() => any()}
+  @type addon_pod_identity_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       license() :: %{
-        "id" => String.t() | Atom.t(),
-        "token" => String.t() | Atom.t()
+        "id" => String.t() | atom(),
+        "token" => String.t() | atom()
       }
 
   """
-  @type license() :: %{String.t() | Atom.t() => any()}
+  @type license() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_access_entry_request() :: %{
-        optional("clientRequestToken") => String.t() | Atom.t(),
-        optional("kubernetesGroups") => list(String.t() | Atom.t()),
-        optional("username") => String.t() | Atom.t()
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("kubernetesGroups") => list(String.t() | atom()),
+        optional("username") => String.t() | atom()
       }
 
   """
-  @type update_access_entry_request() :: %{String.t() | Atom.t() => any()}
+  @type update_access_entry_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       addon_compatibility_detail() :: %{
-        "compatibleVersions" => list(String.t() | Atom.t()),
-        "name" => String.t() | Atom.t()
+        "compatibleVersions" => list(String.t() | atom()),
+        "name" => String.t() | atom()
       }
 
   """
-  @type addon_compatibility_detail() :: %{String.t() | Atom.t() => any()}
+  @type addon_compatibility_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -579,32 +579,32 @@ defmodule AWS.EKS do
       nodegroup() :: %{
         "amiType" => list(any()),
         "capacityType" => list(any()),
-        "clusterName" => String.t() | Atom.t(),
+        "clusterName" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "diskSize" => integer(),
         "health" => nodegroup_health(),
-        "instanceTypes" => list(String.t() | Atom.t()),
+        "instanceTypes" => list(String.t() | atom()),
         "labels" => map(),
         "launchTemplate" => launch_template_specification(),
         "modifiedAt" => non_neg_integer(),
         "nodeRepairConfig" => node_repair_config(),
-        "nodeRole" => String.t() | Atom.t(),
-        "nodegroupArn" => String.t() | Atom.t(),
-        "nodegroupName" => String.t() | Atom.t(),
-        "releaseVersion" => String.t() | Atom.t(),
+        "nodeRole" => String.t() | atom(),
+        "nodegroupArn" => String.t() | atom(),
+        "nodegroupName" => String.t() | atom(),
+        "releaseVersion" => String.t() | atom(),
         "remoteAccess" => remote_access_config(),
         "resources" => nodegroup_resources(),
         "scalingConfig" => nodegroup_scaling_config(),
         "status" => list(any()),
-        "subnets" => list(String.t() | Atom.t()),
+        "subnets" => list(String.t() | atom()),
         "tags" => map(),
         "taints" => list(taint()),
         "updateConfig" => nodegroup_update_config(),
-        "version" => String.t() | Atom.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type nodegroup() :: %{String.t() | Atom.t() => any()}
+  @type nodegroup() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -617,7 +617,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type nodegroup_scaling_config() :: %{String.t() | Atom.t() => any()}
+  @type nodegroup_scaling_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -628,7 +628,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type deregister_cluster_response() :: %{String.t() | Atom.t() => any()}
+  @type deregister_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -637,11 +637,11 @@ defmodule AWS.EKS do
       list_eks_anywhere_subscriptions_request() :: %{
         optional("includeStatus") => list(list(any())()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_eks_anywhere_subscriptions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_eks_anywhere_subscriptions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -649,11 +649,11 @@ defmodule AWS.EKS do
 
       list_access_policies_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_access_policies_request() :: %{String.t() | Atom.t() => any()}
+  @type list_access_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -661,11 +661,11 @@ defmodule AWS.EKS do
 
       list_insights_response() :: %{
         "insights" => list(insight_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_insights_response() :: %{String.t() | Atom.t() => any()}
+  @type list_insights_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -676,19 +676,19 @@ defmodule AWS.EKS do
       }
 
   """
-  @type elastic_load_balancing() :: %{String.t() | Atom.t() => any()}
+  @type elastic_load_balancing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       addon_pod_identity_associations() :: %{
-        "roleArn" => String.t() | Atom.t(),
-        "serviceAccount" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom(),
+        "serviceAccount" => String.t() | atom()
       }
 
   """
-  @type addon_pod_identity_associations() :: %{String.t() | Atom.t() => any()}
+  @type addon_pod_identity_associations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -699,7 +699,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type identity_provider_config_response() :: %{String.t() | Atom.t() => any()}
+  @type identity_provider_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -711,7 +711,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type create_access_config_request() :: %{String.t() | Atom.t() => any()}
+  @type create_access_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -727,60 +727,60 @@ defmodule AWS.EKS do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_state_exception() :: %{
-        "clusterName" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "clusterName" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_state_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_cluster_request() :: %{
-        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("tags") => map(),
         required("connectorConfig") => connector_config_request(),
-        required("name") => String.t() | Atom.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type register_cluster_request() :: %{String.t() | Atom.t() => any()}
+  @type register_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       control_plane_placement_response() :: %{
-        "groupName" => String.t() | Atom.t()
+        "groupName" => String.t() | atom()
       }
 
   """
-  @type control_plane_placement_response() :: %{String.t() | Atom.t() => any()}
+  @type control_plane_placement_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       insight_status() :: %{
-        "reason" => String.t() | Atom.t(),
+        "reason" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type insight_status() :: %{String.t() | Atom.t() => any()}
+  @type insight_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -797,11 +797,11 @@ defmodule AWS.EKS do
 
       list_pod_identity_associations_response() :: %{
         "associations" => list(pod_identity_association_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_pod_identity_associations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_pod_identity_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -809,11 +809,11 @@ defmodule AWS.EKS do
 
       list_addons_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_addons_request() :: %{String.t() | Atom.t() => any()}
+  @type list_addons_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -821,12 +821,12 @@ defmodule AWS.EKS do
 
       fargate_profile_issue() :: %{
         "code" => list(any()),
-        "message" => String.t() | Atom.t(),
-        "resourceIds" => list(String.t() | Atom.t())
+        "message" => String.t() | atom(),
+        "resourceIds" => list(String.t() | atom())
       }
 
   """
-  @type fargate_profile_issue() :: %{String.t() | Atom.t() => any()}
+  @type fargate_profile_issue() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -834,54 +834,54 @@ defmodule AWS.EKS do
 
       compute_config_request() :: %{
         "enabled" => boolean(),
-        "nodePools" => list(String.t() | Atom.t()),
-        "nodeRoleArn" => String.t() | Atom.t()
+        "nodePools" => list(String.t() | atom()),
+        "nodeRoleArn" => String.t() | atom()
       }
 
   """
-  @type compute_config_request() :: %{String.t() | Atom.t() => any()}
+  @type compute_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_addon_versions_request() :: %{
-        optional("addonName") => String.t() | Atom.t(),
-        optional("kubernetesVersion") => String.t() | Atom.t(),
+        optional("addonName") => String.t() | atom(),
+        optional("kubernetesVersion") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("owners") => list(String.t() | Atom.t()),
-        optional("publishers") => list(String.t() | Atom.t()),
-        optional("types") => list(String.t() | Atom.t())
+        optional("nextToken") => String.t() | atom(),
+        optional("owners") => list(String.t() | atom()),
+        optional("publishers") => list(String.t() | atom()),
+        optional("types") => list(String.t() | atom())
       }
 
   """
-  @type describe_addon_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_addon_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       addon() :: %{
-        "addonArn" => String.t() | Atom.t(),
-        "addonName" => String.t() | Atom.t(),
-        "addonVersion" => String.t() | Atom.t(),
-        "clusterName" => String.t() | Atom.t(),
-        "configurationValues" => String.t() | Atom.t(),
+        "addonArn" => String.t() | atom(),
+        "addonName" => String.t() | atom(),
+        "addonVersion" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "configurationValues" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "health" => addon_health(),
         "marketplaceInformation" => marketplace_information(),
         "modifiedAt" => non_neg_integer(),
-        "owner" => String.t() | Atom.t(),
-        "podIdentityAssociations" => list(String.t() | Atom.t()),
-        "publisher" => String.t() | Atom.t(),
-        "serviceAccountRoleArn" => String.t() | Atom.t(),
+        "owner" => String.t() | atom(),
+        "podIdentityAssociations" => list(String.t() | atom()),
+        "publisher" => String.t() | atom(),
+        "serviceAccountRoleArn" => String.t() | atom(),
         "status" => list(any()),
         "tags" => map()
       }
 
   """
-  @type addon() :: %{String.t() | Atom.t() => any()}
+  @type addon() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -893,26 +893,26 @@ defmodule AWS.EKS do
       }
 
   """
-  @type update_taints_payload() :: %{String.t() | Atom.t() => any()}
+  @type update_taints_payload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_entry() :: %{
-        "accessEntryArn" => String.t() | Atom.t(),
-        "clusterName" => String.t() | Atom.t(),
+        "accessEntryArn" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "kubernetesGroups" => list(String.t() | Atom.t()),
+        "kubernetesGroups" => list(String.t() | atom()),
         "modifiedAt" => non_neg_integer(),
-        "principalArn" => String.t() | Atom.t(),
+        "principalArn" => String.t() | atom(),
         "tags" => map(),
-        "type" => String.t() | Atom.t(),
-        "username" => String.t() | Atom.t()
+        "type" => String.t() | atom(),
+        "username" => String.t() | atom()
       }
 
   """
-  @type access_entry() :: %{String.t() | Atom.t() => any()}
+  @type access_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -928,11 +928,11 @@ defmodule AWS.EKS do
   ## Example:
 
       provider() :: %{
-        "keyArn" => String.t() | Atom.t()
+        "keyArn" => String.t() | atom()
       }
 
   """
-  @type provider() :: %{String.t() | Atom.t() => any()}
+  @type provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -944,7 +944,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type eks_anywhere_subscription_term() :: %{String.t() | Atom.t() => any()}
+  @type eks_anywhere_subscription_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -955,7 +955,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type update_access_entry_response() :: %{String.t() | Atom.t() => any()}
+  @type update_access_entry_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -963,16 +963,16 @@ defmodule AWS.EKS do
 
       create_eks_anywhere_subscription_request() :: %{
         optional("autoRenew") => boolean(),
-        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("licenseQuantity") => integer(),
         optional("licenseType") => list(any()),
         optional("tags") => map(),
-        required("name") => String.t() | Atom.t(),
+        required("name") => String.t() | atom(),
         required("term") => eks_anywhere_subscription_term()
       }
 
   """
-  @type create_eks_anywhere_subscription_request() :: %{String.t() | Atom.t() => any()}
+  @type create_eks_anywhere_subscription_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -983,7 +983,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type zonal_shift_config_request() :: %{String.t() | Atom.t() => any()}
+  @type zonal_shift_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -992,7 +992,7 @@ defmodule AWS.EKS do
       create_cluster_request() :: %{
         optional("accessConfig") => create_access_config_request(),
         optional("bootstrapSelfManagedAddons") => boolean(),
-        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("computeConfig") => compute_config_request(),
         optional("encryptionConfig") => list(encryption_config()),
         optional("kubernetesNetworkConfig") => kubernetes_network_config_request(),
@@ -1002,15 +1002,15 @@ defmodule AWS.EKS do
         optional("storageConfig") => storage_config_request(),
         optional("tags") => map(),
         optional("upgradePolicy") => upgrade_policy_request(),
-        optional("version") => String.t() | Atom.t(),
+        optional("version") => String.t() | atom(),
         optional("zonalShiftConfig") => zonal_shift_config_request(),
-        required("name") => String.t() | Atom.t(),
+        required("name") => String.t() | atom(),
         required("resourcesVpcConfig") => vpc_config_request(),
-        required("roleArn") => String.t() | Atom.t()
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type create_cluster_request() :: %{String.t() | Atom.t() => any()}
+  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1019,14 +1019,14 @@ defmodule AWS.EKS do
       update() :: %{
         "createdAt" => non_neg_integer(),
         "errors" => list(error_detail()),
-        "id" => String.t() | Atom.t(),
+        "id" => String.t() | atom(),
         "params" => list(update_param()),
         "status" => list(any()),
         "type" => list(any())
       }
 
   """
-  @type update() :: %{String.t() | Atom.t() => any()}
+  @type update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1034,12 +1034,12 @@ defmodule AWS.EKS do
 
       insights_filter() :: %{
         "categories" => list(list(any())()),
-        "kubernetesVersions" => list(String.t() | Atom.t()),
+        "kubernetesVersions" => list(String.t() | atom()),
         "statuses" => list(list(any())())
       }
 
   """
-  @type insights_filter() :: %{String.t() | Atom.t() => any()}
+  @type insights_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1050,54 +1050,54 @@ defmodule AWS.EKS do
       }
 
   """
-  @type associate_encryption_config_response() :: %{String.t() | Atom.t() => any()}
+  @type associate_encryption_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       client_exception() :: %{
-        "addonName" => String.t() | Atom.t(),
-        "clusterName" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "nodegroupName" => String.t() | Atom.t(),
-        "subscriptionId" => String.t() | Atom.t()
+        "addonName" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "nodegroupName" => String.t() | atom(),
+        "subscriptionId" => String.t() | atom()
       }
 
   """
-  @type client_exception() :: %{String.t() | Atom.t() => any()}
+  @type client_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "addonName" => String.t() | Atom.t(),
-        "clusterName" => String.t() | Atom.t(),
-        "fargateProfileName" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "nodegroupName" => String.t() | Atom.t(),
-        "subscriptionId" => String.t() | Atom.t()
+        "addonName" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "fargateProfileName" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "nodegroupName" => String.t() | atom(),
+        "subscriptionId" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_addon_request() :: %{
-        optional("addonVersion") => String.t() | Atom.t(),
-        optional("clientRequestToken") => String.t() | Atom.t(),
-        optional("configurationValues") => String.t() | Atom.t(),
+        optional("addonVersion") => String.t() | atom(),
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("configurationValues") => String.t() | atom(),
         optional("podIdentityAssociations") => list(addon_pod_identity_associations()),
         optional("resolveConflicts") => list(any()),
-        optional("serviceAccountRoleArn") => String.t() | Atom.t()
+        optional("serviceAccountRoleArn") => String.t() | atom()
       }
 
   """
-  @type update_addon_request() :: %{String.t() | Atom.t() => any()}
+  @type update_addon_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1108,20 +1108,20 @@ defmodule AWS.EKS do
       }
 
   """
-  @type update_pod_identity_association_response() :: %{String.t() | Atom.t() => any()}
+  @type update_pod_identity_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       outpost_config_request() :: %{
-        "controlPlaneInstanceType" => String.t() | Atom.t(),
+        "controlPlaneInstanceType" => String.t() | atom(),
         "controlPlanePlacement" => control_plane_placement_request(),
-        "outpostArns" => list(String.t() | Atom.t())
+        "outpostArns" => list(String.t() | atom())
       }
 
   """
-  @type outpost_config_request() :: %{String.t() | Atom.t() => any()}
+  @type outpost_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1132,25 +1132,25 @@ defmodule AWS.EKS do
       }
 
   """
-  @type describe_fargate_profile_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_fargate_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_cluster_versions_request() :: %{
-        optional("clusterType") => String.t() | Atom.t(),
-        optional("clusterVersions") => list(String.t() | Atom.t()),
+        optional("clusterType") => String.t() | atom(),
+        optional("clusterVersions") => list(String.t() | atom()),
         optional("defaultOnly") => boolean(),
         optional("includeAll") => boolean(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("status") => list(any()),
         optional("versionStatus") => list(any())
       }
 
   """
-  @type describe_cluster_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_cluster_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1158,29 +1158,29 @@ defmodule AWS.EKS do
 
       deprecation_detail() :: %{
         "clientStats" => list(client_stat()),
-        "replacedWith" => String.t() | Atom.t(),
-        "startServingReplacementVersion" => String.t() | Atom.t(),
-        "stopServingVersion" => String.t() | Atom.t(),
-        "usage" => String.t() | Atom.t()
+        "replacedWith" => String.t() | atom(),
+        "startServingReplacementVersion" => String.t() | atom(),
+        "stopServingVersion" => String.t() | atom(),
+        "usage" => String.t() | atom()
       }
 
   """
-  @type deprecation_detail() :: %{String.t() | Atom.t() => any()}
+  @type deprecation_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "addonName" => String.t() | Atom.t(),
-        "clusterName" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "nodegroupName" => String.t() | Atom.t(),
-        "subscriptionId" => String.t() | Atom.t()
+        "addonName" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "nodegroupName" => String.t() | atom(),
+        "subscriptionId" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1191,7 +1191,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type zonal_shift_config_response() :: %{String.t() | Atom.t() => any()}
+  @type zonal_shift_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1202,19 +1202,19 @@ defmodule AWS.EKS do
       }
 
   """
-  @type upgrade_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type upgrade_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_encryption_config_request() :: %{
-        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         required("encryptionConfig") => list(encryption_config())
       }
 
   """
-  @type associate_encryption_config_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_encryption_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1222,12 +1222,12 @@ defmodule AWS.EKS do
 
       issue() :: %{
         "code" => list(any()),
-        "message" => String.t() | Atom.t(),
-        "resourceIds" => list(String.t() | Atom.t())
+        "message" => String.t() | atom(),
+        "resourceIds" => list(String.t() | atom())
       }
 
   """
-  @type issue() :: %{String.t() | Atom.t() => any()}
+  @type issue() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1238,7 +1238,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type create_eks_anywhere_subscription_response() :: %{String.t() | Atom.t() => any()}
+  @type create_eks_anywhere_subscription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1246,35 +1246,35 @@ defmodule AWS.EKS do
 
       cluster() :: %{
         "accessConfig" => access_config_response(),
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "certificateAuthority" => certificate(),
-        "clientRequestToken" => String.t() | Atom.t(),
+        "clientRequestToken" => String.t() | atom(),
         "computeConfig" => compute_config_response(),
         "connectorConfig" => connector_config_response(),
         "createdAt" => non_neg_integer(),
         "encryptionConfig" => list(encryption_config()),
-        "endpoint" => String.t() | Atom.t(),
+        "endpoint" => String.t() | atom(),
         "health" => cluster_health(),
-        "id" => String.t() | Atom.t(),
+        "id" => String.t() | atom(),
         "identity" => identity(),
         "kubernetesNetworkConfig" => kubernetes_network_config_response(),
         "logging" => logging(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "outpostConfig" => outpost_config_response(),
-        "platformVersion" => String.t() | Atom.t(),
+        "platformVersion" => String.t() | atom(),
         "remoteNetworkConfig" => remote_network_config_response(),
         "resourcesVpcConfig" => vpc_config_response(),
-        "roleArn" => String.t() | Atom.t(),
+        "roleArn" => String.t() | atom(),
         "status" => list(any()),
         "storageConfig" => storage_config_response(),
         "tags" => map(),
         "upgradePolicy" => upgrade_policy_response(),
-        "version" => String.t() | Atom.t(),
+        "version" => String.t() | atom(),
         "zonalShiftConfig" => zonal_shift_config_response()
       }
 
   """
-  @type cluster() :: %{String.t() | Atom.t() => any()}
+  @type cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1285,33 +1285,33 @@ defmodule AWS.EKS do
       }
 
   """
-  @type update_cluster_config_response() :: %{String.t() | Atom.t() => any()}
+  @type update_cluster_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_pod_identity_association_request() :: %{
-        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("disableSessionTags") => boolean(),
-        optional("roleArn") => String.t() | Atom.t(),
-        optional("targetRoleArn") => String.t() | Atom.t()
+        optional("roleArn") => String.t() | atom(),
+        optional("targetRoleArn") => String.t() | atom()
       }
 
   """
-  @type update_pod_identity_association_request() :: %{String.t() | Atom.t() => any()}
+  @type update_pod_identity_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_updates_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
-        "updateIds" => list(String.t() | Atom.t())
+        "nextToken" => String.t() | atom(),
+        "updateIds" => list(String.t() | atom())
       }
 
   """
-  @type list_updates_response() :: %{String.t() | Atom.t() => any()}
+  @type list_updates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1319,11 +1319,11 @@ defmodule AWS.EKS do
 
       describe_addon_versions_response() :: %{
         "addons" => list(addon_info()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type describe_addon_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_addon_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1335,46 +1335,46 @@ defmodule AWS.EKS do
       }
 
   """
-  @type access_config_response() :: %{String.t() | Atom.t() => any()}
+  @type access_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_limit_exceeded_exception() :: %{
-        "clusterName" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "nodegroupName" => String.t() | Atom.t(),
-        "subscriptionId" => String.t() | Atom.t()
+        "clusterName" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "nodegroupName" => String.t() | atom(),
+        "subscriptionId" => String.t() | atom()
       }
 
   """
-  @type resource_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_updates_request() :: %{
-        optional("addonName") => String.t() | Atom.t(),
+        optional("addonName") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("nodegroupName") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("nodegroupName") => String.t() | atom()
       }
 
   """
-  @type list_updates_request() :: %{String.t() | Atom.t() => any()}
+  @type list_updates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1382,11 +1382,11 @@ defmodule AWS.EKS do
 
       describe_cluster_versions_response() :: %{
         "clusterVersions" => list(cluster_version_information()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type describe_cluster_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_cluster_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1397,25 +1397,25 @@ defmodule AWS.EKS do
       }
 
   """
-  @type fargate_profile_health() :: %{String.t() | Atom.t() => any()}
+  @type fargate_profile_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_addon_request() :: %{
-        optional("addonVersion") => String.t() | Atom.t(),
-        optional("clientRequestToken") => String.t() | Atom.t(),
-        optional("configurationValues") => String.t() | Atom.t(),
+        optional("addonVersion") => String.t() | atom(),
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("configurationValues") => String.t() | atom(),
         optional("podIdentityAssociations") => list(addon_pod_identity_associations()),
         optional("resolveConflicts") => list(any()),
-        optional("serviceAccountRoleArn") => String.t() | Atom.t(),
+        optional("serviceAccountRoleArn") => String.t() | atom(),
         optional("tags") => map(),
-        required("addonName") => String.t() | Atom.t()
+        required("addonName") => String.t() | atom()
       }
 
   """
-  @type create_addon_request() :: %{String.t() | Atom.t() => any()}
+  @type create_addon_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1427,19 +1427,19 @@ defmodule AWS.EKS do
       }
 
   """
-  @type remote_network_config_response() :: %{String.t() | Atom.t() => any()}
+  @type remote_network_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_addon_configuration_request() :: %{
-        required("addonName") => String.t() | Atom.t(),
-        required("addonVersion") => String.t() | Atom.t()
+        required("addonName") => String.t() | atom(),
+        required("addonVersion") => String.t() | atom()
       }
 
   """
-  @type describe_addon_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_addon_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1459,7 +1459,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type describe_access_entry_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_access_entry_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1470,7 +1470,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1481,7 +1481,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type delete_pod_identity_association_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_pod_identity_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1498,11 +1498,11 @@ defmodule AWS.EKS do
 
       list_nodegroups_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_nodegroups_request() :: %{String.t() | Atom.t() => any()}
+  @type list_nodegroups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1511,53 +1511,53 @@ defmodule AWS.EKS do
       vpc_config_request() :: %{
         "endpointPrivateAccess" => boolean(),
         "endpointPublicAccess" => boolean(),
-        "publicAccessCidrs" => list(String.t() | Atom.t()),
-        "securityGroupIds" => list(String.t() | Atom.t()),
-        "subnetIds" => list(String.t() | Atom.t())
+        "publicAccessCidrs" => list(String.t() | atom()),
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom())
       }
 
   """
-  @type vpc_config_request() :: %{String.t() | Atom.t() => any()}
+  @type vpc_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pod_identity_association_summary() :: %{
-        "associationArn" => String.t() | Atom.t(),
-        "associationId" => String.t() | Atom.t(),
-        "clusterName" => String.t() | Atom.t(),
-        "namespace" => String.t() | Atom.t(),
-        "ownerArn" => String.t() | Atom.t(),
-        "serviceAccount" => String.t() | Atom.t()
+        "associationArn" => String.t() | atom(),
+        "associationId" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "namespace" => String.t() | atom(),
+        "ownerArn" => String.t() | atom(),
+        "serviceAccount" => String.t() | atom()
       }
 
   """
-  @type pod_identity_association_summary() :: %{String.t() | Atom.t() => any()}
+  @type pod_identity_association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_identity_provider_config_request() :: %{
-        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("tags") => map(),
         required("oidc") => oidc_identity_provider_config_request()
       }
 
   """
-  @type associate_identity_provider_config_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_identity_provider_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1568,42 +1568,42 @@ defmodule AWS.EKS do
       }
 
   """
-  @type create_nodegroup_response() :: %{String.t() | Atom.t() => any()}
+  @type create_nodegroup_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_identity_provider_config_request() :: %{
-        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         required("identityProviderConfig") => identity_provider_config()
       }
 
   """
-  @type disassociate_identity_provider_config_request() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_identity_provider_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       o_id_c() :: %{
-        "issuer" => String.t() | Atom.t()
+        "issuer" => String.t() | atom()
       }
 
   """
-  @type o_id_c() :: %{String.t() | Atom.t() => any()}
+  @type o_id_c() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_clusters_response() :: %{
-        "clusters" => list(String.t() | Atom.t()),
-        "nextToken" => String.t() | Atom.t()
+        "clusters" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_clusters_response() :: %{String.t() | Atom.t() => any()}
+  @type list_clusters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1614,19 +1614,19 @@ defmodule AWS.EKS do
       }
 
   """
-  @type delete_cluster_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_fargate_profiles_response() :: %{
-        "fargateProfileNames" => list(String.t() | Atom.t()),
-        "nextToken" => String.t() | Atom.t()
+        "fargateProfileNames" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_fargate_profiles_response() :: %{String.t() | Atom.t() => any()}
+  @type list_fargate_profiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1637,7 +1637,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type node_repair_config() :: %{String.t() | Atom.t() => any()}
+  @type node_repair_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1657,7 +1657,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type block_storage() :: %{String.t() | Atom.t() => any()}
+  @type block_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1668,7 +1668,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type upgrade_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type upgrade_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1676,12 +1676,12 @@ defmodule AWS.EKS do
 
       associate_access_policy_response() :: %{
         "associatedAccessPolicy" => associated_access_policy(),
-        "clusterName" => String.t() | Atom.t(),
-        "principalArn" => String.t() | Atom.t()
+        "clusterName" => String.t() | atom(),
+        "principalArn" => String.t() | atom()
       }
 
   """
-  @type associate_access_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type associate_access_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1692,20 +1692,20 @@ defmodule AWS.EKS do
       }
 
   """
-  @type update_addon_response() :: %{String.t() | Atom.t() => any()}
+  @type update_addon_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_clusters_request() :: %{
-        optional("include") => list(String.t() | Atom.t()),
+        optional("include") => list(String.t() | atom()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_clusters_request() :: %{String.t() | Atom.t() => any()}
+  @type list_clusters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1716,7 +1716,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type update_nodegroup_config_response() :: %{String.t() | Atom.t() => any()}
+  @type update_nodegroup_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1727,7 +1727,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type update_nodegroup_version_response() :: %{String.t() | Atom.t() => any()}
+  @type update_nodegroup_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1736,58 +1736,58 @@ defmodule AWS.EKS do
       kubernetes_network_config_request() :: %{
         "elasticLoadBalancing" => elastic_load_balancing(),
         "ipFamily" => list(any()),
-        "serviceIpv4Cidr" => String.t() | Atom.t()
+        "serviceIpv4Cidr" => String.t() | atom()
       }
 
   """
-  @type kubernetes_network_config_request() :: %{String.t() | Atom.t() => any()}
+  @type kubernetes_network_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       control_plane_placement_request() :: %{
-        "groupName" => String.t() | Atom.t()
+        "groupName" => String.t() | atom()
       }
 
   """
-  @type control_plane_placement_request() :: %{String.t() | Atom.t() => any()}
+  @type control_plane_placement_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       certificate() :: %{
-        "data" => String.t() | Atom.t()
+        "data" => String.t() | atom()
       }
 
   """
-  @type certificate() :: %{String.t() | Atom.t() => any()}
+  @type certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       marketplace_information() :: %{
-        "productId" => String.t() | Atom.t(),
-        "productUrl" => String.t() | Atom.t()
+        "productId" => String.t() | atom(),
+        "productUrl" => String.t() | atom()
       }
 
   """
-  @type marketplace_information() :: %{String.t() | Atom.t() => any()}
+  @type marketplace_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       insight_resource_detail() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "insightStatus" => insight_status(),
-        "kubernetesResourceUri" => String.t() | Atom.t()
+        "kubernetesResourceUri" => String.t() | atom()
       }
 
   """
-  @type insight_resource_detail() :: %{String.t() | Atom.t() => any()}
+  @type insight_resource_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1798,7 +1798,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type create_access_entry_response() :: %{String.t() | Atom.t() => any()}
+  @type create_access_entry_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1808,11 +1808,11 @@ defmodule AWS.EKS do
         "accessScope" => access_scope(),
         "associatedAt" => non_neg_integer(),
         "modifiedAt" => non_neg_integer(),
-        "policyArn" => String.t() | Atom.t()
+        "policyArn" => String.t() | atom()
       }
 
   """
-  @type associated_access_policy() :: %{String.t() | Atom.t() => any()}
+  @type associated_access_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1832,35 +1832,35 @@ defmodule AWS.EKS do
       }
 
   """
-  @type delete_eks_anywhere_subscription_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_eks_anywhere_subscription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_fargate_profile_request() :: %{
-        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("selectors") => list(fargate_profile_selector()),
-        optional("subnets") => list(String.t() | Atom.t()),
+        optional("subnets") => list(String.t() | atom()),
         optional("tags") => map(),
-        required("fargateProfileName") => String.t() | Atom.t(),
-        required("podExecutionRoleArn") => String.t() | Atom.t()
+        required("fargateProfileName") => String.t() | atom(),
+        required("podExecutionRoleArn") => String.t() | atom()
       }
 
   """
-  @type create_fargate_profile_request() :: %{String.t() | Atom.t() => any()}
+  @type create_fargate_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_eks_anywhere_subscription_request() :: %{
-        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         required("autoRenew") => boolean()
       }
 
   """
-  @type update_eks_anywhere_subscription_request() :: %{String.t() | Atom.t() => any()}
+  @type update_eks_anywhere_subscription_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1868,12 +1868,12 @@ defmodule AWS.EKS do
 
       error_detail() :: %{
         "errorCode" => list(any()),
-        "errorMessage" => String.t() | Atom.t(),
-        "resourceIds" => list(String.t() | Atom.t())
+        "errorMessage" => String.t() | atom(),
+        "resourceIds" => list(String.t() | atom())
       }
 
   """
-  @type error_detail() :: %{String.t() | Atom.t() => any()}
+  @type error_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1881,61 +1881,61 @@ defmodule AWS.EKS do
 
       update_param() :: %{
         "type" => list(any()),
-        "value" => String.t() | Atom.t()
+        "value" => String.t() | atom()
       }
 
   """
-  @type update_param() :: %{String.t() | Atom.t() => any()}
+  @type update_param() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       eks_anywhere_subscription() :: %{
-        "arn" => String.t() | Atom.t(),
+        "arn" => String.t() | atom(),
         "autoRenew" => boolean(),
         "createdAt" => non_neg_integer(),
         "effectiveDate" => non_neg_integer(),
         "expirationDate" => non_neg_integer(),
-        "id" => String.t() | Atom.t(),
-        "licenseArns" => list(String.t() | Atom.t()),
+        "id" => String.t() | atom(),
+        "licenseArns" => list(String.t() | atom()),
         "licenseQuantity" => integer(),
         "licenseType" => list(any()),
         "licenses" => list(license()),
-        "status" => String.t() | Atom.t(),
+        "status" => String.t() | atom(),
         "tags" => map(),
         "term" => eks_anywhere_subscription_term()
       }
 
   """
-  @type eks_anywhere_subscription() :: %{String.t() | Atom.t() => any()}
+  @type eks_anywhere_subscription() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_exception() :: %{
-        "addonName" => String.t() | Atom.t(),
-        "clusterName" => String.t() | Atom.t(),
-        "fargateProfileName" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "nodegroupName" => String.t() | Atom.t(),
-        "subscriptionId" => String.t() | Atom.t()
+        "addonName" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "fargateProfileName" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "nodegroupName" => String.t() | atom(),
+        "subscriptionId" => String.t() | atom()
       }
 
   """
-  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1946,7 +1946,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type storage_config_request() :: %{String.t() | Atom.t() => any()}
+  @type storage_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1966,7 +1966,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type cluster_health() :: %{String.t() | Atom.t() => any()}
+  @type cluster_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1982,12 +1982,12 @@ defmodule AWS.EKS do
   ## Example:
 
       remote_access_config() :: %{
-        "ec2SshKey" => String.t() | Atom.t(),
-        "sourceSecurityGroups" => list(String.t() | Atom.t())
+        "ec2SshKey" => String.t() | atom(),
+        "sourceSecurityGroups" => list(String.t() | atom())
       }
 
   """
-  @type remote_access_config() :: %{String.t() | Atom.t() => any()}
+  @type remote_access_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1995,11 +1995,11 @@ defmodule AWS.EKS do
 
       list_identity_provider_configs_response() :: %{
         "identityProviderConfigs" => list(identity_provider_config()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_identity_provider_configs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_identity_provider_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2007,45 +2007,45 @@ defmodule AWS.EKS do
 
       list_associated_access_policies_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_associated_access_policies_request() :: %{String.t() | Atom.t() => any()}
+  @type list_associated_access_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       oidc_identity_provider_config_request() :: %{
-        "clientId" => String.t() | Atom.t(),
-        "groupsClaim" => String.t() | Atom.t(),
-        "groupsPrefix" => String.t() | Atom.t(),
-        "identityProviderConfigName" => String.t() | Atom.t(),
-        "issuerUrl" => String.t() | Atom.t(),
+        "clientId" => String.t() | atom(),
+        "groupsClaim" => String.t() | atom(),
+        "groupsPrefix" => String.t() | atom(),
+        "identityProviderConfigName" => String.t() | atom(),
+        "issuerUrl" => String.t() | atom(),
         "requiredClaims" => map(),
-        "usernameClaim" => String.t() | Atom.t(),
-        "usernamePrefix" => String.t() | Atom.t()
+        "usernameClaim" => String.t() | atom(),
+        "usernamePrefix" => String.t() | atom()
       }
 
   """
-  @type oidc_identity_provider_config_request() :: %{String.t() | Atom.t() => any()}
+  @type oidc_identity_provider_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_access_entry_request() :: %{
-        optional("clientRequestToken") => String.t() | Atom.t(),
-        optional("kubernetesGroups") => list(String.t() | Atom.t()),
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("kubernetesGroups") => list(String.t() | atom()),
         optional("tags") => map(),
-        optional("type") => String.t() | Atom.t(),
-        optional("username") => String.t() | Atom.t(),
-        required("principalArn") => String.t() | Atom.t()
+        optional("type") => String.t() | atom(),
+        optional("username") => String.t() | atom(),
+        required("principalArn") => String.t() | atom()
       }
 
   """
-  @type create_access_entry_request() :: %{String.t() | Atom.t() => any()}
+  @type create_access_entry_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2053,23 +2053,23 @@ defmodule AWS.EKS do
 
       taint() :: %{
         "effect" => list(any()),
-        "key" => String.t() | Atom.t(),
-        "value" => String.t() | Atom.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type taint() :: %{String.t() | Atom.t() => any()}
+  @type taint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       auto_scaling_group() :: %{
-        "name" => String.t() | Atom.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type auto_scaling_group() :: %{String.t() | Atom.t() => any()}
+  @type auto_scaling_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2089,41 +2089,41 @@ defmodule AWS.EKS do
       }
 
   """
-  @type addon_health() :: %{String.t() | Atom.t() => any()}
+  @type addon_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_update_request() :: %{
-        optional("addonName") => String.t() | Atom.t(),
-        optional("nodegroupName") => String.t() | Atom.t()
+        optional("addonName") => String.t() | atom(),
+        optional("nodegroupName") => String.t() | atom()
       }
 
   """
-  @type describe_update_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_update_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       oidc_identity_provider_config() :: %{
-        "clientId" => String.t() | Atom.t(),
-        "clusterName" => String.t() | Atom.t(),
-        "groupsClaim" => String.t() | Atom.t(),
-        "groupsPrefix" => String.t() | Atom.t(),
-        "identityProviderConfigArn" => String.t() | Atom.t(),
-        "identityProviderConfigName" => String.t() | Atom.t(),
-        "issuerUrl" => String.t() | Atom.t(),
+        "clientId" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "groupsClaim" => String.t() | atom(),
+        "groupsPrefix" => String.t() | atom(),
+        "identityProviderConfigArn" => String.t() | atom(),
+        "identityProviderConfigName" => String.t() | atom(),
+        "issuerUrl" => String.t() | atom(),
         "requiredClaims" => map(),
         "status" => list(any()),
         "tags" => map(),
-        "usernameClaim" => String.t() | Atom.t(),
-        "usernamePrefix" => String.t() | Atom.t()
+        "usernameClaim" => String.t() | atom(),
+        "usernamePrefix" => String.t() | atom()
       }
 
   """
-  @type oidc_identity_provider_config() :: %{String.t() | Atom.t() => any()}
+  @type oidc_identity_provider_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2134,22 +2134,22 @@ defmodule AWS.EKS do
       }
 
   """
-  @type nodegroup_health() :: %{String.t() | Atom.t() => any()}
+  @type nodegroup_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_nodegroup_version_request() :: %{
-        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("force") => boolean(),
         optional("launchTemplate") => launch_template_specification(),
-        optional("releaseVersion") => String.t() | Atom.t(),
-        optional("version") => String.t() | Atom.t()
+        optional("releaseVersion") => String.t() | atom(),
+        optional("version") => String.t() | atom()
       }
 
   """
-  @type update_nodegroup_version_request() :: %{String.t() | Atom.t() => any()}
+  @type update_nodegroup_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2157,11 +2157,11 @@ defmodule AWS.EKS do
 
       connector_config_request() :: %{
         "provider" => list(any()),
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type connector_config_request() :: %{String.t() | Atom.t() => any()}
+  @type connector_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2181,7 +2181,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type delete_nodegroup_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_nodegroup_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2190,38 +2190,38 @@ defmodule AWS.EKS do
       client_stat() :: %{
         "lastRequestTime" => non_neg_integer(),
         "numberOfRequestsLast30Days" => integer(),
-        "userAgent" => String.t() | Atom.t()
+        "userAgent" => String.t() | atom()
       }
 
   """
-  @type client_stat() :: %{String.t() | Atom.t() => any()}
+  @type client_stat() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "clusterName" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "clusterName" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_config_response() :: %{
-        "activationCode" => String.t() | Atom.t(),
+        "activationCode" => String.t() | atom(),
         "activationExpiry" => non_neg_integer(),
-        "activationId" => String.t() | Atom.t(),
-        "provider" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t()
+        "activationId" => String.t() | atom(),
+        "provider" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type connector_config_response() :: %{String.t() | Atom.t() => any()}
+  @type connector_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2232,7 +2232,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type storage_config_response() :: %{String.t() | Atom.t() => any()}
+  @type storage_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2240,11 +2240,11 @@ defmodule AWS.EKS do
 
       nodegroup_resources() :: %{
         "autoScalingGroups" => list(auto_scaling_group()),
-        "remoteAccessSecurityGroup" => String.t() | Atom.t()
+        "remoteAccessSecurityGroup" => String.t() | atom()
       }
 
   """
-  @type nodegroup_resources() :: %{String.t() | Atom.t() => any()}
+  @type nodegroup_resources() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2255,22 +2255,22 @@ defmodule AWS.EKS do
       }
 
   """
-  @type disassociate_identity_provider_config_response() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_identity_provider_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       server_exception() :: %{
-        "addonName" => String.t() | Atom.t(),
-        "clusterName" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t(),
-        "nodegroupName" => String.t() | Atom.t(),
-        "subscriptionId" => String.t() | Atom.t()
+        "addonName" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "nodegroupName" => String.t() | atom(),
+        "subscriptionId" => String.t() | atom()
       }
 
   """
-  @type server_exception() :: %{String.t() | Atom.t() => any()}
+  @type server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2279,32 +2279,32 @@ defmodule AWS.EKS do
       kubernetes_network_config_response() :: %{
         "elasticLoadBalancing" => elastic_load_balancing(),
         "ipFamily" => list(any()),
-        "serviceIpv4Cidr" => String.t() | Atom.t(),
-        "serviceIpv6Cidr" => String.t() | Atom.t()
+        "serviceIpv4Cidr" => String.t() | atom(),
+        "serviceIpv6Cidr" => String.t() | atom()
       }
 
   """
-  @type kubernetes_network_config_response() :: %{String.t() | Atom.t() => any()}
+  @type kubernetes_network_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       fargate_profile() :: %{
-        "clusterName" => String.t() | Atom.t(),
+        "clusterName" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "fargateProfileArn" => String.t() | Atom.t(),
-        "fargateProfileName" => String.t() | Atom.t(),
+        "fargateProfileArn" => String.t() | atom(),
+        "fargateProfileName" => String.t() | atom(),
         "health" => fargate_profile_health(),
-        "podExecutionRoleArn" => String.t() | Atom.t(),
+        "podExecutionRoleArn" => String.t() | atom(),
         "selectors" => list(fargate_profile_selector()),
         "status" => list(any()),
-        "subnets" => list(String.t() | Atom.t()),
+        "subnets" => list(String.t() | atom()),
         "tags" => map()
       }
 
   """
-  @type fargate_profile() :: %{String.t() | Atom.t() => any()}
+  @type fargate_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2315,35 +2315,35 @@ defmodule AWS.EKS do
       }
 
   """
-  @type update_access_config_request() :: %{String.t() | Atom.t() => any()}
+  @type update_access_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       addon_info() :: %{
-        "addonName" => String.t() | Atom.t(),
+        "addonName" => String.t() | atom(),
         "addonVersions" => list(addon_version_info()),
         "marketplaceInformation" => marketplace_information(),
-        "owner" => String.t() | Atom.t(),
-        "publisher" => String.t() | Atom.t(),
-        "type" => String.t() | Atom.t()
+        "owner" => String.t() | atom(),
+        "publisher" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type addon_info() :: %{String.t() | Atom.t() => any()}
+  @type addon_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_eks_anywhere_subscriptions_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "subscriptions" => list(eks_anywhere_subscription())
       }
 
   """
-  @type list_eks_anywhere_subscriptions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_eks_anywhere_subscriptions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2351,24 +2351,24 @@ defmodule AWS.EKS do
 
       list_pod_identity_associations_request() :: %{
         optional("maxResults") => integer(),
-        optional("namespace") => String.t() | Atom.t(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("serviceAccount") => String.t() | Atom.t()
+        optional("namespace") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("serviceAccount") => String.t() | atom()
       }
 
   """
-  @type list_pod_identity_associations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_pod_identity_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       remote_node_network() :: %{
-        "cidrs" => list(String.t() | Atom.t())
+        "cidrs" => list(String.t() | atom())
       }
 
   """
-  @type remote_node_network() :: %{String.t() | Atom.t() => any()}
+  @type remote_node_network() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2379,7 +2379,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type update_cluster_version_response() :: %{String.t() | Atom.t() => any()}
+  @type update_cluster_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2387,52 +2387,52 @@ defmodule AWS.EKS do
 
       associate_access_policy_request() :: %{
         required("accessScope") => access_scope(),
-        required("policyArn") => String.t() | Atom.t()
+        required("policyArn") => String.t() | atom()
       }
 
   """
-  @type associate_access_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_access_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       launch_template_specification() :: %{
-        "id" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "version" => String.t() | Atom.t()
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type launch_template_specification() :: %{String.t() | Atom.t() => any()}
+  @type launch_template_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_config_response() :: %{
-        "clusterSecurityGroupId" => String.t() | Atom.t(),
+        "clusterSecurityGroupId" => String.t() | atom(),
         "endpointPrivateAccess" => boolean(),
         "endpointPublicAccess" => boolean(),
-        "publicAccessCidrs" => list(String.t() | Atom.t()),
-        "securityGroupIds" => list(String.t() | Atom.t()),
-        "subnetIds" => list(String.t() | Atom.t()),
-        "vpcId" => String.t() | Atom.t()
+        "publicAccessCidrs" => list(String.t() | atom()),
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
       }
 
   """
-  @type vpc_config_response() :: %{String.t() | Atom.t() => any()}
+  @type vpc_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2443,7 +2443,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type update_eks_anywhere_subscription_response() :: %{String.t() | Atom.t() => any()}
+  @type update_eks_anywhere_subscription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2451,11 +2451,11 @@ defmodule AWS.EKS do
 
       list_fargate_profiles_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_fargate_profiles_request() :: %{String.t() | Atom.t() => any()}
+  @type list_fargate_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2483,19 +2483,19 @@ defmodule AWS.EKS do
         "additionalInfo" => map(),
         "category" => list(any()),
         "categorySpecificSummary" => insight_category_specific_summary(),
-        "description" => String.t() | Atom.t(),
-        "id" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "insightStatus" => insight_status(),
-        "kubernetesVersion" => String.t() | Atom.t(),
+        "kubernetesVersion" => String.t() | atom(),
         "lastRefreshTime" => non_neg_integer(),
         "lastTransitionTime" => non_neg_integer(),
-        "name" => String.t() | Atom.t(),
-        "recommendation" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
+        "recommendation" => String.t() | atom(),
         "resources" => list(insight_resource_detail())
       }
 
   """
-  @type insight() :: %{String.t() | Atom.t() => any()}
+  @type insight() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2503,7 +2503,7 @@ defmodule AWS.EKS do
 
       update_cluster_config_request() :: %{
         optional("accessConfig") => update_access_config_request(),
-        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("computeConfig") => compute_config_request(),
         optional("kubernetesNetworkConfig") => kubernetes_network_config_request(),
         optional("logging") => logging(),
@@ -2515,18 +2515,18 @@ defmodule AWS.EKS do
       }
 
   """
-  @type update_cluster_config_request() :: %{String.t() | Atom.t() => any()}
+  @type update_cluster_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       remote_pod_network() :: %{
-        "cidrs" => list(String.t() | Atom.t())
+        "cidrs" => list(String.t() | atom())
       }
 
   """
-  @type remote_pod_network() :: %{String.t() | Atom.t() => any()}
+  @type remote_pod_network() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2534,12 +2534,12 @@ defmodule AWS.EKS do
 
       cluster_issue() :: %{
         "code" => list(any()),
-        "message" => String.t() | Atom.t(),
-        "resourceIds" => list(String.t() | Atom.t())
+        "message" => String.t() | atom(),
+        "resourceIds" => list(String.t() | atom())
       }
 
   """
-  @type cluster_issue() :: %{String.t() | Atom.t() => any()}
+  @type cluster_issue() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2555,12 +2555,12 @@ defmodule AWS.EKS do
   ## Example:
 
       list_addons_response() :: %{
-        "addons" => list(String.t() | Atom.t()),
-        "nextToken" => String.t() | Atom.t()
+        "addons" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_addons_response() :: %{String.t() | Atom.t() => any()}
+  @type list_addons_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2572,7 +2572,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type insight_category_specific_summary() :: %{String.t() | Atom.t() => any()}
+  @type insight_category_specific_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2584,7 +2584,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type log_setup() :: %{String.t() | Atom.t() => any()}
+  @type log_setup() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2595,7 +2595,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type create_addon_response() :: %{String.t() | Atom.t() => any()}
+  @type create_addon_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2606,7 +2606,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type register_cluster_response() :: %{String.t() | Atom.t() => any()}
+  @type register_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2617,36 +2617,36 @@ defmodule AWS.EKS do
       }
 
   """
-  @type describe_nodegroup_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_nodegroup_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_access_entries_response() :: %{
-        "accessEntries" => list(String.t() | Atom.t()),
-        "nextToken" => String.t() | Atom.t()
+        "accessEntries" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_access_entries_response() :: %{String.t() | Atom.t() => any()}
+  @type list_access_entries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_pod_identity_association_request() :: %{
-        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("disableSessionTags") => boolean(),
         optional("tags") => map(),
-        optional("targetRoleArn") => String.t() | Atom.t(),
-        required("namespace") => String.t() | Atom.t(),
-        required("roleArn") => String.t() | Atom.t(),
-        required("serviceAccount") => String.t() | Atom.t()
+        optional("targetRoleArn") => String.t() | atom(),
+        required("namespace") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
+        required("serviceAccount") => String.t() | atom()
       }
 
   """
-  @type create_pod_identity_association_request() :: %{String.t() | Atom.t() => any()}
+  @type create_pod_identity_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2657,7 +2657,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type describe_identity_provider_config_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_identity_provider_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2665,24 +2665,24 @@ defmodule AWS.EKS do
 
       fargate_profile_selector() :: %{
         "labels" => map(),
-        "namespace" => String.t() | Atom.t()
+        "namespace" => String.t() | atom()
       }
 
   """
-  @type fargate_profile_selector() :: %{String.t() | Atom.t() => any()}
+  @type fargate_profile_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_access_entries_request() :: %{
-        optional("associatedPolicyArn") => String.t() | Atom.t(),
+        optional("associatedPolicyArn") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_access_entries_request() :: %{String.t() | Atom.t() => any()}
+  @type list_access_entries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2693,7 +2693,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type describe_pod_identity_association_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_pod_identity_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2704,7 +2704,7 @@ defmodule AWS.EKS do
       }
 
   """
-  @type logging() :: %{String.t() | Atom.t() => any()}
+  @type logging() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2712,35 +2712,35 @@ defmodule AWS.EKS do
 
       list_identity_provider_configs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_identity_provider_configs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_identity_provider_configs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_cluster_version_request() :: %{
-        optional("clientRequestToken") => String.t() | Atom.t(),
+        optional("clientRequestToken") => String.t() | atom(),
         optional("force") => boolean(),
-        required("version") => String.t() | Atom.t()
+        required("version") => String.t() | atom()
       }
 
   """
-  @type update_cluster_version_request() :: %{String.t() | Atom.t() => any()}
+  @type update_cluster_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_propagation_delay_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_propagation_delay_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_propagation_delay_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2769,27 +2769,27 @@ defmodule AWS.EKS do
       }
 
   """
-  @type describe_update_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_update_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cluster_version_information() :: %{
-        "clusterType" => String.t() | Atom.t(),
-        "clusterVersion" => String.t() | Atom.t(),
-        "defaultPlatformVersion" => String.t() | Atom.t(),
+        "clusterType" => String.t() | atom(),
+        "clusterVersion" => String.t() | atom(),
+        "defaultPlatformVersion" => String.t() | atom(),
         "defaultVersion" => boolean(),
         "endOfExtendedSupportDate" => non_neg_integer(),
         "endOfStandardSupportDate" => non_neg_integer(),
-        "kubernetesPatchVersion" => String.t() | Atom.t(),
+        "kubernetesPatchVersion" => String.t() | atom(),
         "releaseDate" => non_neg_integer(),
         "status" => list(any()),
         "versionStatus" => list(any())
       }
 
   """
-  @type cluster_version_information() :: %{String.t() | Atom.t() => any()}
+  @type cluster_version_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2800,23 +2800,23 @@ defmodule AWS.EKS do
       }
 
   """
-  @type create_pod_identity_association_response() :: %{String.t() | Atom.t() => any()}
+  @type create_pod_identity_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       addon_version_info() :: %{
-        "addonVersion" => String.t() | Atom.t(),
-        "architecture" => list(String.t() | Atom.t()),
+        "addonVersion" => String.t() | atom(),
+        "architecture" => list(String.t() | atom()),
         "compatibilities" => list(compatibility()),
-        "computeTypes" => list(String.t() | Atom.t()),
+        "computeTypes" => list(String.t() | atom()),
         "requiresConfiguration" => boolean(),
         "requiresIamPermissions" => boolean()
       }
 
   """
-  @type addon_version_info() :: %{String.t() | Atom.t() => any()}
+  @type addon_version_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3212,8 +3212,8 @@ defmodule AWS.EKS do
   """
   @spec associate_access_policy(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           associate_access_policy_request(),
           list()
         ) ::
@@ -3260,7 +3260,7 @@ defmodule AWS.EKS do
   """
   @spec associate_encryption_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           associate_encryption_config_request(),
           list()
         ) ::
@@ -3304,7 +3304,7 @@ defmodule AWS.EKS do
   """
   @spec associate_identity_provider_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           associate_identity_provider_config_request(),
           list()
         ) ::
@@ -3356,7 +3356,7 @@ defmodule AWS.EKS do
   in the
   *Amazon EKS User Guide*.
   """
-  @spec create_access_entry(map(), String.t() | Atom.t(), create_access_entry_request(), list()) ::
+  @spec create_access_entry(map(), String.t() | atom(), create_access_entry_request(), list()) ::
           {:ok, create_access_entry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3391,7 +3391,7 @@ defmodule AWS.EKS do
   add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html) in
   the *Amazon EKS User Guide*.
   """
-  @spec create_addon(map(), String.t() | Atom.t(), create_addon_request(), list()) ::
+  @spec create_addon(map(), String.t() | atom(), create_addon_request(), list()) ::
           {:ok, create_addon_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3594,7 +3594,7 @@ defmodule AWS.EKS do
   """
   @spec create_fargate_profile(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_fargate_profile_request(),
           list()
         ) ::
@@ -3655,7 +3655,7 @@ defmodule AWS.EKS do
   that support
   Windows on Amazon EKS.
   """
-  @spec create_nodegroup(map(), String.t() | Atom.t(), create_nodegroup_request(), list()) ::
+  @spec create_nodegroup(map(), String.t() | atom(), create_nodegroup_request(), list()) ::
           {:ok, create_nodegroup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3729,7 +3729,7 @@ defmodule AWS.EKS do
   """
   @spec create_pod_identity_association(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_pod_identity_association_request(),
           list()
         ) ::
@@ -3768,8 +3768,8 @@ defmodule AWS.EKS do
   """
   @spec delete_access_entry(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_access_entry_request(),
           list()
         ) ::
@@ -3809,8 +3809,8 @@ defmodule AWS.EKS do
   """
   @spec delete_addon(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_addon_request(),
           list()
         ) ::
@@ -3863,7 +3863,7 @@ defmodule AWS.EKS do
   must delete them first. For more information, see `DeleteNodgroup` and
   `DeleteFargateProfile`.
   """
-  @spec delete_cluster(map(), String.t() | Atom.t(), delete_cluster_request(), list()) ::
+  @spec delete_cluster(map(), String.t() | atom(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3901,7 +3901,7 @@ defmodule AWS.EKS do
   """
   @spec delete_eks_anywhere_subscription(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_eks_anywhere_subscription_request(),
           list()
         ) ::
@@ -3948,8 +3948,8 @@ defmodule AWS.EKS do
   """
   @spec delete_fargate_profile(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_fargate_profile_request(),
           list()
         ) ::
@@ -3991,8 +3991,8 @@ defmodule AWS.EKS do
   """
   @spec delete_nodegroup(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_nodegroup_request(),
           list()
         ) ::
@@ -4032,8 +4032,8 @@ defmodule AWS.EKS do
   """
   @spec delete_pod_identity_association(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_pod_identity_association_request(),
           list()
         ) ::
@@ -4077,7 +4077,7 @@ defmodule AWS.EKS do
   control plane
   using the [Amazon EKS Connector](https://docs.aws.amazon.com/eks/latest/userguide/eks-connector.html).
   """
-  @spec deregister_cluster(map(), String.t() | Atom.t(), deregister_cluster_request(), list()) ::
+  @spec deregister_cluster(map(), String.t() | atom(), deregister_cluster_request(), list()) ::
           {:ok, deregister_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4106,7 +4106,7 @@ defmodule AWS.EKS do
   @doc """
   Describes an access entry.
   """
-  @spec describe_access_entry(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec describe_access_entry(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_access_entry_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4126,7 +4126,7 @@ defmodule AWS.EKS do
   @doc """
   Describes an Amazon EKS add-on.
   """
-  @spec describe_addon(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec describe_addon(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_addon_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4146,7 +4146,7 @@ defmodule AWS.EKS do
   @doc """
   Returns configuration options.
   """
-  @spec describe_addon_configuration(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec describe_addon_configuration(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_addon_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4185,13 +4185,13 @@ defmodule AWS.EKS do
   """
   @spec describe_addon_versions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_addon_versions_response(), any()}
@@ -4280,7 +4280,7 @@ defmodule AWS.EKS do
   the
   cluster reaches the `ACTIVE` state.
   """
-  @spec describe_cluster(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_cluster(map(), String.t() | atom(), list()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4300,14 +4300,14 @@ defmodule AWS.EKS do
   """
   @spec describe_cluster_versions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_cluster_versions_response(), any()}
@@ -4394,7 +4394,7 @@ defmodule AWS.EKS do
   @doc """
   Returns descriptive information about a subscription.
   """
-  @spec describe_eks_anywhere_subscription(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_eks_anywhere_subscription(map(), String.t() | atom(), list()) ::
           {:ok, describe_eks_anywhere_subscription_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4412,7 +4412,7 @@ defmodule AWS.EKS do
   @doc """
   Describes an Fargate profile.
   """
-  @spec describe_fargate_profile(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec describe_fargate_profile(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_fargate_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4439,7 +4439,7 @@ defmodule AWS.EKS do
   """
   @spec describe_identity_provider_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           describe_identity_provider_config_request(),
           list()
         ) ::
@@ -4471,7 +4471,7 @@ defmodule AWS.EKS do
   @doc """
   Returns details about an insight that you specify using its ID.
   """
-  @spec describe_insight(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec describe_insight(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_insight_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4491,7 +4491,7 @@ defmodule AWS.EKS do
   @doc """
   Describes a managed node group.
   """
-  @spec describe_nodegroup(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec describe_nodegroup(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_nodegroup_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4517,12 +4517,7 @@ defmodule AWS.EKS do
   list the IDs for associations with `ListPodIdentityAssociations` and filter the
   list by namespace or service account.
   """
-  @spec describe_pod_identity_association(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec describe_pod_identity_association(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_pod_identity_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4553,10 +4548,10 @@ defmodule AWS.EKS do
   """
   @spec describe_update(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_update_response(), any()}
@@ -4599,9 +4594,9 @@ defmodule AWS.EKS do
   """
   @spec disassociate_access_policy(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           disassociate_access_policy_request(),
           list()
         ) ::
@@ -4650,7 +4645,7 @@ defmodule AWS.EKS do
   """
   @spec disassociate_identity_provider_config(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           disassociate_identity_provider_config_request(),
           list()
         ) ::
@@ -4691,10 +4686,10 @@ defmodule AWS.EKS do
   """
   @spec list_access_entries(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_access_entries_response(), any()}
@@ -4742,12 +4737,7 @@ defmodule AWS.EKS do
   @doc """
   Lists the available access policies.
   """
-  @spec list_access_policies(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec list_access_policies(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_access_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4786,9 +4776,9 @@ defmodule AWS.EKS do
   """
   @spec list_addons(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_addons_response(), any()}
@@ -4830,10 +4820,10 @@ defmodule AWS.EKS do
   """
   @spec list_associated_access_policies(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_associated_access_policies_response(), any()}
@@ -4879,9 +4869,9 @@ defmodule AWS.EKS do
   """
   @spec list_clusters(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_clusters_response(), any()}
@@ -4930,9 +4920,9 @@ defmodule AWS.EKS do
   """
   @spec list_eks_anywhere_subscriptions(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_eks_anywhere_subscriptions_response(), any()}
@@ -4983,9 +4973,9 @@ defmodule AWS.EKS do
   """
   @spec list_fargate_profiles(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_fargate_profiles_response(), any()}
@@ -5027,9 +5017,9 @@ defmodule AWS.EKS do
   """
   @spec list_identity_provider_configs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_identity_provider_configs_response(), any()}
@@ -5088,7 +5078,7 @@ defmodule AWS.EKS do
   Hybrid Nodes setup that could impair functionality of your cluster or
   workloads. These are called configuration insights.
   """
-  @spec list_insights(map(), String.t() | Atom.t(), list_insights_request(), list()) ::
+  @spec list_insights(map(), String.t() | atom(), list_insights_request(), list()) ::
           {:ok, list_insights_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5123,9 +5113,9 @@ defmodule AWS.EKS do
   """
   @spec list_nodegroups(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_nodegroups_response(), any()}
@@ -5170,11 +5160,11 @@ defmodule AWS.EKS do
   """
   @spec list_pod_identity_associations(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_pod_identity_associations_response(), any()}
@@ -5230,7 +5220,7 @@ defmodule AWS.EKS do
   @doc """
   List the tags for an Amazon EKS resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5252,11 +5242,11 @@ defmodule AWS.EKS do
   """
   @spec list_updates(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_updates_response(), any()}
@@ -5376,7 +5366,7 @@ defmodule AWS.EKS do
   subnets and
   nodes associated with the cluster.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5405,7 +5395,7 @@ defmodule AWS.EKS do
   @doc """
   Deletes specified tags from an Amazon EKS resource.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5441,8 +5431,8 @@ defmodule AWS.EKS do
   """
   @spec update_access_entry(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_access_entry_request(),
           list()
         ) ::
@@ -5478,8 +5468,8 @@ defmodule AWS.EKS do
   """
   @spec update_addon(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_addon_request(),
           list()
         ) ::
@@ -5582,12 +5572,7 @@ defmodule AWS.EKS do
   eventually consistent). When the update is complete (either `Failed` or
   `Successful`), the cluster status moves to `Active`.
   """
-  @spec update_cluster_config(
-          map(),
-          String.t() | Atom.t(),
-          update_cluster_config_request(),
-          list()
-        ) ::
+  @spec update_cluster_config(map(), String.t() | atom(), update_cluster_config_request(), list()) ::
           {:ok, update_cluster_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5638,7 +5623,7 @@ defmodule AWS.EKS do
   """
   @spec update_cluster_version(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_cluster_version_request(),
           list()
         ) ::
@@ -5675,7 +5660,7 @@ defmodule AWS.EKS do
   """
   @spec update_eks_anywhere_subscription(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_eks_anywhere_subscription_request(),
           list()
         ) ::
@@ -5718,8 +5703,8 @@ defmodule AWS.EKS do
   """
   @spec update_nodegroup_config(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_nodegroup_config_request(),
           list()
         ) ::
@@ -5801,8 +5786,8 @@ defmodule AWS.EKS do
   """
   @spec update_nodegroup_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_nodegroup_version_request(),
           list()
         ) ::
@@ -5875,8 +5860,8 @@ defmodule AWS.EKS do
   """
   @spec update_pod_identity_association(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_pod_identity_association_request(),
           list()
         ) ::

@@ -32,16 +32,16 @@ defmodule AWS.MarketplaceEntitlement do
   ## Example:
       
       entitlement() :: %{
-        "CustomerAWSAccountId" => String.t() | Atom.t(),
-        "CustomerIdentifier" => String.t() | Atom.t(),
-        "Dimension" => String.t() | Atom.t(),
+        "CustomerAWSAccountId" => String.t() | atom(),
+        "CustomerIdentifier" => String.t() | atom(),
+        "Dimension" => String.t() | atom(),
         "ExpirationDate" => non_neg_integer(),
-        "ProductCode" => String.t() | Atom.t(),
+        "ProductCode" => String.t() | atom(),
         "Value" => entitlement_value()
       }
       
   """
-  @type entitlement() :: %{String.t() | Atom.t() => any()}
+  @type entitlement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -51,11 +51,11 @@ defmodule AWS.MarketplaceEntitlement do
         "BooleanValue" => boolean(),
         "DoubleValue" => float(),
         "IntegerValue" => integer(),
-        "StringValue" => String.t() | Atom.t()
+        "StringValue" => String.t() | atom()
       }
       
   """
-  @type entitlement_value() :: %{String.t() | Atom.t() => any()}
+  @type entitlement_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -64,12 +64,12 @@ defmodule AWS.MarketplaceEntitlement do
       get_entitlements_request() :: %{
         optional("Filter") => map(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ProductCode") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ProductCode") => String.t() | atom()
       }
       
   """
-  @type get_entitlements_request() :: %{String.t() | Atom.t() => any()}
+  @type get_entitlements_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -77,44 +77,44 @@ defmodule AWS.MarketplaceEntitlement do
       
       get_entitlements_result() :: %{
         "Entitlements" => list(entitlement()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type get_entitlements_result() :: %{String.t() | Atom.t() => any()}
+  @type get_entitlements_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_service_error_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type internal_service_error_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_service_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @type get_entitlements_errors() ::
           throttling_exception()

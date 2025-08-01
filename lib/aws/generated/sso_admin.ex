@@ -54,12 +54,12 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       list_trusted_token_issuers_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "TrustedTokenIssuers" => list(trusted_token_issuer_metadata())
       }
       
   """
-  @type list_trusted_token_issuers_response() :: %{String.t() | Atom.t() => any()}
+  @type list_trusted_token_issuers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,7 +71,7 @@ defmodule AWS.SSOAdmin do
       }
       
   """
-  @type authentication_method_item() :: %{String.t() | Atom.t() => any()}
+  @type authentication_method_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -87,25 +87,25 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       scope_details() :: %{
-        "AuthorizedTargets" => list(String.t() | Atom.t()),
-        "Scope" => String.t() | Atom.t()
+        "AuthorizedTargets" => list(String.t() | atom()),
+        "Scope" => String.t() | atom()
       }
       
   """
-  @type scope_details() :: %{String.t() | Atom.t() => any()}
+  @type scope_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        optional("InstanceArn") => String.t() | Atom.t(),
-        required("ResourceArn") => String.t() | Atom.t(),
+        optional("InstanceArn") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -113,28 +113,28 @@ defmodule AWS.SSOAdmin do
       
       instance_metadata() :: %{
         "CreatedDate" => non_neg_integer(),
-        "IdentityStoreId" => String.t() | Atom.t(),
-        "InstanceArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "OwnerAccountId" => String.t() | Atom.t(),
+        "IdentityStoreId" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OwnerAccountId" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type instance_metadata() :: %{String.t() | Atom.t() => any()}
+  @type instance_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application_assignment() :: %{
-        "ApplicationArn" => String.t() | Atom.t(),
-        "PrincipalId" => String.t() | Atom.t(),
+        "ApplicationArn" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
         "PrincipalType" => list(any())
       }
       
   """
-  @type application_assignment() :: %{String.t() | Atom.t() => any()}
+  @type application_assignment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -142,16 +142,15 @@ defmodule AWS.SSOAdmin do
       
       list_accounts_for_provisioned_permission_set_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ProvisioningStatus") => list(any()),
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
   @type list_accounts_for_provisioned_permission_set_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -159,51 +158,50 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       list_application_assignments_filter() :: %{
-        "ApplicationArn" => String.t() | Atom.t()
+        "ApplicationArn" => String.t() | atom()
       }
       
   """
-  @type list_application_assignments_filter() :: %{String.t() | Atom.t() => any()}
+  @type list_application_assignments_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application_provider() :: %{
-        "ApplicationProviderArn" => String.t() | Atom.t(),
+        "ApplicationProviderArn" => String.t() | atom(),
         "DisplayData" => display_data(),
         "FederationProtocol" => list(any()),
         "ResourceServerConfig" => resource_server_config()
       }
       
   """
-  @type application_provider() :: %{String.t() | Atom.t() => any()}
+  @type application_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_application_authentication_methods_request() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ApplicationArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ApplicationArn") => String.t() | atom()
       }
       
   """
-  @type list_application_authentication_methods_request() :: %{String.t() | Atom.t() => any()}
+  @type list_application_authentication_methods_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_accounts_for_provisioned_permission_set_response() :: %{
-        "AccountIds" => list(String.t() | Atom.t()),
-        "NextToken" => String.t() | Atom.t()
+        "AccountIds" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
       
   """
   @type list_accounts_for_provisioned_permission_set_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -212,12 +210,12 @@ defmodule AWS.SSOAdmin do
       
       account_assignment_operation_status_metadata() :: %{
         "CreatedDate" => non_neg_integer(),
-        "RequestId" => String.t() | Atom.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type account_assignment_operation_status_metadata() :: %{String.t() | Atom.t() => any()}
+  @type account_assignment_operation_status_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -235,14 +233,14 @@ defmodule AWS.SSOAdmin do
       list_application_assignments_for_principal_request() :: %{
         optional("Filter") => list_application_assignments_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PrincipalId") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PrincipalId") => String.t() | atom(),
         required("PrincipalType") => list(any())
       }
       
   """
-  @type list_application_assignments_for_principal_request() :: %{String.t() | Atom.t() => any()}
+  @type list_application_assignments_for_principal_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -250,13 +248,13 @@ defmodule AWS.SSOAdmin do
       
       list_managed_policies_in_permission_set_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
-  @type list_managed_policies_in_permission_set_request() :: %{String.t() | Atom.t() => any()}
+  @type list_managed_policies_in_permission_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -264,74 +262,74 @@ defmodule AWS.SSOAdmin do
       
       list_account_assignment_deletion_status_response() :: %{
         "AccountAssignmentsDeletionStatus" => list(account_assignment_operation_status_metadata()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_account_assignment_deletion_status_response() :: %{String.t() | Atom.t() => any()}
+  @type list_account_assignment_deletion_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       account_assignment_for_principal() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "PermissionSetArn" => String.t() | Atom.t(),
-        "PrincipalId" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "PermissionSetArn" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
         "PrincipalType" => list(any())
       }
       
   """
-  @type account_assignment_for_principal() :: %{String.t() | Atom.t() => any()}
+  @type account_assignment_for_principal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_inline_policy_for_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
-  @type get_inline_policy_for_permission_set_request() :: %{String.t() | Atom.t() => any()}
+  @type get_inline_policy_for_permission_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_inline_policy_to_permission_set_request() :: %{
-        required("InlinePolicy") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t()
+        required("InlinePolicy") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
-  @type put_inline_policy_to_permission_set_request() :: %{String.t() | Atom.t() => any()}
+  @type put_inline_policy_to_permission_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       trusted_token_issuer_metadata() :: %{
-        "Name" => String.t() | Atom.t(),
-        "TrustedTokenIssuerArn" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "TrustedTokenIssuerArn" => String.t() | atom(),
         "TrustedTokenIssuerType" => list(any())
       }
       
   """
-  @type trusted_token_issuer_metadata() :: %{String.t() | Atom.t() => any()}
+  @type trusted_token_issuer_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_inline_policy_for_permission_set_response() :: %{
-        "InlinePolicy" => String.t() | Atom.t()
+        "InlinePolicy" => String.t() | atom()
       }
       
   """
-  @type get_inline_policy_for_permission_set_response() :: %{String.t() | Atom.t() => any()}
+  @type get_inline_policy_for_permission_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -342,7 +340,7 @@ defmodule AWS.SSOAdmin do
       }
       
   """
-  @type iam_authentication_method() :: %{String.t() | Atom.t() => any()}
+  @type iam_authentication_method() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -368,26 +366,25 @@ defmodule AWS.SSOAdmin do
       
       list_application_access_scopes_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ApplicationArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ApplicationArn") => String.t() | atom()
       }
       
   """
-  @type list_application_access_scopes_request() :: %{String.t() | Atom.t() => any()}
+  @type list_application_access_scopes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_permission_sets_provisioned_to_account_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "PermissionSets" => list(String.t() | Atom.t())
+        "NextToken" => String.t() | atom(),
+        "PermissionSets" => list(String.t() | atom())
       }
       
   """
   @type list_permission_sets_provisioned_to_account_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -395,25 +392,25 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       delete_application_authentication_method_request() :: %{
-        required("ApplicationArn") => String.t() | Atom.t(),
+        required("ApplicationArn") => String.t() | atom(),
         required("AuthenticationMethodType") => list(any())
       }
       
   """
-  @type delete_application_authentication_method_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_application_authentication_method_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_application_assignment_request() :: %{
-        required("ApplicationArn") => String.t() | Atom.t(),
-        required("PrincipalId") => String.t() | Atom.t(),
+        required("ApplicationArn") => String.t() | atom(),
+        required("PrincipalId") => String.t() | atom(),
         required("PrincipalType") => list(any())
       }
       
   """
-  @type delete_application_assignment_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_application_assignment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -424,7 +421,7 @@ defmodule AWS.SSOAdmin do
       }
       
   """
-  @type get_application_grant_response() :: %{String.t() | Atom.t() => any()}
+  @type get_application_grant_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -432,49 +429,49 @@ defmodule AWS.SSOAdmin do
       
       list_application_assignments_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ApplicationArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ApplicationArn") => String.t() | atom()
       }
       
   """
-  @type list_application_assignments_request() :: %{String.t() | Atom.t() => any()}
+  @type list_application_assignments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_application_assignment_request() :: %{
-        required("ApplicationArn") => String.t() | Atom.t(),
-        required("PrincipalId") => String.t() | Atom.t(),
+        required("ApplicationArn") => String.t() | atom(),
+        required("PrincipalId") => String.t() | atom(),
         required("PrincipalType") => list(any())
       }
       
   """
-  @type describe_application_assignment_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_application_assignment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_application_assignment_configuration_request() :: %{
-        required("ApplicationArn") => String.t() | Atom.t(),
+        required("ApplicationArn") => String.t() | atom(),
         required("AssignmentRequired") => boolean()
       }
       
   """
-  @type put_application_assignment_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type put_application_assignment_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sign_in_options() :: %{
-        "ApplicationUrl" => String.t() | Atom.t(),
+        "ApplicationUrl" => String.t() | atom(),
         "Origin" => list(any())
       }
       
   """
-  @type sign_in_options() :: %{String.t() | Atom.t() => any()}
+  @type sign_in_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -485,18 +482,18 @@ defmodule AWS.SSOAdmin do
       }
       
   """
-  @type operation_status_filter() :: %{String.t() | Atom.t() => any()}
+  @type operation_status_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_instance_response() :: %{
-        "InstanceArn" => String.t() | Atom.t()
+        "InstanceArn" => String.t() | atom()
       }
       
   """
-  @type create_instance_response() :: %{String.t() | Atom.t() => any()}
+  @type create_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -507,7 +504,7 @@ defmodule AWS.SSOAdmin do
       }
       
   """
-  @type get_application_authentication_method_response() :: %{String.t() | Atom.t() => any()}
+  @type get_application_authentication_method_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -515,49 +512,49 @@ defmodule AWS.SSOAdmin do
       
       list_trusted_token_issuers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
-  @type list_trusted_token_issuers_request() :: %{String.t() | Atom.t() => any()}
+  @type list_trusted_token_issuers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_application_access_scopes_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Scopes" => list(scope_details())
       }
       
   """
-  @type list_application_access_scopes_response() :: %{String.t() | Atom.t() => any()}
+  @type list_application_access_scopes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_permission_set_provisioning_status_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "PermissionSetsProvisioningStatus" => list(permission_set_provisioning_status_metadata())
       }
       
   """
-  @type list_permission_set_provisioning_status_response() :: %{String.t() | Atom.t() => any()}
+  @type list_permission_set_provisioning_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        optional("InstanceArn") => String.t() | Atom.t(),
-        required("ResourceArn") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        optional("InstanceArn") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -566,63 +563,63 @@ defmodule AWS.SSOAdmin do
       list_permission_set_provisioning_status_request() :: %{
         optional("Filter") => operation_status_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
-  @type list_permission_set_provisioning_status_request() :: %{String.t() | Atom.t() => any()}
+  @type list_permission_set_provisioning_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_trusted_token_issuer_request() :: %{
-        optional("Name") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
         optional("TrustedTokenIssuerConfiguration") => list(),
-        required("TrustedTokenIssuerArn") => String.t() | Atom.t()
+        required("TrustedTokenIssuerArn") => String.t() | atom()
       }
       
   """
-  @type update_trusted_token_issuer_request() :: %{String.t() | Atom.t() => any()}
+  @type update_trusted_token_issuer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_application_provider_response() :: %{
-        "ApplicationProviderArn" => String.t() | Atom.t(),
+        "ApplicationProviderArn" => String.t() | atom(),
         "DisplayData" => display_data(),
         "FederationProtocol" => list(any()),
         "ResourceServerConfig" => resource_server_config()
       }
       
   """
-  @type describe_application_provider_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_application_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_application_access_scope_response() :: %{
-        "AuthorizedTargets" => list(String.t() | Atom.t()),
-        "Scope" => String.t() | Atom.t()
+        "AuthorizedTargets" => list(String.t() | atom()),
+        "Scope" => String.t() | atom()
       }
       
   """
-  @type get_application_access_scope_response() :: %{String.t() | Atom.t() => any()}
+  @type get_application_access_scope_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_application_grant_request() :: %{
-        required("ApplicationArn") => String.t() | Atom.t(),
+        required("ApplicationArn") => String.t() | atom(),
         required("GrantType") => list(any())
       }
       
   """
-  @type delete_application_grant_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_application_grant_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -630,15 +627,15 @@ defmodule AWS.SSOAdmin do
       
       permission_set() :: %{
         "CreatedDate" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "PermissionSetArn" => String.t() | Atom.t(),
-        "RelayState" => String.t() | Atom.t(),
-        "SessionDuration" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PermissionSetArn" => String.t() | atom(),
+        "RelayState" => String.t() | atom(),
+        "SessionDuration" => String.t() | atom()
       }
       
   """
-  @type permission_set() :: %{String.t() | Atom.t() => any()}
+  @type permission_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -646,11 +643,11 @@ defmodule AWS.SSOAdmin do
       
       list_application_providers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_application_providers_request() :: %{String.t() | Atom.t() => any()}
+  @type list_application_providers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -662,8 +659,7 @@ defmodule AWS.SSOAdmin do
       
   """
   @type describe_account_assignment_deletion_status_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -671,11 +667,11 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       list_account_assignments_filter() :: %{
-        "AccountId" => String.t() | Atom.t()
+        "AccountId" => String.t() | atom()
       }
       
   """
-  @type list_account_assignments_filter() :: %{String.t() | Atom.t() => any()}
+  @type list_account_assignments_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -683,13 +679,12 @@ defmodule AWS.SSOAdmin do
       
       list_customer_managed_policy_references_in_permission_set_response() :: %{
         "CustomerManagedPolicyReferences" => list(customer_managed_policy_reference()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
   @type list_customer_managed_policy_references_in_permission_set_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -698,27 +693,27 @@ defmodule AWS.SSOAdmin do
       
       list_application_grants_response() :: %{
         "Grants" => list(grant_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_application_grants_response() :: %{String.t() | Atom.t() => any()}
+  @type list_application_grants_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_permission_set_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("RelayState") => String.t() | Atom.t(),
-        optional("SessionDuration") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("RelayState") => String.t() | atom(),
+        optional("SessionDuration") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_permission_set_request() :: %{String.t() | Atom.t() => any()}
+  @type create_permission_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -735,11 +730,11 @@ defmodule AWS.SSOAdmin do
       
       list_managed_policies_in_permission_set_response() :: %{
         "AttachedManagedPolicies" => list(attached_managed_policy()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_managed_policies_in_permission_set_response() :: %{String.t() | Atom.t() => any()}
+  @type list_managed_policies_in_permission_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -747,39 +742,39 @@ defmodule AWS.SSOAdmin do
       
       list_account_assignments_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("AccountId") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("AccountId") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
-  @type list_account_assignments_request() :: %{String.t() | Atom.t() => any()}
+  @type list_account_assignments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_application_assignment_response() :: %{
-        "ApplicationArn" => String.t() | Atom.t(),
-        "PrincipalId" => String.t() | Atom.t(),
+        "ApplicationArn" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
         "PrincipalType" => list(any())
       }
       
   """
-  @type describe_application_assignment_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_application_assignment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_application_access_scope_request() :: %{
-        required("ApplicationArn") => String.t() | Atom.t(),
-        required("Scope") => String.t() | Atom.t()
+        required("ApplicationArn") => String.t() | atom(),
+        required("Scope") => String.t() | atom()
       }
       
   """
-  @type get_application_access_scope_request() :: %{String.t() | Atom.t() => any()}
+  @type get_application_access_scope_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -790,7 +785,7 @@ defmodule AWS.SSOAdmin do
       }
       
   """
-  @type update_application_portal_options() :: %{String.t() | Atom.t() => any()}
+  @type update_application_portal_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -806,13 +801,13 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       application_assignment_for_principal() :: %{
-        "ApplicationArn" => String.t() | Atom.t(),
-        "PrincipalId" => String.t() | Atom.t(),
+        "ApplicationArn" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
         "PrincipalType" => list(any())
       }
       
   """
-  @type application_assignment_for_principal() :: %{String.t() | Atom.t() => any()}
+  @type application_assignment_for_principal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -828,61 +823,61 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       access_control_attribute_value() :: %{
-        "Source" => list(String.t() | Atom.t())
+        "Source" => list(String.t() | atom())
       }
       
   """
-  @type access_control_attribute_value() :: %{String.t() | Atom.t() => any()}
+  @type access_control_attribute_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_account_assignment_request() :: %{
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t(),
-        required("PrincipalId") => String.t() | Atom.t(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom(),
+        required("PrincipalId") => String.t() | atom(),
         required("PrincipalType") => list(any()),
-        required("TargetId") => String.t() | Atom.t(),
+        required("TargetId") => String.t() | atom(),
         required("TargetType") => list(any())
       }
       
   """
-  @type delete_account_assignment_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_account_assignment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_application_authentication_method_request() :: %{
-        required("ApplicationArn") => String.t() | Atom.t(),
+        required("ApplicationArn") => String.t() | atom(),
         required("AuthenticationMethodType") => list(any())
       }
       
   """
-  @type get_application_authentication_method_request() :: %{String.t() | Atom.t() => any()}
+  @type get_application_authentication_method_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -893,7 +888,7 @@ defmodule AWS.SSOAdmin do
       }
       
   """
-  @type provision_permission_set_response() :: %{String.t() | Atom.t() => any()}
+  @type provision_permission_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -904,7 +899,7 @@ defmodule AWS.SSOAdmin do
       }
       
   """
-  @type jwt_bearer_grant() :: %{String.t() | Atom.t() => any()}
+  @type jwt_bearer_grant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -915,31 +910,31 @@ defmodule AWS.SSOAdmin do
       }
       
   """
-  @type create_account_assignment_response() :: %{String.t() | Atom.t() => any()}
+  @type create_account_assignment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_application_grant_request() :: %{
-        required("ApplicationArn") => String.t() | Atom.t(),
+        required("ApplicationArn") => String.t() | atom(),
         required("GrantType") => list(any())
       }
       
   """
-  @type get_application_grant_request() :: %{String.t() | Atom.t() => any()}
+  @type get_application_grant_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -955,46 +950,46 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       detach_managed_policy_from_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("ManagedPolicyArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom(),
+        required("ManagedPolicyArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
-  @type detach_managed_policy_from_permission_set_request() :: %{String.t() | Atom.t() => any()}
+  @type detach_managed_policy_from_permission_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_instance_request() :: %{
-        required("InstanceArn") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
-  @type describe_instance_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       authorization_code_grant() :: %{
-        "RedirectUris" => list(String.t() | Atom.t())
+        "RedirectUris" => list(String.t() | atom())
       }
       
   """
-  @type authorization_code_grant() :: %{String.t() | Atom.t() => any()}
+  @type authorization_code_grant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1002,11 +997,11 @@ defmodule AWS.SSOAdmin do
       
       permissions_boundary() :: %{
         "CustomerManagedPolicyReference" => customer_managed_policy_reference(),
-        "ManagedPolicyArn" => String.t() | Atom.t()
+        "ManagedPolicyArn" => String.t() | atom()
       }
       
   """
-  @type permissions_boundary() :: %{String.t() | Atom.t() => any()}
+  @type permissions_boundary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1022,14 +1017,14 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       provision_permission_set_request() :: %{
-        optional("TargetId") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t(),
+        optional("TargetId") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom(),
         required("TargetType") => list(any())
       }
       
   """
-  @type provision_permission_set_request() :: %{String.t() | Atom.t() => any()}
+  @type provision_permission_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1046,42 +1041,42 @@ defmodule AWS.SSOAdmin do
       
       list_application_providers_response() :: %{
         "ApplicationProviders" => list(application_provider()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_application_providers_response() :: %{String.t() | Atom.t() => any()}
+  @type list_application_providers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application() :: %{
-        "ApplicationAccount" => String.t() | Atom.t(),
-        "ApplicationArn" => String.t() | Atom.t(),
-        "ApplicationProviderArn" => String.t() | Atom.t(),
+        "ApplicationAccount" => String.t() | atom(),
+        "ApplicationArn" => String.t() | atom(),
+        "ApplicationProviderArn" => String.t() | atom(),
         "CreatedDate" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "InstanceArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "PortalOptions" => portal_options(),
         "Status" => list(any())
       }
       
   """
-  @type application() :: %{String.t() | Atom.t() => any()}
+  @type application() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_instance_request() :: %{
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type update_instance_request() :: %{String.t() | Atom.t() => any()}
+  @type update_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1097,13 +1092,12 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       delete_instance_access_control_attribute_configuration_request() :: %{
-        required("InstanceArn") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
   @type delete_instance_access_control_attribute_configuration_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1111,44 +1105,44 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       oidc_jwt_configuration() :: %{
-        "ClaimAttributePath" => String.t() | Atom.t(),
-        "IdentityStoreAttributePath" => String.t() | Atom.t(),
-        "IssuerUrl" => String.t() | Atom.t(),
+        "ClaimAttributePath" => String.t() | atom(),
+        "IdentityStoreAttributePath" => String.t() | atom(),
+        "IssuerUrl" => String.t() | atom(),
         "JwksRetrievalOption" => list(any())
       }
       
   """
-  @type oidc_jwt_configuration() :: %{String.t() | Atom.t() => any()}
+  @type oidc_jwt_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_trusted_token_issuer_response() :: %{
-        "Name" => String.t() | Atom.t(),
-        "TrustedTokenIssuerArn" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "TrustedTokenIssuerArn" => String.t() | atom(),
         "TrustedTokenIssuerConfiguration" => list(),
         "TrustedTokenIssuerType" => list(any())
       }
       
   """
-  @type describe_trusted_token_issuer_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_trusted_token_issuer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_trusted_token_issuer_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
+        required("InstanceArn") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("TrustedTokenIssuerConfiguration") => list(),
         required("TrustedTokenIssuerType") => list(any())
       }
       
   """
-  @type create_trusted_token_issuer_request() :: %{String.t() | Atom.t() => any()}
+  @type create_trusted_token_issuer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1160,8 +1154,7 @@ defmodule AWS.SSOAdmin do
       
   """
   @type describe_permission_set_provisioning_status_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1169,16 +1162,16 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       permission_set_provisioning_status() :: %{
-        "AccountId" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
         "CreatedDate" => non_neg_integer(),
-        "FailureReason" => String.t() | Atom.t(),
-        "PermissionSetArn" => String.t() | Atom.t(),
-        "RequestId" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | atom(),
+        "PermissionSetArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type permission_set_provisioning_status() :: %{String.t() | Atom.t() => any()}
+  @type permission_set_provisioning_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1186,23 +1179,23 @@ defmodule AWS.SSOAdmin do
       
       list_account_assignment_creation_status_response() :: %{
         "AccountAssignmentsCreationStatus" => list(account_assignment_operation_status_metadata()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_account_assignment_creation_status_response() :: %{String.t() | Atom.t() => any()}
+  @type list_account_assignment_creation_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attached_managed_policy() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type attached_managed_policy() :: %{String.t() | Atom.t() => any()}
+  @type attached_managed_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1210,15 +1203,14 @@ defmodule AWS.SSOAdmin do
       
       list_customer_managed_policy_references_in_permission_set_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
   @type list_customer_managed_policy_references_in_permission_set_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1226,30 +1218,30 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_application_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("PortalOptions") => portal_options(),
         optional("Status") => list(any()),
         optional("Tags") => list(tag()),
-        required("ApplicationProviderArn") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        required("ApplicationProviderArn") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_application_request() :: %{String.t() | Atom.t() => any()}
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1261,7 +1253,7 @@ defmodule AWS.SSOAdmin do
       }
       
   """
-  @type grant_item() :: %{String.t() | Atom.t() => any()}
+  @type grant_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1272,7 +1264,7 @@ defmodule AWS.SSOAdmin do
       }
       
   """
-  @type describe_permission_set_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_permission_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1280,31 +1272,31 @@ defmodule AWS.SSOAdmin do
       
       account_assignment_operation_status() :: %{
         "CreatedDate" => non_neg_integer(),
-        "FailureReason" => String.t() | Atom.t(),
-        "PermissionSetArn" => String.t() | Atom.t(),
-        "PrincipalId" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | atom(),
+        "PermissionSetArn" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
         "PrincipalType" => list(any()),
-        "RequestId" => String.t() | Atom.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => list(any()),
-        "TargetId" => String.t() | Atom.t(),
+        "TargetId" => String.t() | atom(),
         "TargetType" => list(any())
       }
       
   """
-  @type account_assignment_operation_status() :: %{String.t() | Atom.t() => any()}
+  @type account_assignment_operation_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_application_assignment_request() :: %{
-        required("ApplicationArn") => String.t() | Atom.t(),
-        required("PrincipalId") => String.t() | Atom.t(),
+        required("ApplicationArn") => String.t() | atom(),
+        required("PrincipalId") => String.t() | atom(),
         required("PrincipalType") => list(any())
       }
       
   """
-  @type create_application_assignment_request() :: %{String.t() | Atom.t() => any()}
+  @type create_application_assignment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1312,38 +1304,37 @@ defmodule AWS.SSOAdmin do
       
       list_account_assignments_for_principal_response() :: %{
         "AccountAssignments" => list(account_assignment_for_principal()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_account_assignments_for_principal_response() :: %{String.t() | Atom.t() => any()}
+  @type list_account_assignments_for_principal_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_permissions_boundary_to_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom(),
         required("PermissionsBoundary") => permissions_boundary()
       }
       
   """
-  @type put_permissions_boundary_to_permission_set_request() :: %{String.t() | Atom.t() => any()}
+  @type put_permissions_boundary_to_permission_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_permissions_boundary_from_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
   @type delete_permissions_boundary_from_permission_set_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1351,59 +1342,59 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       customer_managed_policy_reference() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Path" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Path" => String.t() | atom()
       }
       
   """
-  @type customer_managed_policy_reference() :: %{String.t() | Atom.t() => any()}
+  @type customer_managed_policy_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_application_response() :: %{
-        "ApplicationArn" => String.t() | Atom.t()
+        "ApplicationArn" => String.t() | atom()
       }
       
   """
-  @type create_application_response() :: %{String.t() | Atom.t() => any()}
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
-  @type describe_permission_set_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_permission_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_inline_policy_from_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
-  @type delete_inline_policy_from_permission_set_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_inline_policy_from_permission_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
-  @type delete_permission_set_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_permission_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1411,11 +1402,11 @@ defmodule AWS.SSOAdmin do
       
       list_instances_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_instances_request() :: %{String.t() | Atom.t() => any()}
+  @type list_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1424,12 +1415,12 @@ defmodule AWS.SSOAdmin do
       list_account_assignment_creation_status_request() :: %{
         optional("Filter") => operation_status_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
-  @type list_account_assignment_creation_status_request() :: %{String.t() | Atom.t() => any()}
+  @type list_account_assignment_creation_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1445,27 +1436,27 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       update_permission_set_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("RelayState") => String.t() | Atom.t(),
-        optional("SessionDuration") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom(),
+        optional("RelayState") => String.t() | atom(),
+        optional("SessionDuration") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
-  @type update_permission_set_request() :: %{String.t() | Atom.t() => any()}
+  @type update_permission_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_permissions_boundary_for_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
-  @type get_permissions_boundary_for_permission_set_request() :: %{String.t() | Atom.t() => any()}
+  @type get_permissions_boundary_for_permission_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1473,13 +1464,12 @@ defmodule AWS.SSOAdmin do
       
       update_instance_access_control_attribute_configuration_request() :: %{
         required("InstanceAccessControlAttributeConfiguration") => instance_access_control_attribute_configuration(),
-        required("InstanceArn") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
   @type update_instance_access_control_attribute_configuration_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1488,39 +1478,39 @@ defmodule AWS.SSOAdmin do
       
       list_instances_response() :: %{
         "Instances" => list(instance_metadata()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_instances_response() :: %{String.t() | Atom.t() => any()}
+  @type list_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_application_authentication_method_request() :: %{
-        required("ApplicationArn") => String.t() | Atom.t(),
+        required("ApplicationArn") => String.t() | atom(),
         required("AuthenticationMethod") => list(),
         required("AuthenticationMethodType") => list(any())
       }
       
   """
-  @type put_application_authentication_method_request() :: %{String.t() | Atom.t() => any()}
+  @type put_application_authentication_method_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_application_request() :: %{
-        optional("Description") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
         optional("PortalOptions") => update_application_portal_options(),
         optional("Status") => list(any()),
-        required("ApplicationArn") => String.t() | Atom.t()
+        required("ApplicationArn") => String.t() | atom()
       }
       
   """
-  @type update_application_request() :: %{String.t() | Atom.t() => any()}
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1541,18 +1531,18 @@ defmodule AWS.SSOAdmin do
       }
       
   """
-  @type portal_options() :: %{String.t() | Atom.t() => any()}
+  @type portal_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1560,11 +1550,11 @@ defmodule AWS.SSOAdmin do
       
       list_application_assignments_for_principal_response() :: %{
         "ApplicationAssignments" => list(application_assignment_for_principal()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_application_assignments_for_principal_response() :: %{String.t() | Atom.t() => any()}
+  @type list_application_assignments_for_principal_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1575,18 +1565,18 @@ defmodule AWS.SSOAdmin do
       }
       
   """
-  @type create_permission_set_response() :: %{String.t() | Atom.t() => any()}
+  @type create_permission_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_application_request() :: %{
-        required("ApplicationArn") => String.t() | Atom.t()
+        required("ApplicationArn") => String.t() | atom()
       }
       
   """
-  @type describe_application_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1602,12 +1592,12 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       list_application_grants_request() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ApplicationArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ApplicationArn") => String.t() | atom()
       }
       
   """
-  @type list_application_grants_request() :: %{String.t() | Atom.t() => any()}
+  @type list_application_grants_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1615,23 +1605,23 @@ defmodule AWS.SSOAdmin do
       
       list_account_assignments_response() :: %{
         "AccountAssignments" => list(account_assignment()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_account_assignments_response() :: %{String.t() | Atom.t() => any()}
+  @type list_account_assignments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_account_assignment_creation_status_request() :: %{
-        required("AccountAssignmentCreationRequestId") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t()
+        required("AccountAssignmentCreationRequestId") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
-  @type describe_account_assignment_creation_status_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_account_assignment_creation_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1640,12 +1630,12 @@ defmodule AWS.SSOAdmin do
       list_applications_request() :: %{
         optional("Filter") => list_applications_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
-  @type list_applications_request() :: %{String.t() | Atom.t() => any()}
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1653,50 +1643,50 @@ defmodule AWS.SSOAdmin do
       
       list_application_assignments_response() :: %{
         "ApplicationAssignments" => list(application_assignment()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_application_assignments_response() :: %{String.t() | Atom.t() => any()}
+  @type list_application_assignments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_application_access_scope_request() :: %{
-        required("ApplicationArn") => String.t() | Atom.t(),
-        required("Scope") => String.t() | Atom.t()
+        required("ApplicationArn") => String.t() | atom(),
+        required("Scope") => String.t() | atom()
       }
       
   """
-  @type delete_application_access_scope_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_application_access_scope_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       account_assignment() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "PermissionSetArn" => String.t() | Atom.t(),
-        "PrincipalId" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
+        "PermissionSetArn" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
         "PrincipalType" => list(any())
       }
       
   """
-  @type account_assignment() :: %{String.t() | Atom.t() => any()}
+  @type account_assignment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_instance_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Name") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
         optional("Tags") => list(tag())
       }
       
   """
-  @type create_instance_request() :: %{String.t() | Atom.t() => any()}
+  @type create_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1704,26 +1694,26 @@ defmodule AWS.SSOAdmin do
       
       describe_instance_response() :: %{
         "CreatedDate" => non_neg_integer(),
-        "IdentityStoreId" => String.t() | Atom.t(),
-        "InstanceArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "OwnerAccountId" => String.t() | Atom.t(),
+        "IdentityStoreId" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OwnerAccountId" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type describe_instance_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_trusted_token_issuer_request() :: %{
-        required("TrustedTokenIssuerArn") => String.t() | Atom.t()
+        required("TrustedTokenIssuerArn") => String.t() | atom()
       }
       
   """
-  @type delete_trusted_token_issuer_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_trusted_token_issuer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1732,25 +1722,25 @@ defmodule AWS.SSOAdmin do
       list_account_assignments_for_principal_request() :: %{
         optional("Filter") => list_account_assignments_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PrincipalId") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PrincipalId") => String.t() | atom(),
         required("PrincipalType") => list(any())
       }
       
   """
-  @type list_account_assignments_for_principal_request() :: %{String.t() | Atom.t() => any()}
+  @type list_account_assignments_for_principal_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1762,8 +1752,7 @@ defmodule AWS.SSOAdmin do
       
   """
   @type get_permissions_boundary_for_permission_set_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1775,7 +1764,7 @@ defmodule AWS.SSOAdmin do
       }
       
   """
-  @type delete_account_assignment_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_account_assignment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1791,23 +1780,23 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       access_control_attribute() :: %{
-        "Key" => String.t() | Atom.t(),
+        "Key" => String.t() | atom(),
         "Value" => access_control_attribute_value()
       }
       
   """
-  @type access_control_attribute() :: %{String.t() | Atom.t() => any()}
+  @type access_control_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_application_assignment_configuration_request() :: %{
-        required("ApplicationArn") => String.t() | Atom.t()
+        required("ApplicationArn") => String.t() | atom()
       }
       
   """
-  @type get_application_assignment_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type get_application_assignment_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1836,19 +1825,19 @@ defmodule AWS.SSOAdmin do
       }
       
   """
-  @type instance_access_control_attribute_configuration() :: %{String.t() | Atom.t() => any()}
+  @type instance_access_control_attribute_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_applications_filter() :: %{
-        "ApplicationAccount" => String.t() | Atom.t(),
-        "ApplicationProvider" => String.t() | Atom.t()
+        "ApplicationAccount" => String.t() | atom(),
+        "ApplicationProvider" => String.t() | atom()
       }
       
   """
-  @type list_applications_filter() :: %{String.t() | Atom.t() => any()}
+  @type list_applications_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1864,37 +1853,37 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        optional("InstanceArn") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ResourceArn") => String.t() | Atom.t()
+        optional("InstanceArn") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       display_data() :: %{
-        "Description" => String.t() | Atom.t(),
-        "DisplayName" => String.t() | Atom.t(),
-        "IconUrl" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "IconUrl" => String.t() | atom()
       }
       
   """
-  @type display_data() :: %{String.t() | Atom.t() => any()}
+  @type display_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1902,24 +1891,24 @@ defmodule AWS.SSOAdmin do
       
       list_application_authentication_methods_response() :: %{
         "AuthenticationMethods" => list(authentication_method_item()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_application_authentication_methods_response() :: %{String.t() | Atom.t() => any()}
+  @type list_application_authentication_methods_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       oidc_jwt_update_configuration() :: %{
-        "ClaimAttributePath" => String.t() | Atom.t(),
-        "IdentityStoreAttributePath" => String.t() | Atom.t(),
+        "ClaimAttributePath" => String.t() | atom(),
+        "IdentityStoreAttributePath" => String.t() | atom(),
         "JwksRetrievalOption" => list(any())
       }
       
   """
-  @type oidc_jwt_update_configuration() :: %{String.t() | Atom.t() => any()}
+  @type oidc_jwt_update_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1935,22 +1924,22 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_instance_request() :: %{
-        required("InstanceArn") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
-  @type delete_instance_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1962,8 +1951,7 @@ defmodule AWS.SSOAdmin do
       
   """
   @type describe_account_assignment_creation_status_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1973,12 +1961,12 @@ defmodule AWS.SSOAdmin do
       list_account_assignment_deletion_status_request() :: %{
         optional("Filter") => operation_status_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
-  @type list_account_assignment_deletion_status_request() :: %{String.t() | Atom.t() => any()}
+  @type list_account_assignment_deletion_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1986,13 +1974,12 @@ defmodule AWS.SSOAdmin do
       
       create_instance_access_control_attribute_configuration_request() :: %{
         required("InstanceAccessControlAttributeConfiguration") => instance_access_control_attribute_configuration(),
-        required("InstanceArn") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
   @type create_instance_access_control_attribute_configuration_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2001,14 +1988,13 @@ defmodule AWS.SSOAdmin do
       
       detach_customer_managed_policy_reference_from_permission_set_request() :: %{
         required("CustomerManagedPolicyReference") => customer_managed_policy_reference(),
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
   @type detach_customer_managed_policy_reference_from_permission_set_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2017,36 +2003,36 @@ defmodule AWS.SSOAdmin do
       
       list_applications_response() :: %{
         "Applications" => list(application()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_applications_response() :: %{String.t() | Atom.t() => any()}
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_account_assignment_deletion_status_request() :: %{
-        required("AccountAssignmentDeletionRequestId") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t()
+        required("AccountAssignmentDeletionRequestId") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
-  @type describe_account_assignment_deletion_status_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_account_assignment_deletion_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attach_managed_policy_to_permission_set_request() :: %{
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("ManagedPolicyArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom(),
+        required("ManagedPolicyArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
-  @type attach_managed_policy_to_permission_set_request() :: %{String.t() | Atom.t() => any()}
+  @type attach_managed_policy_to_permission_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2054,12 +2040,12 @@ defmodule AWS.SSOAdmin do
       
       permission_set_provisioning_status_metadata() :: %{
         "CreatedDate" => non_neg_integer(),
-        "RequestId" => String.t() | Atom.t(),
+        "RequestId" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type permission_set_provisioning_status_metadata() :: %{String.t() | Atom.t() => any()}
+  @type permission_set_provisioning_status_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2067,14 +2053,13 @@ defmodule AWS.SSOAdmin do
       
       attach_customer_managed_policy_reference_to_permission_set_request() :: %{
         required("CustomerManagedPolicyReference") => customer_managed_policy_reference(),
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom()
       }
       
   """
   @type attach_customer_managed_policy_reference_to_permission_set_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2082,24 +2067,24 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       describe_trusted_token_issuer_request() :: %{
-        required("TrustedTokenIssuerArn") => String.t() | Atom.t()
+        required("TrustedTokenIssuerArn") => String.t() | atom()
       }
       
   """
-  @type describe_trusted_token_issuer_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_trusted_token_issuer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_application_grant_request() :: %{
-        required("ApplicationArn") => String.t() | Atom.t(),
+        required("ApplicationArn") => String.t() | atom(),
         required("Grant") => list(),
         required("GrantType") => list(any())
       }
       
   """
-  @type put_application_grant_request() :: %{String.t() | Atom.t() => any()}
+  @type put_application_grant_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2108,13 +2093,12 @@ defmodule AWS.SSOAdmin do
       describe_instance_access_control_attribute_configuration_response() :: %{
         "InstanceAccessControlAttributeConfiguration" => instance_access_control_attribute_configuration(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | Atom.t()
+        "StatusReason" => String.t() | atom()
       }
       
   """
   @type describe_instance_access_control_attribute_configuration_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2123,12 +2107,12 @@ defmodule AWS.SSOAdmin do
       
       list_permission_sets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
-  @type list_permission_sets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_permission_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2144,12 +2128,12 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       describe_permission_set_provisioning_status_request() :: %{
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("ProvisionPermissionSetRequestId") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom(),
+        required("ProvisionPermissionSetRequestId") => String.t() | atom()
       }
       
   """
-  @type describe_permission_set_provisioning_status_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_permission_set_provisioning_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2165,11 +2149,11 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       create_trusted_token_issuer_response() :: %{
-        "TrustedTokenIssuerArn" => String.t() | Atom.t()
+        "TrustedTokenIssuerArn" => String.t() | atom()
       }
       
   """
-  @type create_trusted_token_issuer_response() :: %{String.t() | Atom.t() => any()}
+  @type create_trusted_token_issuer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2194,13 +2178,13 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       put_application_access_scope_request() :: %{
-        optional("AuthorizedTargets") => list(String.t() | Atom.t()),
-        required("ApplicationArn") => String.t() | Atom.t(),
-        required("Scope") => String.t() | Atom.t()
+        optional("AuthorizedTargets") => list(String.t() | atom()),
+        required("ApplicationArn") => String.t() | atom(),
+        required("Scope") => String.t() | atom()
       }
       
   """
-  @type put_application_access_scope_request() :: %{String.t() | Atom.t() => any()}
+  @type put_application_access_scope_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2208,14 +2192,14 @@ defmodule AWS.SSOAdmin do
       
       list_permission_sets_provisioned_to_account_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ProvisioningStatus") => list(any()),
-        required("AccountId") => String.t() | Atom.t(),
-        required("InstanceArn") => String.t() | Atom.t()
+        required("AccountId") => String.t() | atom(),
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
-  @type list_permission_sets_provisioned_to_account_request() :: %{String.t() | Atom.t() => any()}
+  @type list_permission_sets_provisioned_to_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2226,18 +2210,18 @@ defmodule AWS.SSOAdmin do
       }
       
   """
-  @type resource_server_config() :: %{String.t() | Atom.t() => any()}
+  @type resource_server_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_application_provider_request() :: %{
-        required("ApplicationProviderArn") => String.t() | Atom.t()
+        required("ApplicationProviderArn") => String.t() | atom()
       }
       
   """
-  @type describe_application_provider_request() :: %{String.t() | Atom.t() => any()}
+  @type describe_application_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2257,32 +2241,31 @@ defmodule AWS.SSOAdmin do
       }
       
   """
-  @type get_application_assignment_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_application_assignment_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       authorized_token_issuer() :: %{
-        "AuthorizedAudiences" => list(String.t() | Atom.t()),
-        "TrustedTokenIssuerArn" => String.t() | Atom.t()
+        "AuthorizedAudiences" => list(String.t() | atom()),
+        "TrustedTokenIssuerArn" => String.t() | atom()
       }
       
   """
-  @type authorized_token_issuer() :: %{String.t() | Atom.t() => any()}
+  @type authorized_token_issuer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_instance_access_control_attribute_configuration_request() :: %{
-        required("InstanceArn") => String.t() | Atom.t()
+        required("InstanceArn") => String.t() | atom()
       }
       
   """
   @type describe_instance_access_control_attribute_configuration_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2290,70 +2273,70 @@ defmodule AWS.SSOAdmin do
   ## Example:
       
       create_account_assignment_request() :: %{
-        required("InstanceArn") => String.t() | Atom.t(),
-        required("PermissionSetArn") => String.t() | Atom.t(),
-        required("PrincipalId") => String.t() | Atom.t(),
+        required("InstanceArn") => String.t() | atom(),
+        required("PermissionSetArn") => String.t() | atom(),
+        required("PrincipalId") => String.t() | atom(),
         required("PrincipalType") => list(any()),
-        required("TargetId") => String.t() | Atom.t(),
+        required("TargetId") => String.t() | atom(),
         required("TargetType") => list(any())
       }
       
   """
-  @type create_account_assignment_request() :: %{String.t() | Atom.t() => any()}
+  @type create_account_assignment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_permission_sets_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "PermissionSets" => list(String.t() | Atom.t())
+        "NextToken" => String.t() | atom(),
+        "PermissionSets" => list(String.t() | atom())
       }
       
   """
-  @type list_permission_sets_response() :: %{String.t() | Atom.t() => any()}
+  @type list_permission_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_application_response() :: %{
-        "ApplicationAccount" => String.t() | Atom.t(),
-        "ApplicationArn" => String.t() | Atom.t(),
-        "ApplicationProviderArn" => String.t() | Atom.t(),
+        "ApplicationAccount" => String.t() | atom(),
+        "ApplicationArn" => String.t() | atom(),
+        "ApplicationProviderArn" => String.t() | atom(),
         "CreatedDate" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "InstanceArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "PortalOptions" => portal_options(),
         "Status" => list(any())
       }
       
   """
-  @type describe_application_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_server_scope_details() :: %{
-        "DetailedTitle" => String.t() | Atom.t(),
-        "LongDescription" => String.t() | Atom.t()
+        "DetailedTitle" => String.t() | atom(),
+        "LongDescription" => String.t() | atom()
       }
       
   """
-  @type resource_server_scope_details() :: %{String.t() | Atom.t() => any()}
+  @type resource_server_scope_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_application_request() :: %{
-        required("ApplicationArn") => String.t() | Atom.t()
+        required("ApplicationArn") => String.t() | atom()
       }
       
   """
-  @type delete_application_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

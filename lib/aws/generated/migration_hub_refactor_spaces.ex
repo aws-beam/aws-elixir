@@ -32,28 +32,28 @@ defmodule AWS.MigrationHubRefactorSpaces do
   ## Example:
 
       lambda_endpoint_summary() :: %{
-        "Arn" => String.t() | Atom.t()
+        "Arn" => String.t() | atom()
       }
 
   """
-  @type lambda_endpoint_summary() :: %{String.t() | Atom.t() => any()}
+  @type lambda_endpoint_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       environment_vpc() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "CidrBlocks" => list(String.t() | Atom.t()),
+        "AccountId" => String.t() | atom(),
+        "CidrBlocks" => list(String.t() | atom()),
         "CreatedTime" => non_neg_integer(),
-        "EnvironmentId" => String.t() | Atom.t(),
+        "EnvironmentId" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
-        "VpcId" => String.t() | Atom.t(),
-        "VpcName" => String.t() | Atom.t()
+        "VpcId" => String.t() | atom(),
+        "VpcName" => String.t() | atom()
       }
 
   """
-  @type environment_vpc() :: %{String.t() | Atom.t() => any()}
+  @type environment_vpc() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -64,7 +64,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -80,77 +80,77 @@ defmodule AWS.MigrationHubRefactorSpaces do
   ## Example:
 
       default_route_input() :: %{
-        "ActivationState" => String.t() | Atom.t()
+        "ActivationState" => String.t() | atom()
       }
 
   """
-  @type default_route_input() :: %{String.t() | Atom.t() => any()}
+  @type default_route_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       api_gateway_proxy_input() :: %{
-        "EndpointType" => String.t() | Atom.t(),
-        "StageName" => String.t() | Atom.t()
+        "EndpointType" => String.t() | atom(),
+        "StageName" => String.t() | atom()
       }
 
   """
-  @type api_gateway_proxy_input() :: %{String.t() | Atom.t() => any()}
+  @type api_gateway_proxy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_route_response() :: %{
-        optional("ApplicationId") => String.t() | Atom.t(),
-        optional("Arn") => String.t() | Atom.t(),
+        optional("ApplicationId") => String.t() | atom(),
+        optional("Arn") => String.t() | atom(),
         optional("LastUpdatedTime") => non_neg_integer(),
-        optional("RouteId") => String.t() | Atom.t(),
-        optional("ServiceId") => String.t() | Atom.t(),
-        optional("State") => String.t() | Atom.t()
+        optional("RouteId") => String.t() | atom(),
+        optional("ServiceId") => String.t() | atom(),
+        optional("State") => String.t() | atom()
       }
 
   """
-  @type update_route_response() :: %{String.t() | Atom.t() => any()}
+  @type update_route_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_service_response() :: %{
-        optional("ApplicationId") => String.t() | Atom.t(),
-        optional("Arn") => String.t() | Atom.t(),
-        optional("CreatedByAccountId") => String.t() | Atom.t(),
+        optional("ApplicationId") => String.t() | atom(),
+        optional("Arn") => String.t() | atom(),
+        optional("CreatedByAccountId") => String.t() | atom(),
         optional("CreatedTime") => non_neg_integer(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("EndpointType") => String.t() | Atom.t(),
-        optional("EnvironmentId") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("EndpointType") => String.t() | atom(),
+        optional("EnvironmentId") => String.t() | atom(),
         optional("Error") => error_response(),
         optional("LambdaEndpoint") => lambda_endpoint_config(),
         optional("LastUpdatedTime") => non_neg_integer(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("OwnerAccountId") => String.t() | Atom.t(),
-        optional("ServiceId") => String.t() | Atom.t(),
-        optional("State") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
+        optional("OwnerAccountId") => String.t() | atom(),
+        optional("ServiceId") => String.t() | atom(),
+        optional("State") => String.t() | atom(),
         optional("Tags") => map(),
         optional("UrlEndpoint") => url_endpoint_config(),
-        optional("VpcId") => String.t() | Atom.t()
+        optional("VpcId") => String.t() | atom()
       }
 
   """
-  @type get_service_response() :: %{String.t() | Atom.t() => any()}
+  @type get_service_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lambda_endpoint_config() :: %{
-        "Arn" => String.t() | Atom.t()
+        "Arn" => String.t() | atom()
       }
 
   """
-  @type lambda_endpoint_config() :: %{String.t() | Atom.t() => any()}
+  @type lambda_endpoint_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -167,49 +167,49 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
       route_summary() :: %{
         "AppendSourcePath" => boolean(),
-        "ApplicationId" => String.t() | Atom.t(),
-        "Arn" => String.t() | Atom.t(),
-        "CreatedByAccountId" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "CreatedByAccountId" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "EnvironmentId" => String.t() | Atom.t(),
+        "EnvironmentId" => String.t() | atom(),
         "Error" => error_response(),
         "IncludeChildPaths" => boolean(),
         "LastUpdatedTime" => non_neg_integer(),
-        "Methods" => list(String.t() | Atom.t()),
-        "OwnerAccountId" => String.t() | Atom.t(),
+        "Methods" => list(String.t() | atom()),
+        "OwnerAccountId" => String.t() | atom(),
         "PathResourceToId" => map(),
-        "RouteId" => String.t() | Atom.t(),
-        "RouteType" => String.t() | Atom.t(),
-        "ServiceId" => String.t() | Atom.t(),
-        "SourcePath" => String.t() | Atom.t(),
-        "State" => String.t() | Atom.t(),
+        "RouteId" => String.t() | atom(),
+        "RouteType" => String.t() | atom(),
+        "ServiceId" => String.t() | atom(),
+        "SourcePath" => String.t() | atom(),
+        "State" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type route_summary() :: %{String.t() | Atom.t() => any()}
+  @type route_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       environment_summary() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "EnvironmentId" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "EnvironmentId" => String.t() | atom(),
         "Error" => error_response(),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
-        "NetworkFabricType" => String.t() | Atom.t(),
-        "OwnerAccountId" => String.t() | Atom.t(),
-        "State" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "NetworkFabricType" => String.t() | atom(),
+        "OwnerAccountId" => String.t() | atom(),
+        "State" => String.t() | atom(),
         "Tags" => map(),
-        "TransitGatewayId" => String.t() | Atom.t()
+        "TransitGatewayId" => String.t() | atom()
       }
 
   """
-  @type environment_summary() :: %{String.t() | Atom.t() => any()}
+  @type environment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -225,55 +225,55 @@ defmodule AWS.MigrationHubRefactorSpaces do
   ## Example:
 
       lambda_endpoint_input() :: %{
-        "Arn" => String.t() | Atom.t()
+        "Arn" => String.t() | atom()
       }
 
   """
-  @type lambda_endpoint_input() :: %{String.t() | Atom.t() => any()}
+  @type lambda_endpoint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_policy_response() :: %{
-        optional("Policy") => String.t() | Atom.t()
+        optional("Policy") => String.t() | atom()
       }
 
   """
-  @type get_resource_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_environment_response() :: %{
-        optional("Arn") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
         optional("CreatedTime") => non_neg_integer(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("EnvironmentId") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("EnvironmentId") => String.t() | atom(),
         optional("Error") => error_response(),
         optional("LastUpdatedTime") => non_neg_integer(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("NetworkFabricType") => String.t() | Atom.t(),
-        optional("OwnerAccountId") => String.t() | Atom.t(),
-        optional("State") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
+        optional("NetworkFabricType") => String.t() | atom(),
+        optional("OwnerAccountId") => String.t() | atom(),
+        optional("State") => String.t() | atom(),
         optional("Tags") => map(),
-        optional("TransitGatewayId") => String.t() | Atom.t()
+        optional("TransitGatewayId") => String.t() | atom()
       }
 
   """
-  @type get_environment_response() :: %{String.t() | Atom.t() => any()}
+  @type get_environment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -290,125 +290,125 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
       list_services_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_services_request() :: %{String.t() | Atom.t() => any()}
+  @type list_services_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_services_response() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ServiceSummaryList") => list(service_summary())
       }
 
   """
-  @type list_services_response() :: %{String.t() | Atom.t() => any()}
+  @type list_services_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "QuotaCode" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t(),
-        "ServiceCode" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "QuotaCode" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_summary() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "Arn" => String.t() | Atom.t(),
-        "CreatedByAccountId" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "CreatedByAccountId" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "EndpointType" => String.t() | Atom.t(),
-        "EnvironmentId" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "EndpointType" => String.t() | atom(),
+        "EnvironmentId" => String.t() | atom(),
         "Error" => error_response(),
         "LambdaEndpoint" => lambda_endpoint_summary(),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
-        "OwnerAccountId" => String.t() | Atom.t(),
-        "ServiceId" => String.t() | Atom.t(),
-        "State" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "OwnerAccountId" => String.t() | atom(),
+        "ServiceId" => String.t() | atom(),
+        "State" => String.t() | atom(),
         "Tags" => map(),
         "UrlEndpoint" => url_endpoint_summary(),
-        "VpcId" => String.t() | Atom.t()
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type service_summary() :: %{String.t() | Atom.t() => any()}
+  @type service_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_service_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("LambdaEndpoint") => lambda_endpoint_input(),
         optional("Tags") => map(),
         optional("UrlEndpoint") => url_endpoint_input(),
-        optional("VpcId") => String.t() | Atom.t(),
-        required("EndpointType") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t()
+        optional("VpcId") => String.t() | atom(),
+        required("EndpointType") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_service_request() :: %{String.t() | Atom.t() => any()}
+  @type create_service_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       error_response() :: %{
-        "AccountId" => String.t() | Atom.t(),
+        "AccountId" => String.t() | atom(),
         "AdditionalDetails" => map(),
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t(),
-        "ResourceIdentifier" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "ResourceIdentifier" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type error_response() :: %{String.t() | Atom.t() => any()}
+  @type error_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -419,7 +419,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -427,15 +427,15 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
       create_application_request() :: %{
         optional("ApiGatewayProxy") => api_gateway_proxy_input(),
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => map(),
-        required("Name") => String.t() | Atom.t(),
-        required("ProxyType") => String.t() | Atom.t(),
-        required("VpcId") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("ProxyType") => String.t() | atom(),
+        required("VpcId") => String.t() | atom()
       }
 
   """
-  @type create_application_request() :: %{String.t() | Atom.t() => any()}
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -443,11 +443,11 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
       list_environments_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_environments_request() :: %{String.t() | Atom.t() => any()}
+  @type list_environments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -455,22 +455,22 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
       create_application_response() :: %{
         optional("ApiGatewayProxy") => api_gateway_proxy_input(),
-        optional("ApplicationId") => String.t() | Atom.t(),
-        optional("Arn") => String.t() | Atom.t(),
-        optional("CreatedByAccountId") => String.t() | Atom.t(),
+        optional("ApplicationId") => String.t() | atom(),
+        optional("Arn") => String.t() | atom(),
+        optional("CreatedByAccountId") => String.t() | atom(),
         optional("CreatedTime") => non_neg_integer(),
-        optional("EnvironmentId") => String.t() | Atom.t(),
+        optional("EnvironmentId") => String.t() | atom(),
         optional("LastUpdatedTime") => non_neg_integer(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("OwnerAccountId") => String.t() | Atom.t(),
-        optional("ProxyType") => String.t() | Atom.t(),
-        optional("State") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
+        optional("OwnerAccountId") => String.t() | atom(),
+        optional("ProxyType") => String.t() | atom(),
+        optional("State") => String.t() | atom(),
         optional("Tags") => map(),
-        optional("VpcId") => String.t() | Atom.t()
+        optional("VpcId") => String.t() | atom()
       }
 
   """
-  @type create_application_response() :: %{String.t() | Atom.t() => any()}
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -486,85 +486,85 @@ defmodule AWS.MigrationHubRefactorSpaces do
   ## Example:
 
       update_route_request() :: %{
-        required("ActivationState") => String.t() | Atom.t()
+        required("ActivationState") => String.t() | atom()
       }
 
   """
-  @type update_route_request() :: %{String.t() | Atom.t() => any()}
+  @type update_route_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_application_response() :: %{
-        optional("ApplicationId") => String.t() | Atom.t(),
-        optional("Arn") => String.t() | Atom.t(),
-        optional("EnvironmentId") => String.t() | Atom.t(),
+        optional("ApplicationId") => String.t() | atom(),
+        optional("Arn") => String.t() | atom(),
+        optional("EnvironmentId") => String.t() | atom(),
         optional("LastUpdatedTime") => non_neg_integer(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("State") => String.t() | Atom.t()
+        optional("Name") => String.t() | atom(),
+        optional("State") => String.t() | atom()
       }
 
   """
-  @type delete_application_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       url_endpoint_config() :: %{
-        "HealthUrl" => String.t() | Atom.t(),
-        "Url" => String.t() | Atom.t()
+        "HealthUrl" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type url_endpoint_config() :: %{String.t() | Atom.t() => any()}
+  @type url_endpoint_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_environment_response() :: %{
-        optional("Arn") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
         optional("CreatedTime") => non_neg_integer(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("EnvironmentId") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("EnvironmentId") => String.t() | atom(),
         optional("LastUpdatedTime") => non_neg_integer(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("NetworkFabricType") => String.t() | Atom.t(),
-        optional("OwnerAccountId") => String.t() | Atom.t(),
-        optional("State") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
+        optional("NetworkFabricType") => String.t() | atom(),
+        optional("OwnerAccountId") => String.t() | atom(),
+        optional("State") => String.t() | atom(),
         optional("Tags") => map()
       }
 
   """
-  @type create_environment_response() :: %{String.t() | Atom.t() => any()}
+  @type create_environment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       uri_path_route_input() :: %{
-        "ActivationState" => String.t() | Atom.t(),
+        "ActivationState" => String.t() | atom(),
         "AppendSourcePath" => boolean(),
         "IncludeChildPaths" => boolean(),
-        "Methods" => list(String.t() | Atom.t()),
-        "SourcePath" => String.t() | Atom.t()
+        "Methods" => list(String.t() | atom()),
+        "SourcePath" => String.t() | atom()
       }
 
   """
-  @type uri_path_route_input() :: %{String.t() | Atom.t() => any()}
+  @type uri_path_route_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -581,11 +581,11 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
       list_routes_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_routes_request() :: %{String.t() | Atom.t() => any()}
+  @type list_routes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -593,23 +593,23 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
       get_application_response() :: %{
         optional("ApiGatewayProxy") => api_gateway_proxy_config(),
-        optional("ApplicationId") => String.t() | Atom.t(),
-        optional("Arn") => String.t() | Atom.t(),
-        optional("CreatedByAccountId") => String.t() | Atom.t(),
+        optional("ApplicationId") => String.t() | atom(),
+        optional("Arn") => String.t() | atom(),
+        optional("CreatedByAccountId") => String.t() | atom(),
         optional("CreatedTime") => non_neg_integer(),
-        optional("EnvironmentId") => String.t() | Atom.t(),
+        optional("EnvironmentId") => String.t() | atom(),
         optional("Error") => error_response(),
         optional("LastUpdatedTime") => non_neg_integer(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("OwnerAccountId") => String.t() | Atom.t(),
-        optional("ProxyType") => String.t() | Atom.t(),
-        optional("State") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
+        optional("OwnerAccountId") => String.t() | atom(),
+        optional("ProxyType") => String.t() | atom(),
+        optional("State") => String.t() | atom(),
         optional("Tags") => map(),
-        optional("VpcId") => String.t() | Atom.t()
+        optional("VpcId") => String.t() | atom()
       }
 
   """
-  @type get_application_response() :: %{String.t() | Atom.t() => any()}
+  @type get_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -617,11 +617,11 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
       list_applications_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_applications_request() :: %{String.t() | Atom.t() => any()}
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -629,67 +629,67 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
       get_route_response() :: %{
         optional("AppendSourcePath") => boolean(),
-        optional("ApplicationId") => String.t() | Atom.t(),
-        optional("Arn") => String.t() | Atom.t(),
-        optional("CreatedByAccountId") => String.t() | Atom.t(),
+        optional("ApplicationId") => String.t() | atom(),
+        optional("Arn") => String.t() | atom(),
+        optional("CreatedByAccountId") => String.t() | atom(),
         optional("CreatedTime") => non_neg_integer(),
-        optional("EnvironmentId") => String.t() | Atom.t(),
+        optional("EnvironmentId") => String.t() | atom(),
         optional("Error") => error_response(),
         optional("IncludeChildPaths") => boolean(),
         optional("LastUpdatedTime") => non_neg_integer(),
-        optional("Methods") => list(String.t() | Atom.t()),
-        optional("OwnerAccountId") => String.t() | Atom.t(),
+        optional("Methods") => list(String.t() | atom()),
+        optional("OwnerAccountId") => String.t() | atom(),
         optional("PathResourceToId") => map(),
-        optional("RouteId") => String.t() | Atom.t(),
-        optional("RouteType") => String.t() | Atom.t(),
-        optional("ServiceId") => String.t() | Atom.t(),
-        optional("SourcePath") => String.t() | Atom.t(),
-        optional("State") => String.t() | Atom.t(),
+        optional("RouteId") => String.t() | atom(),
+        optional("RouteType") => String.t() | atom(),
+        optional("ServiceId") => String.t() | atom(),
+        optional("SourcePath") => String.t() | atom(),
+        optional("State") => String.t() | atom(),
         optional("Tags") => map()
       }
 
   """
-  @type get_route_response() :: %{String.t() | Atom.t() => any()}
+  @type get_route_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_resource_policy_request() :: %{
-        required("Policy") => String.t() | Atom.t(),
-        required("ResourceArn") => String.t() | Atom.t()
+        required("Policy") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
       }
 
   """
-  @type put_resource_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       api_gateway_proxy_config() :: %{
-        "ApiGatewayId" => String.t() | Atom.t(),
-        "EndpointType" => String.t() | Atom.t(),
-        "NlbArn" => String.t() | Atom.t(),
-        "NlbName" => String.t() | Atom.t(),
-        "ProxyUrl" => String.t() | Atom.t(),
-        "StageName" => String.t() | Atom.t(),
-        "VpcLinkId" => String.t() | Atom.t()
+        "ApiGatewayId" => String.t() | atom(),
+        "EndpointType" => String.t() | atom(),
+        "NlbArn" => String.t() | atom(),
+        "NlbName" => String.t() | atom(),
+        "ProxyUrl" => String.t() | atom(),
+        "StageName" => String.t() | atom(),
+        "VpcLinkId" => String.t() | atom()
       }
 
   """
-  @type api_gateway_proxy_config() :: %{String.t() | Atom.t() => any()}
+  @type api_gateway_proxy_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -705,12 +705,12 @@ defmodule AWS.MigrationHubRefactorSpaces do
   ## Example:
 
       list_routes_response() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("RouteSummaryList") => list(route_summary())
       }
 
   """
-  @type list_routes_response() :: %{String.t() | Atom.t() => any()}
+  @type list_routes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -718,83 +718,83 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
       list_environment_vpcs_response() :: %{
         optional("EnvironmentVpcList") => list(environment_vpc()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_environment_vpcs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_environment_vpcs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       url_endpoint_input() :: %{
-        "HealthUrl" => String.t() | Atom.t(),
-        "Url" => String.t() | Atom.t()
+        "HealthUrl" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type url_endpoint_input() :: %{String.t() | Atom.t() => any()}
+  @type url_endpoint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_route_response() :: %{
-        optional("ApplicationId") => String.t() | Atom.t(),
-        optional("Arn") => String.t() | Atom.t(),
+        optional("ApplicationId") => String.t() | atom(),
+        optional("Arn") => String.t() | atom(),
         optional("LastUpdatedTime") => non_neg_integer(),
-        optional("RouteId") => String.t() | Atom.t(),
-        optional("ServiceId") => String.t() | Atom.t(),
-        optional("State") => String.t() | Atom.t()
+        optional("RouteId") => String.t() | atom(),
+        optional("ServiceId") => String.t() | atom(),
+        optional("State") => String.t() | atom()
       }
 
   """
-  @type delete_route_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_route_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_resource_policy_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_resource_policy_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_resource_policy_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_route_response() :: %{
-        optional("ApplicationId") => String.t() | Atom.t(),
-        optional("Arn") => String.t() | Atom.t(),
-        optional("CreatedByAccountId") => String.t() | Atom.t(),
+        optional("ApplicationId") => String.t() | atom(),
+        optional("Arn") => String.t() | atom(),
+        optional("CreatedByAccountId") => String.t() | atom(),
         optional("CreatedTime") => non_neg_integer(),
         optional("LastUpdatedTime") => non_neg_integer(),
-        optional("OwnerAccountId") => String.t() | Atom.t(),
-        optional("RouteId") => String.t() | Atom.t(),
-        optional("RouteType") => String.t() | Atom.t(),
-        optional("ServiceId") => String.t() | Atom.t(),
-        optional("State") => String.t() | Atom.t(),
+        optional("OwnerAccountId") => String.t() | atom(),
+        optional("RouteId") => String.t() | atom(),
+        optional("RouteType") => String.t() | atom(),
+        optional("ServiceId") => String.t() | atom(),
+        optional("State") => String.t() | atom(),
         optional("Tags") => map(),
         optional("UriPathRoute") => uri_path_route_input()
       }
 
   """
-  @type create_route_response() :: %{String.t() | Atom.t() => any()}
+  @type create_route_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -828,14 +828,14 @@ defmodule AWS.MigrationHubRefactorSpaces do
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "QuotaCode" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
+        "QuotaCode" => String.t() | atom(),
         "RetryAfterSeconds" => integer(),
-        "ServiceCode" => String.t() | Atom.t()
+        "ServiceCode" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -843,11 +843,11 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
       list_environments_response() :: %{
         optional("EnvironmentSummaryList") => list(environment_summary()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_environments_response() :: %{String.t() | Atom.t() => any()}
+  @type list_environments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -855,23 +855,23 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
       application_summary() :: %{
         "ApiGatewayProxy" => api_gateway_proxy_summary(),
-        "ApplicationId" => String.t() | Atom.t(),
-        "Arn" => String.t() | Atom.t(),
-        "CreatedByAccountId" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "CreatedByAccountId" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "EnvironmentId" => String.t() | Atom.t(),
+        "EnvironmentId" => String.t() | atom(),
         "Error" => error_response(),
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
-        "OwnerAccountId" => String.t() | Atom.t(),
-        "ProxyType" => String.t() | Atom.t(),
-        "State" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "OwnerAccountId" => String.t() | atom(),
+        "ProxyType" => String.t() | atom(),
+        "State" => String.t() | atom(),
         "Tags" => map(),
-        "VpcId" => String.t() | Atom.t()
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type application_summary() :: %{String.t() | Atom.t() => any()}
+  @type application_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -888,11 +888,11 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
       list_applications_response() :: %{
         optional("ApplicationSummaryList") => list(application_summary()),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_applications_response() :: %{String.t() | Atom.t() => any()}
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -908,65 +908,65 @@ defmodule AWS.MigrationHubRefactorSpaces do
   ## Example:
 
       api_gateway_proxy_summary() :: %{
-        "ApiGatewayId" => String.t() | Atom.t(),
-        "EndpointType" => String.t() | Atom.t(),
-        "NlbArn" => String.t() | Atom.t(),
-        "NlbName" => String.t() | Atom.t(),
-        "ProxyUrl" => String.t() | Atom.t(),
-        "StageName" => String.t() | Atom.t(),
-        "VpcLinkId" => String.t() | Atom.t()
+        "ApiGatewayId" => String.t() | atom(),
+        "EndpointType" => String.t() | atom(),
+        "NlbArn" => String.t() | atom(),
+        "NlbName" => String.t() | atom(),
+        "ProxyUrl" => String.t() | atom(),
+        "StageName" => String.t() | atom(),
+        "VpcLinkId" => String.t() | atom()
       }
 
   """
-  @type api_gateway_proxy_summary() :: %{String.t() | Atom.t() => any()}
+  @type api_gateway_proxy_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_service_response() :: %{
-        optional("ApplicationId") => String.t() | Atom.t(),
-        optional("Arn") => String.t() | Atom.t(),
-        optional("EnvironmentId") => String.t() | Atom.t(),
+        optional("ApplicationId") => String.t() | atom(),
+        optional("Arn") => String.t() | atom(),
+        optional("EnvironmentId") => String.t() | atom(),
         optional("LastUpdatedTime") => non_neg_integer(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("ServiceId") => String.t() | Atom.t(),
-        optional("State") => String.t() | Atom.t()
+        optional("Name") => String.t() | atom(),
+        optional("ServiceId") => String.t() | atom(),
+        optional("State") => String.t() | atom()
       }
 
   """
-  @type delete_service_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_service_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_route_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("DefaultRoute") => default_route_input(),
         optional("Tags") => map(),
         optional("UriPathRoute") => uri_path_route_input(),
-        required("RouteType") => String.t() | Atom.t(),
-        required("ServiceIdentifier") => String.t() | Atom.t()
+        required("RouteType") => String.t() | atom(),
+        required("ServiceIdentifier") => String.t() | atom()
       }
 
   """
-  @type create_route_request() :: %{String.t() | Atom.t() => any()}
+  @type create_route_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_environment_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
-        required("Name") => String.t() | Atom.t(),
-        required("NetworkFabricType") => String.t() | Atom.t()
+        required("Name") => String.t() | atom(),
+        required("NetworkFabricType") => String.t() | atom()
       }
 
   """
-  @type create_environment_request() :: %{String.t() | Atom.t() => any()}
+  @type create_environment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -974,37 +974,37 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
       list_environment_vpcs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_environment_vpcs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_environment_vpcs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_service_response() :: %{
-        optional("ApplicationId") => String.t() | Atom.t(),
-        optional("Arn") => String.t() | Atom.t(),
-        optional("CreatedByAccountId") => String.t() | Atom.t(),
+        optional("ApplicationId") => String.t() | atom(),
+        optional("Arn") => String.t() | atom(),
+        optional("CreatedByAccountId") => String.t() | atom(),
         optional("CreatedTime") => non_neg_integer(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("EndpointType") => String.t() | Atom.t(),
-        optional("EnvironmentId") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("EndpointType") => String.t() | atom(),
+        optional("EnvironmentId") => String.t() | atom(),
         optional("LambdaEndpoint") => lambda_endpoint_input(),
         optional("LastUpdatedTime") => non_neg_integer(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("OwnerAccountId") => String.t() | Atom.t(),
-        optional("ServiceId") => String.t() | Atom.t(),
-        optional("State") => String.t() | Atom.t(),
+        optional("Name") => String.t() | atom(),
+        optional("OwnerAccountId") => String.t() | atom(),
+        optional("ServiceId") => String.t() | atom(),
+        optional("State") => String.t() | atom(),
         optional("Tags") => map(),
         optional("UrlEndpoint") => url_endpoint_input(),
-        optional("VpcId") => String.t() | Atom.t()
+        optional("VpcId") => String.t() | atom()
       }
 
   """
-  @type create_service_response() :: %{String.t() | Atom.t() => any()}
+  @type create_service_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1020,15 +1020,15 @@ defmodule AWS.MigrationHubRefactorSpaces do
   ## Example:
 
       delete_environment_response() :: %{
-        optional("Arn") => String.t() | Atom.t(),
-        optional("EnvironmentId") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
+        optional("EnvironmentId") => String.t() | atom(),
         optional("LastUpdatedTime") => non_neg_integer(),
-        optional("Name") => String.t() | Atom.t(),
-        optional("State") => String.t() | Atom.t()
+        optional("Name") => String.t() | atom(),
+        optional("State") => String.t() | atom()
       }
 
   """
-  @type delete_environment_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_environment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1053,12 +1053,12 @@ defmodule AWS.MigrationHubRefactorSpaces do
   ## Example:
 
       url_endpoint_summary() :: %{
-        "HealthUrl" => String.t() | Atom.t(),
-        "Url" => String.t() | Atom.t()
+        "HealthUrl" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type url_endpoint_summary() :: %{String.t() | Atom.t() => any()}
+  @type url_endpoint_summary() :: %{(String.t() | atom()) => any()}
 
   @type create_application_errors() ::
           throttling_exception()
@@ -1273,7 +1273,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   application](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/getting-started-create-application.html)
   in the *Refactor Spaces User Guide*.
   """
-  @spec create_application(map(), String.t() | Atom.t(), create_application_request(), list()) ::
+  @spec create_application(map(), String.t() | atom(), create_application_request(), list()) ::
           {:ok, create_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1456,8 +1456,8 @@ defmodule AWS.MigrationHubRefactorSpaces do
   """
   @spec create_route(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_route_request(),
           list()
         ) ::
@@ -1512,8 +1512,8 @@ defmodule AWS.MigrationHubRefactorSpaces do
   """
   @spec create_service(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_service_request(),
           list()
         ) ::
@@ -1558,8 +1558,8 @@ defmodule AWS.MigrationHubRefactorSpaces do
   """
   @spec delete_application(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_application_request(),
           list()
         ) ::
@@ -1602,7 +1602,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   Before you can delete an environment, you must first
   delete any applications and services within the environment.
   """
-  @spec delete_environment(map(), String.t() | Atom.t(), delete_environment_request(), list()) ::
+  @spec delete_environment(map(), String.t() | atom(), delete_environment_request(), list()) ::
           {:ok, delete_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1633,7 +1633,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   """
   @spec delete_resource_policy(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_resource_policy_request(),
           list()
         ) ::
@@ -1667,9 +1667,9 @@ defmodule AWS.MigrationHubRefactorSpaces do
   """
   @spec delete_route(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_route_request(),
           list()
         ) ::
@@ -1712,9 +1712,9 @@ defmodule AWS.MigrationHubRefactorSpaces do
   """
   @spec delete_service(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_service_request(),
           list()
         ) ::
@@ -1755,7 +1755,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @doc """
   Gets an Amazon Web Services Migration Hub Refactor Spaces application.
   """
-  @spec get_application(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_application(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1780,7 +1780,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @doc """
   Gets an Amazon Web Services Migration Hub Refactor Spaces environment.
   """
-  @spec get_environment(map(), String.t() | Atom.t(), list()) ::
+  @spec get_environment(map(), String.t() | atom(), list()) ::
           {:ok, get_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1798,7 +1798,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @doc """
   Gets the resource-based permission policy that is set for the given environment.
   """
-  @spec get_resource_policy(map(), String.t() | Atom.t(), list()) ::
+  @spec get_resource_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1816,13 +1816,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @doc """
   Gets an Amazon Web Services Migration Hub Refactor Spaces route.
   """
-  @spec get_route(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec get_route(map(), String.t() | atom(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_route_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1848,13 +1842,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   @doc """
   Gets an Amazon Web Services Migration Hub Refactor Spaces service.
   """
-  @spec get_service(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec get_service(map(), String.t() | atom(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_service_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1883,9 +1871,9 @@ defmodule AWS.MigrationHubRefactorSpaces do
   """
   @spec list_applications(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_applications_response(), any()}
@@ -1929,9 +1917,9 @@ defmodule AWS.MigrationHubRefactorSpaces do
   """
   @spec list_environment_vpcs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_environment_vpcs_response(), any()}
@@ -1973,7 +1961,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   caller account or shared with the caller
   account.
   """
-  @spec list_environments(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_environments(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_environments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2008,10 +1996,10 @@ defmodule AWS.MigrationHubRefactorSpaces do
   """
   @spec list_routes(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_routes_response(), any()}
@@ -2057,10 +2045,10 @@ defmodule AWS.MigrationHubRefactorSpaces do
   """
   @spec list_services(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_services_response(), any()}
@@ -2106,7 +2094,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   The caller account must be the same as the resource’s
   `OwnerAccountId`. Listing tags in other accounts is not supported.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2169,7 +2157,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   orchestrated resources, such as an
   environment’s transit gateway.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2203,7 +2191,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   the resource’s
   `OwnerAccountId`. Untagging resources across accounts is not supported.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2239,9 +2227,9 @@ defmodule AWS.MigrationHubRefactorSpaces do
   """
   @spec update_route(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_route_request(),
           list()
         ) ::

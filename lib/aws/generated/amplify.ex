@@ -22,30 +22,30 @@ defmodule AWS.Amplify do
   ## Example:
 
       app() :: %{
-        "appArn" => String.t() | Atom.t(),
-        "appId" => String.t() | Atom.t(),
+        "appArn" => String.t() | atom(),
+        "appId" => String.t() | atom(),
         "autoBranchCreationConfig" => auto_branch_creation_config(),
-        "autoBranchCreationPatterns" => list(String.t() | Atom.t()),
-        "basicAuthCredentials" => String.t() | Atom.t(),
-        "buildSpec" => String.t() | Atom.t(),
+        "autoBranchCreationPatterns" => list(String.t() | atom()),
+        "basicAuthCredentials" => String.t() | atom(),
+        "buildSpec" => String.t() | atom(),
         "cacheConfig" => cache_config(),
-        "computeRoleArn" => String.t() | Atom.t(),
+        "computeRoleArn" => String.t() | atom(),
         "createTime" => non_neg_integer(),
-        "customHeaders" => String.t() | Atom.t(),
+        "customHeaders" => String.t() | atom(),
         "customRules" => list(custom_rule()),
-        "defaultDomain" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "defaultDomain" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "enableAutoBranchCreation" => boolean(),
         "enableBasicAuth" => boolean(),
         "enableBranchAutoBuild" => boolean(),
         "enableBranchAutoDeletion" => boolean(),
         "environmentVariables" => map(),
-        "iamServiceRoleArn" => String.t() | Atom.t(),
+        "iamServiceRoleArn" => String.t() | atom(),
         "jobConfig" => job_config(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "platform" => list(any()),
         "productionBranch" => production_branch(),
-        "repository" => String.t() | Atom.t(),
+        "repository" => String.t() | atom(),
         "repositoryCloneMethod" => list(any()),
         "tags" => map(),
         "updateTime" => non_neg_integer(),
@@ -54,27 +54,27 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type app() :: %{String.t() | Atom.t() => any()}
+  @type app() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       branch() :: %{
-        "activeJobId" => String.t() | Atom.t(),
-        "associatedResources" => list(String.t() | Atom.t()),
+        "activeJobId" => String.t() | atom(),
+        "associatedResources" => list(String.t() | atom()),
         "backend" => backend(),
-        "backendEnvironmentArn" => String.t() | Atom.t(),
-        "basicAuthCredentials" => String.t() | Atom.t(),
-        "branchArn" => String.t() | Atom.t(),
-        "branchName" => String.t() | Atom.t(),
-        "buildSpec" => String.t() | Atom.t(),
-        "computeRoleArn" => String.t() | Atom.t(),
+        "backendEnvironmentArn" => String.t() | atom(),
+        "basicAuthCredentials" => String.t() | atom(),
+        "branchArn" => String.t() | atom(),
+        "branchName" => String.t() | atom(),
+        "buildSpec" => String.t() | atom(),
+        "computeRoleArn" => String.t() | atom(),
         "createTime" => non_neg_integer(),
-        "customDomains" => list(String.t() | Atom.t()),
-        "description" => String.t() | Atom.t(),
-        "destinationBranch" => String.t() | Atom.t(),
-        "displayName" => String.t() | Atom.t(),
+        "customDomains" => list(String.t() | atom()),
+        "description" => String.t() | atom(),
+        "destinationBranch" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
         "enableAutoBuild" => boolean(),
         "enableBasicAuth" => boolean(),
         "enableNotification" => boolean(),
@@ -82,19 +82,19 @@ defmodule AWS.Amplify do
         "enablePullRequestPreview" => boolean(),
         "enableSkewProtection" => boolean(),
         "environmentVariables" => map(),
-        "framework" => String.t() | Atom.t(),
-        "pullRequestEnvironmentName" => String.t() | Atom.t(),
-        "sourceBranch" => String.t() | Atom.t(),
+        "framework" => String.t() | atom(),
+        "pullRequestEnvironmentName" => String.t() | atom(),
+        "sourceBranch" => String.t() | atom(),
         "stage" => list(any()),
         "tags" => map(),
-        "thumbnailUrl" => String.t() | Atom.t(),
-        "totalNumberOfJobs" => String.t() | Atom.t(),
-        "ttl" => String.t() | Atom.t(),
+        "thumbnailUrl" => String.t() | atom(),
+        "totalNumberOfJobs" => String.t() | atom(),
+        "ttl" => String.t() | atom(),
         "updateTime" => non_neg_integer()
       }
 
   """
-  @type branch() :: %{String.t() | Atom.t() => any()}
+  @type branch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -105,7 +105,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type start_job_result() :: %{String.t() | Atom.t() => any()}
+  @type start_job_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -125,85 +125,85 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_failure_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_failure_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       generate_access_logs_result() :: %{
-        "logUrl" => String.t() | Atom.t()
+        "logUrl" => String.t() | atom()
       }
 
   """
-  @type generate_access_logs_result() :: %{String.t() | Atom.t() => any()}
+  @type generate_access_logs_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sub_domain() :: %{
-        "dnsRecord" => String.t() | Atom.t(),
+        "dnsRecord" => String.t() | atom(),
         "subDomainSetting" => sub_domain_setting(),
         "verified" => boolean()
       }
 
   """
-  @type sub_domain() :: %{String.t() | Atom.t() => any()}
+  @type sub_domain() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_app_request() :: %{
-        optional("accessToken") => String.t() | Atom.t(),
+        optional("accessToken") => String.t() | atom(),
         optional("autoBranchCreationConfig") => auto_branch_creation_config(),
-        optional("autoBranchCreationPatterns") => list(String.t() | Atom.t()),
-        optional("basicAuthCredentials") => String.t() | Atom.t(),
-        optional("buildSpec") => String.t() | Atom.t(),
+        optional("autoBranchCreationPatterns") => list(String.t() | atom()),
+        optional("basicAuthCredentials") => String.t() | atom(),
+        optional("buildSpec") => String.t() | atom(),
         optional("cacheConfig") => cache_config(),
-        optional("computeRoleArn") => String.t() | Atom.t(),
-        optional("customHeaders") => String.t() | Atom.t(),
+        optional("computeRoleArn") => String.t() | atom(),
+        optional("customHeaders") => String.t() | atom(),
         optional("customRules") => list(custom_rule()),
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("enableAutoBranchCreation") => boolean(),
         optional("enableBasicAuth") => boolean(),
         optional("enableBranchAutoBuild") => boolean(),
         optional("enableBranchAutoDeletion") => boolean(),
         optional("environmentVariables") => map(),
-        optional("iamServiceRoleArn") => String.t() | Atom.t(),
+        optional("iamServiceRoleArn") => String.t() | atom(),
         optional("jobConfig") => job_config(),
-        optional("oauthToken") => String.t() | Atom.t(),
+        optional("oauthToken") => String.t() | atom(),
         optional("platform") => list(any()),
-        optional("repository") => String.t() | Atom.t(),
+        optional("repository") => String.t() | atom(),
         optional("tags") => map(),
-        required("name") => String.t() | Atom.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_app_request() :: %{String.t() | Atom.t() => any()}
+  @type create_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() | Atom.t() => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -211,12 +211,12 @@ defmodule AWS.Amplify do
 
       create_branch_request() :: %{
         optional("backend") => backend(),
-        optional("backendEnvironmentArn") => String.t() | Atom.t(),
-        optional("basicAuthCredentials") => String.t() | Atom.t(),
-        optional("buildSpec") => String.t() | Atom.t(),
-        optional("computeRoleArn") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
-        optional("displayName") => String.t() | Atom.t(),
+        optional("backendEnvironmentArn") => String.t() | atom(),
+        optional("basicAuthCredentials") => String.t() | atom(),
+        optional("buildSpec") => String.t() | atom(),
+        optional("computeRoleArn") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
         optional("enableAutoBuild") => boolean(),
         optional("enableBasicAuth") => boolean(),
         optional("enableNotification") => boolean(),
@@ -224,16 +224,16 @@ defmodule AWS.Amplify do
         optional("enablePullRequestPreview") => boolean(),
         optional("enableSkewProtection") => boolean(),
         optional("environmentVariables") => map(),
-        optional("framework") => String.t() | Atom.t(),
-        optional("pullRequestEnvironmentName") => String.t() | Atom.t(),
+        optional("framework") => String.t() | atom(),
+        optional("pullRequestEnvironmentName") => String.t() | atom(),
         optional("stage") => list(any()),
         optional("tags") => map(),
-        optional("ttl") => String.t() | Atom.t(),
-        required("branchName") => String.t() | Atom.t()
+        optional("ttl") => String.t() | atom(),
+        required("branchName") => String.t() | atom()
       }
 
   """
-  @type create_branch_request() :: %{String.t() | Atom.t() => any()}
+  @type create_branch_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -241,11 +241,11 @@ defmodule AWS.Amplify do
 
       list_jobs_result() :: %{
         "jobSummaries" => list(job_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_jobs_result() :: %{String.t() | Atom.t() => any()}
+  @type list_jobs_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -256,38 +256,38 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type create_backend_environment_result() :: %{String.t() | Atom.t() => any()}
+  @type create_backend_environment_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_domain_association_request() :: %{
-        optional("autoSubDomainCreationPatterns") => list(String.t() | Atom.t()),
-        optional("autoSubDomainIAMRole") => String.t() | Atom.t(),
+        optional("autoSubDomainCreationPatterns") => list(String.t() | atom()),
+        optional("autoSubDomainIAMRole") => String.t() | atom(),
         optional("certificateSettings") => certificate_settings(),
         optional("enableAutoSubDomain") => boolean(),
         optional("subDomainSettings") => list(sub_domain_setting())
       }
 
   """
-  @type update_domain_association_request() :: %{String.t() | Atom.t() => any()}
+  @type update_domain_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_domain_association_request() :: %{
-        optional("autoSubDomainCreationPatterns") => list(String.t() | Atom.t()),
-        optional("autoSubDomainIAMRole") => String.t() | Atom.t(),
+        optional("autoSubDomainCreationPatterns") => list(String.t() | atom()),
+        optional("autoSubDomainIAMRole") => String.t() | atom(),
         optional("certificateSettings") => certificate_settings(),
         optional("enableAutoSubDomain") => boolean(),
-        required("domainName") => String.t() | Atom.t(),
+        required("domainName") => String.t() | atom(),
         required("subDomainSettings") => list(sub_domain_setting())
       }
 
   """
-  @type create_domain_association_request() :: %{String.t() | Atom.t() => any()}
+  @type create_domain_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -304,22 +304,22 @@ defmodule AWS.Amplify do
 
       list_jobs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       backend() :: %{
-        "stackArn" => String.t() | Atom.t()
+        "stackArn" => String.t() | atom()
       }
 
   """
-  @type backend() :: %{String.t() | Atom.t() => any()}
+  @type backend() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -330,7 +330,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type create_webhook_result() :: %{String.t() | Atom.t() => any()}
+  @type create_webhook_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -341,7 +341,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type create_deployment_request() :: %{String.t() | Atom.t() => any()}
+  @type create_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -352,7 +352,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type delete_job_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_job_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -361,11 +361,11 @@ defmodule AWS.Amplify do
       generate_access_logs_request() :: %{
         optional("endTime") => non_neg_integer(),
         optional("startTime") => non_neg_integer(),
-        required("domainName") => String.t() | Atom.t()
+        required("domainName") => String.t() | atom()
       }
 
   """
-  @type generate_access_logs_request() :: %{String.t() | Atom.t() => any()}
+  @type generate_access_logs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -373,11 +373,11 @@ defmodule AWS.Amplify do
 
       list_branches_result() :: %{
         "branches" => list(branch()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_branches_result() :: %{String.t() | Atom.t() => any()}
+  @type list_branches_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -411,11 +411,11 @@ defmodule AWS.Amplify do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -423,11 +423,11 @@ defmodule AWS.Amplify do
 
       list_backend_environments_result() :: %{
         "backendEnvironments" => list(backend_environment()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_backend_environments_result() :: %{String.t() | Atom.t() => any()}
+  @type list_backend_environments_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -444,24 +444,24 @@ defmodule AWS.Amplify do
 
       list_apps_result() :: %{
         "apps" => list(app()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_apps_result() :: %{String.t() | Atom.t() => any()}
+  @type list_apps_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_backend_environment_request() :: %{
-        optional("deploymentArtifacts") => String.t() | Atom.t(),
-        optional("stackName") => String.t() | Atom.t(),
-        required("environmentName") => String.t() | Atom.t()
+        optional("deploymentArtifacts") => String.t() | atom(),
+        optional("stackName") => String.t() | atom(),
+        required("environmentName") => String.t() | atom()
       }
 
   """
-  @type create_backend_environment_request() :: %{String.t() | Atom.t() => any()}
+  @type create_backend_environment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -472,7 +472,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type delete_backend_environment_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_backend_environment_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -483,7 +483,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type get_job_result() :: %{String.t() | Atom.t() => any()}
+  @type get_job_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -499,33 +499,33 @@ defmodule AWS.Amplify do
   ## Example:
 
       job_summary() :: %{
-        "commitId" => String.t() | Atom.t(),
-        "commitMessage" => String.t() | Atom.t(),
+        "commitId" => String.t() | atom(),
+        "commitMessage" => String.t() | atom(),
         "commitTime" => non_neg_integer(),
         "endTime" => non_neg_integer(),
-        "jobArn" => String.t() | Atom.t(),
-        "jobId" => String.t() | Atom.t(),
+        "jobArn" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
         "jobType" => list(any()),
-        "sourceUrl" => String.t() | Atom.t(),
+        "sourceUrl" => String.t() | atom(),
         "sourceUrlType" => list(any()),
         "startTime" => non_neg_integer(),
         "status" => list(any())
       }
 
   """
-  @type job_summary() :: %{String.t() | Atom.t() => any()}
+  @type job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sub_domain_setting() :: %{
-        "branchName" => String.t() | Atom.t(),
-        "prefix" => String.t() | Atom.t()
+        "branchName" => String.t() | atom(),
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type sub_domain_setting() :: %{String.t() | Atom.t() => any()}
+  @type sub_domain_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -536,28 +536,28 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type update_app_result() :: %{String.t() | Atom.t() => any()}
+  @type update_app_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_association() :: %{
-        "autoSubDomainCreationPatterns" => list(String.t() | Atom.t()),
-        "autoSubDomainIAMRole" => String.t() | Atom.t(),
+        "autoSubDomainCreationPatterns" => list(String.t() | atom()),
+        "autoSubDomainIAMRole" => String.t() | atom(),
         "certificate" => certificate(),
-        "certificateVerificationDNSRecord" => String.t() | Atom.t(),
-        "domainAssociationArn" => String.t() | Atom.t(),
-        "domainName" => String.t() | Atom.t(),
+        "certificateVerificationDNSRecord" => String.t() | atom(),
+        "domainAssociationArn" => String.t() | atom(),
+        "domainName" => String.t() | atom(),
         "domainStatus" => list(any()),
         "enableAutoSubDomain" => boolean(),
-        "statusReason" => String.t() | Atom.t(),
+        "statusReason" => String.t() | atom(),
         "subDomains" => list(sub_domain()),
         "updateStatus" => list(any())
       }
 
   """
-  @type domain_association() :: %{String.t() | Atom.t() => any()}
+  @type domain_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -568,7 +568,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type get_backend_environment_result() :: %{String.t() | Atom.t() => any()}
+  @type get_backend_environment_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -579,30 +579,30 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type start_deployment_result() :: %{String.t() | Atom.t() => any()}
+  @type start_deployment_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "code" => String.t() | Atom.t(),
-        "message" => String.t() | Atom.t()
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dependent_service_failure_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type dependent_service_failure_exception() :: %{String.t() | Atom.t() => any()}
+  @type dependent_service_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -613,21 +613,21 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type delete_webhook_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_webhook_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       production_branch() :: %{
-        "branchName" => String.t() | Atom.t(),
+        "branchName" => String.t() | atom(),
         "lastDeployTime" => non_neg_integer(),
-        "status" => String.t() | Atom.t(),
-        "thumbnailUrl" => String.t() | Atom.t()
+        "status" => String.t() | atom(),
+        "thumbnailUrl" => String.t() | atom()
       }
 
   """
-  @type production_branch() :: %{String.t() | Atom.t() => any()}
+  @type production_branch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -635,75 +635,75 @@ defmodule AWS.Amplify do
 
       create_deployment_result() :: %{
         "fileUploadUrls" => map(),
-        "jobId" => String.t() | Atom.t(),
-        "zipUploadUrl" => String.t() | Atom.t()
+        "jobId" => String.t() | atom(),
+        "zipUploadUrl" => String.t() | atom()
       }
 
   """
-  @type create_deployment_result() :: %{String.t() | Atom.t() => any()}
+  @type create_deployment_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_webhook_request() :: %{
-        optional("branchName") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t()
+        optional("branchName") => String.t() | atom(),
+        optional("description") => String.t() | atom()
       }
 
   """
-  @type update_webhook_request() :: %{String.t() | Atom.t() => any()}
+  @type update_webhook_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_webhooks_result() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "webhooks" => list(webhook())
       }
 
   """
-  @type list_webhooks_result() :: %{String.t() | Atom.t() => any()}
+  @type list_webhooks_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_webhook_request() :: %{
-        optional("description") => String.t() | Atom.t(),
-        required("branchName") => String.t() | Atom.t()
+        optional("description") => String.t() | atom(),
+        required("branchName") => String.t() | atom()
       }
 
   """
-  @type create_webhook_request() :: %{String.t() | Atom.t() => any()}
+  @type create_webhook_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       backend_environment() :: %{
-        "backendEnvironmentArn" => String.t() | Atom.t(),
+        "backendEnvironmentArn" => String.t() | atom(),
         "createTime" => non_neg_integer(),
-        "deploymentArtifacts" => String.t() | Atom.t(),
-        "environmentName" => String.t() | Atom.t(),
-        "stackName" => String.t() | Atom.t(),
+        "deploymentArtifacts" => String.t() | atom(),
+        "environmentName" => String.t() | atom(),
+        "stackName" => String.t() | atom(),
         "updateTime" => non_neg_integer()
       }
 
   """
-  @type backend_environment() :: %{String.t() | Atom.t() => any()}
+  @type backend_environment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -714,20 +714,20 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       waf_configuration() :: %{
-        "statusReason" => String.t() | Atom.t(),
+        "statusReason" => String.t() | atom(),
         "wafStatus" => list(any()),
-        "webAclArn" => String.t() | Atom.t()
+        "webAclArn" => String.t() | atom()
       }
 
   """
-  @type waf_configuration() :: %{String.t() | Atom.t() => any()}
+  @type waf_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -738,7 +738,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type delete_app_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_app_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -749,7 +749,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type update_branch_result() :: %{String.t() | Atom.t() => any()}
+  @type update_branch_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -766,27 +766,27 @@ defmodule AWS.Amplify do
 
       list_domain_associations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_domain_associations_request() :: %{String.t() | Atom.t() => any()}
+  @type list_domain_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_job_request() :: %{
-        optional("commitId") => String.t() | Atom.t(),
-        optional("commitMessage") => String.t() | Atom.t(),
+        optional("commitId") => String.t() | atom(),
+        optional("commitMessage") => String.t() | atom(),
         optional("commitTime") => non_neg_integer(),
-        optional("jobId") => String.t() | Atom.t(),
-        optional("jobReason") => String.t() | Atom.t(),
+        optional("jobId") => String.t() | atom(),
+        optional("jobReason") => String.t() | atom(),
         required("jobType") => list(any())
       }
 
   """
-  @type start_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -797,20 +797,20 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type cache_config() :: %{String.t() | Atom.t() => any()}
+  @type cache_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_backend_environments_request() :: %{
-        optional("environmentName") => String.t() | Atom.t(),
+        optional("environmentName") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_backend_environments_request() :: %{String.t() | Atom.t() => any()}
+  @type list_backend_environments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -826,14 +826,14 @@ defmodule AWS.Amplify do
   ## Example:
 
       custom_rule() :: %{
-        "condition" => String.t() | Atom.t(),
-        "source" => String.t() | Atom.t(),
-        "status" => String.t() | Atom.t(),
-        "target" => String.t() | Atom.t()
+        "condition" => String.t() | atom(),
+        "source" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "target" => String.t() | atom()
       }
 
   """
-  @type custom_rule() :: %{String.t() | Atom.t() => any()}
+  @type custom_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -844,20 +844,20 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type create_branch_result() :: %{String.t() | Atom.t() => any()}
+  @type create_branch_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       certificate() :: %{
-        "certificateVerificationDNSRecord" => String.t() | Atom.t(),
-        "customCertificateArn" => String.t() | Atom.t(),
+        "certificateVerificationDNSRecord" => String.t() | atom(),
+        "customCertificateArn" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type certificate() :: %{String.t() | Atom.t() => any()}
+  @type certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -895,7 +895,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type job_config() :: %{String.t() | Atom.t() => any()}
+  @type job_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -903,12 +903,12 @@ defmodule AWS.Amplify do
 
       update_branch_request() :: %{
         optional("backend") => backend(),
-        optional("backendEnvironmentArn") => String.t() | Atom.t(),
-        optional("basicAuthCredentials") => String.t() | Atom.t(),
-        optional("buildSpec") => String.t() | Atom.t(),
-        optional("computeRoleArn") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
-        optional("displayName") => String.t() | Atom.t(),
+        optional("backendEnvironmentArn") => String.t() | atom(),
+        optional("basicAuthCredentials") => String.t() | atom(),
+        optional("buildSpec") => String.t() | atom(),
+        optional("computeRoleArn") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
         optional("enableAutoBuild") => boolean(),
         optional("enableBasicAuth") => boolean(),
         optional("enableNotification") => boolean(),
@@ -916,14 +916,14 @@ defmodule AWS.Amplify do
         optional("enablePullRequestPreview") => boolean(),
         optional("enableSkewProtection") => boolean(),
         optional("environmentVariables") => map(),
-        optional("framework") => String.t() | Atom.t(),
-        optional("pullRequestEnvironmentName") => String.t() | Atom.t(),
+        optional("framework") => String.t() | atom(),
+        optional("pullRequestEnvironmentName") => String.t() | atom(),
         optional("stage") => list(any()),
-        optional("ttl") => String.t() | Atom.t()
+        optional("ttl") => String.t() | atom()
       }
 
   """
-  @type update_branch_request() :: %{String.t() | Atom.t() => any()}
+  @type update_branch_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -943,7 +943,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type update_domain_association_result() :: %{String.t() | Atom.t() => any()}
+  @type update_domain_association_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -963,7 +963,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type get_domain_association_result() :: %{String.t() | Atom.t() => any()}
+  @type get_domain_association_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -984,7 +984,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type job() :: %{String.t() | Atom.t() => any()}
+  @type job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -992,42 +992,42 @@ defmodule AWS.Amplify do
 
       list_artifacts_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_artifacts_request() :: %{String.t() | Atom.t() => any()}
+  @type list_artifacts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_app_request() :: %{
-        optional("accessToken") => String.t() | Atom.t(),
+        optional("accessToken") => String.t() | atom(),
         optional("autoBranchCreationConfig") => auto_branch_creation_config(),
-        optional("autoBranchCreationPatterns") => list(String.t() | Atom.t()),
-        optional("basicAuthCredentials") => String.t() | Atom.t(),
-        optional("buildSpec") => String.t() | Atom.t(),
+        optional("autoBranchCreationPatterns") => list(String.t() | atom()),
+        optional("basicAuthCredentials") => String.t() | atom(),
+        optional("buildSpec") => String.t() | atom(),
         optional("cacheConfig") => cache_config(),
-        optional("computeRoleArn") => String.t() | Atom.t(),
-        optional("customHeaders") => String.t() | Atom.t(),
+        optional("computeRoleArn") => String.t() | atom(),
+        optional("customHeaders") => String.t() | atom(),
         optional("customRules") => list(custom_rule()),
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("enableAutoBranchCreation") => boolean(),
         optional("enableBasicAuth") => boolean(),
         optional("enableBranchAutoBuild") => boolean(),
         optional("enableBranchAutoDeletion") => boolean(),
         optional("environmentVariables") => map(),
-        optional("iamServiceRoleArn") => String.t() | Atom.t(),
+        optional("iamServiceRoleArn") => String.t() | atom(),
         optional("jobConfig") => job_config(),
-        optional("name") => String.t() | Atom.t(),
-        optional("oauthToken") => String.t() | Atom.t(),
+        optional("name") => String.t() | atom(),
+        optional("oauthToken") => String.t() | atom(),
         optional("platform") => list(any()),
-        optional("repository") => String.t() | Atom.t()
+        optional("repository") => String.t() | atom()
       }
 
   """
-  @type update_app_request() :: %{String.t() | Atom.t() => any()}
+  @type update_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1043,23 +1043,23 @@ defmodule AWS.Amplify do
   ## Example:
 
       certificate_settings() :: %{
-        "customCertificateArn" => String.t() | Atom.t(),
+        "customCertificateArn" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type certificate_settings() :: %{String.t() | Atom.t() => any()}
+  @type certificate_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1067,11 +1067,11 @@ defmodule AWS.Amplify do
 
       list_apps_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_apps_request() :: %{String.t() | Atom.t() => any()}
+  @type list_apps_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1082,18 +1082,18 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type get_app_result() :: %{String.t() | Atom.t() => any()}
+  @type get_app_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1104,19 +1104,19 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type delete_domain_association_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_domain_association_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       artifact() :: %{
-        "artifactFileName" => String.t() | Atom.t(),
-        "artifactId" => String.t() | Atom.t()
+        "artifactFileName" => String.t() | atom(),
+        "artifactId" => String.t() | atom()
       }
 
   """
-  @type artifact() :: %{String.t() | Atom.t() => any()}
+  @type artifact() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1124,11 +1124,11 @@ defmodule AWS.Amplify do
 
       list_artifacts_result() :: %{
         "artifacts" => list(artifact()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_artifacts_result() :: %{String.t() | Atom.t() => any()}
+  @type list_artifacts_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1139,28 +1139,28 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type get_webhook_result() :: %{String.t() | Atom.t() => any()}
+  @type get_webhook_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       step() :: %{
-        "artifactsUrl" => String.t() | Atom.t(),
-        "context" => String.t() | Atom.t(),
+        "artifactsUrl" => String.t() | atom(),
+        "context" => String.t() | atom(),
         "endTime" => non_neg_integer(),
-        "logUrl" => String.t() | Atom.t(),
+        "logUrl" => String.t() | atom(),
         "screenshots" => map(),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
-        "statusReason" => String.t() | Atom.t(),
-        "stepName" => String.t() | Atom.t(),
-        "testArtifactsUrl" => String.t() | Atom.t(),
-        "testConfigUrl" => String.t() | Atom.t()
+        "statusReason" => String.t() | atom(),
+        "stepName" => String.t() | atom(),
+        "testArtifactsUrl" => String.t() | atom(),
+        "testConfigUrl" => String.t() | atom()
       }
 
   """
-  @type step() :: %{String.t() | Atom.t() => any()}
+  @type step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1168,11 +1168,11 @@ defmodule AWS.Amplify do
 
       list_webhooks_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_webhooks_request() :: %{String.t() | Atom.t() => any()}
+  @type list_webhooks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1183,7 +1183,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type get_branch_result() :: %{String.t() | Atom.t() => any()}
+  @type get_branch_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1194,7 +1194,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type delete_branch_result() :: %{String.t() | Atom.t() => any()}
+  @type delete_branch_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1205,7 +1205,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type create_app_result() :: %{String.t() | Atom.t() => any()}
+  @type create_app_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1221,20 +1221,20 @@ defmodule AWS.Amplify do
   ## Example:
 
       auto_branch_creation_config() :: %{
-        "basicAuthCredentials" => String.t() | Atom.t(),
-        "buildSpec" => String.t() | Atom.t(),
+        "basicAuthCredentials" => String.t() | atom(),
+        "buildSpec" => String.t() | atom(),
         "enableAutoBuild" => boolean(),
         "enableBasicAuth" => boolean(),
         "enablePerformanceMode" => boolean(),
         "enablePullRequestPreview" => boolean(),
         "environmentVariables" => map(),
-        "framework" => String.t() | Atom.t(),
-        "pullRequestEnvironmentName" => String.t() | Atom.t(),
+        "framework" => String.t() | atom(),
+        "pullRequestEnvironmentName" => String.t() | atom(),
         "stage" => list(any())
       }
 
   """
-  @type auto_branch_creation_config() :: %{String.t() | Atom.t() => any()}
+  @type auto_branch_creation_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1242,23 +1242,23 @@ defmodule AWS.Amplify do
 
       list_branches_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_branches_request() :: %{String.t() | Atom.t() => any()}
+  @type list_branches_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_artifact_url_result() :: %{
-        "artifactId" => String.t() | Atom.t(),
-        "artifactUrl" => String.t() | Atom.t()
+        "artifactId" => String.t() | atom(),
+        "artifactUrl" => String.t() | atom()
       }
 
   """
-  @type get_artifact_url_result() :: %{String.t() | Atom.t() => any()}
+  @type get_artifact_url_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1266,29 +1266,29 @@ defmodule AWS.Amplify do
 
       list_domain_associations_result() :: %{
         "domainAssociations" => list(domain_association()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_domain_associations_result() :: %{String.t() | Atom.t() => any()}
+  @type list_domain_associations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       webhook() :: %{
-        "appId" => String.t() | Atom.t(),
-        "branchName" => String.t() | Atom.t(),
+        "appId" => String.t() | atom(),
+        "branchName" => String.t() | atom(),
         "createTime" => non_neg_integer(),
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "updateTime" => non_neg_integer(),
-        "webhookArn" => String.t() | Atom.t(),
-        "webhookId" => String.t() | Atom.t(),
-        "webhookUrl" => String.t() | Atom.t()
+        "webhookArn" => String.t() | atom(),
+        "webhookId" => String.t() | atom(),
+        "webhookUrl" => String.t() | atom()
       }
 
   """
-  @type webhook() :: %{String.t() | Atom.t() => any()}
+  @type webhook() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1299,20 +1299,20 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type stop_job_result() :: %{String.t() | Atom.t() => any()}
+  @type stop_job_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_deployment_request() :: %{
-        optional("jobId") => String.t() | Atom.t(),
-        optional("sourceUrl") => String.t() | Atom.t(),
+        optional("jobId") => String.t() | atom(),
+        optional("sourceUrl") => String.t() | atom(),
         optional("sourceUrlType") => list(any())
       }
 
   """
-  @type start_deployment_request() :: %{String.t() | Atom.t() => any()}
+  @type start_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1323,7 +1323,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type create_domain_association_result() :: %{String.t() | Atom.t() => any()}
+  @type create_domain_association_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1334,7 +1334,7 @@ defmodule AWS.Amplify do
       }
 
   """
-  @type update_webhook_result() :: %{String.t() | Atom.t() => any()}
+  @type update_webhook_result() :: %{(String.t() | atom()) => any()}
 
   @type create_app_errors() ::
           bad_request_exception()
@@ -1617,7 +1617,7 @@ defmodule AWS.Amplify do
   """
   @spec create_backend_environment(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_backend_environment_request(),
           list()
         ) ::
@@ -1649,7 +1649,7 @@ defmodule AWS.Amplify do
   @doc """
   Creates a new branch for an Amplify app.
   """
-  @spec create_branch(map(), String.t() | Atom.t(), create_branch_request(), list()) ::
+  @spec create_branch(map(), String.t() | atom(), create_branch_request(), list()) ::
           {:ok, create_branch_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1688,8 +1688,8 @@ defmodule AWS.Amplify do
   """
   @spec create_deployment(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_deployment_request(),
           list()
         ) ::
@@ -1728,7 +1728,7 @@ defmodule AWS.Amplify do
   """
   @spec create_domain_association(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_domain_association_request(),
           list()
         ) ::
@@ -1760,7 +1760,7 @@ defmodule AWS.Amplify do
   @doc """
   Creates a new webhook on an Amplify app.
   """
-  @spec create_webhook(map(), String.t() | Atom.t(), create_webhook_request(), list()) ::
+  @spec create_webhook(map(), String.t() | atom(), create_webhook_request(), list()) ::
           {:ok, create_webhook_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1789,7 +1789,7 @@ defmodule AWS.Amplify do
   @doc """
   Deletes an existing Amplify app specified by an app ID.
   """
-  @spec delete_app(map(), String.t() | Atom.t(), delete_app_request(), list()) ::
+  @spec delete_app(map(), String.t() | atom(), delete_app_request(), list()) ::
           {:ok, delete_app_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1827,8 +1827,8 @@ defmodule AWS.Amplify do
   """
   @spec delete_backend_environment(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_backend_environment_request(),
           list()
         ) ::
@@ -1870,8 +1870,8 @@ defmodule AWS.Amplify do
   """
   @spec delete_branch(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_branch_request(),
           list()
         ) ::
@@ -1905,8 +1905,8 @@ defmodule AWS.Amplify do
   """
   @spec delete_domain_association(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_domain_association_request(),
           list()
         ) ::
@@ -1940,9 +1940,9 @@ defmodule AWS.Amplify do
   """
   @spec delete_job(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_job_request(),
           list()
         ) ::
@@ -1976,7 +1976,7 @@ defmodule AWS.Amplify do
   @doc """
   Deletes a webhook.
   """
-  @spec delete_webhook(map(), String.t() | Atom.t(), delete_webhook_request(), list()) ::
+  @spec delete_webhook(map(), String.t() | atom(), delete_webhook_request(), list()) ::
           {:ok, delete_webhook_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2005,7 +2005,7 @@ defmodule AWS.Amplify do
   @doc """
   Returns the website access logs for a specific time range using a presigned URL.
   """
-  @spec generate_access_logs(map(), String.t() | Atom.t(), generate_access_logs_request(), list()) ::
+  @spec generate_access_logs(map(), String.t() | atom(), generate_access_logs_request(), list()) ::
           {:ok, generate_access_logs_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2034,7 +2034,7 @@ defmodule AWS.Amplify do
   @doc """
   Returns an existing Amplify app specified by an app ID.
   """
-  @spec get_app(map(), String.t() | Atom.t(), list()) ::
+  @spec get_app(map(), String.t() | atom(), list()) ::
           {:ok, get_app_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2052,7 +2052,7 @@ defmodule AWS.Amplify do
   @doc """
   Returns the artifact info that corresponds to an artifact id.
   """
-  @spec get_artifact_url(map(), String.t() | Atom.t(), list()) ::
+  @spec get_artifact_url(map(), String.t() | atom(), list()) ::
           {:ok, get_artifact_url_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2077,7 +2077,7 @@ defmodule AWS.Amplify do
   the app's
   backend infrastructure using Typescript code.
   """
-  @spec get_backend_environment(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_backend_environment(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_backend_environment_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2097,7 +2097,7 @@ defmodule AWS.Amplify do
   @doc """
   Returns a branch for an Amplify app.
   """
-  @spec get_branch(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_branch(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_branch_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2115,7 +2115,7 @@ defmodule AWS.Amplify do
   @doc """
   Returns the domain information for an Amplify app.
   """
-  @spec get_domain_association(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_domain_association(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_domain_association_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2133,13 +2133,7 @@ defmodule AWS.Amplify do
   @doc """
   Returns a job for a branch of an Amplify app.
   """
-  @spec get_job(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec get_job(map(), String.t() | atom(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2159,7 +2153,7 @@ defmodule AWS.Amplify do
   @doc """
   Returns the webhook information that corresponds to a specified webhook ID.
   """
-  @spec get_webhook(map(), String.t() | Atom.t(), list()) ::
+  @spec get_webhook(map(), String.t() | atom(), list()) ::
           {:ok, get_webhook_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2177,7 +2171,7 @@ defmodule AWS.Amplify do
   @doc """
   Returns a list of the existing Amplify apps.
   """
-  @spec list_apps(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_apps(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_apps_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2221,11 +2215,11 @@ defmodule AWS.Amplify do
   """
   @spec list_artifacts(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_artifacts_result(), any()}
@@ -2278,10 +2272,10 @@ defmodule AWS.Amplify do
   """
   @spec list_backend_environments(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_backend_environments_result(), any()}
@@ -2331,9 +2325,9 @@ defmodule AWS.Amplify do
   """
   @spec list_branches(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_branches_result(), any()}
@@ -2375,9 +2369,9 @@ defmodule AWS.Amplify do
   """
   @spec list_domain_associations(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_domain_associations_result(), any()}
@@ -2419,10 +2413,10 @@ defmodule AWS.Amplify do
   """
   @spec list_jobs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_jobs_result(), any()}
@@ -2465,7 +2459,7 @@ defmodule AWS.Amplify do
   @doc """
   Returns a list of tags for a specified Amazon Resource Name (ARN).
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2485,9 +2479,9 @@ defmodule AWS.Amplify do
   """
   @spec list_webhooks(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_webhooks_result(), any()}
@@ -2537,8 +2531,8 @@ defmodule AWS.Amplify do
   """
   @spec start_deployment(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           start_deployment_request(),
           list()
         ) ::
@@ -2572,13 +2566,7 @@ defmodule AWS.Amplify do
   @doc """
   Starts a new job for a branch of an Amplify app.
   """
-  @spec start_job(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          start_job_request(),
-          list()
-        ) ::
+  @spec start_job(map(), String.t() | atom(), String.t() | atom(), start_job_request(), list()) ::
           {:ok, start_job_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2611,9 +2599,9 @@ defmodule AWS.Amplify do
   """
   @spec stop_job(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           stop_job_request(),
           list()
         ) ::
@@ -2647,7 +2635,7 @@ defmodule AWS.Amplify do
   @doc """
   Tags the resource with a tag key and value.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2676,7 +2664,7 @@ defmodule AWS.Amplify do
   @doc """
   Untags a resource with a specified Amazon Resource Name (ARN).
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2710,7 +2698,7 @@ defmodule AWS.Amplify do
   @doc """
   Updates an existing Amplify app.
   """
-  @spec update_app(map(), String.t() | Atom.t(), update_app_request(), list()) ::
+  @spec update_app(map(), String.t() | atom(), update_app_request(), list()) ::
           {:ok, update_app_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2741,8 +2729,8 @@ defmodule AWS.Amplify do
   """
   @spec update_branch(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_branch_request(),
           list()
         ) ::
@@ -2776,8 +2764,8 @@ defmodule AWS.Amplify do
   """
   @spec update_domain_association(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_domain_association_request(),
           list()
         ) ::
@@ -2809,7 +2797,7 @@ defmodule AWS.Amplify do
   @doc """
   Updates a webhook.
   """
-  @spec update_webhook(map(), String.t() | Atom.t(), update_webhook_request(), list()) ::
+  @spec update_webhook(map(), String.t() | atom(), update_webhook_request(), list()) ::
           {:ok, update_webhook_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

@@ -10,15 +10,15 @@ defmodule AWS.PersonalizeRuntime do
   ## Example:
 
       get_action_recommendations_request() :: %{
-        optional("campaignArn") => String.t() | Atom.t(),
-        optional("filterArn") => String.t() | Atom.t(),
+        optional("campaignArn") => String.t() | atom(),
+        optional("filterArn") => String.t() | atom(),
         optional("filterValues") => map(),
         optional("numResults") => integer(),
-        optional("userId") => String.t() | Atom.t()
+        optional("userId") => String.t() | atom()
       }
 
   """
-  @type get_action_recommendations_request() :: %{String.t() | Atom.t() => any()}
+  @type get_action_recommendations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -26,11 +26,11 @@ defmodule AWS.PersonalizeRuntime do
 
       get_action_recommendations_response() :: %{
         "actionList" => list(predicted_action()),
-        "recommendationId" => String.t() | Atom.t()
+        "recommendationId" => String.t() | atom()
       }
 
   """
-  @type get_action_recommendations_response() :: %{String.t() | Atom.t() => any()}
+  @type get_action_recommendations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -38,16 +38,16 @@ defmodule AWS.PersonalizeRuntime do
 
       get_personalized_ranking_request() :: %{
         optional("context") => map(),
-        optional("filterArn") => String.t() | Atom.t(),
+        optional("filterArn") => String.t() | atom(),
         optional("filterValues") => map(),
         optional("metadataColumns") => map(),
-        required("campaignArn") => String.t() | Atom.t(),
-        required("inputList") => list(String.t() | Atom.t()),
-        required("userId") => String.t() | Atom.t()
+        required("campaignArn") => String.t() | atom(),
+        required("inputList") => list(String.t() | atom()),
+        required("userId") => String.t() | atom()
       }
 
   """
-  @type get_personalized_ranking_request() :: %{String.t() | Atom.t() => any()}
+  @type get_personalized_ranking_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -55,31 +55,31 @@ defmodule AWS.PersonalizeRuntime do
 
       get_personalized_ranking_response() :: %{
         "personalizedRanking" => list(predicted_item()),
-        "recommendationId" => String.t() | Atom.t()
+        "recommendationId" => String.t() | atom()
       }
 
   """
-  @type get_personalized_ranking_response() :: %{String.t() | Atom.t() => any()}
+  @type get_personalized_ranking_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_recommendations_request() :: %{
-        optional("campaignArn") => String.t() | Atom.t(),
+        optional("campaignArn") => String.t() | atom(),
         optional("context") => map(),
-        optional("filterArn") => String.t() | Atom.t(),
+        optional("filterArn") => String.t() | atom(),
         optional("filterValues") => map(),
-        optional("itemId") => String.t() | Atom.t(),
+        optional("itemId") => String.t() | atom(),
         optional("metadataColumns") => map(),
         optional("numResults") => integer(),
         optional("promotions") => list(promotion()),
-        optional("recommenderArn") => String.t() | Atom.t(),
-        optional("userId") => String.t() | Atom.t()
+        optional("recommenderArn") => String.t() | atom(),
+        optional("userId") => String.t() | atom()
       }
 
   """
-  @type get_recommendations_request() :: %{String.t() | Atom.t() => any()}
+  @type get_recommendations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -87,74 +87,74 @@ defmodule AWS.PersonalizeRuntime do
 
       get_recommendations_response() :: %{
         "itemList" => list(predicted_item()),
-        "recommendationId" => String.t() | Atom.t()
+        "recommendationId" => String.t() | atom()
       }
 
   """
-  @type get_recommendations_response() :: %{String.t() | Atom.t() => any()}
+  @type get_recommendations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_input_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_input_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       predicted_action() :: %{
-        "actionId" => String.t() | Atom.t(),
+        "actionId" => String.t() | atom(),
         "score" => float()
       }
 
   """
-  @type predicted_action() :: %{String.t() | Atom.t() => any()}
+  @type predicted_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       predicted_item() :: %{
-        "itemId" => String.t() | Atom.t(),
+        "itemId" => String.t() | atom(),
         "metadata" => map(),
-        "promotionName" => String.t() | Atom.t(),
-        "reason" => list(String.t() | Atom.t()),
+        "promotionName" => String.t() | atom(),
+        "reason" => list(String.t() | atom()),
         "score" => float()
       }
 
   """
-  @type predicted_item() :: %{String.t() | Atom.t() => any()}
+  @type predicted_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       promotion() :: %{
-        "filterArn" => String.t() | Atom.t(),
+        "filterArn" => String.t() | atom(),
         "filterValues" => map(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "percentPromotedItems" => integer()
       }
 
   """
-  @type promotion() :: %{String.t() | Atom.t() => any()}
+  @type promotion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @type get_action_recommendations_errors() ::
           resource_not_found_exception() | invalid_input_exception()

@@ -28,7 +28,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       }
 
   """
-  @type update_control_panel_response() :: %{String.t() | Atom.t() => any()}
+  @type update_control_panel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -39,7 +39,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       }
 
   """
-  @type describe_routing_control_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_routing_control_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -50,7 +50,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -62,26 +62,26 @@ defmodule AWS.Route53RecoveryControlConfig do
       }
 
   """
-  @type describe_safety_rule_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_safety_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       gating_rule() :: %{
-        "ControlPanelArn" => String.t() | Atom.t(),
-        "GatingControls" => list(String.t() | Atom.t()),
-        "Name" => String.t() | Atom.t(),
-        "Owner" => String.t() | Atom.t(),
+        "ControlPanelArn" => String.t() | atom(),
+        "GatingControls" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
         "RuleConfig" => rule_config(),
-        "SafetyRuleArn" => String.t() | Atom.t(),
+        "SafetyRuleArn" => String.t() | atom(),
         "Status" => list(any()),
-        "TargetControls" => list(String.t() | Atom.t()),
+        "TargetControls" => list(String.t() | atom()),
         "WaitPeriodMs" => integer()
       }
 
   """
-  @type gating_rule() :: %{String.t() | Atom.t() => any()}
+  @type gating_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -92,7 +92,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       }
 
   """
-  @type describe_cluster_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -121,7 +121,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       }
 
   """
-  @type create_cluster_response() :: %{String.t() | Atom.t() => any()}
+  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -129,23 +129,23 @@ defmodule AWS.Route53RecoveryControlConfig do
 
       list_routing_controls_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_routing_controls_request() :: %{String.t() | Atom.t() => any()}
+  @type list_routing_controls_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_control_panel_request() :: %{
-        required("ControlPanelArn") => String.t() | Atom.t(),
-        required("ControlPanelName") => String.t() | Atom.t()
+        required("ControlPanelArn") => String.t() | atom(),
+        required("ControlPanelName") => String.t() | atom()
       }
 
   """
-  @type update_control_panel_request() :: %{String.t() | Atom.t() => any()}
+  @type update_control_panel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -161,24 +161,24 @@ defmodule AWS.Route53RecoveryControlConfig do
   ## Example:
 
       get_resource_policy_response() :: %{
-        "Policy" => String.t() | Atom.t()
+        "Policy" => String.t() | atom()
       }
 
   """
-  @type get_resource_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       gating_rule_update() :: %{
-        "Name" => String.t() | Atom.t(),
-        "SafetyRuleArn" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "SafetyRuleArn" => String.t() | atom(),
         "WaitPeriodMs" => integer()
       }
 
   """
-  @type gating_rule_update() :: %{String.t() | Atom.t() => any()}
+  @type gating_rule_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -189,7 +189,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       }
 
   """
-  @type describe_control_panel_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_control_panel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -197,48 +197,48 @@ defmodule AWS.Route53RecoveryControlConfig do
 
       list_control_panels_response() :: %{
         "ControlPanels" => list(control_panel()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_control_panels_response() :: %{String.t() | Atom.t() => any()}
+  @type list_control_panels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cluster_endpoint() :: %{
-        "Endpoint" => String.t() | Atom.t(),
-        "Region" => String.t() | Atom.t()
+        "Endpoint" => String.t() | atom(),
+        "Region" => String.t() | atom()
       }
 
   """
-  @type cluster_endpoint() :: %{String.t() | Atom.t() => any()}
+  @type cluster_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_routing_control_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("ControlPanelArn") => String.t() | Atom.t(),
-        required("ClusterArn") => String.t() | Atom.t(),
-        required("RoutingControlName") => String.t() | Atom.t()
+        optional("ClientToken") => String.t() | atom(),
+        optional("ControlPanelArn") => String.t() | atom(),
+        required("ClusterArn") => String.t() | atom(),
+        required("RoutingControlName") => String.t() | atom()
       }
 
   """
-  @type create_routing_control_request() :: %{String.t() | Atom.t() => any()}
+  @type create_routing_control_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -254,24 +254,24 @@ defmodule AWS.Route53RecoveryControlConfig do
   ## Example:
 
       update_cluster_request() :: %{
-        required("ClusterArn") => String.t() | Atom.t(),
+        required("ClusterArn") => String.t() | atom(),
         required("NetworkType") => list(any())
       }
 
   """
-  @type update_cluster_request() :: %{String.t() | Atom.t() => any()}
+  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_routing_control_request() :: %{
-        required("RoutingControlArn") => String.t() | Atom.t(),
-        required("RoutingControlName") => String.t() | Atom.t()
+        required("RoutingControlArn") => String.t() | atom(),
+        required("RoutingControlName") => String.t() | atom()
       }
 
   """
-  @type update_routing_control_request() :: %{String.t() | Atom.t() => any()}
+  @type update_routing_control_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -287,49 +287,49 @@ defmodule AWS.Route53RecoveryControlConfig do
   ## Example:
 
       create_cluster_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("NetworkType") => list(any()),
         optional("Tags") => map(),
-        required("ClusterName") => String.t() | Atom.t()
+        required("ClusterName") => String.t() | atom()
       }
 
   """
-  @type create_cluster_request() :: %{String.t() | Atom.t() => any()}
+  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       assertion_rule_update() :: %{
-        "Name" => String.t() | Atom.t(),
-        "SafetyRuleArn" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "SafetyRuleArn" => String.t() | atom(),
         "WaitPeriodMs" => integer()
       }
 
   """
-  @type assertion_rule_update() :: %{String.t() | Atom.t() => any()}
+  @type assertion_rule_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -340,48 +340,48 @@ defmodule AWS.Route53RecoveryControlConfig do
       }
 
   """
-  @type create_routing_control_response() :: %{String.t() | Atom.t() => any()}
+  @type create_routing_control_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cluster() :: %{
-        "ClusterArn" => String.t() | Atom.t(),
+        "ClusterArn" => String.t() | atom(),
         "ClusterEndpoints" => list(cluster_endpoint()),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "NetworkType" => list(any()),
-        "Owner" => String.t() | Atom.t(),
+        "Owner" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type cluster() :: %{String.t() | Atom.t() => any()}
+  @type cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_control_panel_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => map(),
-        required("ClusterArn") => String.t() | Atom.t(),
-        required("ControlPanelName") => String.t() | Atom.t()
+        required("ClusterArn") => String.t() | atom(),
+        required("ControlPanelName") => String.t() | atom()
       }
 
   """
-  @type create_control_panel_request() :: %{String.t() | Atom.t() => any()}
+  @type create_control_panel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -397,15 +397,15 @@ defmodule AWS.Route53RecoveryControlConfig do
   ## Example:
 
       routing_control() :: %{
-        "ControlPanelArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "Owner" => String.t() | Atom.t(),
-        "RoutingControlArn" => String.t() | Atom.t(),
+        "ControlPanelArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "RoutingControlArn" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type routing_control() :: %{String.t() | Atom.t() => any()}
+  @type routing_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -417,7 +417,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       }
 
   """
-  @type update_safety_rule_request() :: %{String.t() | Atom.t() => any()}
+  @type update_safety_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -434,13 +434,13 @@ defmodule AWS.Route53RecoveryControlConfig do
 
       create_safety_rule_request() :: %{
         optional("AssertionRule") => new_assertion_rule(),
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("GatingRule") => new_gating_rule(),
         optional("Tags") => map()
       }
 
   """
-  @type create_safety_rule_request() :: %{String.t() | Atom.t() => any()}
+  @type create_safety_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -451,19 +451,19 @@ defmodule AWS.Route53RecoveryControlConfig do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_routing_controls_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "RoutingControls" => list(routing_control())
       }
 
   """
-  @type list_routing_controls_response() :: %{String.t() | Atom.t() => any()}
+  @type list_routing_controls_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -471,11 +471,11 @@ defmodule AWS.Route53RecoveryControlConfig do
 
       list_clusters_response() :: %{
         "Clusters" => list(cluster()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_clusters_response() :: %{String.t() | Atom.t() => any()}
+  @type list_clusters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -504,7 +504,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       }
 
   """
-  @type update_routing_control_response() :: %{String.t() | Atom.t() => any()}
+  @type update_routing_control_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -516,7 +516,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       }
 
   """
-  @type rule() :: %{String.t() | Atom.t() => any()}
+  @type rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -529,7 +529,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       }
 
   """
-  @type rule_config() :: %{String.t() | Atom.t() => any()}
+  @type rule_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -546,11 +546,11 @@ defmodule AWS.Route53RecoveryControlConfig do
 
       list_clusters_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_clusters_request() :: %{String.t() | Atom.t() => any()}
+  @type list_clusters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -558,71 +558,71 @@ defmodule AWS.Route53RecoveryControlConfig do
 
       list_associated_route53_health_checks_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_associated_route53_health_checks_request() :: %{String.t() | Atom.t() => any()}
+  @type list_associated_route53_health_checks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       new_gating_rule() :: %{
-        "ControlPanelArn" => String.t() | Atom.t(),
-        "GatingControls" => list(String.t() | Atom.t()),
-        "Name" => String.t() | Atom.t(),
+        "ControlPanelArn" => String.t() | atom(),
+        "GatingControls" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "RuleConfig" => rule_config(),
-        "TargetControls" => list(String.t() | Atom.t()),
+        "TargetControls" => list(String.t() | atom()),
         "WaitPeriodMs" => integer()
       }
 
   """
-  @type new_gating_rule() :: %{String.t() | Atom.t() => any()}
+  @type new_gating_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       assertion_rule() :: %{
-        "AssertedControls" => list(String.t() | Atom.t()),
-        "ControlPanelArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "Owner" => String.t() | Atom.t(),
+        "AssertedControls" => list(String.t() | atom()),
+        "ControlPanelArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
         "RuleConfig" => rule_config(),
-        "SafetyRuleArn" => String.t() | Atom.t(),
+        "SafetyRuleArn" => String.t() | atom(),
         "Status" => list(any()),
         "WaitPeriodMs" => integer()
       }
 
   """
-  @type assertion_rule() :: %{String.t() | Atom.t() => any()}
+  @type assertion_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       new_assertion_rule() :: %{
-        "AssertedControls" => list(String.t() | Atom.t()),
-        "ControlPanelArn" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "AssertedControls" => list(String.t() | atom()),
+        "ControlPanelArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "RuleConfig" => rule_config(),
         "WaitPeriodMs" => integer()
       }
 
   """
-  @type new_assertion_rule() :: %{String.t() | Atom.t() => any()}
+  @type new_assertion_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -638,28 +638,28 @@ defmodule AWS.Route53RecoveryControlConfig do
   ## Example:
 
       control_panel() :: %{
-        "ClusterArn" => String.t() | Atom.t(),
-        "ControlPanelArn" => String.t() | Atom.t(),
+        "ClusterArn" => String.t() | atom(),
+        "ControlPanelArn" => String.t() | atom(),
         "DefaultControlPanel" => boolean(),
-        "Name" => String.t() | Atom.t(),
-        "Owner" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
         "RoutingControlCount" => integer(),
         "Status" => list(any())
       }
 
   """
-  @type control_panel() :: %{String.t() | Atom.t() => any()}
+  @type control_panel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -680,7 +680,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       }
 
   """
-  @type update_safety_rule_response() :: %{String.t() | Atom.t() => any()}
+  @type update_safety_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -696,12 +696,12 @@ defmodule AWS.Route53RecoveryControlConfig do
   ## Example:
 
       list_associated_route53_health_checks_response() :: %{
-        "HealthCheckIds" => list(String.t() | Atom.t()),
-        "NextToken" => String.t() | Atom.t()
+        "HealthCheckIds" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_associated_route53_health_checks_response() :: %{String.t() | Atom.t() => any()}
+  @type list_associated_route53_health_checks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -712,18 +712,18 @@ defmodule AWS.Route53RecoveryControlConfig do
       }
 
   """
-  @type create_control_panel_response() :: %{String.t() | Atom.t() => any()}
+  @type create_control_panel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -739,23 +739,23 @@ defmodule AWS.Route53RecoveryControlConfig do
   ## Example:
 
       list_safety_rules_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "SafetyRules" => list(rule())
       }
 
   """
-  @type list_safety_rules_response() :: %{String.t() | Atom.t() => any()}
+  @type list_safety_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -763,24 +763,24 @@ defmodule AWS.Route53RecoveryControlConfig do
 
       list_safety_rules_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_safety_rules_request() :: %{String.t() | Atom.t() => any()}
+  @type list_safety_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_control_panels_request() :: %{
-        optional("ClusterArn") => String.t() | Atom.t(),
+        optional("ClusterArn") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_control_panels_request() :: %{String.t() | Atom.t() => any()}
+  @type list_control_panels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -801,7 +801,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       }
 
   """
-  @type create_safety_rule_response() :: %{String.t() | Atom.t() => any()}
+  @type create_safety_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -812,7 +812,7 @@ defmodule AWS.Route53RecoveryControlConfig do
       }
 
   """
-  @type update_cluster_response() :: %{String.t() | Atom.t() => any()}
+  @type update_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @type create_cluster_errors() ::
           throttling_exception()
@@ -1140,7 +1140,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Delete a cluster.
   """
-  @spec delete_cluster(map(), String.t() | Atom.t(), delete_cluster_request(), list()) ::
+  @spec delete_cluster(map(), String.t() | atom(), delete_cluster_request(), list()) ::
           {:ok, delete_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1169,7 +1169,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Deletes a control panel.
   """
-  @spec delete_control_panel(map(), String.t() | Atom.t(), delete_control_panel_request(), list()) ::
+  @spec delete_control_panel(map(), String.t() | atom(), delete_control_panel_request(), list()) ::
           {:ok, delete_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1200,7 +1200,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   """
   @spec delete_routing_control(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_routing_control_request(),
           list()
         ) ::
@@ -1234,7 +1234,7 @@ defmodule AWS.Route53RecoveryControlConfig do
 
   />
   """
-  @spec delete_safety_rule(map(), String.t() | Atom.t(), delete_safety_rule_request(), list()) ::
+  @spec delete_safety_rule(map(), String.t() | atom(), delete_safety_rule_request(), list()) ::
           {:ok, delete_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1266,7 +1266,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   The response includes the cluster name, endpoints, status, and Amazon Resource
   Name (ARN).
   """
-  @spec describe_cluster(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_cluster(map(), String.t() | atom(), list()) ::
           {:ok, describe_cluster_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1284,7 +1284,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Displays details about a control panel.
   """
-  @spec describe_control_panel(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_control_panel(map(), String.t() | atom(), list()) ::
           {:ok, describe_control_panel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1309,7 +1309,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   To get or update the routing control state, see the Recovery Cluster (data
   plane) API actions for Amazon Route 53 Application Recovery Controller.
   """
-  @spec describe_routing_control(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_routing_control(map(), String.t() | atom(), list()) ::
           {:ok, describe_routing_control_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1327,7 +1327,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Returns information about a safety rule.
   """
-  @spec describe_safety_rule(map(), String.t() | Atom.t(), list()) ::
+  @spec describe_safety_rule(map(), String.t() | atom(), list()) ::
           {:ok, describe_safety_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1345,7 +1345,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Get information about the resource policy for a cluster.
   """
-  @spec get_resource_policy(map(), String.t() | Atom.t(), list()) ::
+  @spec get_resource_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1366,9 +1366,9 @@ defmodule AWS.Route53RecoveryControlConfig do
   """
   @spec list_associated_route53_health_checks(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_associated_route53_health_checks_response(), any()}
@@ -1410,7 +1410,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Returns an array of all the clusters in an account.
   """
-  @spec list_clusters(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec list_clusters(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_clusters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1444,9 +1444,9 @@ defmodule AWS.Route53RecoveryControlConfig do
   """
   @spec list_control_panels(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_control_panels_response(), any()}
@@ -1500,9 +1500,9 @@ defmodule AWS.Route53RecoveryControlConfig do
   """
   @spec list_routing_controls(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_routing_controls_response(), any()}
@@ -1545,9 +1545,9 @@ defmodule AWS.Route53RecoveryControlConfig do
   """
   @spec list_safety_rules(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_safety_rules_response(), any()}
@@ -1587,7 +1587,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Lists the tags for a resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1605,7 +1605,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Adds a tag to a resource.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1634,7 +1634,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   @doc """
   Removes a tag from a resource.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

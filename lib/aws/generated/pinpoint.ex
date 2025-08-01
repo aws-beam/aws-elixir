@@ -15,34 +15,34 @@ defmodule AWS.Pinpoint do
 
       campaign_response() :: %{
         "AdditionalTreatments" => list(treatment_resource()),
-        "ApplicationId" => String.t() | Atom.t(),
-        "Arn" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
         "CustomDeliveryConfiguration" => custom_delivery_configuration(),
         "DefaultState" => campaign_state(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "HoldoutPercent" => integer(),
         "Hook" => campaign_hook(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "IsPaused" => boolean(),
-        "LastModifiedDate" => String.t() | Atom.t(),
+        "LastModifiedDate" => String.t() | atom(),
         "Limits" => campaign_limits(),
         "MessageConfiguration" => message_configuration(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Priority" => integer(),
         "Schedule" => schedule(),
-        "SegmentId" => String.t() | Atom.t(),
+        "SegmentId" => String.t() | atom(),
         "SegmentVersion" => integer(),
         "State" => campaign_state(),
         "TemplateConfiguration" => template_configuration(),
-        "TreatmentDescription" => String.t() | Atom.t(),
-        "TreatmentName" => String.t() | Atom.t(),
+        "TreatmentDescription" => String.t() | atom(),
+        "TreatmentName" => String.t() | atom(),
         "Version" => integer(),
         "tags" => map()
       }
 
   """
-  @type campaign_response() :: %{String.t() | Atom.t() => any()}
+  @type campaign_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -59,22 +59,22 @@ defmodule AWS.Pinpoint do
 
       journey_response() :: %{
         "Activities" => map(),
-        "ApplicationId" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
         "ClosedDays" => closed_days(),
-        "CreationDate" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "CreationDate" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "JourneyChannelSettings" => journey_channel_settings(),
-        "LastModifiedDate" => String.t() | Atom.t(),
+        "LastModifiedDate" => String.t() | atom(),
         "Limits" => journey_limits(),
         "LocalTime" => boolean(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "OpenHours" => open_hours(),
         "QuietTime" => quiet_time(),
-        "RefreshFrequency" => String.t() | Atom.t(),
+        "RefreshFrequency" => String.t() | atom(),
         "RefreshOnSegmentUpdate" => boolean(),
         "Schedule" => journey_schedule(),
         "SendingSchedule" => boolean(),
-        "StartActivity" => String.t() | Atom.t(),
+        "StartActivity" => String.t() | atom(),
         "StartCondition" => start_condition(),
         "State" => list(any()),
         "TimezoneEstimationMethods" => list(list(any())()),
@@ -83,7 +83,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type journey_response() :: %{String.t() | Atom.t() => any()}
+  @type journey_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -91,18 +91,18 @@ defmodule AWS.Pinpoint do
 
       treatment_resource() :: %{
         "CustomDeliveryConfiguration" => custom_delivery_configuration(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "MessageConfiguration" => message_configuration(),
         "Schedule" => schedule(),
         "SizePercent" => integer(),
         "State" => campaign_state(),
         "TemplateConfiguration" => template_configuration(),
-        "TreatmentDescription" => String.t() | Atom.t(),
-        "TreatmentName" => String.t() | Atom.t()
+        "TreatmentDescription" => String.t() | atom(),
+        "TreatmentName" => String.t() | atom()
       }
 
   """
-  @type treatment_resource() :: %{String.t() | Atom.t() => any()}
+  @type treatment_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -113,7 +113,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_user_endpoints_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_user_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -124,7 +124,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type verify_o_t_p_message_request() :: %{String.t() | Atom.t() => any()}
+  @type verify_o_t_p_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -135,19 +135,19 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_campaign_activities_response() :: %{String.t() | Atom.t() => any()}
+  @type get_campaign_activities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       wait_time() :: %{
-        "WaitFor" => String.t() | Atom.t(),
-        "WaitUntil" => String.t() | Atom.t()
+        "WaitFor" => String.t() | atom(),
+        "WaitUntil" => String.t() | atom()
       }
 
   """
-  @type wait_time() :: %{String.t() | Atom.t() => any()}
+  @type wait_time() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -158,7 +158,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_import_job_response() :: %{String.t() | Atom.t() => any()}
+  @type create_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -169,49 +169,49 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_template_active_version_request() :: %{String.t() | Atom.t() => any()}
+  @type update_template_active_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       verify_o_t_p_message_request_parameters() :: %{
-        "DestinationIdentity" => String.t() | Atom.t(),
-        "Otp" => String.t() | Atom.t(),
-        "ReferenceId" => String.t() | Atom.t()
+        "DestinationIdentity" => String.t() | atom(),
+        "Otp" => String.t() | atom(),
+        "ReferenceId" => String.t() | atom()
       }
 
   """
-  @type verify_o_t_p_message_request_parameters() :: %{String.t() | Atom.t() => any()}
+  @type verify_o_t_p_message_request_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       in_app_campaign_schedule() :: %{
-        "EndDate" => String.t() | Atom.t(),
+        "EndDate" => String.t() | atom(),
         "EventFilter" => campaign_event_filter(),
         "QuietTime" => quiet_time()
       }
 
   """
-  @type in_app_campaign_schedule() :: %{String.t() | Atom.t() => any()}
+  @type in_app_campaign_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       application_date_range_kpi_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
         "EndTime" => non_neg_integer(),
-        "KpiName" => String.t() | Atom.t(),
+        "KpiName" => String.t() | atom(),
         "KpiResult" => base_kpi_result(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "StartTime" => non_neg_integer()
       }
 
   """
-  @type application_date_range_kpi_response() :: %{String.t() | Atom.t() => any()}
+  @type application_date_range_kpi_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -228,13 +228,13 @@ defmodule AWS.Pinpoint do
 
       get_application_date_range_kpi_request() :: %{
         optional("EndTime") => non_neg_integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("PageSize") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => String.t() | atom(),
         optional("StartTime") => non_neg_integer()
       }
 
   """
-  @type get_application_date_range_kpi_request() :: %{String.t() | Atom.t() => any()}
+  @type get_application_date_range_kpi_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -249,7 +249,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type campaign_limits() :: %{String.t() | Atom.t() => any()}
+  @type campaign_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -260,7 +260,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type campaign_state() :: %{String.t() | Atom.t() => any()}
+  @type campaign_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -279,7 +279,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type message_configuration() :: %{String.t() | Atom.t() => any()}
+  @type message_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -290,7 +290,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_push_template_response() :: %{String.t() | Atom.t() => any()}
+  @type create_push_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -301,7 +301,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_apns_voip_sandbox_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type get_apns_voip_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -312,7 +312,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_campaign_response() :: %{String.t() | Atom.t() => any()}
+  @type update_campaign_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -323,7 +323,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -334,7 +334,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type endpoints_response() :: %{String.t() | Atom.t() => any()}
+  @type endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -343,23 +343,23 @@ defmodule AWS.Pinpoint do
       push_notification_template_response() :: %{
         "ADM" => android_push_notification_template(),
         "APNS" => a_p_n_s_push_notification_template(),
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "Baidu" => android_push_notification_template(),
-        "CreationDate" => String.t() | Atom.t(),
+        "CreationDate" => String.t() | atom(),
         "Default" => default_push_notification_template(),
-        "DefaultSubstitutions" => String.t() | Atom.t(),
+        "DefaultSubstitutions" => String.t() | atom(),
         "GCM" => android_push_notification_template(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "RecommenderId" => String.t() | Atom.t(),
-        "TemplateDescription" => String.t() | Atom.t(),
-        "TemplateName" => String.t() | Atom.t(),
+        "LastModifiedDate" => String.t() | atom(),
+        "RecommenderId" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
         "TemplateType" => list(any()),
-        "Version" => String.t() | Atom.t(),
+        "Version" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type push_notification_template_response() :: %{String.t() | Atom.t() => any()}
+  @type push_notification_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -370,7 +370,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_import_job_request() :: %{String.t() | Atom.t() => any()}
+  @type create_import_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -381,7 +381,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_push_template_response() :: %{String.t() | Atom.t() => any()}
+  @type get_push_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -392,19 +392,19 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_campaign_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type get_campaign_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_apps_request() :: %{
-        optional("PageSize") => String.t() | Atom.t(),
-        optional("Token") => String.t() | Atom.t()
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
       }
 
   """
-  @type get_apps_request() :: %{String.t() | Atom.t() => any()}
+  @type get_apps_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -412,42 +412,42 @@ defmodule AWS.Pinpoint do
 
       baidu_message() :: %{
         "Action" => list(any()),
-        "Body" => String.t() | Atom.t(),
+        "Body" => String.t() | atom(),
         "Data" => map(),
-        "IconReference" => String.t() | Atom.t(),
-        "ImageIconUrl" => String.t() | Atom.t(),
-        "ImageUrl" => String.t() | Atom.t(),
-        "RawContent" => String.t() | Atom.t(),
+        "IconReference" => String.t() | atom(),
+        "ImageIconUrl" => String.t() | atom(),
+        "ImageUrl" => String.t() | atom(),
+        "RawContent" => String.t() | atom(),
         "SilentPush" => boolean(),
-        "SmallImageIconUrl" => String.t() | Atom.t(),
-        "Sound" => String.t() | Atom.t(),
+        "SmallImageIconUrl" => String.t() | atom(),
+        "Sound" => String.t() | atom(),
         "Substitutions" => map(),
         "TimeToLive" => integer(),
-        "Title" => String.t() | Atom.t(),
-        "Url" => String.t() | Atom.t()
+        "Title" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type baidu_message() :: %{String.t() | Atom.t() => any()}
+  @type baidu_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
         "Enabled" => boolean(),
         "HasCredential" => boolean(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
         "Version" => integer()
       }
 
   """
-  @type channel_response() :: %{String.t() | Atom.t() => any()}
+  @type channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -486,7 +486,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type recency_dimension() :: %{String.t() | Atom.t() => any()}
+  @type recency_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -497,7 +497,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_voice_template_request() :: %{String.t() | Atom.t() => any()}
+  @type create_voice_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -510,25 +510,25 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type simple_condition() :: %{String.t() | Atom.t() => any()}
+  @type simple_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       email_template_request() :: %{
-        "DefaultSubstitutions" => String.t() | Atom.t(),
+        "DefaultSubstitutions" => String.t() | atom(),
         "Headers" => list(message_header()),
-        "HtmlPart" => String.t() | Atom.t(),
-        "RecommenderId" => String.t() | Atom.t(),
-        "Subject" => String.t() | Atom.t(),
-        "TemplateDescription" => String.t() | Atom.t(),
-        "TextPart" => String.t() | Atom.t(),
+        "HtmlPart" => String.t() | atom(),
+        "RecommenderId" => String.t() | atom(),
+        "Subject" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
+        "TextPart" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type email_template_request() :: %{String.t() | Atom.t() => any()}
+  @type email_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -536,11 +536,11 @@ defmodule AWS.Pinpoint do
 
       event_condition() :: %{
         "Dimensions" => event_dimensions(),
-        "MessageActivity" => String.t() | Atom.t()
+        "MessageActivity" => String.t() | atom()
       }
 
   """
-  @type event_condition() :: %{String.t() | Atom.t() => any()}
+  @type event_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -551,7 +551,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_push_template_response() :: %{String.t() | Atom.t() => any()}
+  @type update_push_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -562,7 +562,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type verification_response() :: %{String.t() | Atom.t() => any()}
+  @type verification_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -573,7 +573,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_app_request() :: %{String.t() | Atom.t() => any()}
+  @type create_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -581,11 +581,11 @@ defmodule AWS.Pinpoint do
 
       export_jobs_response() :: %{
         "Item" => list(export_job_response()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type export_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type export_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -596,7 +596,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_app_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_app_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -605,25 +605,25 @@ defmodule AWS.Pinpoint do
       conditional_split_activity() :: %{
         "Condition" => condition(),
         "EvaluationWaitTime" => wait_time(),
-        "FalseActivity" => String.t() | Atom.t(),
-        "TrueActivity" => String.t() | Atom.t()
+        "FalseActivity" => String.t() | atom(),
+        "TrueActivity" => String.t() | atom()
       }
 
   """
-  @type conditional_split_activity() :: %{String.t() | Atom.t() => any()}
+  @type conditional_split_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       campaign_hook() :: %{
-        "LambdaFunctionName" => String.t() | Atom.t(),
+        "LambdaFunctionName" => String.t() | atom(),
         "Mode" => list(any()),
-        "WebUrl" => String.t() | Atom.t()
+        "WebUrl" => String.t() | atom()
       }
 
   """
-  @type campaign_hook() :: %{String.t() | Atom.t() => any()}
+  @type campaign_hook() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -643,7 +643,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_email_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type get_email_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -654,37 +654,37 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_endpoint_response() :: %{String.t() | Atom.t() => any()}
+  @type update_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       a_p_n_s_channel_request() :: %{
-        "BundleId" => String.t() | Atom.t(),
-        "Certificate" => String.t() | Atom.t(),
-        "DefaultAuthenticationMethod" => String.t() | Atom.t(),
+        "BundleId" => String.t() | atom(),
+        "Certificate" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
         "Enabled" => boolean(),
-        "PrivateKey" => String.t() | Atom.t(),
-        "TeamId" => String.t() | Atom.t(),
-        "TokenKey" => String.t() | Atom.t(),
-        "TokenKeyId" => String.t() | Atom.t()
+        "PrivateKey" => String.t() | atom(),
+        "TeamId" => String.t() | atom(),
+        "TokenKey" => String.t() | atom(),
+        "TokenKeyId" => String.t() | atom()
       }
 
   """
-  @type a_p_n_s_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type a_p_n_s_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       open_hours_rule() :: %{
-        "EndTime" => String.t() | Atom.t(),
-        "StartTime" => String.t() | Atom.t()
+        "EndTime" => String.t() | atom(),
+        "StartTime" => String.t() | atom()
       }
 
   """
-  @type open_hours_rule() :: %{String.t() | Atom.t() => any()}
+  @type open_hours_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -692,11 +692,11 @@ defmodule AWS.Pinpoint do
 
       campaigns_response() :: %{
         "Item" => list(campaign_response()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type campaigns_response() :: %{String.t() | Atom.t() => any()}
+  @type campaigns_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -704,12 +704,12 @@ defmodule AWS.Pinpoint do
 
       update_email_template_request() :: %{
         optional("CreateNewVersion") => boolean(),
-        optional("Version") => String.t() | Atom.t(),
+        optional("Version") => String.t() | atom(),
         required("EmailTemplateRequest") => email_template_request()
       }
 
   """
-  @type update_email_template_request() :: %{String.t() | Atom.t() => any()}
+  @type update_email_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -720,15 +720,15 @@ defmodule AWS.Pinpoint do
         "APNS" => a_p_n_s_push_notification_template(),
         "Baidu" => android_push_notification_template(),
         "Default" => default_push_notification_template(),
-        "DefaultSubstitutions" => String.t() | Atom.t(),
+        "DefaultSubstitutions" => String.t() | atom(),
         "GCM" => android_push_notification_template(),
-        "RecommenderId" => String.t() | Atom.t(),
-        "TemplateDescription" => String.t() | Atom.t(),
+        "RecommenderId" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type push_notification_template_request() :: %{String.t() | Atom.t() => any()}
+  @type push_notification_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -739,65 +739,65 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_in_app_template_response() :: %{String.t() | Atom.t() => any()}
+  @type create_in_app_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       result_row_value() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type result_row_value() :: %{String.t() | Atom.t() => any()}
+  @type result_row_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       journey_custom_message() :: %{
-        "Data" => String.t() | Atom.t()
+        "Data" => String.t() | atom()
       }
 
   """
-  @type journey_custom_message() :: %{String.t() | Atom.t() => any()}
+  @type journey_custom_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       number_validate_request() :: %{
-        "IsoCountryCode" => String.t() | Atom.t(),
-        "PhoneNumber" => String.t() | Atom.t()
+        "IsoCountryCode" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom()
       }
 
   """
-  @type number_validate_request() :: %{String.t() | Atom.t() => any()}
+  @type number_validate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       endpoint_batch_item() :: %{
-        "Address" => String.t() | Atom.t(),
+        "Address" => String.t() | atom(),
         "Attributes" => map(),
         "ChannelType" => list(any()),
         "Demographic" => endpoint_demographic(),
-        "EffectiveDate" => String.t() | Atom.t(),
-        "EndpointStatus" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "EffectiveDate" => String.t() | atom(),
+        "EndpointStatus" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "Location" => endpoint_location(),
         "Metrics" => map(),
-        "OptOut" => String.t() | Atom.t(),
-        "RequestId" => String.t() | Atom.t(),
+        "OptOut" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "User" => endpoint_user()
       }
 
   """
-  @type endpoint_batch_item() :: %{String.t() | Atom.t() => any()}
+  @type endpoint_batch_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -808,7 +808,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_email_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type update_email_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -819,7 +819,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type base_kpi_result() :: %{String.t() | Atom.t() => any()}
+  @type base_kpi_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -830,7 +830,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_baidu_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_baidu_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -841,7 +841,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_journey_state_request() :: %{String.t() | Atom.t() => any()}
+  @type update_journey_state_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -852,7 +852,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type endpoint_batch_request() :: %{String.t() | Atom.t() => any()}
+  @type endpoint_batch_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -864,19 +864,19 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type g_p_s_point_dimension() :: %{String.t() | Atom.t() => any()}
+  @type g_p_s_point_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       quiet_time() :: %{
-        "End" => String.t() | Atom.t(),
-        "Start" => String.t() | Atom.t()
+        "End" => String.t() | atom(),
+        "Start" => String.t() | atom()
       }
 
   """
-  @type quiet_time() :: %{String.t() | Atom.t() => any()}
+  @type quiet_time() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -887,33 +887,33 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_sms_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type update_sms_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_templates_request() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("PageSize") => String.t() | Atom.t(),
-        optional("Prefix") => String.t() | Atom.t(),
-        optional("TemplateType") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => String.t() | atom(),
+        optional("Prefix") => String.t() | atom(),
+        optional("TemplateType") => String.t() | atom()
       }
 
   """
-  @type list_templates_request() :: %{String.t() | Atom.t() => any()}
+  @type list_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       random_split_entry() :: %{
-        "NextActivity" => String.t() | Atom.t(),
+        "NextActivity" => String.t() | atom(),
         "Percentage" => integer()
       }
 
   """
-  @type random_split_entry() :: %{String.t() | Atom.t() => any()}
+  @type random_split_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -925,7 +925,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type campaign_event_filter() :: %{String.t() | Atom.t() => any()}
+  @type campaign_event_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -936,7 +936,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type put_event_stream_request() :: %{String.t() | Atom.t() => any()}
+  @type put_event_stream_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -944,28 +944,28 @@ defmodule AWS.Pinpoint do
 
       push_message_activity() :: %{
         "MessageConfig" => journey_push_message(),
-        "NextActivity" => String.t() | Atom.t(),
-        "TemplateName" => String.t() | Atom.t(),
-        "TemplateVersion" => String.t() | Atom.t()
+        "NextActivity" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateVersion" => String.t() | atom()
       }
 
   """
-  @type push_message_activity() :: %{String.t() | Atom.t() => any()}
+  @type push_message_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       voice_message() :: %{
-        "Body" => String.t() | Atom.t(),
-        "LanguageCode" => String.t() | Atom.t(),
-        "OriginationNumber" => String.t() | Atom.t(),
+        "Body" => String.t() | atom(),
+        "LanguageCode" => String.t() | atom(),
+        "OriginationNumber" => String.t() | atom(),
         "Substitutions" => map(),
-        "VoiceId" => String.t() | Atom.t()
+        "VoiceId" => String.t() | atom()
       }
 
   """
-  @type voice_message() :: %{String.t() | Atom.t() => any()}
+  @type voice_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1003,7 +1003,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_voice_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type get_voice_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1014,19 +1014,19 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_segment_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type get_segment_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       forbidden_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "RequestID" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() | Atom.t() => any()}
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1036,24 +1036,24 @@ defmodule AWS.Pinpoint do
         "Context" => map(),
         "MessageConfiguration" => direct_message_configuration(),
         "TemplateConfiguration" => template_configuration(),
-        "TraceId" => String.t() | Atom.t(),
+        "TraceId" => String.t() | atom(),
         "Users" => map()
       }
 
   """
-  @type send_users_message_request() :: %{String.t() | Atom.t() => any()}
+  @type send_users_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       event_item_response() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "StatusCode" => integer()
       }
 
   """
-  @type event_item_response() :: %{String.t() | Atom.t() => any()}
+  @type event_item_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1061,12 +1061,12 @@ defmodule AWS.Pinpoint do
 
       in_app_message_header_config() :: %{
         "Alignment" => list(any()),
-        "Header" => String.t() | Atom.t(),
-        "TextColor" => String.t() | Atom.t()
+        "Header" => String.t() | atom(),
+        "TextColor" => String.t() | atom()
       }
 
   """
-  @type in_app_message_header_config() :: %{String.t() | Atom.t() => any()}
+  @type in_app_message_header_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1074,11 +1074,11 @@ defmodule AWS.Pinpoint do
 
       event_start_condition() :: %{
         "EventFilter" => event_filter(),
-        "SegmentId" => String.t() | Atom.t()
+        "SegmentId" => String.t() | atom()
       }
 
   """
-  @type event_start_condition() :: %{String.t() | Atom.t() => any()}
+  @type event_start_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1089,37 +1089,37 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_email_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type update_email_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       campaign_date_range_kpi_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "CampaignId" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "CampaignId" => String.t() | atom(),
         "EndTime" => non_neg_integer(),
-        "KpiName" => String.t() | Atom.t(),
+        "KpiName" => String.t() | atom(),
         "KpiResult" => base_kpi_result(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "StartTime" => non_neg_integer()
       }
 
   """
-  @type campaign_date_range_kpi_response() :: %{String.t() | Atom.t() => any()}
+  @type campaign_date_range_kpi_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template_create_message_body() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t(),
-        "RequestID" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
       }
 
   """
-  @type template_create_message_body() :: %{String.t() | Atom.t() => any()}
+  @type template_create_message_body() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1131,7 +1131,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type events_batch() :: %{String.t() | Atom.t() => any()}
+  @type events_batch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1142,37 +1142,37 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_export_job_response() :: %{String.t() | Atom.t() => any()}
+  @type create_export_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       a_p_n_s_voip_channel_request() :: %{
-        "BundleId" => String.t() | Atom.t(),
-        "Certificate" => String.t() | Atom.t(),
-        "DefaultAuthenticationMethod" => String.t() | Atom.t(),
+        "BundleId" => String.t() | atom(),
+        "Certificate" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
         "Enabled" => boolean(),
-        "PrivateKey" => String.t() | Atom.t(),
-        "TeamId" => String.t() | Atom.t(),
-        "TokenKey" => String.t() | Atom.t(),
-        "TokenKeyId" => String.t() | Atom.t()
+        "PrivateKey" => String.t() | atom(),
+        "TeamId" => String.t() | atom(),
+        "TokenKey" => String.t() | atom(),
+        "TokenKeyId" => String.t() | atom()
       }
 
   """
-  @type a_p_n_s_voip_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type a_p_n_s_voip_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       method_not_allowed_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "RequestID" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
       }
 
   """
-  @type method_not_allowed_exception() :: %{String.t() | Atom.t() => any()}
+  @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1183,7 +1183,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_channels_response() :: %{String.t() | Atom.t() => any()}
+  @type get_channels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1194,7 +1194,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_gcm_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type update_gcm_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1214,7 +1214,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_export_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type get_export_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1222,20 +1222,20 @@ defmodule AWS.Pinpoint do
 
       send_o_t_p_message_request_parameters() :: %{
         "AllowedAttempts" => integer(),
-        "BrandName" => String.t() | Atom.t(),
-        "Channel" => String.t() | Atom.t(),
+        "BrandName" => String.t() | atom(),
+        "Channel" => String.t() | atom(),
         "CodeLength" => integer(),
-        "DestinationIdentity" => String.t() | Atom.t(),
-        "EntityId" => String.t() | Atom.t(),
-        "Language" => String.t() | Atom.t(),
-        "OriginationIdentity" => String.t() | Atom.t(),
-        "ReferenceId" => String.t() | Atom.t(),
-        "TemplateId" => String.t() | Atom.t(),
+        "DestinationIdentity" => String.t() | atom(),
+        "EntityId" => String.t() | atom(),
+        "Language" => String.t() | atom(),
+        "OriginationIdentity" => String.t() | atom(),
+        "ReferenceId" => String.t() | atom(),
+        "TemplateId" => String.t() | atom(),
         "ValidityPeriod" => integer()
       }
 
   """
-  @type send_o_t_p_message_request_parameters() :: %{String.t() | Atom.t() => any()}
+  @type send_o_t_p_message_request_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1246,24 +1246,24 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_apns_sandbox_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_apns_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       journey_run_execution_activity_metrics_response() :: %{
-        "ActivityType" => String.t() | Atom.t(),
-        "ApplicationId" => String.t() | Atom.t(),
-        "JourneyActivityId" => String.t() | Atom.t(),
-        "JourneyId" => String.t() | Atom.t(),
-        "LastEvaluatedTime" => String.t() | Atom.t(),
+        "ActivityType" => String.t() | atom(),
+        "ApplicationId" => String.t() | atom(),
+        "JourneyActivityId" => String.t() | atom(),
+        "JourneyId" => String.t() | atom(),
+        "LastEvaluatedTime" => String.t() | atom(),
         "Metrics" => map(),
-        "RunId" => String.t() | Atom.t()
+        "RunId" => String.t() | atom()
       }
 
   """
-  @type journey_run_execution_activity_metrics_response() :: %{String.t() | Atom.t() => any()}
+  @type journey_run_execution_activity_metrics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1274,7 +1274,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_apns_sandbox_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type update_apns_sandbox_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1285,7 +1285,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_gcm_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_gcm_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1293,11 +1293,11 @@ defmodule AWS.Pinpoint do
 
       templates_response() :: %{
         "Item" => list(template_response()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type templates_response() :: %{String.t() | Atom.t() => any()}
+  @type templates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1308,20 +1308,20 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_sms_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type update_sms_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       attributes_resource() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "AttributeType" => String.t() | Atom.t(),
-        "Attributes" => list(String.t() | Atom.t())
+        "ApplicationId" => String.t() | atom(),
+        "AttributeType" => String.t() | atom(),
+        "Attributes" => list(String.t() | atom())
       }
 
   """
-  @type attributes_resource() :: %{String.t() | Atom.t() => any()}
+  @type attributes_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1332,7 +1332,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_recommender_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_recommender_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1343,7 +1343,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_voice_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type update_voice_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1351,24 +1351,24 @@ defmodule AWS.Pinpoint do
 
       update_in_app_template_request() :: %{
         optional("CreateNewVersion") => boolean(),
-        optional("Version") => String.t() | Atom.t(),
+        optional("Version") => String.t() | atom(),
         required("InAppTemplateRequest") => in_app_template_request()
       }
 
   """
-  @type update_in_app_template_request() :: %{String.t() | Atom.t() => any()}
+  @type update_in_app_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       message_body() :: %{
-        "Message" => String.t() | Atom.t(),
-        "RequestID" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
       }
 
   """
-  @type message_body() :: %{String.t() | Atom.t() => any()}
+  @type message_body() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1377,19 +1377,19 @@ defmodule AWS.Pinpoint do
       write_journey_request() :: %{
         "Activities" => map(),
         "ClosedDays" => closed_days(),
-        "CreationDate" => String.t() | Atom.t(),
+        "CreationDate" => String.t() | atom(),
         "JourneyChannelSettings" => journey_channel_settings(),
-        "LastModifiedDate" => String.t() | Atom.t(),
+        "LastModifiedDate" => String.t() | atom(),
         "Limits" => journey_limits(),
         "LocalTime" => boolean(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "OpenHours" => open_hours(),
         "QuietTime" => quiet_time(),
-        "RefreshFrequency" => String.t() | Atom.t(),
+        "RefreshFrequency" => String.t() | atom(),
         "RefreshOnSegmentUpdate" => boolean(),
         "Schedule" => journey_schedule(),
         "SendingSchedule" => boolean(),
-        "StartActivity" => String.t() | Atom.t(),
+        "StartActivity" => String.t() | atom(),
         "StartCondition" => start_condition(),
         "State" => list(any()),
         "TimezoneEstimationMethods" => list(list(any())()),
@@ -1397,7 +1397,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type write_journey_request() :: %{String.t() | Atom.t() => any()}
+  @type write_journey_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1408,7 +1408,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type raw_email() :: %{String.t() | Atom.t() => any()}
+  @type raw_email() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1419,31 +1419,31 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_apns_voip_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type get_apns_voip_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       activity_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "CampaignId" => String.t() | Atom.t(),
-        "End" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "CampaignId" => String.t() | atom(),
+        "End" => String.t() | atom(),
         "ExecutionMetrics" => map(),
-        "Id" => String.t() | Atom.t(),
-        "Result" => String.t() | Atom.t(),
-        "ScheduledStart" => String.t() | Atom.t(),
-        "Start" => String.t() | Atom.t(),
-        "State" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
+        "Result" => String.t() | atom(),
+        "ScheduledStart" => String.t() | atom(),
+        "Start" => String.t() | atom(),
+        "State" => String.t() | atom(),
         "SuccessfulEndpointCount" => integer(),
         "TimezonesCompletedCount" => integer(),
         "TimezonesTotalCount" => integer(),
         "TotalEndpointCount" => integer(),
-        "TreatmentId" => String.t() | Atom.t()
+        "TreatmentId" => String.t() | atom()
       }
 
   """
-  @type activity_response() :: %{String.t() | Atom.t() => any()}
+  @type activity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1454,7 +1454,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_in_app_template_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_in_app_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1465,7 +1465,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_apns_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type update_apns_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1480,7 +1480,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type open_hours() :: %{String.t() | Atom.t() => any()}
+  @type open_hours() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1505,19 +1505,19 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       sms_message() :: %{
-        "Body" => String.t() | Atom.t(),
-        "EntityId" => String.t() | Atom.t(),
-        "Keyword" => String.t() | Atom.t(),
-        "MediaUrl" => String.t() | Atom.t(),
+        "Body" => String.t() | atom(),
+        "EntityId" => String.t() | atom(),
+        "Keyword" => String.t() | atom(),
+        "MediaUrl" => String.t() | atom(),
         "MessageType" => list(any()),
-        "OriginationNumber" => String.t() | Atom.t(),
-        "SenderId" => String.t() | Atom.t(),
+        "OriginationNumber" => String.t() | atom(),
+        "SenderId" => String.t() | atom(),
         "Substitutions" => map(),
-        "TemplateId" => String.t() | Atom.t()
+        "TemplateId" => String.t() | atom()
       }
 
   """
-  @type sms_message() :: %{String.t() | Atom.t() => any()}
+  @type sms_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1525,32 +1525,32 @@ defmodule AWS.Pinpoint do
 
       sms_message_activity() :: %{
         "MessageConfig" => journey_sms_message(),
-        "NextActivity" => String.t() | Atom.t(),
-        "TemplateName" => String.t() | Atom.t(),
-        "TemplateVersion" => String.t() | Atom.t()
+        "NextActivity" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateVersion" => String.t() | atom()
       }
 
   """
-  @type sms_message_activity() :: %{String.t() | Atom.t() => any()}
+  @type sms_message_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
-        "DefaultSubstitutions" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "TemplateDescription" => String.t() | Atom.t(),
-        "TemplateName" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "DefaultSubstitutions" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
         "TemplateType" => list(any()),
-        "Version" => String.t() | Atom.t(),
+        "Version" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type template_response() :: %{String.t() | Atom.t() => any()}
+  @type template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1561,22 +1561,22 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_endpoint_request() :: %{String.t() | Atom.t() => any()}
+  @type update_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       endpoint_send_configuration() :: %{
-        "BodyOverride" => String.t() | Atom.t(),
+        "BodyOverride" => String.t() | atom(),
         "Context" => map(),
-        "RawContent" => String.t() | Atom.t(),
+        "RawContent" => String.t() | atom(),
         "Substitutions" => map(),
-        "TitleOverride" => String.t() | Atom.t()
+        "TitleOverride" => String.t() | atom()
       }
 
   """
-  @type endpoint_send_configuration() :: %{String.t() | Atom.t() => any()}
+  @type endpoint_send_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1587,7 +1587,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type put_events_response() :: %{String.t() | Atom.t() => any()}
+  @type put_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1595,11 +1595,11 @@ defmodule AWS.Pinpoint do
 
       journeys_response() :: %{
         "Item" => list(journey_response()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type journeys_response() :: %{String.t() | Atom.t() => any()}
+  @type journeys_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1610,7 +1610,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type events_request() :: %{String.t() | Atom.t() => any()}
+  @type events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1618,26 +1618,26 @@ defmodule AWS.Pinpoint do
 
       message_result() :: %{
         "DeliveryStatus" => list(any()),
-        "MessageId" => String.t() | Atom.t(),
+        "MessageId" => String.t() | atom(),
         "StatusCode" => integer(),
-        "StatusMessage" => String.t() | Atom.t(),
-        "UpdatedToken" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom(),
+        "UpdatedToken" => String.t() | atom()
       }
 
   """
-  @type message_result() :: %{String.t() | Atom.t() => any()}
+  @type message_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_journey_execution_metrics_request() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("PageSize") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => String.t() | atom()
       }
 
   """
-  @type get_journey_execution_metrics_request() :: %{String.t() | Atom.t() => any()}
+  @type get_journey_execution_metrics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1648,7 +1648,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_import_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type get_import_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1659,18 +1659,18 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_voice_template_response() :: %{String.t() | Atom.t() => any()}
+  @type update_voice_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1681,23 +1681,23 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_apns_voip_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type update_apns_voip_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       application_settings_resource() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
         "CampaignHook" => campaign_hook(),
         "JourneyLimits" => application_settings_journey_limits(),
-        "LastModifiedDate" => String.t() | Atom.t(),
+        "LastModifiedDate" => String.t() | atom(),
         "Limits" => campaign_limits(),
         "QuietTime" => quiet_time()
       }
 
   """
-  @type application_settings_resource() :: %{String.t() | Atom.t() => any()}
+  @type application_settings_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1708,47 +1708,47 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_recommender_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type create_recommender_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template_version_response() :: %{
-        "CreationDate" => String.t() | Atom.t(),
-        "DefaultSubstitutions" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "TemplateDescription" => String.t() | Atom.t(),
-        "TemplateName" => String.t() | Atom.t(),
-        "TemplateType" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "CreationDate" => String.t() | atom(),
+        "DefaultSubstitutions" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateType" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type template_version_response() :: %{String.t() | Atom.t() => any()}
+  @type template_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "RequestID" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() | Atom.t() => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_push_template_request() :: %{
-        optional("Version") => String.t() | Atom.t()
+        optional("Version") => String.t() | atom()
       }
 
   """
-  @type get_push_template_request() :: %{String.t() | Atom.t() => any()}
+  @type get_push_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1759,7 +1759,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_apns_voip_sandbox_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type update_apns_voip_sandbox_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1770,19 +1770,19 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type phone_number_validate_response() :: %{String.t() | Atom.t() => any()}
+  @type phone_number_validate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       holdout_activity() :: %{
-        "NextActivity" => String.t() | Atom.t(),
+        "NextActivity" => String.t() | atom(),
         "Percentage" => integer()
       }
 
   """
-  @type holdout_activity() :: %{String.t() | Atom.t() => any()}
+  @type holdout_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1793,30 +1793,30 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_sms_template_response() :: %{String.t() | Atom.t() => any()}
+  @type update_sms_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_email_template_request() :: %{
-        optional("Version") => String.t() | Atom.t()
+        optional("Version") => String.t() | atom()
       }
 
   """
-  @type delete_email_template_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_email_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       segment_reference() :: %{
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "Version" => integer()
       }
 
   """
-  @type segment_reference() :: %{String.t() | Atom.t() => any()}
+  @type segment_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1832,20 +1832,20 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       ad_m_channel_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
         "Enabled" => boolean(),
         "HasCredential" => boolean(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "Platform" => String.t() | Atom.t(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
         "Version" => integer()
       }
 
   """
-  @type ad_m_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type ad_m_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1856,7 +1856,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_baidu_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type update_baidu_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1872,57 +1872,57 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       get_sms_template_request() :: %{
-        optional("Version") => String.t() | Atom.t()
+        optional("Version") => String.t() | atom()
       }
 
   """
-  @type get_sms_template_request() :: %{String.t() | Atom.t() => any()}
+  @type get_sms_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_voice_template_request() :: %{
-        optional("Version") => String.t() | Atom.t()
+        optional("Version") => String.t() | atom()
       }
 
   """
-  @type delete_voice_template_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_voice_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       contact_center_activity() :: %{
-        optional("NextActivity") => String.t() | Atom.t()
+        optional("NextActivity") => String.t() | atom()
       }
 
   """
-  @type contact_center_activity() :: %{String.t() | Atom.t() => any()}
+  @type contact_center_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_push_template_request() :: %{
-        optional("Version") => String.t() | Atom.t()
+        optional("Version") => String.t() | atom()
       }
 
   """
-  @type delete_push_template_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_push_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       baidu_channel_request() :: %{
-        "ApiKey" => String.t() | Atom.t(),
+        "ApiKey" => String.t() | atom(),
         "Enabled" => boolean(),
-        "SecretKey" => String.t() | Atom.t()
+        "SecretKey" => String.t() | atom()
       }
 
   """
-  @type baidu_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type baidu_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1930,28 +1930,28 @@ defmodule AWS.Pinpoint do
 
       import_job_resource() :: %{
         "DefineSegment" => boolean(),
-        "ExternalId" => String.t() | Atom.t(),
+        "ExternalId" => String.t() | atom(),
         "Format" => list(any()),
         "RegisterEndpoints" => boolean(),
-        "RoleArn" => String.t() | Atom.t(),
-        "S3Url" => String.t() | Atom.t(),
-        "SegmentId" => String.t() | Atom.t(),
-        "SegmentName" => String.t() | Atom.t()
+        "RoleArn" => String.t() | atom(),
+        "S3Url" => String.t() | atom(),
+        "SegmentId" => String.t() | atom(),
+        "SegmentName" => String.t() | atom()
       }
 
   """
-  @type import_job_resource() :: %{String.t() | Atom.t() => any()}
+  @type import_job_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       segment_condition() :: %{
-        "SegmentId" => String.t() | Atom.t()
+        "SegmentId" => String.t() | atom()
       }
 
   """
-  @type segment_condition() :: %{String.t() | Atom.t() => any()}
+  @type segment_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1962,7 +1962,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_gcm_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type update_gcm_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1973,30 +1973,30 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_email_template_request() :: %{String.t() | Atom.t() => any()}
+  @type create_email_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       import_job_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
         "CompletedPieces" => integer(),
-        "CompletionDate" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
+        "CompletionDate" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
         "Definition" => import_job_resource(),
         "FailedPieces" => integer(),
-        "Failures" => list(String.t() | Atom.t()),
-        "Id" => String.t() | Atom.t(),
+        "Failures" => list(String.t() | atom()),
+        "Id" => String.t() | atom(),
         "JobStatus" => list(any()),
         "TotalFailures" => integer(),
         "TotalPieces" => integer(),
         "TotalProcessed" => integer(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type import_job_response() :: %{String.t() | Atom.t() => any()}
+  @type import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2007,7 +2007,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_segment_request() :: %{String.t() | Atom.t() => any()}
+  @type update_segment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2018,49 +2018,49 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_template_active_version_response() :: %{String.t() | Atom.t() => any()}
+  @type update_template_active_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       address_configuration() :: %{
-        "BodyOverride" => String.t() | Atom.t(),
+        "BodyOverride" => String.t() | atom(),
         "ChannelType" => list(any()),
         "Context" => map(),
-        "RawContent" => String.t() | Atom.t(),
+        "RawContent" => String.t() | atom(),
         "Substitutions" => map(),
-        "TitleOverride" => String.t() | Atom.t()
+        "TitleOverride" => String.t() | atom()
       }
 
   """
-  @type address_configuration() :: %{String.t() | Atom.t() => any()}
+  @type address_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       email_channel_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "ConfigurationSet" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "ConfigurationSet" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
         "Enabled" => boolean(),
-        "FromAddress" => String.t() | Atom.t(),
+        "FromAddress" => String.t() | atom(),
         "HasCredential" => boolean(),
-        "Id" => String.t() | Atom.t(),
-        "Identity" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
+        "Identity" => String.t() | atom(),
         "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
         "MessagesPerSecond" => integer(),
-        "OrchestrationSendingRoleArn" => String.t() | Atom.t(),
-        "Platform" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t(),
+        "OrchestrationSendingRoleArn" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "Version" => integer()
       }
 
   """
-  @type email_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type email_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2072,19 +2072,19 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type result_row() :: %{String.t() | Atom.t() => any()}
+  @type result_row() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_delivery_configuration() :: %{
-        "DeliveryUri" => String.t() | Atom.t(),
+        "DeliveryUri" => String.t() | atom(),
         "EndpointTypes" => list(list(any())())
       }
 
   """
-  @type custom_delivery_configuration() :: %{String.t() | Atom.t() => any()}
+  @type custom_delivery_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2095,7 +2095,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_baidu_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type update_baidu_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2106,7 +2106,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type phone_number_validate_request() :: %{String.t() | Atom.t() => any()}
+  @type phone_number_validate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2117,30 +2117,30 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_segment_response() :: %{String.t() | Atom.t() => any()}
+  @type create_segment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       g_cm_channel_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
-        "Credential" => String.t() | Atom.t(),
-        "DefaultAuthenticationMethod" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "Credential" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
         "Enabled" => boolean(),
         "HasCredential" => boolean(),
         "HasFcmServiceCredentials" => boolean(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "Platform" => String.t() | Atom.t(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
         "Version" => integer()
       }
 
   """
-  @type g_cm_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type g_cm_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2151,7 +2151,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_application_settings_response() :: %{String.t() | Atom.t() => any()}
+  @type get_application_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2162,7 +2162,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_journey_state_response() :: %{String.t() | Atom.t() => any()}
+  @type update_journey_state_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2179,14 +2179,14 @@ defmodule AWS.Pinpoint do
 
       default_push_notification_template() :: %{
         "Action" => list(any()),
-        "Body" => String.t() | Atom.t(),
-        "Sound" => String.t() | Atom.t(),
-        "Title" => String.t() | Atom.t(),
-        "Url" => String.t() | Atom.t()
+        "Body" => String.t() | atom(),
+        "Sound" => String.t() | atom(),
+        "Title" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type default_push_notification_template() :: %{String.t() | Atom.t() => any()}
+  @type default_push_notification_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2197,20 +2197,20 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type send_messages_request() :: %{String.t() | Atom.t() => any()}
+  @type send_messages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       closed_days_rule() :: %{
-        "EndDateTime" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "StartDateTime" => String.t() | Atom.t()
+        "EndDateTime" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "StartDateTime" => String.t() | atom()
       }
 
   """
-  @type closed_days_rule() :: %{String.t() | Atom.t() => any()}
+  @type closed_days_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2221,7 +2221,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_recommender_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_recommender_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2232,7 +2232,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_journey_request() :: %{String.t() | Atom.t() => any()}
+  @type update_journey_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2243,45 +2243,45 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_application_date_range_kpi_response() :: %{String.t() | Atom.t() => any()}
+  @type get_application_date_range_kpi_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       campaign_sms_message() :: %{
-        "Body" => String.t() | Atom.t(),
-        "EntityId" => String.t() | Atom.t(),
+        "Body" => String.t() | atom(),
+        "EntityId" => String.t() | atom(),
         "MessageType" => list(any()),
-        "OriginationNumber" => String.t() | Atom.t(),
-        "SenderId" => String.t() | Atom.t(),
-        "TemplateId" => String.t() | Atom.t()
+        "OriginationNumber" => String.t() | atom(),
+        "SenderId" => String.t() | atom(),
+        "TemplateId" => String.t() | atom()
       }
 
   """
-  @type campaign_sms_message() :: %{String.t() | Atom.t() => any()}
+  @type campaign_sms_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       a_p_n_s_channel_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
-        "DefaultAuthenticationMethod" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
         "Enabled" => boolean(),
         "HasCredential" => boolean(),
         "HasTokenKey" => boolean(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "Platform" => String.t() | Atom.t(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
         "Version" => integer()
       }
 
   """
-  @type a_p_n_s_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type a_p_n_s_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2292,29 +2292,29 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_push_template_request() :: %{String.t() | Atom.t() => any()}
+  @type create_push_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       a_p_n_s_voip_sandbox_channel_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
-        "DefaultAuthenticationMethod" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
         "Enabled" => boolean(),
         "HasCredential" => boolean(),
         "HasTokenKey" => boolean(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "Platform" => String.t() | Atom.t(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
         "Version" => integer()
       }
 
   """
-  @type a_p_n_s_voip_sandbox_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type a_p_n_s_voip_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2325,32 +2325,32 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type send_o_t_p_message_request() :: %{String.t() | Atom.t() => any()}
+  @type send_o_t_p_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       journey_execution_metrics_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "JourneyId" => String.t() | Atom.t(),
-        "LastEvaluatedTime" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "JourneyId" => String.t() | atom(),
+        "LastEvaluatedTime" => String.t() | atom(),
         "Metrics" => map()
       }
 
   """
-  @type journey_execution_metrics_response() :: %{String.t() | Atom.t() => any()}
+  @type journey_execution_metrics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_attributes_request() :: %{
-        "Blacklist" => list(String.t() | Atom.t())
+        "Blacklist" => list(String.t() | atom())
       }
 
   """
-  @type update_attributes_request() :: %{String.t() | Atom.t() => any()}
+  @type update_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2367,18 +2367,18 @@ defmodule AWS.Pinpoint do
 
       update_recommender_configuration_shape() :: %{
         "Attributes" => map(),
-        "Description" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "RecommendationProviderIdType" => String.t() | Atom.t(),
-        "RecommendationProviderRoleArn" => String.t() | Atom.t(),
-        "RecommendationProviderUri" => String.t() | Atom.t(),
-        "RecommendationTransformerUri" => String.t() | Atom.t(),
-        "RecommendationsDisplayName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RecommendationProviderIdType" => String.t() | atom(),
+        "RecommendationProviderRoleArn" => String.t() | atom(),
+        "RecommendationProviderUri" => String.t() | atom(),
+        "RecommendationTransformerUri" => String.t() | atom(),
+        "RecommendationsDisplayName" => String.t() | atom(),
         "RecommendationsPerMessage" => integer()
       }
 
   """
-  @type update_recommender_configuration_shape() :: %{String.t() | Atom.t() => any()}
+  @type update_recommender_configuration_shape() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2391,7 +2391,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type application_settings_journey_limits() :: %{String.t() | Atom.t() => any()}
+  @type application_settings_journey_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2402,28 +2402,28 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_voice_template_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_voice_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       baidu_channel_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
-        "Credential" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "Credential" => String.t() | atom(),
         "Enabled" => boolean(),
         "HasCredential" => boolean(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "Platform" => String.t() | Atom.t(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
         "Version" => integer()
       }
 
   """
-  @type baidu_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type baidu_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2439,12 +2439,12 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "RequestID" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2452,13 +2452,13 @@ defmodule AWS.Pinpoint do
 
       write_segment_request() :: %{
         "Dimensions" => segment_dimensions(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "SegmentGroups" => segment_group_list(),
         "tags" => map()
       }
 
   """
-  @type write_segment_request() :: %{String.t() | Atom.t() => any()}
+  @type write_segment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2487,19 +2487,19 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_in_app_template_response() :: %{String.t() | Atom.t() => any()}
+  @type get_in_app_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       message_header() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type message_header() :: %{String.t() | Atom.t() => any()}
+  @type message_header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2510,7 +2510,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_campaign_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_campaign_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2518,17 +2518,17 @@ defmodule AWS.Pinpoint do
 
       import_job_request() :: %{
         "DefineSegment" => boolean(),
-        "ExternalId" => String.t() | Atom.t(),
+        "ExternalId" => String.t() | atom(),
         "Format" => list(any()),
         "RegisterEndpoints" => boolean(),
-        "RoleArn" => String.t() | Atom.t(),
-        "S3Url" => String.t() | Atom.t(),
-        "SegmentId" => String.t() | Atom.t(),
-        "SegmentName" => String.t() | Atom.t()
+        "RoleArn" => String.t() | atom(),
+        "S3Url" => String.t() | atom(),
+        "SegmentId" => String.t() | atom(),
+        "SegmentName" => String.t() | atom()
       }
 
   """
-  @type import_job_request() :: %{String.t() | Atom.t() => any()}
+  @type import_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2539,7 +2539,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_endpoint_response() :: %{String.t() | Atom.t() => any()}
+  @type get_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2549,7 +2549,7 @@ defmodule AWS.Pinpoint do
         "CUSTOM" => custom_message_activity(),
         "ConditionalSplit" => conditional_split_activity(),
         "ContactCenter" => contact_center_activity(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "EMAIL" => email_message_activity(),
         "Holdout" => holdout_activity(),
         "MultiCondition" => multi_conditional_split_activity(),
@@ -2560,22 +2560,22 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type activity() :: %{String.t() | Atom.t() => any()}
+  @type activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       journey_run_execution_metrics_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "JourneyId" => String.t() | Atom.t(),
-        "LastEvaluatedTime" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "JourneyId" => String.t() | atom(),
+        "LastEvaluatedTime" => String.t() | atom(),
         "Metrics" => map(),
-        "RunId" => String.t() | Atom.t()
+        "RunId" => String.t() | atom()
       }
 
   """
-  @type journey_run_execution_metrics_response() :: %{String.t() | Atom.t() => any()}
+  @type journey_run_execution_metrics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2586,7 +2586,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type voice_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type voice_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2594,16 +2594,16 @@ defmodule AWS.Pinpoint do
 
       a_p_n_s_push_notification_template() :: %{
         "Action" => list(any()),
-        "Body" => String.t() | Atom.t(),
-        "MediaUrl" => String.t() | Atom.t(),
-        "RawContent" => String.t() | Atom.t(),
-        "Sound" => String.t() | Atom.t(),
-        "Title" => String.t() | Atom.t(),
-        "Url" => String.t() | Atom.t()
+        "Body" => String.t() | atom(),
+        "MediaUrl" => String.t() | atom(),
+        "RawContent" => String.t() | atom(),
+        "Sound" => String.t() | atom(),
+        "Title" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type a_p_n_s_push_notification_template() :: %{String.t() | Atom.t() => any()}
+  @type a_p_n_s_push_notification_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2623,7 +2623,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_apps_response() :: %{String.t() | Atom.t() => any()}
+  @type get_apps_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2634,7 +2634,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type send_o_t_p_message_response() :: %{String.t() | Atom.t() => any()}
+  @type send_o_t_p_message_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2645,7 +2645,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_apns_voip_sandbox_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_apns_voip_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2656,19 +2656,19 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_export_job_response() :: %{String.t() | Atom.t() => any()}
+  @type get_export_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       payload_too_large_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "RequestID" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
       }
 
   """
-  @type payload_too_large_exception() :: %{String.t() | Atom.t() => any()}
+  @type payload_too_large_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2679,7 +2679,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_endpoint_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2696,40 +2696,40 @@ defmodule AWS.Pinpoint do
 
       update_voice_template_request() :: %{
         optional("CreateNewVersion") => boolean(),
-        optional("Version") => String.t() | Atom.t(),
+        optional("Version") => String.t() | atom(),
         required("VoiceTemplateRequest") => voice_template_request()
       }
 
   """
-  @type update_voice_template_request() :: %{String.t() | Atom.t() => any()}
+  @type update_voice_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       endpoint_message_result() :: %{
-        "Address" => String.t() | Atom.t(),
+        "Address" => String.t() | atom(),
         "DeliveryStatus" => list(any()),
-        "MessageId" => String.t() | Atom.t(),
+        "MessageId" => String.t() | atom(),
         "StatusCode" => integer(),
-        "StatusMessage" => String.t() | Atom.t(),
-        "UpdatedToken" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom(),
+        "UpdatedToken" => String.t() | atom()
       }
 
   """
-  @type endpoint_message_result() :: %{String.t() | Atom.t() => any()}
+  @type endpoint_message_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       write_event_stream() :: %{
-        "DestinationStreamArn" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t()
+        "DestinationStreamArn" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
       }
 
   """
-  @type write_event_stream() :: %{String.t() | Atom.t() => any()}
+  @type write_event_stream() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2740,7 +2740,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type put_events_request() :: %{String.t() | Atom.t() => any()}
+  @type put_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2756,7 +2756,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type segment_dimensions() :: %{String.t() | Atom.t() => any()}
+  @type segment_dimensions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2772,20 +2772,20 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       voice_channel_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
         "Enabled" => boolean(),
         "HasCredential" => boolean(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "Platform" => String.t() | Atom.t(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
         "Version" => integer()
       }
 
   """
-  @type voice_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type voice_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2796,46 +2796,46 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_segment_export_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type get_segment_export_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       a_p_n_s_message() :: %{
-        "APNSPushType" => String.t() | Atom.t(),
+        "APNSPushType" => String.t() | atom(),
         "Action" => list(any()),
         "Badge" => integer(),
-        "Body" => String.t() | Atom.t(),
-        "Category" => String.t() | Atom.t(),
-        "CollapseId" => String.t() | Atom.t(),
+        "Body" => String.t() | atom(),
+        "Category" => String.t() | atom(),
+        "CollapseId" => String.t() | atom(),
         "Data" => map(),
-        "MediaUrl" => String.t() | Atom.t(),
-        "PreferredAuthenticationMethod" => String.t() | Atom.t(),
-        "Priority" => String.t() | Atom.t(),
-        "RawContent" => String.t() | Atom.t(),
+        "MediaUrl" => String.t() | atom(),
+        "PreferredAuthenticationMethod" => String.t() | atom(),
+        "Priority" => String.t() | atom(),
+        "RawContent" => String.t() | atom(),
         "SilentPush" => boolean(),
-        "Sound" => String.t() | Atom.t(),
+        "Sound" => String.t() | atom(),
         "Substitutions" => map(),
-        "ThreadId" => String.t() | Atom.t(),
+        "ThreadId" => String.t() | atom(),
         "TimeToLive" => integer(),
-        "Title" => String.t() | Atom.t(),
-        "Url" => String.t() | Atom.t()
+        "Title" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type a_p_n_s_message() :: %{String.t() | Atom.t() => any()}
+  @type a_p_n_s_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template_active_version_request() :: %{
-        "Version" => String.t() | Atom.t()
+        "Version" => String.t() | atom()
       }
 
   """
-  @type template_active_version_request() :: %{String.t() | Atom.t() => any()}
+  @type template_active_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2851,42 +2851,42 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       in_app_message_content() :: %{
-        "BackgroundColor" => String.t() | Atom.t(),
+        "BackgroundColor" => String.t() | atom(),
         "BodyConfig" => in_app_message_body_config(),
         "HeaderConfig" => in_app_message_header_config(),
-        "ImageUrl" => String.t() | Atom.t(),
+        "ImageUrl" => String.t() | atom(),
         "PrimaryBtn" => in_app_message_button(),
         "SecondaryBtn" => in_app_message_button()
       }
 
   """
-  @type in_app_message_content() :: %{String.t() | Atom.t() => any()}
+  @type in_app_message_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_template_versions_request() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("PageSize") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => String.t() | atom()
       }
 
   """
-  @type list_template_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_template_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       message_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
         "EndpointResult" => map(),
-        "RequestId" => String.t() | Atom.t(),
+        "RequestId" => String.t() | atom(),
         "Result" => map()
       }
 
   """
-  @type message_response() :: %{String.t() | Atom.t() => any()}
+  @type message_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2897,7 +2897,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_journey_response() :: %{String.t() | Atom.t() => any()}
+  @type get_journey_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2915,11 +2915,11 @@ defmodule AWS.Pinpoint do
       journey_schedule() :: %{
         "EndTime" => non_neg_integer(),
         "StartTime" => non_neg_integer(),
-        "Timezone" => String.t() | Atom.t()
+        "Timezone" => String.t() | atom()
       }
 
   """
-  @type journey_schedule() :: %{String.t() | Atom.t() => any()}
+  @type journey_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2930,30 +2930,30 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_email_template_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_email_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_job_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
         "CompletedPieces" => integer(),
-        "CompletionDate" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
+        "CompletionDate" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
         "Definition" => export_job_resource(),
         "FailedPieces" => integer(),
-        "Failures" => list(String.t() | Atom.t()),
-        "Id" => String.t() | Atom.t(),
+        "Failures" => list(String.t() | atom()),
+        "Id" => String.t() | atom(),
         "JobStatus" => list(any()),
         "TotalFailures" => integer(),
         "TotalPieces" => integer(),
         "TotalProcessed" => integer(),
-        "Type" => String.t() | Atom.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type export_job_response() :: %{String.t() | Atom.t() => any()}
+  @type export_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2961,47 +2961,47 @@ defmodule AWS.Pinpoint do
 
       applications_response() :: %{
         "Item" => list(application_response()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type applications_response() :: %{String.t() | Atom.t() => any()}
+  @type applications_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sms_channel_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
         "Enabled" => boolean(),
         "HasCredential" => boolean(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "Platform" => String.t() | Atom.t(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
         "PromotionalMessagesPerSecond" => integer(),
-        "SenderId" => String.t() | Atom.t(),
-        "ShortCode" => String.t() | Atom.t(),
+        "SenderId" => String.t() | atom(),
+        "ShortCode" => String.t() | atom(),
         "TransactionalMessagesPerSecond" => integer(),
         "Version" => integer()
       }
 
   """
-  @type sms_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type sms_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "RequestID" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3012,7 +3012,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_journey_response() :: %{String.t() | Atom.t() => any()}
+  @type update_journey_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3020,12 +3020,12 @@ defmodule AWS.Pinpoint do
 
       in_app_message_body_config() :: %{
         "Alignment" => list(any()),
-        "Body" => String.t() | Atom.t(),
-        "TextColor" => String.t() | Atom.t()
+        "Body" => String.t() | atom(),
+        "TextColor" => String.t() | atom()
       }
 
   """
-  @type in_app_message_body_config() :: %{String.t() | Atom.t() => any()}
+  @type in_app_message_body_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3033,12 +3033,12 @@ defmodule AWS.Pinpoint do
 
       update_push_template_request() :: %{
         optional("CreateNewVersion") => boolean(),
-        optional("Version") => String.t() | Atom.t(),
+        optional("Version") => String.t() | atom(),
         required("PushNotificationTemplateRequest") => push_notification_template_request()
       }
 
   """
-  @type update_push_template_request() :: %{String.t() | Atom.t() => any()}
+  @type update_push_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3058,31 +3058,31 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_campaign_version_response() :: %{String.t() | Atom.t() => any()}
+  @type get_campaign_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_campaign_activities_request() :: %{
-        optional("PageSize") => String.t() | Atom.t(),
-        optional("Token") => String.t() | Atom.t()
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
       }
 
   """
-  @type get_campaign_activities_request() :: %{String.t() | Atom.t() => any()}
+  @type get_campaign_activities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_import_jobs_request() :: %{
-        optional("PageSize") => String.t() | Atom.t(),
-        optional("Token") => String.t() | Atom.t()
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
       }
 
   """
-  @type get_import_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type get_import_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3093,18 +3093,18 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type list_template_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_template_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       journey_push_message() :: %{
-        "TimeToLive" => String.t() | Atom.t()
+        "TimeToLive" => String.t() | atom()
       }
 
   """
-  @type journey_push_message() :: %{String.t() | Atom.t() => any()}
+  @type journey_push_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3115,7 +3115,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_segments_response() :: %{String.t() | Atom.t() => any()}
+  @type get_segments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3126,7 +3126,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_event_stream_response() :: %{String.t() | Atom.t() => any()}
+  @type get_event_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3137,7 +3137,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type put_event_stream_response() :: %{String.t() | Atom.t() => any()}
+  @type put_event_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3145,13 +3145,13 @@ defmodule AWS.Pinpoint do
 
       get_campaign_date_range_kpi_request() :: %{
         optional("EndTime") => non_neg_integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("PageSize") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => String.t() | atom(),
         optional("StartTime") => non_neg_integer()
       }
 
   """
-  @type get_campaign_date_range_kpi_request() :: %{String.t() | Atom.t() => any()}
+  @type get_campaign_date_range_kpi_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3162,7 +3162,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_apns_voip_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_apns_voip_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3173,7 +3173,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_segment_import_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type get_segment_import_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3184,7 +3184,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_endpoints_batch_request() :: %{String.t() | Atom.t() => any()}
+  @type update_endpoints_batch_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3192,13 +3192,13 @@ defmodule AWS.Pinpoint do
 
       template_versions_response() :: %{
         "Item" => list(template_version_response()),
-        "Message" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
-        "RequestID" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
       }
 
   """
-  @type template_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type template_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3218,7 +3218,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_sms_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type get_sms_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3229,7 +3229,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_voice_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_voice_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3240,7 +3240,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3251,19 +3251,19 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_email_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_email_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_application_request() :: %{
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type create_application_request() :: %{String.t() | Atom.t() => any()}
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3274,7 +3274,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_adm_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type update_adm_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3285,7 +3285,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_user_endpoints_response() :: %{String.t() | Atom.t() => any()}
+  @type get_user_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3296,7 +3296,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_journey_run_execution_metrics_response() :: %{String.t() | Atom.t() => any()}
+  @type get_journey_run_execution_metrics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3309,7 +3309,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type in_app_message() :: %{String.t() | Atom.t() => any()}
+  @type in_app_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3321,7 +3321,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type segment_location() :: %{String.t() | Atom.t() => any()}
+  @type segment_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3332,7 +3332,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type remove_attributes_request() :: %{String.t() | Atom.t() => any()}
+  @type remove_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3343,7 +3343,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_campaign_date_range_kpi_response() :: %{String.t() | Atom.t() => any()}
+  @type get_campaign_date_range_kpi_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3354,7 +3354,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_endpoints_batch_response() :: %{String.t() | Atom.t() => any()}
+  @type update_endpoints_batch_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3365,7 +3365,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_journey_execution_metrics_response() :: %{String.t() | Atom.t() => any()}
+  @type get_journey_execution_metrics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3376,19 +3376,19 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_adm_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type get_adm_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       simple_email_part() :: %{
-        "Charset" => String.t() | Atom.t(),
-        "Data" => String.t() | Atom.t()
+        "Charset" => String.t() | atom(),
+        "Data" => String.t() | atom()
       }
 
   """
-  @type simple_email_part() :: %{String.t() | Atom.t() => any()}
+  @type simple_email_part() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3396,11 +3396,11 @@ defmodule AWS.Pinpoint do
 
       import_jobs_response() :: %{
         "Item" => list(import_job_response()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type import_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type import_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3412,21 +3412,21 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type condition() :: %{String.t() | Atom.t() => any()}
+  @type condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       journey_run_response() :: %{
-        "CreationTime" => String.t() | Atom.t(),
-        "LastUpdateTime" => String.t() | Atom.t(),
-        "RunId" => String.t() | Atom.t(),
+        "CreationTime" => String.t() | atom(),
+        "LastUpdateTime" => String.t() | atom(),
+        "RunId" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type journey_run_response() :: %{String.t() | Atom.t() => any()}
+  @type journey_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3437,21 +3437,21 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_journey_runs_response() :: %{String.t() | Atom.t() => any()}
+  @type get_journey_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       campaign_in_app_message() :: %{
-        "Body" => String.t() | Atom.t(),
+        "Body" => String.t() | atom(),
         "Content" => list(in_app_message_content()),
         "CustomConfig" => map(),
         "Layout" => list(any())
       }
 
   """
-  @type campaign_in_app_message() :: %{String.t() | Atom.t() => any()}
+  @type campaign_in_app_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3462,7 +3462,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_segment_response() :: %{String.t() | Atom.t() => any()}
+  @type get_segment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3470,13 +3470,13 @@ defmodule AWS.Pinpoint do
 
       session() :: %{
         "Duration" => integer(),
-        "Id" => String.t() | Atom.t(),
-        "StartTimestamp" => String.t() | Atom.t(),
-        "StopTimestamp" => String.t() | Atom.t()
+        "Id" => String.t() | atom(),
+        "StartTimestamp" => String.t() | atom(),
+        "StopTimestamp" => String.t() | atom()
       }
 
   """
-  @type session() :: %{String.t() | Atom.t() => any()}
+  @type session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3488,7 +3488,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type event_filter() :: %{String.t() | Atom.t() => any()}
+  @type event_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3499,39 +3499,39 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_segment_request() :: %{String.t() | Atom.t() => any()}
+  @type create_segment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       endpoint_location() :: %{
-        "City" => String.t() | Atom.t(),
-        "Country" => String.t() | Atom.t(),
+        "City" => String.t() | atom(),
+        "Country" => String.t() | atom(),
         "Latitude" => float(),
         "Longitude" => float(),
-        "PostalCode" => String.t() | Atom.t(),
-        "Region" => String.t() | Atom.t()
+        "PostalCode" => String.t() | atom(),
+        "Region" => String.t() | atom()
       }
 
   """
-  @type endpoint_location() :: %{String.t() | Atom.t() => any()}
+  @type endpoint_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       journey_execution_activity_metrics_response() :: %{
-        "ActivityType" => String.t() | Atom.t(),
-        "ApplicationId" => String.t() | Atom.t(),
-        "JourneyActivityId" => String.t() | Atom.t(),
-        "JourneyId" => String.t() | Atom.t(),
-        "LastEvaluatedTime" => String.t() | Atom.t(),
+        "ActivityType" => String.t() | atom(),
+        "ApplicationId" => String.t() | atom(),
+        "JourneyActivityId" => String.t() | atom(),
+        "JourneyId" => String.t() | atom(),
+        "LastEvaluatedTime" => String.t() | atom(),
         "Metrics" => map()
       }
 
   """
-  @type journey_execution_activity_metrics_response() :: %{String.t() | Atom.t() => any()}
+  @type journey_execution_activity_metrics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3550,7 +3550,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type direct_message_configuration() :: %{String.t() | Atom.t() => any()}
+  @type direct_message_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3558,23 +3558,23 @@ defmodule AWS.Pinpoint do
 
       list_recommender_configurations_response() :: %{
         "Item" => list(recommender_configuration_response()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_recommender_configurations_response() :: %{String.t() | Atom.t() => any()}
+  @type list_recommender_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metric_dimension() :: %{
-        "ComparisonOperator" => String.t() | Atom.t(),
+        "ComparisonOperator" => String.t() | atom(),
         "Value" => float()
       }
 
   """
-  @type metric_dimension() :: %{String.t() | Atom.t() => any()}
+  @type metric_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3585,7 +3585,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_apns_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type get_apns_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3597,7 +3597,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type journey_timeframe_cap() :: %{String.t() | Atom.t() => any()}
+  @type journey_timeframe_cap() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3610,54 +3610,54 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type event_dimensions() :: %{String.t() | Atom.t() => any()}
+  @type event_dimensions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       g_cm_channel_request() :: %{
-        "ApiKey" => String.t() | Atom.t(),
-        "DefaultAuthenticationMethod" => String.t() | Atom.t(),
+        "ApiKey" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
         "Enabled" => boolean(),
-        "ServiceJson" => String.t() | Atom.t()
+        "ServiceJson" => String.t() | atom()
       }
 
   """
-  @type g_cm_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type g_cm_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       voice_template_request() :: %{
-        "Body" => String.t() | Atom.t(),
-        "DefaultSubstitutions" => String.t() | Atom.t(),
-        "LanguageCode" => String.t() | Atom.t(),
-        "TemplateDescription" => String.t() | Atom.t(),
-        "VoiceId" => String.t() | Atom.t(),
+        "Body" => String.t() | atom(),
+        "DefaultSubstitutions" => String.t() | atom(),
+        "LanguageCode" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
+        "VoiceId" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type voice_template_request() :: %{String.t() | Atom.t() => any()}
+  @type voice_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       email_message() :: %{
-        "Body" => String.t() | Atom.t(),
-        "FeedbackForwardingAddress" => String.t() | Atom.t(),
-        "FromAddress" => String.t() | Atom.t(),
+        "Body" => String.t() | atom(),
+        "FeedbackForwardingAddress" => String.t() | atom(),
+        "FromAddress" => String.t() | atom(),
         "RawEmail" => raw_email(),
-        "ReplyToAddresses" => list(String.t() | Atom.t()),
+        "ReplyToAddresses" => list(String.t() | atom()),
         "SimpleEmail" => simple_email(),
         "Substitutions" => map()
       }
 
   """
-  @type email_message() :: %{String.t() | Atom.t() => any()}
+  @type email_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3668,7 +3668,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_segment_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_segment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3679,7 +3679,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_sms_template_response() :: %{String.t() | Atom.t() => any()}
+  @type create_sms_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3690,7 +3690,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_export_job_request() :: %{String.t() | Atom.t() => any()}
+  @type create_export_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3698,15 +3698,15 @@ defmodule AWS.Pinpoint do
 
       segment_import_resource() :: %{
         "ChannelCounts" => map(),
-        "ExternalId" => String.t() | Atom.t(),
+        "ExternalId" => String.t() | atom(),
         "Format" => list(any()),
-        "RoleArn" => String.t() | Atom.t(),
-        "S3Url" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | atom(),
+        "S3Url" => String.t() | atom(),
         "Size" => integer()
       }
 
   """
-  @type segment_import_resource() :: %{String.t() | Atom.t() => any()}
+  @type segment_import_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3735,18 +3735,18 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_apns_voip_sandbox_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type update_apns_voip_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       journey_email_message() :: %{
-        "FromAddress" => String.t() | Atom.t()
+        "FromAddress" => String.t() | atom()
       }
 
   """
-  @type journey_email_message() :: %{String.t() | Atom.t() => any()}
+  @type journey_email_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3757,25 +3757,25 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_apns_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_apns_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       a_p_n_s_sandbox_channel_request() :: %{
-        "BundleId" => String.t() | Atom.t(),
-        "Certificate" => String.t() | Atom.t(),
-        "DefaultAuthenticationMethod" => String.t() | Atom.t(),
+        "BundleId" => String.t() | atom(),
+        "Certificate" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
         "Enabled" => boolean(),
-        "PrivateKey" => String.t() | Atom.t(),
-        "TeamId" => String.t() | Atom.t(),
-        "TokenKey" => String.t() | Atom.t(),
-        "TokenKeyId" => String.t() | Atom.t()
+        "PrivateKey" => String.t() | atom(),
+        "TeamId" => String.t() | atom(),
+        "TokenKey" => String.t() | atom(),
+        "TokenKeyId" => String.t() | atom()
       }
 
   """
-  @type a_p_n_s_sandbox_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type a_p_n_s_sandbox_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3789,22 +3789,22 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type segment_group() :: %{String.t() | Atom.t() => any()}
+  @type segment_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       journey_sms_message() :: %{
-        "EntityId" => String.t() | Atom.t(),
+        "EntityId" => String.t() | atom(),
         "MessageType" => list(any()),
-        "OriginationNumber" => String.t() | Atom.t(),
-        "SenderId" => String.t() | Atom.t(),
-        "TemplateId" => String.t() | Atom.t()
+        "OriginationNumber" => String.t() | atom(),
+        "SenderId" => String.t() | atom(),
+        "TemplateId" => String.t() | atom()
       }
 
   """
-  @type journey_sms_message() :: %{String.t() | Atom.t() => any()}
+  @type journey_sms_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3816,7 +3816,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type g_p_s_coordinates() :: %{String.t() | Atom.t() => any()}
+  @type g_p_s_coordinates() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3827,7 +3827,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_app_response() :: %{String.t() | Atom.t() => any()}
+  @type get_app_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3835,13 +3835,13 @@ defmodule AWS.Pinpoint do
 
       email_message_activity() :: %{
         "MessageConfig" => journey_email_message(),
-        "NextActivity" => String.t() | Atom.t(),
-        "TemplateName" => String.t() | Atom.t(),
-        "TemplateVersion" => String.t() | Atom.t()
+        "NextActivity" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateVersion" => String.t() | atom()
       }
 
   """
-  @type email_message_activity() :: %{String.t() | Atom.t() => any()}
+  @type email_message_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3861,24 +3861,24 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_recommender_configurations_response() :: %{String.t() | Atom.t() => any()}
+  @type get_recommender_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       schedule() :: %{
-        "EndTime" => String.t() | Atom.t(),
+        "EndTime" => String.t() | atom(),
         "EventFilter" => campaign_event_filter(),
         "Frequency" => list(any()),
         "IsLocalTime" => boolean(),
         "QuietTime" => quiet_time(),
-        "StartTime" => String.t() | Atom.t(),
-        "Timezone" => String.t() | Atom.t()
+        "StartTime" => String.t() | atom(),
+        "Timezone" => String.t() | atom()
       }
 
   """
-  @type schedule() :: %{String.t() | Atom.t() => any()}
+  @type schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3889,29 +3889,29 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_push_template_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_push_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       a_p_n_s_voip_channel_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
-        "DefaultAuthenticationMethod" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
         "Enabled" => boolean(),
         "HasCredential" => boolean(),
         "HasTokenKey" => boolean(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "Platform" => String.t() | Atom.t(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
         "Version" => integer()
       }
 
   """
-  @type a_p_n_s_voip_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type a_p_n_s_voip_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3927,36 +3927,36 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       list_journeys_request() :: %{
-        optional("PageSize") => String.t() | Atom.t(),
-        optional("Token") => String.t() | Atom.t()
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
       }
 
   """
-  @type list_journeys_request() :: %{String.t() | Atom.t() => any()}
+  @type list_journeys_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       email_template_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
-        "DefaultSubstitutions" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "DefaultSubstitutions" => String.t() | atom(),
         "Headers" => list(message_header()),
-        "HtmlPart" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "RecommenderId" => String.t() | Atom.t(),
-        "Subject" => String.t() | Atom.t(),
-        "TemplateDescription" => String.t() | Atom.t(),
-        "TemplateName" => String.t() | Atom.t(),
+        "HtmlPart" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "RecommenderId" => String.t() | atom(),
+        "Subject" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
         "TemplateType" => list(any()),
-        "TextPart" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t(),
+        "TextPart" => String.t() | atom(),
+        "Version" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type email_template_response() :: %{String.t() | Atom.t() => any()}
+  @type email_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3964,66 +3964,66 @@ defmodule AWS.Pinpoint do
 
       update_sms_template_request() :: %{
         optional("CreateNewVersion") => boolean(),
-        optional("Version") => String.t() | Atom.t(),
+        optional("Version") => String.t() | atom(),
         required("SMSTemplateRequest") => sms_template_request()
       }
 
   """
-  @type update_sms_template_request() :: %{String.t() | Atom.t() => any()}
+  @type update_sms_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_journey_execution_activity_metrics_request() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("PageSize") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => String.t() | atom()
       }
 
   """
-  @type get_journey_execution_activity_metrics_request() :: %{String.t() | Atom.t() => any()}
+  @type get_journey_execution_activity_metrics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       event() :: %{
-        "AppPackageName" => String.t() | Atom.t(),
-        "AppTitle" => String.t() | Atom.t(),
-        "AppVersionCode" => String.t() | Atom.t(),
+        "AppPackageName" => String.t() | atom(),
+        "AppTitle" => String.t() | atom(),
+        "AppVersionCode" => String.t() | atom(),
         "Attributes" => map(),
-        "ClientSdkVersion" => String.t() | Atom.t(),
-        "EventType" => String.t() | Atom.t(),
+        "ClientSdkVersion" => String.t() | atom(),
+        "EventType" => String.t() | atom(),
         "Metrics" => map(),
-        "SdkName" => String.t() | Atom.t(),
+        "SdkName" => String.t() | atom(),
         "Session" => session(),
-        "Timestamp" => String.t() | Atom.t()
+        "Timestamp" => String.t() | atom()
       }
 
   """
-  @type event() :: %{String.t() | Atom.t() => any()}
+  @type event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       a_p_n_s_sandbox_channel_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
-        "DefaultAuthenticationMethod" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
         "Enabled" => boolean(),
         "HasCredential" => boolean(),
         "HasTokenKey" => boolean(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "Platform" => String.t() | Atom.t(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
         "Version" => integer()
       }
 
   """
-  @type a_p_n_s_sandbox_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type a_p_n_s_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4031,11 +4031,11 @@ defmodule AWS.Pinpoint do
 
       activities_response() :: %{
         "Item" => list(activity_response()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type activities_response() :: %{String.t() | Atom.t() => any()}
+  @type activities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4055,7 +4055,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type send_messages_response() :: %{String.t() | Atom.t() => any()}
+  @type send_messages_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4066,7 +4066,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type in_app_messages_response() :: %{String.t() | Atom.t() => any()}
+  @type in_app_messages_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4086,42 +4086,42 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_voice_template_response() :: %{String.t() | Atom.t() => any()}
+  @type get_voice_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_template_message_body() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t(),
-        "RequestID" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
       }
 
   """
-  @type create_template_message_body() :: %{String.t() | Atom.t() => any()}
+  @type create_template_message_body() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       voice_template_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Body" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
-        "DefaultSubstitutions" => String.t() | Atom.t(),
-        "LanguageCode" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "TemplateDescription" => String.t() | Atom.t(),
-        "TemplateName" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "Body" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "DefaultSubstitutions" => String.t() | atom(),
+        "LanguageCode" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
         "TemplateType" => list(any()),
-        "Version" => String.t() | Atom.t(),
-        "VoiceId" => String.t() | Atom.t(),
+        "Version" => String.t() | atom(),
+        "VoiceId" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type voice_template_response() :: %{String.t() | Atom.t() => any()}
+  @type voice_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4141,7 +4141,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_apns_sandbox_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type update_apns_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4152,7 +4152,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_import_job_response() :: %{String.t() | Atom.t() => any()}
+  @type get_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4163,7 +4163,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_journey_run_execution_activity_metrics_response() :: %{String.t() | Atom.t() => any()}
+  @type get_journey_run_execution_activity_metrics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4174,21 +4174,21 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type send_users_messages_request() :: %{String.t() | Atom.t() => any()}
+  @type send_users_messages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_job_request() :: %{
-        "RoleArn" => String.t() | Atom.t(),
-        "S3UrlPrefix" => String.t() | Atom.t(),
-        "SegmentId" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | atom(),
+        "S3UrlPrefix" => String.t() | atom(),
+        "SegmentId" => String.t() | atom(),
         "SegmentVersion" => integer()
       }
 
   """
-  @type export_job_request() :: %{String.t() | Atom.t() => any()}
+  @type export_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4197,25 +4197,25 @@ defmodule AWS.Pinpoint do
       write_campaign_request() :: %{
         "AdditionalTreatments" => list(write_treatment_resource()),
         "CustomDeliveryConfiguration" => custom_delivery_configuration(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "HoldoutPercent" => integer(),
         "Hook" => campaign_hook(),
         "IsPaused" => boolean(),
         "Limits" => campaign_limits(),
         "MessageConfiguration" => message_configuration(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Priority" => integer(),
         "Schedule" => schedule(),
-        "SegmentId" => String.t() | Atom.t(),
+        "SegmentId" => String.t() | atom(),
         "SegmentVersion" => integer(),
         "TemplateConfiguration" => template_configuration(),
-        "TreatmentDescription" => String.t() | Atom.t(),
-        "TreatmentName" => String.t() | Atom.t(),
+        "TreatmentDescription" => String.t() | atom(),
+        "TreatmentName" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type write_campaign_request() :: %{String.t() | Atom.t() => any()}
+  @type write_campaign_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4226,34 +4226,34 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_baidu_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type get_baidu_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       campaign_custom_message() :: %{
-        "Data" => String.t() | Atom.t()
+        "Data" => String.t() | atom()
       }
 
   """
-  @type campaign_custom_message() :: %{String.t() | Atom.t() => any()}
+  @type campaign_custom_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       email_channel_request() :: %{
-        "ConfigurationSet" => String.t() | Atom.t(),
+        "ConfigurationSet" => String.t() | atom(),
         "Enabled" => boolean(),
-        "FromAddress" => String.t() | Atom.t(),
-        "Identity" => String.t() | Atom.t(),
-        "OrchestrationSendingRoleArn" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t()
+        "FromAddress" => String.t() | atom(),
+        "Identity" => String.t() | atom(),
+        "OrchestrationSendingRoleArn" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
       }
 
   """
-  @type email_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type email_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4264,7 +4264,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_campaign_request() :: %{String.t() | Atom.t() => any()}
+  @type create_campaign_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4275,23 +4275,23 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type events_response() :: %{String.t() | Atom.t() => any()}
+  @type events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       default_button_configuration() :: %{
-        "BackgroundColor" => String.t() | Atom.t(),
+        "BackgroundColor" => String.t() | atom(),
         "BorderRadius" => integer(),
         "ButtonAction" => list(any()),
-        "Link" => String.t() | Atom.t(),
-        "Text" => String.t() | Atom.t(),
-        "TextColor" => String.t() | Atom.t()
+        "Link" => String.t() | atom(),
+        "Text" => String.t() | atom(),
+        "TextColor" => String.t() | atom()
       }
 
   """
-  @type default_button_configuration() :: %{String.t() | Atom.t() => any()}
+  @type default_button_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4299,32 +4299,32 @@ defmodule AWS.Pinpoint do
 
       journey_runs_response() :: %{
         "Item" => list(journey_run_response()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type journey_runs_response() :: %{String.t() | Atom.t() => any()}
+  @type journey_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sms_template_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Body" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
-        "DefaultSubstitutions" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "RecommenderId" => String.t() | Atom.t(),
-        "TemplateDescription" => String.t() | Atom.t(),
-        "TemplateName" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "Body" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "DefaultSubstitutions" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "RecommenderId" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
         "TemplateType" => list(any()),
-        "Version" => String.t() | Atom.t(),
+        "Version" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type sms_template_response() :: %{String.t() | Atom.t() => any()}
+  @type sms_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4332,11 +4332,11 @@ defmodule AWS.Pinpoint do
 
       segments_response() :: %{
         "Item" => list(segment_response()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type segments_response() :: %{String.t() | Atom.t() => any()}
+  @type segments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4351,7 +4351,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type closed_days() :: %{String.t() | Atom.t() => any()}
+  @type closed_days() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4362,7 +4362,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_event_stream_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_event_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4373,19 +4373,19 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_sms_template_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_sms_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_segment_versions_request() :: %{
-        optional("PageSize") => String.t() | Atom.t(),
-        optional("Token") => String.t() | Atom.t()
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
       }
 
   """
-  @type get_segment_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type get_segment_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4396,19 +4396,19 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type channels_response() :: %{String.t() | Atom.t() => any()}
+  @type channels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_recommender_configurations_request() :: %{
-        optional("PageSize") => String.t() | Atom.t(),
-        optional("Token") => String.t() | Atom.t()
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
       }
 
   """
-  @type get_recommender_configurations_request() :: %{String.t() | Atom.t() => any()}
+  @type get_recommender_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4419,7 +4419,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_journey_date_range_kpi_response() :: %{String.t() | Atom.t() => any()}
+  @type get_journey_date_range_kpi_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4430,7 +4430,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_journey_request() :: %{String.t() | Atom.t() => any()}
+  @type create_journey_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4441,7 +4441,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_sms_template_response() :: %{String.t() | Atom.t() => any()}
+  @type get_sms_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4457,22 +4457,22 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type segment_demographics() :: %{String.t() | Atom.t() => any()}
+  @type segment_demographics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       application_response() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type application_response() :: %{String.t() | Atom.t() => any()}
+  @type application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4483,7 +4483,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_voice_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type update_voice_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4494,7 +4494,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type send_users_messages_response() :: %{String.t() | Atom.t() => any()}
+  @type send_users_messages_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4505,19 +4505,19 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type list_templates_response() :: %{String.t() | Atom.t() => any()}
+  @type list_templates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       default_message() :: %{
-        "Body" => String.t() | Atom.t(),
+        "Body" => String.t() | atom(),
         "Substitutions" => map()
       }
 
   """
-  @type default_message() :: %{String.t() | Atom.t() => any()}
+  @type default_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4528,47 +4528,47 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type remove_attributes_response() :: %{String.t() | Atom.t() => any()}
+  @type remove_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_export_jobs_request() :: %{
-        optional("PageSize") => String.t() | Atom.t(),
-        optional("Token") => String.t() | Atom.t()
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
       }
 
   """
-  @type get_export_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type get_export_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       campaign_email_message() :: %{
-        "Body" => String.t() | Atom.t(),
-        "FromAddress" => String.t() | Atom.t(),
+        "Body" => String.t() | atom(),
+        "FromAddress" => String.t() | atom(),
         "Headers" => list(message_header()),
-        "HtmlBody" => String.t() | Atom.t(),
-        "Title" => String.t() | Atom.t()
+        "HtmlBody" => String.t() | atom(),
+        "Title" => String.t() | atom()
       }
 
   """
-  @type campaign_email_message() :: %{String.t() | Atom.t() => any()}
+  @type campaign_email_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ad_m_channel_request() :: %{
-        "ClientId" => String.t() | Atom.t(),
-        "ClientSecret" => String.t() | Atom.t(),
+        "ClientId" => String.t() | atom(),
+        "ClientSecret" => String.t() | atom(),
         "Enabled" => boolean()
       }
 
   """
-  @type ad_m_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type ad_m_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4579,7 +4579,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_apns_voip_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type update_apns_voip_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4599,22 +4599,22 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_sms_template_request() :: %{String.t() | Atom.t() => any()}
+  @type create_sms_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sms_template_request() :: %{
-        "Body" => String.t() | Atom.t(),
-        "DefaultSubstitutions" => String.t() | Atom.t(),
-        "RecommenderId" => String.t() | Atom.t(),
-        "TemplateDescription" => String.t() | Atom.t(),
+        "Body" => String.t() | atom(),
+        "DefaultSubstitutions" => String.t() | atom(),
+        "RecommenderId" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type sms_template_request() :: %{String.t() | Atom.t() => any()}
+  @type sms_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4625,25 +4625,25 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type segment_behaviors() :: %{String.t() | Atom.t() => any()}
+  @type segment_behaviors() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       a_p_n_s_voip_sandbox_channel_request() :: %{
-        "BundleId" => String.t() | Atom.t(),
-        "Certificate" => String.t() | Atom.t(),
-        "DefaultAuthenticationMethod" => String.t() | Atom.t(),
+        "BundleId" => String.t() | atom(),
+        "Certificate" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
         "Enabled" => boolean(),
-        "PrivateKey" => String.t() | Atom.t(),
-        "TeamId" => String.t() | Atom.t(),
-        "TokenKey" => String.t() | Atom.t(),
-        "TokenKeyId" => String.t() | Atom.t()
+        "PrivateKey" => String.t() | atom(),
+        "TeamId" => String.t() | atom(),
+        "TokenKey" => String.t() | atom(),
+        "TokenKeyId" => String.t() | atom()
       }
 
   """
-  @type a_p_n_s_voip_sandbox_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type a_p_n_s_voip_sandbox_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4654,7 +4654,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_voice_template_response() :: %{String.t() | Atom.t() => any()}
+  @type create_voice_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4669,7 +4669,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type template_configuration() :: %{String.t() | Atom.t() => any()}
+  @type template_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4689,7 +4689,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_recommender_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type create_recommender_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4701,19 +4701,19 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type item_response() :: %{String.t() | Atom.t() => any()}
+  @type item_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_error_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "RequestID" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
       }
 
   """
-  @type internal_server_error_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4721,54 +4721,54 @@ defmodule AWS.Pinpoint do
 
       override_button_configuration() :: %{
         "ButtonAction" => list(any()),
-        "Link" => String.t() | Atom.t()
+        "Link" => String.t() | atom()
       }
 
   """
-  @type override_button_configuration() :: %{String.t() | Atom.t() => any()}
+  @type override_button_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_condition() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "EventStartCondition" => event_start_condition(),
         "SegmentStartCondition" => segment_condition()
       }
 
   """
-  @type start_condition() :: %{String.t() | Atom.t() => any()}
+  @type start_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       endpoint_demographic() :: %{
-        "AppVersion" => String.t() | Atom.t(),
-        "Locale" => String.t() | Atom.t(),
-        "Make" => String.t() | Atom.t(),
-        "Model" => String.t() | Atom.t(),
-        "ModelVersion" => String.t() | Atom.t(),
-        "Platform" => String.t() | Atom.t(),
-        "PlatformVersion" => String.t() | Atom.t(),
-        "Timezone" => String.t() | Atom.t()
+        "AppVersion" => String.t() | atom(),
+        "Locale" => String.t() | atom(),
+        "Make" => String.t() | atom(),
+        "Model" => String.t() | atom(),
+        "ModelVersion" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
+        "PlatformVersion" => String.t() | atom(),
+        "Timezone" => String.t() | atom()
       }
 
   """
-  @type endpoint_demographic() :: %{String.t() | Atom.t() => any()}
+  @type endpoint_demographic() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_segment_export_jobs_request() :: %{
-        optional("PageSize") => String.t() | Atom.t(),
-        optional("Token") => String.t() | Atom.t()
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
       }
 
   """
-  @type get_segment_export_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type get_segment_export_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4780,32 +4780,32 @@ defmodule AWS.Pinpoint do
         "Endpoints" => map(),
         "MessageConfiguration" => direct_message_configuration(),
         "TemplateConfiguration" => template_configuration(),
-        "TraceId" => String.t() | Atom.t()
+        "TraceId" => String.t() | atom()
       }
 
   """
-  @type message_request() :: %{String.t() | Atom.t() => any()}
+  @type message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       endpoint_request() :: %{
-        "Address" => String.t() | Atom.t(),
+        "Address" => String.t() | atom(),
         "Attributes" => map(),
         "ChannelType" => list(any()),
         "Demographic" => endpoint_demographic(),
-        "EffectiveDate" => String.t() | Atom.t(),
-        "EndpointStatus" => String.t() | Atom.t(),
+        "EffectiveDate" => String.t() | atom(),
+        "EndpointStatus" => String.t() | atom(),
         "Location" => endpoint_location(),
         "Metrics" => map(),
-        "OptOut" => String.t() | Atom.t(),
-        "RequestId" => String.t() | Atom.t(),
+        "OptOut" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "User" => endpoint_user()
       }
 
   """
-  @type endpoint_request() :: %{String.t() | Atom.t() => any()}
+  @type endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4816,7 +4816,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_campaign_response() :: %{String.t() | Atom.t() => any()}
+  @type get_campaign_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4824,27 +4824,27 @@ defmodule AWS.Pinpoint do
 
       attribute_dimension() :: %{
         "AttributeType" => list(any()),
-        "Values" => list(String.t() | Atom.t())
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type attribute_dimension() :: %{String.t() | Atom.t() => any()}
+  @type attribute_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       event_stream() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "DestinationStreamArn" => String.t() | Atom.t(),
-        "ExternalId" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "LastUpdatedBy" => String.t() | Atom.t(),
-        "RoleArn" => String.t() | Atom.t()
+        "ApplicationId" => String.t() | atom(),
+        "DestinationStreamArn" => String.t() | atom(),
+        "ExternalId" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "LastUpdatedBy" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
       }
 
   """
-  @type event_stream() :: %{String.t() | Atom.t() => any()}
+  @type event_stream() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4861,24 +4861,24 @@ defmodule AWS.Pinpoint do
 
       sms_channel_request() :: %{
         "Enabled" => boolean(),
-        "SenderId" => String.t() | Atom.t(),
-        "ShortCode" => String.t() | Atom.t()
+        "SenderId" => String.t() | atom(),
+        "ShortCode" => String.t() | atom()
       }
 
   """
-  @type sms_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type sms_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_campaign_versions_request() :: %{
-        optional("PageSize") => String.t() | Atom.t(),
-        optional("Token") => String.t() | Atom.t()
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
       }
 
   """
-  @type get_campaign_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type get_campaign_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4889,7 +4889,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_recommender_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type update_recommender_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4897,11 +4897,11 @@ defmodule AWS.Pinpoint do
 
       set_dimension() :: %{
         "DimensionType" => list(any()),
-        "Values" => list(String.t() | Atom.t())
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type set_dimension() :: %{String.t() | Atom.t() => any()}
+  @type set_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4912,7 +4912,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_adm_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type update_adm_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4924,12 +4924,12 @@ defmodule AWS.Pinpoint do
         "Schedule" => schedule(),
         "SizePercent" => integer(),
         "TemplateConfiguration" => template_configuration(),
-        "TreatmentDescription" => String.t() | Atom.t(),
-        "TreatmentName" => String.t() | Atom.t()
+        "TreatmentDescription" => String.t() | atom(),
+        "TreatmentName" => String.t() | atom()
       }
 
   """
-  @type write_treatment_resource() :: %{String.t() | Atom.t() => any()}
+  @type write_treatment_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4940,19 +4940,19 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_segment_response() :: %{String.t() | Atom.t() => any()}
+  @type update_segment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_journey_runs_request() :: %{
-        optional("PageSize") => String.t() | Atom.t(),
-        optional("Token") => String.t() | Atom.t()
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
       }
 
   """
-  @type get_journey_runs_request() :: %{String.t() | Atom.t() => any()}
+  @type get_journey_runs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4966,30 +4966,30 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type simple_email() :: %{String.t() | Atom.t() => any()}
+  @type simple_email() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_campaigns_request() :: %{
-        optional("PageSize") => String.t() | Atom.t(),
-        optional("Token") => String.t() | Atom.t()
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
       }
 
   """
-  @type get_campaigns_request() :: %{String.t() | Atom.t() => any()}
+  @type get_campaigns_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_voice_template_request() :: %{
-        optional("Version") => String.t() | Atom.t()
+        optional("Version") => String.t() | atom()
       }
 
   """
-  @type get_voice_template_request() :: %{String.t() | Atom.t() => any()}
+  @type get_voice_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5000,44 +5000,44 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_application_settings_request() :: %{String.t() | Atom.t() => any()}
+  @type update_application_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_segment_import_jobs_request() :: %{
-        optional("PageSize") => String.t() | Atom.t(),
-        optional("Token") => String.t() | Atom.t()
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
       }
 
   """
-  @type get_segment_import_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type get_segment_import_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       endpoint_response() :: %{
-        "Address" => String.t() | Atom.t(),
-        "ApplicationId" => String.t() | Atom.t(),
+        "Address" => String.t() | atom(),
+        "ApplicationId" => String.t() | atom(),
         "Attributes" => map(),
         "ChannelType" => list(any()),
-        "CohortId" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
+        "CohortId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
         "Demographic" => endpoint_demographic(),
-        "EffectiveDate" => String.t() | Atom.t(),
-        "EndpointStatus" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "EffectiveDate" => String.t() | atom(),
+        "EndpointStatus" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "Location" => endpoint_location(),
         "Metrics" => map(),
-        "OptOut" => String.t() | Atom.t(),
-        "RequestId" => String.t() | Atom.t(),
+        "OptOut" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "User" => endpoint_user()
       }
 
   """
-  @type endpoint_response() :: %{String.t() | Atom.t() => any()}
+  @type endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5045,12 +5045,12 @@ defmodule AWS.Pinpoint do
 
       multi_conditional_split_activity() :: %{
         "Branches" => list(multi_conditional_branch()),
-        "DefaultActivity" => String.t() | Atom.t(),
+        "DefaultActivity" => String.t() | atom(),
         "EvaluationWaitTime" => wait_time()
       }
 
   """
-  @type multi_conditional_split_activity() :: %{String.t() | Atom.t() => any()}
+  @type multi_conditional_split_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5068,14 +5068,14 @@ defmodule AWS.Pinpoint do
       journey_limits() :: %{
         "DailyCap" => integer(),
         "EndpointReentryCap" => integer(),
-        "EndpointReentryInterval" => String.t() | Atom.t(),
+        "EndpointReentryInterval" => String.t() | atom(),
         "MessagesPerSecond" => integer(),
         "TimeframeCap" => journey_timeframe_cap(),
         "TotalCap" => integer()
       }
 
   """
-  @type journey_limits() :: %{String.t() | Atom.t() => any()}
+  @type journey_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5100,7 +5100,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type write_application_settings_request() :: %{String.t() | Atom.t() => any()}
+  @type write_application_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5111,7 +5111,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_in_app_messages_response() :: %{String.t() | Atom.t() => any()}
+  @type get_in_app_messages_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5119,16 +5119,16 @@ defmodule AWS.Pinpoint do
 
       default_push_notification_message() :: %{
         "Action" => list(any()),
-        "Body" => String.t() | Atom.t(),
+        "Body" => String.t() | atom(),
         "Data" => map(),
         "SilentPush" => boolean(),
         "Substitutions" => map(),
-        "Title" => String.t() | Atom.t(),
-        "Url" => String.t() | Atom.t()
+        "Title" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type default_push_notification_message() :: %{String.t() | Atom.t() => any()}
+  @type default_push_notification_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5139,19 +5139,19 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_segment_version_response() :: %{String.t() | Atom.t() => any()}
+  @type get_segment_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "RequestID" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5162,21 +5162,21 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type tags_model() :: %{String.t() | Atom.t() => any()}
+  @type tags_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       segment_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "Arn" => String.t() | Atom.t(),
-        "CreationDate" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
         "Dimensions" => segment_dimensions(),
-        "Id" => String.t() | Atom.t(),
+        "Id" => String.t() | atom(),
         "ImportDefinition" => segment_import_resource(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "SegmentGroups" => segment_group_list(),
         "SegmentType" => list(any()),
         "Version" => integer(),
@@ -5184,7 +5184,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type segment_response() :: %{String.t() | Atom.t() => any()}
+  @type segment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5195,7 +5195,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_email_template_response() :: %{String.t() | Atom.t() => any()}
+  @type get_email_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5206,7 +5206,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_campaigns_response() :: %{String.t() | Atom.t() => any()}
+  @type get_campaigns_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5217,25 +5217,25 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type verify_o_t_p_message_response() :: %{String.t() | Atom.t() => any()}
+  @type verify_o_t_p_message_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       in_app_message_campaign() :: %{
-        "CampaignId" => String.t() | Atom.t(),
+        "CampaignId" => String.t() | atom(),
         "DailyCap" => integer(),
         "InAppMessage" => in_app_message(),
         "Priority" => integer(),
         "Schedule" => in_app_campaign_schedule(),
         "SessionCap" => integer(),
         "TotalCap" => integer(),
-        "TreatmentId" => String.t() | Atom.t()
+        "TreatmentId" => String.t() | atom()
       }
 
   """
-  @type in_app_message_campaign() :: %{String.t() | Atom.t() => any()}
+  @type in_app_message_campaign() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5243,29 +5243,29 @@ defmodule AWS.Pinpoint do
 
       create_recommender_configuration_shape() :: %{
         "Attributes" => map(),
-        "Description" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "RecommendationProviderIdType" => String.t() | Atom.t(),
-        "RecommendationProviderRoleArn" => String.t() | Atom.t(),
-        "RecommendationProviderUri" => String.t() | Atom.t(),
-        "RecommendationTransformerUri" => String.t() | Atom.t(),
-        "RecommendationsDisplayName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RecommendationProviderIdType" => String.t() | atom(),
+        "RecommendationProviderRoleArn" => String.t() | atom(),
+        "RecommendationProviderUri" => String.t() | atom(),
+        "RecommendationTransformerUri" => String.t() | atom(),
+        "RecommendationsDisplayName" => String.t() | atom(),
         "RecommendationsPerMessage" => integer()
       }
 
   """
-  @type create_recommender_configuration_shape() :: %{String.t() | Atom.t() => any()}
+  @type create_recommender_configuration_shape() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_email_template_request() :: %{
-        optional("Version") => String.t() | Atom.t()
+        optional("Version") => String.t() | atom()
       }
 
   """
-  @type get_email_template_request() :: %{String.t() | Atom.t() => any()}
+  @type get_email_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5276,7 +5276,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_campaign_request() :: %{String.t() | Atom.t() => any()}
+  @type update_campaign_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5287,7 +5287,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type journey_state_request() :: %{String.t() | Atom.t() => any()}
+  @type journey_state_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5298,7 +5298,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_email_template_response() :: %{String.t() | Atom.t() => any()}
+  @type update_email_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5306,44 +5306,44 @@ defmodule AWS.Pinpoint do
 
       android_push_notification_template() :: %{
         "Action" => list(any()),
-        "Body" => String.t() | Atom.t(),
-        "ImageIconUrl" => String.t() | Atom.t(),
-        "ImageUrl" => String.t() | Atom.t(),
-        "RawContent" => String.t() | Atom.t(),
-        "SmallImageIconUrl" => String.t() | Atom.t(),
-        "Sound" => String.t() | Atom.t(),
-        "Title" => String.t() | Atom.t(),
-        "Url" => String.t() | Atom.t()
+        "Body" => String.t() | atom(),
+        "ImageIconUrl" => String.t() | atom(),
+        "ImageUrl" => String.t() | atom(),
+        "RawContent" => String.t() | atom(),
+        "SmallImageIconUrl" => String.t() | atom(),
+        "Sound" => String.t() | atom(),
+        "Title" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type android_push_notification_template() :: %{String.t() | Atom.t() => any()}
+  @type android_push_notification_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_job_resource() :: %{
-        "RoleArn" => String.t() | Atom.t(),
-        "S3UrlPrefix" => String.t() | Atom.t(),
-        "SegmentId" => String.t() | Atom.t(),
+        "RoleArn" => String.t() | atom(),
+        "S3UrlPrefix" => String.t() | atom(),
+        "SegmentId" => String.t() | atom(),
         "SegmentVersion" => integer()
       }
 
   """
-  @type export_job_resource() :: %{String.t() | Atom.t() => any()}
+  @type export_job_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       template() :: %{
-        "Name" => String.t() | Atom.t(),
-        "Version" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type template() :: %{String.t() | Atom.t() => any()}
+  @type template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5354,7 +5354,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_journey_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_journey_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5362,11 +5362,11 @@ defmodule AWS.Pinpoint do
 
       multi_conditional_branch() :: %{
         "Condition" => simple_condition(),
-        "NextActivity" => String.t() | Atom.t()
+        "NextActivity" => String.t() | atom()
       }
 
   """
-  @type multi_conditional_branch() :: %{String.t() | Atom.t() => any()}
+  @type multi_conditional_branch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5386,18 +5386,18 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_application_settings_response() :: %{String.t() | Atom.t() => any()}
+  @type update_application_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_in_app_template_request() :: %{
-        optional("Version") => String.t() | Atom.t()
+        optional("Version") => String.t() | atom()
       }
 
   """
-  @type get_in_app_template_request() :: %{String.t() | Atom.t() => any()}
+  @type get_in_app_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5408,7 +5408,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_adm_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_adm_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5419,7 +5419,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_in_app_template_response() :: %{String.t() | Atom.t() => any()}
+  @type update_in_app_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5439,20 +5439,20 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_journey_response() :: %{String.t() | Atom.t() => any()}
+  @type create_journey_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       send_users_message_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
-        "RequestId" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Result" => map()
       }
 
   """
-  @type send_users_message_response() :: %{String.t() | Atom.t() => any()}
+  @type send_users_message_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5460,13 +5460,13 @@ defmodule AWS.Pinpoint do
 
       get_journey_date_range_kpi_request() :: %{
         optional("EndTime") => non_neg_integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("PageSize") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => String.t() | atom(),
         optional("StartTime") => non_neg_integer()
       }
 
   """
-  @type get_journey_date_range_kpi_request() :: %{String.t() | Atom.t() => any()}
+  @type get_journey_date_range_kpi_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5477,7 +5477,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_app_response() :: %{String.t() | Atom.t() => any()}
+  @type create_app_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5488,7 +5488,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_apns_sandbox_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type get_apns_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5499,7 +5499,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type random_split_activity() :: %{String.t() | Atom.t() => any()}
+  @type random_split_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5510,7 +5510,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_journey_execution_activity_metrics_response() :: %{String.t() | Atom.t() => any()}
+  @type get_journey_execution_activity_metrics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5522,7 +5522,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type segment_group_list() :: %{String.t() | Atom.t() => any()}
+  @type segment_group_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5532,12 +5532,12 @@ defmodule AWS.Pinpoint do
         "Content" => list(in_app_message_content()),
         "CustomConfig" => map(),
         "Layout" => list(any()),
-        "TemplateDescription" => String.t() | Atom.t(),
+        "TemplateDescription" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type in_app_template_request() :: %{String.t() | Atom.t() => any()}
+  @type in_app_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5548,7 +5548,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_campaign_response() :: %{String.t() | Atom.t() => any()}
+  @type create_campaign_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5573,36 +5573,36 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       journey_channel_settings() :: %{
-        "ConnectCampaignArn" => String.t() | Atom.t(),
-        "ConnectCampaignExecutionRoleArn" => String.t() | Atom.t()
+        "ConnectCampaignArn" => String.t() | atom(),
+        "ConnectCampaignExecutionRoleArn" => String.t() | atom()
       }
 
   """
-  @type journey_channel_settings() :: %{String.t() | Atom.t() => any()}
+  @type journey_channel_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       number_validate_response() :: %{
-        "Carrier" => String.t() | Atom.t(),
-        "City" => String.t() | Atom.t(),
-        "CleansedPhoneNumberE164" => String.t() | Atom.t(),
-        "CleansedPhoneNumberNational" => String.t() | Atom.t(),
-        "Country" => String.t() | Atom.t(),
-        "CountryCodeIso2" => String.t() | Atom.t(),
-        "CountryCodeNumeric" => String.t() | Atom.t(),
-        "County" => String.t() | Atom.t(),
-        "OriginalCountryCodeIso2" => String.t() | Atom.t(),
-        "OriginalPhoneNumber" => String.t() | Atom.t(),
-        "PhoneType" => String.t() | Atom.t(),
+        "Carrier" => String.t() | atom(),
+        "City" => String.t() | atom(),
+        "CleansedPhoneNumberE164" => String.t() | atom(),
+        "CleansedPhoneNumberNational" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "CountryCodeIso2" => String.t() | atom(),
+        "CountryCodeNumeric" => String.t() | atom(),
+        "County" => String.t() | atom(),
+        "OriginalCountryCodeIso2" => String.t() | atom(),
+        "OriginalPhoneNumber" => String.t() | atom(),
+        "PhoneType" => String.t() | atom(),
         "PhoneTypeCode" => integer(),
-        "Timezone" => String.t() | Atom.t(),
-        "ZipCode" => String.t() | Atom.t()
+        "Timezone" => String.t() | atom(),
+        "ZipCode" => String.t() | atom()
       }
 
   """
-  @type number_validate_response() :: %{String.t() | Atom.t() => any()}
+  @type number_validate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5613,7 +5613,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type delete_sms_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type delete_sms_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5621,27 +5621,27 @@ defmodule AWS.Pinpoint do
 
       g_cm_message() :: %{
         "Action" => list(any()),
-        "Body" => String.t() | Atom.t(),
-        "CollapseKey" => String.t() | Atom.t(),
+        "Body" => String.t() | atom(),
+        "CollapseKey" => String.t() | atom(),
         "Data" => map(),
-        "IconReference" => String.t() | Atom.t(),
-        "ImageIconUrl" => String.t() | Atom.t(),
-        "ImageUrl" => String.t() | Atom.t(),
-        "PreferredAuthenticationMethod" => String.t() | Atom.t(),
-        "Priority" => String.t() | Atom.t(),
-        "RawContent" => String.t() | Atom.t(),
-        "RestrictedPackageName" => String.t() | Atom.t(),
+        "IconReference" => String.t() | atom(),
+        "ImageIconUrl" => String.t() | atom(),
+        "ImageUrl" => String.t() | atom(),
+        "PreferredAuthenticationMethod" => String.t() | atom(),
+        "Priority" => String.t() | atom(),
+        "RawContent" => String.t() | atom(),
+        "RestrictedPackageName" => String.t() | atom(),
         "SilentPush" => boolean(),
-        "SmallImageIconUrl" => String.t() | Atom.t(),
-        "Sound" => String.t() | Atom.t(),
+        "SmallImageIconUrl" => String.t() | atom(),
+        "Sound" => String.t() | atom(),
         "Substitutions" => map(),
         "TimeToLive" => integer(),
-        "Title" => String.t() | Atom.t(),
-        "Url" => String.t() | Atom.t()
+        "Title" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type g_cm_message() :: %{String.t() | Atom.t() => any()}
+  @type g_cm_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5661,7 +5661,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type list_journeys_response() :: %{String.t() | Atom.t() => any()}
+  @type list_journeys_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5672,7 +5672,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_gcm_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type get_gcm_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5686,83 +5686,83 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type in_app_message_button() :: %{String.t() | Atom.t() => any()}
+  @type in_app_message_button() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       wait_activity() :: %{
-        "NextActivity" => String.t() | Atom.t(),
+        "NextActivity" => String.t() | atom(),
         "WaitTime" => wait_time()
       }
 
   """
-  @type wait_activity() :: %{String.t() | Atom.t() => any()}
+  @type wait_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       journey_date_range_kpi_response() :: %{
-        "ApplicationId" => String.t() | Atom.t(),
+        "ApplicationId" => String.t() | atom(),
         "EndTime" => non_neg_integer(),
-        "JourneyId" => String.t() | Atom.t(),
-        "KpiName" => String.t() | Atom.t(),
+        "JourneyId" => String.t() | atom(),
+        "KpiName" => String.t() | atom(),
         "KpiResult" => base_kpi_result(),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "StartTime" => non_neg_integer()
       }
 
   """
-  @type journey_date_range_kpi_response() :: %{String.t() | Atom.t() => any()}
+  @type journey_date_range_kpi_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_journey_run_execution_metrics_request() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("PageSize") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => String.t() | atom()
       }
 
   """
-  @type get_journey_run_execution_metrics_request() :: %{String.t() | Atom.t() => any()}
+  @type get_journey_run_execution_metrics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       endpoint_item_response() :: %{
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "StatusCode" => integer()
       }
 
   """
-  @type endpoint_item_response() :: %{String.t() | Atom.t() => any()}
+  @type endpoint_item_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_journey_run_execution_activity_metrics_request() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("PageSize") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => String.t() | atom()
       }
 
   """
-  @type get_journey_run_execution_activity_metrics_request() :: %{String.t() | Atom.t() => any()}
+  @type get_journey_run_execution_activity_metrics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_in_app_template_request() :: %{
-        optional("Version") => String.t() | Atom.t()
+        optional("Version") => String.t() | atom()
       }
 
   """
-  @type delete_in_app_template_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_in_app_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5773,7 +5773,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_apns_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type update_apns_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5784,7 +5784,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type update_recommender_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type update_recommender_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5795,7 +5795,7 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_email_template_response() :: %{String.t() | Atom.t() => any()}
+  @type create_email_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5806,18 +5806,18 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type create_in_app_template_request() :: %{String.t() | Atom.t() => any()}
+  @type create_in_app_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_sms_template_request() :: %{
-        optional("Version") => String.t() | Atom.t()
+        optional("Version") => String.t() | atom()
       }
 
   """
-  @type delete_sms_template_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_sms_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5834,27 +5834,27 @@ defmodule AWS.Pinpoint do
 
       endpoint_user() :: %{
         "UserAttributes" => map(),
-        "UserId" => String.t() | Atom.t()
+        "UserId" => String.t() | atom()
       }
 
   """
-  @type endpoint_user() :: %{String.t() | Atom.t() => any()}
+  @type endpoint_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_message_activity() :: %{
-        "DeliveryUri" => String.t() | Atom.t(),
+        "DeliveryUri" => String.t() | atom(),
         "EndpointTypes" => list(list(any())()),
         "MessageConfig" => journey_custom_message(),
-        "NextActivity" => String.t() | Atom.t(),
-        "TemplateName" => String.t() | Atom.t(),
-        "TemplateVersion" => String.t() | Atom.t()
+        "NextActivity" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateVersion" => String.t() | atom()
       }
 
   """
-  @type custom_message_activity() :: %{String.t() | Atom.t() => any()}
+  @type custom_message_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5862,58 +5862,58 @@ defmodule AWS.Pinpoint do
 
       ad_m_message() :: %{
         "Action" => list(any()),
-        "Body" => String.t() | Atom.t(),
-        "ConsolidationKey" => String.t() | Atom.t(),
+        "Body" => String.t() | atom(),
+        "ConsolidationKey" => String.t() | atom(),
         "Data" => map(),
-        "ExpiresAfter" => String.t() | Atom.t(),
-        "IconReference" => String.t() | Atom.t(),
-        "ImageIconUrl" => String.t() | Atom.t(),
-        "ImageUrl" => String.t() | Atom.t(),
-        "MD5" => String.t() | Atom.t(),
-        "RawContent" => String.t() | Atom.t(),
+        "ExpiresAfter" => String.t() | atom(),
+        "IconReference" => String.t() | atom(),
+        "ImageIconUrl" => String.t() | atom(),
+        "ImageUrl" => String.t() | atom(),
+        "MD5" => String.t() | atom(),
+        "RawContent" => String.t() | atom(),
         "SilentPush" => boolean(),
-        "SmallImageIconUrl" => String.t() | Atom.t(),
-        "Sound" => String.t() | Atom.t(),
+        "SmallImageIconUrl" => String.t() | atom(),
+        "Sound" => String.t() | atom(),
         "Substitutions" => map(),
-        "Title" => String.t() | Atom.t(),
-        "Url" => String.t() | Atom.t()
+        "Title" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type ad_m_message() :: %{String.t() | Atom.t() => any()}
+  @type ad_m_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_segments_request() :: %{
-        optional("PageSize") => String.t() | Atom.t(),
-        optional("Token") => String.t() | Atom.t()
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
       }
 
   """
-  @type get_segments_request() :: %{String.t() | Atom.t() => any()}
+  @type get_segments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       in_app_template_response() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "Content" => list(in_app_message_content()),
-        "CreationDate" => String.t() | Atom.t(),
+        "CreationDate" => String.t() | atom(),
         "CustomConfig" => map(),
-        "LastModifiedDate" => String.t() | Atom.t(),
+        "LastModifiedDate" => String.t() | atom(),
         "Layout" => list(any()),
-        "TemplateDescription" => String.t() | Atom.t(),
-        "TemplateName" => String.t() | Atom.t(),
+        "TemplateDescription" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
         "TemplateType" => list(any()),
-        "Version" => String.t() | Atom.t(),
+        "Version" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type in_app_template_response() :: %{String.t() | Atom.t() => any()}
+  @type in_app_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5921,42 +5921,42 @@ defmodule AWS.Pinpoint do
 
       message() :: %{
         "Action" => list(any()),
-        "Body" => String.t() | Atom.t(),
-        "ImageIconUrl" => String.t() | Atom.t(),
-        "ImageSmallIconUrl" => String.t() | Atom.t(),
-        "ImageUrl" => String.t() | Atom.t(),
-        "JsonBody" => String.t() | Atom.t(),
-        "MediaUrl" => String.t() | Atom.t(),
-        "RawContent" => String.t() | Atom.t(),
+        "Body" => String.t() | atom(),
+        "ImageIconUrl" => String.t() | atom(),
+        "ImageSmallIconUrl" => String.t() | atom(),
+        "ImageUrl" => String.t() | atom(),
+        "JsonBody" => String.t() | atom(),
+        "MediaUrl" => String.t() | atom(),
+        "RawContent" => String.t() | atom(),
         "SilentPush" => boolean(),
         "TimeToLive" => integer(),
-        "Title" => String.t() | Atom.t(),
-        "Url" => String.t() | Atom.t()
+        "Title" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type message() :: %{String.t() | Atom.t() => any()}
+  @type message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       public_endpoint() :: %{
-        "Address" => String.t() | Atom.t(),
+        "Address" => String.t() | atom(),
         "Attributes" => map(),
         "ChannelType" => list(any()),
         "Demographic" => endpoint_demographic(),
-        "EffectiveDate" => String.t() | Atom.t(),
-        "EndpointStatus" => String.t() | Atom.t(),
+        "EffectiveDate" => String.t() | atom(),
+        "EndpointStatus" => String.t() | atom(),
         "Location" => endpoint_location(),
         "Metrics" => map(),
-        "OptOut" => String.t() | Atom.t(),
-        "RequestId" => String.t() | Atom.t(),
+        "OptOut" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "User" => endpoint_user()
       }
 
   """
-  @type public_endpoint() :: %{String.t() | Atom.t() => any()}
+  @type public_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5964,21 +5964,21 @@ defmodule AWS.Pinpoint do
 
       recommender_configuration_response() :: %{
         "Attributes" => map(),
-        "CreationDate" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
-        "LastModifiedDate" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "RecommendationProviderIdType" => String.t() | Atom.t(),
-        "RecommendationProviderRoleArn" => String.t() | Atom.t(),
-        "RecommendationProviderUri" => String.t() | Atom.t(),
-        "RecommendationTransformerUri" => String.t() | Atom.t(),
-        "RecommendationsDisplayName" => String.t() | Atom.t(),
+        "CreationDate" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RecommendationProviderIdType" => String.t() | atom(),
+        "RecommendationProviderRoleArn" => String.t() | atom(),
+        "RecommendationProviderUri" => String.t() | atom(),
+        "RecommendationTransformerUri" => String.t() | atom(),
+        "RecommendationsDisplayName" => String.t() | atom(),
         "RecommendationsPerMessage" => integer()
       }
 
   """
-  @type recommender_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type recommender_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @type create_app_errors() ::
           bad_request_exception()
@@ -7089,7 +7089,7 @@ defmodule AWS.Pinpoint do
   Creates a new campaign for an application or updates the settings of an existing
   campaign for an application.
   """
-  @spec create_campaign(map(), String.t() | Atom.t(), create_campaign_request(), list()) ::
+  @spec create_campaign(map(), String.t() | atom(), create_campaign_request(), list()) ::
           {:ok, create_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7118,12 +7118,7 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates a message template for messages that are sent through the email channel.
   """
-  @spec create_email_template(
-          map(),
-          String.t() | Atom.t(),
-          create_email_template_request(),
-          list()
-        ) ::
+  @spec create_email_template(map(), String.t() | atom(), create_email_template_request(), list()) ::
           {:ok, create_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7152,7 +7147,7 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates an export job for an application.
   """
-  @spec create_export_job(map(), String.t() | Atom.t(), create_export_job_request(), list()) ::
+  @spec create_export_job(map(), String.t() | atom(), create_export_job_request(), list()) ::
           {:ok, create_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7181,7 +7176,7 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates an import job for an application.
   """
-  @spec create_import_job(map(), String.t() | Atom.t(), create_import_job_request(), list()) ::
+  @spec create_import_job(map(), String.t() | atom(), create_import_job_request(), list()) ::
           {:ok, create_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7212,7 +7207,7 @@ defmodule AWS.Pinpoint do
   """
   @spec create_in_app_template(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_in_app_template_request(),
           list()
         ) ::
@@ -7244,7 +7239,7 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates a journey for an application.
   """
-  @spec create_journey(map(), String.t() | Atom.t(), create_journey_request(), list()) ::
+  @spec create_journey(map(), String.t() | atom(), create_journey_request(), list()) ::
           {:ok, create_journey_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7274,7 +7269,7 @@ defmodule AWS.Pinpoint do
   Creates a message template for messages that are sent through a push
   notification channel.
   """
-  @spec create_push_template(map(), String.t() | Atom.t(), create_push_template_request(), list()) ::
+  @spec create_push_template(map(), String.t() | atom(), create_push_template_request(), list()) ::
           {:ok, create_push_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7338,7 +7333,7 @@ defmodule AWS.Pinpoint do
   dimension, and other settings for an existing segment that's associated with an
   application.
   """
-  @spec create_segment(map(), String.t() | Atom.t(), create_segment_request(), list()) ::
+  @spec create_segment(map(), String.t() | atom(), create_segment_request(), list()) ::
           {:ok, create_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7367,7 +7362,7 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates a message template for messages that are sent through the SMS channel.
   """
-  @spec create_sms_template(map(), String.t() | Atom.t(), create_sms_template_request(), list()) ::
+  @spec create_sms_template(map(), String.t() | atom(), create_sms_template_request(), list()) ::
           {:ok, create_sms_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7396,12 +7391,7 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates a message template for messages that are sent through the voice channel.
   """
-  @spec create_voice_template(
-          map(),
-          String.t() | Atom.t(),
-          create_voice_template_request(),
-          list()
-        ) ::
+  @spec create_voice_template(map(), String.t() | atom(), create_voice_template_request(), list()) ::
           {:ok, create_voice_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7431,7 +7421,7 @@ defmodule AWS.Pinpoint do
   Disables the ADM channel for an application and deletes any existing settings
   for the channel.
   """
-  @spec delete_adm_channel(map(), String.t() | Atom.t(), delete_adm_channel_request(), list()) ::
+  @spec delete_adm_channel(map(), String.t() | atom(), delete_adm_channel_request(), list()) ::
           {:ok, delete_adm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7461,7 +7451,7 @@ defmodule AWS.Pinpoint do
   Disables the APNs channel for an application and deletes any existing settings
   for the channel.
   """
-  @spec delete_apns_channel(map(), String.t() | Atom.t(), delete_apns_channel_request(), list()) ::
+  @spec delete_apns_channel(map(), String.t() | atom(), delete_apns_channel_request(), list()) ::
           {:ok, delete_apns_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7493,7 +7483,7 @@ defmodule AWS.Pinpoint do
   """
   @spec delete_apns_sandbox_channel(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_apns_sandbox_channel_request(),
           list()
         ) ::
@@ -7528,7 +7518,7 @@ defmodule AWS.Pinpoint do
   """
   @spec delete_apns_voip_channel(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_apns_voip_channel_request(),
           list()
         ) ::
@@ -7563,7 +7553,7 @@ defmodule AWS.Pinpoint do
   """
   @spec delete_apns_voip_sandbox_channel(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_apns_voip_sandbox_channel_request(),
           list()
         ) ::
@@ -7595,7 +7585,7 @@ defmodule AWS.Pinpoint do
   @doc """
   Deletes an application.
   """
-  @spec delete_app(map(), String.t() | Atom.t(), delete_app_request(), list()) ::
+  @spec delete_app(map(), String.t() | atom(), delete_app_request(), list()) ::
           {:ok, delete_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7625,7 +7615,7 @@ defmodule AWS.Pinpoint do
   Disables the Baidu channel for an application and deletes any existing settings
   for the channel.
   """
-  @spec delete_baidu_channel(map(), String.t() | Atom.t(), delete_baidu_channel_request(), list()) ::
+  @spec delete_baidu_channel(map(), String.t() | atom(), delete_baidu_channel_request(), list()) ::
           {:ok, delete_baidu_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7656,8 +7646,8 @@ defmodule AWS.Pinpoint do
   """
   @spec delete_campaign(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_campaign_request(),
           list()
         ) ::
@@ -7692,7 +7682,7 @@ defmodule AWS.Pinpoint do
   Disables the email channel for an application and deletes any existing settings
   for the channel.
   """
-  @spec delete_email_channel(map(), String.t() | Atom.t(), delete_email_channel_request(), list()) ::
+  @spec delete_email_channel(map(), String.t() | atom(), delete_email_channel_request(), list()) ::
           {:ok, delete_email_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7722,12 +7712,7 @@ defmodule AWS.Pinpoint do
   Deletes a message template for messages that were sent through the email
   channel.
   """
-  @spec delete_email_template(
-          map(),
-          String.t() | Atom.t(),
-          delete_email_template_request(),
-          list()
-        ) ::
+  @spec delete_email_template(map(), String.t() | atom(), delete_email_template_request(), list()) ::
           {:ok, delete_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7763,8 +7748,8 @@ defmodule AWS.Pinpoint do
   """
   @spec delete_endpoint(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_endpoint_request(),
           list()
         ) ::
@@ -7798,7 +7783,7 @@ defmodule AWS.Pinpoint do
   @doc """
   Deletes the event stream for an application.
   """
-  @spec delete_event_stream(map(), String.t() | Atom.t(), delete_event_stream_request(), list()) ::
+  @spec delete_event_stream(map(), String.t() | atom(), delete_event_stream_request(), list()) ::
           {:ok, delete_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7828,7 +7813,7 @@ defmodule AWS.Pinpoint do
   Disables the GCM channel for an application and deletes any existing settings
   for the channel.
   """
-  @spec delete_gcm_channel(map(), String.t() | Atom.t(), delete_gcm_channel_request(), list()) ::
+  @spec delete_gcm_channel(map(), String.t() | atom(), delete_gcm_channel_request(), list()) ::
           {:ok, delete_gcm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7859,7 +7844,7 @@ defmodule AWS.Pinpoint do
   """
   @spec delete_in_app_template(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_in_app_template_request(),
           list()
         ) ::
@@ -7898,8 +7883,8 @@ defmodule AWS.Pinpoint do
   """
   @spec delete_journey(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_journey_request(),
           list()
         ) ::
@@ -7934,7 +7919,7 @@ defmodule AWS.Pinpoint do
   Deletes a message template for messages that were sent through a push
   notification channel.
   """
-  @spec delete_push_template(map(), String.t() | Atom.t(), delete_push_template_request(), list()) ::
+  @spec delete_push_template(map(), String.t() | atom(), delete_push_template_request(), list()) ::
           {:ok, delete_push_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7970,7 +7955,7 @@ defmodule AWS.Pinpoint do
   """
   @spec delete_recommender_configuration(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_recommender_configuration_request(),
           list()
         ) ::
@@ -8004,8 +7989,8 @@ defmodule AWS.Pinpoint do
   """
   @spec delete_segment(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_segment_request(),
           list()
         ) ::
@@ -8040,7 +8025,7 @@ defmodule AWS.Pinpoint do
   Disables the SMS channel for an application and deletes any existing settings
   for the channel.
   """
-  @spec delete_sms_channel(map(), String.t() | Atom.t(), delete_sms_channel_request(), list()) ::
+  @spec delete_sms_channel(map(), String.t() | atom(), delete_sms_channel_request(), list()) ::
           {:ok, delete_sms_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8069,7 +8054,7 @@ defmodule AWS.Pinpoint do
   @doc """
   Deletes a message template for messages that were sent through the SMS channel.
   """
-  @spec delete_sms_template(map(), String.t() | Atom.t(), delete_sms_template_request(), list()) ::
+  @spec delete_sms_template(map(), String.t() | atom(), delete_sms_template_request(), list()) ::
           {:ok, delete_sms_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8105,8 +8090,8 @@ defmodule AWS.Pinpoint do
   """
   @spec delete_user_endpoints(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_user_endpoints_request(),
           list()
         ) ::
@@ -8141,7 +8126,7 @@ defmodule AWS.Pinpoint do
   Disables the voice channel for an application and deletes any existing settings
   for the channel.
   """
-  @spec delete_voice_channel(map(), String.t() | Atom.t(), delete_voice_channel_request(), list()) ::
+  @spec delete_voice_channel(map(), String.t() | atom(), delete_voice_channel_request(), list()) ::
           {:ok, delete_voice_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8171,12 +8156,7 @@ defmodule AWS.Pinpoint do
   Deletes a message template for messages that were sent through the voice
   channel.
   """
-  @spec delete_voice_template(
-          map(),
-          String.t() | Atom.t(),
-          delete_voice_template_request(),
-          list()
-        ) ::
+  @spec delete_voice_template(map(), String.t() | atom(), delete_voice_template_request(), list()) ::
           {:ok, delete_voice_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8211,7 +8191,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the ADM channel for an
   application.
   """
-  @spec get_adm_channel(map(), String.t() | Atom.t(), list()) ::
+  @spec get_adm_channel(map(), String.t() | atom(), list()) ::
           {:ok, get_adm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8230,7 +8210,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the APNs channel for an
   application.
   """
-  @spec get_apns_channel(map(), String.t() | Atom.t(), list()) ::
+  @spec get_apns_channel(map(), String.t() | atom(), list()) ::
           {:ok, get_apns_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8249,7 +8229,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the APNs sandbox channel
   for an application.
   """
-  @spec get_apns_sandbox_channel(map(), String.t() | Atom.t(), list()) ::
+  @spec get_apns_sandbox_channel(map(), String.t() | atom(), list()) ::
           {:ok, get_apns_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8268,7 +8248,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the APNs VoIP channel for
   an application.
   """
-  @spec get_apns_voip_channel(map(), String.t() | Atom.t(), list()) ::
+  @spec get_apns_voip_channel(map(), String.t() | atom(), list()) ::
           {:ok, get_apns_voip_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8287,7 +8267,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the APNs VoIP sandbox
   channel for an application.
   """
-  @spec get_apns_voip_sandbox_channel(map(), String.t() | Atom.t(), list()) ::
+  @spec get_apns_voip_sandbox_channel(map(), String.t() | atom(), list()) ::
           {:ok, get_apns_voip_sandbox_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8305,7 +8285,7 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about an application.
   """
-  @spec get_app(map(), String.t() | Atom.t(), list()) ::
+  @spec get_app(map(), String.t() | atom(), list()) ::
           {:ok, get_app_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8326,12 +8306,12 @@ defmodule AWS.Pinpoint do
   """
   @spec get_application_date_range_kpi(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_application_date_range_kpi_response(), any()}
@@ -8390,7 +8370,7 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the settings for an application.
   """
-  @spec get_application_settings(map(), String.t() | Atom.t(), list()) ::
+  @spec get_application_settings(map(), String.t() | atom(), list()) ::
           {:ok, get_application_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8409,7 +8389,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about all the applications that are associated with your
   Amazon Pinpoint account.
   """
-  @spec get_apps(map(), String.t() | Atom.t() | nil, String.t() | Atom.t() | nil, list()) ::
+  @spec get_apps(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, get_apps_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8442,7 +8422,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the Baidu channel for an
   application.
   """
-  @spec get_baidu_channel(map(), String.t() | Atom.t(), list()) ::
+  @spec get_baidu_channel(map(), String.t() | atom(), list()) ::
           {:ok, get_baidu_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8461,7 +8441,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status, configuration, and other settings for a
   campaign.
   """
-  @spec get_campaign(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_campaign(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8483,10 +8463,10 @@ defmodule AWS.Pinpoint do
   """
   @spec get_campaign_activities(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_campaign_activities_response(), any()}
@@ -8532,13 +8512,13 @@ defmodule AWS.Pinpoint do
   """
   @spec get_campaign_date_range_kpi(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_campaign_date_range_kpi_response(), any()}
@@ -8601,9 +8581,9 @@ defmodule AWS.Pinpoint do
   """
   @spec get_campaign_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_campaign_version_response(), any()}
@@ -8634,10 +8614,10 @@ defmodule AWS.Pinpoint do
   """
   @spec get_campaign_versions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_campaign_versions_response(), any()}
@@ -8683,9 +8663,9 @@ defmodule AWS.Pinpoint do
   """
   @spec get_campaigns(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_campaigns_response(), any()}
@@ -8726,7 +8706,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about the history and status of each channel for an
   application.
   """
-  @spec get_channels(map(), String.t() | Atom.t(), list()) ::
+  @spec get_channels(map(), String.t() | atom(), list()) ::
           {:ok, get_channels_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8745,7 +8725,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the email channel for an
   application.
   """
-  @spec get_email_channel(map(), String.t() | Atom.t(), list()) ::
+  @spec get_email_channel(map(), String.t() | atom(), list()) ::
           {:ok, get_email_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8764,7 +8744,7 @@ defmodule AWS.Pinpoint do
   Retrieves the content and settings of a message template for messages that are
   sent through the email channel.
   """
-  @spec get_email_template(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec get_email_template(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8790,7 +8770,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about the settings and attributes of a specific endpoint
   for an application.
   """
-  @spec get_endpoint(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_endpoint(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_endpoint_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8810,7 +8790,7 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves information about the event stream settings for an application.
   """
-  @spec get_event_stream(map(), String.t() | Atom.t(), list()) ::
+  @spec get_event_stream(map(), String.t() | atom(), list()) ::
           {:ok, get_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8829,7 +8809,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of a specific export job for
   an application.
   """
-  @spec get_export_job(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_export_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8852,9 +8832,9 @@ defmodule AWS.Pinpoint do
   """
   @spec get_export_jobs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_export_jobs_response(), any()}
@@ -8895,7 +8875,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the GCM channel for an
   application.
   """
-  @spec get_gcm_channel(map(), String.t() | Atom.t(), list()) ::
+  @spec get_gcm_channel(map(), String.t() | atom(), list()) ::
           {:ok, get_gcm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8914,7 +8894,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of a specific import job for
   an application.
   """
-  @spec get_import_job(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_import_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -8937,9 +8917,9 @@ defmodule AWS.Pinpoint do
   """
   @spec get_import_jobs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_import_jobs_response(), any()}
@@ -8979,7 +8959,7 @@ defmodule AWS.Pinpoint do
   @doc """
   Retrieves the in-app messages targeted for the provided endpoint ID.
   """
-  @spec get_in_app_messages(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_in_app_messages(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_in_app_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9000,7 +8980,7 @@ defmodule AWS.Pinpoint do
   Retrieves the content and settings of a message template for messages sent
   through the in-app channel.
   """
-  @spec get_in_app_template(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec get_in_app_template(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_in_app_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9026,7 +9006,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status, configuration, and other settings for a
   journey.
   """
-  @spec get_journey(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_journey(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_journey_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9049,13 +9029,13 @@ defmodule AWS.Pinpoint do
   """
   @spec get_journey_date_range_kpi(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_journey_date_range_kpi_response(), any()}
@@ -9118,11 +9098,11 @@ defmodule AWS.Pinpoint do
   """
   @spec get_journey_execution_activity_metrics(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_journey_execution_activity_metrics_response(), any()}
@@ -9169,10 +9149,10 @@ defmodule AWS.Pinpoint do
   """
   @spec get_journey_execution_metrics(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_journey_execution_metrics_response(), any()}
@@ -9218,12 +9198,12 @@ defmodule AWS.Pinpoint do
   """
   @spec get_journey_run_execution_activity_metrics(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_journey_run_execution_activity_metrics_response(), any()}
@@ -9271,11 +9251,11 @@ defmodule AWS.Pinpoint do
   """
   @spec get_journey_run_execution_metrics(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_journey_run_execution_metrics_response(), any()}
@@ -9321,10 +9301,10 @@ defmodule AWS.Pinpoint do
   """
   @spec get_journey_runs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_journey_runs_response(), any()}
@@ -9368,7 +9348,7 @@ defmodule AWS.Pinpoint do
   Retrieves the content and settings of a message template for messages that are
   sent through a push notification channel.
   """
-  @spec get_push_template(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec get_push_template(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_push_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9394,7 +9374,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about an Amazon Pinpoint configuration for a recommender
   model.
   """
-  @spec get_recommender_configuration(map(), String.t() | Atom.t(), list()) ::
+  @spec get_recommender_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_recommender_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9415,8 +9395,8 @@ defmodule AWS.Pinpoint do
   """
   @spec get_recommender_configurations(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_recommender_configurations_response(), any()}
@@ -9456,7 +9436,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about the configuration, dimension, and other settings for
   a specific segment that's associated with an application.
   """
-  @spec get_segment(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_segment(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_segment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9479,10 +9459,10 @@ defmodule AWS.Pinpoint do
   """
   @spec get_segment_export_jobs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_segment_export_jobs_response(), any()}
@@ -9528,10 +9508,10 @@ defmodule AWS.Pinpoint do
   """
   @spec get_segment_import_jobs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_segment_import_jobs_response(), any()}
@@ -9577,9 +9557,9 @@ defmodule AWS.Pinpoint do
   """
   @spec get_segment_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_segment_version_response(), any()}
@@ -9604,10 +9584,10 @@ defmodule AWS.Pinpoint do
   """
   @spec get_segment_versions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_segment_versions_response(), any()}
@@ -9653,9 +9633,9 @@ defmodule AWS.Pinpoint do
   """
   @spec get_segments(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_segments_response(), any()}
@@ -9696,7 +9676,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the SMS channel for an
   application.
   """
-  @spec get_sms_channel(map(), String.t() | Atom.t(), list()) ::
+  @spec get_sms_channel(map(), String.t() | atom(), list()) ::
           {:ok, get_sms_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9715,7 +9695,7 @@ defmodule AWS.Pinpoint do
   Retrieves the content and settings of a message template for messages that are
   sent through the SMS channel.
   """
-  @spec get_sms_template(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec get_sms_template(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_sms_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9741,7 +9721,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about all the endpoints that are associated with a
   specific user ID.
   """
-  @spec get_user_endpoints(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_user_endpoints(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_user_endpoints_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9762,7 +9742,7 @@ defmodule AWS.Pinpoint do
   Retrieves information about the status and settings of the voice channel for an
   application.
   """
-  @spec get_voice_channel(map(), String.t() | Atom.t(), list()) ::
+  @spec get_voice_channel(map(), String.t() | atom(), list()) ::
           {:ok, get_voice_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9781,7 +9761,7 @@ defmodule AWS.Pinpoint do
   Retrieves the content and settings of a message template for messages that are
   sent through the voice channel.
   """
-  @spec get_voice_template(map(), String.t() | Atom.t(), String.t() | Atom.t() | nil, list()) ::
+  @spec get_voice_template(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_voice_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9809,9 +9789,9 @@ defmodule AWS.Pinpoint do
   """
   @spec list_journeys(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_journeys_response(), any()}
@@ -9852,7 +9832,7 @@ defmodule AWS.Pinpoint do
   Retrieves all the tags (keys and values) that are associated with an
   application, campaign, message template, or segment.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -9871,10 +9851,10 @@ defmodule AWS.Pinpoint do
   """
   @spec list_template_versions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_template_versions_response(), any()}
@@ -9920,10 +9900,10 @@ defmodule AWS.Pinpoint do
   """
   @spec list_templates(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_templates_response(), any()}
@@ -10008,7 +9988,7 @@ defmodule AWS.Pinpoint do
   Creates a new event stream for an application or updates the settings of an
   existing event stream for an application.
   """
-  @spec put_event_stream(map(), String.t() | Atom.t(), put_event_stream_request(), list()) ::
+  @spec put_event_stream(map(), String.t() | atom(), put_event_stream_request(), list()) ::
           {:ok, put_event_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10038,7 +10018,7 @@ defmodule AWS.Pinpoint do
   Creates a new event to record for endpoints, or creates or updates endpoint data
   that existing events are associated with.
   """
-  @spec put_events(map(), String.t() | Atom.t(), put_events_request(), list()) ::
+  @spec put_events(map(), String.t() | atom(), put_events_request(), list()) ::
           {:ok, put_events_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10073,8 +10053,8 @@ defmodule AWS.Pinpoint do
   """
   @spec remove_attributes(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           remove_attributes_request(),
           list()
         ) ::
@@ -10108,7 +10088,7 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates and sends a direct message.
   """
-  @spec send_messages(map(), String.t() | Atom.t(), send_messages_request(), list()) ::
+  @spec send_messages(map(), String.t() | atom(), send_messages_request(), list()) ::
           {:ok, send_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10137,7 +10117,7 @@ defmodule AWS.Pinpoint do
   @doc """
   Send an OTP message
   """
-  @spec send_o_t_p_message(map(), String.t() | Atom.t(), send_o_t_p_message_request(), list()) ::
+  @spec send_o_t_p_message(map(), String.t() | atom(), send_o_t_p_message_request(), list()) ::
           {:ok, send_o_t_p_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10166,7 +10146,7 @@ defmodule AWS.Pinpoint do
   @doc """
   Creates and sends a message to a list of users.
   """
-  @spec send_users_messages(map(), String.t() | Atom.t(), send_users_messages_request(), list()) ::
+  @spec send_users_messages(map(), String.t() | atom(), send_users_messages_request(), list()) ::
           {:ok, send_users_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10196,7 +10176,7 @@ defmodule AWS.Pinpoint do
   Adds one or more tags (keys and values) to an application, campaign, message
   template, or segment.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10225,7 +10205,7 @@ defmodule AWS.Pinpoint do
   Removes one or more tags (keys and values) from an application, campaign,
   message template, or segment.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10259,7 +10239,7 @@ defmodule AWS.Pinpoint do
   Enables the ADM channel for an application or updates the status and settings of
   the ADM channel for an application.
   """
-  @spec update_adm_channel(map(), String.t() | Atom.t(), update_adm_channel_request(), list()) ::
+  @spec update_adm_channel(map(), String.t() | atom(), update_adm_channel_request(), list()) ::
           {:ok, update_adm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10289,7 +10269,7 @@ defmodule AWS.Pinpoint do
   Enables the APNs channel for an application or updates the status and settings
   of the APNs channel for an application.
   """
-  @spec update_apns_channel(map(), String.t() | Atom.t(), update_apns_channel_request(), list()) ::
+  @spec update_apns_channel(map(), String.t() | atom(), update_apns_channel_request(), list()) ::
           {:ok, update_apns_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10321,7 +10301,7 @@ defmodule AWS.Pinpoint do
   """
   @spec update_apns_sandbox_channel(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_apns_sandbox_channel_request(),
           list()
         ) ::
@@ -10356,7 +10336,7 @@ defmodule AWS.Pinpoint do
   """
   @spec update_apns_voip_channel(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_apns_voip_channel_request(),
           list()
         ) ::
@@ -10391,7 +10371,7 @@ defmodule AWS.Pinpoint do
   """
   @spec update_apns_voip_sandbox_channel(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_apns_voip_sandbox_channel_request(),
           list()
         ) ::
@@ -10425,7 +10405,7 @@ defmodule AWS.Pinpoint do
   """
   @spec update_application_settings(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_application_settings_request(),
           list()
         ) ::
@@ -10458,7 +10438,7 @@ defmodule AWS.Pinpoint do
   Enables the Baidu channel for an application or updates the status and settings
   of the Baidu channel for an application.
   """
-  @spec update_baidu_channel(map(), String.t() | Atom.t(), update_baidu_channel_request(), list()) ::
+  @spec update_baidu_channel(map(), String.t() | atom(), update_baidu_channel_request(), list()) ::
           {:ok, update_baidu_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10489,8 +10469,8 @@ defmodule AWS.Pinpoint do
   """
   @spec update_campaign(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_campaign_request(),
           list()
         ) ::
@@ -10525,7 +10505,7 @@ defmodule AWS.Pinpoint do
   Enables the email channel for an application or updates the status and settings
   of the email channel for an application.
   """
-  @spec update_email_channel(map(), String.t() | Atom.t(), update_email_channel_request(), list()) ::
+  @spec update_email_channel(map(), String.t() | atom(), update_email_channel_request(), list()) ::
           {:ok, update_email_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10555,12 +10535,7 @@ defmodule AWS.Pinpoint do
   Updates an existing message template for messages that are sent through the
   email channel.
   """
-  @spec update_email_template(
-          map(),
-          String.t() | Atom.t(),
-          update_email_template_request(),
-          list()
-        ) ::
+  @spec update_email_template(map(), String.t() | atom(), update_email_template_request(), list()) ::
           {:ok, update_email_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10602,8 +10577,8 @@ defmodule AWS.Pinpoint do
   """
   @spec update_endpoint(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_endpoint_request(),
           list()
         ) ::
@@ -10644,7 +10619,7 @@ defmodule AWS.Pinpoint do
   """
   @spec update_endpoints_batch(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_endpoints_batch_request(),
           list()
         ) ::
@@ -10677,7 +10652,7 @@ defmodule AWS.Pinpoint do
   Enables the GCM channel for an application or updates the status and settings of
   the GCM channel for an application.
   """
-  @spec update_gcm_channel(map(), String.t() | Atom.t(), update_gcm_channel_request(), list()) ::
+  @spec update_gcm_channel(map(), String.t() | atom(), update_gcm_channel_request(), list()) ::
           {:ok, update_gcm_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10709,7 +10684,7 @@ defmodule AWS.Pinpoint do
   """
   @spec update_in_app_template(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_in_app_template_request(),
           list()
         ) ::
@@ -10749,8 +10724,8 @@ defmodule AWS.Pinpoint do
   """
   @spec update_journey(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_journey_request(),
           list()
         ) ::
@@ -10786,8 +10761,8 @@ defmodule AWS.Pinpoint do
   """
   @spec update_journey_state(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_journey_state_request(),
           list()
         ) ::
@@ -10822,7 +10797,7 @@ defmodule AWS.Pinpoint do
   Updates an existing message template for messages that are sent through a push
   notification channel.
   """
-  @spec update_push_template(map(), String.t() | Atom.t(), update_push_template_request(), list()) ::
+  @spec update_push_template(map(), String.t() | atom(), update_push_template_request(), list()) ::
           {:ok, update_push_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10859,7 +10834,7 @@ defmodule AWS.Pinpoint do
   """
   @spec update_recommender_configuration(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_recommender_configuration_request(),
           list()
         ) ::
@@ -10895,8 +10870,8 @@ defmodule AWS.Pinpoint do
   """
   @spec update_segment(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_segment_request(),
           list()
         ) ::
@@ -10931,7 +10906,7 @@ defmodule AWS.Pinpoint do
   Enables the SMS channel for an application or updates the status and settings of
   the SMS channel for an application.
   """
-  @spec update_sms_channel(map(), String.t() | Atom.t(), update_sms_channel_request(), list()) ::
+  @spec update_sms_channel(map(), String.t() | atom(), update_sms_channel_request(), list()) ::
           {:ok, update_sms_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10961,7 +10936,7 @@ defmodule AWS.Pinpoint do
   Updates an existing message template for messages that are sent through the SMS
   channel.
   """
-  @spec update_sms_template(map(), String.t() | Atom.t(), update_sms_template_request(), list()) ::
+  @spec update_sms_template(map(), String.t() | atom(), update_sms_template_request(), list()) ::
           {:ok, update_sms_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -10998,8 +10973,8 @@ defmodule AWS.Pinpoint do
   """
   @spec update_template_active_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_template_active_version_request(),
           list()
         ) ::
@@ -11040,7 +11015,7 @@ defmodule AWS.Pinpoint do
   Enables the voice channel for an application or updates the status and settings
   of the voice channel for an application.
   """
-  @spec update_voice_channel(map(), String.t() | Atom.t(), update_voice_channel_request(), list()) ::
+  @spec update_voice_channel(map(), String.t() | atom(), update_voice_channel_request(), list()) ::
           {:ok, update_voice_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11070,12 +11045,7 @@ defmodule AWS.Pinpoint do
   Updates an existing message template for messages that are sent through the
   voice channel.
   """
-  @spec update_voice_template(
-          map(),
-          String.t() | Atom.t(),
-          update_voice_template_request(),
-          list()
-        ) ::
+  @spec update_voice_template(map(), String.t() | atom(), update_voice_template_request(), list()) ::
           {:ok, update_voice_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -11110,7 +11080,7 @@ defmodule AWS.Pinpoint do
   @doc """
   Verify an OTP
   """
-  @spec verify_o_t_p_message(map(), String.t() | Atom.t(), verify_o_t_p_message_request(), list()) ::
+  @spec verify_o_t_p_message(map(), String.t() | atom(), verify_o_t_p_message_request(), list()) ::
           {:ok, verify_o_t_p_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

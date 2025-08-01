@@ -25,66 +25,66 @@ defmodule AWS.FMS do
   ## Example:
       
       app() :: %{
-        "AppName" => String.t() | Atom.t(),
+        "AppName" => String.t() | atom(),
         "Port" => float(),
-        "Protocol" => String.t() | Atom.t()
+        "Protocol" => String.t() | atom()
       }
       
   """
-  @type app() :: %{String.t() | Atom.t() => any()}
+  @type app() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       route_has_out_of_scope_endpoint_violation() :: %{
-        "CurrentFirewallSubnetRouteTable" => String.t() | Atom.t(),
-        "CurrentInternetGatewayRouteTable" => String.t() | Atom.t(),
-        "FirewallSubnetId" => String.t() | Atom.t(),
+        "CurrentFirewallSubnetRouteTable" => String.t() | atom(),
+        "CurrentInternetGatewayRouteTable" => String.t() | atom(),
+        "FirewallSubnetId" => String.t() | atom(),
         "FirewallSubnetRoutes" => list(route()),
-        "InternetGatewayId" => String.t() | Atom.t(),
+        "InternetGatewayId" => String.t() | atom(),
         "InternetGatewayRoutes" => list(route()),
-        "RouteTableId" => String.t() | Atom.t(),
-        "SubnetAvailabilityZone" => String.t() | Atom.t(),
-        "SubnetAvailabilityZoneId" => String.t() | Atom.t(),
-        "SubnetId" => String.t() | Atom.t(),
+        "RouteTableId" => String.t() | atom(),
+        "SubnetAvailabilityZone" => String.t() | atom(),
+        "SubnetAvailabilityZoneId" => String.t() | atom(),
+        "SubnetId" => String.t() | atom(),
         "ViolatingRoutes" => list(route()),
-        "VpcId" => String.t() | Atom.t()
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type route_has_out_of_scope_endpoint_violation() :: %{String.t() | Atom.t() => any()}
+  @type route_has_out_of_scope_endpoint_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       network_acl_entry() :: %{
-        "CidrBlock" => String.t() | Atom.t(),
+        "CidrBlock" => String.t() | atom(),
         "Egress" => boolean(),
         "IcmpTypeCode" => network_acl_icmp_type_code(),
-        "Ipv6CidrBlock" => String.t() | Atom.t(),
+        "Ipv6CidrBlock" => String.t() | atom(),
         "PortRange" => network_acl_port_range(),
-        "Protocol" => String.t() | Atom.t(),
+        "Protocol" => String.t() | atom(),
         "RuleAction" => list(any())
       }
       
   """
-  @type network_acl_entry() :: %{String.t() | Atom.t() => any()}
+  @type network_acl_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_protection_status_response() :: %{
-        "AdminAccountId" => String.t() | Atom.t(),
-        "Data" => String.t() | Atom.t(),
-        "NextToken" => String.t() | Atom.t(),
+        "AdminAccountId" => String.t() | atom(),
+        "Data" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
         "ServiceType" => list(any())
       }
       
   """
-  @type get_protection_status_response() :: %{String.t() | Atom.t() => any()}
+  @type get_protection_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -98,7 +98,7 @@ defmodule AWS.FMS do
       }
       
   """
-  @type network_acl_entry_set() :: %{String.t() | Atom.t() => any()}
+  @type network_acl_entry_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -106,23 +106,23 @@ defmodule AWS.FMS do
       
       list_member_accounts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_member_accounts_request() :: %{String.t() | Atom.t() => any()}
+  @type list_member_accounts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("TagList") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -130,26 +130,26 @@ defmodule AWS.FMS do
       
       list_apps_lists_response() :: %{
         "AppsLists" => list(apps_list_data_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_apps_lists_response() :: %{String.t() | Atom.t() => any()}
+  @type list_apps_lists_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       firewall_subnet_is_out_of_scope_violation() :: %{
-        "FirewallSubnetId" => String.t() | Atom.t(),
-        "SubnetAvailabilityZone" => String.t() | Atom.t(),
-        "SubnetAvailabilityZoneId" => String.t() | Atom.t(),
-        "VpcEndpointId" => String.t() | Atom.t(),
-        "VpcId" => String.t() | Atom.t()
+        "FirewallSubnetId" => String.t() | atom(),
+        "SubnetAvailabilityZone" => String.t() | atom(),
+        "SubnetAvailabilityZoneId" => String.t() | atom(),
+        "VpcEndpointId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type firewall_subnet_is_out_of_scope_violation() :: %{String.t() | Atom.t() => any()}
+  @type firewall_subnet_is_out_of_scope_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -157,37 +157,37 @@ defmodule AWS.FMS do
       
       batch_disassociate_resource_response() :: %{
         "FailedItems" => list(failed_item()),
-        "ResourceSetIdentifier" => String.t() | Atom.t()
+        "ResourceSetIdentifier" => String.t() | atom()
       }
       
   """
-  @type batch_disassociate_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_disassociate_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       protocols_list_data_summary() :: %{
-        "ListArn" => String.t() | Atom.t(),
-        "ListId" => String.t() | Atom.t(),
-        "ListName" => String.t() | Atom.t(),
-        "ProtocolsList" => list(String.t() | Atom.t())
+        "ListArn" => String.t() | atom(),
+        "ListId" => String.t() | atom(),
+        "ListName" => String.t() | atom(),
+        "ProtocolsList" => list(String.t() | atom())
       }
       
   """
-  @type protocols_list_data_summary() :: %{String.t() | Atom.t() => any()}
+  @type protocols_list_data_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_associate_resource_request() :: %{
-        required("Items") => list(String.t() | Atom.t()),
-        required("ResourceSetIdentifier") => String.t() | Atom.t()
+        required("Items") => list(String.t() | atom()),
+        required("ResourceSetIdentifier") => String.t() | atom()
       }
       
   """
-  @type batch_associate_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_associate_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -204,15 +204,15 @@ defmodule AWS.FMS do
       
       security_group_rule_description() :: %{
         "FromPort" => float(),
-        "IPV4Range" => String.t() | Atom.t(),
-        "IPV6Range" => String.t() | Atom.t(),
-        "PrefixListId" => String.t() | Atom.t(),
-        "Protocol" => String.t() | Atom.t(),
+        "IPV4Range" => String.t() | atom(),
+        "IPV6Range" => String.t() | atom(),
+        "PrefixListId" => String.t() | atom(),
+        "Protocol" => String.t() | atom(),
         "ToPort" => float()
       }
       
   """
-  @type security_group_rule_description() :: %{String.t() | Atom.t() => any()}
+  @type security_group_rule_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -220,29 +220,28 @@ defmodule AWS.FMS do
       
       dns_rule_group_limit_exceeded_violation() :: %{
         "NumberOfRuleGroupsAlreadyAssociated" => integer(),
-        "ViolationTarget" => String.t() | Atom.t(),
-        "ViolationTargetDescription" => String.t() | Atom.t()
+        "ViolationTarget" => String.t() | atom(),
+        "ViolationTargetDescription" => String.t() | atom()
       }
       
   """
-  @type dns_rule_group_limit_exceeded_violation() :: %{String.t() | Atom.t() => any()}
+  @type dns_rule_group_limit_exceeded_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       third_party_firewall_missing_expected_route_table_violation() :: %{
-        "AvailabilityZone" => String.t() | Atom.t(),
-        "CurrentRouteTable" => String.t() | Atom.t(),
-        "ExpectedRouteTable" => String.t() | Atom.t(),
-        "VPC" => String.t() | Atom.t(),
-        "ViolationTarget" => String.t() | Atom.t()
+        "AvailabilityZone" => String.t() | atom(),
+        "CurrentRouteTable" => String.t() | atom(),
+        "ExpectedRouteTable" => String.t() | atom(),
+        "VPC" => String.t() | atom(),
+        "ViolationTarget" => String.t() | atom()
       }
       
   """
   @type third_party_firewall_missing_expected_route_table_violation() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -250,24 +249,24 @@ defmodule AWS.FMS do
   ## Example:
       
       list_policies_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "PolicyList" => list(policy_summary())
       }
       
   """
-  @type list_policies_response() :: %{String.t() | Atom.t() => any()}
+  @type list_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_create_route_table_action() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "VpcId" => action_target()
       }
       
   """
-  @type ec2_create_route_table_action() :: %{String.t() | Atom.t() => any()}
+  @type ec2_create_route_table_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -279,7 +278,7 @@ defmodule AWS.FMS do
       }
       
   """
-  @type stateful_engine_options() :: %{String.t() | Atom.t() => any()}
+  @type stateful_engine_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -295,29 +294,29 @@ defmodule AWS.FMS do
   ## Example:
       
       invalid_network_acl_entries_violation() :: %{
-        "CurrentAssociatedNetworkAcl" => String.t() | Atom.t(),
+        "CurrentAssociatedNetworkAcl" => String.t() | atom(),
         "EntryViolations" => list(entry_violation()),
-        "Subnet" => String.t() | Atom.t(),
-        "SubnetAvailabilityZone" => String.t() | Atom.t(),
-        "Vpc" => String.t() | Atom.t()
+        "Subnet" => String.t() | atom(),
+        "SubnetAvailabilityZone" => String.t() | atom(),
+        "Vpc" => String.t() | atom()
       }
       
   """
-  @type invalid_network_acl_entries_violation() :: %{String.t() | Atom.t() => any()}
+  @type invalid_network_acl_entries_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       security_group_remediation_action() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "IsDefaultAction" => boolean(),
         "RemediationActionType" => list(any()),
         "RemediationResult" => security_group_rule_description()
       }
       
   """
-  @type security_group_remediation_action() :: %{String.t() | Atom.t() => any()}
+  @type security_group_remediation_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -326,37 +325,37 @@ defmodule AWS.FMS do
       stateful_rule_group() :: %{
         "Override" => network_firewall_stateful_rule_group_override(),
         "Priority" => integer(),
-        "ResourceId" => String.t() | Atom.t(),
-        "RuleGroupName" => String.t() | Atom.t()
+        "ResourceId" => String.t() | atom(),
+        "RuleGroupName" => String.t() | atom()
       }
       
   """
-  @type stateful_rule_group() :: %{String.t() | Atom.t() => any()}
+  @type stateful_rule_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_third_party_firewall_firewall_policies_request() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         required("MaxResults") => integer(),
         required("ThirdPartyFirewall") => list(any())
       }
       
   """
-  @type list_third_party_firewall_firewall_policies_request() :: %{String.t() | Atom.t() => any()}
+  @type list_third_party_firewall_firewall_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_member_accounts_response() :: %{
-        "MemberAccounts" => list(String.t() | Atom.t()),
-        "NextToken" => String.t() | Atom.t()
+        "MemberAccounts" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_member_accounts_response() :: %{String.t() | Atom.t() => any()}
+  @type list_member_accounts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -364,22 +363,22 @@ defmodule AWS.FMS do
       
       list_policies_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_policies_request() :: %{String.t() | Atom.t() => any()}
+  @type list_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_policy_request() :: %{
-        required("PolicyId") => String.t() | Atom.t()
+        required("PolicyId") => String.t() | atom()
       }
       
   """
-  @type get_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type get_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -387,24 +386,24 @@ defmodule AWS.FMS do
       
       list_resource_set_resources_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("Identifier") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
       }
       
   """
-  @type list_resource_set_resources_request() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_set_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_compliance_detail_request() :: %{
-        required("MemberAccount") => String.t() | Atom.t(),
-        required("PolicyId") => String.t() | Atom.t()
+        required("MemberAccount") => String.t() | atom(),
+        required("PolicyId") => String.t() | atom()
       }
       
   """
-  @type get_compliance_detail_request() :: %{String.t() | Atom.t() => any()}
+  @type get_compliance_detail_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -420,11 +419,11 @@ defmodule AWS.FMS do
   ## Example:
       
       delete_resource_set_request() :: %{
-        required("Identifier") => String.t() | Atom.t()
+        required("Identifier") => String.t() | atom()
       }
       
   """
-  @type delete_resource_set_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_resource_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -432,27 +431,26 @@ defmodule AWS.FMS do
       
       list_resource_set_resources_response() :: %{
         "Items" => list(resource()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_resource_set_resources_response() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_set_resources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       network_firewall_unexpected_gateway_routes_violation() :: %{
-        "GatewayId" => String.t() | Atom.t(),
-        "RouteTableId" => String.t() | Atom.t(),
+        "GatewayId" => String.t() | atom(),
+        "RouteTableId" => String.t() | atom(),
         "ViolatingRoutes" => list(route()),
-        "VpcId" => String.t() | Atom.t()
+        "VpcId" => String.t() | atom()
       }
       
   """
   @type network_firewall_unexpected_gateway_routes_violation() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -461,11 +459,11 @@ defmodule AWS.FMS do
       
       get_protocols_list_request() :: %{
         optional("DefaultList") => boolean(),
-        required("ListId") => String.t() | Atom.t()
+        required("ListId") => String.t() | atom()
       }
       
   """
-  @type get_protocols_list_request() :: %{String.t() | Atom.t() => any()}
+  @type get_protocols_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -473,11 +471,11 @@ defmodule AWS.FMS do
       
       list_resource_sets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_resource_sets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -488,18 +486,18 @@ defmodule AWS.FMS do
       }
       
   """
-  @type associate_third_party_firewall_response() :: %{String.t() | Atom.t() => any()}
+  @type associate_third_party_firewall_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_operation_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_operation_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -507,28 +505,28 @@ defmodule AWS.FMS do
       
       list_admins_managing_account_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_admins_managing_account_request() :: %{String.t() | Atom.t() => any()}
+  @type list_admins_managing_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_create_route_action() :: %{
-        "Description" => String.t() | Atom.t(),
-        "DestinationCidrBlock" => String.t() | Atom.t(),
-        "DestinationIpv6CidrBlock" => String.t() | Atom.t(),
-        "DestinationPrefixListId" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DestinationCidrBlock" => String.t() | atom(),
+        "DestinationIpv6CidrBlock" => String.t() | atom(),
+        "DestinationPrefixListId" => String.t() | atom(),
         "GatewayId" => action_target(),
         "RouteTableId" => action_target(),
         "VpcEndpointId" => action_target()
       }
       
   """
-  @type ec2_create_route_action() :: %{String.t() | Atom.t() => any()}
+  @type ec2_create_route_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -540,21 +538,21 @@ defmodule AWS.FMS do
       }
       
   """
-  @type network_acl_icmp_type_code() :: %{String.t() | Atom.t() => any()}
+  @type network_acl_icmp_type_code() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_violation_details_request() :: %{
-        required("MemberAccount") => String.t() | Atom.t(),
-        required("PolicyId") => String.t() | Atom.t(),
-        required("ResourceId") => String.t() | Atom.t(),
-        required("ResourceType") => String.t() | Atom.t()
+        required("MemberAccount") => String.t() | atom(),
+        required("PolicyId") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom(),
+        required("ResourceType") => String.t() | atom()
       }
       
   """
-  @type get_violation_details_request() :: %{String.t() | Atom.t() => any()}
+  @type get_violation_details_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -562,52 +560,51 @@ defmodule AWS.FMS do
       
       compliance_violator() :: %{
         "Metadata" => map(),
-        "ResourceId" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
         "ViolationReason" => list(any())
       }
       
   """
-  @type compliance_violator() :: %{String.t() | Atom.t() => any()}
+  @type compliance_violator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_admin_account_request() :: %{
-        required("AdminAccount") => String.t() | Atom.t()
+        required("AdminAccount") => String.t() | atom()
       }
       
   """
-  @type associate_admin_account_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_admin_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       network_firewall_invalid_route_configuration_violation() :: %{
-        "ActualFirewallEndpoint" => String.t() | Atom.t(),
-        "ActualFirewallSubnetId" => String.t() | Atom.t(),
+        "ActualFirewallEndpoint" => String.t() | atom(),
+        "ActualFirewallSubnetId" => String.t() | atom(),
         "ActualFirewallSubnetRoutes" => list(route()),
         "ActualInternetGatewayRoutes" => list(route()),
-        "AffectedSubnets" => list(String.t() | Atom.t()),
-        "CurrentFirewallSubnetRouteTable" => String.t() | Atom.t(),
-        "CurrentInternetGatewayRouteTable" => String.t() | Atom.t(),
-        "ExpectedFirewallEndpoint" => String.t() | Atom.t(),
-        "ExpectedFirewallSubnetId" => String.t() | Atom.t(),
+        "AffectedSubnets" => list(String.t() | atom()),
+        "CurrentFirewallSubnetRouteTable" => String.t() | atom(),
+        "CurrentInternetGatewayRouteTable" => String.t() | atom(),
+        "ExpectedFirewallEndpoint" => String.t() | atom(),
+        "ExpectedFirewallSubnetId" => String.t() | atom(),
         "ExpectedFirewallSubnetRoutes" => list(expected_route()),
         "ExpectedInternetGatewayRoutes" => list(expected_route()),
-        "InternetGatewayId" => String.t() | Atom.t(),
+        "InternetGatewayId" => String.t() | atom(),
         "IsRouteTableUsedInDifferentAZ" => boolean(),
-        "RouteTableId" => String.t() | Atom.t(),
+        "RouteTableId" => String.t() | atom(),
         "ViolatingRoute" => route(),
-        "VpcId" => String.t() | Atom.t()
+        "VpcId" => String.t() | atom()
       }
       
   """
   @type network_firewall_invalid_route_configuration_violation() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -615,46 +612,45 @@ defmodule AWS.FMS do
   ## Example:
       
       get_notification_channel_response() :: %{
-        "SnsRoleName" => String.t() | Atom.t(),
-        "SnsTopicArn" => String.t() | Atom.t()
+        "SnsRoleName" => String.t() | atom(),
+        "SnsTopicArn" => String.t() | atom()
       }
       
   """
-  @type get_notification_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type get_notification_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       network_firewall_policy_description() :: %{
-        "StatefulDefaultActions" => list(String.t() | Atom.t()),
+        "StatefulDefaultActions" => list(String.t() | atom()),
         "StatefulEngineOptions" => stateful_engine_options(),
         "StatefulRuleGroups" => list(stateful_rule_group()),
-        "StatelessCustomActions" => list(String.t() | Atom.t()),
-        "StatelessDefaultActions" => list(String.t() | Atom.t()),
-        "StatelessFragmentDefaultActions" => list(String.t() | Atom.t()),
+        "StatelessCustomActions" => list(String.t() | atom()),
+        "StatelessDefaultActions" => list(String.t() | atom()),
+        "StatelessFragmentDefaultActions" => list(String.t() | atom()),
         "StatelessRuleGroups" => list(stateless_rule_group())
       }
       
   """
-  @type network_firewall_policy_description() :: %{String.t() | Atom.t() => any()}
+  @type network_firewall_policy_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       network_firewall_unexpected_firewall_routes_violation() :: %{
-        "FirewallEndpoint" => String.t() | Atom.t(),
-        "FirewallSubnetId" => String.t() | Atom.t(),
-        "RouteTableId" => String.t() | Atom.t(),
+        "FirewallEndpoint" => String.t() | atom(),
+        "FirewallSubnetId" => String.t() | atom(),
+        "RouteTableId" => String.t() | atom(),
         "ViolatingRoutes" => list(route()),
-        "VpcId" => String.t() | Atom.t()
+        "VpcId" => String.t() | atom()
       }
       
   """
   @type network_firewall_unexpected_firewall_routes_violation() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -662,67 +658,67 @@ defmodule AWS.FMS do
   ## Example:
       
       dns_duplicate_rule_group_violation() :: %{
-        "ViolationTarget" => String.t() | Atom.t(),
-        "ViolationTargetDescription" => String.t() | Atom.t()
+        "ViolationTarget" => String.t() | atom(),
+        "ViolationTargetDescription" => String.t() | atom()
       }
       
   """
-  @type dns_duplicate_rule_group_violation() :: %{String.t() | Atom.t() => any()}
+  @type dns_duplicate_rule_group_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       violation_detail() :: %{
-        "MemberAccount" => String.t() | Atom.t(),
-        "PolicyId" => String.t() | Atom.t(),
-        "ResourceDescription" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t(),
+        "MemberAccount" => String.t() | atom(),
+        "PolicyId" => String.t() | atom(),
+        "ResourceDescription" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
         "ResourceTags" => list(tag()),
-        "ResourceType" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | atom(),
         "ResourceViolations" => list(resource_violation())
       }
       
   """
-  @type violation_detail() :: %{String.t() | Atom.t() => any()}
+  @type violation_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t(),
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       network_firewall_missing_subnet_violation() :: %{
-        "AvailabilityZone" => String.t() | Atom.t(),
-        "TargetViolationReason" => String.t() | Atom.t(),
-        "VPC" => String.t() | Atom.t(),
-        "ViolationTarget" => String.t() | Atom.t()
+        "AvailabilityZone" => String.t() | atom(),
+        "TargetViolationReason" => String.t() | atom(),
+        "VPC" => String.t() | atom(),
+        "ViolationTarget" => String.t() | atom()
       }
       
   """
-  @type network_firewall_missing_subnet_violation() :: %{String.t() | Atom.t() => any()}
+  @type network_firewall_missing_subnet_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_protocols_lists_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ProtocolsLists" => list(protocols_list_data_summary())
       }
       
   """
-  @type list_protocols_lists_response() :: %{String.t() | Atom.t() => any()}
+  @type list_protocols_lists_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -730,23 +726,23 @@ defmodule AWS.FMS do
       
       get_apps_list_response() :: %{
         "AppsList" => apps_list_data(),
-        "AppsListArn" => String.t() | Atom.t()
+        "AppsListArn" => String.t() | atom()
       }
       
   """
-  @type get_apps_list_response() :: %{String.t() | Atom.t() => any()}
+  @type get_apps_list_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_admin_account_response() :: %{
-        "AdminAccount" => String.t() | Atom.t(),
+        "AdminAccount" => String.t() | atom(),
         "RoleStatus" => list(any())
       }
       
   """
-  @type get_admin_account_response() :: %{String.t() | Atom.t() => any()}
+  @type get_admin_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -757,7 +753,7 @@ defmodule AWS.FMS do
       }
       
   """
-  @type network_firewall_policy() :: %{String.t() | Atom.t() => any()}
+  @type network_firewall_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -767,14 +763,14 @@ defmodule AWS.FMS do
         "AppsList" => list(app()),
         "CreateTime" => non_neg_integer(),
         "LastUpdateTime" => non_neg_integer(),
-        "ListId" => String.t() | Atom.t(),
-        "ListName" => String.t() | Atom.t(),
-        "ListUpdateToken" => String.t() | Atom.t(),
+        "ListId" => String.t() | atom(),
+        "ListName" => String.t() | atom(),
+        "ListUpdateToken" => String.t() | atom(),
         "PreviousAppsList" => map()
       }
       
   """
-  @type apps_list_data() :: %{String.t() | Atom.t() => any()}
+  @type apps_list_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -785,7 +781,7 @@ defmodule AWS.FMS do
       }
       
   """
-  @type get_compliance_detail_response() :: %{String.t() | Atom.t() => any()}
+  @type get_compliance_detail_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -797,21 +793,21 @@ defmodule AWS.FMS do
       }
       
   """
-  @type put_protocols_list_request() :: %{String.t() | Atom.t() => any()}
+  @type put_protocols_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_network_acl_entries_action() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "FMSCanRemediate" => boolean(),
         "NetworkAclEntriesToBeDeleted" => list(entry_description()),
         "NetworkAclId" => action_target()
       }
       
   """
-  @type delete_network_acl_entries_action() :: %{String.t() | Atom.t() => any()}
+  @type delete_network_acl_entries_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -822,7 +818,7 @@ defmodule AWS.FMS do
       }
       
   """
-  @type associate_third_party_firewall_request() :: %{String.t() | Atom.t() => any()}
+  @type associate_third_party_firewall_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -832,7 +828,7 @@ defmodule AWS.FMS do
         "CreateNetworkAclAction" => create_network_acl_action(),
         "CreateNetworkAclEntriesAction" => create_network_acl_entries_action(),
         "DeleteNetworkAclEntriesAction" => delete_network_acl_entries_action(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "EC2AssociateRouteTableAction" => ec2_associate_route_table_action(),
         "EC2CopyRouteTableAction" => ec2_copy_route_table_action(),
         "EC2CreateRouteAction" => ec2_create_route_action(),
@@ -845,7 +841,7 @@ defmodule AWS.FMS do
       }
       
   """
-  @type remediation_action() :: %{String.t() | Atom.t() => any()}
+  @type remediation_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -853,23 +849,23 @@ defmodule AWS.FMS do
       
       list_discovered_resources_response() :: %{
         "Items" => list(discovered_resource()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_discovered_resources_response() :: %{String.t() | Atom.t() => any()}
+  @type list_discovered_resources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       third_party_firewall_firewall_policy() :: %{
-        "FirewallPolicyId" => String.t() | Atom.t(),
-        "FirewallPolicyName" => String.t() | Atom.t()
+        "FirewallPolicyId" => String.t() | atom(),
+        "FirewallPolicyName" => String.t() | atom()
       }
       
   """
-  @type third_party_firewall_firewall_policy() :: %{String.t() | Atom.t() => any()}
+  @type third_party_firewall_firewall_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -880,7 +876,7 @@ defmodule AWS.FMS do
       }
       
   """
-  @type third_party_firewall_policy() :: %{String.t() | Atom.t() => any()}
+  @type third_party_firewall_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -888,11 +884,11 @@ defmodule AWS.FMS do
       
       list_admin_accounts_for_organization_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_admin_accounts_for_organization_request() :: %{String.t() | Atom.t() => any()}
+  @type list_admin_accounts_for_organization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -901,25 +897,24 @@ defmodule AWS.FMS do
       network_firewall_internet_traffic_not_inspected_violation() :: %{
         "ActualFirewallSubnetRoutes" => list(route()),
         "ActualInternetGatewayRoutes" => list(route()),
-        "CurrentFirewallSubnetRouteTable" => String.t() | Atom.t(),
-        "CurrentInternetGatewayRouteTable" => String.t() | Atom.t(),
-        "ExpectedFirewallEndpoint" => String.t() | Atom.t(),
+        "CurrentFirewallSubnetRouteTable" => String.t() | atom(),
+        "CurrentInternetGatewayRouteTable" => String.t() | atom(),
+        "ExpectedFirewallEndpoint" => String.t() | atom(),
         "ExpectedFirewallSubnetRoutes" => list(expected_route()),
         "ExpectedInternetGatewayRoutes" => list(expected_route()),
-        "FirewallSubnetId" => String.t() | Atom.t(),
-        "InternetGatewayId" => String.t() | Atom.t(),
+        "FirewallSubnetId" => String.t() | atom(),
+        "InternetGatewayId" => String.t() | atom(),
         "IsRouteTableUsedInDifferentAZ" => boolean(),
-        "RouteTableId" => String.t() | Atom.t(),
-        "SubnetAvailabilityZone" => String.t() | Atom.t(),
-        "SubnetId" => String.t() | Atom.t(),
+        "RouteTableId" => String.t() | atom(),
+        "SubnetAvailabilityZone" => String.t() | atom(),
+        "SubnetId" => String.t() | atom(),
         "ViolatingRoutes" => list(route()),
-        "VpcId" => String.t() | Atom.t()
+        "VpcId" => String.t() | atom()
       }
       
   """
   @type network_firewall_internet_traffic_not_inspected_violation() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -928,13 +923,13 @@ defmodule AWS.FMS do
       
       replace_network_acl_association_action() :: %{
         "AssociationId" => action_target(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "FMSCanRemediate" => boolean(),
         "NetworkAclId" => action_target()
       }
       
   """
-  @type replace_network_acl_association_action() :: %{String.t() | Atom.t() => any()}
+  @type replace_network_acl_association_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -942,13 +937,13 @@ defmodule AWS.FMS do
       
       apps_list_data_summary() :: %{
         "AppsList" => list(app()),
-        "ListArn" => String.t() | Atom.t(),
-        "ListId" => String.t() | Atom.t(),
-        "ListName" => String.t() | Atom.t()
+        "ListArn" => String.t() | atom(),
+        "ListId" => String.t() | atom(),
+        "ListName" => String.t() | atom()
       }
       
   """
-  @type apps_list_data_summary() :: %{String.t() | Atom.t() => any()}
+  @type apps_list_data_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -959,7 +954,7 @@ defmodule AWS.FMS do
       }
       
   """
-  @type network_firewall_stateful_rule_group_override() :: %{String.t() | Atom.t() => any()}
+  @type network_firewall_stateful_rule_group_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -995,7 +990,7 @@ defmodule AWS.FMS do
       }
       
   """
-  @type resource_violation() :: %{String.t() | Atom.t() => any()}
+  @type resource_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1003,25 +998,25 @@ defmodule AWS.FMS do
       
       region_scope() :: %{
         "AllRegionsEnabled" => boolean(),
-        "Regions" => list(String.t() | Atom.t())
+        "Regions" => list(String.t() | atom())
       }
       
   """
-  @type region_scope() :: %{String.t() | Atom.t() => any()}
+  @type region_scope() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_associate_route_table_action() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "GatewayId" => action_target(),
         "RouteTableId" => action_target(),
         "SubnetId" => action_target()
       }
       
   """
-  @type ec2_associate_route_table_action() :: %{String.t() | Atom.t() => any()}
+  @type ec2_associate_route_table_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1033,7 +1028,7 @@ defmodule AWS.FMS do
       }
       
   """
-  @type remediation_action_with_order() :: %{String.t() | Atom.t() => any()}
+  @type remediation_action_with_order() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1046,22 +1041,22 @@ defmodule AWS.FMS do
       }
       
   """
-  @type entry_description() :: %{String.t() | Atom.t() => any()}
+  @type entry_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       dns_rule_group_priority_conflict_violation() :: %{
-        "ConflictingPolicyId" => String.t() | Atom.t(),
+        "ConflictingPolicyId" => String.t() | atom(),
         "ConflictingPriority" => integer(),
         "UnavailablePriorities" => list(integer()),
-        "ViolationTarget" => String.t() | Atom.t(),
-        "ViolationTargetDescription" => String.t() | Atom.t()
+        "ViolationTarget" => String.t() | atom(),
+        "ViolationTargetDescription" => String.t() | atom()
       }
       
   """
-  @type dns_rule_group_priority_conflict_violation() :: %{String.t() | Atom.t() => any()}
+  @type dns_rule_group_priority_conflict_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1072,18 +1067,18 @@ defmodule AWS.FMS do
       }
       
   """
-  @type get_violation_details_response() :: %{String.t() | Atom.t() => any()}
+  @type get_violation_details_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1091,12 +1086,12 @@ defmodule AWS.FMS do
       
       ec2_replace_route_table_association_action() :: %{
         "AssociationId" => action_target(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "RouteTableId" => action_target()
       }
       
   """
-  @type ec2_replace_route_table_association_action() :: %{String.t() | Atom.t() => any()}
+  @type ec2_replace_route_table_association_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1104,12 +1099,12 @@ defmodule AWS.FMS do
       
       stateless_rule_group() :: %{
         "Priority" => integer(),
-        "ResourceId" => String.t() | Atom.t(),
-        "RuleGroupName" => String.t() | Atom.t()
+        "ResourceId" => String.t() | atom(),
+        "RuleGroupName" => String.t() | atom()
       }
       
   """
-  @type stateless_rule_group() :: %{String.t() | Atom.t() => any()}
+  @type stateless_rule_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1117,77 +1112,77 @@ defmodule AWS.FMS do
       
       list_protocols_lists_request() :: %{
         optional("DefaultLists") => boolean(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         required("MaxResults") => integer()
       }
       
   """
-  @type list_protocols_lists_request() :: %{String.t() | Atom.t() => any()}
+  @type list_protocols_lists_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       web_acl_has_incompatible_configuration_violation() :: %{
-        "Description" => String.t() | Atom.t(),
-        "WebACLArn" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "WebACLArn" => String.t() | atom()
       }
       
   """
-  @type web_acl_has_incompatible_configuration_violation() :: %{String.t() | Atom.t() => any()}
+  @type web_acl_has_incompatible_configuration_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       entry_violation() :: %{
-        "ActualEvaluationOrder" => String.t() | Atom.t(),
+        "ActualEvaluationOrder" => String.t() | atom(),
         "EntriesWithConflicts" => list(entry_description()),
         "EntryAtExpectedEvaluationOrder" => entry_description(),
         "EntryViolationReasons" => list(list(any())()),
         "ExpectedEntry" => entry_description(),
-        "ExpectedEvaluationOrder" => String.t() | Atom.t()
+        "ExpectedEvaluationOrder" => String.t() | atom()
       }
       
   """
-  @type entry_violation() :: %{String.t() | Atom.t() => any()}
+  @type entry_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       partial_match() :: %{
-        "Reference" => String.t() | Atom.t(),
-        "TargetViolationReasons" => list(String.t() | Atom.t())
+        "Reference" => String.t() | atom(),
+        "TargetViolationReasons" => list(String.t() | atom())
       }
       
   """
-  @type partial_match() :: %{String.t() | Atom.t() => any()}
+  @type partial_match() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       possible_remediation_action() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "IsDefaultAction" => boolean(),
         "OrderedRemediationActions" => list(remediation_action_with_order())
       }
       
   """
-  @type possible_remediation_action() :: %{String.t() | Atom.t() => any()}
+  @type possible_remediation_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1196,11 +1191,11 @@ defmodule AWS.FMS do
       network_firewall_policy_modified_violation() :: %{
         "CurrentPolicyDescription" => network_firewall_policy_description(),
         "ExpectedPolicyDescription" => network_firewall_policy_description(),
-        "ViolationTarget" => String.t() | Atom.t()
+        "ViolationTarget" => String.t() | atom()
       }
       
   """
-  @type network_firewall_policy_modified_violation() :: %{String.t() | Atom.t() => any()}
+  @type network_firewall_policy_modified_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1208,11 +1203,11 @@ defmodule AWS.FMS do
       
       put_policy_response() :: %{
         "Policy" => policy(),
-        "PolicyArn" => String.t() | Atom.t()
+        "PolicyArn" => String.t() | atom()
       }
       
   """
-  @type put_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type put_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1224,19 +1219,19 @@ defmodule AWS.FMS do
       }
       
   """
-  @type put_apps_list_request() :: %{String.t() | Atom.t() => any()}
+  @type put_apps_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_admins_managing_account_response() :: %{
-        "AdminAccounts" => list(String.t() | Atom.t()),
-        "NextToken" => String.t() | Atom.t()
+        "AdminAccounts" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_admins_managing_account_response() :: %{String.t() | Atom.t() => any()}
+  @type list_admins_managing_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1244,23 +1239,23 @@ defmodule AWS.FMS do
       
       list_apps_lists_request() :: %{
         optional("DefaultLists") => boolean(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         required("MaxResults") => integer()
       }
       
   """
-  @type list_apps_lists_request() :: %{String.t() | Atom.t() => any()}
+  @type list_apps_lists_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_resource_set_request() :: %{
-        required("Identifier") => String.t() | Atom.t()
+        required("Identifier") => String.t() | atom()
       }
       
   """
-  @type get_resource_set_request() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1268,27 +1263,27 @@ defmodule AWS.FMS do
       
       list_discovered_resources_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("MemberAccountIds") => list(String.t() | Atom.t()),
-        required("ResourceType") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("MemberAccountIds") => list(String.t() | atom()),
+        required("ResourceType") => String.t() | atom()
       }
       
   """
-  @type list_discovered_resources_request() :: %{String.t() | Atom.t() => any()}
+  @type list_discovered_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       route() :: %{
-        "Destination" => String.t() | Atom.t(),
+        "Destination" => String.t() | atom(),
         "DestinationType" => list(any()),
-        "Target" => String.t() | Atom.t(),
+        "Target" => String.t() | atom(),
         "TargetType" => list(any())
       }
       
   """
-  @type route() :: %{String.t() | Atom.t() => any()}
+  @type route() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1297,25 +1292,25 @@ defmodule AWS.FMS do
       organizational_unit_scope() :: %{
         "AllOrganizationalUnitsEnabled" => boolean(),
         "ExcludeSpecifiedOrganizationalUnits" => boolean(),
-        "OrganizationalUnits" => list(String.t() | Atom.t())
+        "OrganizationalUnits" => list(String.t() | atom())
       }
       
   """
-  @type organizational_unit_scope() :: %{String.t() | Atom.t() => any()}
+  @type organizational_unit_scope() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_network_acl_entries_action() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "FMSCanRemediate" => boolean(),
         "NetworkAclEntriesToBeCreated" => list(entry_description()),
         "NetworkAclId" => action_target()
       }
       
   """
-  @type create_network_acl_entries_action() :: %{String.t() | Atom.t() => any()}
+  @type create_network_acl_entries_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1323,23 +1318,23 @@ defmodule AWS.FMS do
       
       list_compliance_status_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("PolicyId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("PolicyId") => String.t() | atom()
       }
       
   """
-  @type list_compliance_status_request() :: %{String.t() | Atom.t() => any()}
+  @type list_compliance_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_input_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_input_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1350,19 +1345,19 @@ defmodule AWS.FMS do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_disassociate_resource_request() :: %{
-        required("Items") => list(String.t() | Atom.t()),
-        required("ResourceSetIdentifier") => String.t() | Atom.t()
+        required("Items") => list(String.t() | atom()),
+        required("ResourceSetIdentifier") => String.t() | atom()
       }
       
   """
-  @type batch_disassociate_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type batch_disassociate_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1376,32 +1371,32 @@ defmodule AWS.FMS do
       }
       
   """
-  @type admin_scope() :: %{String.t() | Atom.t() => any()}
+  @type admin_scope() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       action_target() :: %{
-        "Description" => String.t() | Atom.t(),
-        "ResourceId" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "ResourceId" => String.t() | atom()
       }
       
   """
-  @type action_target() :: %{String.t() | Atom.t() => any()}
+  @type action_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_network_acl_action() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "FMSCanRemediate" => boolean(),
         "Vpc" => action_target()
       }
       
   """
-  @type create_network_acl_action() :: %{String.t() | Atom.t() => any()}
+  @type create_network_acl_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1409,11 +1404,11 @@ defmodule AWS.FMS do
       
       possible_remediation_actions() :: %{
         "Actions" => list(possible_remediation_action()),
-        "Description" => String.t() | Atom.t()
+        "Description" => String.t() | atom()
       }
       
   """
-  @type possible_remediation_actions() :: %{String.t() | Atom.t() => any()}
+  @type possible_remediation_actions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1423,26 +1418,26 @@ defmodule AWS.FMS do
         "EvaluationResults" => list(evaluation_result()),
         "IssueInfoMap" => map(),
         "LastUpdated" => non_neg_integer(),
-        "MemberAccount" => String.t() | Atom.t(),
-        "PolicyId" => String.t() | Atom.t(),
-        "PolicyName" => String.t() | Atom.t(),
-        "PolicyOwner" => String.t() | Atom.t()
+        "MemberAccount" => String.t() | atom(),
+        "PolicyId" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
+        "PolicyOwner" => String.t() | atom()
       }
       
   """
-  @type policy_compliance_status() :: %{String.t() | Atom.t() => any()}
+  @type policy_compliance_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_notification_channel_request() :: %{
-        required("SnsRoleName") => String.t() | Atom.t(),
-        required("SnsTopicArn") => String.t() | Atom.t()
+        required("SnsRoleName") => String.t() | atom(),
+        required("SnsTopicArn") => String.t() | atom()
       }
       
   """
-  @type put_notification_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type put_notification_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1451,26 +1446,26 @@ defmodule AWS.FMS do
       get_protection_status_request() :: %{
         optional("EndTime") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("MemberAccountId") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("MemberAccountId") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("StartTime") => non_neg_integer(),
-        required("PolicyId") => String.t() | Atom.t()
+        required("PolicyId") => String.t() | atom()
       }
       
   """
-  @type get_protection_status_request() :: %{String.t() | Atom.t() => any()}
+  @type get_protection_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       f_m_s_policy_update_firewall_creation_config_action() :: %{
-        "Description" => String.t() | Atom.t(),
-        "FirewallCreationConfig" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "FirewallCreationConfig" => String.t() | atom()
       }
       
   """
-  @type f_m_s_policy_update_firewall_creation_config_action() :: %{String.t() | Atom.t() => any()}
+  @type f_m_s_policy_update_firewall_creation_config_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1478,11 +1473,11 @@ defmodule AWS.FMS do
       
       get_policy_response() :: %{
         "Policy" => policy(),
-        "PolicyArn" => String.t() | Atom.t()
+        "PolicyArn" => String.t() | atom()
       }
       
   """
-  @type get_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type get_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1490,38 +1485,38 @@ defmodule AWS.FMS do
       
       aws_ec2_instance_violation() :: %{
         "AwsEc2NetworkInterfaceViolations" => list(aws_ec2_network_interface_violation()),
-        "ViolationTarget" => String.t() | Atom.t()
+        "ViolationTarget" => String.t() | atom()
       }
       
   """
-  @type aws_ec2_instance_violation() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_instance_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_copy_route_table_action() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "RouteTableId" => action_target(),
         "VpcId" => action_target()
       }
       
   """
-  @type ec2_copy_route_table_action() :: %{String.t() | Atom.t() => any()}
+  @type ec2_copy_route_table_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       network_firewall_missing_firewall_violation() :: %{
-        "AvailabilityZone" => String.t() | Atom.t(),
-        "TargetViolationReason" => String.t() | Atom.t(),
-        "VPC" => String.t() | Atom.t(),
-        "ViolationTarget" => String.t() | Atom.t()
+        "AvailabilityZone" => String.t() | atom(),
+        "TargetViolationReason" => String.t() | atom(),
+        "VPC" => String.t() | atom(),
+        "ViolationTarget" => String.t() | atom()
       }
       
   """
-  @type network_firewall_missing_firewall_violation() :: %{String.t() | Atom.t() => any()}
+  @type network_firewall_missing_firewall_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1529,11 +1524,11 @@ defmodule AWS.FMS do
       
       put_admin_account_request() :: %{
         optional("AdminScope") => admin_scope(),
-        required("AdminAccount") => String.t() | Atom.t()
+        required("AdminAccount") => String.t() | atom()
       }
       
   """
-  @type put_admin_account_request() :: %{String.t() | Atom.t() => any()}
+  @type put_admin_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1541,23 +1536,23 @@ defmodule AWS.FMS do
       
       get_resource_set_response() :: %{
         "ResourceSet" => resource_set(),
-        "ResourceSetArn" => String.t() | Atom.t()
+        "ResourceSetArn" => String.t() | atom()
       }
       
   """
-  @type get_resource_set_response() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resource_sets_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ResourceSets" => list(resource_set_summary())
       }
       
   """
-  @type list_resource_sets_response() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1570,18 +1565,18 @@ defmodule AWS.FMS do
       }
       
   """
-  @type policy_option() :: %{String.t() | Atom.t() => any()}
+  @type policy_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_admin_scope_request() :: %{
-        required("AdminAccount") => String.t() | Atom.t()
+        required("AdminAccount") => String.t() | atom()
       }
       
   """
-  @type get_admin_scope_request() :: %{String.t() | Atom.t() => any()}
+  @type get_admin_scope_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1589,48 +1584,48 @@ defmodule AWS.FMS do
       
       delete_policy_request() :: %{
         optional("DeleteAllPolicyResources") => boolean(),
-        required("PolicyId") => String.t() | Atom.t()
+        required("PolicyId") => String.t() | atom()
       }
       
   """
-  @type delete_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type resource_tag() :: %{String.t() | Atom.t() => any()}
+  @type resource_tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_type_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_type_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_type_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       discovered_resource() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t(),
-        "URI" => String.t() | Atom.t()
+        "AccountId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "URI" => String.t() | atom()
       }
       
   """
-  @type discovered_resource() :: %{String.t() | Atom.t() => any()}
+  @type discovered_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1641,22 +1636,22 @@ defmodule AWS.FMS do
         "ExcludeMap" => map(),
         "ExcludeResourceTags" => boolean(),
         "IncludeMap" => map(),
-        "PolicyDescription" => String.t() | Atom.t(),
-        "PolicyId" => String.t() | Atom.t(),
-        "PolicyName" => String.t() | Atom.t(),
+        "PolicyDescription" => String.t() | atom(),
+        "PolicyId" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
         "PolicyStatus" => list(any()),
-        "PolicyUpdateToken" => String.t() | Atom.t(),
+        "PolicyUpdateToken" => String.t() | atom(),
         "RemediationEnabled" => boolean(),
-        "ResourceSetIds" => list(String.t() | Atom.t()),
+        "ResourceSetIds" => list(String.t() | atom()),
         "ResourceTagLogicalOperator" => list(any()),
         "ResourceTags" => list(resource_tag()),
-        "ResourceType" => String.t() | Atom.t(),
-        "ResourceTypeList" => list(String.t() | Atom.t()),
+        "ResourceType" => String.t() | atom(),
+        "ResourceTypeList" => list(String.t() | atom()),
         "SecurityServicePolicyData" => security_service_policy_data()
       }
       
   """
-  @type policy() :: %{String.t() | Atom.t() => any()}
+  @type policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1665,26 +1660,25 @@ defmodule AWS.FMS do
       aws_vpc_security_group_violation() :: %{
         "PartialMatches" => list(partial_match()),
         "PossibleSecurityGroupRemediationActions" => list(security_group_remediation_action()),
-        "ViolationTarget" => String.t() | Atom.t(),
-        "ViolationTargetDescription" => String.t() | Atom.t()
+        "ViolationTarget" => String.t() | atom(),
+        "ViolationTargetDescription" => String.t() | atom()
       }
       
   """
-  @type aws_vpc_security_group_violation() :: %{String.t() | Atom.t() => any()}
+  @type aws_vpc_security_group_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_third_party_firewall_firewall_policies_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ThirdPartyFirewallFirewallPolicies" => list(third_party_firewall_firewall_policy())
       }
       
   """
   @type list_third_party_firewall_firewall_policies_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1693,11 +1687,11 @@ defmodule AWS.FMS do
       
       put_resource_set_response() :: %{
         "ResourceSet" => resource_set(),
-        "ResourceSetArn" => String.t() | Atom.t()
+        "ResourceSetArn" => String.t() | atom()
       }
       
   """
-  @type put_resource_set_response() :: %{String.t() | Atom.t() => any()}
+  @type put_resource_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1709,39 +1703,39 @@ defmodule AWS.FMS do
       }
       
   """
-  @type network_acl_port_range() :: %{String.t() | Atom.t() => any()}
+  @type network_acl_port_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_set() :: %{
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "LastUpdateTime" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "ResourceSetStatus" => list(any()),
-        "ResourceTypeList" => list(String.t() | Atom.t()),
-        "UpdateToken" => String.t() | Atom.t()
+        "ResourceTypeList" => list(String.t() | atom()),
+        "UpdateToken" => String.t() | atom()
       }
       
   """
-  @type resource_set() :: %{String.t() | Atom.t() => any()}
+  @type resource_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_delete_route_action() :: %{
-        "Description" => String.t() | Atom.t(),
-        "DestinationCidrBlock" => String.t() | Atom.t(),
-        "DestinationIpv6CidrBlock" => String.t() | Atom.t(),
-        "DestinationPrefixListId" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DestinationCidrBlock" => String.t() | atom(),
+        "DestinationIpv6CidrBlock" => String.t() | atom(),
+        "DestinationPrefixListId" => String.t() | atom(),
         "RouteTableId" => action_target()
       }
       
   """
-  @type ec2_delete_route_action() :: %{String.t() | Atom.t() => any()}
+  @type ec2_delete_route_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1750,31 +1744,30 @@ defmodule AWS.FMS do
       protocols_list_data() :: %{
         "CreateTime" => non_neg_integer(),
         "LastUpdateTime" => non_neg_integer(),
-        "ListId" => String.t() | Atom.t(),
-        "ListName" => String.t() | Atom.t(),
-        "ListUpdateToken" => String.t() | Atom.t(),
+        "ListId" => String.t() | atom(),
+        "ListName" => String.t() | atom(),
+        "ListUpdateToken" => String.t() | atom(),
         "PreviousProtocolsList" => map(),
-        "ProtocolsList" => list(String.t() | Atom.t())
+        "ProtocolsList" => list(String.t() | atom())
       }
       
   """
-  @type protocols_list_data() :: %{String.t() | Atom.t() => any()}
+  @type protocols_list_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       network_firewall_black_hole_route_detected_violation() :: %{
-        "RouteTableId" => String.t() | Atom.t(),
+        "RouteTableId" => String.t() | atom(),
         "ViolatingRoutes" => list(route()),
-        "ViolationTarget" => String.t() | Atom.t(),
-        "VpcId" => String.t() | Atom.t()
+        "ViolationTarget" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
   @type network_firewall_black_hole_route_detected_violation() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1791,15 +1784,15 @@ defmodule AWS.FMS do
   ## Example:
       
       resource_set_summary() :: %{
-        "Description" => String.t() | Atom.t(),
-        "Id" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "LastUpdateTime" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "ResourceSetStatus" => list(any())
       }
       
   """
-  @type resource_set_summary() :: %{String.t() | Atom.t() => any()}
+  @type resource_set_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1807,54 +1800,54 @@ defmodule AWS.FMS do
       
       get_apps_list_request() :: %{
         optional("DefaultList") => boolean(),
-        required("ListId") => String.t() | Atom.t()
+        required("ListId") => String.t() | atom()
       }
       
   """
-  @type get_apps_list_request() :: %{String.t() | Atom.t() => any()}
+  @type get_apps_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_replace_route_action() :: %{
-        "Description" => String.t() | Atom.t(),
-        "DestinationCidrBlock" => String.t() | Atom.t(),
-        "DestinationIpv6CidrBlock" => String.t() | Atom.t(),
-        "DestinationPrefixListId" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DestinationCidrBlock" => String.t() | atom(),
+        "DestinationIpv6CidrBlock" => String.t() | atom(),
+        "DestinationPrefixListId" => String.t() | atom(),
         "GatewayId" => action_target(),
         "RouteTableId" => action_target()
       }
       
   """
-  @type ec2_replace_route_action() :: %{String.t() | Atom.t() => any()}
+  @type ec2_replace_route_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | Atom.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       expected_route() :: %{
-        "AllowedTargets" => list(String.t() | Atom.t()),
-        "ContributingSubnets" => list(String.t() | Atom.t()),
-        "IpV4Cidr" => String.t() | Atom.t(),
-        "IpV6Cidr" => String.t() | Atom.t(),
-        "PrefixListId" => String.t() | Atom.t(),
-        "RouteTableId" => String.t() | Atom.t()
+        "AllowedTargets" => list(String.t() | atom()),
+        "ContributingSubnets" => list(String.t() | atom()),
+        "IpV4Cidr" => String.t() | atom(),
+        "IpV6Cidr" => String.t() | atom(),
+        "PrefixListId" => String.t() | atom(),
+        "RouteTableId" => String.t() | atom()
       }
       
   """
-  @type expected_route() :: %{String.t() | Atom.t() => any()}
+  @type expected_route() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1862,37 +1855,37 @@ defmodule AWS.FMS do
       
       failed_item() :: %{
         "Reason" => list(any()),
-        "URI" => String.t() | Atom.t()
+        "URI" => String.t() | atom()
       }
       
   """
-  @type failed_item() :: %{String.t() | Atom.t() => any()}
+  @type failed_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       firewall_subnet_missing_vpcendpoint_violation() :: %{
-        "FirewallSubnetId" => String.t() | Atom.t(),
-        "SubnetAvailabilityZone" => String.t() | Atom.t(),
-        "SubnetAvailabilityZoneId" => String.t() | Atom.t(),
-        "VpcId" => String.t() | Atom.t()
+        "FirewallSubnetId" => String.t() | atom(),
+        "SubnetAvailabilityZone" => String.t() | atom(),
+        "SubnetAvailabilityZoneId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type firewall_subnet_missing_vpcendpoint_violation() :: %{String.t() | Atom.t() => any()}
+  @type firewall_subnet_missing_vpcendpoint_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       web_acl_has_out_of_scope_resources_violation() :: %{
-        "OutOfScopeResourceList" => list(String.t() | Atom.t()),
-        "WebACLArn" => String.t() | Atom.t()
+        "OutOfScopeResourceList" => list(String.t() | atom()),
+        "WebACLArn" => String.t() | atom()
       }
       
   """
-  @type web_acl_has_out_of_scope_resources_violation() :: %{String.t() | Atom.t() => any()}
+  @type web_acl_has_out_of_scope_resources_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1902,14 +1895,14 @@ defmodule AWS.FMS do
         "EvaluationLimitExceeded" => boolean(),
         "ExpiredAt" => non_neg_integer(),
         "IssueInfoMap" => map(),
-        "MemberAccount" => String.t() | Atom.t(),
-        "PolicyId" => String.t() | Atom.t(),
-        "PolicyOwner" => String.t() | Atom.t(),
+        "MemberAccount" => String.t() | atom(),
+        "PolicyId" => String.t() | atom(),
+        "PolicyOwner" => String.t() | atom(),
         "Violators" => list(compliance_violator())
       }
       
   """
-  @type policy_compliance_detail() :: %{String.t() | Atom.t() => any()}
+  @type policy_compliance_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1922,8 +1915,7 @@ defmodule AWS.FMS do
       
   """
   @type get_third_party_firewall_association_status_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1931,24 +1923,24 @@ defmodule AWS.FMS do
   ## Example:
       
       admin_account_summary() :: %{
-        "AdminAccount" => String.t() | Atom.t(),
+        "AdminAccount" => String.t() | atom(),
         "DefaultAdmin" => boolean(),
         "Status" => list(any())
       }
       
   """
-  @type admin_account_summary() :: %{String.t() | Atom.t() => any()}
+  @type admin_account_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_apps_list_request() :: %{
-        required("ListId") => String.t() | Atom.t()
+        required("ListId") => String.t() | atom()
       }
       
   """
-  @type delete_apps_list_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_apps_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1956,29 +1948,29 @@ defmodule AWS.FMS do
       
       policy_summary() :: %{
         "DeleteUnusedFMManagedResources" => boolean(),
-        "PolicyArn" => String.t() | Atom.t(),
-        "PolicyId" => String.t() | Atom.t(),
-        "PolicyName" => String.t() | Atom.t(),
+        "PolicyArn" => String.t() | atom(),
+        "PolicyId" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
         "PolicyStatus" => list(any()),
         "RemediationEnabled" => boolean(),
-        "ResourceType" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | atom(),
         "SecurityServiceType" => list(any())
       }
       
   """
-  @type policy_summary() :: %{String.t() | Atom.t() => any()}
+  @type policy_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       aws_ec2_network_interface_violation() :: %{
-        "ViolatingSecurityGroups" => list(String.t() | Atom.t()),
-        "ViolationTarget" => String.t() | Atom.t()
+        "ViolatingSecurityGroups" => list(String.t() | atom()),
+        "ViolationTarget" => String.t() | atom()
       }
       
   """
-  @type aws_ec2_network_interface_violation() :: %{String.t() | Atom.t() => any()}
+  @type aws_ec2_network_interface_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1989,7 +1981,7 @@ defmodule AWS.FMS do
       }
       
   """
-  @type disassociate_third_party_firewall_response() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_third_party_firewall_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1997,22 +1989,22 @@ defmodule AWS.FMS do
       
       batch_associate_resource_response() :: %{
         "FailedItems" => list(failed_item()),
-        "ResourceSetIdentifier" => String.t() | Atom.t()
+        "ResourceSetIdentifier" => String.t() | atom()
       }
       
   """
-  @type batch_associate_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type batch_associate_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2023,7 +2015,7 @@ defmodule AWS.FMS do
       }
       
   """
-  @type network_acl_common_policy() :: %{String.t() | Atom.t() => any()}
+  @type network_acl_common_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2039,13 +2031,13 @@ defmodule AWS.FMS do
   ## Example:
       
       account_scope() :: %{
-        "Accounts" => list(String.t() | Atom.t()),
+        "Accounts" => list(String.t() | atom()),
         "AllAccountsEnabled" => boolean(),
         "ExcludeSpecifiedAccounts" => boolean()
       }
       
   """
-  @type account_scope() :: %{String.t() | Atom.t() => any()}
+  @type account_scope() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2056,18 +2048,18 @@ defmodule AWS.FMS do
       }
       
   """
-  @type disassociate_third_party_firewall_request() :: %{String.t() | Atom.t() => any()}
+  @type disassociate_third_party_firewall_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_protocols_list_request() :: %{
-        required("ListId") => String.t() | Atom.t()
+        required("ListId") => String.t() | atom()
       }
       
   """
-  @type delete_protocols_list_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_protocols_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2080,7 +2072,7 @@ defmodule AWS.FMS do
       }
       
   """
-  @type evaluation_result() :: %{String.t() | Atom.t() => any()}
+  @type evaluation_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2092,20 +2084,20 @@ defmodule AWS.FMS do
       }
       
   """
-  @type put_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type put_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       security_service_policy_data() :: %{
-        "ManagedServiceData" => String.t() | Atom.t(),
+        "ManagedServiceData" => String.t() | atom(),
         "PolicyOption" => policy_option(),
         "Type" => list(any())
       }
       
   """
-  @type security_service_policy_data() :: %{String.t() | Atom.t() => any()}
+  @type security_service_policy_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2117,7 +2109,7 @@ defmodule AWS.FMS do
       }
       
   """
-  @type put_resource_set_request() :: %{String.t() | Atom.t() => any()}
+  @type put_resource_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2125,11 +2117,11 @@ defmodule AWS.FMS do
       
       put_protocols_list_response() :: %{
         "ProtocolsList" => protocols_list_data(),
-        "ProtocolsListArn" => String.t() | Atom.t()
+        "ProtocolsListArn" => String.t() | atom()
       }
       
   """
-  @type put_protocols_list_response() :: %{String.t() | Atom.t() => any()}
+  @type put_protocols_list_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2141,22 +2133,22 @@ defmodule AWS.FMS do
       }
       
   """
-  @type get_admin_scope_response() :: %{String.t() | Atom.t() => any()}
+  @type get_admin_scope_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       network_firewall_missing_expected_r_t_violation() :: %{
-        "AvailabilityZone" => String.t() | Atom.t(),
-        "CurrentRouteTable" => String.t() | Atom.t(),
-        "ExpectedRouteTable" => String.t() | Atom.t(),
-        "VPC" => String.t() | Atom.t(),
-        "ViolationTarget" => String.t() | Atom.t()
+        "AvailabilityZone" => String.t() | atom(),
+        "CurrentRouteTable" => String.t() | atom(),
+        "ExpectedRouteTable" => String.t() | atom(),
+        "VPC" => String.t() | atom(),
+        "ViolationTarget" => String.t() | atom()
       }
       
   """
-  @type network_firewall_missing_expected_r_t_violation() :: %{String.t() | Atom.t() => any()}
+  @type network_firewall_missing_expected_r_t_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2164,11 +2156,11 @@ defmodule AWS.FMS do
       
       get_protocols_list_response() :: %{
         "ProtocolsList" => protocols_list_data(),
-        "ProtocolsListArn" => String.t() | Atom.t()
+        "ProtocolsListArn" => String.t() | atom()
       }
       
   """
-  @type get_protocols_list_response() :: %{String.t() | Atom.t() => any()}
+  @type get_protocols_list_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2176,36 +2168,36 @@ defmodule AWS.FMS do
       
       list_admin_accounts_for_organization_response() :: %{
         "AdminAccounts" => list(admin_account_summary()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_admin_accounts_for_organization_response() :: %{String.t() | Atom.t() => any()}
+  @type list_admin_accounts_for_organization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_error_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_error_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       third_party_firewall_missing_firewall_violation() :: %{
-        "AvailabilityZone" => String.t() | Atom.t(),
-        "TargetViolationReason" => String.t() | Atom.t(),
-        "VPC" => String.t() | Atom.t(),
-        "ViolationTarget" => String.t() | Atom.t()
+        "AvailabilityZone" => String.t() | atom(),
+        "TargetViolationReason" => String.t() | atom(),
+        "VPC" => String.t() | atom(),
+        "ViolationTarget" => String.t() | atom()
       }
       
   """
-  @type third_party_firewall_missing_firewall_violation() :: %{String.t() | Atom.t() => any()}
+  @type third_party_firewall_missing_firewall_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2213,12 +2205,12 @@ defmodule AWS.FMS do
       
       network_firewall_missing_expected_routes_violation() :: %{
         "ExpectedRoutes" => list(expected_route()),
-        "ViolationTarget" => String.t() | Atom.t(),
-        "VpcId" => String.t() | Atom.t()
+        "ViolationTarget" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type network_firewall_missing_expected_routes_violation() :: %{String.t() | Atom.t() => any()}
+  @type network_firewall_missing_expected_routes_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2230,7 +2222,7 @@ defmodule AWS.FMS do
       }
       
   """
-  @type policy_type_scope() :: %{String.t() | Atom.t() => any()}
+  @type policy_type_scope() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2241,21 +2233,21 @@ defmodule AWS.FMS do
       }
       
   """
-  @type get_third_party_firewall_association_status_request() :: %{String.t() | Atom.t() => any()}
+  @type get_third_party_firewall_association_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       third_party_firewall_missing_subnet_violation() :: %{
-        "AvailabilityZone" => String.t() | Atom.t(),
-        "TargetViolationReason" => String.t() | Atom.t(),
-        "VPC" => String.t() | Atom.t(),
-        "ViolationTarget" => String.t() | Atom.t()
+        "AvailabilityZone" => String.t() | atom(),
+        "TargetViolationReason" => String.t() | atom(),
+        "VPC" => String.t() | atom(),
+        "ViolationTarget" => String.t() | atom()
       }
       
   """
-  @type third_party_firewall_missing_subnet_violation() :: %{String.t() | Atom.t() => any()}
+  @type third_party_firewall_missing_subnet_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2271,12 +2263,12 @@ defmodule AWS.FMS do
   ## Example:
       
       list_compliance_status_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "PolicyComplianceStatusList" => list(policy_compliance_status())
       }
       
   """
-  @type list_compliance_status_response() :: %{String.t() | Atom.t() => any()}
+  @type list_compliance_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2284,23 +2276,23 @@ defmodule AWS.FMS do
       
       put_apps_list_response() :: %{
         "AppsList" => apps_list_data(),
-        "AppsListArn" => String.t() | Atom.t()
+        "AppsListArn" => String.t() | atom()
       }
       
   """
-  @type put_apps_list_response() :: %{String.t() | Atom.t() => any()}
+  @type put_apps_list_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource() :: %{
-        "AccountId" => String.t() | Atom.t(),
-        "URI" => String.t() | Atom.t()
+        "AccountId" => String.t() | atom(),
+        "URI" => String.t() | atom()
       }
       
   """
-  @type resource() :: %{String.t() | Atom.t() => any()}
+  @type resource() :: %{(String.t() | atom()) => any()}
 
   @type associate_admin_account_errors() ::
           internal_error_exception()

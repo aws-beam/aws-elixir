@@ -39,31 +39,31 @@ defmodule AWS.MPA do
   ## Example:
 
       policy_version_summary() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "IsDefault" => [boolean()],
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
-        "PolicyArn" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "PolicyArn" => String.t() | atom(),
         "PolicyType" => list(any()),
         "Status" => list(any()),
         "VersionId" => integer()
       }
 
   """
-  @type policy_version_summary() :: %{String.t() | Atom.t() => any()}
+  @type policy_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_policy_versions_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "PolicyVersions" => list(policy_version_summary())
       }
 
   """
-  @type list_policy_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_policy_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -74,7 +74,7 @@ defmodule AWS.MPA do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -85,22 +85,22 @@ defmodule AWS.MPA do
       }
 
   """
-  @type get_policy_version_response() :: %{String.t() | Atom.t() => any()}
+  @type get_policy_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_session_response_approver_response() :: %{
-        "ApproverId" => String.t() | Atom.t(),
-        "IdentityId" => String.t() | Atom.t(),
-        "IdentitySourceArn" => String.t() | Atom.t(),
+        "ApproverId" => String.t() | atom(),
+        "IdentityId" => String.t() | atom(),
+        "IdentitySourceArn" => String.t() | atom(),
         "Response" => list(any()),
         "ResponseTime" => non_neg_integer()
       }
 
   """
-  @type get_session_response_approver_response() :: %{String.t() | Atom.t() => any()}
+  @type get_session_response_approver_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -112,7 +112,7 @@ defmodule AWS.MPA do
       }
 
   """
-  @type start_active_approval_team_deletion_response() :: %{String.t() | Atom.t() => any()}
+  @type start_active_approval_team_deletion_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -120,32 +120,32 @@ defmodule AWS.MPA do
 
       get_session_response() :: %{
         "ActionCompletionStrategy" => list(any()),
-        "ActionName" => String.t() | Atom.t(),
+        "ActionName" => String.t() | atom(),
         "ApprovalStrategy" => list(),
-        "ApprovalTeamArn" => String.t() | Atom.t(),
-        "ApprovalTeamName" => String.t() | Atom.t(),
+        "ApprovalTeamArn" => String.t() | atom(),
+        "ApprovalTeamName" => String.t() | atom(),
         "ApproverResponses" => list(get_session_response_approver_response()),
         "CompletionTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "ExecutionStatus" => list(any()),
         "ExpirationTime" => non_neg_integer(),
         "InitiationTime" => non_neg_integer(),
         "Metadata" => map(),
         "NumberOfApprovers" => [integer()],
-        "ProtectedResourceArn" => String.t() | Atom.t(),
-        "RequesterAccountId" => String.t() | Atom.t(),
-        "RequesterComment" => String.t() | Atom.t(),
-        "RequesterPrincipalArn" => String.t() | Atom.t(),
-        "RequesterRegion" => String.t() | Atom.t(),
-        "RequesterServicePrincipal" => String.t() | Atom.t(),
-        "SessionArn" => String.t() | Atom.t(),
+        "ProtectedResourceArn" => String.t() | atom(),
+        "RequesterAccountId" => String.t() | atom(),
+        "RequesterComment" => String.t() | atom(),
+        "RequesterPrincipalArn" => String.t() | atom(),
+        "RequesterRegion" => String.t() | atom(),
+        "RequesterServicePrincipal" => String.t() | atom(),
+        "SessionArn" => String.t() | atom(),
         "Status" => list(any()),
         "StatusCode" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type get_session_response() :: %{String.t() | Atom.t() => any()}
+  @type get_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -161,12 +161,12 @@ defmodule AWS.MPA do
   ## Example:
 
       list_policies_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Policies" => list(policy())
       }
 
   """
-  @type list_policies_response() :: %{String.t() | Atom.t() => any()}
+  @type list_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -183,11 +183,11 @@ defmodule AWS.MPA do
 
       list_policies_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_policies_request() :: %{String.t() | Atom.t() => any()}
+  @type list_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -195,16 +195,16 @@ defmodule AWS.MPA do
 
       get_identity_source_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "IdentitySourceArn" => String.t() | Atom.t(),
+        "IdentitySourceArn" => String.t() | atom(),
         "IdentitySourceParameters" => list(),
         "IdentitySourceType" => list(any()),
         "Status" => list(any()),
         "StatusCode" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type get_identity_source_response() :: %{String.t() | Atom.t() => any()}
+  @type get_identity_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -213,49 +213,49 @@ defmodule AWS.MPA do
       get_approval_team_response() :: %{
         "ApprovalStrategy" => list(),
         "Approvers" => list(get_approval_team_response_approver()),
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "LastUpdateTime" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "NumberOfApprovers" => [integer()],
         "PendingUpdate" => pending_update(),
         "Policies" => list(policy_reference()),
         "Status" => list(any()),
         "StatusCode" => list(any()),
-        "StatusMessage" => String.t() | Atom.t(),
-        "UpdateSessionArn" => String.t() | Atom.t(),
-        "VersionId" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom(),
+        "UpdateSessionArn" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
       }
 
   """
-  @type get_approval_team_response() :: %{String.t() | Atom.t() => any()}
+  @type get_approval_team_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_approval_team_response() :: %{
-        "VersionId" => String.t() | Atom.t()
+        "VersionId" => String.t() | atom()
       }
 
   """
-  @type update_approval_team_response() :: %{String.t() | Atom.t() => any()}
+  @type update_approval_team_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_policy_response() :: %{
-        "PolicyDocument" => String.t() | Atom.t(),
-        "PolicyName" => String.t() | Atom.t(),
+        "PolicyDocument" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
         "PolicyType" => list(any()),
-        "PolicyVersionArn" => String.t() | Atom.t(),
-        "ResourceArn" => String.t() | Atom.t()
+        "PolicyVersionArn" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
       }
 
   """
-  @type get_resource_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -271,11 +271,11 @@ defmodule AWS.MPA do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -300,12 +300,12 @@ defmodule AWS.MPA do
   ## Example:
 
       iam_identity_center() :: %{
-        "InstanceArn" => String.t() | Atom.t(),
-        "Region" => String.t() | Atom.t()
+        "InstanceArn" => String.t() | atom(),
+        "Region" => String.t() | atom()
       }
 
   """
-  @type iam_identity_center() :: %{String.t() | Atom.t() => any()}
+  @type iam_identity_center() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -322,32 +322,32 @@ defmodule AWS.MPA do
 
       create_identity_source_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "IdentitySourceArn" => String.t() | Atom.t(),
+        "IdentitySourceArn" => String.t() | atom(),
         "IdentitySourceType" => list(any())
       }
 
   """
-  @type create_identity_source_response() :: %{String.t() | Atom.t() => any()}
+  @type create_identity_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       policy_version() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "Document" => String.t() | Atom.t(),
+        "Document" => String.t() | atom(),
         "IsDefault" => [boolean()],
         "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
-        "PolicyArn" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
+        "PolicyArn" => String.t() | atom(),
         "PolicyType" => list(any()),
         "Status" => list(any()),
         "VersionId" => integer()
       }
 
   """
-  @type policy_version() :: %{String.t() | Atom.t() => any()}
+  @type policy_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -364,72 +364,72 @@ defmodule AWS.MPA do
 
       identity_source_for_list() :: %{
         "CreationTime" => non_neg_integer(),
-        "IdentitySourceArn" => String.t() | Atom.t(),
+        "IdentitySourceArn" => String.t() | atom(),
         "IdentitySourceParameters" => list(),
         "IdentitySourceType" => list(any()),
         "Status" => list(any()),
         "StatusCode" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type identity_source_for_list() :: %{String.t() | Atom.t() => any()}
+  @type identity_source_for_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sessions_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Sessions" => list(list_sessions_response_session())
       }
 
   """
-  @type list_sessions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_sessions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       policy_reference() :: %{
-        "PolicyArn" => String.t() | Atom.t()
+        "PolicyArn" => String.t() | atom()
       }
 
   """
-  @type policy_reference() :: %{String.t() | Atom.t() => any()}
+  @type policy_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -437,38 +437,38 @@ defmodule AWS.MPA do
 
       list_identity_sources_response() :: %{
         "IdentitySources" => list(identity_source_for_list()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_identity_sources_response() :: %{String.t() | Atom.t() => any()}
+  @type list_identity_sources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_approval_team_response_approver() :: %{
-        "ApproverId" => String.t() | Atom.t(),
-        "PrimaryIdentityId" => String.t() | Atom.t(),
-        "PrimaryIdentitySourceArn" => String.t() | Atom.t(),
+        "ApproverId" => String.t() | atom(),
+        "PrimaryIdentityId" => String.t() | atom(),
+        "PrimaryIdentitySourceArn" => String.t() | atom(),
         "PrimaryIdentityStatus" => list(any()),
         "ResponseTime" => non_neg_integer()
       }
 
   """
-  @type get_approval_team_response_approver() :: %{String.t() | Atom.t() => any()}
+  @type get_approval_team_response_approver() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       approval_team_request_approver() :: %{
-        "PrimaryIdentityId" => String.t() | Atom.t(),
-        "PrimaryIdentitySourceArn" => String.t() | Atom.t()
+        "PrimaryIdentityId" => String.t() | atom(),
+        "PrimaryIdentitySourceArn" => String.t() | atom()
       }
 
   """
-  @type approval_team_request_approver() :: %{String.t() | Atom.t() => any()}
+  @type approval_team_request_approver() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -476,11 +476,11 @@ defmodule AWS.MPA do
 
       list_resource_policies_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_resource_policies_request() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -491,7 +491,7 @@ defmodule AWS.MPA do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -500,24 +500,24 @@ defmodule AWS.MPA do
       list_sessions_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_sessions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_sessions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_policy_request() :: %{
-        required("PolicyName") => String.t() | Atom.t(),
+        required("PolicyName") => String.t() | atom(),
         required("PolicyType") => list(any()),
-        required("ResourceArn") => String.t() | Atom.t()
+        required("ResourceArn") => String.t() | atom()
       }
 
   """
-  @type get_resource_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -526,11 +526,11 @@ defmodule AWS.MPA do
       filter() :: %{
         "FieldName" => list(any()),
         "Operator" => list(any()),
-        "Value" => String.t() | Atom.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type filter() :: %{String.t() | Atom.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -541,7 +541,7 @@ defmodule AWS.MPA do
       }
 
   """
-  @type start_active_approval_team_deletion_request() :: %{String.t() | Atom.t() => any()}
+  @type start_active_approval_team_deletion_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -549,11 +549,11 @@ defmodule AWS.MPA do
 
       list_policy_versions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_policy_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_policy_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -561,35 +561,35 @@ defmodule AWS.MPA do
 
       list_approval_teams_response() :: %{
         "ApprovalTeams" => list(list_approval_teams_response_approval_team()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_approval_teams_response() :: %{String.t() | Atom.t() => any()}
+  @type list_approval_teams_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       iam_identity_center_for_list() :: %{
-        "ApprovalPortalUrl" => String.t() | Atom.t(),
-        "InstanceArn" => String.t() | Atom.t(),
-        "Region" => String.t() | Atom.t()
+        "ApprovalPortalUrl" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Region" => String.t() | atom()
       }
 
   """
-  @type iam_identity_center_for_list() :: %{String.t() | Atom.t() => any()}
+  @type iam_identity_center_for_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -606,60 +606,60 @@ defmodule AWS.MPA do
 
       list_approval_teams_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_approval_teams_request() :: %{String.t() | Atom.t() => any()}
+  @type list_approval_teams_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resource_policies_response_resource_policy() :: %{
-        "PolicyArn" => String.t() | Atom.t(),
-        "PolicyName" => String.t() | Atom.t(),
+        "PolicyArn" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
         "PolicyType" => list(any())
       }
 
   """
-  @type list_resource_policies_response_resource_policy() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_policies_response_resource_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       policy() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "DefaultVersion" => integer(),
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "PolicyType" => list(any())
       }
 
   """
-  @type policy() :: %{String.t() | Atom.t() => any()}
+  @type policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_parameter_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -675,42 +675,42 @@ defmodule AWS.MPA do
   ## Example:
 
       create_approval_team_response() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "Name" => String.t() | Atom.t(),
-        "VersionId" => String.t() | Atom.t()
+        "Name" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
       }
 
   """
-  @type create_approval_team_response() :: %{String.t() | Atom.t() => any()}
+  @type create_approval_team_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_approval_team_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => map(),
         required("ApprovalStrategy") => list(),
         required("Approvers") => list(approval_team_request_approver()),
-        required("Description") => String.t() | Atom.t(),
-        required("Name") => String.t() | Atom.t(),
+        required("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Policies") => list(policy_reference())
       }
 
   """
-  @type create_approval_team_request() :: %{String.t() | Atom.t() => any()}
+  @type create_approval_team_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -726,36 +726,36 @@ defmodule AWS.MPA do
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       iam_identity_center_for_get() :: %{
-        "ApprovalPortalUrl" => String.t() | Atom.t(),
-        "InstanceArn" => String.t() | Atom.t(),
-        "Region" => String.t() | Atom.t()
+        "ApprovalPortalUrl" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Region" => String.t() | atom()
       }
 
   """
-  @type iam_identity_center_for_get() :: %{String.t() | Atom.t() => any()}
+  @type iam_identity_center_for_get() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_resource_policies_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ResourcePolicies" => list(list_resource_policies_response_resource_policy())
       }
 
   """
-  @type list_resource_policies_response() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -772,24 +772,24 @@ defmodule AWS.MPA do
 
       list_identity_sources_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_identity_sources_request() :: %{String.t() | Atom.t() => any()}
+  @type list_identity_sources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_identity_source_request() :: %{
-        optional("ClientToken") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => map(),
         required("IdentitySourceParameters") => identity_source_parameters()
       }
 
   """
-  @type create_identity_source_request() :: %{String.t() | Atom.t() => any()}
+  @type create_identity_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -797,18 +797,18 @@ defmodule AWS.MPA do
 
       list_approval_teams_response_approval_team() :: %{
         "ApprovalStrategy" => list(),
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "NumberOfApprovers" => [integer()],
         "Status" => list(any()),
         "StatusCode" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type list_approval_teams_response_approval_team() :: %{String.t() | Atom.t() => any()}
+  @type list_approval_teams_response_approval_team() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -816,26 +816,26 @@ defmodule AWS.MPA do
 
       list_sessions_response_session() :: %{
         "ActionCompletionStrategy" => list(any()),
-        "ActionName" => String.t() | Atom.t(),
-        "ApprovalTeamArn" => String.t() | Atom.t(),
-        "ApprovalTeamName" => String.t() | Atom.t(),
+        "ActionName" => String.t() | atom(),
+        "ApprovalTeamArn" => String.t() | atom(),
+        "ApprovalTeamName" => String.t() | atom(),
         "CompletionTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "ExpirationTime" => non_neg_integer(),
         "InitiationTime" => non_neg_integer(),
-        "ProtectedResourceArn" => String.t() | Atom.t(),
-        "RequesterAccountId" => String.t() | Atom.t(),
-        "RequesterPrincipalArn" => String.t() | Atom.t(),
-        "RequesterRegion" => String.t() | Atom.t(),
-        "RequesterServicePrincipal" => String.t() | Atom.t(),
-        "SessionArn" => String.t() | Atom.t(),
+        "ProtectedResourceArn" => String.t() | atom(),
+        "RequesterAccountId" => String.t() | atom(),
+        "RequesterPrincipalArn" => String.t() | atom(),
+        "RequesterRegion" => String.t() | atom(),
+        "RequesterServicePrincipal" => String.t() | atom(),
+        "SessionArn" => String.t() | atom(),
         "Status" => list(any()),
         "StatusCode" => list(any()),
-        "StatusMessage" => String.t() | Atom.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type list_sessions_response_session() :: %{String.t() | Atom.t() => any()}
+  @type list_sessions_response_session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -846,7 +846,7 @@ defmodule AWS.MPA do
       }
 
   """
-  @type identity_source_parameters() :: %{String.t() | Atom.t() => any()}
+  @type identity_source_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -864,29 +864,29 @@ defmodule AWS.MPA do
       pending_update() :: %{
         "ApprovalStrategy" => list(),
         "Approvers" => list(get_approval_team_response_approver()),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "NumberOfApprovers" => [integer()],
         "Status" => list(any()),
         "StatusCode" => list(any()),
-        "StatusMessage" => String.t() | Atom.t(),
+        "StatusMessage" => String.t() | atom(),
         "UpdateInitiationTime" => non_neg_integer(),
-        "VersionId" => String.t() | Atom.t()
+        "VersionId" => String.t() | atom()
       }
 
   """
-  @type pending_update() :: %{String.t() | Atom.t() => any()}
+  @type pending_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_tags_exception() :: %{
-        "Message" => String.t() | Atom.t(),
-        "ResourceName" => String.t() | Atom.t()
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
       }
 
   """
-  @type too_many_tags_exception() :: %{String.t() | Atom.t() => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -895,11 +895,11 @@ defmodule AWS.MPA do
       update_approval_team_request() :: %{
         optional("ApprovalStrategy") => list(),
         optional("Approvers") => list(approval_team_request_approver()),
-        optional("Description") => String.t() | Atom.t()
+        optional("Description") => String.t() | atom()
       }
 
   """
-  @type update_approval_team_request() :: %{String.t() | Atom.t() => any()}
+  @type update_approval_team_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -910,7 +910,7 @@ defmodule AWS.MPA do
       }
 
   """
-  @type mof_n_approval_strategy() :: %{String.t() | Atom.t() => any()}
+  @type mof_n_approval_strategy() :: %{(String.t() | atom()) => any()}
 
   @type cancel_session_errors() ::
           throttling_exception()
@@ -1086,7 +1086,7 @@ defmodule AWS.MPA do
   [Session](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html) in
   the *Multi-party approval User Guide*.
   """
-  @spec cancel_session(map(), String.t() | Atom.t(), cancel_session_request(), list()) ::
+  @spec cancel_session(map(), String.t() | atom(), cancel_session_request(), list()) ::
           {:ok, cancel_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1184,7 +1184,7 @@ defmodule AWS.MPA do
   """
   @spec delete_identity_source(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_identity_source_request(),
           list()
         ) ::
@@ -1225,8 +1225,8 @@ defmodule AWS.MPA do
   """
   @spec delete_inactive_approval_team_version(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_inactive_approval_team_version_request(),
           list()
         ) ::
@@ -1264,7 +1264,7 @@ defmodule AWS.MPA do
   @doc """
   Returns details for an approval team.
   """
-  @spec get_approval_team(map(), String.t() | Atom.t(), list()) ::
+  @spec get_approval_team(map(), String.t() | atom(), list()) ::
           {:ok, get_approval_team_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1285,7 +1285,7 @@ defmodule AWS.MPA do
   For more information, see [Identity Source](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html) in
   the *Multi-party approval User Guide*.
   """
-  @spec get_identity_source(map(), String.t() | Atom.t(), list()) ::
+  @spec get_identity_source(map(), String.t() | atom(), list()) ::
           {:ok, get_identity_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1309,7 +1309,7 @@ defmodule AWS.MPA do
   permissions. For more information, see [How other services work with Multi-party approval](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html)
   in the *Multi-party approval User Guide*.
   """
-  @spec get_policy_version(map(), String.t() | Atom.t(), list()) ::
+  @spec get_policy_version(map(), String.t() | atom(), list()) ::
           {:ok, get_policy_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1360,7 +1360,7 @@ defmodule AWS.MPA do
   [Session](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html) in
   the *Multi-party approval User Guide*.
   """
-  @spec get_session(map(), String.t() | Atom.t(), list()) ::
+  @spec get_session(map(), String.t() | atom(), list()) ::
           {:ok, get_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1498,7 +1498,7 @@ defmodule AWS.MPA do
   permissions. For more information, see [How other services work with Multi-party approval](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-integrations.html)
   in the *Multi-party approval User Guide*.
   """
-  @spec list_policy_versions(map(), String.t() | Atom.t(), list_policy_versions_request(), list()) ::
+  @spec list_policy_versions(map(), String.t() | atom(), list_policy_versions_request(), list()) ::
           {:ok, list_policy_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1535,7 +1535,7 @@ defmodule AWS.MPA do
   """
   @spec list_resource_policies(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           list_resource_policies_request(),
           list()
         ) ::
@@ -1577,7 +1577,7 @@ defmodule AWS.MPA do
   [Session](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html) in
   the *Multi-party approval User Guide*.
   """
-  @spec list_sessions(map(), String.t() | Atom.t(), list_sessions_request(), list()) ::
+  @spec list_sessions(map(), String.t() | atom(), list_sessions_request(), list()) ::
           {:ok, list_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1606,7 +1606,7 @@ defmodule AWS.MPA do
   @doc """
   Returns a list of the tags for a resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1630,7 +1630,7 @@ defmodule AWS.MPA do
   """
   @spec start_active_approval_team_deletion(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           start_active_approval_team_deletion_request(),
           list()
         ) ::
@@ -1665,7 +1665,7 @@ defmodule AWS.MPA do
   Each tag is a label consisting of a user-defined key and value. Tags can help
   you manage, identify, organize, search for, and filter resources.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1697,7 +1697,7 @@ defmodule AWS.MPA do
   Each tag is a label consisting of a user-defined key and value. Tags can help
   you manage, identify, organize, search for, and filter resources.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1733,7 +1733,7 @@ defmodule AWS.MPA do
 
   Updates to an active team must be approved by the team.
   """
-  @spec update_approval_team(map(), String.t() | Atom.t(), update_approval_team_request(), list()) ::
+  @spec update_approval_team(map(), String.t() | atom(), update_approval_team_request(), list()) ::
           {:ok, update_approval_team_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

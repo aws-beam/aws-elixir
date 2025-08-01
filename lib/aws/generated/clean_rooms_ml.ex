@@ -28,11 +28,11 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       update_configured_audience_model_response() :: %{
-        "configuredAudienceModelArn" => String.t() | Atom.t()
+        "configuredAudienceModelArn" => String.t() | atom()
       }
 
   """
-  @type update_configured_audience_model_response() :: %{String.t() | Atom.t() => any()}
+  @type update_configured_audience_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -40,45 +40,45 @@ defmodule AWS.CleanRoomsML do
 
       list_trained_model_inference_jobs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("trainedModelArn") => String.t() | Atom.t(),
-        optional("trainedModelVersionIdentifier") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("trainedModelArn") => String.t() | atom(),
+        optional("trainedModelVersionIdentifier") => String.t() | atom()
       }
 
   """
-  @type list_trained_model_inference_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_trained_model_inference_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       trained_model_summary() :: %{
-        "collaborationIdentifier" => String.t() | Atom.t(),
-        "configuredModelAlgorithmAssociationArn" => String.t() | Atom.t(),
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()),
-        "membershipIdentifier" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "membershipIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
-        "trainedModelArn" => String.t() | Atom.t(),
+        "trainedModelArn" => String.t() | atom(),
         "updateTime" => [non_neg_integer()],
-        "versionIdentifier" => String.t() | Atom.t()
+        "versionIdentifier" => String.t() | atom()
       }
 
   """
-  @type trained_model_summary() :: %{String.t() | Atom.t() => any()}
+  @type trained_model_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_trained_model_inference_job_response() :: %{
-        "trainedModelInferenceJobArn" => String.t() | Atom.t()
+        "trainedModelInferenceJobArn" => String.t() | atom()
       }
 
   """
-  @type start_trained_model_inference_job_response() :: %{String.t() | Atom.t() => any()}
+  @type start_trained_model_inference_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -86,13 +86,12 @@ defmodule AWS.CleanRoomsML do
 
       list_configured_model_algorithm_associations_response() :: %{
         "configuredModelAlgorithmAssociations" => list(configured_model_algorithm_association_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
   @type list_configured_model_algorithm_associations_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -100,11 +99,11 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       create_audience_model_response() :: %{
-        "audienceModelArn" => String.t() | Atom.t()
+        "audienceModelArn" => String.t() | atom()
       }
 
   """
-  @type create_audience_model_response() :: %{String.t() | Atom.t() => any()}
+  @type create_audience_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -115,7 +114,7 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -127,18 +126,18 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type audience_quality_metrics() :: %{String.t() | Atom.t() => any()}
+  @type audience_quality_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_audience_generation_job_response() :: %{
-        "audienceGenerationJobArn" => String.t() | Atom.t()
+        "audienceGenerationJobArn" => String.t() | atom()
       }
 
   """
-  @type start_audience_generation_job_response() :: %{String.t() | Atom.t() => any()}
+  @type start_audience_generation_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -150,44 +149,44 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type trained_model_exports_max_size() :: %{String.t() | Atom.t() => any()}
+  @type trained_model_exports_max_size() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_configured_model_algorithm_association_response() :: %{
-        "collaborationIdentifier" => String.t() | Atom.t(),
-        "configuredModelAlgorithmArn" => String.t() | Atom.t(),
-        "configuredModelAlgorithmAssociationArn" => String.t() | Atom.t(),
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmArn" => String.t() | atom(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
-        "membershipIdentifier" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "membershipIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "privacyConfiguration" => privacy_configuration(),
         "tags" => map(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type get_configured_model_algorithm_association_response() :: %{String.t() | Atom.t() => any()}
+  @type get_configured_model_algorithm_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_audience_generation_job_response() :: %{
-        "audienceGenerationJobArn" => String.t() | Atom.t(),
-        "collaborationId" => String.t() | Atom.t(),
-        "configuredAudienceModelArn" => String.t() | Atom.t(),
+        "audienceGenerationJobArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "configuredAudienceModelArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "includeSeedInOutput" => [boolean()],
         "metrics" => audience_quality_metrics(),
-        "name" => String.t() | Atom.t(),
-        "protectedQueryIdentifier" => [String.t() | Atom.t()],
+        "name" => String.t() | atom(),
+        "protectedQueryIdentifier" => [String.t() | atom()],
         "seedAudience" => audience_generation_job_data_source(),
-        "startedBy" => String.t() | Atom.t(),
+        "startedBy" => String.t() | atom(),
         "status" => list(any()),
         "statusDetails" => status_details(),
         "tags" => map(),
@@ -195,7 +194,7 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type get_audience_generation_job_response() :: %{String.t() | Atom.t() => any()}
+  @type get_audience_generation_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -203,39 +202,39 @@ defmodule AWS.CleanRoomsML do
 
       list_configured_model_algorithms_response() :: %{
         "configuredModelAlgorithms" => list(configured_model_algorithm_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_configured_model_algorithms_response() :: %{String.t() | Atom.t() => any()}
+  @type list_configured_model_algorithms_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_ml_input_channel_request() :: %{
-        optional("description") => String.t() | Atom.t(),
-        optional("kmsKeyArn") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
         optional("tags") => map(),
-        required("configuredModelAlgorithmAssociations") => list(String.t() | Atom.t()),
+        required("configuredModelAlgorithmAssociations") => list(String.t() | atom()),
         required("inputChannel") => input_channel(),
-        required("name") => String.t() | Atom.t(),
+        required("name") => String.t() | atom(),
         required("retentionInDays") => [integer()]
       }
 
   """
-  @type create_ml_input_channel_request() :: %{String.t() | Atom.t() => any()}
+  @type create_ml_input_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_trained_model_request() :: %{
-        optional("versionIdentifier") => String.t() | Atom.t()
+        optional("versionIdentifier") => String.t() | atom()
       }
 
   """
-  @type get_trained_model_request() :: %{String.t() | Atom.t() => any()}
+  @type get_trained_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -243,18 +242,18 @@ defmodule AWS.CleanRoomsML do
 
       get_training_dataset_response() :: %{
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
         "status" => list(any()),
         "tags" => map(),
         "trainingData" => list(dataset()),
-        "trainingDatasetArn" => String.t() | Atom.t(),
+        "trainingDatasetArn" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type get_training_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type get_training_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -267,44 +266,44 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type trained_models_configuration_policy() :: %{String.t() | Atom.t() => any()}
+  @type trained_models_configuration_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       trained_model_inference_job_summary() :: %{
-        "collaborationIdentifier" => String.t() | Atom.t(),
-        "configuredModelAlgorithmAssociationArn" => String.t() | Atom.t(),
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "logsStatus" => list(any()),
-        "logsStatusDetails" => [String.t() | Atom.t()],
-        "membershipIdentifier" => String.t() | Atom.t(),
+        "logsStatusDetails" => [String.t() | atom()],
+        "membershipIdentifier" => String.t() | atom(),
         "metricsStatus" => list(any()),
-        "metricsStatusDetails" => [String.t() | Atom.t()],
-        "name" => String.t() | Atom.t(),
+        "metricsStatusDetails" => [String.t() | atom()],
+        "name" => String.t() | atom(),
         "outputConfiguration" => inference_output_configuration(),
         "status" => list(any()),
-        "trainedModelArn" => String.t() | Atom.t(),
-        "trainedModelInferenceJobArn" => String.t() | Atom.t(),
-        "trainedModelVersionIdentifier" => String.t() | Atom.t(),
+        "trainedModelArn" => String.t() | atom(),
+        "trainedModelInferenceJobArn" => String.t() | atom(),
+        "trainedModelVersionIdentifier" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type trained_model_inference_job_summary() :: %{String.t() | Atom.t() => any()}
+  @type trained_model_inference_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_configured_audience_model_response() :: %{
-        "configuredAudienceModelArn" => String.t() | Atom.t()
+        "configuredAudienceModelArn" => String.t() | atom()
       }
 
   """
-  @type create_configured_audience_model_response() :: %{String.t() | Atom.t() => any()}
+  @type create_configured_audience_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -320,23 +319,23 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       trained_model_export_receiver_member() :: %{
-        "accountId" => String.t() | Atom.t()
+        "accountId" => String.t() | atom()
       }
 
   """
-  @type trained_model_export_receiver_member() :: %{String.t() | Atom.t() => any()}
+  @type trained_model_export_receiver_member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       inference_output_configuration() :: %{
-        "accept" => [String.t() | Atom.t()],
+        "accept" => [String.t() | atom()],
         "members" => list(inference_receiver_member())
       }
 
   """
-  @type inference_output_configuration() :: %{String.t() | Atom.t() => any()}
+  @type inference_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -348,7 +347,7 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type protected_query_input_parameters() :: %{String.t() | Atom.t() => any()}
+  @type protected_query_input_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -356,11 +355,11 @@ defmodule AWS.CleanRoomsML do
 
       list_configured_audience_models_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_configured_audience_models_request() :: %{String.t() | Atom.t() => any()}
+  @type list_configured_audience_models_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -368,11 +367,11 @@ defmodule AWS.CleanRoomsML do
 
       list_training_datasets_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_training_datasets_request() :: %{String.t() | Atom.t() => any()}
+  @type list_training_datasets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -388,17 +387,16 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       create_configured_model_algorithm_association_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("privacyConfiguration") => privacy_configuration(),
         optional("tags") => map(),
-        required("configuredModelAlgorithmArn") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t()
+        required("configuredModelAlgorithmArn") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
   @type create_configured_model_algorithm_association_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -410,7 +408,7 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type put_ml_configuration_request() :: %{String.t() | Atom.t() => any()}
+  @type put_ml_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -426,18 +424,18 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       get_ml_input_channel_response() :: %{
-        "collaborationIdentifier" => String.t() | Atom.t(),
-        "configuredModelAlgorithmAssociations" => list(String.t() | Atom.t()),
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmAssociations" => list(String.t() | atom()),
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "inputChannel" => input_channel(),
-        "kmsKeyArn" => String.t() | Atom.t(),
-        "membershipIdentifier" => String.t() | Atom.t(),
-        "mlInputChannelArn" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "kmsKeyArn" => String.t() | atom(),
+        "membershipIdentifier" => String.t() | atom(),
+        "mlInputChannelArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "numberOfFiles" => [float()],
         "numberOfRecords" => [float()],
-        "protectedQueryIdentifier" => String.t() | Atom.t(),
+        "protectedQueryIdentifier" => String.t() | atom(),
         "retentionInDays" => [integer()],
         "sizeInGb" => [float()],
         "status" => list(any()),
@@ -447,7 +445,7 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type get_ml_input_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type get_ml_input_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -464,11 +462,11 @@ defmodule AWS.CleanRoomsML do
 
       list_ml_input_channels_response() :: %{
         "mlInputChannelsList" => list(ml_input_channel_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_ml_input_channels_response() :: %{String.t() | Atom.t() => any()}
+  @type list_ml_input_channels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -480,38 +478,38 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type relevance_metric() :: %{String.t() | Atom.t() => any()}
+  @type relevance_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_collaboration_trained_model_response() :: %{
-        "collaborationIdentifier" => String.t() | Atom.t(),
-        "configuredModelAlgorithmAssociationArn" => String.t() | Atom.t(),
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()),
         "logsStatus" => list(any()),
-        "logsStatusDetails" => [String.t() | Atom.t()],
-        "membershipIdentifier" => String.t() | Atom.t(),
+        "logsStatusDetails" => [String.t() | atom()],
+        "membershipIdentifier" => String.t() | atom(),
         "metricsStatus" => list(any()),
-        "metricsStatusDetails" => [String.t() | Atom.t()],
-        "name" => String.t() | Atom.t(),
+        "metricsStatusDetails" => [String.t() | atom()],
+        "name" => String.t() | atom(),
         "resourceConfig" => resource_config(),
         "status" => list(any()),
         "statusDetails" => status_details(),
         "stoppingCondition" => stopping_condition(),
-        "trainedModelArn" => String.t() | Atom.t(),
-        "trainingContainerImageDigest" => [String.t() | Atom.t()],
+        "trainedModelArn" => String.t() | atom(),
+        "trainingContainerImageDigest" => [String.t() | atom()],
         "trainingInputMode" => list(any()),
         "updateTime" => [non_neg_integer()],
-        "versionIdentifier" => String.t() | Atom.t()
+        "versionIdentifier" => String.t() | atom()
       }
 
   """
-  @type get_collaboration_trained_model_response() :: %{String.t() | Atom.t() => any()}
+  @type get_collaboration_trained_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -520,70 +518,69 @@ defmodule AWS.CleanRoomsML do
       create_configured_audience_model_request() :: %{
         optional("audienceSizeConfig") => audience_size_config(),
         optional("childResourceTagOnCreatePolicy") => list(any()),
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("minMatchingSeedSize") => integer(),
         optional("tags") => map(),
-        required("audienceModelArn") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t(),
+        required("audienceModelArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
         required("outputConfig") => configured_audience_model_output_config(),
         required("sharedAudienceMetrics") => list(list(any())())
       }
 
   """
-  @type create_configured_audience_model_request() :: %{String.t() | Atom.t() => any()}
+  @type create_configured_audience_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       collaboration_ml_input_channel_summary() :: %{
-        "collaborationIdentifier" => String.t() | Atom.t(),
-        "configuredModelAlgorithmAssociations" => list(String.t() | Atom.t()),
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmAssociations" => list(String.t() | atom()),
         "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "membershipIdentifier" => String.t() | Atom.t(),
-        "mlInputChannelArn" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "membershipIdentifier" => String.t() | atom(),
+        "mlInputChannelArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type collaboration_ml_input_channel_summary() :: %{String.t() | Atom.t() => any()}
+  @type collaboration_ml_input_channel_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ml_input_channel_summary() :: %{
-        "collaborationIdentifier" => String.t() | Atom.t(),
-        "configuredModelAlgorithmAssociations" => list(String.t() | Atom.t()),
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmAssociations" => list(String.t() | atom()),
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
-        "membershipIdentifier" => String.t() | Atom.t(),
-        "mlInputChannelArn" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "protectedQueryIdentifier" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "membershipIdentifier" => String.t() | atom(),
+        "mlInputChannelArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "protectedQueryIdentifier" => String.t() | atom(),
         "status" => list(any()),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type ml_input_channel_summary() :: %{String.t() | Atom.t() => any()}
+  @type ml_input_channel_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_configured_model_algorithm_association_response() :: %{
-        "configuredModelAlgorithmAssociationArn" => String.t() | Atom.t()
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom()
       }
 
   """
   @type create_configured_model_algorithm_association_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -591,12 +588,12 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       metric_definition() :: %{
-        "name" => String.t() | Atom.t(),
-        "regex" => String.t() | Atom.t()
+        "name" => String.t() | atom(),
+        "regex" => String.t() | atom()
       }
 
   """
-  @type metric_definition() :: %{String.t() | Atom.t() => any()}
+  @type metric_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -622,14 +619,13 @@ defmodule AWS.CleanRoomsML do
 
       list_collaboration_trained_model_export_jobs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("trainedModelVersionIdentifier") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("trainedModelVersionIdentifier") => String.t() | atom()
       }
 
   """
   @type list_collaboration_trained_model_export_jobs_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -637,11 +633,11 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       internal_service_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_service_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -649,13 +645,12 @@ defmodule AWS.CleanRoomsML do
 
       list_collaboration_configured_model_algorithm_associations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
   @type list_collaboration_configured_model_algorithm_associations_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -663,106 +658,106 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       get_trained_model_response() :: %{
-        "collaborationIdentifier" => String.t() | Atom.t(),
-        "configuredModelAlgorithmAssociationArn" => String.t() | Atom.t(),
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
         "dataChannels" => list(model_training_data_channel()),
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "environment" => map(),
         "hyperparameters" => map(),
         "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()),
-        "kmsKeyArn" => String.t() | Atom.t(),
+        "kmsKeyArn" => String.t() | atom(),
         "logsStatus" => list(any()),
-        "logsStatusDetails" => [String.t() | Atom.t()],
-        "membershipIdentifier" => String.t() | Atom.t(),
+        "logsStatusDetails" => [String.t() | atom()],
+        "membershipIdentifier" => String.t() | atom(),
         "metricsStatus" => list(any()),
-        "metricsStatusDetails" => [String.t() | Atom.t()],
-        "name" => String.t() | Atom.t(),
+        "metricsStatusDetails" => [String.t() | atom()],
+        "name" => String.t() | atom(),
         "resourceConfig" => resource_config(),
         "status" => list(any()),
         "statusDetails" => status_details(),
         "stoppingCondition" => stopping_condition(),
         "tags" => map(),
-        "trainedModelArn" => String.t() | Atom.t(),
-        "trainingContainerImageDigest" => [String.t() | Atom.t()],
+        "trainedModelArn" => String.t() | atom(),
+        "trainingContainerImageDigest" => [String.t() | atom()],
         "trainingInputMode" => list(any()),
         "updateTime" => [non_neg_integer()],
-        "versionIdentifier" => String.t() | Atom.t()
+        "versionIdentifier" => String.t() | atom()
       }
 
   """
-  @type get_trained_model_response() :: %{String.t() | Atom.t() => any()}
+  @type get_trained_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | Atom.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       collaboration_trained_model_export_job_summary() :: %{
-        "collaborationIdentifier" => String.t() | Atom.t(),
+        "collaborationIdentifier" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "membershipIdentifier" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "membershipIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "outputConfiguration" => trained_model_export_output_configuration(),
         "status" => list(any()),
         "statusDetails" => status_details(),
-        "trainedModelArn" => String.t() | Atom.t(),
-        "trainedModelVersionIdentifier" => String.t() | Atom.t(),
+        "trainedModelArn" => String.t() | atom(),
+        "trainedModelVersionIdentifier" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type collaboration_trained_model_export_job_summary() :: %{String.t() | Atom.t() => any()}
+  @type collaboration_trained_model_export_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_trained_model_versions_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "trainedModels" => list(trained_model_summary())
       }
 
   """
-  @type list_trained_model_versions_response() :: %{String.t() | Atom.t() => any()}
+  @type list_trained_model_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       status_details() :: %{
-        "message" => [String.t() | Atom.t()],
-        "statusCode" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()],
+        "statusCode" => [String.t() | atom()]
       }
 
   """
-  @type status_details() :: %{String.t() | Atom.t() => any()}
+  @type status_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_audience_export_job_request() :: %{
-        optional("description") => String.t() | Atom.t(),
-        required("audienceGenerationJobArn") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
+        required("audienceGenerationJobArn") => String.t() | atom(),
         required("audienceSize") => audience_size(),
-        required("name") => String.t() | Atom.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type start_audience_export_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_audience_export_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -779,28 +774,28 @@ defmodule AWS.CleanRoomsML do
 
       list_ml_input_channels_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_ml_input_channels_request() :: %{String.t() | Atom.t() => any()}
+  @type list_ml_input_channels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_configured_model_algorithm_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("inferenceContainerConfig") => inference_container_config(),
-        optional("kmsKeyArn") => String.t() | Atom.t(),
+        optional("kmsKeyArn") => String.t() | atom(),
         optional("tags") => map(),
         optional("trainingContainerConfig") => container_config(),
-        required("name") => String.t() | Atom.t(),
-        required("roleArn") => String.t() | Atom.t()
+        required("name") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type create_configured_model_algorithm_request() :: %{String.t() | Atom.t() => any()}
+  @type create_configured_model_algorithm_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -808,11 +803,11 @@ defmodule AWS.CleanRoomsML do
 
       list_audience_models_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_audience_models_request() :: %{String.t() | Atom.t() => any()}
+  @type list_audience_models_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -820,11 +815,11 @@ defmodule AWS.CleanRoomsML do
 
       list_collaboration_ml_input_channels_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_collaboration_ml_input_channels_request() :: %{String.t() | Atom.t() => any()}
+  @type list_collaboration_ml_input_channels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -836,7 +831,7 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type dataset() :: %{String.t() | Atom.t() => any()}
+  @type dataset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -847,7 +842,7 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type metrics_configuration_policy() :: %{String.t() | Atom.t() => any()}
+  @type metrics_configuration_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -859,56 +854,56 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type audience_size() :: %{String.t() | Atom.t() => any()}
+  @type audience_size() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_audience_generation_job_request() :: %{
-        optional("collaborationId") => String.t() | Atom.t(),
-        optional("description") => String.t() | Atom.t(),
+        optional("collaborationId") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("includeSeedInOutput") => [boolean()],
         optional("tags") => map(),
-        required("configuredAudienceModelArn") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t(),
+        required("configuredAudienceModelArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
         required("seedAudience") => audience_generation_job_data_source()
       }
 
   """
-  @type start_audience_generation_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_audience_generation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       model_training_data_channel() :: %{
-        "channelName" => String.t() | Atom.t(),
-        "mlInputChannelArn" => String.t() | Atom.t(),
+        "channelName" => String.t() | atom(),
+        "mlInputChannelArn" => String.t() | atom(),
         "s3DataDistributionType" => list(any())
       }
 
   """
-  @type model_training_data_channel() :: %{String.t() | Atom.t() => any()}
+  @type model_training_data_channel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       audience_generation_job_summary() :: %{
-        "audienceGenerationJobArn" => String.t() | Atom.t(),
-        "collaborationId" => String.t() | Atom.t(),
-        "configuredAudienceModelArn" => String.t() | Atom.t(),
+        "audienceGenerationJobArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "configuredAudienceModelArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "startedBy" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "startedBy" => String.t() | atom(),
         "status" => list(any()),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type audience_generation_job_summary() :: %{String.t() | Atom.t() => any()}
+  @type audience_generation_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -920,43 +915,43 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type trained_model_inference_jobs_configuration_policy() :: %{String.t() | Atom.t() => any()}
+  @type trained_model_inference_jobs_configuration_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       container_config() :: %{
-        "arguments" => list(String.t() | Atom.t()),
-        "entrypoint" => list(String.t() | Atom.t()),
-        "imageUri" => String.t() | Atom.t(),
+        "arguments" => list(String.t() | atom()),
+        "entrypoint" => list(String.t() | atom()),
+        "imageUri" => String.t() | atom(),
         "metricDefinitions" => list(metric_definition())
       }
 
   """
-  @type container_config() :: %{String.t() | Atom.t() => any()}
+  @type container_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -972,12 +967,12 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       list_trained_model_inference_jobs_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "trainedModelInferenceJobs" => list(trained_model_inference_job_summary())
       }
 
   """
-  @type list_trained_model_inference_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_trained_model_inference_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -985,11 +980,11 @@ defmodule AWS.CleanRoomsML do
 
       configured_audience_model_output_config() :: %{
         "destination" => audience_destination(),
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type configured_audience_model_output_config() :: %{String.t() | Atom.t() => any()}
+  @type configured_audience_model_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1005,28 +1000,28 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       configured_model_algorithm_summary() :: %{
-        "configuredModelAlgorithmArn" => String.t() | Atom.t(),
+        "configuredModelAlgorithmArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type configured_model_algorithm_summary() :: %{String.t() | Atom.t() => any()}
+  @type configured_model_algorithm_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       incremental_training_data_channel() :: %{
-        "channelName" => String.t() | Atom.t(),
-        "trainedModelArn" => String.t() | Atom.t(),
-        "versionIdentifier" => String.t() | Atom.t()
+        "channelName" => String.t() | atom(),
+        "trainedModelArn" => String.t() | atom(),
+        "versionIdentifier" => String.t() | atom()
       }
 
   """
-  @type incremental_training_data_channel() :: %{String.t() | Atom.t() => any()}
+  @type incremental_training_data_channel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1038,18 +1033,18 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type trained_model_inference_max_output_size() :: %{String.t() | Atom.t() => any()}
+  @type trained_model_inference_max_output_size() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_collaboration_trained_model_request() :: %{
-        optional("versionIdentifier") => String.t() | Atom.t()
+        optional("versionIdentifier") => String.t() | atom()
       }
 
   """
-  @type get_collaboration_trained_model_request() :: %{String.t() | Atom.t() => any()}
+  @type get_collaboration_trained_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1061,34 +1056,34 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type inference_resource_config() :: %{String.t() | Atom.t() => any()}
+  @type inference_resource_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | Atom.t()],
-        "quotaName" => [String.t() | Atom.t()],
+        "message" => [String.t() | atom()],
+        "quotaName" => [String.t() | atom()],
         "quotaValue" => [float()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_configured_audience_model_response() :: %{
-        "audienceModelArn" => String.t() | Atom.t(),
+        "audienceModelArn" => String.t() | atom(),
         "audienceSizeConfig" => audience_size_config(),
         "childResourceTagOnCreatePolicy" => list(any()),
-        "configuredAudienceModelArn" => String.t() | Atom.t(),
+        "configuredAudienceModelArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "minMatchingSeedSize" => integer(),
-        "name" => String.t() | Atom.t(),
+        "name" => String.t() | atom(),
         "outputConfig" => configured_audience_model_output_config(),
         "sharedAudienceMetrics" => list(list(any())()),
         "status" => list(any()),
@@ -1097,24 +1092,24 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type get_configured_audience_model_response() :: %{String.t() | Atom.t() => any()}
+  @type get_configured_audience_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       audience_model_summary() :: %{
-        "audienceModelArn" => String.t() | Atom.t(),
+        "audienceModelArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
-        "trainingDatasetArn" => String.t() | Atom.t(),
+        "trainingDatasetArn" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type audience_model_summary() :: %{String.t() | Atom.t() => any()}
+  @type audience_model_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1122,11 +1117,11 @@ defmodule AWS.CleanRoomsML do
 
       ml_output_configuration() :: %{
         "destination" => destination(),
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type ml_output_configuration() :: %{String.t() | Atom.t() => any()}
+  @type ml_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1144,12 +1139,12 @@ defmodule AWS.CleanRoomsML do
       get_ml_configuration_response() :: %{
         "createTime" => [non_neg_integer()],
         "defaultOutputLocation" => ml_output_configuration(),
-        "membershipIdentifier" => String.t() | Atom.t(),
+        "membershipIdentifier" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type get_ml_configuration_response() :: %{String.t() | Atom.t() => any()}
+  @type get_ml_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1160,7 +1155,7 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type stopping_condition() :: %{String.t() | Atom.t() => any()}
+  @type stopping_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1168,13 +1163,12 @@ defmodule AWS.CleanRoomsML do
 
       list_collaboration_trained_model_export_jobs_response() :: %{
         "collaborationTrainedModelExportJobs" => list(collaboration_trained_model_export_job_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
   @type list_collaboration_trained_model_export_jobs_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1182,56 +1176,56 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       create_trained_model_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("environment") => map(),
         optional("hyperparameters") => map(),
         optional("incrementalTrainingDataChannels") => list(incremental_training_data_channel()),
-        optional("kmsKeyArn") => String.t() | Atom.t(),
+        optional("kmsKeyArn") => String.t() | atom(),
         optional("stoppingCondition") => stopping_condition(),
         optional("tags") => map(),
         optional("trainingInputMode") => list(any()),
-        required("configuredModelAlgorithmAssociationArn") => String.t() | Atom.t(),
+        required("configuredModelAlgorithmAssociationArn") => String.t() | atom(),
         required("dataChannels") => list(model_training_data_channel()),
-        required("name") => String.t() | Atom.t(),
+        required("name") => String.t() | atom(),
         required("resourceConfig") => resource_config()
       }
 
   """
-  @type create_trained_model_request() :: %{String.t() | Atom.t() => any()}
+  @type create_trained_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_training_datasets_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "trainingDatasets" => list(training_dataset_summary())
       }
 
   """
-  @type list_training_datasets_response() :: %{String.t() | Atom.t() => any()}
+  @type list_training_datasets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       collaboration_trained_model_summary() :: %{
-        "collaborationIdentifier" => String.t() | Atom.t(),
-        "configuredModelAlgorithmAssociationArn" => String.t() | Atom.t(),
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()),
-        "membershipIdentifier" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "membershipIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
-        "trainedModelArn" => String.t() | Atom.t(),
+        "trainedModelArn" => String.t() | atom(),
         "updateTime" => [non_neg_integer()],
-        "versionIdentifier" => String.t() | Atom.t()
+        "versionIdentifier" => String.t() | atom()
       }
 
   """
-  @type collaboration_trained_model_summary() :: %{String.t() | Atom.t() => any()}
+  @type collaboration_trained_model_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1242,18 +1236,18 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       inference_container_config() :: %{
-        "imageUri" => String.t() | Atom.t()
+        "imageUri" => String.t() | atom()
       }
 
   """
-  @type inference_container_config() :: %{String.t() | Atom.t() => any()}
+  @type inference_container_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1261,48 +1255,48 @@ defmodule AWS.CleanRoomsML do
 
       list_configured_model_algorithms_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_configured_model_algorithms_request() :: %{String.t() | Atom.t() => any()}
+  @type list_configured_model_algorithms_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       configured_model_algorithm_association_summary() :: %{
-        "collaborationIdentifier" => String.t() | Atom.t(),
-        "configuredModelAlgorithmArn" => String.t() | Atom.t(),
-        "configuredModelAlgorithmAssociationArn" => String.t() | Atom.t(),
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmArn" => String.t() | atom(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
-        "membershipIdentifier" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "membershipIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type configured_model_algorithm_association_summary() :: %{String.t() | Atom.t() => any()}
+  @type configured_model_algorithm_association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       audience_export_job_summary() :: %{
-        "audienceGenerationJobArn" => String.t() | Atom.t(),
+        "audienceGenerationJobArn" => String.t() | atom(),
         "audienceSize" => audience_size(),
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "outputLocation" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "outputLocation" => String.t() | atom(),
         "status" => list(any()),
         "statusDetails" => status_details(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type audience_export_job_summary() :: %{String.t() | Atom.t() => any()}
+  @type audience_export_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1323,7 +1317,7 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type trained_model_exports_configuration_policy() :: %{String.t() | Atom.t() => any()}
+  @type trained_model_exports_configuration_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1331,13 +1325,12 @@ defmodule AWS.CleanRoomsML do
 
       list_configured_model_algorithm_associations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
   @type list_configured_model_algorithm_associations_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1345,28 +1338,28 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       create_training_dataset_response() :: %{
-        "trainingDatasetArn" => String.t() | Atom.t()
+        "trainingDatasetArn" => String.t() | atom()
       }
 
   """
-  @type create_training_dataset_response() :: %{String.t() | Atom.t() => any()}
+  @type create_training_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_audience_model_request() :: %{
-        optional("description") => String.t() | Atom.t(),
-        optional("kmsKeyArn") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
         optional("tags") => map(),
         optional("trainingDataEndTime") => [non_neg_integer()],
         optional("trainingDataStartTime") => [non_neg_integer()],
-        required("name") => String.t() | Atom.t(),
-        required("trainingDatasetArn") => String.t() | Atom.t()
+        required("name") => String.t() | atom(),
+        required("trainingDatasetArn") => String.t() | atom()
       }
 
   """
-  @type create_audience_model_request() :: %{String.t() | Atom.t() => any()}
+  @type create_audience_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1377,29 +1370,29 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type privacy_configuration() :: %{String.t() | Atom.t() => any()}
+  @type privacy_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_trained_model_inference_job_request() :: %{
-        optional("configuredModelAlgorithmAssociationArn") => String.t() | Atom.t(),
+        optional("configuredModelAlgorithmAssociationArn") => String.t() | atom(),
         optional("containerExecutionParameters") => inference_container_execution_parameters(),
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("environment") => map(),
-        optional("kmsKeyArn") => String.t() | Atom.t(),
+        optional("kmsKeyArn") => String.t() | atom(),
         optional("tags") => map(),
-        optional("trainedModelVersionIdentifier") => String.t() | Atom.t(),
+        optional("trainedModelVersionIdentifier") => String.t() | atom(),
         required("dataSource") => model_inference_data_source(),
-        required("name") => String.t() | Atom.t(),
+        required("name") => String.t() | atom(),
         required("outputConfiguration") => inference_output_configuration(),
         required("resourceConfig") => inference_resource_config(),
-        required("trainedModelArn") => String.t() | Atom.t()
+        required("trainedModelArn") => String.t() | atom()
       }
 
   """
-  @type start_trained_model_inference_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_trained_model_inference_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1411,39 +1404,38 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type trained_model_artifact_max_size() :: %{String.t() | Atom.t() => any()}
+  @type trained_model_artifact_max_size() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       inference_receiver_member() :: %{
-        "accountId" => String.t() | Atom.t()
+        "accountId" => String.t() | atom()
       }
 
   """
-  @type inference_receiver_member() :: %{String.t() | Atom.t() => any()}
+  @type inference_receiver_member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       collaboration_configured_model_algorithm_association_summary() :: %{
-        "collaborationIdentifier" => String.t() | Atom.t(),
-        "configuredModelAlgorithmArn" => String.t() | Atom.t(),
-        "configuredModelAlgorithmAssociationArn" => String.t() | Atom.t(),
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmArn" => String.t() | atom(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "membershipIdentifier" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "membershipIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
   @type collaboration_configured_model_algorithm_association_summary() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1451,11 +1443,11 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       create_ml_input_channel_response() :: %{
-        "mlInputChannelArn" => String.t() | Atom.t()
+        "mlInputChannelArn" => String.t() | atom()
       }
 
   """
-  @type create_ml_input_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type create_ml_input_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1472,11 +1464,11 @@ defmodule AWS.CleanRoomsML do
 
       list_configured_audience_models_response() :: %{
         "configuredAudienceModels" => list(configured_audience_model_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_configured_audience_models_response() :: %{String.t() | Atom.t() => any()}
+  @type list_configured_audience_models_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1489,29 +1481,28 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type resource_config() :: %{String.t() | Atom.t() => any()}
+  @type resource_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_collaboration_configured_model_algorithm_association_response() :: %{
-        "collaborationIdentifier" => String.t() | Atom.t(),
-        "configuredModelAlgorithmArn" => String.t() | Atom.t(),
-        "configuredModelAlgorithmAssociationArn" => String.t() | Atom.t(),
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmArn" => String.t() | atom(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "membershipIdentifier" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "membershipIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "privacyConfiguration" => privacy_configuration(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
   @type get_collaboration_configured_model_algorithm_association_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1519,22 +1510,22 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       s3_config_map() :: %{
-        "s3Uri" => String.t() | Atom.t()
+        "s3Uri" => String.t() | atom()
       }
 
   """
-  @type s3_config_map() :: %{String.t() | Atom.t() => any()}
+  @type s3_config_map() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() | Atom.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1542,24 +1533,24 @@ defmodule AWS.CleanRoomsML do
 
       list_audience_export_jobs_response() :: %{
         "audienceExportJobs" => list(audience_export_job_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_audience_export_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_audience_export_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       incremental_training_data_channel_output() :: %{
-        "channelName" => String.t() | Atom.t(),
-        "modelName" => String.t() | Atom.t(),
-        "versionIdentifier" => String.t() | Atom.t()
+        "channelName" => String.t() | atom(),
+        "modelName" => String.t() | atom(),
+        "versionIdentifier" => String.t() | atom()
       }
 
   """
-  @type incremental_training_data_channel_output() :: %{String.t() | Atom.t() => any()}
+  @type incremental_training_data_channel_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1575,12 +1566,12 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       list_trained_models_response() :: %{
-        "nextToken" => String.t() | Atom.t(),
+        "nextToken" => String.t() | atom(),
         "trainedModels" => list(trained_model_summary())
       }
 
   """
-  @type list_trained_models_response() :: %{String.t() | Atom.t() => any()}
+  @type list_trained_models_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1596,38 +1587,38 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       logs_configuration_policy() :: %{
-        "allowedAccountIds" => list([String.t() | Atom.t()]()),
-        "filterPattern" => [String.t() | Atom.t()]
+        "allowedAccountIds" => list([String.t() | atom()]()),
+        "filterPattern" => [String.t() | atom()]
       }
 
   """
-  @type logs_configuration_policy() :: %{String.t() | Atom.t() => any()}
+  @type logs_configuration_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_trained_model_response() :: %{
-        "trainedModelArn" => String.t() | Atom.t(),
-        "versionIdentifier" => String.t() | Atom.t()
+        "trainedModelArn" => String.t() | atom(),
+        "versionIdentifier" => String.t() | atom()
       }
 
   """
-  @type create_trained_model_response() :: %{String.t() | Atom.t() => any()}
+  @type create_trained_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_trained_model_export_job_request() :: %{
-        optional("description") => String.t() | Atom.t(),
-        optional("trainedModelVersionIdentifier") => String.t() | Atom.t(),
-        required("name") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
+        optional("trainedModelVersionIdentifier") => String.t() | atom(),
+        required("name") => String.t() | atom(),
         required("outputConfiguration") => trained_model_export_output_configuration()
       }
 
   """
-  @type start_trained_model_export_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_trained_model_export_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1639,7 +1630,7 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type worker_compute_configuration() :: %{String.t() | Atom.t() => any()}
+  @type worker_compute_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1656,11 +1647,11 @@ defmodule AWS.CleanRoomsML do
 
       input_channel() :: %{
         "dataSource" => list(),
-        "roleArn" => String.t() | Atom.t()
+        "roleArn" => String.t() | atom()
       }
 
   """
-  @type input_channel() :: %{String.t() | Atom.t() => any()}
+  @type input_channel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1676,11 +1667,11 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       cancel_trained_model_request() :: %{
-        optional("versionIdentifier") => String.t() | Atom.t()
+        optional("versionIdentifier") => String.t() | atom()
       }
 
   """
-  @type cancel_trained_model_request() :: %{String.t() | Atom.t() => any()}
+  @type cancel_trained_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1688,12 +1679,12 @@ defmodule AWS.CleanRoomsML do
 
       list_trained_model_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("status") => list(any())
       }
 
   """
-  @type list_trained_model_versions_request() :: %{String.t() | Atom.t() => any()}
+  @type list_trained_model_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1701,22 +1692,22 @@ defmodule AWS.CleanRoomsML do
 
       list_collaboration_trained_models_response() :: %{
         "collaborationTrainedModels" => list(collaboration_trained_model_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_collaboration_trained_models_response() :: %{String.t() | Atom.t() => any()}
+  @type list_collaboration_trained_models_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() | Atom.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1732,18 +1723,18 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       configured_audience_model_summary() :: %{
-        "audienceModelArn" => String.t() | Atom.t(),
-        "configuredAudienceModelArn" => String.t() | Atom.t(),
+        "audienceModelArn" => String.t() | atom(),
+        "configuredAudienceModelArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "outputConfig" => configured_audience_model_output_config(),
         "status" => list(any()),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type configured_audience_model_summary() :: %{String.t() | Atom.t() => any()}
+  @type configured_audience_model_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1751,11 +1742,11 @@ defmodule AWS.CleanRoomsML do
 
       list_collaboration_trained_models_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_collaboration_trained_models_request() :: %{String.t() | Atom.t() => any()}
+  @type list_collaboration_trained_models_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1766,20 +1757,20 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type destination() :: %{String.t() | Atom.t() => any()}
+  @type destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_configured_audience_model_policy_response() :: %{
-        "configuredAudienceModelArn" => String.t() | Atom.t(),
-        "configuredAudienceModelPolicy" => String.t() | Atom.t(),
-        "policyHash" => String.t() | Atom.t()
+        "configuredAudienceModelArn" => String.t() | atom(),
+        "configuredAudienceModelPolicy" => String.t() | atom(),
+        "policyHash" => String.t() | atom()
       }
 
   """
-  @type get_configured_audience_model_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type get_configured_audience_model_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1787,11 +1778,11 @@ defmodule AWS.CleanRoomsML do
 
       list_collaboration_ml_input_channels_response() :: %{
         "collaborationMLInputChannelsList" => list(collaboration_ml_input_channel_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_collaboration_ml_input_channels_response() :: %{String.t() | Atom.t() => any()}
+  @type list_collaboration_ml_input_channels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1804,71 +1795,71 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type privacy_configuration_policies() :: %{String.t() | Atom.t() => any()}
+  @type privacy_configuration_policies() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t() | Atom.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() | Atom.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       glue_data_source() :: %{
-        "catalogId" => String.t() | Atom.t(),
-        "databaseName" => String.t() | Atom.t(),
-        "tableName" => String.t() | Atom.t()
+        "catalogId" => String.t() | atom(),
+        "databaseName" => String.t() | atom(),
+        "tableName" => String.t() | atom()
       }
 
   """
-  @type glue_data_source() :: %{String.t() | Atom.t() => any()}
+  @type glue_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       protected_query_s_q_l_parameters() :: %{
-        "analysisTemplateArn" => String.t() | Atom.t(),
+        "analysisTemplateArn" => String.t() | atom(),
         "parameters" => map(),
-        "queryString" => [String.t() | Atom.t()]
+        "queryString" => [String.t() | atom()]
       }
 
   """
-  @type protected_query_s_q_l_parameters() :: %{String.t() | Atom.t() => any()}
+  @type protected_query_s_q_l_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       collaboration_trained_model_inference_job_summary() :: %{
-        "collaborationIdentifier" => String.t() | Atom.t(),
-        "configuredModelAlgorithmAssociationArn" => String.t() | Atom.t(),
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "logsStatus" => list(any()),
-        "logsStatusDetails" => [String.t() | Atom.t()],
-        "membershipIdentifier" => String.t() | Atom.t(),
+        "logsStatusDetails" => [String.t() | atom()],
+        "membershipIdentifier" => String.t() | atom(),
         "metricsStatus" => list(any()),
-        "metricsStatusDetails" => [String.t() | Atom.t()],
-        "name" => String.t() | Atom.t(),
+        "metricsStatusDetails" => [String.t() | atom()],
+        "name" => String.t() | atom(),
         "outputConfiguration" => inference_output_configuration(),
         "status" => list(any()),
-        "trainedModelArn" => String.t() | Atom.t(),
-        "trainedModelInferenceJobArn" => String.t() | Atom.t(),
-        "trainedModelVersionIdentifier" => String.t() | Atom.t(),
+        "trainedModelArn" => String.t() | atom(),
+        "trainedModelInferenceJobArn" => String.t() | atom(),
+        "trainedModelVersionIdentifier" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type collaboration_trained_model_inference_job_summary() :: %{String.t() | Atom.t() => any()}
+  @type collaboration_trained_model_inference_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1884,26 +1875,26 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       put_configured_audience_model_policy_response() :: %{
-        "configuredAudienceModelPolicy" => String.t() | Atom.t(),
-        "policyHash" => String.t() | Atom.t()
+        "configuredAudienceModelPolicy" => String.t() | atom(),
+        "policyHash" => String.t() | atom()
       }
 
   """
-  @type put_configured_audience_model_policy_response() :: %{String.t() | Atom.t() => any()}
+  @type put_configured_audience_model_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_collaboration_ml_input_channel_response() :: %{
-        "collaborationIdentifier" => String.t() | Atom.t(),
-        "configuredModelAlgorithmAssociations" => list(String.t() | Atom.t()),
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmAssociations" => list(String.t() | atom()),
         "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | Atom.t(),
-        "description" => String.t() | Atom.t(),
-        "membershipIdentifier" => String.t() | Atom.t(),
-        "mlInputChannelArn" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "membershipIdentifier" => String.t() | atom(),
+        "mlInputChannelArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "numberOfRecords" => [float()],
         "retentionInDays" => [integer()],
         "status" => list(any()),
@@ -1912,7 +1903,7 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type get_collaboration_ml_input_channel_response() :: %{String.t() | Atom.t() => any()}
+  @type get_collaboration_ml_input_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1928,26 +1919,26 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       model_inference_data_source() :: %{
-        "mlInputChannelArn" => String.t() | Atom.t()
+        "mlInputChannelArn" => String.t() | atom()
       }
 
   """
-  @type model_inference_data_source() :: %{String.t() | Atom.t() => any()}
+  @type model_inference_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_training_dataset_request() :: %{
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("tags") => map(),
-        required("name") => String.t() | Atom.t(),
-        required("roleArn") => String.t() | Atom.t(),
+        required("name") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
         required("trainingData") => list(dataset())
       }
 
   """
-  @type create_training_dataset_request() :: %{String.t() | Atom.t() => any()}
+  @type create_training_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1964,27 +1955,27 @@ defmodule AWS.CleanRoomsML do
 
       training_dataset_summary() :: %{
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
-        "trainingDatasetArn" => String.t() | Atom.t(),
+        "trainingDatasetArn" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type training_dataset_summary() :: %{String.t() | Atom.t() => any()}
+  @type training_dataset_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       column_schema() :: %{
-        "columnName" => String.t() | Atom.t(),
+        "columnName" => String.t() | atom(),
         "columnTypes" => list(list(any())())
       }
 
   """
-  @type column_schema() :: %{String.t() | Atom.t() => any()}
+  @type column_schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1992,13 +1983,12 @@ defmodule AWS.CleanRoomsML do
 
       list_collaboration_trained_model_inference_jobs_response() :: %{
         "collaborationTrainedModelInferenceJobs" => list(collaboration_trained_model_inference_job_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
   @type list_collaboration_trained_model_inference_jobs_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2006,22 +1996,22 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       get_audience_model_response() :: %{
-        "audienceModelArn" => String.t() | Atom.t(),
+        "audienceModelArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
-        "kmsKeyArn" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
         "statusDetails" => status_details(),
         "tags" => map(),
         "trainingDataEndTime" => [non_neg_integer()],
         "trainingDataStartTime" => [non_neg_integer()],
-        "trainingDatasetArn" => String.t() | Atom.t(),
+        "trainingDatasetArn" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type get_audience_model_response() :: %{String.t() | Atom.t() => any()}
+  @type get_audience_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2042,18 +2032,18 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type dataset_input_config() :: %{String.t() | Atom.t() => any()}
+  @type dataset_input_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_configured_model_algorithm_response() :: %{
-        "configuredModelAlgorithmArn" => String.t() | Atom.t()
+        "configuredModelAlgorithmArn" => String.t() | atom()
       }
 
   """
-  @type create_configured_model_algorithm_response() :: %{String.t() | Atom.t() => any()}
+  @type create_configured_model_algorithm_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2061,12 +2051,12 @@ defmodule AWS.CleanRoomsML do
 
       put_configured_audience_model_policy_request() :: %{
         optional("policyExistenceCondition") => list(any()),
-        optional("previousPolicyHash") => String.t() | Atom.t(),
-        required("configuredAudienceModelPolicy") => String.t() | Atom.t()
+        optional("previousPolicyHash") => String.t() | atom(),
+        required("configuredAudienceModelPolicy") => String.t() | atom()
       }
 
   """
-  @type put_configured_audience_model_policy_request() :: %{String.t() | Atom.t() => any()}
+  @type put_configured_audience_model_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2077,7 +2067,7 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type data_source() :: %{String.t() | Atom.t() => any()}
+  @type data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2089,7 +2079,7 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type audience_size_config() :: %{String.t() | Atom.t() => any()}
+  @type audience_size_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2100,40 +2090,40 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type audience_destination() :: %{String.t() | Atom.t() => any()}
+  @type audience_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_trained_model_inference_job_response() :: %{
-        "configuredModelAlgorithmAssociationArn" => String.t() | Atom.t(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
         "containerExecutionParameters" => inference_container_execution_parameters(),
         "createTime" => [non_neg_integer()],
         "dataSource" => model_inference_data_source(),
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "environment" => map(),
-        "inferenceContainerImageDigest" => [String.t() | Atom.t()],
-        "kmsKeyArn" => String.t() | Atom.t(),
+        "inferenceContainerImageDigest" => [String.t() | atom()],
+        "kmsKeyArn" => String.t() | atom(),
         "logsStatus" => list(any()),
-        "logsStatusDetails" => [String.t() | Atom.t()],
-        "membershipIdentifier" => String.t() | Atom.t(),
+        "logsStatusDetails" => [String.t() | atom()],
+        "membershipIdentifier" => String.t() | atom(),
         "metricsStatus" => list(any()),
-        "metricsStatusDetails" => [String.t() | Atom.t()],
-        "name" => String.t() | Atom.t(),
+        "metricsStatusDetails" => [String.t() | atom()],
+        "name" => String.t() | atom(),
         "outputConfiguration" => inference_output_configuration(),
         "resourceConfig" => inference_resource_config(),
         "status" => list(any()),
         "statusDetails" => status_details(),
         "tags" => map(),
-        "trainedModelArn" => String.t() | Atom.t(),
-        "trainedModelInferenceJobArn" => String.t() | Atom.t(),
-        "trainedModelVersionIdentifier" => String.t() | Atom.t(),
+        "trainedModelArn" => String.t() | atom(),
+        "trainedModelInferenceJobArn" => String.t() | atom(),
+        "trainedModelVersionIdentifier" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type get_trained_model_inference_job_response() :: %{String.t() | Atom.t() => any()}
+  @type get_trained_model_inference_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2144,7 +2134,7 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type inference_container_execution_parameters() :: %{String.t() | Atom.t() => any()}
+  @type inference_container_execution_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2152,27 +2142,27 @@ defmodule AWS.CleanRoomsML do
 
       audience_generation_job_data_source() :: %{
         "dataSource" => s3_config_map(),
-        "roleArn" => String.t() | Atom.t(),
+        "roleArn" => String.t() | atom(),
         "sqlComputeConfiguration" => list(),
         "sqlParameters" => protected_query_s_q_l_parameters()
       }
 
   """
-  @type audience_generation_job_data_source() :: %{String.t() | Atom.t() => any()}
+  @type audience_generation_job_data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_audience_generation_jobs_request() :: %{
-        optional("collaborationId") => String.t() | Atom.t(),
-        optional("configuredAudienceModelArn") => String.t() | Atom.t(),
+        optional("collaborationId") => String.t() | atom(),
+        optional("configuredAudienceModelArn") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_audience_generation_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_audience_generation_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2180,13 +2170,12 @@ defmodule AWS.CleanRoomsML do
 
       list_collaboration_configured_model_algorithm_associations_response() :: %{
         "collaborationConfiguredModelAlgorithmAssociations" => list(collaboration_configured_model_algorithm_association_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
   @type list_collaboration_configured_model_algorithm_associations_response() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -2194,20 +2183,20 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       get_configured_model_algorithm_response() :: %{
-        "configuredModelAlgorithmArn" => String.t() | Atom.t(),
+        "configuredModelAlgorithmArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | Atom.t(),
+        "description" => String.t() | atom(),
         "inferenceContainerConfig" => inference_container_config(),
-        "kmsKeyArn" => String.t() | Atom.t(),
-        "name" => String.t() | Atom.t(),
-        "roleArn" => String.t() | Atom.t(),
+        "kmsKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
         "tags" => map(),
         "trainingContainerConfig" => container_config(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type get_configured_model_algorithm_response() :: %{String.t() | Atom.t() => any()}
+  @type get_configured_model_algorithm_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2218,7 +2207,7 @@ defmodule AWS.CleanRoomsML do
       }
 
   """
-  @type trained_model_export_output_configuration() :: %{String.t() | Atom.t() => any()}
+  @type trained_model_export_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2226,11 +2215,11 @@ defmodule AWS.CleanRoomsML do
 
       list_audience_generation_jobs_response() :: %{
         "audienceGenerationJobs" => list(audience_generation_job_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_audience_generation_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_audience_generation_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2238,24 +2227,24 @@ defmodule AWS.CleanRoomsML do
 
       list_audience_models_response() :: %{
         "audienceModels" => list(audience_model_summary()),
-        "nextToken" => String.t() | Atom.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_audience_models_response() :: %{String.t() | Atom.t() => any()}
+  @type list_audience_models_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_audience_export_jobs_request() :: %{
-        optional("audienceGenerationJobArn") => String.t() | Atom.t(),
+        optional("audienceGenerationJobArn") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_audience_export_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_audience_export_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2281,11 +2270,11 @@ defmodule AWS.CleanRoomsML do
 
       list_trained_models_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_trained_models_request() :: %{String.t() | Atom.t() => any()}
+  @type list_trained_models_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2301,27 +2290,27 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       update_configured_audience_model_request() :: %{
-        optional("audienceModelArn") => String.t() | Atom.t(),
+        optional("audienceModelArn") => String.t() | atom(),
         optional("audienceSizeConfig") => audience_size_config(),
-        optional("description") => String.t() | Atom.t(),
+        optional("description") => String.t() | atom(),
         optional("minMatchingSeedSize") => integer(),
         optional("outputConfig") => configured_audience_model_output_config(),
         optional("sharedAudienceMetrics") => list(list(any())())
       }
 
   """
-  @type update_configured_audience_model_request() :: %{String.t() | Atom.t() => any()}
+  @type update_configured_audience_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_trained_model_output_request() :: %{
-        optional("versionIdentifier") => String.t() | Atom.t()
+        optional("versionIdentifier") => String.t() | atom()
       }
 
   """
-  @type delete_trained_model_output_request() :: %{String.t() | Atom.t() => any()}
+  @type delete_trained_model_output_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2338,15 +2327,14 @@ defmodule AWS.CleanRoomsML do
 
       list_collaboration_trained_model_inference_jobs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | Atom.t(),
-        optional("trainedModelArn") => String.t() | Atom.t(),
-        optional("trainedModelVersionIdentifier") => String.t() | Atom.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("trainedModelArn") => String.t() | atom(),
+        optional("trainedModelVersionIdentifier") => String.t() | atom()
       }
 
   """
   @type list_collaboration_trained_model_inference_jobs_request() :: %{
-          String.t()
-          | Atom.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @type cancel_trained_model_errors() ::
@@ -2657,8 +2645,8 @@ defmodule AWS.CleanRoomsML do
   """
   @spec cancel_trained_model(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           cancel_trained_model_request(),
           list()
         ) ::
@@ -2705,8 +2693,8 @@ defmodule AWS.CleanRoomsML do
   """
   @spec cancel_trained_model_inference_job(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           cancel_trained_model_inference_job_request(),
           list()
         ) ::
@@ -2850,7 +2838,7 @@ defmodule AWS.CleanRoomsML do
   """
   @spec create_configured_model_algorithm_association(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_configured_model_algorithm_association_request(),
           list()
         ) ::
@@ -2893,7 +2881,7 @@ defmodule AWS.CleanRoomsML do
   """
   @spec create_ml_input_channel(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           create_ml_input_channel_request(),
           list()
         ) ::
@@ -2926,7 +2914,7 @@ defmodule AWS.CleanRoomsML do
   Creates a trained model from an associated configured model algorithm using data
   from any member of the collaboration.
   """
-  @spec create_trained_model(map(), String.t() | Atom.t(), create_trained_model_request(), list()) ::
+  @spec create_trained_model(map(), String.t() | atom(), create_trained_model_request(), list()) ::
           {:ok, create_trained_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2990,7 +2978,7 @@ defmodule AWS.CleanRoomsML do
   """
   @spec delete_audience_generation_job(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_audience_generation_job_request(),
           list()
         ) ::
@@ -3030,12 +3018,7 @@ defmodule AWS.CleanRoomsML do
   You can't delete an audience model if there are any configured audience models
   that depend on the audience model.
   """
-  @spec delete_audience_model(
-          map(),
-          String.t() | Atom.t(),
-          delete_audience_model_request(),
-          list()
-        ) ::
+  @spec delete_audience_model(map(), String.t() | atom(), delete_audience_model_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3070,7 +3053,7 @@ defmodule AWS.CleanRoomsML do
   """
   @spec delete_configured_audience_model(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_configured_audience_model_request(),
           list()
         ) ::
@@ -3109,7 +3092,7 @@ defmodule AWS.CleanRoomsML do
   """
   @spec delete_configured_audience_model_policy(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_configured_audience_model_policy_request(),
           list()
         ) ::
@@ -3150,7 +3133,7 @@ defmodule AWS.CleanRoomsML do
   """
   @spec delete_configured_model_algorithm(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_configured_model_algorithm_request(),
           list()
         ) ::
@@ -3191,8 +3174,8 @@ defmodule AWS.CleanRoomsML do
   """
   @spec delete_configured_model_algorithm_association(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_configured_model_algorithm_association_request(),
           list()
         ) ::
@@ -3234,7 +3217,7 @@ defmodule AWS.CleanRoomsML do
   """
   @spec delete_ml_configuration(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_ml_configuration_request(),
           list()
         ) ::
@@ -3268,8 +3251,8 @@ defmodule AWS.CleanRoomsML do
   """
   @spec delete_ml_input_channel_data(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_ml_input_channel_data_request(),
           list()
         ) ::
@@ -3311,8 +3294,8 @@ defmodule AWS.CleanRoomsML do
   """
   @spec delete_trained_model_output(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_trained_model_output_request(),
           list()
         ) ::
@@ -3364,7 +3347,7 @@ defmodule AWS.CleanRoomsML do
   """
   @spec delete_training_dataset(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           delete_training_dataset_request(),
           list()
         ) ::
@@ -3396,7 +3379,7 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns information about an audience generation job.
   """
-  @spec get_audience_generation_job(map(), String.t() | Atom.t(), list()) ::
+  @spec get_audience_generation_job(map(), String.t() | atom(), list()) ::
           {:ok, get_audience_generation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3414,7 +3397,7 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns information about an audience model
   """
-  @spec get_audience_model(map(), String.t() | Atom.t(), list()) ::
+  @spec get_audience_model(map(), String.t() | atom(), list()) ::
           {:ok, get_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3435,8 +3418,8 @@ defmodule AWS.CleanRoomsML do
   """
   @spec get_collaboration_configured_model_algorithm_association(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_collaboration_configured_model_algorithm_association_response(), any()}
@@ -3465,8 +3448,8 @@ defmodule AWS.CleanRoomsML do
   """
   @spec get_collaboration_ml_input_channel(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_collaboration_ml_input_channel_response(), any()}
@@ -3495,9 +3478,9 @@ defmodule AWS.CleanRoomsML do
   """
   @spec get_collaboration_trained_model(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_collaboration_trained_model_response(), any()}
@@ -3532,7 +3515,7 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns information about a specified configured audience model.
   """
-  @spec get_configured_audience_model(map(), String.t() | Atom.t(), list()) ::
+  @spec get_configured_audience_model(map(), String.t() | atom(), list()) ::
           {:ok, get_configured_audience_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3554,7 +3537,7 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns information about a configured audience model policy.
   """
-  @spec get_configured_audience_model_policy(map(), String.t() | Atom.t(), list()) ::
+  @spec get_configured_audience_model_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_configured_audience_model_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3578,7 +3561,7 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns information about a configured model algorithm.
   """
-  @spec get_configured_model_algorithm(map(), String.t() | Atom.t(), list()) ::
+  @spec get_configured_model_algorithm(map(), String.t() | atom(), list()) ::
           {:ok, get_configured_model_algorithm_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3604,8 +3587,8 @@ defmodule AWS.CleanRoomsML do
   """
   @spec get_configured_model_algorithm_association(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_configured_model_algorithm_association_response(), any()}
@@ -3632,7 +3615,7 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns information about a specific ML configuration.
   """
-  @spec get_ml_configuration(map(), String.t() | Atom.t(), list()) ::
+  @spec get_ml_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_ml_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3650,7 +3633,7 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns information about an ML input channel.
   """
-  @spec get_ml_input_channel(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
+  @spec get_ml_input_channel(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_ml_input_channel_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3677,9 +3660,9 @@ defmodule AWS.CleanRoomsML do
   """
   @spec get_trained_model(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_trained_model_response(), any()}
@@ -3714,12 +3697,7 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns information about a trained model inference job.
   """
-  @spec get_trained_model_inference_job(
-          map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          list()
-        ) ::
+  @spec get_trained_model_inference_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_trained_model_inference_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3744,7 +3722,7 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns information about a training dataset.
   """
-  @spec get_training_dataset(map(), String.t() | Atom.t(), list()) ::
+  @spec get_training_dataset(map(), String.t() | atom(), list()) ::
           {:ok, get_training_dataset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3764,9 +3742,9 @@ defmodule AWS.CleanRoomsML do
   """
   @spec list_audience_export_jobs(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_audience_export_jobs_response(), any()}
@@ -3815,10 +3793,10 @@ defmodule AWS.CleanRoomsML do
   """
   @spec list_audience_generation_jobs(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_audience_generation_jobs_response(), any()}
@@ -3873,12 +3851,7 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns a list of audience models.
   """
-  @spec list_audience_models(
-          map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          list()
-        ) ::
+  @spec list_audience_models(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_audience_models_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3918,9 +3891,9 @@ defmodule AWS.CleanRoomsML do
   """
   @spec list_collaboration_configured_model_algorithm_associations(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_collaboration_configured_model_algorithm_associations_response(), any()}
@@ -3964,9 +3937,9 @@ defmodule AWS.CleanRoomsML do
   """
   @spec list_collaboration_ml_input_channels(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_collaboration_ml_input_channels_response(), any()}
@@ -4010,11 +3983,11 @@ defmodule AWS.CleanRoomsML do
   """
   @spec list_collaboration_trained_model_export_jobs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_collaboration_trained_model_export_jobs_response(), any()}
@@ -4067,11 +4040,11 @@ defmodule AWS.CleanRoomsML do
   """
   @spec list_collaboration_trained_model_inference_jobs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_collaboration_trained_model_inference_jobs_response(), any()}
@@ -4131,9 +4104,9 @@ defmodule AWS.CleanRoomsML do
   """
   @spec list_collaboration_trained_models(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_collaboration_trained_models_response(), any()}
@@ -4175,8 +4148,8 @@ defmodule AWS.CleanRoomsML do
   """
   @spec list_configured_audience_models(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_configured_audience_models_response(), any()}
@@ -4217,9 +4190,9 @@ defmodule AWS.CleanRoomsML do
   """
   @spec list_configured_model_algorithm_associations(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_configured_model_algorithm_associations_response(), any()}
@@ -4263,8 +4236,8 @@ defmodule AWS.CleanRoomsML do
   """
   @spec list_configured_model_algorithms(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_configured_model_algorithms_response(), any()}
@@ -4305,9 +4278,9 @@ defmodule AWS.CleanRoomsML do
   """
   @spec list_ml_input_channels(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_ml_input_channels_response(), any()}
@@ -4347,7 +4320,7 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Returns a list of tags for a provided resource.
   """
-  @spec list_tags_for_resource(map(), String.t() | Atom.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4368,11 +4341,11 @@ defmodule AWS.CleanRoomsML do
   """
   @spec list_trained_model_inference_jobs(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_trained_model_inference_jobs_response(), any()}
@@ -4437,11 +4410,11 @@ defmodule AWS.CleanRoomsML do
   """
   @spec list_trained_model_versions(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_trained_model_versions_response(), any()}
@@ -4494,9 +4467,9 @@ defmodule AWS.CleanRoomsML do
   """
   @spec list_trained_models(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_trained_models_response(), any()}
@@ -4538,8 +4511,8 @@ defmodule AWS.CleanRoomsML do
   """
   @spec list_training_datasets(
           map(),
-          String.t() | Atom.t() | nil,
-          String.t() | Atom.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_training_datasets_response(), any()}
@@ -4580,7 +4553,7 @@ defmodule AWS.CleanRoomsML do
   """
   @spec put_configured_audience_model_policy(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           put_configured_audience_model_policy_request(),
           list()
         ) ::
@@ -4619,7 +4592,7 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Assigns information about an ML configuration.
   """
-  @spec put_ml_configuration(map(), String.t() | Atom.t(), put_ml_configuration_request(), list()) ::
+  @spec put_ml_configuration(map(), String.t() | atom(), put_ml_configuration_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4708,8 +4681,8 @@ defmodule AWS.CleanRoomsML do
   """
   @spec start_trained_model_export_job(
           map(),
-          String.t() | Atom.t(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           start_trained_model_export_job_request(),
           list()
         ) ::
@@ -4751,7 +4724,7 @@ defmodule AWS.CleanRoomsML do
   """
   @spec start_trained_model_inference_job(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           start_trained_model_inference_job_request(),
           list()
         ) ::
@@ -4790,7 +4763,7 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Adds metadata tags to a specified resource.
   """
-  @spec tag_resource(map(), String.t() | Atom.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4819,7 +4792,7 @@ defmodule AWS.CleanRoomsML do
   @doc """
   Removes metadata tags from a specified resource.
   """
-  @spec untag_resource(map(), String.t() | Atom.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4858,7 +4831,7 @@ defmodule AWS.CleanRoomsML do
   """
   @spec update_configured_audience_model(
           map(),
-          String.t() | Atom.t(),
+          String.t() | atom(),
           update_configured_audience_model_request(),
           list()
         ) ::

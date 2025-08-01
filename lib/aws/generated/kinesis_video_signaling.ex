@@ -18,25 +18,25 @@ defmodule AWS.KinesisVideoSignaling do
   ## Example:
 
       client_limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type client_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type client_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_ice_server_config_request() :: %{
-        optional("ClientId") => String.t() | Atom.t(),
+        optional("ClientId") => String.t() | atom(),
         optional("Service") => list(any()),
-        optional("Username") => String.t() | Atom.t(),
-        required("ChannelARN") => String.t() | Atom.t()
+        optional("Username") => String.t() | atom(),
+        required("ChannelARN") => String.t() | atom()
       }
 
   """
-  @type get_ice_server_config_request() :: %{String.t() | Atom.t() => any()}
+  @type get_ice_server_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -47,100 +47,100 @@ defmodule AWS.KinesisVideoSignaling do
       }
 
   """
-  @type get_ice_server_config_response() :: %{String.t() | Atom.t() => any()}
+  @type get_ice_server_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ice_server() :: %{
-        "Password" => String.t() | Atom.t(),
+        "Password" => String.t() | atom(),
         "Ttl" => integer(),
-        "Uris" => list(String.t() | Atom.t()),
-        "Username" => String.t() | Atom.t()
+        "Uris" => list(String.t() | atom()),
+        "Username" => String.t() | atom()
       }
 
   """
-  @type ice_server() :: %{String.t() | Atom.t() => any()}
+  @type ice_server() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_argument_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_argument_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_client_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_client_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_client_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_authorized_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type not_authorized_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_authorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       send_alexa_offer_to_master_request() :: %{
-        required("ChannelARN") => String.t() | Atom.t(),
-        required("MessagePayload") => String.t() | Atom.t(),
-        required("SenderClientId") => String.t() | Atom.t()
+        required("ChannelARN") => String.t() | atom(),
+        required("MessagePayload") => String.t() | atom(),
+        required("SenderClientId") => String.t() | atom()
       }
 
   """
-  @type send_alexa_offer_to_master_request() :: %{String.t() | Atom.t() => any()}
+  @type send_alexa_offer_to_master_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       send_alexa_offer_to_master_response() :: %{
-        "Answer" => String.t() | Atom.t()
+        "Answer" => String.t() | atom()
       }
 
   """
-  @type send_alexa_offer_to_master_response() :: %{String.t() | Atom.t() => any()}
+  @type send_alexa_offer_to_master_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       session_expired_exception() :: %{
-        "message" => String.t() | Atom.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type session_expired_exception() :: %{String.t() | Atom.t() => any()}
+  @type session_expired_exception() :: %{(String.t() | atom()) => any()}
 
   @type get_ice_server_config_errors() ::
           session_expired_exception()

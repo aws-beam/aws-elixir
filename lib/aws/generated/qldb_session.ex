@@ -46,30 +46,30 @@ defmodule AWS.QLDBSession do
       }
       
   """
-  @type abort_transaction_result() :: %{String.t() | Atom.t() => any()}
+  @type abort_transaction_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       bad_request_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       capacity_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type capacity_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type capacity_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -77,11 +77,11 @@ defmodule AWS.QLDBSession do
       
       commit_transaction_request() :: %{
         "CommitDigest" => binary(),
-        "TransactionId" => String.t() | Atom.t()
+        "TransactionId" => String.t() | atom()
       }
       
   """
-  @type commit_transaction_request() :: %{String.t() | Atom.t() => any()}
+  @type commit_transaction_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -91,11 +91,11 @@ defmodule AWS.QLDBSession do
         "CommitDigest" => binary(),
         "ConsumedIOs" => i_o_usage(),
         "TimingInformation" => timing_information(),
-        "TransactionId" => String.t() | Atom.t()
+        "TransactionId" => String.t() | atom()
       }
       
   """
-  @type commit_transaction_result() :: %{String.t() | Atom.t() => any()}
+  @type commit_transaction_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -115,7 +115,7 @@ defmodule AWS.QLDBSession do
       }
       
   """
-  @type end_session_result() :: %{String.t() | Atom.t() => any()}
+  @type end_session_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -123,12 +123,12 @@ defmodule AWS.QLDBSession do
       
       execute_statement_request() :: %{
         "Parameters" => list(value_holder()),
-        "Statement" => String.t() | Atom.t(),
-        "TransactionId" => String.t() | Atom.t()
+        "Statement" => String.t() | atom(),
+        "TransactionId" => String.t() | atom()
       }
       
   """
-  @type execute_statement_request() :: %{String.t() | Atom.t() => any()}
+  @type execute_statement_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -141,19 +141,19 @@ defmodule AWS.QLDBSession do
       }
       
   """
-  @type execute_statement_result() :: %{String.t() | Atom.t() => any()}
+  @type execute_statement_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       fetch_page_request() :: %{
-        "NextPageToken" => String.t() | Atom.t(),
-        "TransactionId" => String.t() | Atom.t()
+        "NextPageToken" => String.t() | atom(),
+        "TransactionId" => String.t() | atom()
       }
       
   """
-  @type fetch_page_request() :: %{String.t() | Atom.t() => any()}
+  @type fetch_page_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -166,7 +166,7 @@ defmodule AWS.QLDBSession do
       }
       
   """
-  @type fetch_page_result() :: %{String.t() | Atom.t() => any()}
+  @type fetch_page_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -178,64 +178,64 @@ defmodule AWS.QLDBSession do
       }
       
   """
-  @type i_o_usage() :: %{String.t() | Atom.t() => any()}
+  @type i_o_usage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_session_exception() :: %{
-        "Code" => String.t() | Atom.t(),
-        "Message" => String.t() | Atom.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_session_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_session_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       occ_conflict_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type occ_conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type occ_conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       page() :: %{
-        "NextPageToken" => String.t() | Atom.t(),
+        "NextPageToken" => String.t() | atom(),
         "Values" => list(value_holder())
       }
       
   """
-  @type page() :: %{String.t() | Atom.t() => any()}
+  @type page() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rate_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type rate_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type rate_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -247,13 +247,13 @@ defmodule AWS.QLDBSession do
         optional("EndSession") => end_session_request(),
         optional("ExecuteStatement") => execute_statement_request(),
         optional("FetchPage") => fetch_page_request(),
-        optional("SessionToken") => String.t() | Atom.t(),
+        optional("SessionToken") => String.t() | atom(),
         optional("StartSession") => start_session_request(),
         optional("StartTransaction") => start_transaction_request()
       }
       
   """
-  @type send_command_request() :: %{String.t() | Atom.t() => any()}
+  @type send_command_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -270,30 +270,30 @@ defmodule AWS.QLDBSession do
       }
       
   """
-  @type send_command_result() :: %{String.t() | Atom.t() => any()}
+  @type send_command_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_session_request() :: %{
-        "LedgerName" => String.t() | Atom.t()
+        "LedgerName" => String.t() | atom()
       }
       
   """
-  @type start_session_request() :: %{String.t() | Atom.t() => any()}
+  @type start_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_session_result() :: %{
-        "SessionToken" => String.t() | Atom.t(),
+        "SessionToken" => String.t() | atom(),
         "TimingInformation" => timing_information()
       }
       
   """
-  @type start_session_result() :: %{String.t() | Atom.t() => any()}
+  @type start_session_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -310,11 +310,11 @@ defmodule AWS.QLDBSession do
       
       start_transaction_result() :: %{
         "TimingInformation" => timing_information(),
-        "TransactionId" => String.t() | Atom.t()
+        "TransactionId" => String.t() | atom()
       }
       
   """
-  @type start_transaction_result() :: %{String.t() | Atom.t() => any()}
+  @type start_transaction_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -325,7 +325,7 @@ defmodule AWS.QLDBSession do
       }
       
   """
-  @type timing_information() :: %{String.t() | Atom.t() => any()}
+  @type timing_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -333,11 +333,11 @@ defmodule AWS.QLDBSession do
       
       value_holder() :: %{
         "IonBinary" => binary(),
-        "IonText" => String.t() | Atom.t()
+        "IonText" => String.t() | atom()
       }
       
   """
-  @type value_holder() :: %{String.t() | Atom.t() => any()}
+  @type value_holder() :: %{(String.t() | atom()) => any()}
 
   @type send_command_errors() ::
           rate_exceeded_exception()

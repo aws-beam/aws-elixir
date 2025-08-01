@@ -40,34 +40,34 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       describe_stack_resource_drifts_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "StackResourceDrifts" => list(stack_resource_drift())
       }
       
   """
-  @type describe_stack_resource_drifts_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_resource_drifts_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stale_request_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type stale_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type stale_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       generated_template_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type generated_template_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type generated_template_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -75,58 +75,58 @@ defmodule AWS.CloudFormation do
       
       register_publisher_input() :: %{
         optional("AcceptTermsAndConditions") => boolean(),
-        optional("ConnectionArn") => String.t() | Atom.t()
+        optional("ConnectionArn") => String.t() | atom()
       }
       
   """
-  @type register_publisher_input() :: %{String.t() | Atom.t() => any()}
+  @type register_publisher_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_stack_resources_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "StackResourceSummaries" => list(stack_resource_summary())
       }
       
   """
-  @type list_stack_resources_output() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_resources_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_stack_policy_input() :: %{
-        optional("StackPolicyBody") => String.t() | Atom.t(),
-        optional("StackPolicyURL") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        optional("StackPolicyBody") => String.t() | atom(),
+        optional("StackPolicyURL") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type set_stack_policy_input() :: %{String.t() | Atom.t() => any()}
+  @type set_stack_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_stack_refactor_output() :: %{
-        "StackRefactorId" => String.t() | Atom.t()
+        "StackRefactorId" => String.t() | atom()
       }
       
   """
-  @type create_stack_refactor_output() :: %{String.t() | Atom.t() => any()}
+  @type create_stack_refactor_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_stack_policy_input() :: %{
-        required("StackName") => String.t() | Atom.t()
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type get_stack_policy_input() :: %{String.t() | Atom.t() => any()}
+  @type get_stack_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -134,35 +134,35 @@ defmodule AWS.CloudFormation do
       
       activate_type_input() :: %{
         optional("AutoUpdate") => boolean(),
-        optional("ExecutionRoleArn") => String.t() | Atom.t(),
+        optional("ExecutionRoleArn") => String.t() | atom(),
         optional("LoggingConfig") => logging_config(),
         optional("MajorVersion") => float(),
-        optional("PublicTypeArn") => String.t() | Atom.t(),
-        optional("PublisherId") => String.t() | Atom.t(),
+        optional("PublicTypeArn") => String.t() | atom(),
+        optional("PublisherId") => String.t() | atom(),
         optional("Type") => list(any()),
-        optional("TypeName") => String.t() | Atom.t(),
-        optional("TypeNameAlias") => String.t() | Atom.t(),
+        optional("TypeName") => String.t() | atom(),
+        optional("TypeNameAlias") => String.t() | atom(),
         optional("VersionBump") => list(any())
       }
       
   """
-  @type activate_type_input() :: %{String.t() | Atom.t() => any()}
+  @type activate_type_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack_refactor_summary() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "ExecutionStatus" => list(any()),
-        "ExecutionStatusReason" => String.t() | Atom.t(),
-        "StackRefactorId" => String.t() | Atom.t(),
+        "ExecutionStatusReason" => String.t() | atom(),
+        "StackRefactorId" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | Atom.t()
+        "StatusReason" => String.t() | atom()
       }
       
   """
-  @type stack_refactor_summary() :: %{String.t() | Atom.t() => any()}
+  @type stack_refactor_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -171,16 +171,16 @@ defmodule AWS.CloudFormation do
       stack_resource_summary() :: %{
         "DriftInformation" => stack_resource_drift_information_summary(),
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "LogicalResourceId" => String.t() | Atom.t(),
+        "LogicalResourceId" => String.t() | atom(),
         "ModuleInfo" => module_info(),
-        "PhysicalResourceId" => String.t() | Atom.t(),
+        "PhysicalResourceId" => String.t() | atom(),
         "ResourceStatus" => list(any()),
-        "ResourceStatusReason" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t()
+        "ResourceStatusReason" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type stack_resource_summary() :: %{String.t() | Atom.t() => any()}
+  @type stack_resource_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -188,28 +188,28 @@ defmodule AWS.CloudFormation do
       
       list_resource_scan_resources_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("ResourceIdentifier") => String.t() | Atom.t(),
-        optional("ResourceTypePrefix") => String.t() | Atom.t(),
-        optional("TagKey") => String.t() | Atom.t(),
-        optional("TagValue") => String.t() | Atom.t(),
-        required("ResourceScanId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceIdentifier") => String.t() | atom(),
+        optional("ResourceTypePrefix") => String.t() | atom(),
+        optional("TagKey") => String.t() | atom(),
+        optional("TagValue") => String.t() | atom(),
+        required("ResourceScanId") => String.t() | atom()
       }
       
   """
-  @type list_resource_scan_resources_input() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_scan_resources_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_update_stack_input() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type cancel_update_stack_input() :: %{String.t() | Atom.t() => any()}
+  @type cancel_update_stack_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -217,44 +217,44 @@ defmodule AWS.CloudFormation do
       
       update_generated_template_input() :: %{
         optional("AddResources") => list(resource_definition()),
-        optional("NewGeneratedTemplateName") => String.t() | Atom.t(),
+        optional("NewGeneratedTemplateName") => String.t() | atom(),
         optional("RefreshAllResources") => boolean(),
-        optional("RemoveResources") => list(String.t() | Atom.t()),
+        optional("RemoveResources") => list(String.t() | atom()),
         optional("TemplateConfiguration") => template_configuration(),
-        required("GeneratedTemplateName") => String.t() | Atom.t()
+        required("GeneratedTemplateName") => String.t() | atom()
       }
       
   """
-  @type update_generated_template_input() :: %{String.t() | Atom.t() => any()}
+  @type update_generated_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rollback_stack_input() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
         optional("RetainExceptOnCreate") => boolean(),
-        optional("RoleARN") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        optional("RoleARN") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type rollback_stack_input() :: %{String.t() | Atom.t() => any()}
+  @type rollback_stack_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       test_type_input() :: %{
-        optional("Arn") => String.t() | Atom.t(),
-        optional("LogDeliveryBucket") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
+        optional("LogDeliveryBucket") => String.t() | atom(),
         optional("Type") => list(any()),
-        optional("TypeName") => String.t() | Atom.t(),
-        optional("VersionId") => String.t() | Atom.t()
+        optional("TypeName") => String.t() | atom(),
+        optional("VersionId") => String.t() | atom()
       }
       
   """
-  @type test_type_input() :: %{String.t() | Atom.t() => any()}
+  @type test_type_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -262,26 +262,26 @@ defmodule AWS.CloudFormation do
       
       describe_stack_set_operation_input() :: %{
         optional("CallAs") => list(any()),
-        required("OperationId") => String.t() | Atom.t(),
-        required("StackSetName") => String.t() | Atom.t()
+        required("OperationId") => String.t() | atom(),
+        required("StackSetName") => String.t() | atom()
       }
       
   """
-  @type describe_stack_set_operation_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_set_operation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       property_difference() :: %{
-        "ActualValue" => String.t() | Atom.t(),
+        "ActualValue" => String.t() | atom(),
         "DifferenceType" => list(any()),
-        "ExpectedValue" => String.t() | Atom.t(),
-        "PropertyPath" => String.t() | Atom.t()
+        "ExpectedValue" => String.t() | atom(),
+        "PropertyPath" => String.t() | atom()
       }
       
   """
-  @type property_difference() :: %{String.t() | Atom.t() => any()}
+  @type property_difference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -294,7 +294,7 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type change() :: %{String.t() | Atom.t() => any()}
+  @type change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -304,110 +304,110 @@ defmodule AWS.CloudFormation do
         "Action" => list(any()),
         "CreationTimestamp" => non_neg_integer(),
         "EndTimestamp" => non_neg_integer(),
-        "OperationId" => String.t() | Atom.t(),
+        "OperationId" => String.t() | atom(),
         "OperationPreferences" => stack_set_operation_preferences(),
         "Status" => list(any()),
         "StatusDetails" => stack_set_operation_status_details(),
-        "StatusReason" => String.t() | Atom.t()
+        "StatusReason" => String.t() | atom()
       }
       
   """
-  @type stack_set_operation_summary() :: %{String.t() | Atom.t() => any()}
+  @type stack_set_operation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stack_resources_input() :: %{
-        optional("LogicalResourceId") => String.t() | Atom.t(),
-        optional("PhysicalResourceId") => String.t() | Atom.t(),
-        optional("StackName") => String.t() | Atom.t()
+        optional("LogicalResourceId") => String.t() | atom(),
+        optional("PhysicalResourceId") => String.t() | atom(),
+        optional("StackName") => String.t() | atom()
       }
       
   """
-  @type describe_stack_resources_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_resources_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_stack_instances_input() :: %{
-        optional("Accounts") => list(String.t() | Atom.t()),
+        optional("Accounts") => list(String.t() | atom()),
         optional("CallAs") => list(any()),
         optional("DeploymentTargets") => deployment_targets(),
-        optional("OperationId") => String.t() | Atom.t(),
+        optional("OperationId") => String.t() | atom(),
         optional("OperationPreferences") => stack_set_operation_preferences(),
-        required("Regions") => list(String.t() | Atom.t()),
+        required("Regions") => list(String.t() | atom()),
         required("RetainStacks") => boolean(),
-        required("StackSetName") => String.t() | Atom.t()
+        required("StackSetName") => String.t() | atom()
       }
       
   """
-  @type delete_stack_instances_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_stack_instances_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_stacks_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "StackSummaries" => list(stack_summary())
       }
       
   """
-  @type list_stacks_output() :: %{String.t() | Atom.t() => any()}
+  @type list_stacks_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_generated_template_input() :: %{
-        required("GeneratedTemplateName") => String.t() | Atom.t()
+        required("GeneratedTemplateName") => String.t() | atom()
       }
       
   """
-  @type delete_generated_template_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_generated_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_imports_input() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ExportName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ExportName") => String.t() | atom()
       }
       
   """
-  @type list_imports_input() :: %{String.t() | Atom.t() => any()}
+  @type list_imports_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_stack_set_input() :: %{
-        optional("Accounts") => list(String.t() | Atom.t()),
-        optional("AdministrationRoleARN") => String.t() | Atom.t(),
+        optional("Accounts") => list(String.t() | atom()),
+        optional("AdministrationRoleARN") => String.t() | atom(),
         optional("AutoDeployment") => auto_deployment(),
         optional("CallAs") => list(any()),
         optional("Capabilities") => list(list(any())()),
         optional("DeploymentTargets") => deployment_targets(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("ExecutionRoleName") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
+        optional("ExecutionRoleName") => String.t() | atom(),
         optional("ManagedExecution") => managed_execution(),
-        optional("OperationId") => String.t() | Atom.t(),
+        optional("OperationId") => String.t() | atom(),
         optional("OperationPreferences") => stack_set_operation_preferences(),
         optional("Parameters") => list(parameter()),
         optional("PermissionModel") => list(any()),
-        optional("Regions") => list(String.t() | Atom.t()),
+        optional("Regions") => list(String.t() | atom()),
         optional("Tags") => list(tag()),
-        optional("TemplateBody") => String.t() | Atom.t(),
-        optional("TemplateURL") => String.t() | Atom.t(),
+        optional("TemplateBody") => String.t() | atom(),
+        optional("TemplateURL") => String.t() | atom(),
         optional("UsePreviousTemplate") => boolean(),
-        required("StackSetName") => String.t() | Atom.t()
+        required("StackSetName") => String.t() | atom()
       }
       
   """
-  @type update_stack_set_input() :: %{String.t() | Atom.t() => any()}
+  @type update_stack_set_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -416,27 +416,27 @@ defmodule AWS.CloudFormation do
       list_stack_instance_resource_drifts_input() :: %{
         optional("CallAs") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("StackInstanceResourceDriftStatuses") => list(list(any())()),
-        required("OperationId") => String.t() | Atom.t(),
-        required("StackInstanceAccount") => String.t() | Atom.t(),
-        required("StackInstanceRegion") => String.t() | Atom.t(),
-        required("StackSetName") => String.t() | Atom.t()
+        required("OperationId") => String.t() | atom(),
+        required("StackInstanceAccount") => String.t() | atom(),
+        required("StackInstanceRegion") => String.t() | atom(),
+        required("StackSetName") => String.t() | atom()
       }
       
   """
-  @type list_stack_instance_resource_drifts_input() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_instance_resource_drifts_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_constraints() :: %{
-        "AllowedValues" => list(String.t() | Atom.t())
+        "AllowedValues" => list(String.t() | atom())
       }
       
   """
-  @type parameter_constraints() :: %{String.t() | Atom.t() => any()}
+  @type parameter_constraints() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -447,7 +447,7 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type stack_set_operation_status_details() :: %{String.t() | Atom.t() => any()}
+  @type stack_set_operation_status_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -455,11 +455,11 @@ defmodule AWS.CloudFormation do
       
       account_gate_result() :: %{
         "Status" => list(any()),
-        "StatusReason" => String.t() | Atom.t()
+        "StatusReason" => String.t() | atom()
       }
       
   """
-  @type account_gate_result() :: %{String.t() | Atom.t() => any()}
+  @type account_gate_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -475,27 +475,27 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       stack_event() :: %{
-        "ClientRequestToken" => String.t() | Atom.t(),
+        "ClientRequestToken" => String.t() | atom(),
         "DetailedStatus" => list(any()),
-        "EventId" => String.t() | Atom.t(),
+        "EventId" => String.t() | atom(),
         "HookFailureMode" => list(any()),
         "HookInvocationPoint" => list(any()),
         "HookStatus" => list(any()),
-        "HookStatusReason" => String.t() | Atom.t(),
-        "HookType" => String.t() | Atom.t(),
-        "LogicalResourceId" => String.t() | Atom.t(),
-        "PhysicalResourceId" => String.t() | Atom.t(),
-        "ResourceProperties" => String.t() | Atom.t(),
+        "HookStatusReason" => String.t() | atom(),
+        "HookType" => String.t() | atom(),
+        "LogicalResourceId" => String.t() | atom(),
+        "PhysicalResourceId" => String.t() | atom(),
+        "ResourceProperties" => String.t() | atom(),
         "ResourceStatus" => list(any()),
-        "ResourceStatusReason" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t(),
-        "StackId" => String.t() | Atom.t(),
-        "StackName" => String.t() | Atom.t(),
+        "ResourceStatusReason" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
+        "StackName" => String.t() | atom(),
         "Timestamp" => non_neg_integer()
       }
       
   """
-  @type stack_event() :: %{String.t() | Atom.t() => any()}
+  @type stack_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -507,33 +507,33 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type resource_mapping() :: %{String.t() | Atom.t() => any()}
+  @type resource_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_stack_refactor_input() :: %{
-        optional("Description") => String.t() | Atom.t(),
+        optional("Description") => String.t() | atom(),
         optional("EnableStackCreation") => boolean(),
         optional("ResourceMappings") => list(resource_mapping()),
         required("StackDefinitions") => list(stack_definition())
       }
       
   """
-  @type create_stack_refactor_input() :: %{String.t() | Atom.t() => any()}
+  @type create_stack_refactor_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       physical_resource_id_context_key_value_pair() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type physical_resource_id_context_key_value_pair() :: %{String.t() | Atom.t() => any()}
+  @type physical_resource_id_context_key_value_pair() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -541,84 +541,84 @@ defmodule AWS.CloudFormation do
       
       get_template_output() :: %{
         "StagesAvailable" => list(list(any())()),
-        "TemplateBody" => String.t() | Atom.t()
+        "TemplateBody" => String.t() | atom()
       }
       
   """
-  @type get_template_output() :: %{String.t() | Atom.t() => any()}
+  @type get_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_definition() :: %{
-        "LogicalResourceId" => String.t() | Atom.t(),
+        "LogicalResourceId" => String.t() | atom(),
         "ResourceIdentifier" => map(),
-        "ResourceType" => String.t() | Atom.t()
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type resource_definition() :: %{String.t() | Atom.t() => any()}
+  @type resource_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_to_import() :: %{
-        "LogicalResourceId" => String.t() | Atom.t(),
+        "LogicalResourceId" => String.t() | atom(),
         "ResourceIdentifier" => map(),
-        "ResourceType" => String.t() | Atom.t()
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type resource_to_import() :: %{String.t() | Atom.t() => any()}
+  @type resource_to_import() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stack_drift_detection_status_input() :: %{
-        required("StackDriftDetectionId") => String.t() | Atom.t()
+        required("StackDriftDetectionId") => String.t() | atom()
       }
       
   """
-  @type describe_stack_drift_detection_status_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_drift_detection_status_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       already_exists_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_stack_output() :: %{
-        "StackId" => String.t() | Atom.t()
+        "StackId" => String.t() | atom()
       }
       
   """
-  @type update_stack_output() :: %{String.t() | Atom.t() => any()}
+  @type update_stack_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       template_parameter() :: %{
-        "DefaultValue" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "DefaultValue" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "NoEcho" => boolean(),
-        "ParameterKey" => String.t() | Atom.t()
+        "ParameterKey" => String.t() | atom()
       }
       
   """
-  @type template_parameter() :: %{String.t() | Atom.t() => any()}
+  @type template_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -626,11 +626,11 @@ defmodule AWS.CloudFormation do
       
       list_generated_templates_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_generated_templates_input() :: %{String.t() | Atom.t() => any()}
+  @type list_generated_templates_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -638,62 +638,62 @@ defmodule AWS.CloudFormation do
       
       scanned_resource_identifier() :: %{
         "ResourceIdentifier" => map(),
-        "ResourceType" => String.t() | Atom.t()
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type scanned_resource_identifier() :: %{String.t() | Atom.t() => any()}
+  @type scanned_resource_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       type_version_summary() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "IsDefaultVersion" => boolean(),
-        "PublicVersionNumber" => String.t() | Atom.t(),
+        "PublicVersionNumber" => String.t() | atom(),
         "TimeCreated" => non_neg_integer(),
         "Type" => list(any()),
-        "TypeName" => String.t() | Atom.t(),
-        "VersionId" => String.t() | Atom.t()
+        "TypeName" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
       }
       
   """
-  @type type_version_summary() :: %{String.t() | Atom.t() => any()}
+  @type type_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       warnings() :: %{
-        "UnrecognizedResourceTypes" => list(String.t() | Atom.t())
+        "UnrecognizedResourceTypes" => list(String.t() | atom())
       }
       
   """
-  @type warnings() :: %{String.t() | Atom.t() => any()}
+  @type warnings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       concurrent_resources_limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type concurrent_resources_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type concurrent_resources_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack_refactor_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type stack_refactor_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type stack_refactor_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -704,24 +704,24 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type managed_execution() :: %{String.t() | Atom.t() => any()}
+  @type managed_execution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_change_set_hooks_output() :: %{
-        "ChangeSetId" => String.t() | Atom.t(),
-        "ChangeSetName" => String.t() | Atom.t(),
+        "ChangeSetId" => String.t() | atom(),
+        "ChangeSetName" => String.t() | atom(),
         "Hooks" => list(change_set_hook()),
-        "NextToken" => String.t() | Atom.t(),
-        "StackId" => String.t() | Atom.t(),
-        "StackName" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
+        "StackName" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type describe_change_set_hooks_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_change_set_hooks_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -729,13 +729,13 @@ defmodule AWS.CloudFormation do
       
       describe_stack_instance_input() :: %{
         optional("CallAs") => list(any()),
-        required("StackInstanceAccount") => String.t() | Atom.t(),
-        required("StackInstanceRegion") => String.t() | Atom.t(),
-        required("StackSetName") => String.t() | Atom.t()
+        required("StackInstanceAccount") => String.t() | atom(),
+        required("StackInstanceRegion") => String.t() | atom(),
+        required("StackSetName") => String.t() | atom()
       }
       
   """
-  @type describe_stack_instance_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_instance_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -743,24 +743,24 @@ defmodule AWS.CloudFormation do
       
       list_hook_results_output() :: %{
         "HookResults" => list(hook_result_summary()),
-        "NextToken" => String.t() | Atom.t(),
-        "TargetId" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
+        "TargetId" => String.t() | atom(),
         "TargetType" => list(any())
       }
       
   """
-  @type list_hook_results_output() :: %{String.t() | Atom.t() => any()}
+  @type list_hook_results_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_operation_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_operation_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -768,43 +768,43 @@ defmodule AWS.CloudFormation do
       
       get_template_summary_input() :: %{
         optional("CallAs") => list(any()),
-        optional("StackName") => String.t() | Atom.t(),
-        optional("StackSetName") => String.t() | Atom.t(),
-        optional("TemplateBody") => String.t() | Atom.t(),
+        optional("StackName") => String.t() | atom(),
+        optional("StackSetName") => String.t() | atom(),
+        optional("TemplateBody") => String.t() | atom(),
         optional("TemplateSummaryConfig") => template_summary_config(),
-        optional("TemplateURL") => String.t() | Atom.t()
+        optional("TemplateURL") => String.t() | atom()
       }
       
   """
-  @type get_template_summary_input() :: %{String.t() | Atom.t() => any()}
+  @type get_template_summary_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_target_definition() :: %{
-        "AfterValue" => String.t() | Atom.t(),
+        "AfterValue" => String.t() | atom(),
         "Attribute" => list(any()),
         "AttributeChangeType" => list(any()),
-        "BeforeValue" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "Path" => String.t() | Atom.t(),
+        "BeforeValue" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Path" => String.t() | atom(),
         "RequiresRecreation" => list(any())
       }
       
   """
-  @type resource_target_definition() :: %{String.t() | Atom.t() => any()}
+  @type resource_target_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_publisher_output() :: %{
-        "PublisherId" => String.t() | Atom.t()
+        "PublisherId" => String.t() | atom()
       }
       
   """
-  @type register_publisher_output() :: %{String.t() | Atom.t() => any()}
+  @type register_publisher_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -814,58 +814,58 @@ defmodule AWS.CloudFormation do
         optional("CallAs") => list(any()),
         optional("Filters") => list(operation_result_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("OperationId") => String.t() | Atom.t(),
-        required("StackSetName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("OperationId") => String.t() | atom(),
+        required("StackSetName") => String.t() | atom()
       }
       
   """
-  @type list_stack_set_operation_results_input() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_set_operation_results_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       hook_result_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type hook_result_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type hook_result_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detect_stack_resource_drift_input() :: %{
-        required("LogicalResourceId") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        required("LogicalResourceId") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type detect_stack_resource_drift_input() :: %{String.t() | Atom.t() => any()}
+  @type detect_stack_resource_drift_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack_resource_detail() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "DriftInformation" => stack_resource_drift_information(),
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "LogicalResourceId" => String.t() | Atom.t(),
-        "Metadata" => String.t() | Atom.t(),
+        "LogicalResourceId" => String.t() | atom(),
+        "Metadata" => String.t() | atom(),
         "ModuleInfo" => module_info(),
-        "PhysicalResourceId" => String.t() | Atom.t(),
+        "PhysicalResourceId" => String.t() | atom(),
         "ResourceStatus" => list(any()),
-        "ResourceStatusReason" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t(),
-        "StackId" => String.t() | Atom.t(),
-        "StackName" => String.t() | Atom.t()
+        "ResourceStatusReason" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
+        "StackName" => String.t() | atom()
       }
       
   """
-  @type stack_resource_detail() :: %{String.t() | Atom.t() => any()}
+  @type stack_resource_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -873,40 +873,40 @@ defmodule AWS.CloudFormation do
       
       stack_refactor_action() :: %{
         "Action" => list(any()),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "Detection" => list(any()),
-        "DetectionReason" => String.t() | Atom.t(),
+        "DetectionReason" => String.t() | atom(),
         "Entity" => list(any()),
-        "PhysicalResourceId" => String.t() | Atom.t(),
-        "ResourceIdentifier" => String.t() | Atom.t(),
+        "PhysicalResourceId" => String.t() | atom(),
+        "ResourceIdentifier" => String.t() | atom(),
         "ResourceMapping" => resource_mapping(),
         "TagResources" => list(tag()),
-        "UntagResources" => list(String.t() | Atom.t())
+        "UntagResources" => list(String.t() | atom())
       }
       
   """
-  @type stack_refactor_action() :: %{String.t() | Atom.t() => any()}
+  @type stack_refactor_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack_instance_summary() :: %{
-        "Account" => String.t() | Atom.t(),
+        "Account" => String.t() | atom(),
         "DriftStatus" => list(any()),
         "LastDriftCheckTimestamp" => non_neg_integer(),
-        "LastOperationId" => String.t() | Atom.t(),
-        "OrganizationalUnitId" => String.t() | Atom.t(),
-        "Region" => String.t() | Atom.t(),
-        "StackId" => String.t() | Atom.t(),
+        "LastOperationId" => String.t() | atom(),
+        "OrganizationalUnitId" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
         "StackInstanceStatus" => stack_instance_comprehensive_status(),
-        "StackSetId" => String.t() | Atom.t(),
+        "StackSetId" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | Atom.t()
+        "StatusReason" => String.t() | atom()
       }
       
   """
-  @type stack_instance_summary() :: %{String.t() | Atom.t() => any()}
+  @type stack_instance_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -914,22 +914,22 @@ defmodule AWS.CloudFormation do
       
       update_termination_protection_input() :: %{
         required("EnableTerminationProtection") => boolean(),
-        required("StackName") => String.t() | Atom.t()
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type update_termination_protection_input() :: %{String.t() | Atom.t() => any()}
+  @type update_termination_protection_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_stack_instances_output() :: %{
-        "OperationId" => String.t() | Atom.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type delete_stack_instances_output() :: %{String.t() | Atom.t() => any()}
+  @type delete_stack_instances_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -940,7 +940,7 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type stack_instance_comprehensive_status() :: %{String.t() | Atom.t() => any()}
+  @type stack_instance_comprehensive_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -951,41 +951,41 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type describe_stack_set_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_set_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_publisher_input() :: %{
-        optional("PublisherId") => String.t() | Atom.t()
+        optional("PublisherId") => String.t() | atom()
       }
       
   """
-  @type describe_publisher_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_publisher_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       logging_config() :: %{
-        "LogGroupName" => String.t() | Atom.t(),
-        "LogRoleArn" => String.t() | Atom.t()
+        "LogGroupName" => String.t() | atom(),
+        "LogRoleArn" => String.t() | atom()
       }
       
   """
-  @type logging_config() :: %{String.t() | Atom.t() => any()}
+  @type logging_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       name_already_exists_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type name_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type name_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -993,13 +993,13 @@ defmodule AWS.CloudFormation do
       
       describe_stack_resource_drifts_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("StackResourceDriftStatusFilters") => list(list(any())()),
-        required("StackName") => String.t() | Atom.t()
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type describe_stack_resource_drifts_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_resource_drifts_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1008,24 +1008,24 @@ defmodule AWS.CloudFormation do
       scanned_resource() :: %{
         "ManagedByStack" => boolean(),
         "ResourceIdentifier" => map(),
-        "ResourceType" => String.t() | Atom.t()
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type scanned_resource() :: %{String.t() | Atom.t() => any()}
+  @type scanned_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       warning_property() :: %{
-        "Description" => String.t() | Atom.t(),
-        "PropertyPath" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "PropertyPath" => String.t() | atom(),
         "Required" => boolean()
       }
       
   """
-  @type warning_property() :: %{String.t() | Atom.t() => any()}
+  @type warning_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1033,12 +1033,12 @@ defmodule AWS.CloudFormation do
       
       list_resource_scans_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ScanTypeFilter") => list(any())
       }
       
   """
-  @type list_resource_scans_input() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_scans_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1047,18 +1047,18 @@ defmodule AWS.CloudFormation do
       describe_resource_scan_output() :: %{
         "EndTime" => non_neg_integer(),
         "PercentageCompleted" => float(),
-        "ResourceScanId" => String.t() | Atom.t(),
-        "ResourceTypes" => list(String.t() | Atom.t()),
+        "ResourceScanId" => String.t() | atom(),
+        "ResourceTypes" => list(String.t() | atom()),
         "ResourcesRead" => integer(),
         "ResourcesScanned" => integer(),
         "ScanFilters" => list(scan_filter()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | Atom.t()
+        "StatusReason" => String.t() | atom()
       }
       
   """
-  @type describe_resource_scan_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_resource_scan_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1066,107 +1066,107 @@ defmodule AWS.CloudFormation do
       
       delete_stack_set_input() :: %{
         optional("CallAs") => list(any()),
-        required("StackSetName") => String.t() | Atom.t()
+        required("StackSetName") => String.t() | atom()
       }
       
   """
-  @type delete_stack_set_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_stack_set_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type operation_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type operation_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack_set_operation_result_summary() :: %{
-        "Account" => String.t() | Atom.t(),
+        "Account" => String.t() | atom(),
         "AccountGateResult" => account_gate_result(),
-        "OrganizationalUnitId" => String.t() | Atom.t(),
-        "Region" => String.t() | Atom.t(),
+        "OrganizationalUnitId" => String.t() | atom(),
+        "Region" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | Atom.t()
+        "StatusReason" => String.t() | atom()
       }
       
   """
-  @type stack_set_operation_result_summary() :: %{String.t() | Atom.t() => any()}
+  @type stack_set_operation_result_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack_instance() :: %{
-        "Account" => String.t() | Atom.t(),
+        "Account" => String.t() | atom(),
         "DriftStatus" => list(any()),
         "LastDriftCheckTimestamp" => non_neg_integer(),
-        "LastOperationId" => String.t() | Atom.t(),
-        "OrganizationalUnitId" => String.t() | Atom.t(),
+        "LastOperationId" => String.t() | atom(),
+        "OrganizationalUnitId" => String.t() | atom(),
         "ParameterOverrides" => list(parameter()),
-        "Region" => String.t() | Atom.t(),
-        "StackId" => String.t() | Atom.t(),
+        "Region" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
         "StackInstanceStatus" => stack_instance_comprehensive_status(),
-        "StackSetId" => String.t() | Atom.t(),
+        "StackSetId" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | Atom.t()
+        "StatusReason" => String.t() | atom()
       }
       
   """
-  @type stack_instance() :: %{String.t() | Atom.t() => any()}
+  @type stack_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_type_versions_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "TypeVersionSummaries" => list(type_version_summary())
       }
       
   """
-  @type list_type_versions_output() :: %{String.t() | Atom.t() => any()}
+  @type list_type_versions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stack_events_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "StackEvents" => list(stack_event())
       }
       
   """
-  @type describe_stack_events_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_events_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       type_summary() :: %{
-        "DefaultVersionId" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "DefaultVersionId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "IsActivated" => boolean(),
         "LastUpdated" => non_neg_integer(),
-        "LatestPublicVersion" => String.t() | Atom.t(),
-        "OriginalTypeName" => String.t() | Atom.t(),
-        "PublicVersionNumber" => String.t() | Atom.t(),
-        "PublisherId" => String.t() | Atom.t(),
+        "LatestPublicVersion" => String.t() | atom(),
+        "OriginalTypeName" => String.t() | atom(),
+        "PublicVersionNumber" => String.t() | atom(),
+        "PublisherId" => String.t() | atom(),
         "PublisherIdentity" => list(any()),
-        "PublisherName" => String.t() | Atom.t(),
+        "PublisherName" => String.t() | atom(),
         "Type" => list(any()),
-        "TypeArn" => String.t() | Atom.t(),
-        "TypeName" => String.t() | Atom.t()
+        "TypeArn" => String.t() | atom(),
+        "TypeName" => String.t() | atom()
       }
       
   """
-  @type type_summary() :: %{String.t() | Atom.t() => any()}
+  @type type_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1174,61 +1174,61 @@ defmodule AWS.CloudFormation do
       
       import_stacks_to_stack_set_input() :: %{
         optional("CallAs") => list(any()),
-        optional("OperationId") => String.t() | Atom.t(),
+        optional("OperationId") => String.t() | atom(),
         optional("OperationPreferences") => stack_set_operation_preferences(),
-        optional("OrganizationalUnitIds") => list(String.t() | Atom.t()),
-        optional("StackIds") => list(String.t() | Atom.t()),
-        optional("StackIdsUrl") => String.t() | Atom.t(),
-        required("StackSetName") => String.t() | Atom.t()
+        optional("OrganizationalUnitIds") => list(String.t() | atom()),
+        optional("StackIds") => list(String.t() | atom()),
+        optional("StackIdsUrl") => String.t() | atom(),
+        required("StackSetName") => String.t() | atom()
       }
       
   """
-  @type import_stacks_to_stack_set_input() :: %{String.t() | Atom.t() => any()}
+  @type import_stacks_to_stack_set_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detect_stack_drift_output() :: %{
-        "StackDriftDetectionId" => String.t() | Atom.t()
+        "StackDriftDetectionId" => String.t() | atom()
       }
       
   """
-  @type detect_stack_drift_output() :: %{String.t() | Atom.t() => any()}
+  @type detect_stack_drift_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_type_registration_input() :: %{
-        required("RegistrationToken") => String.t() | Atom.t()
+        required("RegistrationToken") => String.t() | atom()
       }
       
   """
-  @type describe_type_registration_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_type_registration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_location() :: %{
-        "LogicalResourceId" => String.t() | Atom.t(),
-        "StackName" => String.t() | Atom.t()
+        "LogicalResourceId" => String.t() | atom(),
+        "StackName" => String.t() | atom()
       }
       
   """
-  @type resource_location() :: %{String.t() | Atom.t() => any()}
+  @type resource_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       test_type_output() :: %{
-        "TypeVersionArn" => String.t() | Atom.t()
+        "TypeVersionArn" => String.t() | atom()
       }
       
   """
-  @type test_type_output() :: %{String.t() | Atom.t() => any()}
+  @type test_type_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1236,26 +1236,26 @@ defmodule AWS.CloudFormation do
       
       list_type_registrations_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("RegistrationStatusFilter") => list(any()),
         optional("Type") => list(any()),
-        optional("TypeArn") => String.t() | Atom.t(),
-        optional("TypeName") => String.t() | Atom.t()
+        optional("TypeArn") => String.t() | atom(),
+        optional("TypeName") => String.t() | atom()
       }
       
   """
-  @type list_type_registrations_input() :: %{String.t() | Atom.t() => any()}
+  @type list_type_registrations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       created_but_modified_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type created_but_modified_exception() :: %{String.t() | Atom.t() => any()}
+  @type created_but_modified_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1271,22 +1271,22 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       operation_status_check_failed_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type operation_status_check_failed_exception() :: %{String.t() | Atom.t() => any()}
+  @type operation_status_check_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detect_stack_set_drift_output() :: %{
-        "OperationId" => String.t() | Atom.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type detect_stack_set_drift_output() :: %{String.t() | Atom.t() => any()}
+  @type detect_stack_set_drift_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1311,11 +1311,11 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       create_stack_output() :: %{
-        "StackId" => String.t() | Atom.t()
+        "StackId" => String.t() | atom()
       }
       
   """
-  @type create_stack_output() :: %{String.t() | Atom.t() => any()}
+  @type create_stack_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1323,60 +1323,60 @@ defmodule AWS.CloudFormation do
       
       stack() :: %{
         "Capabilities" => list(list(any())()),
-        "ChangeSetId" => String.t() | Atom.t(),
+        "ChangeSetId" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "DeletionMode" => list(any()),
         "DeletionTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "DetailedStatus" => list(any()),
         "DisableRollback" => boolean(),
         "DriftInformation" => stack_drift_information(),
         "EnableTerminationProtection" => boolean(),
         "LastUpdatedTime" => non_neg_integer(),
-        "NotificationARNs" => list(String.t() | Atom.t()),
+        "NotificationARNs" => list(String.t() | atom()),
         "Outputs" => list(output()),
         "Parameters" => list(parameter()),
-        "ParentId" => String.t() | Atom.t(),
+        "ParentId" => String.t() | atom(),
         "RetainExceptOnCreate" => boolean(),
-        "RoleARN" => String.t() | Atom.t(),
+        "RoleARN" => String.t() | atom(),
         "RollbackConfiguration" => rollback_configuration(),
-        "RootId" => String.t() | Atom.t(),
-        "StackId" => String.t() | Atom.t(),
-        "StackName" => String.t() | Atom.t(),
+        "RootId" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
+        "StackName" => String.t() | atom(),
         "StackStatus" => list(any()),
-        "StackStatusReason" => String.t() | Atom.t(),
+        "StackStatusReason" => String.t() | atom(),
         "Tags" => list(tag()),
         "TimeoutInMinutes" => integer()
       }
       
   """
-  @type stack() :: %{String.t() | Atom.t() => any()}
+  @type stack() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack_set_auto_deployment_target_summary() :: %{
-        "OrganizationalUnitId" => String.t() | Atom.t(),
-        "Regions" => list(String.t() | Atom.t())
+        "OrganizationalUnitId" => String.t() | atom(),
+        "Regions" => list(String.t() | atom())
       }
       
   """
-  @type stack_set_auto_deployment_target_summary() :: %{String.t() | Atom.t() => any()}
+  @type stack_set_auto_deployment_target_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_type_default_version_input() :: %{
-        optional("Arn") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
         optional("Type") => list(any()),
-        optional("TypeName") => String.t() | Atom.t(),
-        optional("VersionId") => String.t() | Atom.t()
+        optional("TypeName") => String.t() | atom(),
+        optional("VersionId") => String.t() | atom()
       }
       
   """
-  @type set_type_default_version_input() :: %{String.t() | Atom.t() => any()}
+  @type set_type_default_version_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1384,32 +1384,32 @@ defmodule AWS.CloudFormation do
       
       describe_generated_template_output() :: %{
         "CreationTime" => non_neg_integer(),
-        "GeneratedTemplateId" => String.t() | Atom.t(),
-        "GeneratedTemplateName" => String.t() | Atom.t(),
+        "GeneratedTemplateId" => String.t() | atom(),
+        "GeneratedTemplateName" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
         "Progress" => template_progress(),
         "Resources" => list(resource_detail()),
-        "StackId" => String.t() | Atom.t(),
+        "StackId" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | Atom.t(),
+        "StatusReason" => String.t() | atom(),
         "TemplateConfiguration" => template_configuration(),
         "TotalWarnings" => integer()
       }
       
   """
-  @type describe_generated_template_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_generated_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resource_scan_related_resources_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "RelatedResources" => list(scanned_resource())
       }
       
   """
-  @type list_resource_scan_related_resources_output() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_scan_related_resources_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1422,7 +1422,7 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type batch_describe_type_configurations_output() :: %{String.t() | Atom.t() => any()}
+  @type batch_describe_type_configurations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1431,38 +1431,38 @@ defmodule AWS.CloudFormation do
       list_stack_sets_input() :: %{
         optional("CallAs") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Status") => list(any())
       }
       
   """
-  @type list_stack_sets_input() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_sets_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       signal_resource_input() :: %{
-        required("LogicalResourceId") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t(),
+        required("LogicalResourceId") => String.t() | atom(),
+        required("StackName") => String.t() | atom(),
         required("Status") => list(any()),
-        required("UniqueId") => String.t() | Atom.t()
+        required("UniqueId") => String.t() | atom()
       }
       
   """
-  @type signal_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type signal_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_stacks_input() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("StackStatusFilter") => list(list(any())())
       }
       
   """
-  @type list_stacks_input() :: %{String.t() | Atom.t() => any()}
+  @type list_stacks_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1474,18 +1474,18 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type stack_drift_information() :: %{String.t() | Atom.t() => any()}
+  @type stack_drift_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       scan_filter() :: %{
-        "Types" => list(String.t() | Atom.t())
+        "Types" => list(String.t() | atom())
       }
       
   """
-  @type scan_filter() :: %{String.t() | Atom.t() => any()}
+  @type scan_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1497,7 +1497,7 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type change_set_hook_target_details() :: %{String.t() | Atom.t() => any()}
+  @type change_set_hook_target_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1506,12 +1506,12 @@ defmodule AWS.CloudFormation do
       list_stack_set_operations_input() :: %{
         optional("CallAs") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("StackSetName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("StackSetName") => String.t() | atom()
       }
       
   """
-  @type list_stack_set_operations_input() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_set_operations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1522,19 +1522,19 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type template_summary_config() :: %{String.t() | Atom.t() => any()}
+  @type template_summary_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_type_registrations_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
-        "RegistrationTokenList" => list(String.t() | Atom.t())
+        "NextToken" => String.t() | atom(),
+        "RegistrationTokenList" => list(String.t() | atom())
       }
       
   """
-  @type list_type_registrations_output() :: %{String.t() | Atom.t() => any()}
+  @type list_type_registrations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1545,118 +1545,118 @@ defmodule AWS.CloudFormation do
         "DeletionTime" => non_neg_integer(),
         "DriftInformation" => stack_drift_information_summary(),
         "LastUpdatedTime" => non_neg_integer(),
-        "ParentId" => String.t() | Atom.t(),
-        "RootId" => String.t() | Atom.t(),
-        "StackId" => String.t() | Atom.t(),
-        "StackName" => String.t() | Atom.t(),
+        "ParentId" => String.t() | atom(),
+        "RootId" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
+        "StackName" => String.t() | atom(),
         "StackStatus" => list(any()),
-        "StackStatusReason" => String.t() | Atom.t(),
-        "TemplateDescription" => String.t() | Atom.t()
+        "StackStatusReason" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom()
       }
       
   """
-  @type stack_summary() :: %{String.t() | Atom.t() => any()}
+  @type stack_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_hook_results_input() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        required("TargetId") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("TargetId") => String.t() | atom(),
         required("TargetType") => list(any())
       }
       
   """
-  @type list_hook_results_input() :: %{String.t() | Atom.t() => any()}
+  @type list_hook_results_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_in_progress_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type operation_in_progress_exception() :: %{String.t() | Atom.t() => any()}
+  @type operation_in_progress_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_stack_resources_input() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type list_stack_resources_input() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_resources_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execute_change_set_input() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
         optional("DisableRollback") => boolean(),
         optional("RetainExceptOnCreate") => boolean(),
-        optional("StackName") => String.t() | Atom.t(),
-        required("ChangeSetName") => String.t() | Atom.t()
+        optional("StackName") => String.t() | atom(),
+        required("ChangeSetName") => String.t() | atom()
       }
       
   """
-  @type execute_change_set_input() :: %{String.t() | Atom.t() => any()}
+  @type execute_change_set_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_change_set_input() :: %{
-        optional("StackName") => String.t() | Atom.t(),
-        required("ChangeSetName") => String.t() | Atom.t()
+        optional("StackName") => String.t() | atom(),
+        required("ChangeSetName") => String.t() | atom()
       }
       
   """
-  @type delete_change_set_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_change_set_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       type_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type type_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type type_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_type_configuration_input() :: %{
-        optional("ConfigurationAlias") => String.t() | Atom.t(),
+        optional("ConfigurationAlias") => String.t() | atom(),
         optional("Type") => list(any()),
-        optional("TypeArn") => String.t() | Atom.t(),
-        optional("TypeName") => String.t() | Atom.t(),
-        required("Configuration") => String.t() | Atom.t()
+        optional("TypeArn") => String.t() | atom(),
+        optional("TypeName") => String.t() | atom(),
+        required("Configuration") => String.t() | atom()
       }
       
   """
-  @type set_type_configuration_input() :: %{String.t() | Atom.t() => any()}
+  @type set_type_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1664,13 +1664,13 @@ defmodule AWS.CloudFormation do
       
       create_generated_template_input() :: %{
         optional("Resources") => list(resource_definition()),
-        optional("StackName") => String.t() | Atom.t(),
+        optional("StackName") => String.t() | atom(),
         optional("TemplateConfiguration") => template_configuration(),
-        required("GeneratedTemplateName") => String.t() | Atom.t()
+        required("GeneratedTemplateName") => String.t() | atom()
       }
       
   """
-  @type create_generated_template_input() :: %{String.t() | Atom.t() => any()}
+  @type create_generated_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1678,13 +1678,13 @@ defmodule AWS.CloudFormation do
       
       describe_publisher_output() :: %{
         "IdentityProvider" => list(any()),
-        "PublisherId" => String.t() | Atom.t(),
-        "PublisherProfile" => String.t() | Atom.t(),
+        "PublisherId" => String.t() | atom(),
+        "PublisherProfile" => String.t() | atom(),
         "PublisherStatus" => list(any())
       }
       
   """
-  @type describe_publisher_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_publisher_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1692,59 +1692,59 @@ defmodule AWS.CloudFormation do
       
       describe_stack_set_input() :: %{
         optional("CallAs") => list(any()),
-        required("StackSetName") => String.t() | Atom.t()
+        required("StackSetName") => String.t() | atom()
       }
       
   """
-  @type describe_stack_set_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_set_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_stack_refactors_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "StackRefactorSummaries" => list(stack_refactor_summary())
       }
       
   """
-  @type list_stack_refactors_output() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_refactors_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       activate_type_output() :: %{
-        "Arn" => String.t() | Atom.t()
+        "Arn" => String.t() | atom()
       }
       
   """
-  @type activate_type_output() :: %{String.t() | Atom.t() => any()}
+  @type activate_type_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       publish_type_input() :: %{
-        optional("Arn") => String.t() | Atom.t(),
-        optional("PublicVersionNumber") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
+        optional("PublicVersionNumber") => String.t() | atom(),
         optional("Type") => list(any()),
-        optional("TypeName") => String.t() | Atom.t()
+        optional("TypeName") => String.t() | atom()
       }
       
   """
-  @type publish_type_input() :: %{String.t() | Atom.t() => any()}
+  @type publish_type_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_capabilities_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type insufficient_capabilities_exception() :: %{String.t() | Atom.t() => any()}
+  @type insufficient_capabilities_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1752,29 +1752,29 @@ defmodule AWS.CloudFormation do
       
       template_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "GeneratedTemplateId" => String.t() | Atom.t(),
-        "GeneratedTemplateName" => String.t() | Atom.t(),
+        "GeneratedTemplateId" => String.t() | atom(),
+        "GeneratedTemplateName" => String.t() | atom(),
         "LastUpdatedTime" => non_neg_integer(),
         "NumberOfResources" => integer(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | Atom.t()
+        "StatusReason" => String.t() | atom()
       }
       
   """
-  @type template_summary() :: %{String.t() | Atom.t() => any()}
+  @type template_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       change_set_hook_resource_target_details() :: %{
-        "LogicalResourceId" => String.t() | Atom.t(),
+        "LogicalResourceId" => String.t() | atom(),
         "ResourceAction" => list(any()),
-        "ResourceType" => String.t() | Atom.t()
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type change_set_hook_resource_target_details() :: %{String.t() | Atom.t() => any()}
+  @type change_set_hook_resource_target_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1783,139 +1783,139 @@ defmodule AWS.CloudFormation do
       create_change_set_input() :: %{
         optional("Capabilities") => list(list(any())()),
         optional("ChangeSetType") => list(any()),
-        optional("ClientToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("ImportExistingResources") => boolean(),
         optional("IncludeNestedStacks") => boolean(),
-        optional("NotificationARNs") => list(String.t() | Atom.t()),
+        optional("NotificationARNs") => list(String.t() | atom()),
         optional("OnStackFailure") => list(any()),
         optional("Parameters") => list(parameter()),
-        optional("ResourceTypes") => list(String.t() | Atom.t()),
+        optional("ResourceTypes") => list(String.t() | atom()),
         optional("ResourcesToImport") => list(resource_to_import()),
-        optional("RoleARN") => String.t() | Atom.t(),
+        optional("RoleARN") => String.t() | atom(),
         optional("RollbackConfiguration") => rollback_configuration(),
         optional("Tags") => list(tag()),
-        optional("TemplateBody") => String.t() | Atom.t(),
-        optional("TemplateURL") => String.t() | Atom.t(),
+        optional("TemplateBody") => String.t() | atom(),
+        optional("TemplateURL") => String.t() | atom(),
         optional("UsePreviousTemplate") => boolean(),
-        required("ChangeSetName") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        required("ChangeSetName") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type create_change_set_input() :: %{String.t() | Atom.t() => any()}
+  @type create_change_set_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_stack_instances_input() :: %{
-        optional("Accounts") => list(String.t() | Atom.t()),
+        optional("Accounts") => list(String.t() | atom()),
         optional("CallAs") => list(any()),
         optional("DeploymentTargets") => deployment_targets(),
-        optional("OperationId") => String.t() | Atom.t(),
+        optional("OperationId") => String.t() | atom(),
         optional("OperationPreferences") => stack_set_operation_preferences(),
         optional("ParameterOverrides") => list(parameter()),
-        required("Regions") => list(String.t() | Atom.t()),
-        required("StackSetName") => String.t() | Atom.t()
+        required("Regions") => list(String.t() | atom()),
+        required("StackSetName") => String.t() | atom()
       }
       
   """
-  @type create_stack_instances_input() :: %{String.t() | Atom.t() => any()}
+  @type create_stack_instances_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       estimate_template_cost_output() :: %{
-        "Url" => String.t() | Atom.t()
+        "Url" => String.t() | atom()
       }
       
   """
-  @type estimate_template_cost_output() :: %{String.t() | Atom.t() => any()}
+  @type estimate_template_cost_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_change_set_status_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_change_set_status_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_change_set_status_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_identifier_summary() :: %{
-        "LogicalResourceIds" => list(String.t() | Atom.t()),
-        "ResourceIdentifiers" => list(String.t() | Atom.t()),
-        "ResourceType" => String.t() | Atom.t()
+        "LogicalResourceIds" => list(String.t() | atom()),
+        "ResourceIdentifiers" => list(String.t() | atom()),
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type resource_identifier_summary() :: %{String.t() | Atom.t() => any()}
+  @type resource_identifier_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_stacks_to_stack_set_output() :: %{
-        "OperationId" => String.t() | Atom.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type import_stacks_to_stack_set_output() :: %{String.t() | Atom.t() => any()}
+  @type import_stacks_to_stack_set_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type stack_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type stack_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter() :: %{
-        "ParameterKey" => String.t() | Atom.t(),
-        "ParameterValue" => String.t() | Atom.t(),
-        "ResolvedValue" => String.t() | Atom.t(),
+        "ParameterKey" => String.t() | atom(),
+        "ParameterValue" => String.t() | atom(),
+        "ResolvedValue" => String.t() | atom(),
         "UsePreviousValue" => boolean()
       }
       
   """
-  @type parameter() :: %{String.t() | Atom.t() => any()}
+  @type parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack_set_not_empty_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type stack_set_not_empty_exception() :: %{String.t() | Atom.t() => any()}
+  @type stack_set_not_empty_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validate_template_input() :: %{
-        optional("TemplateBody") => String.t() | Atom.t(),
-        optional("TemplateURL") => String.t() | Atom.t()
+        optional("TemplateBody") => String.t() | atom(),
+        optional("TemplateURL") => String.t() | atom()
       }
       
   """
-  @type validate_template_input() :: %{String.t() | Atom.t() => any()}
+  @type validate_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1928,98 +1928,98 @@ defmodule AWS.CloudFormation do
         "MaxConcurrentCount" => integer(),
         "MaxConcurrentPercentage" => integer(),
         "RegionConcurrencyType" => list(any()),
-        "RegionOrder" => list(String.t() | Atom.t())
+        "RegionOrder" => list(String.t() | atom())
       }
       
   """
-  @type stack_set_operation_preferences() :: %{String.t() | Atom.t() => any()}
+  @type stack_set_operation_preferences() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_state_transition_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_state_transition_exception() :: %{String.t() | Atom.t() => any()}
+  @type invalid_state_transition_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack_instance_resource_drifts_summary() :: %{
-        "LogicalResourceId" => String.t() | Atom.t(),
-        "PhysicalResourceId" => String.t() | Atom.t(),
+        "LogicalResourceId" => String.t() | atom(),
+        "PhysicalResourceId" => String.t() | atom(),
         "PhysicalResourceIdContext" => list(physical_resource_id_context_key_value_pair()),
         "PropertyDifferences" => list(property_difference()),
-        "ResourceType" => String.t() | Atom.t(),
-        "StackId" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
         "StackResourceDriftStatus" => list(any()),
         "Timestamp" => non_neg_integer()
       }
       
   """
-  @type stack_instance_resource_drifts_summary() :: %{String.t() | Atom.t() => any()}
+  @type stack_instance_resource_drifts_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       type_configuration_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type type_configuration_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type type_configuration_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_stack_set_output() :: %{
-        "OperationId" => String.t() | Atom.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type update_stack_set_output() :: %{String.t() | Atom.t() => any()}
+  @type update_stack_set_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       account_limit() :: %{
-        "Name" => String.t() | Atom.t(),
+        "Name" => String.t() | atom(),
         "Value" => integer()
       }
       
   """
-  @type account_limit() :: %{String.t() | Atom.t() => any()}
+  @type account_limit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_scan_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_scan_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_scan_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack_definition() :: %{
-        "StackName" => String.t() | Atom.t(),
-        "TemplateBody" => String.t() | Atom.t(),
-        "TemplateURL" => String.t() | Atom.t()
+        "StackName" => String.t() | atom(),
+        "TemplateBody" => String.t() | atom(),
+        "TemplateURL" => String.t() | atom()
       }
       
   """
-  @type stack_definition() :: %{String.t() | Atom.t() => any()}
+  @type stack_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2036,12 +2036,12 @@ defmodule AWS.CloudFormation do
       
       stop_stack_set_operation_input() :: %{
         optional("CallAs") => list(any()),
-        required("OperationId") => String.t() | Atom.t(),
-        required("StackSetName") => String.t() | Atom.t()
+        required("OperationId") => String.t() | atom(),
+        required("StackSetName") => String.t() | atom()
       }
       
   """
-  @type stop_stack_set_operation_input() :: %{String.t() | Atom.t() => any()}
+  @type stop_stack_set_operation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2049,14 +2049,14 @@ defmodule AWS.CloudFormation do
       
       validate_template_output() :: %{
         "Capabilities" => list(list(any())()),
-        "CapabilitiesReason" => String.t() | Atom.t(),
-        "DeclaredTransforms" => list(String.t() | Atom.t()),
-        "Description" => String.t() | Atom.t(),
+        "CapabilitiesReason" => String.t() | atom(),
+        "DeclaredTransforms" => list(String.t() | atom()),
+        "Description" => String.t() | atom(),
         "Parameters" => list(template_parameter())
       }
       
   """
-  @type validate_template_output() :: %{String.t() | Atom.t() => any()}
+  @type validate_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2067,7 +2067,7 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type describe_stack_instance_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_instance_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2075,50 +2075,50 @@ defmodule AWS.CloudFormation do
       
       update_stack_input() :: %{
         optional("Capabilities") => list(list(any())()),
-        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
         optional("DisableRollback") => boolean(),
-        optional("NotificationARNs") => list(String.t() | Atom.t()),
+        optional("NotificationARNs") => list(String.t() | atom()),
         optional("Parameters") => list(parameter()),
-        optional("ResourceTypes") => list(String.t() | Atom.t()),
+        optional("ResourceTypes") => list(String.t() | atom()),
         optional("RetainExceptOnCreate") => boolean(),
-        optional("RoleARN") => String.t() | Atom.t(),
+        optional("RoleARN") => String.t() | atom(),
         optional("RollbackConfiguration") => rollback_configuration(),
-        optional("StackPolicyBody") => String.t() | Atom.t(),
-        optional("StackPolicyDuringUpdateBody") => String.t() | Atom.t(),
-        optional("StackPolicyDuringUpdateURL") => String.t() | Atom.t(),
-        optional("StackPolicyURL") => String.t() | Atom.t(),
+        optional("StackPolicyBody") => String.t() | atom(),
+        optional("StackPolicyDuringUpdateBody") => String.t() | atom(),
+        optional("StackPolicyDuringUpdateURL") => String.t() | atom(),
+        optional("StackPolicyURL") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("TemplateBody") => String.t() | Atom.t(),
-        optional("TemplateURL") => String.t() | Atom.t(),
+        optional("TemplateBody") => String.t() | atom(),
+        optional("TemplateURL") => String.t() | atom(),
         optional("UsePreviousTemplate") => boolean(),
-        required("StackName") => String.t() | Atom.t()
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type update_stack_input() :: %{String.t() | Atom.t() => any()}
+  @type update_stack_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_scan_in_progress_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_scan_in_progress_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_scan_in_progress_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_stack_set_operations_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Summaries" => list(stack_set_operation_summary())
       }
       
   """
-  @type list_stack_set_operations_output() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_set_operations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2126,53 +2126,53 @@ defmodule AWS.CloudFormation do
       
       estimate_template_cost_input() :: %{
         optional("Parameters") => list(parameter()),
-        optional("TemplateBody") => String.t() | Atom.t(),
-        optional("TemplateURL") => String.t() | Atom.t()
+        optional("TemplateBody") => String.t() | atom(),
+        optional("TemplateURL") => String.t() | atom()
       }
       
   """
-  @type estimate_template_cost_input() :: %{String.t() | Atom.t() => any()}
+  @type estimate_template_cost_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deactivate_type_input() :: %{
-        optional("Arn") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
         optional("Type") => list(any()),
-        optional("TypeName") => String.t() | Atom.t()
+        optional("TypeName") => String.t() | atom()
       }
       
   """
-  @type deactivate_type_input() :: %{String.t() | Atom.t() => any()}
+  @type deactivate_type_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rollback_stack_output() :: %{
-        "StackId" => String.t() | Atom.t()
+        "StackId" => String.t() | atom()
       }
       
   """
-  @type rollback_stack_output() :: %{String.t() | Atom.t() => any()}
+  @type rollback_stack_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       type_configuration_details() :: %{
-        "Alias" => String.t() | Atom.t(),
-        "Arn" => String.t() | Atom.t(),
-        "Configuration" => String.t() | Atom.t(),
+        "Alias" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "Configuration" => String.t() | atom(),
         "IsDefaultConfiguration" => boolean(),
         "LastUpdated" => non_neg_integer(),
-        "TypeArn" => String.t() | Atom.t(),
-        "TypeName" => String.t() | Atom.t()
+        "TypeArn" => String.t() | atom(),
+        "TypeName" => String.t() | atom()
       }
       
   """
-  @type type_configuration_details() :: %{String.t() | Atom.t() => any()}
+  @type type_configuration_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2180,129 +2180,129 @@ defmodule AWS.CloudFormation do
       
       describe_change_set_output() :: %{
         "Capabilities" => list(list(any())()),
-        "ChangeSetId" => String.t() | Atom.t(),
-        "ChangeSetName" => String.t() | Atom.t(),
+        "ChangeSetId" => String.t() | atom(),
+        "ChangeSetName" => String.t() | atom(),
         "Changes" => list(change()),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "ExecutionStatus" => list(any()),
         "ImportExistingResources" => boolean(),
         "IncludeNestedStacks" => boolean(),
-        "NextToken" => String.t() | Atom.t(),
-        "NotificationARNs" => list(String.t() | Atom.t()),
+        "NextToken" => String.t() | atom(),
+        "NotificationARNs" => list(String.t() | atom()),
         "OnStackFailure" => list(any()),
         "Parameters" => list(parameter()),
-        "ParentChangeSetId" => String.t() | Atom.t(),
+        "ParentChangeSetId" => String.t() | atom(),
         "RollbackConfiguration" => rollback_configuration(),
-        "RootChangeSetId" => String.t() | Atom.t(),
-        "StackId" => String.t() | Atom.t(),
-        "StackName" => String.t() | Atom.t(),
+        "RootChangeSetId" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
+        "StackName" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | Atom.t(),
+        "StatusReason" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type describe_change_set_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_change_set_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stack_resource_input() :: %{
-        required("LogicalResourceId") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        required("LogicalResourceId") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type describe_stack_resource_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       required_activated_type() :: %{
-        "OriginalTypeName" => String.t() | Atom.t(),
-        "PublisherId" => String.t() | Atom.t(),
+        "OriginalTypeName" => String.t() | atom(),
+        "PublisherId" => String.t() | atom(),
         "SupportedMajorVersions" => list(integer()),
-        "TypeNameAlias" => String.t() | Atom.t()
+        "TypeNameAlias" => String.t() | atom()
       }
       
   """
-  @type required_activated_type() :: %{String.t() | Atom.t() => any()}
+  @type required_activated_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_generated_template_output() :: %{
-        "GeneratedTemplateId" => String.t() | Atom.t()
+        "GeneratedTemplateId" => String.t() | atom()
       }
       
   """
-  @type update_generated_template_output() :: %{String.t() | Atom.t() => any()}
+  @type update_generated_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_type_output() :: %{
-        "Arn" => String.t() | Atom.t(),
+        "Arn" => String.t() | atom(),
         "AutoUpdate" => boolean(),
-        "ConfigurationSchema" => String.t() | Atom.t(),
-        "DefaultVersionId" => String.t() | Atom.t(),
+        "ConfigurationSchema" => String.t() | atom(),
+        "DefaultVersionId" => String.t() | atom(),
         "DeprecatedStatus" => list(any()),
-        "Description" => String.t() | Atom.t(),
-        "DocumentationUrl" => String.t() | Atom.t(),
-        "ExecutionRoleArn" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "DocumentationUrl" => String.t() | atom(),
+        "ExecutionRoleArn" => String.t() | atom(),
         "IsActivated" => boolean(),
         "IsDefaultVersion" => boolean(),
         "LastUpdated" => non_neg_integer(),
-        "LatestPublicVersion" => String.t() | Atom.t(),
+        "LatestPublicVersion" => String.t() | atom(),
         "LoggingConfig" => logging_config(),
-        "OriginalTypeArn" => String.t() | Atom.t(),
-        "OriginalTypeName" => String.t() | Atom.t(),
+        "OriginalTypeArn" => String.t() | atom(),
+        "OriginalTypeName" => String.t() | atom(),
         "ProvisioningType" => list(any()),
-        "PublicVersionNumber" => String.t() | Atom.t(),
-        "PublisherId" => String.t() | Atom.t(),
+        "PublicVersionNumber" => String.t() | atom(),
+        "PublisherId" => String.t() | atom(),
         "RequiredActivatedTypes" => list(required_activated_type()),
-        "Schema" => String.t() | Atom.t(),
-        "SourceUrl" => String.t() | Atom.t(),
+        "Schema" => String.t() | atom(),
+        "SourceUrl" => String.t() | atom(),
         "TimeCreated" => non_neg_integer(),
         "Type" => list(any()),
-        "TypeName" => String.t() | Atom.t(),
+        "TypeName" => String.t() | atom(),
         "TypeTestsStatus" => list(any()),
-        "TypeTestsStatusDescription" => String.t() | Atom.t(),
+        "TypeTestsStatusDescription" => String.t() | atom(),
         "Visibility" => list(any())
       }
       
   """
-  @type describe_type_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_type_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_template_input() :: %{
-        optional("ChangeSetName") => String.t() | Atom.t(),
-        optional("StackName") => String.t() | Atom.t(),
+        optional("ChangeSetName") => String.t() | atom(),
+        optional("StackName") => String.t() | atom(),
         optional("TemplateStage") => list(any())
       }
       
   """
-  @type get_template_input() :: %{String.t() | Atom.t() => any()}
+  @type get_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       module_info() :: %{
-        "LogicalIdHierarchy" => String.t() | Atom.t(),
-        "TypeHierarchy" => String.t() | Atom.t()
+        "LogicalIdHierarchy" => String.t() | atom(),
+        "TypeHierarchy" => String.t() | atom()
       }
       
   """
-  @type module_info() :: %{String.t() | Atom.t() => any()}
+  @type module_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2320,7 +2320,7 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type stack_set_drift_detection_details() :: %{String.t() | Atom.t() => any()}
+  @type stack_set_drift_detection_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2328,11 +2328,11 @@ defmodule AWS.CloudFormation do
       
       describe_account_limits_output() :: %{
         "AccountLimits" => list(account_limit()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_account_limits_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_account_limits_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2340,13 +2340,13 @@ defmodule AWS.CloudFormation do
       
       list_resource_scan_related_resources_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("ResourceScanId") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceScanId") => String.t() | atom(),
         required("Resources") => list(scanned_resource_identifier())
       }
       
   """
-  @type list_resource_scan_related_resources_input() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_scan_related_resources_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2354,14 +2354,14 @@ defmodule AWS.CloudFormation do
       
       type_configuration_identifier() :: %{
         "Type" => list(any()),
-        "TypeArn" => String.t() | Atom.t(),
-        "TypeConfigurationAlias" => String.t() | Atom.t(),
-        "TypeConfigurationArn" => String.t() | Atom.t(),
-        "TypeName" => String.t() | Atom.t()
+        "TypeArn" => String.t() | atom(),
+        "TypeConfigurationAlias" => String.t() | atom(),
+        "TypeConfigurationArn" => String.t() | atom(),
+        "TypeName" => String.t() | atom()
       }
       
   """
-  @type type_configuration_identifier() :: %{String.t() | Atom.t() => any()}
+  @type type_configuration_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2371,14 +2371,14 @@ defmodule AWS.CloudFormation do
         optional("DeprecatedStatus") => list(any()),
         optional("Filters") => type_filters(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ProvisioningType") => list(any()),
         optional("Type") => list(any()),
         optional("Visibility") => list(any())
       }
       
   """
-  @type list_types_input() :: %{String.t() | Atom.t() => any()}
+  @type list_types_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2389,18 +2389,18 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type describe_stack_resource_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack_set_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type stack_set_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type stack_set_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2412,7 +2412,7 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type stack_drift_information_summary() :: %{String.t() | Atom.t() => any()}
+  @type stack_drift_information_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2423,70 +2423,70 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type describe_organizations_access_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_organizations_access_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_generated_templates_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Summaries" => list(template_summary())
       }
       
   """
-  @type list_generated_templates_output() :: %{String.t() | Atom.t() => any()}
+  @type list_generated_templates_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_stack_policy_output() :: %{
-        "StackPolicyBody" => String.t() | Atom.t()
+        "StackPolicyBody" => String.t() | atom()
       }
       
   """
-  @type get_stack_policy_output() :: %{String.t() | Atom.t() => any()}
+  @type get_stack_policy_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stack_events_input() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("StackName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("StackName") => String.t() | atom()
       }
       
   """
-  @type describe_stack_events_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_events_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_declaration() :: %{
-        "DefaultValue" => String.t() | Atom.t(),
-        "Description" => String.t() | Atom.t(),
+        "DefaultValue" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "NoEcho" => boolean(),
         "ParameterConstraints" => parameter_constraints(),
-        "ParameterKey" => String.t() | Atom.t(),
-        "ParameterType" => String.t() | Atom.t()
+        "ParameterKey" => String.t() | atom(),
+        "ParameterType" => String.t() | atom()
       }
       
   """
-  @type parameter_declaration() :: %{String.t() | Atom.t() => any()}
+  @type parameter_declaration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_stack_sets_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Summaries" => list(stack_set_summary())
       }
       
   """
-  @type list_stack_sets_output() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_sets_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2497,58 +2497,58 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type describe_organizations_access_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_organizations_access_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_exports_input() :: %{
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_exports_input() :: %{String.t() | Atom.t() => any()}
+  @type list_exports_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack_instance_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type stack_instance_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type stack_instance_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_type_versions_input() :: %{
-        optional("Arn") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
         optional("DeprecatedStatus") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("PublisherId") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PublisherId") => String.t() | atom(),
         optional("Type") => list(any()),
-        optional("TypeName") => String.t() | Atom.t()
+        optional("TypeName") => String.t() | atom()
       }
       
   """
-  @type list_type_versions_input() :: %{String.t() | Atom.t() => any()}
+  @type list_type_versions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resource_scan_resources_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Resources" => list(scanned_resource())
       }
       
   """
-  @type list_resource_scan_resources_output() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_scan_resources_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2556,11 +2556,11 @@ defmodule AWS.CloudFormation do
       
       list_exports_output() :: %{
         "Exports" => list(export()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_exports_output() :: %{String.t() | Atom.t() => any()}
+  @type list_exports_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2568,46 +2568,46 @@ defmodule AWS.CloudFormation do
       
       type_filters() :: %{
         "Category" => list(any()),
-        "PublisherId" => String.t() | Atom.t(),
-        "TypeNamePrefix" => String.t() | Atom.t()
+        "PublisherId" => String.t() | atom(),
+        "TypeNamePrefix" => String.t() | atom()
       }
       
   """
-  @type type_filters() :: %{String.t() | Atom.t() => any()}
+  @type type_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_generated_template_input() :: %{
-        required("GeneratedTemplateName") => String.t() | Atom.t()
+        required("GeneratedTemplateName") => String.t() | atom()
       }
       
   """
-  @type describe_generated_template_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_generated_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_change_sets_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Summaries" => list(change_set_summary())
       }
       
   """
-  @type list_change_sets_output() :: %{String.t() | Atom.t() => any()}
+  @type list_change_sets_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_stack_instances_output() :: %{
-        "OperationId" => String.t() | Atom.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type create_stack_instances_output() :: %{String.t() | Atom.t() => any()}
+  @type create_stack_instances_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2632,61 +2632,61 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       list_resource_scans_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "ResourceScanSummaries" => list(resource_scan_summary())
       }
       
   """
-  @type list_resource_scans_output() :: %{String.t() | Atom.t() => any()}
+  @type list_resource_scans_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       publish_type_output() :: %{
-        "PublicTypeArn" => String.t() | Atom.t()
+        "PublicTypeArn" => String.t() | atom()
       }
       
   """
-  @type publish_type_output() :: %{String.t() | Atom.t() => any()}
+  @type publish_type_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_stack_set_output() :: %{
-        "StackSetId" => String.t() | Atom.t()
+        "StackSetId" => String.t() | atom()
       }
       
   """
-  @type create_stack_set_output() :: %{String.t() | Atom.t() => any()}
+  @type create_stack_set_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_type_input() :: %{
-        optional("Arn") => String.t() | Atom.t(),
-        optional("PublicVersionNumber") => String.t() | Atom.t(),
-        optional("PublisherId") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
+        optional("PublicVersionNumber") => String.t() | atom(),
+        optional("PublisherId") => String.t() | atom(),
         optional("Type") => list(any()),
-        optional("TypeName") => String.t() | Atom.t(),
-        optional("VersionId") => String.t() | Atom.t()
+        optional("TypeName") => String.t() | atom(),
+        optional("VersionId") => String.t() | atom()
       }
       
   """
-  @type describe_type_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_type_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_resource_scan_output() :: %{
-        "ResourceScanId" => String.t() | Atom.t()
+        "ResourceScanId" => String.t() | atom()
       }
       
   """
-  @type start_resource_scan_output() :: %{String.t() | Atom.t() => any()}
+  @type start_resource_scan_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2698,7 +2698,7 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type stack_resource_drift_information() :: %{String.t() | Atom.t() => any()}
+  @type stack_resource_drift_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2706,26 +2706,26 @@ defmodule AWS.CloudFormation do
       
       describe_change_set_input() :: %{
         optional("IncludePropertyValues") => boolean(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("StackName") => String.t() | Atom.t(),
-        required("ChangeSetName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("StackName") => String.t() | atom(),
+        required("ChangeSetName") => String.t() | atom()
       }
       
   """
-  @type describe_change_set_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_change_set_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_describe_type_configurations_error() :: %{
-        "ErrorCode" => String.t() | Atom.t(),
-        "ErrorMessage" => String.t() | Atom.t(),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
         "TypeConfigurationIdentifier" => type_configuration_identifier()
       }
       
   """
-  @type batch_describe_type_configurations_error() :: %{String.t() | Atom.t() => any()}
+  @type batch_describe_type_configurations_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2746,7 +2746,7 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type warning_detail() :: %{String.t() | Atom.t() => any()}
+  @type warning_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2757,7 +2757,7 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type describe_stack_resources_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_resources_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2766,34 +2766,34 @@ defmodule AWS.CloudFormation do
       list_stack_set_auto_deployment_targets_input() :: %{
         optional("CallAs") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("StackSetName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("StackSetName") => String.t() | atom()
       }
       
   """
-  @type list_stack_set_auto_deployment_targets_input() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_set_auto_deployment_targets_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack_resource_drift() :: %{
-        "ActualProperties" => String.t() | Atom.t(),
-        "DriftStatusReason" => String.t() | Atom.t(),
-        "ExpectedProperties" => String.t() | Atom.t(),
-        "LogicalResourceId" => String.t() | Atom.t(),
+        "ActualProperties" => String.t() | atom(),
+        "DriftStatusReason" => String.t() | atom(),
+        "ExpectedProperties" => String.t() | atom(),
+        "LogicalResourceId" => String.t() | atom(),
         "ModuleInfo" => module_info(),
-        "PhysicalResourceId" => String.t() | Atom.t(),
+        "PhysicalResourceId" => String.t() | atom(),
         "PhysicalResourceIdContext" => list(physical_resource_id_context_key_value_pair()),
         "PropertyDifferences" => list(property_difference()),
-        "ResourceType" => String.t() | Atom.t(),
-        "StackId" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
         "StackResourceDriftStatus" => list(any()),
         "Timestamp" => non_neg_integer()
       }
       
   """
-  @type stack_resource_drift() :: %{String.t() | Atom.t() => any()}
+  @type stack_resource_drift() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2804,7 +2804,7 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type detect_stack_resource_drift_output() :: %{String.t() | Atom.t() => any()}
+  @type detect_stack_resource_drift_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2812,41 +2812,41 @@ defmodule AWS.CloudFormation do
       
       create_stack_input() :: %{
         optional("Capabilities") => list(list(any())()),
-        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
         optional("DisableRollback") => boolean(),
         optional("EnableTerminationProtection") => boolean(),
-        optional("NotificationARNs") => list(String.t() | Atom.t()),
+        optional("NotificationARNs") => list(String.t() | atom()),
         optional("OnFailure") => list(any()),
         optional("Parameters") => list(parameter()),
-        optional("ResourceTypes") => list(String.t() | Atom.t()),
+        optional("ResourceTypes") => list(String.t() | atom()),
         optional("RetainExceptOnCreate") => boolean(),
-        optional("RoleARN") => String.t() | Atom.t(),
+        optional("RoleARN") => String.t() | atom(),
         optional("RollbackConfiguration") => rollback_configuration(),
-        optional("StackPolicyBody") => String.t() | Atom.t(),
-        optional("StackPolicyURL") => String.t() | Atom.t(),
+        optional("StackPolicyBody") => String.t() | atom(),
+        optional("StackPolicyURL") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("TemplateBody") => String.t() | Atom.t(),
-        optional("TemplateURL") => String.t() | Atom.t(),
+        optional("TemplateBody") => String.t() | atom(),
+        optional("TemplateURL") => String.t() | atom(),
         optional("TimeoutInMinutes") => integer(),
-        required("StackName") => String.t() | Atom.t()
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type create_stack_input() :: %{String.t() | Atom.t() => any()}
+  @type create_stack_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_change_set_hooks_input() :: %{
-        optional("LogicalResourceId") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("StackName") => String.t() | Atom.t(),
-        required("ChangeSetName") => String.t() | Atom.t()
+        optional("LogicalResourceId") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StackName") => String.t() | atom(),
+        required("ChangeSetName") => String.t() | atom()
       }
       
   """
-  @type describe_change_set_hooks_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_change_set_hooks_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2864,15 +2864,15 @@ defmodule AWS.CloudFormation do
       resource_scan_summary() :: %{
         "EndTime" => non_neg_integer(),
         "PercentageCompleted" => float(),
-        "ResourceScanId" => String.t() | Atom.t(),
+        "ResourceScanId" => String.t() | atom(),
         "ScanType" => list(any()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | Atom.t()
+        "StatusReason" => String.t() | atom()
       }
       
   """
-  @type resource_scan_summary() :: %{String.t() | Atom.t() => any()}
+  @type resource_scan_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2882,24 +2882,24 @@ defmodule AWS.CloudFormation do
         "FailureMode" => list(any()),
         "InvocationPoint" => list(any()),
         "TargetDetails" => change_set_hook_target_details(),
-        "TypeConfigurationVersionId" => String.t() | Atom.t(),
-        "TypeName" => String.t() | Atom.t(),
-        "TypeVersionId" => String.t() | Atom.t()
+        "TypeConfigurationVersionId" => String.t() | atom(),
+        "TypeName" => String.t() | atom(),
+        "TypeVersionId" => String.t() | atom()
       }
       
   """
-  @type change_set_hook() :: %{String.t() | Atom.t() => any()}
+  @type change_set_hook() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_resource_scan_input() :: %{
-        required("ResourceScanId") => String.t() | Atom.t()
+        required("ResourceScanId") => String.t() | atom()
       }
       
   """
-  @type describe_resource_scan_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_resource_scan_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2907,42 +2907,42 @@ defmodule AWS.CloudFormation do
       
       hook_result_summary() :: %{
         "FailureMode" => list(any()),
-        "HookStatusReason" => String.t() | Atom.t(),
+        "HookStatusReason" => String.t() | atom(),
         "InvocationPoint" => list(any()),
         "Status" => list(any()),
-        "TypeConfigurationVersionId" => String.t() | Atom.t(),
-        "TypeName" => String.t() | Atom.t(),
-        "TypeVersionId" => String.t() | Atom.t()
+        "TypeConfigurationVersionId" => String.t() | atom(),
+        "TypeName" => String.t() | atom(),
+        "TypeVersionId" => String.t() | atom()
       }
       
   """
-  @type hook_result_summary() :: %{String.t() | Atom.t() => any()}
+  @type hook_result_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_change_detail() :: %{
-        "CausingEntity" => String.t() | Atom.t(),
+        "CausingEntity" => String.t() | atom(),
         "ChangeSource" => list(any()),
         "Evaluation" => list(any()),
         "Target" => resource_target_definition()
       }
       
   """
-  @type resource_change_detail() :: %{String.t() | Atom.t() => any()}
+  @type resource_change_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_resource_scan_input() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
         optional("ScanFilters") => list(scan_filter())
       }
       
   """
-  @type start_resource_scan_input() :: %{String.t() | Atom.t() => any()}
+  @type start_resource_scan_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2950,28 +2950,28 @@ defmodule AWS.CloudFormation do
       
       describe_stack_drift_detection_status_output() :: %{
         "DetectionStatus" => list(any()),
-        "DetectionStatusReason" => String.t() | Atom.t(),
+        "DetectionStatusReason" => String.t() | atom(),
         "DriftedStackResourceCount" => integer(),
-        "StackDriftDetectionId" => String.t() | Atom.t(),
+        "StackDriftDetectionId" => String.t() | atom(),
         "StackDriftStatus" => list(any()),
-        "StackId" => String.t() | Atom.t(),
+        "StackId" => String.t() | atom(),
         "Timestamp" => non_neg_integer()
       }
       
   """
-  @type describe_stack_drift_detection_status_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_drift_detection_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stacks_input() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("StackName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("StackName") => String.t() | atom()
       }
       
   """
-  @type describe_stacks_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_stacks_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2983,85 +2983,85 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type template_configuration() :: %{String.t() | Atom.t() => any()}
+  @type template_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       record_handler_progress_input() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
         optional("CurrentOperationStatus") => list(any()),
         optional("ErrorCode") => list(any()),
-        optional("ResourceModel") => String.t() | Atom.t(),
-        optional("StatusMessage") => String.t() | Atom.t(),
-        required("BearerToken") => String.t() | Atom.t(),
+        optional("ResourceModel") => String.t() | atom(),
+        optional("StatusMessage") => String.t() | atom(),
+        required("BearerToken") => String.t() | atom(),
         required("OperationStatus") => list(any())
       }
       
   """
-  @type record_handler_progress_input() :: %{String.t() | Atom.t() => any()}
+  @type record_handler_progress_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_termination_protection_output() :: %{
-        "StackId" => String.t() | Atom.t()
+        "StackId" => String.t() | atom()
       }
       
   """
-  @type update_termination_protection_output() :: %{String.t() | Atom.t() => any()}
+  @type update_termination_protection_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       change_set_summary() :: %{
-        "ChangeSetId" => String.t() | Atom.t(),
-        "ChangeSetName" => String.t() | Atom.t(),
+        "ChangeSetId" => String.t() | atom(),
+        "ChangeSetName" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "ExecutionStatus" => list(any()),
         "ImportExistingResources" => boolean(),
         "IncludeNestedStacks" => boolean(),
-        "ParentChangeSetId" => String.t() | Atom.t(),
-        "RootChangeSetId" => String.t() | Atom.t(),
-        "StackId" => String.t() | Atom.t(),
-        "StackName" => String.t() | Atom.t(),
+        "ParentChangeSetId" => String.t() | atom(),
+        "RootChangeSetId" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
+        "StackName" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | Atom.t()
+        "StatusReason" => String.t() | atom()
       }
       
   """
-  @type change_set_summary() :: %{String.t() | Atom.t() => any()}
+  @type change_set_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack_set() :: %{
-        "AdministrationRoleARN" => String.t() | Atom.t(),
+        "AdministrationRoleARN" => String.t() | atom(),
         "AutoDeployment" => auto_deployment(),
         "Capabilities" => list(list(any())()),
-        "Description" => String.t() | Atom.t(),
-        "ExecutionRoleName" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
+        "ExecutionRoleName" => String.t() | atom(),
         "ManagedExecution" => managed_execution(),
-        "OrganizationalUnitIds" => list(String.t() | Atom.t()),
+        "OrganizationalUnitIds" => list(String.t() | atom()),
         "Parameters" => list(parameter()),
         "PermissionModel" => list(any()),
-        "Regions" => list(String.t() | Atom.t()),
-        "StackSetARN" => String.t() | Atom.t(),
+        "Regions" => list(String.t() | atom()),
+        "StackSetARN" => String.t() | atom(),
         "StackSetDriftDetectionDetails" => stack_set_drift_detection_details(),
-        "StackSetId" => String.t() | Atom.t(),
-        "StackSetName" => String.t() | Atom.t(),
+        "StackSetId" => String.t() | atom(),
+        "StackSetName" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => list(tag()),
-        "TemplateBody" => String.t() | Atom.t()
+        "TemplateBody" => String.t() | atom()
       }
       
   """
-  @type stack_set() :: %{String.t() | Atom.t() => any()}
+  @type stack_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3077,40 +3077,40 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       update_stack_instances_input() :: %{
-        optional("Accounts") => list(String.t() | Atom.t()),
+        optional("Accounts") => list(String.t() | atom()),
         optional("CallAs") => list(any()),
         optional("DeploymentTargets") => deployment_targets(),
-        optional("OperationId") => String.t() | Atom.t(),
+        optional("OperationId") => String.t() | atom(),
         optional("OperationPreferences") => stack_set_operation_preferences(),
         optional("ParameterOverrides") => list(parameter()),
-        required("Regions") => list(String.t() | Atom.t()),
-        required("StackSetName") => String.t() | Atom.t()
+        required("Regions") => list(String.t() | atom()),
+        required("StackSetName") => String.t() | atom()
       }
       
   """
-  @type update_stack_instances_input() :: %{String.t() | Atom.t() => any()}
+  @type update_stack_instances_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_generated_template_output() :: %{
-        "GeneratedTemplateId" => String.t() | Atom.t()
+        "GeneratedTemplateId" => String.t() | atom()
       }
       
   """
-  @type create_generated_template_output() :: %{String.t() | Atom.t() => any()}
+  @type create_generated_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_scan_limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_scan_limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type resource_scan_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3122,19 +3122,19 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type stack_resource_drift_information_summary() :: %{String.t() | Atom.t() => any()}
+  @type stack_resource_drift_information_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_change_set_output() :: %{
-        "Id" => String.t() | Atom.t(),
-        "StackId" => String.t() | Atom.t()
+        "Id" => String.t() | atom(),
+        "StackId" => String.t() | atom()
       }
       
   """
-  @type create_change_set_output() :: %{String.t() | Atom.t() => any()}
+  @type create_change_set_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3144,50 +3144,50 @@ defmodule AWS.CloudFormation do
         optional("CallAs") => list(any()),
         optional("Filters") => list(stack_instance_filter()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        optional("StackInstanceAccount") => String.t() | Atom.t(),
-        optional("StackInstanceRegion") => String.t() | Atom.t(),
-        required("StackSetName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("StackInstanceAccount") => String.t() | atom(),
+        optional("StackInstanceRegion") => String.t() | atom(),
+        required("StackSetName") => String.t() | atom()
       }
       
   """
-  @type list_stack_instances_input() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_instances_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_account_limits_input() :: %{
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_account_limits_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_account_limits_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_type_input() :: %{
-        optional("Arn") => String.t() | Atom.t(),
+        optional("Arn") => String.t() | atom(),
         optional("Type") => list(any()),
-        optional("TypeName") => String.t() | Atom.t(),
-        optional("VersionId") => String.t() | Atom.t()
+        optional("TypeName") => String.t() | atom(),
+        optional("VersionId") => String.t() | atom()
       }
       
   """
-  @type deregister_type_input() :: %{String.t() | Atom.t() => any()}
+  @type deregister_type_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3203,34 +3203,34 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       list_stack_refactor_actions_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "StackRefactorActions" => list(stack_refactor_action())
       }
       
   """
-  @type list_stack_refactor_actions_output() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_refactor_actions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       token_already_exists_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type token_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type token_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stack_refactor_input() :: %{
-        required("StackRefactorId") => String.t() | Atom.t()
+        required("StackRefactorId") => String.t() | atom()
       }
       
   """
-  @type describe_stack_refactor_input() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_refactor_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3241,30 +3241,30 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type batch_describe_type_configurations_input() :: %{String.t() | Atom.t() => any()}
+  @type batch_describe_type_configurations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_types_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "TypeSummaries" => list(type_summary())
       }
       
   """
-  @type list_types_output() :: %{String.t() | Atom.t() => any()}
+  @type list_types_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_type_configuration_output() :: %{
-        "ConfigurationArn" => String.t() | Atom.t()
+        "ConfigurationArn" => String.t() | atom()
       }
       
   """
-  @type set_type_configuration_output() :: %{String.t() | Atom.t() => any()}
+  @type set_type_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3278,7 +3278,7 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type template_progress() :: %{String.t() | Atom.t() => any()}
+  @type template_progress() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3286,19 +3286,19 @@ defmodule AWS.CloudFormation do
       
       get_template_summary_output() :: %{
         "Capabilities" => list(list(any())()),
-        "CapabilitiesReason" => String.t() | Atom.t(),
-        "DeclaredTransforms" => list(String.t() | Atom.t()),
-        "Description" => String.t() | Atom.t(),
-        "Metadata" => String.t() | Atom.t(),
+        "CapabilitiesReason" => String.t() | atom(),
+        "DeclaredTransforms" => list(String.t() | atom()),
+        "Description" => String.t() | atom(),
+        "Metadata" => String.t() | atom(),
         "Parameters" => list(parameter_declaration()),
         "ResourceIdentifierSummaries" => list(resource_identifier_summary()),
-        "ResourceTypes" => list(String.t() | Atom.t()),
-        "Version" => String.t() | Atom.t(),
+        "ResourceTypes" => list(String.t() | atom()),
+        "Version" => String.t() | atom(),
         "Warnings" => warnings()
       }
       
   """
-  @type get_template_summary_output() :: %{String.t() | Atom.t() => any()}
+  @type get_template_summary_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3306,18 +3306,18 @@ defmodule AWS.CloudFormation do
       
       stack_set_summary() :: %{
         "AutoDeployment" => auto_deployment(),
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "DriftStatus" => list(any()),
         "LastDriftCheckTimestamp" => non_neg_integer(),
         "ManagedExecution" => managed_execution(),
         "PermissionModel" => list(any()),
-        "StackSetId" => String.t() | Atom.t(),
-        "StackSetName" => String.t() | Atom.t(),
+        "StackSetId" => String.t() | atom(),
+        "StackSetName" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type stack_set_summary() :: %{String.t() | Atom.t() => any()}
+  @type stack_set_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3325,50 +3325,50 @@ defmodule AWS.CloudFormation do
       
       stack_instance_filter() :: %{
         "Name" => list(any()),
-        "Values" => String.t() | Atom.t()
+        "Values" => String.t() | atom()
       }
       
   """
-  @type stack_instance_filter() :: %{String.t() | Atom.t() => any()}
+  @type stack_instance_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       continue_update_rollback_input() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("ResourcesToSkip") => list(String.t() | Atom.t()),
-        optional("RoleARN") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("ResourcesToSkip") => list(String.t() | atom()),
+        optional("RoleARN") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type continue_update_rollback_input() :: %{String.t() | Atom.t() => any()}
+  @type continue_update_rollback_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_id_already_exists_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type operation_id_already_exists_exception() :: %{String.t() | Atom.t() => any()}
+  @type operation_id_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_type_registration_output() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "ProgressStatus" => list(any()),
-        "TypeArn" => String.t() | Atom.t(),
-        "TypeVersionArn" => String.t() | Atom.t()
+        "TypeArn" => String.t() | atom(),
+        "TypeVersionArn" => String.t() | atom()
       }
       
   """
-  @type describe_type_registration_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_type_registration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3384,12 +3384,12 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       list_stack_instance_resource_drifts_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Summaries" => list(stack_instance_resource_drifts_summary())
       }
       
   """
-  @type list_stack_instance_resource_drifts_output() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_instance_resource_drifts_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3401,43 +3401,43 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type rollback_configuration() :: %{String.t() | Atom.t() => any()}
+  @type rollback_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_change_sets_input() :: %{
-        optional("NextToken") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type list_change_sets_input() :: %{String.t() | Atom.t() => any()}
+  @type list_change_sets_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rollback_trigger() :: %{
-        "Arn" => String.t() | Atom.t(),
-        "Type" => String.t() | Atom.t()
+        "Arn" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type rollback_trigger() :: %{String.t() | Atom.t() => any()}
+  @type rollback_trigger() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_stack_instances_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Summaries" => list(stack_instance_summary())
       }
       
   """
-  @type list_stack_instances_output() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_instances_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3445,25 +3445,25 @@ defmodule AWS.CloudFormation do
       
       detect_stack_set_drift_input() :: %{
         optional("CallAs") => list(any()),
-        optional("OperationId") => String.t() | Atom.t(),
+        optional("OperationId") => String.t() | atom(),
         optional("OperationPreferences") => stack_set_operation_preferences(),
-        required("StackSetName") => String.t() | Atom.t()
+        required("StackSetName") => String.t() | atom()
       }
       
   """
-  @type detect_stack_set_drift_input() :: %{String.t() | Atom.t() => any()}
+  @type detect_stack_set_drift_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_stack_set_operation_results_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Summaries" => list(stack_set_operation_result_summary())
       }
       
   """
-  @type list_stack_set_operation_results_output() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_set_operation_results_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3471,36 +3471,36 @@ defmodule AWS.CloudFormation do
       
       get_generated_template_output() :: %{
         "Status" => list(any()),
-        "TemplateBody" => String.t() | Atom.t()
+        "TemplateBody" => String.t() | atom()
       }
       
   """
-  @type get_generated_template_output() :: %{String.t() | Atom.t() => any()}
+  @type get_generated_template_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_stack_set_input() :: %{
-        optional("AdministrationRoleARN") => String.t() | Atom.t(),
+        optional("AdministrationRoleARN") => String.t() | atom(),
         optional("AutoDeployment") => auto_deployment(),
         optional("CallAs") => list(any()),
         optional("Capabilities") => list(list(any())()),
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("Description") => String.t() | Atom.t(),
-        optional("ExecutionRoleName") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("ExecutionRoleName") => String.t() | atom(),
         optional("ManagedExecution") => managed_execution(),
         optional("Parameters") => list(parameter()),
         optional("PermissionModel") => list(any()),
-        optional("StackId") => String.t() | Atom.t(),
+        optional("StackId") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("TemplateBody") => String.t() | Atom.t(),
-        optional("TemplateURL") => String.t() | Atom.t(),
-        required("StackSetName") => String.t() | Atom.t()
+        optional("TemplateBody") => String.t() | atom(),
+        optional("TemplateURL") => String.t() | atom(),
+        required("StackSetName") => String.t() | atom()
       }
       
   """
-  @type create_stack_set_input() :: %{String.t() | Atom.t() => any()}
+  @type create_stack_set_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3508,39 +3508,39 @@ defmodule AWS.CloudFormation do
       
       operation_result_filter() :: %{
         "Name" => list(any()),
-        "Values" => String.t() | Atom.t()
+        "Values" => String.t() | atom()
       }
       
   """
-  @type operation_result_filter() :: %{String.t() | Atom.t() => any()}
+  @type operation_result_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execute_stack_refactor_input() :: %{
-        required("StackRefactorId") => String.t() | Atom.t()
+        required("StackRefactorId") => String.t() | atom()
       }
       
   """
-  @type execute_stack_refactor_input() :: %{String.t() | Atom.t() => any()}
+  @type execute_stack_refactor_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stack_refactor_output() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "ExecutionStatus" => list(any()),
-        "ExecutionStatusReason" => String.t() | Atom.t(),
-        "StackIds" => list(String.t() | Atom.t()),
-        "StackRefactorId" => String.t() | Atom.t(),
+        "ExecutionStatusReason" => String.t() | atom(),
+        "StackIds" => list(String.t() | atom()),
+        "StackRefactorId" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | Atom.t()
+        "StatusReason" => String.t() | atom()
       }
       
   """
-  @type describe_stack_refactor_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_refactor_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3549,22 +3549,22 @@ defmodule AWS.CloudFormation do
       list_stack_refactors_input() :: %{
         optional("ExecutionStatusFilter") => list(list(any())()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_stack_refactors_input() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_refactors_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       change_set_not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type change_set_not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type change_set_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3581,21 +3581,21 @@ defmodule AWS.CloudFormation do
       
       resource_change() :: %{
         "Action" => list(any()),
-        "AfterContext" => String.t() | Atom.t(),
-        "BeforeContext" => String.t() | Atom.t(),
-        "ChangeSetId" => String.t() | Atom.t(),
+        "AfterContext" => String.t() | atom(),
+        "BeforeContext" => String.t() | atom(),
+        "ChangeSetId" => String.t() | atom(),
         "Details" => list(resource_change_detail()),
-        "LogicalResourceId" => String.t() | Atom.t(),
+        "LogicalResourceId" => String.t() | atom(),
         "ModuleInfo" => module_info(),
-        "PhysicalResourceId" => String.t() | Atom.t(),
+        "PhysicalResourceId" => String.t() | atom(),
         "PolicyAction" => list(any()),
         "Replacement" => list(any()),
-        "ResourceType" => String.t() | Atom.t(),
+        "ResourceType" => String.t() | atom(),
         "Scope" => list(list(any())())
       }
       
   """
-  @type resource_change() :: %{String.t() | Atom.t() => any()}
+  @type resource_change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3603,46 +3603,46 @@ defmodule AWS.CloudFormation do
       
       deployment_targets() :: %{
         "AccountFilterType" => list(any()),
-        "Accounts" => list(String.t() | Atom.t()),
-        "AccountsUrl" => String.t() | Atom.t(),
-        "OrganizationalUnitIds" => list(String.t() | Atom.t())
+        "Accounts" => list(String.t() | atom()),
+        "AccountsUrl" => String.t() | atom(),
+        "OrganizationalUnitIds" => list(String.t() | atom())
       }
       
   """
-  @type deployment_targets() :: %{String.t() | Atom.t() => any()}
+  @type deployment_targets() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detect_stack_drift_input() :: %{
-        optional("LogicalResourceIds") => list(String.t() | Atom.t()),
-        required("StackName") => String.t() | Atom.t()
+        optional("LogicalResourceIds") => list(String.t() | atom()),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type detect_stack_drift_input() :: %{String.t() | Atom.t() => any()}
+  @type detect_stack_drift_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack_resource() :: %{
-        "Description" => String.t() | Atom.t(),
+        "Description" => String.t() | atom(),
         "DriftInformation" => stack_resource_drift_information(),
-        "LogicalResourceId" => String.t() | Atom.t(),
+        "LogicalResourceId" => String.t() | atom(),
         "ModuleInfo" => module_info(),
-        "PhysicalResourceId" => String.t() | Atom.t(),
+        "PhysicalResourceId" => String.t() | atom(),
         "ResourceStatus" => list(any()),
-        "ResourceStatusReason" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t(),
-        "StackId" => String.t() | Atom.t(),
-        "StackName" => String.t() | Atom.t(),
+        "ResourceStatusReason" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
+        "StackName" => String.t() | atom(),
         "Timestamp" => non_neg_integer()
       }
       
   """
-  @type stack_resource() :: %{String.t() | Atom.t() => any()}
+  @type stack_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3650,47 +3650,47 @@ defmodule AWS.CloudFormation do
       
       stack_set_operation() :: %{
         "Action" => list(any()),
-        "AdministrationRoleARN" => String.t() | Atom.t(),
+        "AdministrationRoleARN" => String.t() | atom(),
         "CreationTimestamp" => non_neg_integer(),
         "DeploymentTargets" => deployment_targets(),
         "EndTimestamp" => non_neg_integer(),
-        "ExecutionRoleName" => String.t() | Atom.t(),
-        "OperationId" => String.t() | Atom.t(),
+        "ExecutionRoleName" => String.t() | atom(),
+        "OperationId" => String.t() | atom(),
         "OperationPreferences" => stack_set_operation_preferences(),
         "RetainStacks" => boolean(),
         "StackSetDriftDetectionDetails" => stack_set_drift_detection_details(),
-        "StackSetId" => String.t() | Atom.t(),
+        "StackSetId" => String.t() | atom(),
         "Status" => list(any()),
         "StatusDetails" => stack_set_operation_status_details(),
-        "StatusReason" => String.t() | Atom.t()
+        "StatusReason" => String.t() | atom()
       }
       
   """
-  @type stack_set_operation() :: %{String.t() | Atom.t() => any()}
+  @type stack_set_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_type_output() :: %{
-        "RegistrationToken" => String.t() | Atom.t()
+        "RegistrationToken" => String.t() | atom()
       }
       
   """
-  @type register_type_output() :: %{String.t() | Atom.t() => any()}
+  @type register_type_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       export() :: %{
-        "ExportingStackId" => String.t() | Atom.t(),
-        "Name" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "ExportingStackId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type export() :: %{String.t() | Atom.t() => any()}
+  @type export() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3698,102 +3698,102 @@ defmodule AWS.CloudFormation do
       
       get_generated_template_input() :: %{
         optional("Format") => list(any()),
-        required("GeneratedTemplateName") => String.t() | Atom.t()
+        required("GeneratedTemplateName") => String.t() | atom()
       }
       
   """
-  @type get_generated_template_input() :: %{String.t() | Atom.t() => any()}
+  @type get_generated_template_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_stack_instances_output() :: %{
-        "OperationId" => String.t() | Atom.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type update_stack_instances_output() :: %{String.t() | Atom.t() => any()}
+  @type update_stack_instances_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_stack_set_auto_deployment_targets_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Summaries" => list(stack_set_auto_deployment_target_summary())
       }
       
   """
-  @type list_stack_set_auto_deployment_targets_output() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_set_auto_deployment_targets_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       output() :: %{
-        "Description" => String.t() | Atom.t(),
-        "ExportName" => String.t() | Atom.t(),
-        "OutputKey" => String.t() | Atom.t(),
-        "OutputValue" => String.t() | Atom.t()
+        "Description" => String.t() | atom(),
+        "ExportName" => String.t() | atom(),
+        "OutputKey" => String.t() | atom(),
+        "OutputValue" => String.t() | atom()
       }
       
   """
-  @type output() :: %{String.t() | Atom.t() => any()}
+  @type output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       c_f_n_registry_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type c_f_n_registry_exception() :: %{String.t() | Atom.t() => any()}
+  @type c_f_n_registry_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stacks_output() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Stacks" => list(stack())
       }
       
   """
-  @type describe_stacks_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_stacks_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_stack_input() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
         optional("DeletionMode") => list(any()),
-        optional("RetainResources") => list(String.t() | Atom.t()),
-        optional("RoleARN") => String.t() | Atom.t(),
-        required("StackName") => String.t() | Atom.t()
+        optional("RetainResources") => list(String.t() | atom()),
+        optional("RoleARN") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
       }
       
   """
-  @type delete_stack_input() :: %{String.t() | Atom.t() => any()}
+  @type delete_stack_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_detail() :: %{
-        "LogicalResourceId" => String.t() | Atom.t(),
+        "LogicalResourceId" => String.t() | atom(),
         "ResourceIdentifier" => map(),
         "ResourceStatus" => list(any()),
-        "ResourceStatusReason" => String.t() | Atom.t(),
-        "ResourceType" => String.t() | Atom.t(),
+        "ResourceStatusReason" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
         "Warnings" => list(warning_detail())
       }
       
   """
-  @type resource_detail() :: %{String.t() | Atom.t() => any()}
+  @type resource_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3804,35 +3804,35 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type describe_stack_set_operation_output() :: %{String.t() | Atom.t() => any()}
+  @type describe_stack_set_operation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_imports_output() :: %{
-        "Imports" => list(String.t() | Atom.t()),
-        "NextToken" => String.t() | Atom.t()
+        "Imports" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_imports_output() :: %{String.t() | Atom.t() => any()}
+  @type list_imports_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_type_input() :: %{
-        optional("ClientRequestToken") => String.t() | Atom.t(),
-        optional("ExecutionRoleArn") => String.t() | Atom.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("ExecutionRoleArn") => String.t() | atom(),
         optional("LoggingConfig") => logging_config(),
         optional("Type") => list(any()),
-        required("SchemaHandlerPackage") => String.t() | Atom.t(),
-        required("TypeName") => String.t() | Atom.t()
+        required("SchemaHandlerPackage") => String.t() | atom(),
+        required("TypeName") => String.t() | atom()
       }
       
   """
-  @type register_type_input() :: %{String.t() | Atom.t() => any()}
+  @type register_type_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3844,7 +3844,7 @@ defmodule AWS.CloudFormation do
       }
       
   """
-  @type auto_deployment() :: %{String.t() | Atom.t() => any()}
+  @type auto_deployment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3852,12 +3852,12 @@ defmodule AWS.CloudFormation do
       
       list_stack_refactor_actions_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
-        required("StackRefactorId") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom(),
+        required("StackRefactorId") => String.t() | atom()
       }
       
   """
-  @type list_stack_refactor_actions_input() :: %{String.t() | Atom.t() => any()}
+  @type list_stack_refactor_actions_input() :: %{(String.t() | atom()) => any()}
 
   @type activate_organizations_access_errors() ::
           operation_not_found_exception() | invalid_operation_exception()

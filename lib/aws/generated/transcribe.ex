@@ -34,13 +34,13 @@ defmodule AWS.Transcribe do
   ## Example:
       
       list_vocabularies_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Status" => list(any()),
         "Vocabularies" => list(vocabulary_info())
       }
       
   """
-  @type list_vocabularies_response() :: %{String.t() | Atom.t() => any()}
+  @type list_vocabularies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -51,7 +51,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type get_transcription_job_response() :: %{String.t() | Atom.t() => any()}
+  @type get_transcription_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -59,17 +59,17 @@ defmodule AWS.Transcribe do
       
       call_analytics_job_summary() :: %{
         "CallAnalyticsJobDetails" => call_analytics_job_details(),
-        "CallAnalyticsJobName" => String.t() | Atom.t(),
+        "CallAnalyticsJobName" => String.t() | atom(),
         "CallAnalyticsJobStatus" => list(any()),
         "CompletionTime" => non_neg_integer(),
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | atom(),
         "LanguageCode" => list(any()),
         "StartTime" => non_neg_integer()
       }
       
   """
-  @type call_analytics_job_summary() :: %{String.t() | Atom.t() => any()}
+  @type call_analytics_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -79,7 +79,7 @@ defmodule AWS.Transcribe do
         "CompletionTime" => non_neg_integer(),
         "ContentRedaction" => content_redaction(),
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | atom(),
         "IdentifiedLanguageScore" => float(),
         "IdentifyLanguage" => boolean(),
         "IdentifyMultipleLanguages" => boolean(),
@@ -98,12 +98,12 @@ defmodule AWS.Transcribe do
         "Tags" => list(tag()),
         "ToxicityDetection" => list(toxicity_detection_settings()),
         "Transcript" => transcript(),
-        "TranscriptionJobName" => String.t() | Atom.t(),
+        "TranscriptionJobName" => String.t() | atom(),
         "TranscriptionJobStatus" => list(any())
       }
       
   """
-  @type transcription_job() :: %{String.t() | Atom.t() => any()}
+  @type transcription_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -113,9 +113,9 @@ defmodule AWS.Transcribe do
         "CompletionTime" => non_neg_integer(),
         "ContentIdentificationType" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | atom(),
         "LanguageCode" => list(any()),
-        "MedicalTranscriptionJobName" => String.t() | Atom.t(),
+        "MedicalTranscriptionJobName" => String.t() | atom(),
         "OutputLocationType" => list(any()),
         "Specialty" => list(any()),
         "StartTime" => non_neg_integer(),
@@ -124,7 +124,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type medical_transcription_job_summary() :: %{String.t() | Atom.t() => any()}
+  @type medical_transcription_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -152,27 +152,27 @@ defmodule AWS.Transcribe do
         "BaseModelName" => list(any()),
         "InputDataConfig" => input_data_config(),
         "LanguageCode" => list(any()),
-        "ModelName" => String.t() | Atom.t(),
+        "ModelName" => String.t() | atom(),
         "ModelStatus" => list(any())
       }
       
   """
-  @type create_language_model_response() :: %{String.t() | Atom.t() => any()}
+  @type create_language_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_vocabulary_filter_request() :: %{
-        optional("DataAccessRoleArn") => String.t() | Atom.t(),
+        optional("DataAccessRoleArn") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("VocabularyFilterFileUri") => String.t() | Atom.t(),
-        optional("Words") => list(String.t() | Atom.t()),
+        optional("VocabularyFilterFileUri") => String.t() | atom(),
+        optional("Words") => list(String.t() | atom()),
         required("LanguageCode") => list(any())
       }
       
   """
-  @type create_vocabulary_filter_request() :: %{String.t() | Atom.t() => any()}
+  @type create_vocabulary_filter_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -183,18 +183,18 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type tag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_failure_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_failure_exception() :: %{String.t() | Atom.t() => any()}
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -211,12 +211,12 @@ defmodule AWS.Transcribe do
       
       list_medical_transcription_jobs_response() :: %{
         "MedicalTranscriptionJobSummaries" => list(medical_transcription_job_summary()),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type list_medical_transcription_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_medical_transcription_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -224,11 +224,11 @@ defmodule AWS.Transcribe do
       
       job_execution_settings() :: %{
         "AllowDeferredExecution" => boolean(),
-        "DataAccessRoleArn" => String.t() | Atom.t()
+        "DataAccessRoleArn" => String.t() | atom()
       }
       
   """
-  @type job_execution_settings() :: %{String.t() | Atom.t() => any()}
+  @type job_execution_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -242,7 +242,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type absolute_time_range() :: %{String.t() | Atom.t() => any()}
+  @type absolute_time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -250,13 +250,13 @@ defmodule AWS.Transcribe do
       
       list_language_models_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("StatusEquals") => list(any())
       }
       
   """
-  @type list_language_models_request() :: %{String.t() | Atom.t() => any()}
+  @type list_language_models_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -267,20 +267,20 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type summarization() :: %{String.t() | Atom.t() => any()}
+  @type summarization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       input_data_config() :: %{
-        "DataAccessRoleArn" => String.t() | Atom.t(),
-        "S3Uri" => String.t() | Atom.t(),
-        "TuningDataS3Uri" => String.t() | Atom.t()
+        "DataAccessRoleArn" => String.t() | atom(),
+        "S3Uri" => String.t() | atom(),
+        "TuningDataS3Uri" => String.t() | atom()
       }
       
   """
-  @type input_data_config() :: %{String.t() | Atom.t() => any()}
+  @type input_data_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -303,7 +303,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type non_talk_time_filter() :: %{String.t() | Atom.t() => any()}
+  @type non_talk_time_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -314,7 +314,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type clinical_note_generation_settings() :: %{String.t() | Atom.t() => any()}
+  @type clinical_note_generation_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -325,7 +325,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type start_medical_transcription_job_response() :: %{String.t() | Atom.t() => any()}
+  @type start_medical_transcription_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -336,7 +336,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type toxicity_detection_settings() :: %{String.t() | Atom.t() => any()}
+  @type toxicity_detection_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -354,53 +354,53 @@ defmodule AWS.Transcribe do
       create_vocabulary_filter_response() :: %{
         "LanguageCode" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "VocabularyFilterName" => String.t() | Atom.t()
+        "VocabularyFilterName" => String.t() | atom()
       }
       
   """
-  @type create_vocabulary_filter_response() :: %{String.t() | Atom.t() => any()}
+  @type create_vocabulary_filter_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_transcription_jobs_request() :: %{
-        optional("JobNameContains") => String.t() | Atom.t(),
+        optional("JobNameContains") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Status") => list(any())
       }
       
   """
-  @type list_transcription_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_transcription_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_vocabulary_response() :: %{
-        "FailureReason" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | atom(),
         "LanguageCode" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "VocabularyName" => String.t() | Atom.t(),
+        "VocabularyName" => String.t() | atom(),
         "VocabularyState" => list(any())
       }
       
   """
-  @type create_vocabulary_response() :: %{String.t() | Atom.t() => any()}
+  @type create_vocabulary_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_vocabulary_filter_request() :: %{
-        optional("DataAccessRoleArn") => String.t() | Atom.t(),
-        optional("VocabularyFilterFileUri") => String.t() | Atom.t(),
-        optional("Words") => list(String.t() | Atom.t())
+        optional("DataAccessRoleArn") => String.t() | atom(),
+        optional("VocabularyFilterFileUri") => String.t() | atom(),
+        optional("Words") => list(String.t() | atom())
       }
       
   """
-  @type update_vocabulary_filter_request() :: %{String.t() | Atom.t() => any()}
+  @type update_vocabulary_filter_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -409,15 +409,15 @@ defmodule AWS.Transcribe do
       medical_scribe_job_summary() :: %{
         "CompletionTime" => non_neg_integer(),
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | atom(),
         "LanguageCode" => list(any()),
-        "MedicalScribeJobName" => String.t() | Atom.t(),
+        "MedicalScribeJobName" => String.t() | atom(),
         "MedicalScribeJobStatus" => list(any()),
         "StartTime" => non_neg_integer()
       }
       
   """
-  @type medical_scribe_job_summary() :: %{String.t() | Atom.t() => any()}
+  @type medical_scribe_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -427,7 +427,7 @@ defmodule AWS.Transcribe do
         "CompletionTime" => non_neg_integer(),
         "ContentRedaction" => content_redaction(),
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | atom(),
         "IdentifiedLanguageScore" => float(),
         "IdentifyLanguage" => boolean(),
         "IdentifyMultipleLanguages" => boolean(),
@@ -437,12 +437,12 @@ defmodule AWS.Transcribe do
         "OutputLocationType" => list(any()),
         "StartTime" => non_neg_integer(),
         "ToxicityDetection" => list(toxicity_detection_settings()),
-        "TranscriptionJobName" => String.t() | Atom.t(),
+        "TranscriptionJobName" => String.t() | atom(),
         "TranscriptionJobStatus" => list(any())
       }
       
   """
-  @type transcription_job_summary() :: %{String.t() | Atom.t() => any()}
+  @type transcription_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -450,13 +450,13 @@ defmodule AWS.Transcribe do
       
       list_medical_vocabularies_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("StateEquals") => list(any())
       }
       
   """
-  @type list_medical_vocabularies_request() :: %{String.t() | Atom.t() => any()}
+  @type list_medical_vocabularies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -464,13 +464,13 @@ defmodule AWS.Transcribe do
       
       call_analytics_job() :: %{
         "CallAnalyticsJobDetails" => call_analytics_job_details(),
-        "CallAnalyticsJobName" => String.t() | Atom.t(),
+        "CallAnalyticsJobName" => String.t() | atom(),
         "CallAnalyticsJobStatus" => list(any()),
         "ChannelDefinitions" => list(channel_definition()),
         "CompletionTime" => non_neg_integer(),
         "CreationTime" => non_neg_integer(),
-        "DataAccessRoleArn" => String.t() | Atom.t(),
-        "FailureReason" => String.t() | Atom.t(),
+        "DataAccessRoleArn" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "IdentifiedLanguageScore" => float(),
         "LanguageCode" => list(any()),
         "Media" => media(),
@@ -483,7 +483,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type call_analytics_job() :: %{String.t() | Atom.t() => any()}
+  @type call_analytics_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -495,7 +495,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type language_code_item() :: %{String.t() | Atom.t() => any()}
+  @type language_code_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -503,36 +503,36 @@ defmodule AWS.Transcribe do
       
       list_vocabularies_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("StateEquals") => list(any())
       }
       
   """
-  @type list_vocabularies_request() :: %{String.t() | Atom.t() => any()}
+  @type list_vocabularies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       transcript() :: %{
-        "RedactedTranscriptFileUri" => String.t() | Atom.t(),
-        "TranscriptFileUri" => String.t() | Atom.t()
+        "RedactedTranscriptFileUri" => String.t() | atom(),
+        "TranscriptFileUri" => String.t() | atom()
       }
       
   """
-  @type transcript() :: %{String.t() | Atom.t() => any()}
+  @type transcript() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | Atom.t())
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() | Atom.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -543,7 +543,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type call_analytics_job_details() :: %{String.t() | Atom.t() => any()}
+  @type call_analytics_job_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -551,12 +551,12 @@ defmodule AWS.Transcribe do
       
       list_medical_scribe_jobs_response() :: %{
         "MedicalScribeJobSummaries" => list(medical_scribe_job_summary()),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type list_medical_scribe_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_medical_scribe_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -572,14 +572,14 @@ defmodule AWS.Transcribe do
   ## Example:
       
       update_vocabulary_request() :: %{
-        optional("DataAccessRoleArn") => String.t() | Atom.t(),
-        optional("Phrases") => list(String.t() | Atom.t()),
-        optional("VocabularyFileUri") => String.t() | Atom.t(),
+        optional("DataAccessRoleArn") => String.t() | atom(),
+        optional("Phrases") => list(String.t() | atom()),
+        optional("VocabularyFileUri") => String.t() | atom(),
         required("LanguageCode") => list(any())
       }
       
   """
-  @type update_vocabulary_request() :: %{String.t() | Atom.t() => any()}
+  @type update_vocabulary_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -590,27 +590,27 @@ defmodule AWS.Transcribe do
         "Negate" => boolean(),
         "ParticipantRole" => list(any()),
         "RelativeTimeRange" => relative_time_range(),
-        "Targets" => list(String.t() | Atom.t()),
+        "Targets" => list(String.t() | atom()),
         "TranscriptFilterType" => list(any())
       }
       
   """
-  @type transcript_filter() :: %{String.t() | Atom.t() => any()}
+  @type transcript_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_vocabulary_request() :: %{
-        optional("DataAccessRoleArn") => String.t() | Atom.t(),
-        optional("Phrases") => list(String.t() | Atom.t()),
+        optional("DataAccessRoleArn") => String.t() | atom(),
+        optional("Phrases") => list(String.t() | atom()),
         optional("Tags") => list(tag()),
-        optional("VocabularyFileUri") => String.t() | Atom.t(),
+        optional("VocabularyFileUri") => String.t() | atom(),
         required("LanguageCode") => list(any())
       }
       
   """
-  @type create_vocabulary_request() :: %{String.t() | Atom.t() => any()}
+  @type create_vocabulary_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -633,7 +633,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type create_language_model_request() :: %{String.t() | Atom.t() => any()}
+  @type create_language_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -641,11 +641,11 @@ defmodule AWS.Transcribe do
       
       list_call_analytics_categories_response() :: %{
         "Categories" => list(category_properties()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_call_analytics_categories_response() :: %{String.t() | Atom.t() => any()}
+  @type list_call_analytics_categories_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -656,7 +656,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type start_call_analytics_job_response() :: %{String.t() | Atom.t() => any()}
+  @type start_call_analytics_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -665,12 +665,12 @@ defmodule AWS.Transcribe do
       update_medical_vocabulary_response() :: %{
         "LanguageCode" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "VocabularyName" => String.t() | Atom.t(),
+        "VocabularyName" => String.t() | atom(),
         "VocabularyState" => list(any())
       }
       
   """
-  @type update_medical_vocabulary_response() :: %{String.t() | Atom.t() => any()}
+  @type update_medical_vocabulary_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -678,16 +678,16 @@ defmodule AWS.Transcribe do
       
       start_call_analytics_job_request() :: %{
         optional("ChannelDefinitions") => list(channel_definition()),
-        optional("DataAccessRoleArn") => String.t() | Atom.t(),
-        optional("OutputEncryptionKMSKeyId") => String.t() | Atom.t(),
-        optional("OutputLocation") => String.t() | Atom.t(),
+        optional("DataAccessRoleArn") => String.t() | atom(),
+        optional("OutputEncryptionKMSKeyId") => String.t() | atom(),
+        optional("OutputLocation") => String.t() | atom(),
         optional("Settings") => call_analytics_job_settings(),
         optional("Tags") => list(tag()),
         required("Media") => media()
       }
       
   """
-  @type start_call_analytics_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_call_analytics_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -700,18 +700,18 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type content_redaction() :: %{String.t() | Atom.t() => any()}
+  @type content_redaction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       medical_transcript() :: %{
-        "TranscriptFileUri" => String.t() | Atom.t()
+        "TranscriptFileUri" => String.t() | atom()
       }
       
   """
-  @type medical_transcript() :: %{String.t() | Atom.t() => any()}
+  @type medical_transcript() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -721,12 +721,12 @@ defmodule AWS.Transcribe do
         "CompletionTime" => non_neg_integer(),
         "ContentIdentificationType" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | atom(),
         "LanguageCode" => list(any()),
         "Media" => media(),
         "MediaFormat" => list(any()),
         "MediaSampleRateHertz" => integer(),
-        "MedicalTranscriptionJobName" => String.t() | Atom.t(),
+        "MedicalTranscriptionJobName" => String.t() | atom(),
         "Settings" => medical_transcription_setting(),
         "Specialty" => list(any()),
         "StartTime" => non_neg_integer(),
@@ -737,14 +737,14 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type medical_transcription_job() :: %{String.t() | Atom.t() => any()}
+  @type medical_transcription_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       category_properties() :: %{
-        "CategoryName" => String.t() | Atom.t(),
+        "CategoryName" => String.t() | atom(),
         "CreateTime" => non_neg_integer(),
         "InputType" => list(any()),
         "LastUpdateTime" => non_neg_integer(),
@@ -753,7 +753,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type category_properties() :: %{String.t() | Atom.t() => any()}
+  @type category_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -780,22 +780,22 @@ defmodule AWS.Transcribe do
       vocabulary_filter_info() :: %{
         "LanguageCode" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "VocabularyFilterName" => String.t() | Atom.t()
+        "VocabularyFilterName" => String.t() | atom()
       }
       
   """
-  @type vocabulary_filter_info() :: %{String.t() | Atom.t() => any()}
+  @type vocabulary_filter_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() | Atom.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -807,24 +807,24 @@ defmodule AWS.Transcribe do
         "MaxSpeakerLabels" => integer(),
         "ShowSpeakerLabels" => boolean(),
         "VocabularyFilterMethod" => list(any()),
-        "VocabularyFilterName" => String.t() | Atom.t(),
-        "VocabularyName" => String.t() | Atom.t()
+        "VocabularyFilterName" => String.t() | atom(),
+        "VocabularyName" => String.t() | atom()
       }
       
   """
-  @type medical_scribe_settings() :: %{String.t() | Atom.t() => any()}
+  @type medical_scribe_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t() | Atom.t(),
-        "Value" => String.t() | Atom.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() | Atom.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -857,7 +857,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type sentiment_filter() :: %{String.t() | Atom.t() => any()}
+  @type sentiment_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -865,12 +865,12 @@ defmodule AWS.Transcribe do
       
       list_vocabulary_filters_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NameContains") => String.t() | Atom.t(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NameContains") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_vocabulary_filters_request() :: %{String.t() | Atom.t() => any()}
+  @type list_vocabulary_filters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -882,7 +882,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type channel_definition() :: %{String.t() | Atom.t() => any()}
+  @type channel_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -894,22 +894,22 @@ defmodule AWS.Transcribe do
         "MaxSpeakerLabels" => integer(),
         "ShowAlternatives" => boolean(),
         "ShowSpeakerLabels" => boolean(),
-        "VocabularyName" => String.t() | Atom.t()
+        "VocabularyName" => String.t() | atom()
       }
       
   """
-  @type medical_transcription_setting() :: %{String.t() | Atom.t() => any()}
+  @type medical_transcription_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       not_found_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type not_found_exception() :: %{String.t() | Atom.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -917,25 +917,25 @@ defmodule AWS.Transcribe do
       
       call_analytics_skipped_feature() :: %{
         "Feature" => list(any()),
-        "Message" => String.t() | Atom.t(),
+        "Message" => String.t() | atom(),
         "ReasonCode" => list(any())
       }
       
   """
-  @type call_analytics_skipped_feature() :: %{String.t() | Atom.t() => any()}
+  @type call_analytics_skipped_feature() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_medical_vocabularies_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Status" => list(any()),
         "Vocabularies" => list(vocabulary_info())
       }
       
   """
-  @type list_medical_vocabularies_response() :: %{String.t() | Atom.t() => any()}
+  @type list_medical_vocabularies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -948,48 +948,48 @@ defmodule AWS.Transcribe do
         "ShowAlternatives" => boolean(),
         "ShowSpeakerLabels" => boolean(),
         "VocabularyFilterMethod" => list(any()),
-        "VocabularyFilterName" => String.t() | Atom.t(),
-        "VocabularyName" => String.t() | Atom.t()
+        "VocabularyFilterName" => String.t() | atom(),
+        "VocabularyName" => String.t() | atom()
       }
       
   """
-  @type settings() :: %{String.t() | Atom.t() => any()}
+  @type settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       model_settings() :: %{
-        "LanguageModelName" => String.t() | Atom.t()
+        "LanguageModelName" => String.t() | atom()
       }
       
   """
-  @type model_settings() :: %{String.t() | Atom.t() => any()}
+  @type model_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_transcription_jobs_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Status" => list(any()),
         "TranscriptionJobSummaries" => list(transcription_job_summary())
       }
       
   """
-  @type list_transcription_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_transcription_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "ResourceArn" => String.t() | Atom.t(),
+        "ResourceArn" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() | Atom.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -999,11 +999,11 @@ defmodule AWS.Transcribe do
         "ChannelDefinitions" => list(medical_scribe_channel_definition()),
         "CompletionTime" => non_neg_integer(),
         "CreationTime" => non_neg_integer(),
-        "DataAccessRoleArn" => String.t() | Atom.t(),
-        "FailureReason" => String.t() | Atom.t(),
+        "DataAccessRoleArn" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "LanguageCode" => list(any()),
         "Media" => media(),
-        "MedicalScribeJobName" => String.t() | Atom.t(),
+        "MedicalScribeJobName" => String.t() | atom(),
         "MedicalScribeJobStatus" => list(any()),
         "MedicalScribeOutput" => medical_scribe_output(),
         "Settings" => medical_scribe_settings(),
@@ -1012,20 +1012,20 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type medical_scribe_job() :: %{String.t() | Atom.t() => any()}
+  @type medical_scribe_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       language_id_settings() :: %{
-        "LanguageModelName" => String.t() | Atom.t(),
-        "VocabularyFilterName" => String.t() | Atom.t(),
-        "VocabularyName" => String.t() | Atom.t()
+        "LanguageModelName" => String.t() | atom(),
+        "VocabularyFilterName" => String.t() | atom(),
+        "VocabularyName" => String.t() | atom()
       }
       
   """
-  @type language_id_settings() :: %{String.t() | Atom.t() => any()}
+  @type language_id_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1036,19 +1036,19 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type get_call_analytics_job_response() :: %{String.t() | Atom.t() => any()}
+  @type get_call_analytics_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       media() :: %{
-        "MediaFileUri" => String.t() | Atom.t(),
-        "RedactedMediaFileUri" => String.t() | Atom.t()
+        "MediaFileUri" => String.t() | atom(),
+        "RedactedMediaFileUri" => String.t() | atom()
       }
       
   """
-  @type media() :: %{String.t() | Atom.t() => any()}
+  @type media() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1057,11 +1057,11 @@ defmodule AWS.Transcribe do
       update_vocabulary_filter_response() :: %{
         "LanguageCode" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "VocabularyFilterName" => String.t() | Atom.t()
+        "VocabularyFilterName" => String.t() | atom()
       }
       
   """
-  @type update_vocabulary_filter_response() :: %{String.t() | Atom.t() => any()}
+  @type update_vocabulary_filter_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1070,17 +1070,17 @@ defmodule AWS.Transcribe do
       language_model() :: %{
         "BaseModelName" => list(any()),
         "CreateTime" => non_neg_integer(),
-        "FailureReason" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | atom(),
         "InputDataConfig" => input_data_config(),
         "LanguageCode" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "ModelName" => String.t() | Atom.t(),
+        "ModelName" => String.t() | atom(),
         "ModelStatus" => list(any()),
         "UpgradeAvailability" => boolean()
       }
       
   """
-  @type language_model() :: %{String.t() | Atom.t() => any()}
+  @type language_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1088,11 +1088,11 @@ defmodule AWS.Transcribe do
       
       update_medical_vocabulary_request() :: %{
         required("LanguageCode") => list(any()),
-        required("VocabularyFileUri") => String.t() | Atom.t()
+        required("VocabularyFileUri") => String.t() | atom()
       }
       
   """
-  @type update_medical_vocabulary_request() :: %{String.t() | Atom.t() => any()}
+  @type update_medical_vocabulary_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1104,7 +1104,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type update_call_analytics_category_request() :: %{String.t() | Atom.t() => any()}
+  @type update_call_analytics_category_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1115,19 +1115,19 @@ defmodule AWS.Transcribe do
         optional("KMSEncryptionContext") => map(),
         optional("MediaFormat") => list(any()),
         optional("MediaSampleRateHertz") => integer(),
-        optional("OutputEncryptionKMSKeyId") => String.t() | Atom.t(),
-        optional("OutputKey") => String.t() | Atom.t(),
+        optional("OutputEncryptionKMSKeyId") => String.t() | atom(),
+        optional("OutputKey") => String.t() | atom(),
         optional("Settings") => medical_transcription_setting(),
         optional("Tags") => list(tag()),
         required("LanguageCode") => list(any()),
         required("Media") => media(),
-        required("OutputBucketName") => String.t() | Atom.t(),
+        required("OutputBucketName") => String.t() | atom(),
         required("Specialty") => list(any()),
         required("Type") => list(any())
       }
       
   """
-  @type start_medical_transcription_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_medical_transcription_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1144,12 +1144,12 @@ defmodule AWS.Transcribe do
       
       list_call_analytics_jobs_response() :: %{
         "CallAnalyticsJobSummaries" => list(call_analytics_job_summary()),
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type list_call_analytics_jobs_response() :: %{String.t() | Atom.t() => any()}
+  @type list_call_analytics_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1160,7 +1160,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type start_transcription_job_response() :: %{String.t() | Atom.t() => any()}
+  @type start_transcription_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1172,7 +1172,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type subtitles() :: %{String.t() | Atom.t() => any()}
+  @type subtitles() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1180,11 +1180,11 @@ defmodule AWS.Transcribe do
       
       list_language_models_response() :: %{
         "Models" => list(language_model()),
-        "NextToken" => String.t() | Atom.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_language_models_response() :: %{String.t() | Atom.t() => any()}
+  @type list_language_models_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1195,7 +1195,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type update_call_analytics_category_response() :: %{String.t() | Atom.t() => any()}
+  @type update_call_analytics_category_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1206,19 +1206,19 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type describe_language_model_response() :: %{String.t() | Atom.t() => any()}
+  @type describe_language_model_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       medical_scribe_output() :: %{
-        "ClinicalDocumentUri" => String.t() | Atom.t(),
-        "TranscriptFileUri" => String.t() | Atom.t()
+        "ClinicalDocumentUri" => String.t() | atom(),
+        "TranscriptFileUri" => String.t() | atom()
       }
       
   """
-  @type medical_scribe_output() :: %{String.t() | Atom.t() => any()}
+  @type medical_scribe_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1261,14 +1261,14 @@ defmodule AWS.Transcribe do
   ## Example:
       
       list_call_analytics_jobs_request() :: %{
-        optional("JobNameContains") => String.t() | Atom.t(),
+        optional("JobNameContains") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Status") => list(any())
       }
       
   """
-  @type list_call_analytics_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_call_analytics_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1295,12 +1295,12 @@ defmodule AWS.Transcribe do
       vocabulary_info() :: %{
         "LanguageCode" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "VocabularyName" => String.t() | Atom.t(),
+        "VocabularyName" => String.t() | atom(),
         "VocabularyState" => list(any())
       }
       
   """
-  @type vocabulary_info() :: %{String.t() | Atom.t() => any()}
+  @type vocabulary_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1309,16 +1309,16 @@ defmodule AWS.Transcribe do
       call_analytics_job_settings() :: %{
         "ContentRedaction" => content_redaction(),
         "LanguageIdSettings" => map(),
-        "LanguageModelName" => String.t() | Atom.t(),
+        "LanguageModelName" => String.t() | atom(),
         "LanguageOptions" => list(list(any())()),
         "Summarization" => summarization(),
         "VocabularyFilterMethod" => list(any()),
-        "VocabularyFilterName" => String.t() | Atom.t(),
-        "VocabularyName" => String.t() | Atom.t()
+        "VocabularyFilterName" => String.t() | atom(),
+        "VocabularyName" => String.t() | atom()
       }
       
   """
-  @type call_analytics_job_settings() :: %{String.t() | Atom.t() => any()}
+  @type call_analytics_job_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1334,15 +1334,15 @@ defmodule AWS.Transcribe do
   ## Example:
       
       create_medical_vocabulary_response() :: %{
-        "FailureReason" => String.t() | Atom.t(),
+        "FailureReason" => String.t() | atom(),
         "LanguageCode" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "VocabularyName" => String.t() | Atom.t(),
+        "VocabularyName" => String.t() | atom(),
         "VocabularyState" => list(any())
       }
       
   """
-  @type create_medical_vocabulary_response() :: %{String.t() | Atom.t() => any()}
+  @type create_medical_vocabulary_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1351,16 +1351,16 @@ defmodule AWS.Transcribe do
       start_medical_scribe_job_request() :: %{
         optional("ChannelDefinitions") => list(medical_scribe_channel_definition()),
         optional("KMSEncryptionContext") => map(),
-        optional("OutputEncryptionKMSKeyId") => String.t() | Atom.t(),
+        optional("OutputEncryptionKMSKeyId") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("DataAccessRoleArn") => String.t() | Atom.t(),
+        required("DataAccessRoleArn") => String.t() | atom(),
         required("Media") => media(),
-        required("OutputBucketName") => String.t() | Atom.t(),
+        required("OutputBucketName") => String.t() | atom(),
         required("Settings") => medical_scribe_settings()
       }
       
   """
-  @type start_medical_scribe_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_medical_scribe_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1369,39 +1369,39 @@ defmodule AWS.Transcribe do
       update_vocabulary_response() :: %{
         "LanguageCode" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "VocabularyName" => String.t() | Atom.t(),
+        "VocabularyName" => String.t() | atom(),
         "VocabularyState" => list(any())
       }
       
   """
-  @type update_vocabulary_response() :: %{String.t() | Atom.t() => any()}
+  @type update_vocabulary_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() | Atom.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_medical_vocabulary_response() :: %{
-        "DownloadUri" => String.t() | Atom.t(),
-        "FailureReason" => String.t() | Atom.t(),
+        "DownloadUri" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "LanguageCode" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "VocabularyName" => String.t() | Atom.t(),
+        "VocabularyName" => String.t() | atom(),
         "VocabularyState" => list(any())
       }
       
   """
-  @type get_medical_vocabulary_response() :: %{String.t() | Atom.t() => any()}
+  @type get_medical_vocabulary_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1417,25 +1417,25 @@ defmodule AWS.Transcribe do
   ## Example:
       
       bad_request_exception() :: %{
-        "Message" => String.t() | Atom.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type bad_request_exception() :: %{String.t() | Atom.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_medical_transcription_jobs_request() :: %{
-        optional("JobNameContains") => String.t() | Atom.t(),
+        optional("JobNameContains") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Status") => list(any())
       }
       
   """
-  @type list_medical_transcription_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_medical_transcription_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1451,12 +1451,12 @@ defmodule AWS.Transcribe do
   ## Example:
       
       list_vocabulary_filters_response() :: %{
-        "NextToken" => String.t() | Atom.t(),
+        "NextToken" => String.t() | atom(),
         "VocabularyFilters" => list(vocabulary_filter_info())
       }
       
   """
-  @type list_vocabulary_filters_response() :: %{String.t() | Atom.t() => any()}
+  @type list_vocabulary_filters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1480,7 +1480,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type interruption_filter() :: %{String.t() | Atom.t() => any()}
+  @type interruption_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1491,23 +1491,23 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type get_medical_transcription_job_response() :: %{String.t() | Atom.t() => any()}
+  @type get_medical_transcription_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_vocabulary_response() :: %{
-        "DownloadUri" => String.t() | Atom.t(),
-        "FailureReason" => String.t() | Atom.t(),
+        "DownloadUri" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "LanguageCode" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "VocabularyName" => String.t() | Atom.t(),
+        "VocabularyName" => String.t() | atom(),
         "VocabularyState" => list(any())
       }
       
   """
-  @type get_vocabulary_response() :: %{String.t() | Atom.t() => any()}
+  @type get_vocabulary_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1523,14 +1523,14 @@ defmodule AWS.Transcribe do
   ## Example:
       
       get_vocabulary_filter_response() :: %{
-        "DownloadUri" => String.t() | Atom.t(),
+        "DownloadUri" => String.t() | atom(),
         "LanguageCode" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "VocabularyFilterName" => String.t() | Atom.t()
+        "VocabularyFilterName" => String.t() | atom()
       }
       
   """
-  @type get_vocabulary_filter_response() :: %{String.t() | Atom.t() => any()}
+  @type get_vocabulary_filter_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1539,25 +1539,25 @@ defmodule AWS.Transcribe do
       create_medical_vocabulary_request() :: %{
         optional("Tags") => list(tag()),
         required("LanguageCode") => list(any()),
-        required("VocabularyFileUri") => String.t() | Atom.t()
+        required("VocabularyFileUri") => String.t() | atom()
       }
       
   """
-  @type create_medical_vocabulary_request() :: %{String.t() | Atom.t() => any()}
+  @type create_medical_vocabulary_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_medical_scribe_jobs_request() :: %{
-        optional("JobNameContains") => String.t() | Atom.t(),
+        optional("JobNameContains") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Status") => list(any())
       }
       
   """
-  @type list_medical_scribe_jobs_request() :: %{String.t() | Atom.t() => any()}
+  @type list_medical_scribe_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1571,7 +1571,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type relative_time_range() :: %{String.t() | Atom.t() => any()}
+  @type relative_time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1583,7 +1583,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type medical_scribe_channel_definition() :: %{String.t() | Atom.t() => any()}
+  @type medical_scribe_channel_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1601,9 +1601,9 @@ defmodule AWS.Transcribe do
         optional("MediaFormat") => list(any()),
         optional("MediaSampleRateHertz") => integer(),
         optional("ModelSettings") => model_settings(),
-        optional("OutputBucketName") => String.t() | Atom.t(),
-        optional("OutputEncryptionKMSKeyId") => String.t() | Atom.t(),
-        optional("OutputKey") => String.t() | Atom.t(),
+        optional("OutputBucketName") => String.t() | atom(),
+        optional("OutputEncryptionKMSKeyId") => String.t() | atom(),
+        optional("OutputKey") => String.t() | atom(),
         optional("Settings") => settings(),
         optional("Subtitles") => subtitles(),
         optional("Tags") => list(tag()),
@@ -1612,7 +1612,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type start_transcription_job_request() :: %{String.t() | Atom.t() => any()}
+  @type start_transcription_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1623,7 +1623,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type get_call_analytics_category_response() :: %{String.t() | Atom.t() => any()}
+  @type get_call_analytics_category_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1636,7 +1636,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type create_call_analytics_category_request() :: %{String.t() | Atom.t() => any()}
+  @type create_call_analytics_category_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1647,7 +1647,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type start_medical_scribe_job_response() :: %{String.t() | Atom.t() => any()}
+  @type start_medical_scribe_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1655,11 +1655,11 @@ defmodule AWS.Transcribe do
       
       list_call_analytics_categories_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | Atom.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_call_analytics_categories_request() :: %{String.t() | Atom.t() => any()}
+  @type list_call_analytics_categories_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1670,7 +1670,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type create_call_analytics_category_response() :: %{String.t() | Atom.t() => any()}
+  @type create_call_analytics_category_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1679,11 +1679,11 @@ defmodule AWS.Transcribe do
       subtitles_output() :: %{
         "Formats" => list(list(any())()),
         "OutputStartIndex" => integer(),
-        "SubtitleFileUris" => list(String.t() | Atom.t())
+        "SubtitleFileUris" => list(String.t() | atom())
       }
       
   """
-  @type subtitles_output() :: %{String.t() | Atom.t() => any()}
+  @type subtitles_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1694,7 +1694,7 @@ defmodule AWS.Transcribe do
       }
       
   """
-  @type get_medical_scribe_job_response() :: %{String.t() | Atom.t() => any()}
+  @type get_medical_scribe_job_response() :: %{(String.t() | atom()) => any()}
 
   @type create_call_analytics_category_errors() ::
           bad_request_exception()

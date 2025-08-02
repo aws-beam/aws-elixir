@@ -168,12 +168,12 @@ defmodule AWS.AIOps do
       get_investigation_group_response() :: %{
         "arn" => String.t(),
         "chatbotNotificationChannel" => map(),
-        "createdAt" => [non_neg_integer()],
+        "createdAt" => [float()],
         "createdBy" => String.t(),
         "crossAccountConfigurations" => list(cross_account_configuration()),
         "encryptionConfiguration" => encryption_configuration(),
         "isCloudTrailEventHistoryEnabled" => [boolean()],
-        "lastModifiedAt" => [non_neg_integer()],
+        "lastModifiedAt" => [float()],
         "lastModifiedBy" => String.t(),
         "name" => String.t(),
         "retentionInDays" => float(),
@@ -501,19 +501,18 @@ defmodule AWS.AIOps do
   Region
 
   To create an investigation group and set up CloudWatch investigations, you must
-  be signed in to an IAM principal that has the either the
-  `AIOpsConsoleAdminPolicy` or the `AdministratorAccess` IAM policy attached, or
-  to an account that has similar permissions.
+  be signed in to an IAM principal that has either the `AIOpsConsoleAdminPolicy`
+  or the `AdministratorAccess` IAM policy attached, or to an account that has
+  similar permissions.
 
   You can configure CloudWatch alarms to start investigations and add events to
   investigations. If you create your investigation group with
   `CreateInvestigationGroup` and you want to enable alarms to do this, you must
-  use
-  [PutInvestigationGroupPolicy](https://docs.aws.amazon.com/operationalinvestigations/latest/AmazonQDeveloperOperationalInvestigationsAPIReference/API_PutInvestigationGroupPolicy.html)
-  to create a resource policy that grants this permission to CloudWatch alarms.
+  use `PutInvestigationGroupPolicy` to create a resource policy that grants this
+  permission to CloudWatch alarms.
 
-  For more information about configuring CloudWatch alarms to work with CloudWatch
-  investigations, see
+  For more information about configuring CloudWatch alarms, see [Using Amazon CloudWatch
+  alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html)
   """
   @spec create_investigation_group(map(), create_investigation_group_input(), list()) ::
           {:ok, create_investigation_group_output(), any()}
@@ -633,8 +632,11 @@ defmodule AWS.AIOps do
   end
 
   @doc """
-  Returns the IAM resource policy that is associated with the specified
-  investigation group.
+  Returns the JSON of the IAM resource policy associated with the specified
+  investigation group in a string.
+
+  For example,
+  `{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"aiops.alarms.cloudwatch.amazonaws.com\"},\"Action\":[\"aiops:CreateInvestigation\",\"aiops:CreateInvestigationEvent\"],\"Resource\":\"*\",\"Condition\":{\"StringEquals\":{\"aws:SourceAccount\":\"111122223333\"},\"ArnLike\":{\"aws:SourceArn\":\"arn:aws:cloudwatch:us-east-1:111122223333:alarm:*\"}}}]}`.
   """
   @spec get_investigation_group_policy(map(), String.t(), list()) ::
           {:ok, get_investigation_group_policy_response(), any()}
@@ -717,11 +719,11 @@ defmodule AWS.AIOps do
   investigations, you must use this operation to create a policy similar to this
   example.
 
-  `{ "Version": "2008-10-17", "Statement": [{ "Effect": "Allow", "Principal": { "Service": "aiops.alarms.cloudwatch.amazonaws.com" }, "Action":
-  ["aiops:CreateInvestigation", "aiops:CreateInvestigationEvent"], "Resource":
-  "*", "Condition": { "StringEquals": { "aws:SourceAccount": "*account-id*" },
-  "ArnLike": { "aws:SourceArn": "arn:aws:cloudwatch:*region*:*account-id*:alarm:*"
-  } } }] }`
+  ` { "Version": "2008-10-17", "Statement": [ { "Effect": "Allow", "Principal": { "Service": "aiops.alarms.cloudwatch.amazonaws.com" }, "Action": [
+  "aiops:CreateInvestigation", "aiops:CreateInvestigationEvent" ], "Resource":
+  "*", "Condition": { "StringEquals": { "aws:SourceAccount": "account-id" },
+  "ArnLike": { "aws:SourceArn": "arn:aws:cloudwatch:region:account-id:alarm:*" } }
+  } ] } `
   """
   @spec put_investigation_group_policy(
           map(),

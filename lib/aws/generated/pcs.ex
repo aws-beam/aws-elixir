@@ -135,6 +135,7 @@ defmodule AWS.PCS do
   ## Example:
       
       networking() :: %{
+        "networkType" => list(any()),
         "securityGroupIds" => list(String.t()),
         "subnetIds" => list(String.t())
       }
@@ -588,6 +589,7 @@ defmodule AWS.PCS do
   ## Example:
       
       endpoint() :: %{
+        "ipv6Address" => [String.t()],
         "port" => [String.t()],
         "privateIpAddress" => [String.t()],
         "publicIpAddress" => [String.t()],
@@ -824,6 +826,7 @@ defmodule AWS.PCS do
   ## Example:
       
       networking_request() :: %{
+        "networkType" => list(any()),
         "securityGroupIds" => list(String.t()),
         "subnetIds" => list(String.t())
       }

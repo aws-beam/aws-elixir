@@ -11674,6 +11674,7 @@ defmodule AWS.SecurityHub do
         "AwsIamUser" => aws_iam_user_details(),
         "AwsNetworkFirewallFirewall" => aws_network_firewall_firewall_details(),
         "AwsWafRegionalRule" => aws_waf_regional_rule_details(),
+        "CodeRepository" => code_repository_details(),
         "AwsIamRole" => aws_iam_role_details(),
         "AwsApiGatewayV2Api" => aws_api_gateway_v2_api_details(),
         "AwsRdsEventSubscription" => aws_rds_event_subscription_details(),
@@ -11966,6 +11967,19 @@ defmodule AWS.SecurityHub do
 
   """
   @type security_hub_policy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_repository_details() :: %{
+        "CodeSecurityIntegrationArn" => String.t(),
+        "ProjectName" => String.t(),
+        "ProviderType" => String.t()
+      }
+
+  """
+  @type code_repository_details() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -16470,7 +16484,7 @@ defmodule AWS.SecurityHub do
 
   @doc """
 
-  Returns the history of a Security Hub finding for the past 90 days.
+  Returns the history of a Security Hub finding.
 
   The history includes changes made to any fields in
   the Amazon Web Services Security Finding Format (ASFF) except top-level

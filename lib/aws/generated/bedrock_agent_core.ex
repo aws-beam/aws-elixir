@@ -5,7 +5,9 @@ defmodule AWS.BedrockAgentCore do
   @moduledoc """
   Amazon Bedrock AgentCore is in preview release and is subject to change.
 
-  Data plane operations for Amazon Bedrock AgentCore.
+  Welcome to the Amazon Bedrock AgentCore Data Plane API reference. Data Plane
+  actions process and handle data or workloads within Amazon Web Services
+  services.
   """
 
   alias AWS.Client
@@ -359,7 +361,6 @@ defmodule AWS.BedrockAgentCore do
         optional("customParameters") => map(),
         optional("forceAuthentication") => [boolean()],
         optional("resourceOauth2ReturnUrl") => String.t(),
-        optional("userId") => String.t(),
         required("oauth2Flow") => list(any()),
         required("resourceCredentialProviderName") => String.t(),
         required("scopes") => list(String.t()),
@@ -1372,12 +1373,13 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Creates an event in a memory store.
+  Creates an event in an AgentCore Memory resource.
 
   Events represent interactions or activities that occur within a session and are
   associated with specific actors.
 
-  To use this operation, you must have the `genesismemory:CreateEvent` permission.
+  To use this operation, you must have the `bedrock-agentcore:CreateEvent`
+  permission.
 
   This operation is subject to request rate limiting.
   """
@@ -1408,11 +1410,12 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Deletes an event from a memory store.
+  Deletes an event from an AgentCore Memory resource.
 
   When you delete an event, it is permanently removed.
 
-  To use this operation, you must have the `genesismemory:DeleteEvent` permission.
+  To use this operation, you must have the `bedrock-agentcore:DeleteEvent`
+  permission.
   """
   @spec delete_event(
           map(),
@@ -1459,11 +1462,11 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Deletes a memory record from a memory store.
+  Deletes a memory record from an AgentCore Memory resource.
 
   When you delete a memory record, it is permanently removed.
 
-  To use this operation, you must have the `genesismemory:DeleteMemoryRecord`
+  To use this operation, you must have the `bedrock-agentcore:DeleteMemoryRecord`
   permission.
   """
   @spec delete_memory_record(map(), String.t(), String.t(), delete_memory_record_input(), list()) ::
@@ -1586,9 +1589,10 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Retrieves information about a specific event in a memory store.
+  Retrieves information about a specific event in an AgentCore Memory resource.
 
-  To use this operation, you must have the `genesismemory:GetEvent` permission.
+  To use this operation, you must have the `bedrock-agentcore:GetEvent`
+  permission.
   """
   @spec get_event(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
           {:ok, get_event_output(), any()}
@@ -1608,9 +1612,9 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Retrieves a specific memory record from a memory store.
+  Retrieves a specific memory record from an AgentCore Memory resource.
 
-  To use this operation, you must have the `genesismemory:GetMemoryRecord`
+  To use this operation, you must have the `bedrock-agentcore:GetMemoryRecord`
   permission.
   """
   @spec get_memory_record(map(), String.t(), String.t(), list()) ::
@@ -1660,7 +1664,7 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Reaturns the Oauth2Token of the provided resource
+  Returns the OAuth 2.0 token of the provided resource
   """
   @spec get_resource_oauth2_token(map(), get_resource_oauth2_token_request(), list()) ::
           {:ok, get_resource_oauth2_token_response(), any()}
@@ -1787,19 +1791,26 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Sends a request to an agent runtime in Amazon Bedrock and receives responses in
-  real-time.
+  Sends a request to an agent or tool hosted in an Amazon Bedrock AgentCore
+  Runtime and receives responses in real-time.
 
-  The agent processes the request using the configured foundation model and any
-  associated knowledge bases or action groups.
-
-  To invoke an agent runtime, you must specify the agent runtime ARN and provide a
+  To invoke an agent you must specify the AgentCore Runtime ARN and provide a
   payload containing your request. You can optionally specify a qualifier to
-  target a specific version or alias of the agent.
+  target a specific version or endpoint of the agent.
 
   This operation supports streaming responses, allowing you to receive partial
   responses as they become available. We recommend using pagination to ensure that
   the operation returns quickly and successfully when processing large responses.
+
+  For example code, see [Invoke an AgentCore Runtime agent](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-invoke-agent.html).
+
+  If you're integrating your agent with OAuth, you can't use the Amazon Web
+  Services SDK to call `InvokeAgentRuntime`. Instead, make a HTTPS request to
+  `InvokeAgentRuntime`. For an example, see [Authenticate and authorize with Inbound Auth and Outbound
+  Auth](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-oauth.html).
+
+  To use this operation, you must have the `bedrock-agentcore:InvokeAgentRuntime`
+  permission.
   """
   @spec invoke_agent_runtime(map(), String.t(), invoke_agent_runtime_request(), list()) ::
           {:ok, invoke_agent_runtime_response(), any()}
@@ -1930,12 +1941,13 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Lists all actors in a memory store.
+  Lists all actors in an AgentCore Memory resource.
 
   We recommend using pagination to ensure that the operation returns quickly and
   successfully.
 
-  To use this operation, you must have the `genesismemory:ListActors` permission.
+  To use this operation, you must have the `bedrock-agentcore:ListActors`
+  permission.
   """
   @spec list_actors(map(), String.t(), list_actors_input(), list()) ::
           {:ok, list_actors_output(), any()}
@@ -2066,12 +2078,13 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Lists events in a memory store based on specified criteria.
+  Lists events in an AgentCore Memory resource based on specified criteria.
 
   We recommend using pagination to ensure that the operation returns quickly and
   successfully.
 
-  To use this operation, you must have the `genesismemory:ListEvents` permission.
+  To use this operation, you must have the `bedrock-agentcore:ListEvents`
+  permission.
   """
   @spec list_events(map(), String.t(), String.t(), String.t(), list_events_input(), list()) ::
           {:ok, list_events_output(), any()}
@@ -2102,12 +2115,13 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Lists memory records in a memory store based on specified criteria.
+  Lists memory records in an AgentCore Memory resource based on specified
+  criteria.
 
   We recommend using pagination to ensure that the operation returns quickly and
   successfully.
 
-  To use this operation, you must have the `genesismemory:ListMemoryRecords`
+  To use this operation, you must have the `bedrock-agentcore:ListMemoryRecords`
   permission.
   """
   @spec list_memory_records(map(), String.t(), list_memory_records_input(), list()) ::
@@ -2137,12 +2151,12 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Lists sessions in a memory store based on specified criteria.
+  Lists sessions in an AgentCore Memory resource based on specified criteria.
 
   We recommend using pagination to ensure that the operation returns quickly and
   successfully.
 
-  To use this operation, you must have the `genesismemory:ListSessions`
+  To use this operation, you must have the `bedrock-agentcore:ListSessions`
   permission.
   """
   @spec list_sessions(map(), String.t(), String.t(), list_sessions_input(), list()) ::
@@ -2174,14 +2188,14 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
-  Searches for and retrieves memory records from a memory store based on specified
-  search criteria.
+  Searches for and retrieves memory records from an AgentCore Memory resource
+  based on specified search criteria.
 
   We recommend using pagination to ensure that the operation returns quickly and
   successfully.
 
-  To use this operation, you must have the `genesismemory:RetrieveMemoryRecords`
-  permission.
+  To use this operation, you must have the
+  `bedrock-agentcore:RetrieveMemoryRecords` permission.
   """
   @spec retrieve_memory_records(map(), String.t(), retrieve_memory_records_input(), list()) ::
           {:ok, retrieve_memory_records_output(), any()}

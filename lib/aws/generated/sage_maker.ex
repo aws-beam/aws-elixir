@@ -1222,6 +1222,22 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      detach_cluster_node_volume_response() :: %{
+        "AttachTime" => non_neg_integer(),
+        "ClusterArn" => String.t(),
+        "DeviceName" => String.t(),
+        "NodeId" => String.t(),
+        "Status" => list(any()),
+        "VolumeId" => String.t()
+      }
+      
+  """
+  @type detach_cluster_node_volume_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_inference_component_output() :: %{
         "InferenceComponentArn" => String.t()
       }
@@ -4922,6 +4938,22 @@ defmodule AWS.SageMaker do
       
   """
   @type import_hub_content_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_cluster_node_volume_response() :: %{
+        "AttachTime" => non_neg_integer(),
+        "ClusterArn" => String.t(),
+        "DeviceName" => String.t(),
+        "NodeId" => String.t(),
+        "Status" => list(any()),
+        "VolumeId" => String.t()
+      }
+      
+  """
+  @type attach_cluster_node_volume_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -8953,6 +8985,19 @@ defmodule AWS.SageMaker do
       
   """
   @type device_deployment_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_cluster_node_volume_request() :: %{
+        required("ClusterArn") => String.t(),
+        required("NodeId") => String.t(),
+        required("VolumeId") => String.t()
+      }
+      
+  """
+  @type detach_cluster_node_volume_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -14215,6 +14260,19 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      attach_cluster_node_volume_request() :: %{
+        required("ClusterArn") => String.t(),
+        required("NodeId") => String.t(),
+        required("VolumeId") => String.t()
+      }
+      
+  """
+  @type attach_cluster_node_volume_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_auto_ml_job_v2_request() :: %{
         required("AutoMLJobName") => String.t()
       }
@@ -18727,6 +18785,8 @@ defmodule AWS.SageMaker do
 
   @type associate_trial_component_errors() :: resource_limit_exceeded() | resource_not_found()
 
+  @type attach_cluster_node_volume_errors() :: resource_not_found()
+
   @type batch_delete_cluster_nodes_errors() :: resource_not_found()
 
   @type create_action_errors() :: resource_limit_exceeded()
@@ -19059,6 +19119,8 @@ defmodule AWS.SageMaker do
 
   @type describe_user_profile_errors() :: resource_limit_exceeded() | resource_not_found()
 
+  @type detach_cluster_node_volume_errors() :: resource_not_found()
+
   @type disassociate_trial_component_errors() :: resource_not_found()
 
   @type get_lineage_group_policy_errors() :: resource_not_found()
@@ -19357,6 +19419,25 @@ defmodule AWS.SageMaker do
     meta = metadata()
 
     Request.request_post(client, meta, "AssociateTrialComponent", input, options)
+  end
+
+  @doc """
+  Attaches your Amazon Elastic Block Store (Amazon EBS) volume to a node in your
+  EKS-orchestrated HyperPod cluster.
+
+  This API works with the Amazon Elastic Block Store (Amazon EBS) Container
+  Storage Interface (CSI) driver to manage the lifecycle of persistent storage in
+  your HyperPod EKS clusters.
+  """
+  @spec attach_cluster_node_volume(map(), attach_cluster_node_volume_request(), list()) ::
+          {:ok, attach_cluster_node_volume_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, attach_cluster_node_volume_errors()}
+  def attach_cluster_node_volume(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "AttachClusterNodeVolume", input, options)
   end
 
   @doc """
@@ -23148,6 +23229,25 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Detaches your Amazon Elastic Block Store (Amazon EBS) volume from a node in your
+  EKS-orchestrated SageMaker HyperPod cluster.
+
+  This API works with the Amazon Elastic Block Store (Amazon EBS) Container
+  Storage Interface (CSI) driver to manage the lifecycle of persistent storage in
+  your HyperPod EKS clusters.
+  """
+  @spec detach_cluster_node_volume(map(), detach_cluster_node_volume_request(), list()) ::
+          {:ok, detach_cluster_node_volume_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, detach_cluster_node_volume_errors()}
+  def detach_cluster_node_volume(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DetachClusterNodeVolume", input, options)
+  end
+
+  @doc """
   Disables using Service Catalog in SageMaker.
 
   Service Catalog is used to create SageMaker projects.
@@ -25839,8 +25939,13 @@ defmodule AWS.SageMaker do
   outside the specified range are denied and get a `Not Found` error message on
   the worker portal.
 
-  To restrict access to all the workers in public internet, add the
-  `SourceIpConfig` CIDR value as "10.0.0.0/16".
+  To restrict public internet access for all workers, configure the
+  `SourceIpConfig` CIDR value. For example, when using `SourceIpConfig` with an
+  `IpAddressType` of `IPv4`, you can restrict access to the IPv4 CIDR block
+  "10.0.0.0/16". When using an `IpAddressType` of `dualstack`, you can specify
+  both the IPv4 and IPv6 CIDR blocks, such as "10.0.0.0/16" for IPv4 only,
+  "2001:db8:1234:1a00::/56" for IPv6 only, or "10.0.0.0/16" and
+  "2001:db8:1234:1a00::/56" for dual stack.
 
   Amazon SageMaker does not support Source Ip restriction for worker portals in
   VPC.

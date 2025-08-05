@@ -164,6 +164,20 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      put_asset_model_interface_relationship_response() :: %{
+        "assetModelArn" => String.t(),
+        "assetModelId" => String.t(),
+        "assetModelStatus" => asset_model_status(),
+        "interfaceAssetModelId" => String.t()
+      }
+
+  """
+  @type put_asset_model_interface_relationship_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_access_policies_response() :: %{
         "accessPolicySummaries" => list(access_policy_summary()),
         "nextToken" => String.t()
@@ -423,6 +437,15 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      describe_asset_model_interface_relationship_request() :: %{}
+
+  """
+  @type describe_asset_model_interface_relationship_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       project_summary() :: %{
         "creationDate" => non_neg_integer(),
         "description" => String.t(),
@@ -513,6 +536,18 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type create_gateway_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interface_summary() :: %{
+        "interfaceAssetModelId" => String.t(),
+        "interfaceAssetModelPropertyId" => String.t()
+      }
+
+  """
+  @type interface_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1411,6 +1446,18 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      list_interface_relationships_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_interface_relationships_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       multi_layer_storage() :: %{
         "customerManagedS3Storage" => customer_managed_s3_storage()
       }
@@ -1687,6 +1734,20 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      delete_asset_model_interface_relationship_response() :: %{
+        "assetModelArn" => String.t(),
+        "assetModelId" => String.t(),
+        "assetModelStatus" => asset_model_status(),
+        "interfaceAssetModelId" => String.t()
+      }
+
+  """
+  @type delete_asset_model_interface_relationship_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_gateway_capability_configuration_request() :: %{}
 
   """
@@ -1714,6 +1775,17 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type delete_portal_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interface_relationship() :: %{
+        "id" => String.t()
+      }
+
+  """
+  @type interface_relationship() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2178,6 +2250,17 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      delete_asset_model_interface_relationship_request() :: %{
+        optional("clientToken") => String.t()
+      }
+
+  """
+  @type delete_asset_model_interface_relationship_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_asset_relationships_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -2407,6 +2490,18 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      put_asset_model_interface_relationship_request() :: %{
+        optional("clientToken") => String.t(),
+        required("propertyMappingConfiguration") => property_mapping_configuration()
+      }
+
+  """
+  @type put_asset_model_interface_relationship_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_unavailable_exception() :: %{
         "message" => String.t()
       }
@@ -2610,6 +2705,20 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      describe_asset_model_interface_relationship_response() :: %{
+        "assetModelId" => String.t(),
+        "hierarchyMappings" => list(hierarchy_mapping()),
+        "interfaceAssetModelId" => String.t(),
+        "propertyMappings" => list(property_mapping())
+      }
+
+  """
+  @type describe_asset_model_interface_relationship_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_computation_model_response() :: %{
         "computationModelStatus" => computation_model_status()
       }
@@ -2736,6 +2845,18 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      hierarchy_mapping() :: %{
+        "assetModelHierarchyId" => String.t(),
+        "interfaceAssetModelHierarchyId" => String.t()
+      }
+
+  """
+  @type hierarchy_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_access_policy_request() :: %{}
 
   """
@@ -2753,6 +2874,29 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type list_asset_model_composite_models_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      property_mapping() :: %{
+        "assetModelPropertyId" => String.t(),
+        "interfaceAssetModelPropertyId" => String.t()
+      }
+
+  """
+  @type property_mapping() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interface_relationship_summary() :: %{
+        "id" => String.t()
+      }
+
+  """
+  @type interface_relationship_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2828,7 +2972,8 @@ defmodule AWS.IoTSiteWise do
         "assetModelStatus" => asset_model_status(),
         "assetModelType" => list(any()),
         "assetModelVersion" => String.t(),
-        "eTag" => String.t()
+        "eTag" => String.t(),
+        "interfaceDetails" => list(interface_relationship())
       }
 
   """
@@ -3972,6 +4117,19 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      property_mapping_configuration() :: %{
+        "createMissingProperty" => boolean(),
+        "matchByPropertyName" => boolean(),
+        "overrides" => list(property_mapping())
+      }
+
+  """
+  @type property_mapping_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_dashboard_request() :: %{}
 
   """
@@ -4629,6 +4787,7 @@ defmodule AWS.IoTSiteWise do
         "dataTypeSpec" => String.t(),
         "externalId" => String.t(),
         "id" => String.t(),
+        "interfaceSummaries" => list(interface_summary()),
         "name" => String.t(),
         "path" => list(asset_model_property_path_segment()),
         "type" => property_type(),
@@ -4662,6 +4821,18 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type associate_time_series_to_asset_property_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_interface_relationships_response() :: %{
+        "interfaceRelationshipSummaries" => list(interface_relationship_summary()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_interface_relationships_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4862,6 +5033,13 @@ defmodule AWS.IoTSiteWise do
           | conflicting_operation_exception()
           | internal_failure_exception()
 
+  @type delete_asset_model_interface_relationship_errors() ::
+          throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflicting_operation_exception()
+          | internal_failure_exception()
+
   @type delete_computation_model_errors() ::
           throttling_exception()
           | invalid_request_exception()
@@ -4940,6 +5118,12 @@ defmodule AWS.IoTSiteWise do
           | internal_failure_exception()
 
   @type describe_asset_model_composite_model_errors() ::
+          throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type describe_asset_model_interface_relationship_errors() ::
           throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
@@ -5189,6 +5373,12 @@ defmodule AWS.IoTSiteWise do
   @type list_gateways_errors() ::
           throttling_exception() | invalid_request_exception() | internal_failure_exception()
 
+  @type list_interface_relationships_errors() ::
+          throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
   @type list_portals_errors() ::
           throttling_exception() | invalid_request_exception() | internal_failure_exception()
 
@@ -5211,6 +5401,14 @@ defmodule AWS.IoTSiteWise do
           throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type put_asset_model_interface_relationship_errors() ::
+          limit_exceeded_exception()
+          | throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflicting_operation_exception()
           | internal_failure_exception()
 
   @type put_default_encryption_configuration_errors() ::
@@ -5755,8 +5953,8 @@ defmodule AWS.IoTSiteWise do
   in the
   *IoT SiteWise User Guide*.
 
-  You can create two types of asset models, `ASSET_MODEL` or
-  `COMPONENT_MODEL`.
+  You can create three types of asset models, `ASSET_MODEL`,
+  `COMPONENT_MODEL`, or an `INTERFACE`.
 
     *
 
@@ -5769,6 +5967,11 @@ defmodule AWS.IoTSiteWise do
   **COMPONENT_MODEL** – A reusable component that
   you can include in the composite models of other asset models. You can't create
   assets directly from this type of asset model.
+
+    *
+
+  **INTERFACE** – An interface is a type of model
+  that defines a standard structure that can be applied to different asset models.
   """
   @spec create_asset_model(map(), create_asset_model_request(), list()) ::
           {:ok, create_asset_model_response(), any()}
@@ -5886,8 +6089,7 @@ defmodule AWS.IoTSiteWise do
 
     
   After data moves from the hot tier to the warm or cold tier based on retention
-  settings,
-  it does not trigger computations or notifications.
+  settings, it does not trigger computations or notifications.
 
     
   Data older than 7 days does not trigger computations or notifications.
@@ -6306,6 +6508,55 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+  Deletes an interface relationship between an asset model and an interface asset
+  model.
+  """
+  @spec delete_asset_model_interface_relationship(
+          map(),
+          String.t(),
+          String.t(),
+          delete_asset_model_interface_relationship_request(),
+          list()
+        ) ::
+          {:ok, delete_asset_model_interface_relationship_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_asset_model_interface_relationship_errors()}
+  def delete_asset_model_interface_relationship(
+        %Client{} = client,
+        asset_model_id,
+        interface_asset_model_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/interface/#{AWS.Util.encode_uri(interface_asset_model_id)}/asset-model-interface-relationship"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes a computation model.
 
   This action can't be undone.
@@ -6665,6 +6916,11 @@ defmodule AWS.IoTSiteWise do
 
   @doc """
   Retrieves information about an asset model.
+
+  This includes details about the asset model's
+  properties, hierarchies, composite models, and any interface relationships if
+  the asset model
+  implements interfaces.
   """
   @spec describe_asset_model(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, describe_asset_model_response(), any()}
@@ -6746,6 +7002,33 @@ defmodule AWS.IoTSiteWise do
       else
         query_params
       end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about an interface relationship between an asset model and
+  an
+  interface asset model.
+  """
+  @spec describe_asset_model_interface_relationship(map(), String.t(), String.t(), list()) ::
+          {:ok, describe_asset_model_interface_relationship_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_asset_model_interface_relationship_errors()}
+  def describe_asset_model_interface_relationship(
+        %Client{} = client,
+        asset_model_id,
+        interface_asset_model_id,
+        options \\ []
+      ) do
+    url_path =
+      "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/interface/#{AWS.Util.encode_uri(interface_asset_model_id)}/asset-model-interface-relationship"
+
+    headers = []
+    query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
@@ -8505,12 +8788,12 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-
   Lists all data binding usages for computation models.
 
-  This allows to identify where specific data bindings are being
-  utilized across the computation models.
-  This track dependencies between data sources and computation models.
+  This allows to identify where
+  specific data bindings are being utilized across the computation models. This
+  track
+  dependencies between data sources and computation models.
   """
   @spec list_computation_model_data_binding_usages(
           map(),
@@ -8850,6 +9133,52 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+  Retrieves a paginated list of asset models that have a specific interface asset
+  model
+  applied to them.
+  """
+  @spec list_interface_relationships(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_interface_relationships_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_interface_relationships_errors()}
+  def list_interface_relationships(
+        %Client{} = client,
+        interface_asset_model_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/interface/#{AWS.Util.encode_uri(interface_asset_model_id)}/asset-models"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a paginated list of IoT SiteWise Monitor portals.
   """
   @spec list_portals(map(), String.t() | nil, String.t() | nil, list()) ::
@@ -9057,6 +9386,53 @@ defmodule AWS.IoTSiteWise do
     meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Creates or updates an interface relationship between an asset model and an
+  interface asset
+  model.
+
+  This operation applies an interface to an asset model.
+  """
+  @spec put_asset_model_interface_relationship(
+          map(),
+          String.t(),
+          String.t(),
+          put_asset_model_interface_relationship_request(),
+          list()
+        ) ::
+          {:ok, put_asset_model_interface_relationship_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_asset_model_interface_relationship_errors()}
+  def put_asset_model_interface_relationship(
+        %Client{} = client,
+        asset_model_id,
+        interface_asset_model_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/asset-models/#{AWS.Util.encode_uri(asset_model_id)}/interface/#{AWS.Util.encode_uri(interface_asset_model_id)}/asset-model-interface-relationship"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """

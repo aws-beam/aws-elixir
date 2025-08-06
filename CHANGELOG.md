@@ -1,5 +1,8 @@
 # Change Log
 
+## [v1.0.8] - 2025-08-06
+- Add atom() to Elixir type specs so either String.t() or atom() is accepted
+
 ## [v1.0.7] - 2025-07-14
 - Fix type specs with double ()
 

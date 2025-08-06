@@ -48,34 +48,34 @@ defmodule AWS.ElasticLoadBalancing do
   ## Example:
       
       policy_type_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type policy_type_not_found_exception() :: %{String.t() => any()}
+  @type policy_type_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       source_security_group() :: %{
-        "GroupName" => String.t(),
-        "OwnerAlias" => String.t()
+        "GroupName" => String.t() | atom(),
+        "OwnerAlias" => String.t() | atom()
       }
       
   """
-  @type source_security_group() :: %{String.t() => any()}
+  @type source_security_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attach_load_balancer_to_subnets_output() :: %{
-        "Subnets" => list(String.t())
+        "Subnets" => list(String.t() | atom())
       }
       
   """
-  @type attach_load_balancer_to_subnets_output() :: %{String.t() => any()}
+  @type attach_load_balancer_to_subnets_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -83,11 +83,11 @@ defmodule AWS.ElasticLoadBalancing do
       
       backend_server_description() :: %{
         "InstancePort" => integer(),
-        "PolicyNames" => list(String.t())
+        "PolicyNames" => list(String.t() | atom())
       }
       
   """
-  @type backend_server_description() :: %{String.t() => any()}
+  @type backend_server_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -95,12 +95,12 @@ defmodule AWS.ElasticLoadBalancing do
       
       policy_description() :: %{
         "PolicyAttributeDescriptions" => list(policy_attribute_description()),
-        "PolicyName" => String.t(),
-        "PolicyTypeName" => String.t()
+        "PolicyName" => String.t() | atom(),
+        "PolicyTypeName" => String.t() | atom()
       }
       
   """
-  @type policy_description() :: %{String.t() => any()}
+  @type policy_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -111,30 +111,30 @@ defmodule AWS.ElasticLoadBalancing do
       }
       
   """
-  @type describe_load_balancer_policy_types_output() :: %{String.t() => any()}
+  @type describe_load_balancer_policy_types_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_attribute() :: %{
-        "AttributeName" => String.t(),
-        "AttributeValue" => String.t()
+        "AttributeName" => String.t() | atom(),
+        "AttributeValue" => String.t() | atom()
       }
       
   """
-  @type policy_attribute() :: %{String.t() => any()}
+  @type policy_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       apply_security_groups_to_load_balancer_output() :: %{
-        "SecurityGroups" => list(String.t())
+        "SecurityGroups" => list(String.t() | atom())
       }
       
   """
-  @type apply_security_groups_to_load_balancer_output() :: %{String.t() => any()}
+  @type apply_security_groups_to_load_balancer_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -145,30 +145,30 @@ defmodule AWS.ElasticLoadBalancing do
       }
       
   """
-  @type connection_settings() :: %{String.t() => any()}
+  @type connection_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_load_balancer_policies_input() :: %{
-        optional("LoadBalancerName") => String.t(),
-        optional("PolicyNames") => list(String.t())
+        optional("LoadBalancerName") => String.t() | atom(),
+        optional("PolicyNames") => list(String.t() | atom())
       }
       
   """
-  @type describe_load_balancer_policies_input() :: %{String.t() => any()}
+  @type describe_load_balancer_policies_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       dependency_throttle_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type dependency_throttle_exception() :: %{String.t() => any()}
+  @type dependency_throttle_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -176,14 +176,14 @@ defmodule AWS.ElasticLoadBalancing do
       
       listener() :: %{
         "InstancePort" => integer(),
-        "InstanceProtocol" => String.t(),
+        "InstanceProtocol" => String.t() | atom(),
         "LoadBalancerPort" => integer(),
-        "Protocol" => String.t(),
-        "SSLCertificateId" => String.t()
+        "Protocol" => String.t() | atom(),
+        "SSLCertificateId" => String.t() | atom()
       }
       
   """
-  @type listener() :: %{String.t() => any()}
+  @type listener() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -200,47 +200,47 @@ defmodule AWS.ElasticLoadBalancing do
       
       describe_access_points_output() :: %{
         "LoadBalancerDescriptions" => list(load_balancer_description()),
-        "NextMarker" => String.t()
+        "NextMarker" => String.t() | atom()
       }
       
   """
-  @type describe_access_points_output() :: %{String.t() => any()}
+  @type describe_access_points_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_load_balancer_listener_ssl_certificate_input() :: %{
-        required("LoadBalancerName") => String.t(),
+        required("LoadBalancerName") => String.t() | atom(),
         required("LoadBalancerPort") => integer(),
-        required("SSLCertificateId") => String.t()
+        required("SSLCertificateId") => String.t() | atom()
       }
       
   """
-  @type set_load_balancer_listener_ssl_certificate_input() :: %{String.t() => any()}
+  @type set_load_balancer_listener_ssl_certificate_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       duplicate_access_point_name_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type duplicate_access_point_name_exception() :: %{String.t() => any()}
+  @type duplicate_access_point_name_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attach_load_balancer_to_subnets_input() :: %{
-        required("LoadBalancerName") => String.t(),
-        required("Subnets") => list(String.t())
+        required("LoadBalancerName") => String.t() | atom(),
+        required("Subnets") => list(String.t() | atom())
       }
       
   """
-  @type attach_load_balancer_to_subnets_input() :: %{String.t() => any()}
+  @type attach_load_balancer_to_subnets_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -256,96 +256,96 @@ defmodule AWS.ElasticLoadBalancing do
   ## Example:
       
       load_balancer_description() :: %{
-        "AvailabilityZones" => list(String.t()),
+        "AvailabilityZones" => list(String.t() | atom()),
         "BackendServerDescriptions" => list(backend_server_description()),
-        "CanonicalHostedZoneName" => String.t(),
-        "CanonicalHostedZoneNameID" => String.t(),
+        "CanonicalHostedZoneName" => String.t() | atom(),
+        "CanonicalHostedZoneNameID" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "DNSName" => String.t(),
+        "DNSName" => String.t() | atom(),
         "HealthCheck" => health_check(),
         "Instances" => list(instance()),
         "ListenerDescriptions" => list(listener_description()),
-        "LoadBalancerName" => String.t(),
+        "LoadBalancerName" => String.t() | atom(),
         "Policies" => policies(),
-        "Scheme" => String.t(),
-        "SecurityGroups" => list(String.t()),
+        "Scheme" => String.t() | atom(),
+        "SecurityGroups" => list(String.t() | atom()),
         "SourceSecurityGroup" => source_security_group(),
-        "Subnets" => list(String.t()),
-        "VPCId" => String.t()
+        "Subnets" => list(String.t() | atom()),
+        "VPCId" => String.t() | atom()
       }
       
   """
-  @type load_balancer_description() :: %{String.t() => any()}
+  @type load_balancer_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       app_cookie_stickiness_policy() :: %{
-        "CookieName" => String.t(),
-        "PolicyName" => String.t()
+        "CookieName" => String.t() | atom(),
+        "PolicyName" => String.t() | atom()
       }
       
   """
-  @type app_cookie_stickiness_policy() :: %{String.t() => any()}
+  @type app_cookie_stickiness_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_availability_zones_input() :: %{
-        required("AvailabilityZones") => list(String.t()),
-        required("LoadBalancerName") => String.t()
+        required("AvailabilityZones") => list(String.t() | atom()),
+        required("LoadBalancerName") => String.t() | atom()
       }
       
   """
-  @type add_availability_zones_input() :: %{String.t() => any()}
+  @type add_availability_zones_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_input() :: %{
-        required("LoadBalancerNames") => list(String.t()),
+        required("LoadBalancerNames") => list(String.t() | atom()),
         required("Tags") => list(tag())
       }
       
   """
-  @type add_tags_input() :: %{String.t() => any()}
+  @type add_tags_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit() :: %{
-        "Max" => String.t(),
-        "Name" => String.t()
+        "Max" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type limit() :: %{String.t() => any()}
+  @type limit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_configuration_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_configuration_request_exception() :: %{String.t() => any()}
+  @type invalid_configuration_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type subnet_not_found_exception() :: %{String.t() => any()}
+  @type subnet_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -353,24 +353,24 @@ defmodule AWS.ElasticLoadBalancing do
       
       create_lb_cookie_stickiness_policy_input() :: %{
         optional("CookieExpirationPeriod") => float(),
-        required("LoadBalancerName") => String.t(),
-        required("PolicyName") => String.t()
+        required("LoadBalancerName") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom()
       }
       
   """
-  @type create_lb_cookie_stickiness_policy_input() :: %{String.t() => any()}
+  @type create_lb_cookie_stickiness_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_load_balancer_policy_input() :: %{
-        required("LoadBalancerName") => String.t(),
-        required("PolicyName") => String.t()
+        required("LoadBalancerName") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom()
       }
       
   """
-  @type delete_load_balancer_policy_input() :: %{String.t() => any()}
+  @type delete_load_balancer_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -378,11 +378,11 @@ defmodule AWS.ElasticLoadBalancing do
       
       describe_end_point_state_input() :: %{
         optional("Instances") => list(instance()),
-        required("LoadBalancerName") => String.t()
+        required("LoadBalancerName") => String.t() | atom()
       }
       
   """
-  @type describe_end_point_state_input() :: %{String.t() => any()}
+  @type describe_end_point_state_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -407,45 +407,45 @@ defmodule AWS.ElasticLoadBalancing do
   ## Example:
       
       policy_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type policy_not_found_exception() :: %{String.t() => any()}
+  @type policy_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_attribute_description() :: %{
-        "AttributeName" => String.t(),
-        "AttributeValue" => String.t()
+        "AttributeName" => String.t() | atom(),
+        "AttributeValue" => String.t() | atom()
       }
       
   """
-  @type policy_attribute_description() :: %{String.t() => any()}
+  @type policy_attribute_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_key_only() :: %{
-        "Key" => String.t()
+        "Key" => String.t() | atom()
       }
       
   """
-  @type tag_key_only() :: %{String.t() => any()}
+  @type tag_key_only() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       duplicate_listener_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type duplicate_listener_exception() :: %{String.t() => any()}
+  @type duplicate_listener_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -453,11 +453,11 @@ defmodule AWS.ElasticLoadBalancing do
       
       lb_cookie_stickiness_policy() :: %{
         "CookieExpirationPeriod" => float(),
-        "PolicyName" => String.t()
+        "PolicyName" => String.t() | atom()
       }
       
   """
-  @type lb_cookie_stickiness_policy() :: %{String.t() => any()}
+  @type lb_cookie_stickiness_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -472,86 +472,86 @@ defmodule AWS.ElasticLoadBalancing do
       }
       
   """
-  @type load_balancer_attributes() :: %{String.t() => any()}
+  @type load_balancer_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_end_point_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_end_point_exception() :: %{String.t() => any()}
+  @type invalid_end_point_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_tags_input() :: %{
-        required("LoadBalancerNames") => list(String.t())
+        required("LoadBalancerNames") => list(String.t() | atom())
       }
       
   """
-  @type describe_tags_input() :: %{String.t() => any()}
+  @type describe_tags_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detach_load_balancer_from_subnets_output() :: %{
-        "Subnets" => list(String.t())
+        "Subnets" => list(String.t() | atom())
       }
       
   """
-  @type detach_load_balancer_from_subnets_output() :: %{String.t() => any()}
+  @type detach_load_balancer_from_subnets_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       certificate_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type certificate_not_found_exception() :: %{String.t() => any()}
+  @type certificate_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_access_point_input() :: %{
-        required("LoadBalancerName") => String.t()
+        required("LoadBalancerName") => String.t() | atom()
       }
       
   """
-  @type delete_access_point_input() :: %{String.t() => any()}
+  @type delete_access_point_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_description() :: %{
-        "LoadBalancerName" => String.t(),
+        "LoadBalancerName" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type tag_description() :: %{String.t() => any()}
+  @type tag_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -562,7 +562,7 @@ defmodule AWS.ElasticLoadBalancing do
       }
       
   """
-  @type deregister_end_points_output() :: %{String.t() => any()}
+  @type deregister_end_points_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -574,30 +574,30 @@ defmodule AWS.ElasticLoadBalancing do
       }
       
   """
-  @type connection_draining() :: %{String.t() => any()}
+  @type connection_draining() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_availability_zones_input() :: %{
-        required("AvailabilityZones") => list(String.t()),
-        required("LoadBalancerName") => String.t()
+        required("AvailabilityZones") => list(String.t() | atom()),
+        required("LoadBalancerName") => String.t() | atom()
       }
       
   """
-  @type remove_availability_zones_input() :: %{String.t() => any()}
+  @type remove_availability_zones_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_availability_zones_output() :: %{
-        "AvailabilityZones" => list(String.t())
+        "AvailabilityZones" => list(String.t() | atom())
       }
       
   """
-  @type add_availability_zones_output() :: %{String.t() => any()}
+  @type add_availability_zones_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -608,7 +608,7 @@ defmodule AWS.ElasticLoadBalancing do
       }
       
   """
-  @type describe_tags_output() :: %{String.t() => any()}
+  @type describe_tags_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -624,11 +624,11 @@ defmodule AWS.ElasticLoadBalancing do
   ## Example:
       
       access_point_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_point_not_found_exception() :: %{String.t() => any()}
+  @type access_point_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -644,29 +644,29 @@ defmodule AWS.ElasticLoadBalancing do
   ## Example:
       
       create_access_point_input() :: %{
-        optional("AvailabilityZones") => list(String.t()),
-        optional("Scheme") => String.t(),
-        optional("SecurityGroups") => list(String.t()),
-        optional("Subnets") => list(String.t()),
+        optional("AvailabilityZones") => list(String.t() | atom()),
+        optional("Scheme") => String.t() | atom(),
+        optional("SecurityGroups") => list(String.t() | atom()),
+        optional("Subnets") => list(String.t() | atom()),
         optional("Tags") => list(tag()),
         required("Listeners") => list(listener()),
-        required("LoadBalancerName") => String.t()
+        required("LoadBalancerName") => String.t() | atom()
       }
       
   """
-  @type create_access_point_input() :: %{String.t() => any()}
+  @type create_access_point_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       apply_security_groups_to_load_balancer_input() :: %{
-        required("LoadBalancerName") => String.t(),
-        required("SecurityGroups") => list(String.t())
+        required("LoadBalancerName") => String.t() | atom(),
+        required("SecurityGroups") => list(String.t() | atom())
       }
       
   """
-  @type apply_security_groups_to_load_balancer_input() :: %{String.t() => any()}
+  @type apply_security_groups_to_load_balancer_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -674,11 +674,11 @@ defmodule AWS.ElasticLoadBalancing do
       
       configure_health_check_input() :: %{
         required("HealthCheck") => health_check(),
-        required("LoadBalancerName") => String.t()
+        required("LoadBalancerName") => String.t() | atom()
       }
       
   """
-  @type configure_health_check_input() :: %{String.t() => any()}
+  @type configure_health_check_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -687,51 +687,51 @@ defmodule AWS.ElasticLoadBalancing do
       health_check() :: %{
         "HealthyThreshold" => integer(),
         "Interval" => integer(),
-        "Target" => String.t(),
+        "Target" => String.t() | atom(),
         "Timeout" => integer(),
         "UnhealthyThreshold" => integer()
       }
       
   """
-  @type health_check() :: %{String.t() => any()}
+  @type health_check() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_not_permitted_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type operation_not_permitted_exception() :: %{String.t() => any()}
+  @type operation_not_permitted_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_state() :: %{
-        "Description" => String.t(),
-        "InstanceId" => String.t(),
-        "ReasonCode" => String.t(),
-        "State" => String.t()
+        "Description" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "ReasonCode" => String.t() | atom(),
+        "State" => String.t() | atom()
       }
       
   """
-  @type instance_state() :: %{String.t() => any()}
+  @type instance_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_access_points_input() :: %{
-        optional("LoadBalancerNames") => list(String.t()),
-        optional("Marker") => String.t(),
+        optional("LoadBalancerNames") => list(String.t() | atom()),
+        optional("Marker") => String.t() | atom(),
         optional("PageSize") => integer()
       }
       
   """
-  @type describe_access_points_input() :: %{String.t() => any()}
+  @type describe_access_points_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -739,26 +739,26 @@ defmodule AWS.ElasticLoadBalancing do
       
       describe_account_limits_output() :: %{
         "Limits" => list(limit()),
-        "NextMarker" => String.t()
+        "NextMarker" => String.t() | atom()
       }
       
   """
-  @type describe_account_limits_output() :: %{String.t() => any()}
+  @type describe_account_limits_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_attribute_type_description() :: %{
-        "AttributeName" => String.t(),
-        "AttributeType" => String.t(),
-        "Cardinality" => String.t(),
-        "DefaultValue" => String.t(),
-        "Description" => String.t()
+        "AttributeName" => String.t() | atom(),
+        "AttributeType" => String.t() | atom(),
+        "Cardinality" => String.t() | atom(),
+        "DefaultValue" => String.t() | atom(),
+        "Description" => String.t() | atom()
       }
       
   """
-  @type policy_attribute_type_description() :: %{String.t() => any()}
+  @type policy_attribute_type_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -767,22 +767,22 @@ defmodule AWS.ElasticLoadBalancing do
       policies() :: %{
         "AppCookieStickinessPolicies" => list(app_cookie_stickiness_policy()),
         "LBCookieStickinessPolicies" => list(lb_cookie_stickiness_policy()),
-        "OtherPolicies" => list(String.t())
+        "OtherPolicies" => list(String.t() | atom())
       }
       
   """
-  @type policies() :: %{String.t() => any()}
+  @type policies() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_load_balancer_policy_types_input() :: %{
-        optional("PolicyTypeNames") => list(String.t())
+        optional("PolicyTypeNames") => list(String.t() | atom())
       }
       
   """
-  @type describe_load_balancer_policy_types_input() :: %{String.t() => any()}
+  @type describe_load_balancer_policy_types_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -790,11 +790,11 @@ defmodule AWS.ElasticLoadBalancing do
       
       create_load_balancer_listener_input() :: %{
         required("Listeners") => list(listener()),
-        required("LoadBalancerName") => String.t()
+        required("LoadBalancerName") => String.t() | atom()
       }
       
   """
-  @type create_load_balancer_listener_input() :: %{String.t() => any()}
+  @type create_load_balancer_listener_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -805,7 +805,7 @@ defmodule AWS.ElasticLoadBalancing do
       }
       
   """
-  @type describe_load_balancer_attributes_output() :: %{String.t() => any()}
+  @type describe_load_balancer_attributes_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -813,22 +813,22 @@ defmodule AWS.ElasticLoadBalancing do
       
       modify_load_balancer_attributes_output() :: %{
         "LoadBalancerAttributes" => load_balancer_attributes(),
-        "LoadBalancerName" => String.t()
+        "LoadBalancerName" => String.t() | atom()
       }
       
   """
-  @type modify_load_balancer_attributes_output() :: %{String.t() => any()}
+  @type modify_load_balancer_attributes_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_security_group_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_security_group_exception() :: %{String.t() => any()}
+  @type invalid_security_group_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -844,70 +844,70 @@ defmodule AWS.ElasticLoadBalancing do
   ## Example:
       
       duplicate_policy_name_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type duplicate_policy_name_exception() :: %{String.t() => any()}
+  @type duplicate_policy_name_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_access_points_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type too_many_access_points_exception() :: %{String.t() => any()}
+  @type too_many_access_points_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance() :: %{
-        "InstanceId" => String.t()
+        "InstanceId" => String.t() | atom()
       }
       
   """
-  @type instance() :: %{String.t() => any()}
+  @type instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detach_load_balancer_from_subnets_input() :: %{
-        required("LoadBalancerName") => String.t(),
-        required("Subnets") => list(String.t())
+        required("LoadBalancerName") => String.t() | atom(),
+        required("Subnets") => list(String.t() | atom())
       }
       
   """
-  @type detach_load_balancer_from_subnets_input() :: %{String.t() => any()}
+  @type detach_load_balancer_from_subnets_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_app_cookie_stickiness_policy_input() :: %{
-        required("CookieName") => String.t(),
-        required("LoadBalancerName") => String.t(),
-        required("PolicyName") => String.t()
+        required("CookieName") => String.t() | atom(),
+        required("LoadBalancerName") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom()
       }
       
   """
-  @type create_app_cookie_stickiness_policy_input() :: %{String.t() => any()}
+  @type create_app_cookie_stickiness_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_load_balancer_listener_input() :: %{
-        required("LoadBalancerName") => String.t(),
+        required("LoadBalancerName") => String.t() | atom(),
         required("LoadBalancerPorts") => list(integer())
       }
       
   """
-  @type delete_load_balancer_listener_input() :: %{String.t() => any()}
+  @type delete_load_balancer_listener_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -915,11 +915,11 @@ defmodule AWS.ElasticLoadBalancing do
       
       modify_load_balancer_attributes_input() :: %{
         required("LoadBalancerAttributes") => load_balancer_attributes(),
-        required("LoadBalancerName") => String.t()
+        required("LoadBalancerName") => String.t() | atom()
       }
       
   """
-  @type modify_load_balancer_attributes_input() :: %{String.t() => any()}
+  @type modify_load_balancer_attributes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -927,23 +927,23 @@ defmodule AWS.ElasticLoadBalancing do
       
       register_end_points_input() :: %{
         required("Instances") => list(instance()),
-        required("LoadBalancerName") => String.t()
+        required("LoadBalancerName") => String.t() | atom()
       }
       
   """
-  @type register_end_points_input() :: %{String.t() => any()}
+  @type register_end_points_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       additional_attribute() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type additional_attribute() :: %{String.t() => any()}
+  @type additional_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -954,7 +954,7 @@ defmodule AWS.ElasticLoadBalancing do
       }
       
   """
-  @type configure_health_check_output() :: %{String.t() => any()}
+  @type configure_health_check_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -970,33 +970,33 @@ defmodule AWS.ElasticLoadBalancing do
   ## Example:
       
       duplicate_tag_keys_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type duplicate_tag_keys_exception() :: %{String.t() => any()}
+  @type duplicate_tag_keys_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_load_balancer_attributes_input() :: %{
-        required("LoadBalancerName") => String.t()
+        required("LoadBalancerName") => String.t() | atom()
       }
       
   """
-  @type describe_load_balancer_attributes_input() :: %{String.t() => any()}
+  @type describe_load_balancer_attributes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_availability_zones_output() :: %{
-        "AvailabilityZones" => list(String.t())
+        "AvailabilityZones" => list(String.t() | atom())
       }
       
   """
-  @type remove_availability_zones_output() :: %{String.t() => any()}
+  @type remove_availability_zones_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1004,22 +1004,22 @@ defmodule AWS.ElasticLoadBalancing do
       
       deregister_end_points_input() :: %{
         required("Instances") => list(instance()),
-        required("LoadBalancerName") => String.t()
+        required("LoadBalancerName") => String.t() | atom()
       }
       
   """
-  @type deregister_end_points_input() :: %{String.t() => any()}
+  @type deregister_end_points_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_access_point_output() :: %{
-        "DNSName" => String.t()
+        "DNSName" => String.t() | atom()
       }
       
   """
-  @type create_access_point_output() :: %{String.t() => any()}
+  @type create_access_point_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1035,12 +1035,12 @@ defmodule AWS.ElasticLoadBalancing do
   ## Example:
       
       describe_account_limits_input() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("PageSize") => integer()
       }
       
   """
-  @type describe_account_limits_input() :: %{String.t() => any()}
+  @type describe_account_limits_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1056,34 +1056,34 @@ defmodule AWS.ElasticLoadBalancing do
   ## Example:
       
       invalid_subnet_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_subnet_exception() :: %{String.t() => any()}
+  @type invalid_subnet_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_policies_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type too_many_policies_exception() :: %{String.t() => any()}
+  @type too_many_policies_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_tags_input() :: %{
-        required("LoadBalancerNames") => list(String.t()),
+        required("LoadBalancerNames") => list(String.t() | atom()),
         required("Tags") => list(tag_key_only())
       }
       
   """
-  @type remove_tags_input() :: %{String.t() => any()}
+  @type remove_tags_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1092,23 +1092,23 @@ defmodule AWS.ElasticLoadBalancing do
       access_log() :: %{
         "EmitInterval" => integer(),
         "Enabled" => boolean(),
-        "S3BucketName" => String.t(),
-        "S3BucketPrefix" => String.t()
+        "S3BucketName" => String.t() | atom(),
+        "S3BucketPrefix" => String.t() | atom()
       }
       
   """
-  @type access_log() :: %{String.t() => any()}
+  @type access_log() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       listener_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type listener_not_found_exception() :: %{String.t() => any()}
+  @type listener_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1125,25 +1125,25 @@ defmodule AWS.ElasticLoadBalancing do
       
       set_load_balancer_policies_for_backend_server_input() :: %{
         required("InstancePort") => integer(),
-        required("LoadBalancerName") => String.t(),
-        required("PolicyNames") => list(String.t())
+        required("LoadBalancerName") => String.t() | atom(),
+        required("PolicyNames") => list(String.t() | atom())
       }
       
   """
-  @type set_load_balancer_policies_for_backend_server_input() :: %{String.t() => any()}
+  @type set_load_balancer_policies_for_backend_server_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_type_description() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "PolicyAttributeTypeDescriptions" => list(policy_attribute_type_description()),
-        "PolicyTypeName" => String.t()
+        "PolicyTypeName" => String.t() | atom()
       }
       
   """
-  @type policy_type_description() :: %{String.t() => any()}
+  @type policy_type_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1154,7 +1154,7 @@ defmodule AWS.ElasticLoadBalancing do
       }
       
   """
-  @type describe_load_balancer_policies_output() :: %{String.t() => any()}
+  @type describe_load_balancer_policies_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1165,18 +1165,18 @@ defmodule AWS.ElasticLoadBalancing do
       }
       
   """
-  @type describe_end_point_state_output() :: %{String.t() => any()}
+  @type describe_end_point_state_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_scheme_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_scheme_exception() :: %{String.t() => any()}
+  @type invalid_scheme_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1184,24 +1184,24 @@ defmodule AWS.ElasticLoadBalancing do
       
       create_load_balancer_policy_input() :: %{
         optional("PolicyAttributes") => list(policy_attribute()),
-        required("LoadBalancerName") => String.t(),
-        required("PolicyName") => String.t(),
-        required("PolicyTypeName") => String.t()
+        required("LoadBalancerName") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom(),
+        required("PolicyTypeName") => String.t() | atom()
       }
       
   """
-  @type create_load_balancer_policy_input() :: %{String.t() => any()}
+  @type create_load_balancer_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       load_balancer_attribute_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type load_balancer_attribute_not_found_exception() :: %{String.t() => any()}
+  @type load_balancer_attribute_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1221,7 +1221,7 @@ defmodule AWS.ElasticLoadBalancing do
       }
       
   """
-  @type cross_zone_load_balancing() :: %{String.t() => any()}
+  @type cross_zone_load_balancing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1232,42 +1232,42 @@ defmodule AWS.ElasticLoadBalancing do
       }
       
   """
-  @type register_end_points_output() :: %{String.t() => any()}
+  @type register_end_points_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tags_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_protocol_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type unsupported_protocol_exception() :: %{String.t() => any()}
+  @type unsupported_protocol_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_load_balancer_policies_of_listener_input() :: %{
-        required("LoadBalancerName") => String.t(),
+        required("LoadBalancerName") => String.t() | atom(),
         required("LoadBalancerPort") => integer(),
-        required("PolicyNames") => list(String.t())
+        required("PolicyNames") => list(String.t() | atom())
       }
       
   """
-  @type set_load_balancer_policies_of_listener_input() :: %{String.t() => any()}
+  @type set_load_balancer_policies_of_listener_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1275,11 +1275,11 @@ defmodule AWS.ElasticLoadBalancing do
       
       listener_description() :: %{
         "Listener" => listener(),
-        "PolicyNames" => list(String.t())
+        "PolicyNames" => list(String.t() | atom())
       }
       
   """
-  @type listener_description() :: %{String.t() => any()}
+  @type listener_description() :: %{(String.t() | atom()) => any()}
 
   @type add_tags_errors() ::
           too_many_tags_exception()
@@ -1433,7 +1433,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
@@ -1458,7 +1459,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, apply_security_groups_to_load_balancer_errors()}
   def apply_security_groups_to_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ApplySecurityGroupsToLoadBalancer", input, options)
   end
@@ -1477,7 +1479,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, attach_load_balancer_to_subnets_errors()}
   def attach_load_balancer_to_subnets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachLoadBalancerToSubnets", input, options)
   end
@@ -1495,7 +1498,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, configure_health_check_errors()}
   def configure_health_check(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfigureHealthCheck", input, options)
   end
@@ -1531,7 +1535,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, create_app_cookie_stickiness_policy_errors()}
   def create_app_cookie_stickiness_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAppCookieStickinessPolicy", input, options)
   end
@@ -1566,7 +1571,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, create_lb_cookie_stickiness_policy_errors()}
   def create_lb_cookie_stickiness_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLBCookieStickinessPolicy", input, options)
   end
@@ -1595,7 +1601,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, create_load_balancer_errors()}
   def create_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLoadBalancer", input, options)
   end
@@ -1616,7 +1623,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, create_load_balancer_listeners_errors()}
   def create_load_balancer_listeners(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLoadBalancerListeners", input, options)
   end
@@ -1633,7 +1641,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, create_load_balancer_policy_errors()}
   def create_load_balancer_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLoadBalancerPolicy", input, options)
   end
@@ -1655,7 +1664,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLoadBalancer", input, options)
   end
@@ -1669,7 +1679,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, delete_load_balancer_listeners_errors()}
   def delete_load_balancer_listeners(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLoadBalancerListeners", input, options)
   end
@@ -1685,7 +1696,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, delete_load_balancer_policy_errors()}
   def delete_load_balancer_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLoadBalancerPolicy", input, options)
   end
@@ -1708,7 +1720,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, deregister_instances_from_load_balancer_errors()}
   def deregister_instances_from_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterInstancesFromLoadBalancer", input, options)
   end
@@ -1725,7 +1738,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_account_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountLimits", input, options)
   end
@@ -1745,7 +1759,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, describe_instance_health_errors()}
   def describe_instance_health(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstanceHealth", input, options)
   end
@@ -1763,7 +1778,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, describe_load_balancer_attributes_errors()}
   def describe_load_balancer_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancerAttributes", input, options)
   end
@@ -1785,7 +1801,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, describe_load_balancer_policies_errors()}
   def describe_load_balancer_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancerPolicies", input, options)
   end
@@ -1815,7 +1832,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, describe_load_balancer_policy_types_errors()}
   def describe_load_balancer_policy_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancerPolicyTypes", input, options)
   end
@@ -1832,7 +1850,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, describe_load_balancers_errors()}
   def describe_load_balancers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancers", input, options)
   end
@@ -1846,7 +1865,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -1869,7 +1889,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, detach_load_balancer_from_subnets_errors()}
   def detach_load_balancer_from_subnets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachLoadBalancerFromSubnets", input, options)
   end
@@ -1902,7 +1923,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, disable_availability_zones_for_load_balancer_errors()}
   def disable_availability_zones_for_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableAvailabilityZonesForLoadBalancer", input, options)
   end
@@ -1925,7 +1947,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, enable_availability_zones_for_load_balancer_errors()}
   def enable_availability_zones_for_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableAvailabilityZonesForLoadBalancer", input, options)
   end
@@ -1964,7 +1987,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, modify_load_balancer_attributes_errors()}
   def modify_load_balancer_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyLoadBalancerAttributes", input, options)
   end
@@ -2003,7 +2027,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, register_instances_with_load_balancer_errors()}
   def register_instances_with_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterInstancesWithLoadBalancer", input, options)
   end
@@ -2017,7 +2042,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTags", input, options)
   end
@@ -2042,7 +2068,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, set_load_balancer_listener_ssl_certificate_errors()}
   def set_load_balancer_listener_ssl_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetLoadBalancerListenerSSLCertificate", input, options)
   end
@@ -2080,7 +2107,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, set_load_balancer_policies_for_backend_server_errors()}
   def set_load_balancer_policies_for_backend_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetLoadBalancerPoliciesForBackendServer", input, options)
   end
@@ -2109,7 +2137,8 @@ defmodule AWS.ElasticLoadBalancing do
           | {:error, term()}
           | {:error, set_load_balancer_policies_of_listener_errors()}
   def set_load_balancer_policies_of_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetLoadBalancerPoliciesOfListener", input, options)
   end

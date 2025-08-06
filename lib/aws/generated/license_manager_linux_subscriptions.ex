@@ -16,11 +16,11 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   ## Example:
 
       deregister_subscription_provider_request() :: %{
-        required("SubscriptionProviderArn") => String.t()
+        required("SubscriptionProviderArn") => String.t() | atom()
       }
 
   """
-  @type deregister_subscription_provider_request() :: %{String.t() => any()}
+  @type deregister_subscription_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -36,40 +36,40 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   ## Example:
 
       filter() :: %{
-        "Name" => [String.t()],
-        "Operator" => String.t(),
-        "Values" => list([String.t()]())
+        "Name" => [String.t() | atom()],
+        "Operator" => String.t() | atom(),
+        "Values" => list([String.t() | atom()]())
       }
 
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_registered_subscription_provider_request() :: %{
-        required("SubscriptionProviderArn") => String.t()
+        required("SubscriptionProviderArn") => String.t() | atom()
       }
 
   """
-  @type get_registered_subscription_provider_request() :: %{String.t() => any()}
+  @type get_registered_subscription_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_registered_subscription_provider_response() :: %{
-        "LastSuccessfulDataRetrievalTime" => [String.t()],
-        "SecretArn" => String.t(),
-        "SubscriptionProviderArn" => String.t(),
-        "SubscriptionProviderSource" => String.t(),
-        "SubscriptionProviderStatus" => String.t(),
-        "SubscriptionProviderStatusMessage" => [String.t()]
+        "LastSuccessfulDataRetrievalTime" => [String.t() | atom()],
+        "SecretArn" => String.t() | atom(),
+        "SubscriptionProviderArn" => String.t() | atom(),
+        "SubscriptionProviderSource" => String.t() | atom(),
+        "SubscriptionProviderStatus" => String.t() | atom(),
+        "SubscriptionProviderStatusMessage" => [String.t() | atom()]
       }
 
   """
-  @type get_registered_subscription_provider_response() :: %{String.t() => any()}
+  @type get_registered_subscription_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -85,63 +85,63 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   ## Example:
 
       get_service_settings_response() :: %{
-        optional("HomeRegions") => list([String.t()]()),
-        optional("LinuxSubscriptionsDiscovery") => String.t(),
+        optional("HomeRegions") => list([String.t() | atom()]()),
+        optional("LinuxSubscriptionsDiscovery") => String.t() | atom(),
         optional("LinuxSubscriptionsDiscoverySettings") => linux_subscriptions_discovery_settings(),
-        optional("Status") => String.t(),
+        optional("Status") => String.t() | atom(),
         optional("StatusMessage") => map()
       }
 
   """
-  @type get_service_settings_response() :: %{String.t() => any()}
+  @type get_service_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       instance() :: %{
-        "AccountID" => [String.t()],
-        "AmiId" => [String.t()],
-        "DualSubscription" => [String.t()],
-        "InstanceID" => [String.t()],
-        "InstanceType" => [String.t()],
-        "LastUpdatedTime" => [String.t()],
-        "OsVersion" => [String.t()],
-        "ProductCode" => list([String.t()]()),
-        "Region" => [String.t()],
-        "RegisteredWithSubscriptionProvider" => [String.t()],
-        "Status" => [String.t()],
-        "SubscriptionName" => [String.t()],
-        "SubscriptionProviderCreateTime" => [String.t()],
-        "SubscriptionProviderUpdateTime" => [String.t()],
-        "UsageOperation" => [String.t()]
+        "AccountID" => [String.t() | atom()],
+        "AmiId" => [String.t() | atom()],
+        "DualSubscription" => [String.t() | atom()],
+        "InstanceID" => [String.t() | atom()],
+        "InstanceType" => [String.t() | atom()],
+        "LastUpdatedTime" => [String.t() | atom()],
+        "OsVersion" => [String.t() | atom()],
+        "ProductCode" => list([String.t() | atom()]()),
+        "Region" => [String.t() | atom()],
+        "RegisteredWithSubscriptionProvider" => [String.t() | atom()],
+        "Status" => [String.t() | atom()],
+        "SubscriptionName" => [String.t() | atom()],
+        "SubscriptionProviderCreateTime" => [String.t() | atom()],
+        "SubscriptionProviderUpdateTime" => [String.t() | atom()],
+        "UsageOperation" => [String.t() | atom()]
       }
 
   """
-  @type instance() :: %{String.t() => any()}
+  @type instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       linux_subscriptions_discovery_settings() :: %{
-        "OrganizationIntegration" => String.t(),
-        "SourceRegions" => list([String.t()]())
+        "OrganizationIntegration" => String.t() | atom(),
+        "SourceRegions" => list([String.t() | atom()]())
       }
 
   """
-  @type linux_subscriptions_discovery_settings() :: %{String.t() => any()}
+  @type linux_subscriptions_discovery_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -150,11 +150,11 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       list_linux_subscription_instances_request() :: %{
         "Filters" => list(filter()),
         "MaxResults" => integer(),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_linux_subscription_instances_request() :: %{String.t() => any()}
+  @type list_linux_subscription_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -162,11 +162,11 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
       list_linux_subscription_instances_response() :: %{
         optional("Instances") => list(instance()),
-        optional("NextToken") => [String.t()]
+        optional("NextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_linux_subscription_instances_response() :: %{String.t() => any()}
+  @type list_linux_subscription_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -175,23 +175,23 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       list_linux_subscriptions_request() :: %{
         "Filters" => list(filter()),
         "MaxResults" => integer(),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_linux_subscriptions_request() :: %{String.t() => any()}
+  @type list_linux_subscriptions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_linux_subscriptions_response() :: %{
-        optional("NextToken") => [String.t()],
+        optional("NextToken") => [String.t() | atom()],
         optional("Subscriptions") => list(subscription())
       }
 
   """
-  @type list_linux_subscriptions_response() :: %{String.t() => any()}
+  @type list_linux_subscriptions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -199,24 +199,24 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
       list_registered_subscription_providers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t()],
-        optional("SubscriptionProviderSources") => list(String.t())
+        optional("NextToken") => [String.t() | atom()],
+        optional("SubscriptionProviderSources") => list(String.t() | atom())
       }
 
   """
-  @type list_registered_subscription_providers_request() :: %{String.t() => any()}
+  @type list_registered_subscription_providers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_registered_subscription_providers_response() :: %{
-        "NextToken" => [String.t()],
+        "NextToken" => [String.t() | atom()],
         "RegisteredSubscriptionProviders" => list(registered_subscription_provider())
       }
 
   """
-  @type list_registered_subscription_providers_response() :: %{String.t() => any()}
+  @type list_registered_subscription_providers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -236,7 +236,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -244,52 +244,52 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
       register_subscription_provider_request() :: %{
         optional("Tags") => map(),
-        required("SecretArn") => String.t(),
-        required("SubscriptionProviderSource") => String.t()
+        required("SecretArn") => String.t() | atom(),
+        required("SubscriptionProviderSource") => String.t() | atom()
       }
 
   """
-  @type register_subscription_provider_request() :: %{String.t() => any()}
+  @type register_subscription_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_subscription_provider_response() :: %{
-        "SubscriptionProviderArn" => [String.t()],
-        "SubscriptionProviderSource" => String.t(),
-        "SubscriptionProviderStatus" => String.t()
+        "SubscriptionProviderArn" => [String.t() | atom()],
+        "SubscriptionProviderSource" => String.t() | atom(),
+        "SubscriptionProviderStatus" => String.t() | atom()
       }
 
   """
-  @type register_subscription_provider_response() :: %{String.t() => any()}
+  @type register_subscription_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       registered_subscription_provider() :: %{
-        "LastSuccessfulDataRetrievalTime" => [String.t()],
-        "SecretArn" => String.t(),
-        "SubscriptionProviderArn" => String.t(),
-        "SubscriptionProviderSource" => String.t(),
-        "SubscriptionProviderStatus" => String.t(),
-        "SubscriptionProviderStatusMessage" => [String.t()]
+        "LastSuccessfulDataRetrievalTime" => [String.t() | atom()],
+        "SecretArn" => String.t() | atom(),
+        "SubscriptionProviderArn" => String.t() | atom(),
+        "SubscriptionProviderSource" => String.t() | atom(),
+        "SubscriptionProviderStatus" => String.t() | atom(),
+        "SubscriptionProviderStatusMessage" => [String.t() | atom()]
       }
 
   """
-  @type registered_subscription_provider() :: %{String.t() => any()}
+  @type registered_subscription_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -297,12 +297,12 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
       subscription() :: %{
         "InstanceCount" => float(),
-        "Name" => [String.t()],
-        "Type" => [String.t()]
+        "Name" => [String.t() | atom()],
+        "Type" => [String.t() | atom()]
       }
 
   """
-  @type subscription() :: %{String.t() => any()}
+  @type subscription() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -313,7 +313,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -329,22 +329,22 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list([String.t()]())
+        required("tagKeys") => list([String.t() | atom()]())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -361,38 +361,38 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
       update_service_settings_request() :: %{
         optional("AllowUpdate") => [boolean()],
-        required("LinuxSubscriptionsDiscovery") => String.t(),
+        required("LinuxSubscriptionsDiscovery") => String.t() | atom(),
         required("LinuxSubscriptionsDiscoverySettings") => linux_subscriptions_discovery_settings()
       }
 
   """
-  @type update_service_settings_request() :: %{String.t() => any()}
+  @type update_service_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_service_settings_response() :: %{
-        optional("HomeRegions") => list([String.t()]()),
-        optional("LinuxSubscriptionsDiscovery") => String.t(),
+        optional("HomeRegions") => list([String.t() | atom()]()),
+        optional("LinuxSubscriptionsDiscovery") => String.t() | atom(),
         optional("LinuxSubscriptionsDiscoverySettings") => linux_subscriptions_discovery_settings(),
-        optional("Status") => String.t(),
+        optional("Status") => String.t() | atom(),
         optional("StatusMessage") => map()
       }
 
   """
-  @type update_service_settings_response() :: %{String.t() => any()}
+  @type update_service_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type deregister_subscription_provider_errors() ::
           validation_exception()
@@ -653,7 +653,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   List the metadata tags that are assigned to the
   specified Amazon Web Services resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -701,7 +701,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @doc """
   Add metadata tags to the specified Amazon Web Services resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -730,7 +730,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   @doc """
   Remove one or more metadata tag from the specified Amazon Web Services resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

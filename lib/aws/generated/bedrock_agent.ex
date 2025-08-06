@@ -18,7 +18,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type validate_flow_definition_response() :: %{String.t() => any()}
+  @type validate_flow_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -29,30 +29,32 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type custom_orchestration() :: %{String.t() => any()}
+  @type custom_orchestration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_knowledge_base_documents_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | atom(),
         required("documentIdentifiers") => list(document_identifier())
       }
 
   """
-  @type delete_knowledge_base_documents_request() :: %{String.t() => any()}
+  @type delete_knowledge_base_documents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       multiple_loop_controller_nodes_flow_validation_details() :: %{
-        "loopNode" => String.t()
+        "loopNode" => String.t() | atom()
       }
 
   """
-  @type multiple_loop_controller_nodes_flow_validation_details() :: %{String.t() => any()}
+  @type multiple_loop_controller_nodes_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -66,19 +68,19 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type knowledge_base_configuration() :: %{String.t() => any()}
+  @type knowledge_base_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unknown_node_output_flow_validation_details() :: %{
-        "node" => String.t(),
-        "output" => String.t()
+        "node" => String.t() | atom(),
+        "output" => String.t() | atom()
       }
 
   """
-  @type unknown_node_output_flow_validation_details() :: %{String.t() => any()}
+  @type unknown_node_output_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -94,26 +96,26 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       update_flow_request() :: %{
-        optional("customerEncryptionKeyArn") => String.t(),
+        optional("customerEncryptionKeyArn") => String.t() | atom(),
         optional("definition") => flow_definition(),
-        optional("description") => String.t(),
-        required("executionRoleArn") => String.t(),
-        required("name") => String.t()
+        optional("description") => String.t() | atom(),
+        required("executionRoleArn") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type update_flow_request() :: %{String.t() => any()}
+  @type update_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       storage_flow_node_s3_configuration() :: %{
-        "bucketName" => String.t()
+        "bucketName" => String.t() | atom()
       }
 
   """
-  @type storage_flow_node_s3_configuration() :: %{String.t() => any()}
+  @type storage_flow_node_s3_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -139,7 +141,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type ingestion_job_statistics() :: %{String.t() => any()}
+  @type ingestion_job_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -147,13 +149,13 @@ defmodule AWS.BedrockAgent do
 
       update_flow_alias_request() :: %{
         optional("concurrencyConfiguration") => flow_alias_concurrency_configuration(),
-        optional("description") => String.t(),
-        required("name") => String.t(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
         required("routingConfiguration") => list(flow_alias_routing_configuration_list_item())
       }
 
   """
-  @type update_flow_alias_request() :: %{String.t() => any()}
+  @type update_flow_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -161,11 +163,11 @@ defmodule AWS.BedrockAgent do
 
       redshift_serverless_auth_configuration() :: %{
         "type" => list(any()),
-        "usernamePasswordSecretArn" => String.t()
+        "usernamePasswordSecretArn" => String.t() | atom()
       }
 
   """
-  @type redshift_serverless_auth_configuration() :: %{String.t() => any()}
+  @type redshift_serverless_auth_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -175,27 +177,27 @@ defmodule AWS.BedrockAgent do
         optional("actionGroupExecutor") => list(),
         optional("actionGroupState") => list(any()),
         optional("apiSchema") => list(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("functionSchema") => list(),
         optional("parentActionGroupSignature") => list(any()),
         optional("parentActionGroupSignatureParams") => map(),
-        required("actionGroupName") => String.t()
+        required("actionGroupName") => String.t() | atom()
       }
 
   """
-  @type update_agent_action_group_request() :: %{String.t() => any()}
+  @type update_agent_action_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       missing_node_input_flow_validation_details() :: %{
-        "input" => String.t(),
-        "node" => String.t()
+        "input" => String.t() | atom(),
+        "node" => String.t() | atom()
       }
 
   """
-  @type missing_node_input_flow_validation_details() :: %{String.t() => any()}
+  @type missing_node_input_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -206,7 +208,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -218,7 +220,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type share_point_data_source_configuration() :: %{String.t() => any()}
+  @type share_point_data_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -227,52 +229,52 @@ defmodule AWS.BedrockAgent do
       text_prompt_template_configuration() :: %{
         "cachePoint" => cache_point_block(),
         "inputVariables" => list(prompt_input_variable()),
-        "text" => String.t()
+        "text" => String.t() | atom()
       }
 
   """
-  @type text_prompt_template_configuration() :: %{String.t() => any()}
+  @type text_prompt_template_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       missing_default_condition_flow_validation_details() :: %{
-        "node" => String.t()
+        "node" => String.t() | atom()
       }
 
   """
-  @type missing_default_condition_flow_validation_details() :: %{String.t() => any()}
+  @type missing_default_condition_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       specific_tool_choice() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type specific_tool_choice() :: %{String.t() => any()}
+  @type specific_tool_choice() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_flow_alias_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "concurrencyConfiguration" => flow_alias_concurrency_configuration(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "flowId" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "flowId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "routingConfiguration" => list(flow_alias_routing_configuration_list_item()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type update_flow_alias_response() :: %{String.t() => any()}
+  @type update_flow_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -285,7 +287,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type memory_configuration() :: %{String.t() => any()}
+  @type memory_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -297,18 +299,18 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type query_generation_context() :: %{String.t() => any()}
+  @type query_generation_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unreachable_node_flow_validation_details() :: %{
-        "node" => String.t()
+        "node" => String.t() | atom()
       }
 
   """
-  @type unreachable_node_flow_validation_details() :: %{String.t() => any()}
+  @type unreachable_node_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -320,18 +322,20 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type context_enrichment_configuration() :: %{String.t() => any()}
+  @type context_enrichment_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       missing_connection_configuration_flow_validation_details() :: %{
-        "connection" => String.t()
+        "connection" => String.t() | atom()
       }
 
   """
-  @type missing_connection_configuration_flow_validation_details() :: %{String.t() => any()}
+  @type missing_connection_configuration_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -342,51 +346,51 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type get_agent_alias_response() :: %{String.t() => any()}
+  @type get_agent_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_prompt_version_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "customerEncryptionKeyArn" => String.t(),
-        "defaultVariant" => String.t(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
+        "defaultVariant" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "updatedAt" => non_neg_integer(),
         "variants" => list(prompt_variant()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type create_prompt_version_response() :: %{String.t() => any()}
+  @type create_prompt_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       flow_condition() :: %{
-        "expression" => String.t(),
-        "name" => String.t()
+        "expression" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type flow_condition() :: %{String.t() => any()}
+  @type flow_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       inline_code_flow_node_configuration() :: %{
-        "code" => String.t(),
+        "code" => String.t() | atom(),
         "language" => list(any())
       }
 
   """
-  @type inline_code_flow_node_configuration() :: %{String.t() => any()}
+  @type inline_code_flow_node_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -395,43 +399,43 @@ defmodule AWS.BedrockAgent do
       prompt_flow_node_inline_configuration() :: %{
         "additionalModelRequestFields" => [any()],
         "inferenceConfiguration" => list(),
-        "modelId" => String.t(),
+        "modelId" => String.t() | atom(),
         "templateConfiguration" => list(),
         "templateType" => list(any())
       }
 
   """
-  @type prompt_flow_node_inline_configuration() :: %{String.t() => any()}
+  @type prompt_flow_node_inline_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       prompt_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "updatedAt" => non_neg_integer(),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type prompt_summary() :: %{String.t() => any()}
+  @type prompt_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       open_search_managed_cluster_field_mapping() :: %{
-        "metadataField" => String.t(),
-        "textField" => String.t(),
-        "vectorField" => String.t()
+        "metadataField" => String.t() | atom(),
+        "textField" => String.t() | atom(),
+        "vectorField" => String.t() | atom()
       }
 
   """
-  @type open_search_managed_cluster_field_mapping() :: %{String.t() => any()}
+  @type open_search_managed_cluster_field_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -439,11 +443,11 @@ defmodule AWS.BedrockAgent do
 
       list_agents_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_agents_request() :: %{String.t() => any()}
+  @type list_agents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -454,7 +458,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type storage_flow_node_configuration() :: %{String.t() => any()}
+  @type storage_flow_node_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -467,24 +471,24 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type redshift_query_engine_storage_configuration() :: %{String.t() => any()}
+  @type redshift_query_engine_storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_flow_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("customerEncryptionKeyArn") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("customerEncryptionKeyArn") => String.t() | atom(),
         optional("definition") => flow_definition(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("tags") => map(),
-        required("executionRoleArn") => String.t(),
-        required("name") => String.t()
+        required("executionRoleArn") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_flow_request() :: %{String.t() => any()}
+  @type create_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -492,28 +496,28 @@ defmodule AWS.BedrockAgent do
 
       list_agent_action_groups_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_agent_action_groups_request() :: %{String.t() => any()}
+  @type list_agent_action_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_source_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("dataDeletionPolicy") => list(any()),
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("serverSideEncryptionConfiguration") => server_side_encryption_configuration(),
         optional("vectorIngestionConfiguration") => vector_ingestion_configuration(),
         required("dataSourceConfiguration") => data_source_configuration(),
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_data_source_request() :: %{String.t() => any()}
+  @type create_data_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -524,20 +528,20 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type loop_flow_node_configuration() :: %{String.t() => any()}
+  @type loop_flow_node_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       loop_incompatible_node_type_flow_validation_details() :: %{
-        "incompatibleNodeName" => String.t(),
+        "incompatibleNodeName" => String.t() | atom(),
         "incompatibleNodeType" => list(any()),
-        "node" => String.t()
+        "node" => String.t() | atom()
       }
 
   """
-  @type loop_incompatible_node_type_flow_validation_details() :: %{String.t() => any()}
+  @type loop_incompatible_node_type_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -553,7 +557,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type data_source_configuration() :: %{String.t() => any()}
+  @type data_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -573,19 +577,19 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type pattern_object_filter_configuration() :: %{String.t() => any()}
+  @type pattern_object_filter_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ingest_knowledge_base_documents_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | atom(),
         required("documents") => list(knowledge_base_document())
       }
 
   """
-  @type ingest_knowledge_base_documents_request() :: %{String.t() => any()}
+  @type ingest_knowledge_base_documents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -596,19 +600,19 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type web_source_configuration() :: %{String.t() => any()}
+  @type web_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_ingestion_job_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom()
       }
 
   """
-  @type start_ingestion_job_request() :: %{String.t() => any()}
+  @type start_ingestion_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -625,14 +629,14 @@ defmodule AWS.BedrockAgent do
 
       inference_configuration() :: %{
         "maximumLength" => integer(),
-        "stopSequences" => list([String.t()]()),
+        "stopSequences" => list([String.t() | atom()]()),
         "temperature" => float(),
         "topK" => integer(),
         "topP" => float()
       }
 
   """
-  @type inference_configuration() :: %{String.t() => any()}
+  @type inference_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -644,7 +648,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type fixed_size_chunking_configuration() :: %{String.t() => any()}
+  @type fixed_size_chunking_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -652,11 +656,11 @@ defmodule AWS.BedrockAgent do
 
       list_agents_response() :: %{
         "agentSummaries" => list(agent_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_agents_response() :: %{String.t() => any()}
+  @type list_agents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -668,7 +672,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type transformation() :: %{String.t() => any()}
+  @type transformation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -685,12 +689,12 @@ defmodule AWS.BedrockAgent do
 
       mismatched_node_input_type_flow_validation_details() :: %{
         "expectedType" => list(any()),
-        "input" => String.t(),
-        "node" => String.t()
+        "input" => String.t() | atom(),
+        "node" => String.t() | atom()
       }
 
   """
-  @type mismatched_node_input_type_flow_validation_details() :: %{String.t() => any()}
+  @type mismatched_node_input_type_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -702,7 +706,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type custom_transformation_configuration() :: %{String.t() => any()}
+  @type custom_transformation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -710,24 +714,24 @@ defmodule AWS.BedrockAgent do
 
       create_agent_request() :: %{
         optional("agentCollaboration") => list(any()),
-        optional("agentResourceRoleArn") => String.t(),
-        optional("clientToken") => String.t(),
+        optional("agentResourceRoleArn") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
         optional("customOrchestration") => custom_orchestration(),
-        optional("customerEncryptionKeyArn") => String.t(),
-        optional("description") => String.t(),
-        optional("foundationModel") => String.t(),
+        optional("customerEncryptionKeyArn") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("foundationModel") => String.t() | atom(),
         optional("guardrailConfiguration") => guardrail_configuration(),
         optional("idleSessionTTLInSeconds") => integer(),
-        optional("instruction") => String.t(),
+        optional("instruction") => String.t() | atom(),
         optional("memoryConfiguration") => memory_configuration(),
         optional("orchestrationType") => list(any()),
         optional("promptOverrideConfiguration") => prompt_override_configuration(),
         optional("tags") => map(),
-        required("agentName") => String.t()
+        required("agentName") => String.t() | atom()
       }
 
   """
-  @type create_agent_request() :: %{String.t() => any()}
+  @type create_agent_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -738,52 +742,52 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type session_summary_configuration() :: %{String.t() => any()}
+  @type session_summary_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unknown_connection_source_flow_validation_details() :: %{
-        "connection" => String.t()
+        "connection" => String.t() | atom()
       }
 
   """
-  @type unknown_connection_source_flow_validation_details() :: %{String.t() => any()}
+  @type unknown_connection_source_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_flow_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "customerEncryptionKeyArn" => String.t(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
         "definition" => flow_definition(),
-        "description" => String.t(),
-        "executionRoleArn" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
         "validations" => list(flow_validation()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type get_flow_response() :: %{String.t() => any()}
+  @type get_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       flow_data_connection_configuration() :: %{
-        "sourceOutput" => String.t(),
-        "targetInput" => String.t()
+        "sourceOutput" => String.t() | atom(),
+        "targetInput" => String.t() | atom()
       }
 
   """
-  @type flow_data_connection_configuration() :: %{String.t() => any()}
+  @type flow_data_connection_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -795,32 +799,32 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type salesforce_data_source_configuration() :: %{String.t() => any()}
+  @type salesforce_data_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_prompts_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "promptSummaries" => list(prompt_summary())
       }
 
   """
-  @type list_prompts_response() :: %{String.t() => any()}
+  @type list_prompts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       open_search_serverless_field_mapping() :: %{
-        "metadataField" => String.t(),
-        "textField" => String.t(),
-        "vectorField" => String.t()
+        "metadataField" => String.t() | atom(),
+        "textField" => String.t() | atom(),
+        "vectorField" => String.t() | atom()
       }
 
   """
-  @type open_search_serverless_field_mapping() :: %{String.t() => any()}
+  @type open_search_serverless_field_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -828,38 +832,38 @@ defmodule AWS.BedrockAgent do
 
       update_agent_alias_request() :: %{
         optional("aliasInvocationState") => list(any()),
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("routingConfiguration") => list(agent_alias_routing_configuration_list_item()),
-        required("agentAliasName") => String.t()
+        required("agentAliasName") => String.t() | atom()
       }
 
   """
-  @type update_agent_alias_request() :: %{String.t() => any()}
+  @type update_agent_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       prompt_override_configuration() :: %{
-        "overrideLambda" => String.t(),
+        "overrideLambda" => String.t() | atom(),
         "promptConfigurations" => list(prompt_configuration())
       }
 
   """
-  @type prompt_override_configuration() :: %{String.t() => any()}
+  @type prompt_override_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       mongo_db_atlas_field_mapping() :: %{
-        "metadataField" => String.t(),
-        "textField" => String.t(),
-        "vectorField" => String.t()
+        "metadataField" => String.t() | atom(),
+        "textField" => String.t() | atom(),
+        "vectorField" => String.t() | atom()
       }
 
   """
-  @type mongo_db_atlas_field_mapping() :: %{String.t() => any()}
+  @type mongo_db_atlas_field_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -870,7 +874,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type update_agent_knowledge_base_response() :: %{String.t() => any()}
+  @type update_agent_knowledge_base_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -881,7 +885,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type get_knowledge_base_documents_request() :: %{String.t() => any()}
+  @type get_knowledge_base_documents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -890,26 +894,26 @@ defmodule AWS.BedrockAgent do
       flow_node() :: %{
         "configuration" => list(),
         "inputs" => list(flow_node_input()),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "outputs" => list(flow_node_output()),
         "type" => list(any())
       }
 
   """
-  @type flow_node() :: %{String.t() => any()}
+  @type flow_node() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       query_generation_column() :: %{
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "inclusion" => list(any()),
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type query_generation_column() :: %{String.t() => any()}
+  @type query_generation_column() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -917,46 +921,46 @@ defmodule AWS.BedrockAgent do
 
       list_knowledge_base_documents_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_knowledge_base_documents_request() :: %{String.t() => any()}
+  @type list_knowledge_base_documents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       text_content_doc() :: %{
-        "data" => String.t()
+        "data" => String.t() | atom()
       }
 
   """
-  @type text_content_doc() :: %{String.t() => any()}
+  @type text_content_doc() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metadata_attribute() :: %{
-        "key" => String.t(),
+        "key" => String.t() | atom(),
         "value" => metadata_attribute_value()
       }
 
   """
-  @type metadata_attribute() :: %{String.t() => any()}
+  @type metadata_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       curated_query() :: %{
-        "naturalLanguage" => String.t(),
-        "sql" => String.t()
+        "naturalLanguage" => String.t() | atom(),
+        "sql" => String.t() | atom()
       }
 
   """
-  @type curated_query() :: %{String.t() => any()}
+  @type curated_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -964,18 +968,18 @@ defmodule AWS.BedrockAgent do
 
       agent_collaborator_summary() :: %{
         "agentDescriptor" => agent_descriptor(),
-        "agentId" => String.t(),
-        "agentVersion" => String.t(),
-        "collaborationInstruction" => String.t(),
-        "collaboratorId" => String.t(),
-        "collaboratorName" => String.t(),
+        "agentId" => String.t() | atom(),
+        "agentVersion" => String.t() | atom(),
+        "collaborationInstruction" => String.t() | atom(),
+        "collaboratorId" => String.t() | atom(),
+        "collaboratorName" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "lastUpdatedAt" => non_neg_integer(),
         "relayConversationHistory" => list(any())
       }
 
   """
-  @type agent_collaborator_summary() :: %{String.t() => any()}
+  @type agent_collaborator_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -986,7 +990,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type delete_flow_request() :: %{String.t() => any()}
+  @type delete_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1002,15 +1006,15 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       update_knowledge_base_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("storageConfiguration") => storage_configuration(),
         required("knowledgeBaseConfiguration") => knowledge_base_configuration(),
-        required("name") => String.t(),
-        required("roleArn") => String.t()
+        required("name") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type update_knowledge_base_request() :: %{String.t() => any()}
+  @type update_knowledge_base_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1018,26 +1022,26 @@ defmodule AWS.BedrockAgent do
 
       flow_validation() :: %{
         "details" => list(),
-        "message" => String.t(),
+        "message" => String.t() | atom(),
         "severity" => list(any()),
         "type" => list(any())
       }
 
   """
-  @type flow_validation() :: %{String.t() => any()}
+  @type flow_validation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       parameter_detail() :: %{
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "required" => [boolean()],
         "type" => list(any())
       }
 
   """
-  @type parameter_detail() :: %{String.t() => any()}
+  @type parameter_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1049,76 +1053,78 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type flow_definition() :: %{String.t() => any()}
+  @type flow_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_flow_version_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "customerEncryptionKeyArn" => String.t(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
         "definition" => flow_definition(),
-        "description" => String.t(),
-        "executionRoleArn" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type get_flow_version_response() :: %{String.t() => any()}
+  @type get_flow_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_knowledge_base_response() :: %{
-        "knowledgeBaseId" => String.t(),
+        "knowledgeBaseId" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type delete_knowledge_base_response() :: %{String.t() => any()}
+  @type delete_knowledge_base_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       open_search_serverless_configuration() :: %{
-        "collectionArn" => String.t(),
+        "collectionArn" => String.t() | atom(),
         "fieldMapping" => open_search_serverless_field_mapping(),
-        "vectorIndexName" => String.t()
+        "vectorIndexName" => String.t() | atom()
       }
 
   """
-  @type open_search_serverless_configuration() :: %{String.t() => any()}
+  @type open_search_serverless_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       missing_loop_controller_node_flow_validation_details() :: %{
-        "loopNode" => String.t()
+        "loopNode" => String.t() | atom()
       }
 
   """
-  @type missing_loop_controller_node_flow_validation_details() :: %{String.t() => any()}
+  @type missing_loop_controller_node_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       s3_vectors_configuration() :: %{
-        "indexArn" => String.t(),
-        "indexName" => String.t(),
-        "vectorBucketArn" => String.t()
+        "indexArn" => String.t() | atom(),
+        "indexName" => String.t() | atom(),
+        "vectorBucketArn" => String.t() | atom()
       }
 
   """
-  @type s3_vectors_configuration() :: %{String.t() => any()}
+  @type s3_vectors_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1126,31 +1132,31 @@ defmodule AWS.BedrockAgent do
 
       list_flow_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_flow_versions_request() :: %{String.t() => any()}
+  @type list_flow_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_prompt_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "customerEncryptionKeyArn" => String.t(),
-        "defaultVariant" => String.t(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
+        "defaultVariant" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "updatedAt" => non_neg_integer(),
         "variants" => list(prompt_variant()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type update_prompt_response() :: %{String.t() => any()}
+  @type update_prompt_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1158,13 +1164,13 @@ defmodule AWS.BedrockAgent do
 
       flow_node_input() :: %{
         "category" => list(any()),
-        "expression" => String.t(),
-        "name" => String.t(),
+        "expression" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type flow_node_input() :: %{String.t() => any()}
+  @type flow_node_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1176,21 +1182,21 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type loop_controller_flow_node_configuration() :: %{String.t() => any()}
+  @type loop_controller_flow_node_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       prepare_agent_response() :: %{
-        "agentId" => String.t(),
+        "agentId" => String.t() | atom(),
         "agentStatus" => list(any()),
-        "agentVersion" => String.t(),
+        "agentVersion" => String.t() | atom(),
         "preparedAt" => non_neg_integer()
       }
 
   """
-  @type prepare_agent_response() :: %{String.t() => any()}
+  @type prepare_agent_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1206,23 +1212,23 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       prompt_metadata_entry() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type prompt_metadata_entry() :: %{String.t() => any()}
+  @type prompt_metadata_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       prompt_input_variable() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type prompt_input_variable() :: %{String.t() => any()}
+  @type prompt_input_variable() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1233,54 +1239,54 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type update_data_source_response() :: %{String.t() => any()}
+  @type update_data_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_flow_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "customerEncryptionKeyArn" => String.t(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
         "definition" => flow_definition(),
-        "description" => String.t(),
-        "executionRoleArn" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type create_flow_response() :: %{String.t() => any()}
+  @type create_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rds_configuration() :: %{
-        "credentialsSecretArn" => String.t(),
-        "databaseName" => String.t(),
+        "credentialsSecretArn" => String.t() | atom(),
+        "databaseName" => String.t() | atom(),
         "fieldMapping" => rds_field_mapping(),
-        "resourceArn" => String.t(),
-        "tableName" => String.t()
+        "resourceArn" => String.t() | atom(),
+        "tableName" => String.t() | atom()
       }
 
   """
-  @type rds_configuration() :: %{String.t() => any()}
+  @type rds_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_flow_response() :: %{
-        "id" => String.t()
+        "id" => String.t() | atom()
       }
 
   """
-  @type delete_flow_response() :: %{String.t() => any()}
+  @type delete_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1291,18 +1297,18 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type create_knowledge_base_response() :: %{String.t() => any()}
+  @type create_knowledge_base_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1315,7 +1321,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type parsing_configuration() :: %{String.t() => any()}
+  @type parsing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1323,11 +1329,11 @@ defmodule AWS.BedrockAgent do
 
       list_flow_aliases_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_flow_aliases_request() :: %{String.t() => any()}
+  @type list_flow_aliases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1343,17 +1349,17 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       agent_version_summary() :: %{
-        "agentName" => String.t(),
+        "agentName" => String.t() | atom(),
         "agentStatus" => list(any()),
-        "agentVersion" => String.t(),
+        "agentVersion" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "guardrailConfiguration" => guardrail_configuration(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type agent_version_summary() :: %{String.t() => any()}
+  @type agent_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1366,20 +1372,22 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type document_identifier() :: %{String.t() => any()}
+  @type document_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       malformed_node_input_expression_flow_validation_details() :: %{
-        "cause" => String.t(),
-        "input" => String.t(),
-        "node" => String.t()
+        "cause" => String.t() | atom(),
+        "input" => String.t() | atom(),
+        "node" => String.t() | atom()
       }
 
   """
-  @type malformed_node_input_expression_flow_validation_details() :: %{String.t() => any()}
+  @type malformed_node_input_expression_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1390,7 +1398,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type share_point_crawler_configuration() :: %{String.t() => any()}
+  @type share_point_crawler_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1401,22 +1409,22 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type ingest_knowledge_base_documents_response() :: %{String.t() => any()}
+  @type ingest_knowledge_base_documents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       action_group_summary() :: %{
-        "actionGroupId" => String.t(),
-        "actionGroupName" => String.t(),
+        "actionGroupId" => String.t() | atom(),
+        "actionGroupName" => String.t() | atom(),
         "actionGroupState" => list(any()),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type action_group_summary() :: %{String.t() => any()}
+  @type action_group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1424,24 +1432,26 @@ defmodule AWS.BedrockAgent do
 
       bedrock_foundation_model_context_enrichment_configuration() :: %{
         "enrichmentStrategyConfiguration" => enrichment_strategy_configuration(),
-        "modelArn" => String.t()
+        "modelArn" => String.t() | atom()
       }
 
   """
-  @type bedrock_foundation_model_context_enrichment_configuration() :: %{String.t() => any()}
+  @type bedrock_foundation_model_context_enrichment_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       redshift_provisioned_auth_configuration() :: %{
-        "databaseUser" => [String.t()],
+        "databaseUser" => [String.t() | atom()],
         "type" => list(any()),
-        "usernamePasswordSecretArn" => String.t()
+        "usernamePasswordSecretArn" => String.t() | atom()
       }
 
   """
-  @type redshift_provisioned_auth_configuration() :: %{String.t() => any()}
+  @type redshift_provisioned_auth_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1450,8 +1460,8 @@ defmodule AWS.BedrockAgent do
       knowledge_base_flow_node_configuration() :: %{
         "guardrailConfiguration" => guardrail_configuration(),
         "inferenceConfiguration" => list(),
-        "knowledgeBaseId" => String.t(),
-        "modelId" => String.t(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "modelId" => String.t() | atom(),
         "numberOfResults" => [integer()],
         "orchestrationConfiguration" => knowledge_base_orchestration_configuration(),
         "promptTemplate" => knowledge_base_prompt_template(),
@@ -1459,26 +1469,26 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type knowledge_base_flow_node_configuration() :: %{String.t() => any()}
+  @type knowledge_base_flow_node_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_flow_alias_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "concurrencyConfiguration" => flow_alias_concurrency_configuration(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "flowId" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "flowId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "routingConfiguration" => list(flow_alias_routing_configuration_list_item()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type create_flow_alias_response() :: %{String.t() => any()}
+  @type create_flow_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1491,7 +1501,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type redshift_query_engine_configuration() :: %{String.t() => any()}
+  @type redshift_query_engine_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1502,19 +1512,19 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type delete_agent_version_request() :: %{String.t() => any()}
+  @type delete_agent_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_prompt_response() :: %{
-        "id" => String.t(),
-        "version" => String.t()
+        "id" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type delete_prompt_response() :: %{String.t() => any()}
+  @type delete_prompt_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1522,11 +1532,11 @@ defmodule AWS.BedrockAgent do
 
       list_agent_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_agent_versions_request() :: %{String.t() => any()}
+  @type list_agent_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1540,7 +1550,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type knowledge_base_orchestration_configuration() :: %{String.t() => any()}
+  @type knowledge_base_orchestration_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1548,23 +1558,23 @@ defmodule AWS.BedrockAgent do
 
       salesforce_source_configuration() :: %{
         "authType" => list(any()),
-        "credentialsSecretArn" => String.t(),
-        "hostUrl" => String.t()
+        "credentialsSecretArn" => String.t() | atom(),
+        "hostUrl" => String.t() | atom()
       }
 
   """
-  @type salesforce_source_configuration() :: %{String.t() => any()}
+  @type salesforce_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ingestion_job() :: %{
-        "dataSourceId" => String.t(),
-        "description" => String.t(),
-        "failureReasons" => list(String.t()),
-        "ingestionJobId" => String.t(),
-        "knowledgeBaseId" => String.t(),
+        "dataSourceId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "failureReasons" => list(String.t() | atom()),
+        "ingestionJobId" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
         "startedAt" => non_neg_integer(),
         "statistics" => ingestion_job_statistics(),
         "status" => list(any()),
@@ -1572,7 +1582,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type ingestion_job() :: %{String.t() => any()}
+  @type ingestion_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1581,34 +1591,34 @@ defmodule AWS.BedrockAgent do
       update_agent_collaborator_request() :: %{
         optional("relayConversationHistory") => list(any()),
         required("agentDescriptor") => agent_descriptor(),
-        required("collaborationInstruction") => String.t(),
-        required("collaboratorName") => String.t()
+        required("collaborationInstruction") => String.t() | atom(),
+        required("collaboratorName") => String.t() | atom()
       }
 
   """
-  @type update_agent_collaborator_request() :: %{String.t() => any()}
+  @type update_agent_collaborator_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_prompt_request() :: %{
-        optional("promptVersion") => String.t()
+        optional("promptVersion") => String.t() | atom()
       }
 
   """
-  @type delete_prompt_request() :: %{String.t() => any()}
+  @type delete_prompt_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kendra_knowledge_base_configuration() :: %{
-        "kendraIndexArn" => String.t()
+        "kendraIndexArn" => String.t() | atom()
       }
 
   """
-  @type kendra_knowledge_base_configuration() :: %{String.t() => any()}
+  @type kendra_knowledge_base_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1620,7 +1630,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type hierarchical_chunking_configuration() :: %{String.t() => any()}
+  @type hierarchical_chunking_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1628,34 +1638,34 @@ defmodule AWS.BedrockAgent do
 
       flow_connection() :: %{
         "configuration" => list(),
-        "name" => String.t(),
-        "source" => String.t(),
-        "target" => String.t(),
+        "name" => String.t() | atom(),
+        "source" => String.t() | atom(),
+        "target" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type flow_connection() :: %{String.t() => any()}
+  @type flow_connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_prompt_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "customerEncryptionKeyArn" => String.t(),
-        "defaultVariant" => String.t(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
+        "defaultVariant" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "updatedAt" => non_neg_integer(),
         "variants" => list(prompt_variant()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type get_prompt_response() :: %{String.t() => any()}
+  @type get_prompt_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1666,7 +1676,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type get_agent_action_group_response() :: %{String.t() => any()}
+  @type get_agent_action_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1674,11 +1684,11 @@ defmodule AWS.BedrockAgent do
 
       redshift_provisioned_configuration() :: %{
         "authConfiguration" => redshift_provisioned_auth_configuration(),
-        "clusterIdentifier" => String.t()
+        "clusterIdentifier" => String.t() | atom()
       }
 
   """
-  @type redshift_provisioned_configuration() :: %{String.t() => any()}
+  @type redshift_provisioned_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1689,7 +1699,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type transformation_function() :: %{String.t() => any()}
+  @type transformation_function() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1706,12 +1716,12 @@ defmodule AWS.BedrockAgent do
 
       mismatched_node_output_type_flow_validation_details() :: %{
         "expectedType" => list(any()),
-        "node" => String.t(),
-        "output" => String.t()
+        "node" => String.t() | atom(),
+        "output" => String.t() | atom()
       }
 
   """
-  @type mismatched_node_output_type_flow_validation_details() :: %{String.t() => any()}
+  @type mismatched_node_output_type_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1722,20 +1732,20 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type create_agent_action_group_response() :: %{String.t() => any()}
+  @type create_agent_action_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_agent_alias_response() :: %{
-        "agentAliasId" => String.t(),
+        "agentAliasId" => String.t() | atom(),
         "agentAliasStatus" => list(any()),
-        "agentId" => String.t()
+        "agentId" => String.t() | atom()
       }
 
   """
-  @type delete_agent_alias_response() :: %{String.t() => any()}
+  @type delete_agent_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1743,11 +1753,11 @@ defmodule AWS.BedrockAgent do
 
       list_flows_response() :: %{
         "flowSummaries" => list(flow_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_flows_response() :: %{String.t() => any()}
+  @type list_flows_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1767,7 +1777,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type create_agent_response() :: %{String.t() => any()}
+  @type create_agent_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1775,11 +1785,11 @@ defmodule AWS.BedrockAgent do
 
       list_data_sources_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_data_sources_request() :: %{String.t() => any()}
+  @type list_data_sources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1790,32 +1800,32 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type retrieval_flow_node_configuration() :: %{String.t() => any()}
+  @type retrieval_flow_node_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_flow_version_response() :: %{
-        "id" => String.t(),
-        "version" => String.t()
+        "id" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type delete_flow_version_response() :: %{String.t() => any()}
+  @type delete_flow_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_data_source_response() :: %{
-        "dataSourceId" => String.t(),
-        "knowledgeBaseId" => String.t(),
+        "dataSourceId" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type delete_data_source_response() :: %{String.t() => any()}
+  @type delete_data_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1823,28 +1833,28 @@ defmodule AWS.BedrockAgent do
 
       list_agent_aliases_response() :: %{
         "agentAliasSummaries" => list(agent_alias_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_agent_aliases_response() :: %{String.t() => any()}
+  @type list_agent_aliases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_knowledge_base_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("storageConfiguration") => storage_configuration(),
         optional("tags") => map(),
         required("knowledgeBaseConfiguration") => knowledge_base_configuration(),
-        required("name") => String.t(),
-        required("roleArn") => String.t()
+        required("name") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type create_knowledge_base_request() :: %{String.t() => any()}
+  @type create_knowledge_base_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1852,20 +1862,20 @@ defmodule AWS.BedrockAgent do
 
       knowledge_base() :: %{
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "failureReasons" => list(String.t()),
-        "knowledgeBaseArn" => String.t(),
+        "description" => String.t() | atom(),
+        "failureReasons" => list(String.t() | atom()),
+        "knowledgeBaseArn" => String.t() | atom(),
         "knowledgeBaseConfiguration" => knowledge_base_configuration(),
-        "knowledgeBaseId" => String.t(),
-        "name" => String.t(),
-        "roleArn" => String.t(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
         "status" => list(any()),
         "storageConfiguration" => storage_configuration(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type knowledge_base() :: %{String.t() => any()}
+  @type knowledge_base() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1873,41 +1883,41 @@ defmodule AWS.BedrockAgent do
 
       list_flow_versions_response() :: %{
         "flowVersionSummaries" => list(flow_version_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_flow_versions_response() :: %{String.t() => any()}
+  @type list_flow_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bedrockagent_function() :: %{
-        "description" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "parameters" => map(),
         "requireConfirmation" => list(any())
       }
 
   """
-  @type bedrockagent_function() :: %{String.t() => any()}
+  @type bedrockagent_function() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_flow_alias_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("concurrencyConfiguration") => flow_alias_concurrency_configuration(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("tags") => map(),
-        required("name") => String.t(),
+        required("name") => String.t() | atom(),
         required("routingConfiguration") => list(flow_alias_routing_configuration_list_item())
       }
 
   """
-  @type create_flow_alias_request() :: %{String.t() => any()}
+  @type create_flow_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1923,15 +1933,15 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       knowledge_base_summary() :: %{
-        "description" => String.t(),
-        "knowledgeBaseId" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type knowledge_base_summary() :: %{String.t() => any()}
+  @type knowledge_base_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1942,19 +1952,21 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type update_agent_response() :: %{String.t() => any()}
+  @type update_agent_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       duplicate_condition_expression_flow_validation_details() :: %{
-        "expression" => String.t(),
-        "node" => String.t()
+        "expression" => String.t() | atom(),
+        "node" => String.t() | atom()
       }
 
   """
-  @type duplicate_condition_expression_flow_validation_details() :: %{String.t() => any()}
+  @type duplicate_condition_expression_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1962,74 +1974,74 @@ defmodule AWS.BedrockAgent do
 
       list_knowledge_bases_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_knowledge_bases_request() :: %{String.t() => any()}
+  @type list_knowledge_bases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_prompt_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("customerEncryptionKeyArn") => String.t(),
-        optional("defaultVariant") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("customerEncryptionKeyArn") => String.t() | atom(),
+        optional("defaultVariant") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("tags") => map(),
         optional("variants") => list(prompt_variant()),
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_prompt_request() :: %{String.t() => any()}
+  @type create_prompt_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       agent_knowledge_base_summary() :: %{
-        "description" => String.t(),
-        "knowledgeBaseId" => String.t(),
+        "description" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
         "knowledgeBaseState" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type agent_knowledge_base_summary() :: %{String.t() => any()}
+  @type agent_knowledge_base_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ingestion_job_summary() :: %{
-        "dataSourceId" => String.t(),
-        "description" => String.t(),
-        "ingestionJobId" => String.t(),
-        "knowledgeBaseId" => String.t(),
+        "dataSourceId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "ingestionJobId" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
         "startedAt" => non_neg_integer(),
         "statistics" => ingestion_job_statistics(),
         "status" => list(any()),
@@ -2037,20 +2049,20 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type ingestion_job_summary() :: %{String.t() => any()}
+  @type ingestion_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pattern_object_filter() :: %{
-        "exclusionFilters" => list(String.t()),
-        "inclusionFilters" => list(String.t()),
-        "objectType" => String.t()
+        "exclusionFilters" => list(String.t() | atom()),
+        "inclusionFilters" => list(String.t() | atom()),
+        "objectType" => String.t() | atom()
       }
 
   """
-  @type pattern_object_filter() :: %{String.t() => any()}
+  @type pattern_object_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2062,19 +2074,19 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type knowledge_base_document() :: %{String.t() => any()}
+  @type knowledge_base_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       flow_node_output() :: %{
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type flow_node_output() :: %{String.t() => any()}
+  @type flow_node_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2085,18 +2097,18 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type embedding_model_configuration() :: %{String.t() => any()}
+  @type embedding_model_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       field_for_reranking() :: %{
-        "fieldName" => [String.t()]
+        "fieldName" => [String.t() | atom()]
       }
 
   """
-  @type field_for_reranking() :: %{String.t() => any()}
+  @type field_for_reranking() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2112,31 +2124,31 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       create_prompt_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "customerEncryptionKeyArn" => String.t(),
-        "defaultVariant" => String.t(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
+        "defaultVariant" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "updatedAt" => non_neg_integer(),
         "variants" => list(prompt_variant()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type create_prompt_response() :: %{String.t() => any()}
+  @type create_prompt_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       seed_url() :: %{
-        "url" => String.t()
+        "url" => String.t() | atom()
       }
 
   """
-  @type seed_url() :: %{String.t() => any()}
+  @type seed_url() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2147,33 +2159,33 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type get_ingestion_job_response() :: %{String.t() => any()}
+  @type get_ingestion_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       flow_version_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "id" => String.t(),
+        "id" => String.t() | atom(),
         "status" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type flow_version_summary() :: %{String.t() => any()}
+  @type flow_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       transformation_lambda_configuration() :: %{
-        "lambdaArn" => String.t()
+        "lambdaArn" => String.t() | atom()
       }
 
   """
-  @type transformation_lambda_configuration() :: %{String.t() => any()}
+  @type transformation_lambda_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2193,7 +2205,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type url_configuration() :: %{String.t() => any()}
+  @type url_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2204,40 +2216,42 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type validate_flow_definition_request() :: %{String.t() => any()}
+  @type validate_flow_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unknown_connection_source_output_flow_validation_details() :: %{
-        "connection" => String.t()
+        "connection" => String.t() | atom()
       }
 
   """
-  @type unknown_connection_source_output_flow_validation_details() :: %{String.t() => any()}
+  @type unknown_connection_source_output_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       agent_flow_node_configuration() :: %{
-        "agentAliasArn" => String.t()
+        "agentAliasArn" => String.t() | atom()
       }
 
   """
-  @type agent_flow_node_configuration() :: %{String.t() => any()}
+  @type agent_flow_node_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2249,7 +2263,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type web_crawler_limits() :: %{String.t() => any()}
+  @type web_crawler_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2260,7 +2274,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type s3_content() :: %{String.t() => any()}
+  @type s3_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2280,7 +2294,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type intermediate_storage() :: %{String.t() => any()}
+  @type intermediate_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2288,49 +2302,49 @@ defmodule AWS.BedrockAgent do
 
       list_knowledge_base_documents_response() :: %{
         "documentDetails" => list(knowledge_base_document_detail()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_knowledge_base_documents_response() :: %{String.t() => any()}
+  @type list_knowledge_base_documents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_flow_alias_response() :: %{
-        "flowId" => String.t(),
-        "id" => String.t()
+        "flowId" => String.t() | atom(),
+        "id" => String.t() | atom()
       }
 
   """
-  @type delete_flow_alias_response() :: %{String.t() => any()}
+  @type delete_flow_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bedrock_foundation_model_configuration() :: %{
-        "modelArn" => String.t(),
+        "modelArn" => String.t() | atom(),
         "parsingModality" => list(any()),
         "parsingPrompt" => parsing_prompt()
       }
 
   """
-  @type bedrock_foundation_model_configuration() :: %{String.t() => any()}
+  @type bedrock_foundation_model_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tool_specification() :: %{
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "inputSchema" => list(),
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type tool_specification() :: %{String.t() => any()}
+  @type tool_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2341,33 +2355,33 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type update_agent_alias_response() :: %{String.t() => any()}
+  @type update_agent_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       prepare_flow_response() :: %{
-        "id" => String.t(),
+        "id" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type prepare_flow_response() :: %{String.t() => any()}
+  @type prepare_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       redis_enterprise_cloud_configuration() :: %{
-        "credentialsSecretArn" => String.t(),
-        "endpoint" => String.t(),
+        "credentialsSecretArn" => String.t() | atom(),
+        "endpoint" => String.t() | atom(),
         "fieldMapping" => redis_enterprise_cloud_field_mapping(),
-        "vectorIndexName" => String.t()
+        "vectorIndexName" => String.t() | atom()
       }
 
   """
-  @type redis_enterprise_cloud_configuration() :: %{String.t() => any()}
+  @type redis_enterprise_cloud_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2386,7 +2400,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type storage_configuration() :: %{String.t() => any()}
+  @type storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2394,11 +2408,11 @@ defmodule AWS.BedrockAgent do
 
       list_agent_knowledge_bases_response() :: %{
         "agentKnowledgeBaseSummaries" => list(agent_knowledge_base_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_agent_knowledge_bases_response() :: %{String.t() => any()}
+  @type list_agent_knowledge_bases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2406,11 +2420,11 @@ defmodule AWS.BedrockAgent do
 
       list_data_sources_response() :: %{
         "dataSourceSummaries" => list(data_source_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_data_sources_response() :: %{String.t() => any()}
+  @type list_data_sources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2431,23 +2445,23 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type confluence_data_source_configuration() :: %{String.t() => any()}
+  @type confluence_data_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       knowledge_base_document_detail() :: %{
-        "dataSourceId" => String.t(),
+        "dataSourceId" => String.t() | atom(),
         "identifier" => document_identifier(),
-        "knowledgeBaseId" => String.t(),
+        "knowledgeBaseId" => String.t() | atom(),
         "status" => list(any()),
-        "statusReason" => [String.t()],
+        "statusReason" => [String.t() | atom()],
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type knowledge_base_document_detail() :: %{String.t() => any()}
+  @type knowledge_base_document_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2461,40 +2475,40 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type chunking_configuration() :: %{String.t() => any()}
+  @type chunking_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       agent() :: %{
-        "agentArn" => String.t(),
+        "agentArn" => String.t() | atom(),
         "agentCollaboration" => list(any()),
-        "agentId" => String.t(),
-        "agentName" => String.t(),
-        "agentResourceRoleArn" => String.t(),
+        "agentId" => String.t() | atom(),
+        "agentName" => String.t() | atom(),
+        "agentResourceRoleArn" => String.t() | atom(),
         "agentStatus" => list(any()),
-        "agentVersion" => String.t(),
-        "clientToken" => String.t(),
+        "agentVersion" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "customOrchestration" => custom_orchestration(),
-        "customerEncryptionKeyArn" => String.t(),
-        "description" => String.t(),
-        "failureReasons" => list(String.t()),
-        "foundationModel" => String.t(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "failureReasons" => list(String.t() | atom()),
+        "foundationModel" => String.t() | atom(),
         "guardrailConfiguration" => guardrail_configuration(),
         "idleSessionTTLInSeconds" => integer(),
-        "instruction" => String.t(),
+        "instruction" => String.t() | atom(),
         "memoryConfiguration" => memory_configuration(),
         "orchestrationType" => list(any()),
         "preparedAt" => non_neg_integer(),
         "promptOverrideConfiguration" => prompt_override_configuration(),
-        "recommendedActions" => list(String.t()),
+        "recommendedActions" => list(String.t() | atom()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type agent() :: %{String.t() => any()}
+  @type agent() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2505,26 +2519,26 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type delete_agent_action_group_request() :: %{String.t() => any()}
+  @type delete_agent_action_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_flow_alias_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "concurrencyConfiguration" => flow_alias_concurrency_configuration(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "flowId" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "flowId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "routingConfiguration" => list(flow_alias_routing_configuration_list_item()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type get_flow_alias_response() :: %{String.t() => any()}
+  @type get_flow_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2532,11 +2546,11 @@ defmodule AWS.BedrockAgent do
 
       list_ingestion_jobs_response() :: %{
         "ingestionJobSummaries" => list(ingestion_job_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_ingestion_jobs_response() :: %{String.t() => any()}
+  @type list_ingestion_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2547,7 +2561,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2556,41 +2570,41 @@ defmodule AWS.BedrockAgent do
       list_ingestion_jobs_request() :: %{
         optional("filters") => list(ingestion_job_filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("sortBy") => ingestion_job_sort_by()
       }
 
   """
-  @type list_ingestion_jobs_request() :: %{String.t() => any()}
+  @type list_ingestion_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       agent_alias_summary() :: %{
-        "agentAliasId" => String.t(),
-        "agentAliasName" => String.t(),
+        "agentAliasId" => String.t() | atom(),
+        "agentAliasName" => String.t() | atom(),
         "agentAliasStatus" => list(any()),
         "aliasInvocationState" => list(any()),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "routingConfiguration" => list(agent_alias_routing_configuration_list_item()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type agent_alias_summary() :: %{String.t() => any()}
+  @type agent_alias_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       parsing_prompt() :: %{
-        "parsingPromptText" => String.t()
+        "parsingPromptText" => String.t() | atom()
       }
 
   """
-  @type parsing_prompt() :: %{String.t() => any()}
+  @type parsing_prompt() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2601,7 +2615,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type cache_point_block() :: %{String.t() => any()}
+  @type cache_point_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2617,12 +2631,12 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       create_flow_version_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom()
       }
 
   """
-  @type create_flow_version_request() :: %{String.t() => any()}
+  @type create_flow_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2634,7 +2648,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type vector_search_reranking_configuration() :: %{String.t() => any()}
+  @type vector_search_reranking_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2642,23 +2656,23 @@ defmodule AWS.BedrockAgent do
 
       byte_content_doc() :: %{
         "data" => binary(),
-        "mimeType" => [String.t()]
+        "mimeType" => [String.t() | atom()]
       }
 
   """
-  @type byte_content_doc() :: %{String.t() => any()}
+  @type byte_content_doc() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => String.t(),
-        "name" => String.t()
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2683,27 +2697,27 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       associate_agent_collaborator_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("relayConversationHistory") => list(any()),
         required("agentDescriptor") => agent_descriptor(),
-        required("collaborationInstruction") => String.t(),
-        required("collaboratorName") => String.t()
+        required("collaborationInstruction") => String.t() | atom(),
+        required("collaboratorName") => String.t() | atom()
       }
 
   """
-  @type associate_agent_collaborator_request() :: %{String.t() => any()}
+  @type associate_agent_collaborator_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_agent_response() :: %{
-        "agentId" => String.t(),
+        "agentId" => String.t() | atom(),
         "agentStatus" => list(any())
       }
 
   """
-  @type delete_agent_response() :: %{String.t() => any()}
+  @type delete_agent_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2714,7 +2728,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type salesforce_crawler_configuration() :: %{String.t() => any()}
+  @type salesforce_crawler_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2722,11 +2736,11 @@ defmodule AWS.BedrockAgent do
 
       list_agent_aliases_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_agent_aliases_request() :: %{String.t() => any()}
+  @type list_agent_aliases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2737,37 +2751,37 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type update_agent_action_group_response() :: %{String.t() => any()}
+  @type update_agent_action_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       flow_alias_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "concurrencyConfiguration" => flow_alias_concurrency_configuration(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "flowId" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "flowId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "routingConfiguration" => list(flow_alias_routing_configuration_list_item()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type flow_alias_summary() :: %{String.t() => any()}
+  @type flow_alias_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_location() :: %{
-        "uri" => String.t()
+        "uri" => String.t() | atom()
       }
 
   """
-  @type s3_location() :: %{String.t() => any()}
+  @type s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2775,34 +2789,36 @@ defmodule AWS.BedrockAgent do
 
       list_flows_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_flows_request() :: %{String.t() => any()}
+  @type list_flows_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unknown_connection_target_flow_validation_details() :: %{
-        "connection" => String.t()
+        "connection" => String.t() | atom()
       }
 
   """
-  @type unknown_connection_target_flow_validation_details() :: %{String.t() => any()}
+  @type unknown_connection_target_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       multiple_node_input_connections_flow_validation_details() :: %{
-        "input" => String.t(),
-        "node" => String.t()
+        "input" => String.t() | atom(),
+        "node" => String.t() | atom()
       }
 
   """
-  @type multiple_node_input_connections_flow_validation_details() :: %{String.t() => any()}
+  @type multiple_node_input_connections_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -2810,13 +2826,13 @@ defmodule AWS.BedrockAgent do
 
       confluence_source_configuration() :: %{
         "authType" => list(any()),
-        "credentialsSecretArn" => String.t(),
+        "credentialsSecretArn" => String.t() | atom(),
         "hostType" => list(any()),
-        "hostUrl" => String.t()
+        "hostUrl" => String.t() | atom()
       }
 
   """
-  @type confluence_source_configuration() :: %{String.t() => any()}
+  @type confluence_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2832,44 +2848,44 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       get_prompt_request() :: %{
-        optional("promptVersion") => String.t()
+        optional("promptVersion") => String.t() | atom()
       }
 
   """
-  @type get_prompt_request() :: %{String.t() => any()}
+  @type get_prompt_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_document_identifier() :: %{
-        "id" => [String.t()]
+        "id" => [String.t() | atom()]
       }
 
   """
-  @type custom_document_identifier() :: %{String.t() => any()}
+  @type custom_document_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       knowledge_base_prompt_template() :: %{
-        "textPromptTemplate" => String.t()
+        "textPromptTemplate" => String.t() | atom()
       }
 
   """
-  @type knowledge_base_prompt_template() :: %{String.t() => any()}
+  @type knowledge_base_prompt_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       server_side_encryption_configuration() :: %{
-        "kmsKeyArn" => String.t()
+        "kmsKeyArn" => String.t() | atom()
       }
 
   """
-  @type server_side_encryption_configuration() :: %{String.t() => any()}
+  @type server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2877,11 +2893,11 @@ defmodule AWS.BedrockAgent do
 
       neptune_analytics_configuration() :: %{
         "fieldMapping" => neptune_analytics_field_mapping(),
-        "graphArn" => String.t()
+        "graphArn" => String.t() | atom()
       }
 
   """
-  @type neptune_analytics_configuration() :: %{String.t() => any()}
+  @type neptune_analytics_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2897,29 +2913,29 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       agent_version() :: %{
-        "agentArn" => String.t(),
+        "agentArn" => String.t() | atom(),
         "agentCollaboration" => list(any()),
-        "agentId" => String.t(),
-        "agentName" => String.t(),
-        "agentResourceRoleArn" => String.t(),
+        "agentId" => String.t() | atom(),
+        "agentName" => String.t() | atom(),
+        "agentResourceRoleArn" => String.t() | atom(),
         "agentStatus" => list(any()),
         "createdAt" => non_neg_integer(),
-        "customerEncryptionKeyArn" => String.t(),
-        "description" => String.t(),
-        "failureReasons" => list(String.t()),
-        "foundationModel" => String.t(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "failureReasons" => list(String.t() | atom()),
+        "foundationModel" => String.t() | atom(),
         "guardrailConfiguration" => guardrail_configuration(),
         "idleSessionTTLInSeconds" => integer(),
-        "instruction" => String.t(),
+        "instruction" => String.t() | atom(),
         "memoryConfiguration" => memory_configuration(),
         "promptOverrideConfiguration" => prompt_override_configuration(),
-        "recommendedActions" => list(String.t()),
+        "recommendedActions" => list(String.t() | atom()),
         "updatedAt" => non_neg_integer(),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type agent_version() :: %{String.t() => any()}
+  @type agent_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2927,31 +2943,31 @@ defmodule AWS.BedrockAgent do
 
       agent_collaborator() :: %{
         "agentDescriptor" => agent_descriptor(),
-        "agentId" => String.t(),
-        "agentVersion" => String.t(),
-        "clientToken" => String.t(),
-        "collaborationInstruction" => String.t(),
-        "collaboratorId" => String.t(),
-        "collaboratorName" => String.t(),
+        "agentId" => String.t() | atom(),
+        "agentVersion" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
+        "collaborationInstruction" => String.t() | atom(),
+        "collaboratorId" => String.t() | atom(),
+        "collaboratorName" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "lastUpdatedAt" => non_neg_integer(),
         "relayConversationHistory" => list(any())
       }
 
   """
-  @type agent_collaborator() :: %{String.t() => any()}
+  @type agent_collaborator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       agent_alias_routing_configuration_list_item() :: %{
-        "agentVersion" => String.t(),
-        "provisionedThroughput" => String.t()
+        "agentVersion" => String.t() | atom(),
+        "provisionedThroughput" => String.t() | atom()
       }
 
   """
-  @type agent_alias_routing_configuration_list_item() :: %{String.t() => any()}
+  @type agent_alias_routing_configuration_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2962,7 +2978,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type update_agent_collaborator_response() :: %{String.t() => any()}
+  @type update_agent_collaborator_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2975,7 +2991,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type semantic_chunking_configuration() :: %{String.t() => any()}
+  @type semantic_chunking_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2991,37 +3007,37 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       pinecone_configuration() :: %{
-        "connectionString" => String.t(),
-        "credentialsSecretArn" => String.t(),
+        "connectionString" => String.t() | atom(),
+        "credentialsSecretArn" => String.t() | atom(),
         "fieldMapping" => pinecone_field_mapping(),
-        "namespace" => String.t()
+        "namespace" => String.t() | atom()
       }
 
   """
-  @type pinecone_configuration() :: %{String.t() => any()}
+  @type pinecone_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       agent_alias() :: %{
-        "agentAliasArn" => String.t(),
+        "agentAliasArn" => String.t() | atom(),
         "agentAliasHistoryEvents" => list(agent_alias_history_event()),
-        "agentAliasId" => String.t(),
-        "agentAliasName" => String.t(),
+        "agentAliasId" => String.t() | atom(),
+        "agentAliasName" => String.t() | atom(),
         "agentAliasStatus" => list(any()),
-        "agentId" => String.t(),
+        "agentId" => String.t() | atom(),
         "aliasInvocationState" => list(any()),
-        "clientToken" => String.t(),
+        "clientToken" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "failureReasons" => list(String.t()),
+        "description" => String.t() | atom(),
+        "failureReasons" => list(String.t() | atom()),
         "routingConfiguration" => list(agent_alias_routing_configuration_list_item()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type agent_alias() :: %{String.t() => any()}
+  @type agent_alias() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3034,19 +3050,19 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type vector_search_bedrock_reranking_configuration() :: %{String.t() => any()}
+  @type vector_search_bedrock_reranking_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_identifier() :: %{
-        "s3BucketName" => String.t(),
-        "s3ObjectKey" => String.t()
+        "s3BucketName" => String.t() | atom(),
+        "s3ObjectKey" => String.t() | atom()
       }
 
   """
-  @type s3_identifier() :: %{String.t() => any()}
+  @type s3_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3054,12 +3070,12 @@ defmodule AWS.BedrockAgent do
 
       list_prompts_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("promptIdentifier") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("promptIdentifier") => String.t() | atom()
       }
 
   """
-  @type list_prompts_request() :: %{String.t() => any()}
+  @type list_prompts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3076,11 +3092,11 @@ defmodule AWS.BedrockAgent do
 
       list_agent_collaborators_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_agent_collaborators_request() :: %{String.t() => any()}
+  @type list_agent_collaborators_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3088,15 +3104,15 @@ defmodule AWS.BedrockAgent do
 
       share_point_source_configuration() :: %{
         "authType" => list(any()),
-        "credentialsSecretArn" => String.t(),
-        "domain" => String.t(),
+        "credentialsSecretArn" => String.t() | atom(),
+        "domain" => String.t() | atom(),
         "hostType" => list(any()),
-        "siteUrls" => list(String.t()),
-        "tenantId" => String.t()
+        "siteUrls" => list(String.t() | atom()),
+        "tenantId" => String.t() | atom()
       }
 
   """
-  @type share_point_source_configuration() :: %{String.t() => any()}
+  @type share_point_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3104,26 +3120,26 @@ defmodule AWS.BedrockAgent do
 
       web_crawler_configuration() :: %{
         "crawlerLimits" => web_crawler_limits(),
-        "exclusionFilters" => list(String.t()),
-        "inclusionFilters" => list(String.t()),
+        "exclusionFilters" => list(String.t() | atom()),
+        "inclusionFilters" => list(String.t() | atom()),
         "scope" => list(any()),
-        "userAgent" => String.t(),
-        "userAgentHeader" => String.t()
+        "userAgent" => String.t() | atom(),
+        "userAgentHeader" => String.t() | atom()
       }
 
   """
-  @type web_crawler_configuration() :: %{String.t() => any()}
+  @type web_crawler_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3133,16 +3149,16 @@ defmodule AWS.BedrockAgent do
         optional("actionGroupExecutor") => list(),
         optional("actionGroupState") => list(any()),
         optional("apiSchema") => list(),
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("functionSchema") => list(),
         optional("parentActionGroupSignature") => list(any()),
         optional("parentActionGroupSignatureParams") => map(),
-        required("actionGroupName") => String.t()
+        required("actionGroupName") => String.t() | atom()
       }
 
   """
-  @type create_agent_action_group_request() :: %{String.t() => any()}
+  @type create_agent_action_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3159,23 +3175,23 @@ defmodule AWS.BedrockAgent do
 
       list_agent_action_groups_response() :: %{
         "actionGroupSummaries" => list(action_group_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_agent_action_groups_response() :: %{String.t() => any()}
+  @type list_agent_action_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_s3_location() :: %{
-        "bucketOwnerAccountId" => String.t(),
-        "uri" => String.t()
+        "bucketOwnerAccountId" => String.t() | atom(),
+        "uri" => String.t() | atom()
       }
 
   """
-  @type custom_s3_location() :: %{String.t() => any()}
+  @type custom_s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3187,7 +3203,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type crawl_filter_configuration() :: %{String.t() => any()}
+  @type crawl_filter_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3198,7 +3214,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type create_data_source_response() :: %{String.t() => any()}
+  @type create_data_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3207,11 +3223,11 @@ defmodule AWS.BedrockAgent do
       ingestion_job_filter() :: %{
         "attribute" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t())
+        "values" => list(String.t() | atom())
       }
 
   """
-  @type ingestion_job_filter() :: %{String.t() => any()}
+  @type ingestion_job_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3224,25 +3240,25 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type document_content() :: %{String.t() => any()}
+  @type document_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       flow_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type flow_summary() :: %{String.t() => any()}
+  @type flow_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3253,34 +3269,34 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type create_agent_alias_response() :: %{String.t() => any()}
+  @type create_agent_alias_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_source_summary() :: %{
-        "dataSourceId" => String.t(),
-        "description" => String.t(),
-        "knowledgeBaseId" => String.t(),
-        "name" => String.t(),
+        "dataSourceId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type data_source_summary() :: %{String.t() => any()}
+  @type data_source_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       agent_descriptor() :: %{
-        "aliasArn" => String.t()
+        "aliasArn" => String.t() | atom()
       }
 
   """
-  @type agent_descriptor() :: %{String.t() => any()}
+  @type agent_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3291,32 +3307,32 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type enrichment_strategy_configuration() :: %{String.t() => any()}
+  @type enrichment_strategy_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       missing_loop_input_node_flow_validation_details() :: %{
-        "loopNode" => String.t()
+        "loopNode" => String.t() | atom()
       }
 
   """
-  @type missing_loop_input_node_flow_validation_details() :: %{String.t() => any()}
+  @type missing_loop_input_node_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       open_search_managed_cluster_configuration() :: %{
-        "domainArn" => String.t(),
-        "domainEndpoint" => String.t(),
+        "domainArn" => String.t() | atom(),
+        "domainEndpoint" => String.t() | atom(),
         "fieldMapping" => open_search_managed_cluster_field_mapping(),
-        "vectorIndexName" => String.t()
+        "vectorIndexName" => String.t() | atom()
       }
 
   """
-  @type open_search_managed_cluster_configuration() :: %{String.t() => any()}
+  @type open_search_managed_cluster_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3328,45 +3344,45 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type sql_knowledge_base_configuration() :: %{String.t() => any()}
+  @type sql_knowledge_base_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_prompt_request() :: %{
-        optional("customerEncryptionKeyArn") => String.t(),
-        optional("defaultVariant") => String.t(),
-        optional("description") => String.t(),
+        optional("customerEncryptionKeyArn") => String.t() | atom(),
+        optional("defaultVariant") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("variants") => list(prompt_variant()),
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type update_prompt_request() :: %{String.t() => any()}
+  @type update_prompt_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unknown_node_input_flow_validation_details() :: %{
-        "input" => String.t(),
-        "node" => String.t()
+        "input" => String.t() | atom(),
+        "node" => String.t() | atom()
       }
 
   """
-  @type unknown_node_input_flow_validation_details() :: %{String.t() => any()}
+  @type unknown_node_input_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       multiple_loop_input_nodes_flow_validation_details() :: %{
-        "loopNode" => String.t()
+        "loopNode" => String.t() | atom()
       }
 
   """
-  @type multiple_loop_input_nodes_flow_validation_details() :: %{String.t() => any()}
+  @type multiple_loop_input_nodes_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3374,15 +3390,15 @@ defmodule AWS.BedrockAgent do
 
       agent_action_group() :: %{
         "actionGroupExecutor" => list(),
-        "actionGroupId" => String.t(),
-        "actionGroupName" => String.t(),
+        "actionGroupId" => String.t() | atom(),
+        "actionGroupName" => String.t() | atom(),
         "actionGroupState" => list(any()),
-        "agentId" => String.t(),
-        "agentVersion" => String.t(),
+        "agentId" => String.t() | atom(),
+        "agentVersion" => String.t() | atom(),
         "apiSchema" => list(),
-        "clientToken" => String.t(),
+        "clientToken" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "functionSchema" => list(),
         "parentActionGroupSignatureParams" => map(),
         "parentActionSignature" => list(any()),
@@ -3390,19 +3406,19 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type agent_action_group() :: %{String.t() => any()}
+  @type agent_action_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lex_flow_node_configuration() :: %{
-        "botAliasArn" => String.t(),
-        "localeId" => String.t()
+        "botAliasArn" => String.t() | atom(),
+        "localeId" => String.t() | atom()
       }
 
   """
-  @type lex_flow_node_configuration() :: %{String.t() => any()}
+  @type lex_flow_node_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3414,7 +3430,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type tool_configuration() :: %{String.t() => any()}
+  @type tool_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3422,37 +3438,37 @@ defmodule AWS.BedrockAgent do
 
       prompt_model_inference_configuration() :: %{
         "maxTokens" => integer(),
-        "stopSequences" => list([String.t()]()),
+        "stopSequences" => list([String.t() | atom()]()),
         "temperature" => float(),
         "topP" => float()
       }
 
   """
-  @type prompt_model_inference_configuration() :: %{String.t() => any()}
+  @type prompt_model_inference_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_prompt_version_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("tags") => map()
       }
 
   """
-  @type create_prompt_version_request() :: %{String.t() => any()}
+  @type create_prompt_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3463,22 +3479,22 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type get_agent_knowledge_base_response() :: %{String.t() => any()}
+  @type get_agent_knowledge_base_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_agent_alias_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("routingConfiguration") => list(agent_alias_routing_configuration_list_item()),
         optional("tags") => map(),
-        required("agentAliasName") => String.t()
+        required("agentAliasName") => String.t() | atom()
       }
 
   """
-  @type create_agent_alias_request() :: %{String.t() => any()}
+  @type create_agent_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3487,13 +3503,13 @@ defmodule AWS.BedrockAgent do
       metadata_attribute_value() :: %{
         "booleanValue" => [boolean()],
         "numberValue" => float(),
-        "stringListValue" => list(String.t()),
-        "stringValue" => String.t(),
+        "stringListValue" => list(String.t() | atom()),
+        "stringValue" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type metadata_attribute_value() :: %{String.t() => any()}
+  @type metadata_attribute_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3520,32 +3536,32 @@ defmodule AWS.BedrockAgent do
       update_agent_request() :: %{
         optional("agentCollaboration") => list(any()),
         optional("customOrchestration") => custom_orchestration(),
-        optional("customerEncryptionKeyArn") => String.t(),
-        optional("description") => String.t(),
+        optional("customerEncryptionKeyArn") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("guardrailConfiguration") => guardrail_configuration(),
         optional("idleSessionTTLInSeconds") => integer(),
-        optional("instruction") => String.t(),
+        optional("instruction") => String.t() | atom(),
         optional("memoryConfiguration") => memory_configuration(),
         optional("orchestrationType") => list(any()),
         optional("promptOverrideConfiguration") => prompt_override_configuration(),
-        required("agentName") => String.t(),
-        required("agentResourceRoleArn") => String.t(),
-        required("foundationModel") => String.t()
+        required("agentName") => String.t() | atom(),
+        required("agentResourceRoleArn") => String.t() | atom(),
+        required("foundationModel") => String.t() | atom()
       }
 
   """
-  @type update_agent_request() :: %{String.t() => any()}
+  @type update_agent_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cyclic_connection_flow_validation_details() :: %{
-        "connection" => String.t()
+        "connection" => String.t() | atom()
       }
 
   """
-  @type cyclic_connection_flow_validation_details() :: %{String.t() => any()}
+  @type cyclic_connection_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3557,7 +3573,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type flow_alias_concurrency_configuration() :: %{String.t() => any()}
+  @type flow_alias_concurrency_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3568,7 +3584,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type delete_agent_request() :: %{String.t() => any()}
+  @type delete_agent_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3579,7 +3595,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type condition_flow_node_configuration() :: %{String.t() => any()}
+  @type condition_flow_node_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3593,7 +3609,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type chat_prompt_template_configuration() :: %{String.t() => any()}
+  @type chat_prompt_template_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3601,24 +3617,26 @@ defmodule AWS.BedrockAgent do
 
       list_agent_collaborators_response() :: %{
         "agentCollaboratorSummaries" => list(agent_collaborator_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_agent_collaborators_response() :: %{String.t() => any()}
+  @type list_agent_collaborators_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       malformed_condition_expression_flow_validation_details() :: %{
-        "cause" => String.t(),
-        "condition" => String.t(),
-        "node" => String.t()
+        "cause" => String.t() | atom(),
+        "condition" => String.t() | atom(),
+        "node" => String.t() | atom()
       }
 
   """
-  @type malformed_condition_expression_flow_validation_details() :: %{String.t() => any()}
+  @type malformed_condition_expression_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -3630,27 +3648,27 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type metadata_configuration_for_reranking() :: %{String.t() => any()}
+  @type metadata_configuration_for_reranking() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_flow_version_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "customerEncryptionKeyArn" => String.t(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
         "definition" => flow_definition(),
-        "description" => String.t(),
-        "executionRoleArn" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type create_flow_version_response() :: %{String.t() => any()}
+  @type create_flow_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3667,11 +3685,11 @@ defmodule AWS.BedrockAgent do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3691,7 +3709,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type update_knowledge_base_response() :: %{String.t() => any()}
+  @type update_knowledge_base_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3704,20 +3722,20 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type agent_alias_history_event() :: %{String.t() => any()}
+  @type agent_alias_history_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_loop_boundary_flow_validation_details() :: %{
-        "connection" => String.t(),
-        "source" => String.t(),
-        "target" => String.t()
+        "connection" => String.t() | atom(),
+        "source" => String.t() | atom(),
+        "target" => String.t() | atom()
       }
 
   """
-  @type invalid_loop_boundary_flow_validation_details() :: %{String.t() => any()}
+  @type invalid_loop_boundary_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3725,40 +3743,40 @@ defmodule AWS.BedrockAgent do
 
       update_data_source_request() :: %{
         optional("dataDeletionPolicy") => list(any()),
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("serverSideEncryptionConfiguration") => server_side_encryption_configuration(),
         optional("vectorIngestionConfiguration") => vector_ingestion_configuration(),
         required("dataSourceConfiguration") => data_source_configuration(),
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type update_data_source_request() :: %{String.t() => any()}
+  @type update_data_source_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_agent_knowledge_base_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("knowledgeBaseState") => list(any())
       }
 
   """
-  @type update_agent_knowledge_base_request() :: %{String.t() => any()}
+  @type update_agent_knowledge_base_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       redis_enterprise_cloud_field_mapping() :: %{
-        "metadataField" => String.t(),
-        "textField" => String.t(),
-        "vectorField" => String.t()
+        "metadataField" => String.t() | atom(),
+        "textField" => String.t() | atom(),
+        "vectorField" => String.t() | atom()
       }
 
   """
-  @type redis_enterprise_cloud_field_mapping() :: %{String.t() => any()}
+  @type redis_enterprise_cloud_field_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3771,7 +3789,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type document_metadata() :: %{String.t() => any()}
+  @type document_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3792,18 +3810,18 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type ingestion_job_sort_by() :: %{String.t() => any()}
+  @type ingestion_job_sort_by() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3811,23 +3829,23 @@ defmodule AWS.BedrockAgent do
 
       list_flow_aliases_response() :: %{
         "flowAliasSummaries" => list(flow_alias_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_flow_aliases_response() :: %{String.t() => any()}
+  @type list_flow_aliases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       duplicate_connections_flow_validation_details() :: %{
-        "source" => String.t(),
-        "target" => String.t()
+        "source" => String.t() | atom(),
+        "target" => String.t() | atom()
       }
 
   """
-  @type duplicate_connections_flow_validation_details() :: %{String.t() => any()}
+  @type duplicate_connections_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3838,7 +3856,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type stop_ingestion_job_response() :: %{String.t() => any()}
+  @type stop_ingestion_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3849,7 +3867,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type get_agent_response() :: %{String.t() => any()}
+  @type get_agent_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3860,18 +3878,20 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type hierarchical_chunking_level_configuration() :: %{String.t() => any()}
+  @type hierarchical_chunking_level_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unsatisfied_connection_conditions_flow_validation_details() :: %{
-        "connection" => String.t()
+        "connection" => String.t() | atom()
       }
 
   """
-  @type unsatisfied_connection_conditions_flow_validation_details() :: %{String.t() => any()}
+  @type unsatisfied_connection_conditions_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -3879,39 +3899,39 @@ defmodule AWS.BedrockAgent do
 
       redshift_serverless_configuration() :: %{
         "authConfiguration" => redshift_serverless_auth_configuration(),
-        "workgroupArn" => String.t()
+        "workgroupArn" => String.t() | atom()
       }
 
   """
-  @type redshift_serverless_configuration() :: %{String.t() => any()}
+  @type redshift_serverless_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       agent_knowledge_base() :: %{
-        "agentId" => String.t(),
-        "agentVersion" => String.t(),
+        "agentId" => String.t() | atom(),
+        "agentVersion" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "description" => String.t(),
-        "knowledgeBaseId" => String.t(),
+        "description" => String.t() | atom(),
+        "knowledgeBaseId" => String.t() | atom(),
         "knowledgeBaseState" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type agent_knowledge_base() :: %{String.t() => any()}
+  @type agent_knowledge_base() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lambda_function_flow_node_configuration() :: %{
-        "lambdaArn" => String.t()
+        "lambdaArn" => String.t() | atom()
       }
 
   """
-  @type lambda_function_flow_node_configuration() :: %{String.t() => any()}
+  @type lambda_function_flow_node_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3919,11 +3939,11 @@ defmodule AWS.BedrockAgent do
 
       vector_search_bedrock_reranking_model_configuration() :: %{
         "additionalModelRequestFields" => map(),
-        "modelArn" => String.t()
+        "modelArn" => String.t() | atom()
       }
 
   """
-  @type vector_search_bedrock_reranking_model_configuration() :: %{String.t() => any()}
+  @type vector_search_bedrock_reranking_model_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3939,17 +3959,17 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       agent_summary() :: %{
-        "agentId" => String.t(),
-        "agentName" => String.t(),
+        "agentId" => String.t() | atom(),
+        "agentName" => String.t() | atom(),
         "agentStatus" => list(any()),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "guardrailConfiguration" => guardrail_configuration(),
-        "latestAgentVersion" => String.t(),
+        "latestAgentVersion" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type agent_summary() :: %{String.t() => any()}
+  @type agent_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3960,7 +3980,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type bedrock_data_automation_configuration() :: %{String.t() => any()}
+  @type bedrock_data_automation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3971,7 +3991,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type confluence_crawler_configuration() :: %{String.t() => any()}
+  @type confluence_crawler_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3979,11 +3999,11 @@ defmodule AWS.BedrockAgent do
 
       list_knowledge_bases_response() :: %{
         "knowledgeBaseSummaries" => list(knowledge_base_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_knowledge_bases_response() :: %{String.t() => any()}
+  @type list_knowledge_bases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3994,7 +4014,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type get_knowledge_base_response() :: %{String.t() => any()}
+  @type get_knowledge_base_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4010,11 +4030,11 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       flow_conditional_connection_configuration() :: %{
-        "condition" => String.t()
+        "condition" => String.t() | atom()
       }
 
   """
-  @type flow_conditional_connection_configuration() :: %{String.t() => any()}
+  @type flow_conditional_connection_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4025,18 +4045,20 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type get_knowledge_base_documents_response() :: %{String.t() => any()}
+  @type get_knowledge_base_documents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       incompatible_connection_data_type_flow_validation_details() :: %{
-        "connection" => String.t()
+        "connection" => String.t() | atom()
       }
 
   """
-  @type incompatible_connection_data_type_flow_validation_details() :: %{String.t() => any()}
+  @type incompatible_connection_data_type_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -4053,11 +4075,11 @@ defmodule AWS.BedrockAgent do
 
       list_agent_versions_response() :: %{
         "agentVersionSummaries" => list(agent_version_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_agent_versions_response() :: %{String.t() => any()}
+  @type list_agent_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4069,7 +4091,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type web_data_source_configuration() :: %{String.t() => any()}
+  @type web_data_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4080,7 +4102,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type get_agent_version_response() :: %{String.t() => any()}
+  @type get_agent_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4092,31 +4114,31 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type supplemental_data_storage_location() :: %{String.t() => any()}
+  @type supplemental_data_storage_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       guardrail_configuration() :: %{
-        "guardrailIdentifier" => String.t(),
-        "guardrailVersion" => String.t()
+        "guardrailIdentifier" => String.t() | atom(),
+        "guardrailVersion" => String.t() | atom()
       }
 
   """
-  @type guardrail_configuration() :: %{String.t() => any()}
+  @type guardrail_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       missing_node_output_flow_validation_details() :: %{
-        "node" => String.t(),
-        "output" => String.t()
+        "node" => String.t() | atom(),
+        "output" => String.t() | atom()
       }
 
   """
-  @type missing_node_output_flow_validation_details() :: %{String.t() => any()}
+  @type missing_node_output_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4127,7 +4149,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type start_ingestion_job_response() :: %{String.t() => any()}
+  @type start_ingestion_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4149,18 +4171,18 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type inline_content() :: %{String.t() => any()}
+  @type inline_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       flow_alias_routing_configuration_list_item() :: %{
-        "flowVersion" => String.t()
+        "flowVersion" => String.t() | atom()
       }
 
   """
-  @type flow_alias_routing_configuration_list_item() :: %{String.t() => any()}
+  @type flow_alias_routing_configuration_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4176,66 +4198,68 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       update_flow_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "customerEncryptionKeyArn" => String.t(),
+        "customerEncryptionKeyArn" => String.t() | atom(),
         "definition" => flow_definition(),
-        "description" => String.t(),
-        "executionRoleArn" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type update_flow_response() :: %{String.t() => any()}
+  @type update_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       prompt_agent_resource() :: %{
-        "agentIdentifier" => String.t()
+        "agentIdentifier" => String.t() | atom()
       }
 
   """
-  @type prompt_agent_resource() :: %{String.t() => any()}
+  @type prompt_agent_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       prompt_flow_node_resource_configuration() :: %{
-        "promptArn" => String.t()
+        "promptArn" => String.t() | atom()
       }
 
   """
-  @type prompt_flow_node_resource_configuration() :: %{String.t() => any()}
+  @type prompt_flow_node_resource_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       neptune_analytics_field_mapping() :: %{
-        "metadataField" => String.t(),
-        "textField" => String.t()
+        "metadataField" => String.t() | atom(),
+        "textField" => String.t() | atom()
       }
 
   """
-  @type neptune_analytics_field_mapping() :: %{String.t() => any()}
+  @type neptune_analytics_field_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       redshift_query_engine_redshift_storage_configuration() :: %{
-        "databaseName" => String.t()
+        "databaseName" => String.t() | atom()
       }
 
   """
-  @type redshift_query_engine_redshift_storage_configuration() :: %{String.t() => any()}
+  @type redshift_query_engine_redshift_storage_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -4255,7 +4279,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type get_agent_collaborator_response() :: %{String.t() => any()}
+  @type get_agent_collaborator_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4263,11 +4287,11 @@ defmodule AWS.BedrockAgent do
 
       list_agent_knowledge_bases_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_agent_knowledge_bases_request() :: %{String.t() => any()}
+  @type list_agent_knowledge_bases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4277,11 +4301,11 @@ defmodule AWS.BedrockAgent do
         "createdAt" => non_neg_integer(),
         "dataDeletionPolicy" => list(any()),
         "dataSourceConfiguration" => data_source_configuration(),
-        "dataSourceId" => String.t(),
-        "description" => String.t(),
-        "failureReasons" => list(String.t()),
-        "knowledgeBaseId" => String.t(),
-        "name" => String.t(),
+        "dataSourceId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "failureReasons" => list(String.t() | atom()),
+        "knowledgeBaseId" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
@@ -4289,7 +4313,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type data_source() :: %{String.t() => any()}
+  @type data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4305,12 +4329,12 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       unfulfilled_node_input_flow_validation_details() :: %{
-        "input" => String.t(),
-        "node" => String.t()
+        "input" => String.t() | atom(),
+        "node" => String.t() | atom()
       }
 
   """
-  @type unfulfilled_node_input_flow_validation_details() :: %{String.t() => any()}
+  @type unfulfilled_node_input_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4318,23 +4342,25 @@ defmodule AWS.BedrockAgent do
 
       associate_agent_knowledge_base_request() :: %{
         optional("knowledgeBaseState") => list(any()),
-        required("description") => String.t(),
-        required("knowledgeBaseId") => String.t()
+        required("description") => String.t() | atom(),
+        required("knowledgeBaseId") => String.t() | atom()
       }
 
   """
-  @type associate_agent_knowledge_base_request() :: %{String.t() => any()}
+  @type associate_agent_knowledge_base_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unknown_connection_target_input_flow_validation_details() :: %{
-        "connection" => String.t()
+        "connection" => String.t() | atom()
       }
 
   """
-  @type unknown_connection_target_input_flow_validation_details() :: %{String.t() => any()}
+  @type unknown_connection_target_input_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -4347,7 +4373,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type redshift_configuration() :: %{String.t() => any()}
+  @type redshift_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4358,19 +4384,19 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type associate_agent_knowledge_base_response() :: %{String.t() => any()}
+  @type associate_agent_knowledge_base_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pinecone_field_mapping() :: %{
-        "metadataField" => String.t(),
-        "textField" => String.t()
+        "metadataField" => String.t() | atom(),
+        "textField" => String.t() | atom()
       }
 
   """
-  @type pinecone_field_mapping() :: %{String.t() => any()}
+  @type pinecone_field_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4384,31 +4410,33 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type vector_ingestion_configuration() :: %{String.t() => any()}
+  @type vector_ingestion_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unknown_connection_condition_flow_validation_details() :: %{
-        "connection" => String.t()
+        "connection" => String.t() | atom()
       }
 
   """
-  @type unknown_connection_condition_flow_validation_details() :: %{String.t() => any()}
+  @type unknown_connection_condition_flow_validation_details() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       vector_knowledge_base_configuration() :: %{
-        "embeddingModelArn" => String.t(),
+        "embeddingModelArn" => String.t() | atom(),
         "embeddingModelConfiguration" => embedding_model_configuration(),
         "supplementalDataStorageConfiguration" => supplemental_data_storage_configuration()
       }
 
   """
-  @type vector_knowledge_base_configuration() :: %{String.t() => any()}
+  @type vector_knowledge_base_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4419,42 +4447,44 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type get_data_source_response() :: %{String.t() => any()}
+  @type get_data_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       redshift_query_engine_aws_data_catalog_storage_configuration() :: %{
-        "tableNames" => list(String.t())
+        "tableNames" => list(String.t() | atom())
       }
 
   """
-  @type redshift_query_engine_aws_data_catalog_storage_configuration() :: %{String.t() => any()}
+  @type redshift_query_engine_aws_data_catalog_storage_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       retrieval_flow_node_s3_configuration() :: %{
-        "bucketName" => String.t()
+        "bucketName" => String.t() | atom()
       }
 
   """
-  @type retrieval_flow_node_s3_configuration() :: %{String.t() => any()}
+  @type retrieval_flow_node_s3_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_agent_version_response() :: %{
-        "agentId" => String.t(),
+        "agentId" => String.t() | atom(),
         "agentStatus" => list(any()),
-        "agentVersion" => String.t()
+        "agentVersion" => String.t() | atom()
       }
 
   """
-  @type delete_agent_version_response() :: %{String.t() => any()}
+  @type delete_agent_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4462,31 +4492,31 @@ defmodule AWS.BedrockAgent do
 
       query_generation_table() :: %{
         "columns" => list(query_generation_column()),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "inclusion" => list(any()),
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type query_generation_table() :: %{String.t() => any()}
+  @type query_generation_table() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       mongo_db_atlas_configuration() :: %{
-        "collectionName" => String.t(),
-        "credentialsSecretArn" => String.t(),
-        "databaseName" => String.t(),
-        "endpoint" => String.t(),
-        "endpointServiceName" => String.t(),
+        "collectionName" => String.t() | atom(),
+        "credentialsSecretArn" => String.t() | atom(),
+        "databaseName" => String.t() | atom(),
+        "endpoint" => String.t() | atom(),
+        "endpointServiceName" => String.t() | atom(),
         "fieldMapping" => mongo_db_atlas_field_mapping(),
-        "textIndexName" => String.t(),
-        "vectorIndexName" => String.t()
+        "textIndexName" => String.t() | atom(),
+        "vectorIndexName" => String.t() | atom()
       }
 
   """
-  @type mongo_db_atlas_configuration() :: %{String.t() => any()}
+  @type mongo_db_atlas_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4500,7 +4530,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type custom_content() :: %{String.t() => any()}
+  @type custom_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4520,7 +4550,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type delete_knowledge_base_documents_response() :: %{String.t() => any()}
+  @type delete_knowledge_base_documents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4532,18 +4562,18 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type bedrock_embedding_model_configuration() :: %{String.t() => any()}
+  @type bedrock_embedding_model_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       missing_node_configuration_flow_validation_details() :: %{
-        "node" => String.t()
+        "node" => String.t() | atom()
       }
 
   """
-  @type missing_node_configuration_flow_validation_details() :: %{String.t() => any()}
+  @type missing_node_configuration_flow_validation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4555,7 +4585,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type prompt_flow_node_configuration() :: %{String.t() => any()}
+  @type prompt_flow_node_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4566,35 +4596,35 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type associate_agent_collaborator_response() :: %{String.t() => any()}
+  @type associate_agent_collaborator_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_data_source_configuration() :: %{
-        "bucketArn" => String.t(),
-        "bucketOwnerAccountId" => String.t(),
-        "inclusionPrefixes" => list(String.t())
+        "bucketArn" => String.t() | atom(),
+        "bucketOwnerAccountId" => String.t() | atom(),
+        "inclusionPrefixes" => list(String.t() | atom())
       }
 
   """
-  @type s3_data_source_configuration() :: %{String.t() => any()}
+  @type s3_data_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rds_field_mapping() :: %{
-        "customMetadataField" => String.t(),
-        "metadataField" => String.t(),
-        "primaryKeyField" => String.t(),
-        "textField" => String.t(),
-        "vectorField" => String.t()
+        "customMetadataField" => String.t() | atom(),
+        "metadataField" => String.t() | atom(),
+        "primaryKeyField" => String.t() | atom(),
+        "textField" => String.t() | atom(),
+        "vectorField" => String.t() | atom()
       }
 
   """
-  @type rds_field_mapping() :: %{String.t() => any()}
+  @type rds_field_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4614,7 +4644,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type delete_flow_version_request() :: %{String.t() => any()}
+  @type delete_flow_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4622,8 +4652,8 @@ defmodule AWS.BedrockAgent do
 
       prompt_configuration() :: %{
         "additionalModelRequestFields" => [any()],
-        "basePromptTemplate" => String.t(),
-        "foundationModel" => String.t(),
+        "basePromptTemplate" => String.t() | atom(),
+        "foundationModel" => String.t() | atom(),
         "inferenceConfiguration" => inference_configuration(),
         "parserMode" => list(any()),
         "promptCreationMode" => list(any()),
@@ -4632,7 +4662,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type prompt_configuration() :: %{String.t() => any()}
+  @type prompt_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4643,7 +4673,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type performance_configuration() :: %{String.t() => any()}
+  @type performance_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4654,7 +4684,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type supplemental_data_storage_configuration() :: %{String.t() => any()}
+  @type supplemental_data_storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4666,7 +4696,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type message() :: %{String.t() => any()}
+  @type message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4677,14 +4707,14 @@ defmodule AWS.BedrockAgent do
         "genAiResource" => list(),
         "inferenceConfiguration" => list(),
         "metadata" => list(prompt_metadata_entry()),
-        "modelId" => String.t(),
-        "name" => String.t(),
+        "modelId" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "templateConfiguration" => list(),
         "templateType" => list(any())
       }
 
   """
-  @type prompt_variant() :: %{String.t() => any()}
+  @type prompt_variant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4696,7 +4726,7 @@ defmodule AWS.BedrockAgent do
       }
 
   """
-  @type query_generation_configuration() :: %{String.t() => any()}
+  @type query_generation_configuration() :: %{(String.t() | atom()) => any()}
 
   @type associate_agent_collaborator_errors() ::
           throttling_exception()
@@ -5279,8 +5309,8 @@ defmodule AWS.BedrockAgent do
   """
   @spec associate_agent_collaborator(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           associate_agent_collaborator_request(),
           list()
         ) ::
@@ -5326,8 +5356,8 @@ defmodule AWS.BedrockAgent do
   """
   @spec associate_agent_knowledge_base(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           associate_agent_knowledge_base_request(),
           list()
         ) ::
@@ -5448,8 +5478,8 @@ defmodule AWS.BedrockAgent do
   """
   @spec create_agent_action_group(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_agent_action_group_request(),
           list()
         ) ::
@@ -5483,7 +5513,7 @@ defmodule AWS.BedrockAgent do
   @doc """
   Creates an alias of an agent that can be used to deploy the agent.
   """
-  @spec create_agent_alias(map(), String.t(), create_agent_alias_request(), list()) ::
+  @spec create_agent_alias(map(), String.t() | atom(), create_agent_alias_request(), list()) ::
           {:ok, create_agent_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5518,7 +5548,7 @@ defmodule AWS.BedrockAgent do
   You can't change the `chunkingConfiguration` after you create the data source
   connector.
   """
-  @spec create_data_source(map(), String.t(), create_data_source_request(), list()) ::
+  @spec create_data_source(map(), String.t() | atom(), create_data_source_request(), list()) ::
           {:ok, create_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5586,7 +5616,7 @@ defmodule AWS.BedrockAgent do
   For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec create_flow_alias(map(), String.t(), create_flow_alias_request(), list()) ::
+  @spec create_flow_alias(map(), String.t() | atom(), create_flow_alias_request(), list()) ::
           {:ok, create_flow_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5618,7 +5648,7 @@ defmodule AWS.BedrockAgent do
   For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec create_flow_version(map(), String.t(), create_flow_version_request(), list()) ::
+  @spec create_flow_version(map(), String.t() | atom(), create_flow_version_request(), list()) ::
           {:ok, create_flow_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5749,7 +5779,7 @@ defmodule AWS.BedrockAgent do
   For more information, see [Deploy prompts using Prompt management by creating versions](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec create_prompt_version(map(), String.t(), create_prompt_version_request(), list()) ::
+  @spec create_prompt_version(map(), String.t() | atom(), create_prompt_version_request(), list()) ::
           {:ok, create_prompt_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5778,7 +5808,7 @@ defmodule AWS.BedrockAgent do
   @doc """
   Deletes an agent.
   """
-  @spec delete_agent(map(), String.t(), delete_agent_request(), list()) ::
+  @spec delete_agent(map(), String.t() | atom(), delete_agent_request(), list()) ::
           {:ok, delete_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5814,9 +5844,9 @@ defmodule AWS.BedrockAgent do
   """
   @spec delete_agent_action_group(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_agent_action_group_request(),
           list()
         ) ::
@@ -5862,7 +5892,13 @@ defmodule AWS.BedrockAgent do
   @doc """
   Deletes an alias of an agent.
   """
-  @spec delete_agent_alias(map(), String.t(), String.t(), delete_agent_alias_request(), list()) ::
+  @spec delete_agent_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_agent_alias_request(),
+          list()
+        ) ::
           {:ok, delete_agent_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5895,8 +5931,8 @@ defmodule AWS.BedrockAgent do
   """
   @spec delete_agent_version(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_agent_version_request(),
           list()
         ) ::
@@ -5935,7 +5971,13 @@ defmodule AWS.BedrockAgent do
   @doc """
   Deletes a data source from a knowledge base.
   """
-  @spec delete_data_source(map(), String.t(), String.t(), delete_data_source_request(), list()) ::
+  @spec delete_data_source(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_data_source_request(),
+          list()
+        ) ::
           {:ok, delete_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5972,7 +6014,7 @@ defmodule AWS.BedrockAgent do
   @doc """
   Deletes a flow.
   """
-  @spec delete_flow(map(), String.t(), delete_flow_request(), list()) ::
+  @spec delete_flow(map(), String.t() | atom(), delete_flow_request(), list()) ::
           {:ok, delete_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6006,7 +6048,13 @@ defmodule AWS.BedrockAgent do
   @doc """
   Deletes an alias of a flow.
   """
-  @spec delete_flow_alias(map(), String.t(), String.t(), delete_flow_alias_request(), list()) ::
+  @spec delete_flow_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_flow_alias_request(),
+          list()
+        ) ::
           {:ok, delete_flow_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6043,7 +6091,13 @@ defmodule AWS.BedrockAgent do
   @doc """
   Deletes a version of a flow.
   """
-  @spec delete_flow_version(map(), String.t(), String.t(), delete_flow_version_request(), list()) ::
+  @spec delete_flow_version(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_flow_version_request(),
+          list()
+        ) ::
           {:ok, delete_flow_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6084,7 +6138,7 @@ defmodule AWS.BedrockAgent do
   [DisassociateAgentKnowledgeBase](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DisassociateAgentKnowledgeBase.html)
   request.
   """
-  @spec delete_knowledge_base(map(), String.t(), delete_knowledge_base_request(), list()) ::
+  @spec delete_knowledge_base(map(), String.t() | atom(), delete_knowledge_base_request(), list()) ::
           {:ok, delete_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6119,8 +6173,8 @@ defmodule AWS.BedrockAgent do
   """
   @spec delete_knowledge_base_documents(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_knowledge_base_documents_request(),
           list()
         ) ::
@@ -6165,7 +6219,7 @@ defmodule AWS.BedrockAgent do
   and [Delete a version of a prompt from the Prompt management tool](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html#prompt-management-versions-delete.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec delete_prompt(map(), String.t(), delete_prompt_request(), list()) ::
+  @spec delete_prompt(map(), String.t() | atom(), delete_prompt_request(), list()) ::
           {:ok, delete_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6201,9 +6255,9 @@ defmodule AWS.BedrockAgent do
   """
   @spec disassociate_agent_collaborator(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           disassociate_agent_collaborator_request(),
           list()
         ) ::
@@ -6246,9 +6300,9 @@ defmodule AWS.BedrockAgent do
   """
   @spec disassociate_agent_knowledge_base(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           disassociate_agent_knowledge_base_request(),
           list()
         ) ::
@@ -6289,7 +6343,7 @@ defmodule AWS.BedrockAgent do
   @doc """
   Gets information about an agent.
   """
-  @spec get_agent(map(), String.t(), list()) ::
+  @spec get_agent(map(), String.t() | atom(), list()) ::
           {:ok, get_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6307,7 +6361,13 @@ defmodule AWS.BedrockAgent do
   @doc """
   Gets information about an action group for an agent.
   """
-  @spec get_agent_action_group(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_agent_action_group(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_agent_action_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6333,7 +6393,7 @@ defmodule AWS.BedrockAgent do
   @doc """
   Gets information about an alias of an agent.
   """
-  @spec get_agent_alias(map(), String.t(), String.t(), list()) ::
+  @spec get_agent_alias(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_agent_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6353,7 +6413,13 @@ defmodule AWS.BedrockAgent do
   @doc """
   Retrieves information about an agent's collaborator.
   """
-  @spec get_agent_collaborator(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_agent_collaborator(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_agent_collaborator_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6379,7 +6445,13 @@ defmodule AWS.BedrockAgent do
   @doc """
   Gets information about a knowledge base associated with an agent.
   """
-  @spec get_agent_knowledge_base(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_agent_knowledge_base(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_agent_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6405,7 +6477,7 @@ defmodule AWS.BedrockAgent do
   @doc """
   Gets details about a version of an agent.
   """
-  @spec get_agent_version(map(), String.t(), String.t(), list()) ::
+  @spec get_agent_version(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_agent_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6425,7 +6497,7 @@ defmodule AWS.BedrockAgent do
   @doc """
   Gets information about a data source.
   """
-  @spec get_data_source(map(), String.t(), String.t(), list()) ::
+  @spec get_data_source(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6448,7 +6520,7 @@ defmodule AWS.BedrockAgent do
   For more information, see [Manage a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec get_flow(map(), String.t(), list()) ::
+  @spec get_flow(map(), String.t() | atom(), list()) ::
           {:ok, get_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6469,7 +6541,7 @@ defmodule AWS.BedrockAgent do
   For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec get_flow_alias(map(), String.t(), String.t(), list()) ::
+  @spec get_flow_alias(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_flow_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6492,7 +6564,7 @@ defmodule AWS.BedrockAgent do
   For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec get_flow_version(map(), String.t(), String.t(), list()) ::
+  @spec get_flow_version(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_flow_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6515,7 +6587,13 @@ defmodule AWS.BedrockAgent do
   Data sources are ingested into your knowledge base so that Large Language Models
   (LLMs) can use your data.
   """
-  @spec get_ingestion_job(map(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_ingestion_job(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_ingestion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6541,7 +6619,7 @@ defmodule AWS.BedrockAgent do
   @doc """
   Gets information about a knoweldge base.
   """
-  @spec get_knowledge_base(map(), String.t(), list()) ::
+  @spec get_knowledge_base(map(), String.t() | atom(), list()) ::
           {:ok, get_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6565,8 +6643,8 @@ defmodule AWS.BedrockAgent do
   """
   @spec get_knowledge_base_documents(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           get_knowledge_base_documents_request(),
           list()
         ) ::
@@ -6612,7 +6690,7 @@ defmodule AWS.BedrockAgent do
   and [View information about a version of your prompt](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html#prompt-management-versions-view.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec get_prompt(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_prompt(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6645,8 +6723,8 @@ defmodule AWS.BedrockAgent do
   """
   @spec ingest_knowledge_base_documents(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           ingest_knowledge_base_documents_request(),
           list()
         ) ::
@@ -6688,8 +6766,8 @@ defmodule AWS.BedrockAgent do
   """
   @spec list_agent_action_groups(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list_agent_action_groups_request(),
           list()
         ) ::
@@ -6723,7 +6801,7 @@ defmodule AWS.BedrockAgent do
   @doc """
   Lists the aliases of an agent and information about each one.
   """
-  @spec list_agent_aliases(map(), String.t(), list_agent_aliases_request(), list()) ::
+  @spec list_agent_aliases(map(), String.t() | atom(), list_agent_aliases_request(), list()) ::
           {:ok, list_agent_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6754,8 +6832,8 @@ defmodule AWS.BedrockAgent do
   """
   @spec list_agent_collaborators(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list_agent_collaborators_request(),
           list()
         ) ::
@@ -6791,8 +6869,8 @@ defmodule AWS.BedrockAgent do
   """
   @spec list_agent_knowledge_bases(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list_agent_knowledge_bases_request(),
           list()
         ) ::
@@ -6832,7 +6910,7 @@ defmodule AWS.BedrockAgent do
   @doc """
   Lists the versions of an agent and information about each version.
   """
-  @spec list_agent_versions(map(), String.t(), list_agent_versions_request(), list()) ::
+  @spec list_agent_versions(map(), String.t() | atom(), list_agent_versions_request(), list()) ::
           {:ok, list_agent_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6890,7 +6968,7 @@ defmodule AWS.BedrockAgent do
   @doc """
   Lists the data sources in a knowledge base and information about each one.
   """
-  @spec list_data_sources(map(), String.t(), list_data_sources_request(), list()) ::
+  @spec list_data_sources(map(), String.t() | atom(), list_data_sources_request(), list()) ::
           {:ok, list_data_sources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6919,7 +6997,13 @@ defmodule AWS.BedrockAgent do
   @doc """
   Returns a list of aliases for a flow.
   """
-  @spec list_flow_aliases(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_flow_aliases(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_flow_aliases_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6960,7 +7044,13 @@ defmodule AWS.BedrockAgent do
   For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec list_flow_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_flow_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_flow_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7001,7 +7091,7 @@ defmodule AWS.BedrockAgent do
   For more information, see [Manage a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec list_flows(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_flows(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_flows_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7035,7 +7125,13 @@ defmodule AWS.BedrockAgent do
 
   The list also includes information about each job.
   """
-  @spec list_ingestion_jobs(map(), String.t(), String.t(), list_ingestion_jobs_request(), list()) ::
+  @spec list_ingestion_jobs(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list_ingestion_jobs_request(),
+          list()
+        ) ::
           {:ok, list_ingestion_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7078,8 +7174,8 @@ defmodule AWS.BedrockAgent do
   """
   @spec list_knowledge_base_documents(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list_knowledge_base_documents_request(),
           list()
         ) ::
@@ -7155,7 +7251,13 @@ defmodule AWS.BedrockAgent do
   For more information, see [View information about prompts using Prompt management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-view.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec list_prompts(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_prompts(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_prompts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7200,7 +7302,7 @@ defmodule AWS.BedrockAgent do
   @doc """
   List all the tags for the resource you specify.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7218,7 +7320,7 @@ defmodule AWS.BedrockAgent do
   @doc """
   Creates a `DRAFT` version of the agent that can be used for internal testing.
   """
-  @spec prepare_agent(map(), String.t(), prepare_agent_request(), list()) ::
+  @spec prepare_agent(map(), String.t() | atom(), prepare_agent_request(), list()) ::
           {:ok, prepare_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7250,7 +7352,7 @@ defmodule AWS.BedrockAgent do
   For more information, see [Test a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-test.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec prepare_flow(map(), String.t(), prepare_flow_request(), list()) ::
+  @spec prepare_flow(map(), String.t() | atom(), prepare_flow_request(), list()) ::
           {:ok, prepare_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7282,7 +7384,13 @@ defmodule AWS.BedrockAgent do
   Data sources are ingested into your knowledge base so that Large Language Models
   (LLMs) can use your data.
   """
-  @spec start_ingestion_job(map(), String.t(), String.t(), start_ingestion_job_request(), list()) ::
+  @spec start_ingestion_job(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          start_ingestion_job_request(),
+          list()
+        ) ::
           {:ok, start_ingestion_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7324,9 +7432,9 @@ defmodule AWS.BedrockAgent do
   """
   @spec stop_ingestion_job(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           stop_ingestion_job_request(),
           list()
         ) ::
@@ -7370,7 +7478,7 @@ defmodule AWS.BedrockAgent do
   For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7399,7 +7507,7 @@ defmodule AWS.BedrockAgent do
   @doc """
   Remove tags from a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7433,7 +7541,7 @@ defmodule AWS.BedrockAgent do
   @doc """
   Updates the configuration of an agent.
   """
-  @spec update_agent(map(), String.t(), update_agent_request(), list()) ::
+  @spec update_agent(map(), String.t() | atom(), update_agent_request(), list()) ::
           {:ok, update_agent_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7464,9 +7572,9 @@ defmodule AWS.BedrockAgent do
   """
   @spec update_agent_action_group(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_agent_action_group_request(),
           list()
         ) ::
@@ -7507,7 +7615,13 @@ defmodule AWS.BedrockAgent do
   @doc """
   Updates configurations for an alias of an agent.
   """
-  @spec update_agent_alias(map(), String.t(), String.t(), update_agent_alias_request(), list()) ::
+  @spec update_agent_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_agent_alias_request(),
+          list()
+        ) ::
           {:ok, update_agent_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7540,9 +7654,9 @@ defmodule AWS.BedrockAgent do
   """
   @spec update_agent_collaborator(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_agent_collaborator_request(),
           list()
         ) ::
@@ -7586,9 +7700,9 @@ defmodule AWS.BedrockAgent do
   """
   @spec update_agent_knowledge_base(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_agent_knowledge_base_request(),
           list()
         ) ::
@@ -7632,7 +7746,13 @@ defmodule AWS.BedrockAgent do
   You can't change the `chunkingConfiguration` after you create the data source
   connector. Specify the existing `chunkingConfiguration`.
   """
-  @spec update_data_source(map(), String.t(), String.t(), update_data_source_request(), list()) ::
+  @spec update_data_source(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_data_source_request(),
+          list()
+        ) ::
           {:ok, update_data_source_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7674,7 +7794,7 @@ defmodule AWS.BedrockAgent do
   and [Create a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-create.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec update_flow(map(), String.t(), update_flow_request(), list()) ::
+  @spec update_flow(map(), String.t() | atom(), update_flow_request(), list()) ::
           {:ok, update_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7707,7 +7827,13 @@ defmodule AWS.BedrockAgent do
   more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec update_flow_alias(map(), String.t(), String.t(), update_flow_alias_request(), list()) ::
+  @spec update_flow_alias(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_flow_alias_request(),
+          list()
+        ) ::
           {:ok, update_flow_alias_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7761,7 +7887,7 @@ defmodule AWS.BedrockAgent do
   [GetKnowledgeBase](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetKnowledgeBase.html)
   request and copy the same configurations.
   """
-  @spec update_knowledge_base(map(), String.t(), update_knowledge_base_request(), list()) ::
+  @spec update_knowledge_base(map(), String.t() | atom(), update_knowledge_base_request(), list()) ::
           {:ok, update_knowledge_base_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7795,7 +7921,7 @@ defmodule AWS.BedrockAgent do
   and [Edit prompts in your prompt library](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-edit)
   in the Amazon Bedrock User Guide.
   """
-  @spec update_prompt(map(), String.t(), update_prompt_request(), list()) ::
+  @spec update_prompt(map(), String.t() | atom(), update_prompt_request(), list()) ::
           {:ok, update_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

@@ -21,7 +21,7 @@ defmodule AWS.WorkspacesInstances do
       }
       
   """
-  @type ena_srd_specification_request() :: %{String.t() => any()}
+  @type ena_srd_specification_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -32,18 +32,18 @@ defmodule AWS.WorkspacesInstances do
       }
       
   """
-  @type instance_network_performance_options_request() :: %{String.t() => any()}
+  @type instance_network_performance_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_managed_instance() :: %{
-        "InstanceId" => [String.t()]
+        "InstanceId" => [String.t() | atom()]
       }
       
   """
-  @type ec2_managed_instance() :: %{String.t() => any()}
+  @type ec2_managed_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -51,11 +51,11 @@ defmodule AWS.WorkspacesInstances do
       
       tag_resource_request() :: %{
         required("Tags") => list(tag()),
-        required("WorkspaceInstanceId") => String.t()
+        required("WorkspaceInstanceId") => String.t() | atom()
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -64,13 +64,13 @@ defmodule AWS.WorkspacesInstances do
       spot_market_options() :: %{
         "BlockDurationMinutes" => integer(),
         "InstanceInterruptionBehavior" => list(any()),
-        "MaxPrice" => String.t(),
+        "MaxPrice" => String.t() | atom(),
         "SpotInstanceType" => list(any()),
         "ValidUntilUtc" => [non_neg_integer()]
       }
       
   """
-  @type spot_market_options() :: %{String.t() => any()}
+  @type spot_market_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -85,7 +85,7 @@ defmodule AWS.WorkspacesInstances do
       }
       
   """
-  @type instance_metadata_options_request() :: %{String.t() => any()}
+  @type instance_metadata_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -101,11 +101,11 @@ defmodule AWS.WorkspacesInstances do
   ## Example:
       
       delete_volume_request() :: %{
-        required("VolumeId") => String.t()
+        required("VolumeId") => String.t() | atom()
       }
       
   """
-  @type delete_volume_request() :: %{String.t() => any()}
+  @type delete_volume_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -117,7 +117,7 @@ defmodule AWS.WorkspacesInstances do
       }
       
   """
-  @type instance_market_options_request() :: %{String.t() => any()}
+  @type instance_market_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -133,13 +133,13 @@ defmodule AWS.WorkspacesInstances do
   ## Example:
       
       create_workspace_instance_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("ManagedInstance") => managed_instance_request()
       }
       
   """
-  @type create_workspace_instance_request() :: %{String.t() => any()}
+  @type create_workspace_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -155,24 +155,24 @@ defmodule AWS.WorkspacesInstances do
   ## Example:
       
       list_workspace_instances_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "WorkspaceInstances" => list(workspace_instance())
       }
       
   """
-  @type list_workspace_instances_response() :: %{String.t() => any()}
+  @type list_workspace_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       capacity_reservation_target() :: %{
-        "CapacityReservationId" => String.t(),
-        "CapacityReservationResourceGroupArn" => String.t()
+        "CapacityReservationId" => String.t() | atom(),
+        "CapacityReservationResourceGroupArn" => String.t() | atom()
       }
       
   """
-  @type capacity_reservation_target() :: %{String.t() => any()}
+  @type capacity_reservation_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -185,7 +185,7 @@ defmodule AWS.WorkspacesInstances do
       }
       
   """
-  @type cpu_options_request() :: %{String.t() => any()}
+  @type cpu_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -198,30 +198,30 @@ defmodule AWS.WorkspacesInstances do
       }
       
   """
-  @type connection_tracking_specification_request() :: %{String.t() => any()}
+  @type connection_tracking_specification_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()),
-        required("WorkspaceInstanceId") => String.t()
+        required("TagKeys") => list(String.t() | atom()),
+        required("WorkspaceInstanceId") => String.t() | atom()
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ipv6_prefix_specification_request() :: %{
-        "Ipv6Prefix" => String.t()
+        "Ipv6Prefix" => String.t() | atom()
       }
       
   """
-  @type ipv6_prefix_specification_request() :: %{String.t() => any()}
+  @type ipv6_prefix_specification_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -232,20 +232,20 @@ defmodule AWS.WorkspacesInstances do
       }
       
   """
-  @type enclave_options_request() :: %{String.t() => any()}
+  @type enclave_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_volume_request() :: %{
-        required("Device") => String.t(),
-        required("VolumeId") => String.t(),
-        required("WorkspaceInstanceId") => String.t()
+        required("Device") => String.t() | atom(),
+        required("VolumeId") => String.t() | atom(),
+        required("WorkspaceInstanceId") => String.t() | atom()
       }
       
   """
-  @type associate_volume_request() :: %{String.t() => any()}
+  @type associate_volume_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -256,18 +256,18 @@ defmodule AWS.WorkspacesInstances do
       }
       
   """
-  @type credit_specification_request() :: %{String.t() => any()}
+  @type credit_specification_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_workspace_instance_request() :: %{
-        required("WorkspaceInstanceId") => String.t()
+        required("WorkspaceInstanceId") => String.t() | atom()
       }
       
   """
-  @type get_workspace_instance_request() :: %{String.t() => any()}
+  @type get_workspace_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -278,78 +278,78 @@ defmodule AWS.WorkspacesInstances do
       }
       
   """
-  @type ena_srd_udp_specification_request() :: %{String.t() => any()}
+  @type ena_srd_udp_specification_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       region() :: %{
-        "RegionName" => String.t()
+        "RegionName" => String.t() | atom()
       }
       
   """
-  @type region() :: %{String.t() => any()}
+  @type region() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_workspace_instance_request() :: %{
-        required("WorkspaceInstanceId") => String.t()
+        required("WorkspaceInstanceId") => String.t() | atom()
       }
       
   """
-  @type delete_workspace_instance_request() :: %{String.t() => any()}
+  @type delete_workspace_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => [String.t()],
-        "ResourceId" => [String.t()],
-        "ResourceType" => [String.t()]
+        "Message" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => [String.t()],
-        "ResourceId" => [String.t()],
-        "ResourceType" => [String.t()]
+        "Message" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ipv4_prefix_specification_request() :: %{
-        "Ipv4Prefix" => String.t()
+        "Ipv4Prefix" => String.t() | atom()
       }
       
   """
-  @type ipv4_prefix_specification_request() :: %{String.t() => any()}
+  @type ipv4_prefix_specification_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -357,11 +357,11 @@ defmodule AWS.WorkspacesInstances do
       
       private_ip_address_specification() :: %{
         "Primary" => [boolean()],
-        "PrivateIpAddress" => String.t()
+        "PrivateIpAddress" => String.t() | atom()
       }
       
   """
-  @type private_ip_address_specification() :: %{String.t() => any()}
+  @type private_ip_address_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -372,36 +372,36 @@ defmodule AWS.WorkspacesInstances do
       }
       
   """
-  @type hibernation_options_request() :: %{String.t() => any()}
+  @type hibernation_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_volume_request() :: %{
-        optional("Device") => String.t(),
+        optional("Device") => String.t() | atom(),
         optional("DisassociateMode") => list(any()),
-        required("VolumeId") => String.t(),
-        required("WorkspaceInstanceId") => String.t()
+        required("VolumeId") => String.t() | atom(),
+        required("WorkspaceInstanceId") => String.t() | atom()
       }
       
   """
-  @type disassociate_volume_request() :: %{String.t() => any()}
+  @type disassociate_volume_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => [String.t()],
-        "QuotaCode" => [String.t()],
-        "ResourceId" => [String.t()],
-        "ResourceType" => [String.t()],
-        "ServiceCode" => [String.t()]
+        "Message" => [String.t() | atom()],
+        "QuotaCode" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()],
+        "ServiceCode" => [String.t() | atom()]
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -414,7 +414,7 @@ defmodule AWS.WorkspacesInstances do
       }
       
   """
-  @type private_dns_name_options_request() :: %{String.t() => any()}
+  @type private_dns_name_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -425,11 +425,11 @@ defmodule AWS.WorkspacesInstances do
         "EC2ManagedInstance" => ec2_managed_instance(),
         "ProvisionState" => list(any()),
         "WorkspaceInstanceErrors" => list(workspace_instance_error()),
-        "WorkspaceInstanceId" => String.t()
+        "WorkspaceInstanceId" => String.t() | atom()
       }
       
   """
-  @type get_workspace_instance_response() :: %{String.t() => any()}
+  @type get_workspace_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -438,11 +438,11 @@ defmodule AWS.WorkspacesInstances do
       workspace_instance() :: %{
         "EC2ManagedInstance" => ec2_managed_instance(),
         "ProvisionState" => list(any()),
-        "WorkspaceInstanceId" => String.t()
+        "WorkspaceInstanceId" => String.t() | atom()
       }
       
   """
-  @type workspace_instance() :: %{String.t() => any()}
+  @type workspace_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -450,36 +450,36 @@ defmodule AWS.WorkspacesInstances do
       
       list_regions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_regions_request() :: %{String.t() => any()}
+  @type list_regions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       block_device_mapping_request() :: %{
-        "DeviceName" => String.t(),
+        "DeviceName" => String.t() | atom(),
         "Ebs" => ebs_block_device(),
-        "NoDevice" => String.t(),
-        "VirtualName" => String.t()
+        "NoDevice" => String.t() | atom(),
+        "VirtualName" => String.t() | atom()
       }
       
   """
-  @type block_device_mapping_request() :: %{String.t() => any()}
+  @type block_device_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_volume_response() :: %{
-        "VolumeId" => String.t()
+        "VolumeId" => String.t() | atom()
       }
       
   """
-  @type create_volume_response() :: %{String.t() => any()}
+  @type create_volume_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -490,20 +490,20 @@ defmodule AWS.WorkspacesInstances do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception_field() :: %{
-        "Message" => [String.t()],
-        "Name" => [String.t()],
-        "Reason" => [String.t()]
+        "Message" => [String.t() | atom()],
+        "Name" => [String.t() | atom()],
+        "Reason" => [String.t() | atom()]
       }
       
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -520,13 +520,13 @@ defmodule AWS.WorkspacesInstances do
         "EnclaveOptions" => enclave_options_request(),
         "HibernationOptions" => hibernation_options_request(),
         "IamInstanceProfile" => iam_instance_profile_specification(),
-        "ImageId" => String.t(),
+        "ImageId" => String.t() | atom(),
         "InstanceMarketOptions" => instance_market_options_request(),
-        "InstanceType" => String.t(),
+        "InstanceType" => String.t() | atom(),
         "Ipv6AddressCount" => integer(),
         "Ipv6Addresses" => list(instance_ipv6_address()),
-        "KernelId" => String.t(),
-        "KeyName" => String.t(),
+        "KernelId" => String.t() | atom(),
+        "KeyName" => String.t() | atom(),
         "LicenseSpecifications" => list(license_configuration_request()),
         "MaintenanceOptions" => instance_maintenance_options_request(),
         "MetadataOptions" => instance_metadata_options_request(),
@@ -535,17 +535,17 @@ defmodule AWS.WorkspacesInstances do
         "NetworkPerformanceOptions" => instance_network_performance_options_request(),
         "Placement" => placement(),
         "PrivateDnsNameOptions" => private_dns_name_options_request(),
-        "PrivateIpAddress" => String.t(),
-        "RamdiskId" => String.t(),
-        "SecurityGroupIds" => list(String.t()),
-        "SecurityGroups" => list(String.t()),
-        "SubnetId" => String.t(),
+        "PrivateIpAddress" => String.t() | atom(),
+        "RamdiskId" => String.t() | atom(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SecurityGroups" => list(String.t() | atom()),
+        "SubnetId" => String.t() | atom(),
         "TagSpecifications" => list(tag_specification()),
-        "UserData" => String.t()
+        "UserData" => String.t() | atom()
       }
       
   """
-  @type managed_instance_request() :: %{String.t() => any()}
+  @type managed_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -554,14 +554,14 @@ defmodule AWS.WorkspacesInstances do
       ebs_block_device() :: %{
         "Encrypted" => [boolean()],
         "Iops" => integer(),
-        "KmsKeyId" => String.t(),
+        "KmsKeyId" => String.t() | atom(),
         "Throughput" => integer(),
         "VolumeSize" => integer(),
         "VolumeType" => list(any())
       }
       
   """
-  @type ebs_block_device() :: %{String.t() => any()}
+  @type ebs_block_device() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -573,25 +573,25 @@ defmodule AWS.WorkspacesInstances do
       }
       
   """
-  @type capacity_reservation_specification() :: %{String.t() => any()}
+  @type capacity_reservation_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       placement() :: %{
-        "Affinity" => String.t(),
-        "AvailabilityZone" => String.t(),
-        "GroupId" => String.t(),
-        "GroupName" => String.t(),
-        "HostId" => String.t(),
-        "HostResourceGroupArn" => String.t(),
+        "Affinity" => String.t() | atom(),
+        "AvailabilityZone" => String.t() | atom(),
+        "GroupId" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "HostId" => String.t() | atom(),
+        "HostResourceGroupArn" => String.t() | atom(),
         "PartitionNumber" => integer(),
         "Tenancy" => list(any())
       }
       
   """
-  @type placement() :: %{String.t() => any()}
+  @type placement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -599,24 +599,24 @@ defmodule AWS.WorkspacesInstances do
       
       list_workspace_instances_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ProvisionStates") => list(list(any())())
       }
       
   """
-  @type list_workspace_instances_request() :: %{String.t() => any()}
+  @type list_workspace_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => [String.t()],
+        "Message" => [String.t() | atom()],
         "RetryAfterSeconds" => [integer()]
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -641,35 +641,35 @@ defmodule AWS.WorkspacesInstances do
   ## Example:
       
       create_workspace_instance_response() :: %{
-        "WorkspaceInstanceId" => String.t()
+        "WorkspaceInstanceId" => String.t() | atom()
       }
       
   """
-  @type create_workspace_instance_response() :: %{String.t() => any()}
+  @type create_workspace_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       workspace_instance_error() :: %{
-        "ErrorCode" => [String.t()],
-        "ErrorMessage" => [String.t()]
+        "ErrorCode" => [String.t() | atom()],
+        "ErrorMessage" => [String.t() | atom()]
       }
       
   """
-  @type workspace_instance_error() :: %{String.t() => any()}
+  @type workspace_instance_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       iam_instance_profile_specification() :: %{
-        "Arn" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type iam_instance_profile_specification() :: %{String.t() => any()}
+  @type iam_instance_profile_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -681,7 +681,7 @@ defmodule AWS.WorkspacesInstances do
       }
       
   """
-  @type tag_specification() :: %{String.t() => any()}
+  @type tag_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -689,44 +689,44 @@ defmodule AWS.WorkspacesInstances do
       
       list_instance_types_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_instance_types_request() :: %{String.t() => any()}
+  @type list_instance_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       license_configuration_request() :: %{
-        "LicenseConfigurationArn" => String.t()
+        "LicenseConfigurationArn" => String.t() | atom()
       }
       
   """
-  @type license_configuration_request() :: %{String.t() => any()}
+  @type license_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_type_info() :: %{
-        "InstanceType" => String.t()
+        "InstanceType" => String.t() | atom()
       }
       
   """
-  @type instance_type_info() :: %{String.t() => any()}
+  @type instance_type_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -742,20 +742,20 @@ defmodule AWS.WorkspacesInstances do
   ## Example:
       
       create_volume_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Encrypted") => [boolean()],
         optional("Iops") => integer(),
-        optional("KmsKeyId") => String.t(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("SizeInGB") => integer(),
-        optional("SnapshotId") => String.t(),
+        optional("SnapshotId") => String.t() | atom(),
         optional("TagSpecifications") => list(tag_specification()),
         optional("Throughput") => integer(),
         optional("VolumeType") => list(any()),
-        required("AvailabilityZone") => String.t()
+        required("AvailabilityZone") => String.t() | atom()
       }
       
   """
-  @type create_volume_request() :: %{String.t() => any()}
+  @type create_volume_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -763,62 +763,62 @@ defmodule AWS.WorkspacesInstances do
       
       validation_exception() :: %{
         "FieldList" => list(validation_exception_field()),
-        "Message" => [String.t()],
+        "Message" => [String.t() | atom()],
         "Reason" => list(any())
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("WorkspaceInstanceId") => String.t()
+        required("WorkspaceInstanceId") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => [String.t()],
-        "QuotaCode" => [String.t()],
+        "Message" => [String.t() | atom()],
+        "QuotaCode" => [String.t() | atom()],
         "RetryAfterSeconds" => [integer()],
-        "ServiceCode" => [String.t()]
+        "ServiceCode" => [String.t() | atom()]
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_instance_error() :: %{
-        "EC2ErrorCode" => [String.t()],
-        "EC2ErrorMessage" => [String.t()],
-        "EC2ExceptionType" => [String.t()]
+        "EC2ErrorCode" => [String.t() | atom()],
+        "EC2ErrorMessage" => [String.t() | atom()],
+        "EC2ExceptionType" => [String.t() | atom()]
       }
       
   """
-  @type ec2_instance_error() :: %{String.t() => any()}
+  @type ec2_instance_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_regions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Regions" => list(region())
       }
       
   """
-  @type list_regions_response() :: %{String.t() => any()}
+  @type list_regions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -829,7 +829,7 @@ defmodule AWS.WorkspacesInstances do
       }
       
   """
-  @type instance_maintenance_options_request() :: %{String.t() => any()}
+  @type instance_maintenance_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -837,11 +837,11 @@ defmodule AWS.WorkspacesInstances do
       
       list_instance_types_response() :: %{
         "InstanceTypes" => list(instance_type_info()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_instance_types_response() :: %{String.t() => any()}
+  @type list_instance_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -852,19 +852,19 @@ defmodule AWS.WorkspacesInstances do
       }
       
   """
-  @type run_instances_monitoring_enabled() :: %{String.t() => any()}
+  @type run_instances_monitoring_enabled() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_ipv6_address() :: %{
-        "Ipv6Address" => String.t(),
+        "Ipv6Address" => String.t() | atom(),
         "IsPrimaryIpv6" => [boolean()]
       }
       
   """
-  @type instance_ipv6_address() :: %{String.t() => any()}
+  @type instance_ipv6_address() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -874,10 +874,10 @@ defmodule AWS.WorkspacesInstances do
         "AssociateCarrierIpAddress" => [boolean()],
         "AssociatePublicIpAddress" => [boolean()],
         "ConnectionTrackingSpecification" => connection_tracking_specification_request(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "DeviceIndex" => integer(),
         "EnaSrdSpecification" => ena_srd_specification_request(),
-        "Groups" => list(String.t()),
+        "Groups" => list(String.t() | atom()),
         "InterfaceType" => list(any()),
         "Ipv4PrefixCount" => integer(),
         "Ipv4Prefixes" => list(ipv4_prefix_specification_request()),
@@ -886,16 +886,16 @@ defmodule AWS.WorkspacesInstances do
         "Ipv6PrefixCount" => integer(),
         "Ipv6Prefixes" => list(ipv6_prefix_specification_request()),
         "NetworkCardIndex" => integer(),
-        "NetworkInterfaceId" => String.t(),
+        "NetworkInterfaceId" => String.t() | atom(),
         "PrimaryIpv6" => [boolean()],
-        "PrivateIpAddress" => String.t(),
+        "PrivateIpAddress" => String.t() | atom(),
         "PrivateIpAddresses" => list(private_ip_address_specification()),
         "SecondaryPrivateIpAddressCount" => integer(),
-        "SubnetId" => String.t()
+        "SubnetId" => String.t() | atom()
       }
       
   """
-  @type instance_network_interface_specification() :: %{String.t() => any()}
+  @type instance_network_interface_specification() :: %{(String.t() | atom()) => any()}
 
   @type associate_volume_errors() ::
           throttling_exception()
@@ -1016,7 +1016,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, associate_volume_errors()}
   def associate_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateVolume", input, options)
   end
@@ -1030,7 +1031,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, create_volume_errors()}
   def create_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVolume", input, options)
   end
@@ -1045,7 +1047,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, create_workspace_instance_errors()}
   def create_workspace_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkspaceInstance", input, options)
   end
@@ -1059,7 +1062,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, delete_volume_errors()}
   def delete_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVolume", input, options)
   end
@@ -1073,7 +1077,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, delete_workspace_instance_errors()}
   def delete_workspace_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkspaceInstance", input, options)
   end
@@ -1087,7 +1092,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, disassociate_volume_errors()}
   def disassociate_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateVolume", input, options)
   end
@@ -1101,7 +1107,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, get_workspace_instance_errors()}
   def get_workspace_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkspaceInstance", input, options)
   end
@@ -1116,7 +1123,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, list_instance_types_errors()}
   def list_instance_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInstanceTypes", input, options)
   end
@@ -1131,7 +1139,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, list_regions_errors()}
   def list_regions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRegions", input, options)
   end
@@ -1145,7 +1154,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1159,7 +1169,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, list_workspace_instances_errors()}
   def list_workspace_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkspaceInstances", input, options)
   end
@@ -1173,7 +1184,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1187,7 +1199,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

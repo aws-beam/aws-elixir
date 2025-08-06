@@ -75,7 +75,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type header_order() :: %{String.t() => any()}
+  @type header_order() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -83,14 +83,14 @@ defmodule AWS.WAFV2 do
       
       get_sampled_requests_request() :: %{
         required("MaxItems") => float(),
-        required("RuleMetricName") => String.t(),
+        required("RuleMetricName") => String.t() | atom(),
         required("Scope") => list(any()),
         required("TimeWindow") => time_window(),
-        required("WebAclArn") => String.t()
+        required("WebAclArn") => String.t() | atom()
       }
       
   """
-  @type get_sampled_requests_request() :: %{String.t() => any()}
+  @type get_sampled_requests_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -103,19 +103,19 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type request_inspection() :: %{String.t() => any()}
+  @type request_inspection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       version_to_publish() :: %{
-        "AssociatedRuleGroupArn" => String.t(),
+        "AssociatedRuleGroupArn" => String.t() | atom(),
         "ForecastedLifetime" => integer()
       }
       
   """
-  @type version_to_publish() :: %{String.t() => any()}
+  @type version_to_publish() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -124,15 +124,15 @@ defmodule AWS.WAFV2 do
       managed_rule_group_statement() :: %{
         "ExcludedRules" => list(excluded_rule()),
         "ManagedRuleGroupConfigs" => list(managed_rule_group_config()),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "RuleActionOverrides" => list(rule_action_override()),
         "ScopeDownStatement" => statement(),
-        "VendorName" => String.t(),
-        "Version" => String.t()
+        "VendorName" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
       
   """
-  @type managed_rule_group_statement() :: %{String.t() => any()}
+  @type managed_rule_group_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -149,56 +149,56 @@ defmodule AWS.WAFV2 do
       
       rule_action_override() :: %{
         "ActionToUse" => rule_action(),
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type rule_action_override() :: %{String.t() => any()}
+  @type rule_action_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       w_a_f_expired_managed_rule_group_version_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_expired_managed_rule_group_version_exception() :: %{String.t() => any()}
+  @type w_a_f_expired_managed_rule_group_version_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       password_field() :: %{
-        "Identifier" => String.t()
+        "Identifier" => String.t() | atom()
       }
       
   """
-  @type password_field() :: %{String.t() => any()}
+  @type password_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_rule_group_response() :: %{
-        "NextLockToken" => String.t()
+        "NextLockToken" => String.t() | atom()
       }
       
   """
-  @type update_rule_group_response() :: %{String.t() => any()}
+  @type update_rule_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -210,44 +210,44 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type check_capacity_request() :: %{String.t() => any()}
+  @type check_capacity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       w_a_f_nonexistent_item_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_nonexistent_item_exception() :: %{String.t() => any()}
+  @type w_a_f_nonexistent_item_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       aws_managed_rules_a_c_f_p_rule_set() :: %{
-        "CreationPath" => String.t(),
+        "CreationPath" => String.t() | atom(),
         "EnableRegexInPath" => boolean(),
-        "RegistrationPagePath" => String.t(),
+        "RegistrationPagePath" => String.t() | atom(),
         "RequestInspection" => request_inspection_a_c_f_p(),
         "ResponseInspection" => response_inspection()
       }
       
   """
-  @type aws_managed_rules_a_c_f_p_rule_set() :: %{String.t() => any()}
+  @type aws_managed_rules_a_c_f_p_rule_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       single_query_argument() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type single_query_argument() :: %{String.t() => any()}
+  @type single_query_argument() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -255,11 +255,11 @@ defmodule AWS.WAFV2 do
       
       list_resources_for_web_acl_request() :: %{
         optional("ResourceType") => list(any()),
-        required("WebACLArn") => String.t()
+        required("WebACLArn") => String.t() | atom()
       }
       
   """
-  @type list_resources_for_web_acl_request() :: %{String.t() => any()}
+  @type list_resources_for_web_acl_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -281,7 +281,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type rate_based_statement_custom_key() :: %{String.t() => any()}
+  @type rate_based_statement_custom_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -289,11 +289,11 @@ defmodule AWS.WAFV2 do
       
       get_decrypted_api_key_response() :: %{
         "CreationTimestamp" => non_neg_integer(),
-        "TokenDomains" => list(String.t())
+        "TokenDomains" => list(String.t() | atom())
       }
       
   """
-  @type get_decrypted_api_key_response() :: %{String.t() => any()}
+  @type get_decrypted_api_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -301,52 +301,52 @@ defmodule AWS.WAFV2 do
       
       list_api_keys_response() :: %{
         "APIKeySummaries" => list(api_key_summary()),
-        "ApplicationIntegrationURL" => String.t(),
-        "NextMarker" => String.t()
+        "ApplicationIntegrationURL" => String.t() | atom(),
+        "NextMarker" => String.t() | atom()
       }
       
   """
-  @type list_api_keys_response() :: %{String.t() => any()}
+  @type list_api_keys_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       api_key_summary() :: %{
-        "APIKey" => String.t(),
+        "APIKey" => String.t() | atom(),
         "CreationTimestamp" => non_neg_integer(),
-        "TokenDomains" => list(String.t()),
+        "TokenDomains" => list(String.t() | atom()),
         "Version" => integer()
       }
       
   """
-  @type api_key_summary() :: %{String.t() => any()}
+  @type api_key_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rate_limit_query_argument() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "TextTransformations" => list(text_transformation())
       }
       
   """
-  @type rate_limit_query_argument() :: %{String.t() => any()}
+  @type rate_limit_query_argument() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_rule_group_request() :: %{
-        optional("ARN") => String.t(),
-        optional("Id") => String.t(),
-        optional("Name") => String.t(),
+        optional("ARN") => String.t() | atom(),
+        optional("Id") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
         optional("Scope") => list(any())
       }
       
   """
-  @type get_rule_group_request() :: %{String.t() => any()}
+  @type get_rule_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -357,32 +357,32 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type describe_managed_products_by_vendor_response() :: %{String.t() => any()}
+  @type describe_managed_products_by_vendor_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_rule_groups_response() :: %{
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | atom(),
         "RuleGroups" => list(rule_group_summary())
       }
       
   """
-  @type list_rule_groups_response() :: %{String.t() => any()}
+  @type list_rule_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       response_inspection_json() :: %{
-        "FailureValues" => list(String.t()),
-        "Identifier" => String.t(),
-        "SuccessValues" => list(String.t())
+        "FailureValues" => list(String.t() | atom()),
+        "Identifier" => String.t() | atom(),
+        "SuccessValues" => list(String.t() | atom())
       }
       
   """
-  @type response_inspection_json() :: %{String.t() => any()}
+  @type response_inspection_json() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -390,24 +390,24 @@ defmodule AWS.WAFV2 do
       
       list_ip_sets_request() :: %{
         optional("Limit") => integer(),
-        optional("NextMarker") => String.t(),
+        optional("NextMarker") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type list_ip_sets_request() :: %{String.t() => any()}
+  @type list_ip_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rate_based_statement_managed_keys_ip_set() :: %{
-        "Addresses" => list(String.t()),
+        "Addresses" => list(String.t() | atom()),
         "IPAddressVersion" => list(any())
       }
       
   """
-  @type rate_based_statement_managed_keys_ip_set() :: %{String.t() => any()}
+  @type rate_based_statement_managed_keys_ip_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -418,7 +418,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type j_a4_fingerprint() :: %{String.t() => any()}
+  @type j_a4_fingerprint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -434,7 +434,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type request_inspection_a_c_f_p() :: %{String.t() => any()}
+  @type request_inspection_a_c_f_p() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -457,7 +457,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type response_inspection() :: %{String.t() => any()}
+  @type response_inspection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -473,12 +473,12 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       custom_response_body() :: %{
-        "Content" => String.t(),
+        "Content" => String.t() | atom(),
         "ContentType" => list(any())
       }
       
   """
-  @type custom_response_body() :: %{String.t() => any()}
+  @type custom_response_body() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -494,13 +494,13 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       custom_response() :: %{
-        "CustomResponseBodyKey" => String.t(),
+        "CustomResponseBodyKey" => String.t() | atom(),
         "ResponseCode" => integer(),
         "ResponseHeaders" => list(custom_h_t_t_p_header())
       }
       
   """
-  @type custom_response() :: %{String.t() => any()}
+  @type custom_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -511,42 +511,44 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type describe_all_managed_products_response() :: %{String.t() => any()}
+  @type describe_all_managed_products_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rate_limit_label_namespace() :: %{
-        "Namespace" => String.t()
+        "Namespace" => String.t() | atom()
       }
       
   """
-  @type rate_limit_label_namespace() :: %{String.t() => any()}
+  @type rate_limit_label_namespace() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_managed_rule_set_version_expiry_date_response() :: %{
-        "ExpiringVersion" => String.t(),
+        "ExpiringVersion" => String.t() | atom(),
         "ExpiryTimestamp" => non_neg_integer(),
-        "NextLockToken" => String.t()
+        "NextLockToken" => String.t() | atom()
       }
       
   """
-  @type update_managed_rule_set_version_expiry_date_response() :: %{String.t() => any()}
+  @type update_managed_rule_set_version_expiry_date_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       w_a_f_unsupported_aggregate_key_type_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_unsupported_aggregate_key_type_exception() :: %{String.t() => any()}
+  @type w_a_f_unsupported_aggregate_key_type_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -570,18 +572,18 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type field_to_match() :: %{String.t() => any()}
+  @type field_to_match() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       w_a_f_service_linked_role_error_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_service_linked_role_error_exception() :: %{String.t() => any()}
+  @type w_a_f_service_linked_role_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -592,31 +594,31 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type allow_action() :: %{String.t() => any()}
+  @type allow_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       regex_pattern_set_reference_statement() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | atom(),
         "FieldToMatch" => field_to_match(),
         "TextTransformations" => list(text_transformation())
       }
       
   """
-  @type regex_pattern_set_reference_statement() :: %{String.t() => any()}
+  @type regex_pattern_set_reference_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_ip_set_response() :: %{
-        "NextLockToken" => String.t()
+        "NextLockToken" => String.t() | atom()
       }
       
   """
-  @type update_ip_set_response() :: %{String.t() => any()}
+  @type update_ip_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -624,23 +626,23 @@ defmodule AWS.WAFV2 do
       
       get_mobile_sdk_release_request() :: %{
         required("Platform") => list(any()),
-        required("ReleaseVersion") => String.t()
+        required("ReleaseVersion") => String.t() | atom()
       }
       
   """
-  @type get_mobile_sdk_release_request() :: %{String.t() => any()}
+  @type get_mobile_sdk_release_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_web_acl_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("WebACLArn") => String.t()
+        required("ResourceArn") => String.t() | atom(),
+        required("WebACLArn") => String.t() | atom()
       }
       
   """
-  @type associate_web_acl_request() :: %{String.t() => any()}
+  @type associate_web_acl_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -651,56 +653,56 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type count_action() :: %{String.t() => any()}
+  @type count_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rule_group() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | atom(),
         "AvailableLabels" => list(label_summary()),
         "Capacity" => float(),
         "ConsumedLabels" => list(label_summary()),
         "CustomResponseBodies" => map(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "LabelNamespace" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LabelNamespace" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Rules" => list(rule()),
         "VisibilityConfig" => visibility_config()
       }
       
   """
-  @type rule_group() :: %{String.t() => any()}
+  @type rule_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       managed_rule_set() :: %{
-        "ARN" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "LabelNamespace" => String.t(),
-        "Name" => String.t(),
+        "ARN" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LabelNamespace" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "PublishedVersions" => map(),
-        "RecommendedVersion" => String.t()
+        "RecommendedVersion" => String.t() | atom()
       }
       
   """
-  @type managed_rule_set() :: %{String.t() => any()}
+  @type managed_rule_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       generate_mobile_sdk_release_url_response() :: %{
-        "Url" => String.t()
+        "Url" => String.t() | atom()
       }
       
   """
-  @type generate_mobile_sdk_release_url_response() :: %{String.t() => any()}
+  @type generate_mobile_sdk_release_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -716,34 +718,34 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type rate_based_statement() :: %{String.t() => any()}
+  @type rate_based_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_web_acl_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type get_web_acl_for_resource_request() :: %{String.t() => any()}
+  @type get_web_acl_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       managed_rule_set_summary() :: %{
-        "ARN" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "LabelNamespace" => String.t(),
-        "LockToken" => String.t(),
-        "Name" => String.t()
+        "ARN" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LabelNamespace" => String.t() | atom(),
+        "LockToken" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type managed_rule_set_summary() :: %{String.t() => any()}
+  @type managed_rule_set_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -756,21 +758,21 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type sqli_match_statement() :: %{String.t() => any()}
+  @type sqli_match_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_ip_set_request() :: %{
-        required("Id") => String.t(),
-        required("LockToken") => String.t(),
-        required("Name") => String.t(),
+        required("Id") => String.t() | atom(),
+        required("LockToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type delete_ip_set_request() :: %{String.t() => any()}
+  @type delete_ip_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -796,7 +798,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type statement() :: %{String.t() => any()}
+  @type statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -807,7 +809,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type custom_request_handling() :: %{String.t() => any()}
+  @type custom_request_handling() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -815,48 +817,48 @@ defmodule AWS.WAFV2 do
       
       regex_match_statement() :: %{
         "FieldToMatch" => field_to_match(),
-        "RegexString" => String.t(),
+        "RegexString" => String.t() | atom(),
         "TextTransformations" => list(text_transformation())
       }
       
   """
-  @type regex_match_statement() :: %{String.t() => any()}
+  @type regex_match_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_rule_group_response() :: %{
-        "LockToken" => String.t(),
+        "LockToken" => String.t() | atom(),
         "RuleGroup" => rule_group()
       }
       
   """
-  @type get_rule_group_response() :: %{String.t() => any()}
+  @type get_rule_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       w_a_f_unavailable_entity_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_unavailable_entity_exception() :: %{String.t() => any()}
+  @type w_a_f_unavailable_entity_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_regex_pattern_set_request() :: %{
-        required("Id") => String.t(),
-        required("Name") => String.t(),
+        required("Id") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type get_regex_pattern_set_request() :: %{String.t() => any()}
+  @type get_regex_pattern_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -868,55 +870,55 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type response_inspection_status_code() :: %{String.t() => any()}
+  @type response_inspection_status_code() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_web_acl_response() :: %{
-        "ApplicationIntegrationURL" => String.t(),
-        "LockToken" => String.t(),
+        "ApplicationIntegrationURL" => String.t() | atom(),
+        "LockToken" => String.t() | atom(),
         "WebACL" => web_acl()
       }
       
   """
-  @type get_web_acl_response() :: %{String.t() => any()}
+  @type get_web_acl_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_info_for_resource() :: %{
-        "ResourceARN" => String.t(),
+        "ResourceARN" => String.t() | atom(),
         "TagList" => list(tag())
       }
       
   """
-  @type tag_info_for_resource() :: %{String.t() => any()}
+  @type tag_info_for_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       w_a_f_invalid_permission_policy_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_invalid_permission_policy_exception() :: %{String.t() => any()}
+  @type w_a_f_invalid_permission_policy_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -927,7 +929,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type request_body_associated_resource_type_config() :: %{String.t() => any()}
+  @type request_body_associated_resource_type_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -936,17 +938,17 @@ defmodule AWS.WAFV2 do
       managed_product_descriptor() :: %{
         "IsAdvancedManagedRuleSet" => boolean(),
         "IsVersioningSupported" => boolean(),
-        "ManagedRuleSetName" => String.t(),
-        "ProductDescription" => String.t(),
-        "ProductId" => String.t(),
-        "ProductLink" => String.t(),
-        "ProductTitle" => String.t(),
-        "SnsTopicArn" => String.t(),
-        "VendorName" => String.t()
+        "ManagedRuleSetName" => String.t() | atom(),
+        "ProductDescription" => String.t() | atom(),
+        "ProductId" => String.t() | atom(),
+        "ProductLink" => String.t() | atom(),
+        "ProductTitle" => String.t() | atom(),
+        "SnsTopicArn" => String.t() | atom(),
+        "VendorName" => String.t() | atom()
       }
       
   """
-  @type managed_product_descriptor() :: %{String.t() => any()}
+  @type managed_product_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -957,20 +959,20 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type captcha_config() :: %{String.t() => any()}
+  @type captcha_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_available_managed_rule_group_versions_response() :: %{
-        "CurrentDefaultVersion" => String.t(),
-        "NextMarker" => String.t(),
+        "CurrentDefaultVersion" => String.t() | atom(),
+        "NextMarker" => String.t() | atom(),
         "Versions" => list(managed_rule_group_version())
       }
       
   """
-  @type list_available_managed_rule_group_versions_response() :: %{String.t() => any()}
+  @type list_available_managed_rule_group_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -978,68 +980,68 @@ defmodule AWS.WAFV2 do
       
       generate_mobile_sdk_release_url_request() :: %{
         required("Platform") => list(any()),
-        required("ReleaseVersion") => String.t()
+        required("ReleaseVersion") => String.t() | atom()
       }
       
   """
-  @type generate_mobile_sdk_release_url_request() :: %{String.t() => any()}
+  @type generate_mobile_sdk_release_url_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_ip_set_request() :: %{
-        optional("Description") => String.t(),
-        required("Addresses") => list(String.t()),
-        required("Id") => String.t(),
-        required("LockToken") => String.t(),
-        required("Name") => String.t(),
+        optional("Description") => String.t() | atom(),
+        required("Addresses") => list(String.t() | atom()),
+        required("Id") => String.t() | atom(),
+        required("LockToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type update_ip_set_request() :: %{String.t() => any()}
+  @type update_ip_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       logging_configuration() :: %{
-        "LogDestinationConfigs" => list(String.t()),
+        "LogDestinationConfigs" => list(String.t() | atom()),
         "LogScope" => list(any()),
         "LogType" => list(any()),
         "LoggingFilter" => logging_filter(),
         "ManagedByFirewallManager" => boolean(),
         "RedactedFields" => list(field_to_match()),
-        "ResourceArn" => String.t()
+        "ResourceArn" => String.t() | atom()
       }
       
   """
-  @type logging_configuration() :: %{String.t() => any()}
+  @type logging_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application_attribute() :: %{
-        "Name" => String.t(),
-        "Values" => list(String.t())
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type application_attribute() :: %{String.t() => any()}
+  @type application_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rate_limit_cookie() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "TextTransformations" => list(text_transformation())
       }
       
   """
-  @type rate_limit_cookie() :: %{String.t() => any()}
+  @type rate_limit_cookie() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1050,7 +1052,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type create_rule_group_response() :: %{String.t() => any()}
+  @type create_rule_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1058,28 +1060,28 @@ defmodule AWS.WAFV2 do
       
       create_rule_group_request() :: %{
         optional("CustomResponseBodies") => map(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Rules") => list(rule()),
         optional("Tags") => list(tag()),
         required("Capacity") => float(),
-        required("Name") => String.t(),
+        required("Name") => String.t() | atom(),
         required("Scope") => list(any()),
         required("VisibilityConfig") => visibility_config()
       }
       
   """
-  @type create_rule_group_request() :: %{String.t() => any()}
+  @type create_rule_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       w_a_f_associated_item_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_associated_item_exception() :: %{String.t() => any()}
+  @type w_a_f_associated_item_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1090,7 +1092,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type put_logging_configuration_response() :: %{String.t() => any()}
+  @type put_logging_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1101,7 +1103,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type challenge_action() :: %{String.t() => any()}
+  @type challenge_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1112,7 +1114,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type describe_all_managed_products_request() :: %{String.t() => any()}
+  @type describe_all_managed_products_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1120,32 +1122,32 @@ defmodule AWS.WAFV2 do
       
       list_available_managed_rule_groups_response() :: %{
         "ManagedRuleGroups" => list(managed_rule_group_summary()),
-        "NextMarker" => String.t()
+        "NextMarker" => String.t() | atom()
       }
       
   """
-  @type list_available_managed_rule_groups_response() :: %{String.t() => any()}
+  @type list_available_managed_rule_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_regex_pattern_set_request() :: %{
-        required("Id") => String.t(),
-        required("LockToken") => String.t(),
-        required("Name") => String.t(),
+        required("Id") => String.t() | atom(),
+        required("LockToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type delete_regex_pattern_set_request() :: %{String.t() => any()}
+  @type delete_regex_pattern_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       web_acl() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | atom(),
         "ApplicationConfig" => application_config(),
         "AssociationConfig" => association_config(),
         "Capacity" => float(),
@@ -1154,22 +1156,22 @@ defmodule AWS.WAFV2 do
         "CustomResponseBodies" => map(),
         "DataProtectionConfig" => data_protection_config(),
         "DefaultAction" => default_action(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "LabelNamespace" => String.t(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LabelNamespace" => String.t() | atom(),
         "ManagedByFirewallManager" => boolean(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "OnSourceDDoSProtectionConfig" => on_source_d_do_s_protection_config(),
         "PostProcessFirewallManagerRuleGroups" => list(firewall_manager_rule_group()),
         "PreProcessFirewallManagerRuleGroups" => list(firewall_manager_rule_group()),
         "RetrofittedByFirewallManager" => boolean(),
         "Rules" => list(rule()),
-        "TokenDomains" => list(String.t()),
+        "TokenDomains" => list(String.t() | atom()),
         "VisibilityConfig" => visibility_config()
       }
       
   """
-  @type web_acl() :: %{String.t() => any()}
+  @type web_acl() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1181,14 +1183,14 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type get_rate_based_statement_managed_keys_response() :: %{String.t() => any()}
+  @type get_rate_based_statement_managed_keys_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       managed_rule_set_version() :: %{
-        "AssociatedRuleGroupArn" => String.t(),
+        "AssociatedRuleGroupArn" => String.t() | atom(),
         "Capacity" => float(),
         "ExpiryTimestamp" => non_neg_integer(),
         "ForecastedLifetime" => integer(),
@@ -1197,18 +1199,18 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type managed_rule_set_version() :: %{String.t() => any()}
+  @type managed_rule_set_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       w_a_f_internal_error_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_internal_error_exception() :: %{String.t() => any()}
+  @type w_a_f_internal_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1233,31 +1235,31 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       get_rate_based_statement_managed_keys_request() :: %{
-        optional("RuleGroupRuleName") => String.t(),
-        required("RuleName") => String.t(),
+        optional("RuleGroupRuleName") => String.t() | atom(),
+        required("RuleName") => String.t() | atom(),
         required("Scope") => list(any()),
-        required("WebACLId") => String.t(),
-        required("WebACLName") => String.t()
+        required("WebACLId") => String.t() | atom(),
+        required("WebACLName") => String.t() | atom()
       }
       
   """
-  @type get_rate_based_statement_managed_keys_request() :: %{String.t() => any()}
+  @type get_rate_based_statement_managed_keys_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_regex_pattern_set_request() :: %{
-        optional("Description") => String.t(),
-        required("Id") => String.t(),
-        required("LockToken") => String.t(),
-        required("Name") => String.t(),
+        optional("Description") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        required("LockToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("RegularExpressionList") => list(regex()),
         required("Scope") => list(any())
       }
       
   """
-  @type update_regex_pattern_set_request() :: %{String.t() => any()}
+  @type update_regex_pattern_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1268,7 +1270,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type block_action() :: %{String.t() => any()}
+  @type block_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1282,7 +1284,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type size_constraint_statement() :: %{String.t() => any()}
+  @type size_constraint_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1294,7 +1296,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type time_window() :: %{String.t() => any()}
+  @type time_window() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1302,11 +1304,11 @@ defmodule AWS.WAFV2 do
       
       list_ip_sets_response() :: %{
         "IPSets" => list(ip_set_summary()),
-        "NextMarker" => String.t()
+        "NextMarker" => String.t() | atom()
       }
       
   """
-  @type list_ip_sets_response() :: %{String.t() => any()}
+  @type list_ip_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1322,12 +1324,12 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1338,7 +1340,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type create_web_acl_response() :: %{String.t() => any()}
+  @type create_web_acl_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1352,7 +1354,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type data_protection() :: %{String.t() => any()}
+  @type data_protection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1369,12 +1371,12 @@ defmodule AWS.WAFV2 do
       
       cookie_match_pattern() :: %{
         "All" => all(),
-        "ExcludedCookies" => list(String.t()),
-        "IncludedCookies" => list(String.t())
+        "ExcludedCookies" => list(String.t() | atom()),
+        "IncludedCookies" => list(String.t() | atom())
       }
       
   """
-  @type cookie_match_pattern() :: %{String.t() => any()}
+  @type cookie_match_pattern() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1382,22 +1384,22 @@ defmodule AWS.WAFV2 do
       
       managed_rule_group_version() :: %{
         "LastUpdateTimestamp" => non_neg_integer(),
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type managed_rule_group_version() :: %{String.t() => any()}
+  @type managed_rule_group_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       username_field() :: %{
-        "Identifier" => String.t()
+        "Identifier" => String.t() | atom()
       }
       
   """
-  @type username_field() :: %{String.t() => any()}
+  @type username_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1408,7 +1410,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type data_protection_config() :: %{String.t() => any()}
+  @type data_protection_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1421,7 +1423,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type client_side_action() :: %{String.t() => any()}
+  @type client_side_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1437,24 +1439,24 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       rule_group_reference_statement() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | atom(),
         "ExcludedRules" => list(excluded_rule()),
         "RuleActionOverrides" => list(rule_action_override())
       }
       
   """
-  @type rule_group_reference_statement() :: %{String.t() => any()}
+  @type rule_group_reference_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_web_acl_response() :: %{
-        "NextLockToken" => String.t()
+        "NextLockToken" => String.t() | atom()
       }
       
   """
-  @type update_web_acl_response() :: %{String.t() => any()}
+  @type update_web_acl_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1466,7 +1468,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type default_action() :: %{String.t() => any()}
+  @type default_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1477,19 +1479,19 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type get_logging_configuration_response() :: %{String.t() => any()}
+  @type get_logging_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       response_inspection_body_contains() :: %{
-        "FailureStrings" => list(String.t()),
-        "SuccessStrings" => list(String.t())
+        "FailureStrings" => list(String.t() | atom()),
+        "SuccessStrings" => list(String.t() | atom())
       }
       
   """
-  @type response_inspection_body_contains() :: %{String.t() => any()}
+  @type response_inspection_body_contains() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1501,7 +1503,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type aws_managed_rules_anti_d_do_s_rule_set() :: %{String.t() => any()}
+  @type aws_managed_rules_anti_d_do_s_rule_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1521,7 +1523,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type rate_limit_j_a3_fingerprint() :: %{String.t() => any()}
+  @type rate_limit_j_a3_fingerprint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1532,53 +1534,53 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type rate_limit_query_string() :: %{String.t() => any()}
+  @type rate_limit_query_string() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_mobile_sdk_releases_response() :: %{
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | atom(),
         "ReleaseSummaries" => list(release_summary())
       }
       
   """
-  @type list_mobile_sdk_releases_response() :: %{String.t() => any()}
+  @type list_mobile_sdk_releases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       field_to_protect() :: %{
-        "FieldKeys" => list(String.t()),
+        "FieldKeys" => list(String.t() | atom()),
         "FieldType" => list(any())
       }
       
   """
-  @type field_to_protect() :: %{String.t() => any()}
+  @type field_to_protect() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_managed_rule_set_versions_response() :: %{
-        "NextLockToken" => String.t()
+        "NextLockToken" => String.t() | atom()
       }
       
   """
-  @type put_managed_rule_set_versions_response() :: %{String.t() => any()}
+  @type put_managed_rule_set_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       address_field() :: %{
-        "Identifier" => String.t()
+        "Identifier" => String.t() | atom()
       }
       
   """
-  @type address_field() :: %{String.t() => any()}
+  @type address_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1594,16 +1596,16 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       ip_set() :: %{
-        "ARN" => String.t(),
-        "Addresses" => list(String.t()),
-        "Description" => String.t(),
+        "ARN" => String.t() | atom(),
+        "Addresses" => list(String.t() | atom()),
+        "Description" => String.t() | atom(),
         "IPAddressVersion" => list(any()),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type ip_set() :: %{String.t() => any()}
+  @type ip_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1611,11 +1613,11 @@ defmodule AWS.WAFV2 do
       
       json_match_pattern() :: %{
         "All" => all(),
-        "IncludedPaths" => list(String.t())
+        "IncludedPaths" => list(String.t() | atom())
       }
       
   """
-  @type json_match_pattern() :: %{String.t() => any()}
+  @type json_match_pattern() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1625,92 +1627,92 @@ defmodule AWS.WAFV2 do
         "AvailableLabels" => list(label_summary()),
         "Capacity" => float(),
         "ConsumedLabels" => list(label_summary()),
-        "LabelNamespace" => String.t(),
+        "LabelNamespace" => String.t() | atom(),
         "Rules" => list(rule_summary()),
-        "SnsTopicArn" => String.t(),
-        "VersionName" => String.t()
+        "SnsTopicArn" => String.t() | atom(),
+        "VersionName" => String.t() | atom()
       }
       
   """
-  @type describe_managed_rule_group_response() :: %{String.t() => any()}
+  @type describe_managed_rule_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       phone_number_field() :: %{
-        "Identifier" => String.t()
+        "Identifier" => String.t() | atom()
       }
       
   """
-  @type phone_number_field() :: %{String.t() => any()}
+  @type phone_number_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       label_match_statement() :: %{
-        "Key" => String.t(),
+        "Key" => String.t() | atom(),
         "Scope" => list(any())
       }
       
   """
-  @type label_match_statement() :: %{String.t() => any()}
+  @type label_match_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_web_acl_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type disassociate_web_acl_request() :: %{String.t() => any()}
+  @type disassociate_web_acl_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       w_a_f_tag_operation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_tag_operation_exception() :: %{String.t() => any()}
+  @type w_a_f_tag_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | atom(),
         "TagInfoForResource" => tag_info_for_resource()
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sampled_h_t_t_p_request() :: %{
-        "Action" => String.t(),
+        "Action" => String.t() | atom(),
         "CaptchaResponse" => captcha_response(),
         "ChallengeResponse" => challenge_response(),
         "Labels" => list(label()),
-        "OverriddenAction" => String.t(),
+        "OverriddenAction" => String.t() | atom(),
         "Request" => h_t_t_p_request(),
         "RequestHeadersInserted" => list(h_t_t_p_header()),
         "ResponseCodeSent" => integer(),
-        "RuleNameWithinRuleGroup" => String.t(),
+        "RuleNameWithinRuleGroup" => String.t() | atom(),
         "Timestamp" => non_neg_integer(),
         "Weight" => float()
       }
       
   """
-  @type sampled_h_t_t_p_request() :: %{String.t() => any()}
+  @type sampled_h_t_t_p_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1721,7 +1723,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type j_a3_fingerprint() :: %{String.t() => any()}
+  @type j_a3_fingerprint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1733,20 +1735,20 @@ defmodule AWS.WAFV2 do
         optional("ChallengeConfig") => challenge_config(),
         optional("CustomResponseBodies") => map(),
         optional("DataProtectionConfig") => data_protection_config(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("OnSourceDDoSProtectionConfig") => on_source_d_do_s_protection_config(),
         optional("Rules") => list(rule()),
-        optional("TokenDomains") => list(String.t()),
+        optional("TokenDomains") => list(String.t() | atom()),
         required("DefaultAction") => default_action(),
-        required("Id") => String.t(),
-        required("LockToken") => String.t(),
-        required("Name") => String.t(),
+        required("Id") => String.t() | atom(),
+        required("LockToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Scope") => list(any()),
         required("VisibilityConfig") => visibility_config()
       }
       
   """
-  @type update_web_acl_request() :: %{String.t() => any()}
+  @type update_web_acl_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1757,18 +1759,18 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type get_web_acl_for_resource_response() :: %{String.t() => any()}
+  @type get_web_acl_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       email_field() :: %{
-        "Identifier" => String.t()
+        "Identifier" => String.t() | atom()
       }
       
   """
-  @type email_field() :: %{String.t() => any()}
+  @type email_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1776,13 +1778,13 @@ defmodule AWS.WAFV2 do
       
       w_a_f_invalid_parameter_exception() :: %{
         "Field" => list(any()),
-        "Parameter" => String.t(),
-        "Reason" => String.t(),
-        "message" => String.t()
+        "Parameter" => String.t() | atom(),
+        "Reason" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_invalid_parameter_exception() :: %{String.t() => any()}
+  @type w_a_f_invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1793,7 +1795,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type uri_fragment() :: %{String.t() => any()}
+  @type uri_fragment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1807,7 +1809,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type json_body() :: %{String.t() => any()}
+  @type json_body() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1833,12 +1835,12 @@ defmodule AWS.WAFV2 do
       
       list_regex_pattern_sets_request() :: %{
         optional("Limit") => integer(),
-        optional("NextMarker") => String.t(),
+        optional("NextMarker") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type list_regex_pattern_sets_request() :: %{String.t() => any()}
+  @type list_regex_pattern_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1850,20 +1852,20 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type condition() :: %{String.t() => any()}
+  @type condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       response_inspection_header() :: %{
-        "FailureValues" => list(String.t()),
-        "Name" => String.t(),
-        "SuccessValues" => list(String.t())
+        "FailureValues" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "SuccessValues" => list(String.t() | atom())
       }
       
   """
-  @type response_inspection_header() :: %{String.t() => any()}
+  @type response_inspection_header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1874,7 +1876,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type check_capacity_response() :: %{String.t() => any()}
+  @type check_capacity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1882,23 +1884,23 @@ defmodule AWS.WAFV2 do
       
       visibility_config() :: %{
         "CloudWatchMetricsEnabled" => boolean(),
-        "MetricName" => String.t(),
+        "MetricName" => String.t() | atom(),
         "SampledRequestsEnabled" => boolean()
       }
       
   """
-  @type visibility_config() :: %{String.t() => any()}
+  @type visibility_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_api_key_response() :: %{
-        "APIKey" => String.t()
+        "APIKey" => String.t() | atom()
       }
       
   """
-  @type create_api_key_response() :: %{String.t() => any()}
+  @type create_api_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1911,19 +1913,19 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type challenge_response() :: %{String.t() => any()}
+  @type challenge_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ip_set_reference_statement() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | atom(),
         "IPSetForwardedIPConfig" => ip_set_forwarded_ip_config()
       }
       
   """
-  @type ip_set_reference_statement() :: %{String.t() => any()}
+  @type ip_set_reference_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1936,7 +1938,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1947,7 +1949,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type rate_limit_uri_path() :: %{String.t() => any()}
+  @type rate_limit_uri_path() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1957,7 +1959,7 @@ defmodule AWS.WAFV2 do
         "Action" => rule_action(),
         "CaptchaConfig" => captcha_config(),
         "ChallengeConfig" => challenge_config(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "OverrideAction" => override_action(),
         "Priority" => integer(),
         "RuleLabels" => list(label()),
@@ -1966,7 +1968,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type rule() :: %{String.t() => any()}
+  @type rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1983,12 +1985,12 @@ defmodule AWS.WAFV2 do
       
       list_managed_rule_sets_request() :: %{
         optional("Limit") => integer(),
-        optional("NextMarker") => String.t(),
+        optional("NextMarker") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type list_managed_rule_sets_request() :: %{String.t() => any()}
+  @type list_managed_rule_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1996,11 +1998,11 @@ defmodule AWS.WAFV2 do
       
       create_api_key_request() :: %{
         required("Scope") => list(any()),
-        required("TokenDomains") => list(String.t())
+        required("TokenDomains") => list(String.t() | atom())
       }
       
   """
-  @type create_api_key_request() :: %{String.t() => any()}
+  @type create_api_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2011,7 +2013,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type get_mobile_sdk_release_response() :: %{String.t() => any()}
+  @type get_mobile_sdk_release_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2020,50 +2022,50 @@ defmodule AWS.WAFV2 do
       get_logging_configuration_request() :: %{
         optional("LogScope") => list(any()),
         optional("LogType") => list(any()),
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type get_logging_configuration_request() :: %{String.t() => any()}
+  @type get_logging_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_regex_pattern_set_response() :: %{
-        "LockToken" => String.t(),
+        "LockToken" => String.t() | atom(),
         "RegexPatternSet" => regex_pattern_set()
       }
       
   """
-  @type get_regex_pattern_set_response() :: %{String.t() => any()}
+  @type get_regex_pattern_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       regex_pattern_set_summary() :: %{
-        "ARN" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "LockToken" => String.t(),
-        "Name" => String.t()
+        "ARN" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LockToken" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type regex_pattern_set_summary() :: %{String.t() => any()}
+  @type regex_pattern_set_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_permission_policy_request() :: %{
-        required("Policy") => String.t(),
-        required("ResourceArn") => String.t()
+        required("Policy") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type put_permission_policy_request() :: %{String.t() => any()}
+  @type put_permission_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2078,7 +2080,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type rule_action() :: %{String.t() => any()}
+  @type rule_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2086,11 +2088,11 @@ defmodule AWS.WAFV2 do
       
       list_managed_rule_sets_response() :: %{
         "ManagedRuleSets" => list(managed_rule_set_summary()),
-        "NextMarker" => String.t()
+        "NextMarker" => String.t() | atom()
       }
       
   """
-  @type list_managed_rule_sets_response() :: %{String.t() => any()}
+  @type list_managed_rule_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2102,34 +2104,34 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type xss_match_statement() :: %{String.t() => any()}
+  @type xss_match_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       w_a_f_invalid_operation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_invalid_operation_exception() :: %{String.t() => any()}
+  @type w_a_f_invalid_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_managed_rule_set_versions_request() :: %{
-        optional("RecommendedVersion") => String.t(),
+        optional("RecommendedVersion") => String.t() | atom(),
         optional("VersionsToPublish") => map(),
-        required("Id") => String.t(),
-        required("LockToken") => String.t(),
-        required("Name") => String.t(),
+        required("Id") => String.t() | atom(),
+        required("LockToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type put_managed_rule_set_versions_request() :: %{String.t() => any()}
+  @type put_managed_rule_set_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2137,11 +2139,11 @@ defmodule AWS.WAFV2 do
       
       rule_summary() :: %{
         "Action" => rule_action(),
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type rule_summary() :: %{String.t() => any()}
+  @type rule_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2149,29 +2151,29 @@ defmodule AWS.WAFV2 do
       
       update_managed_rule_set_version_expiry_date_request() :: %{
         required("ExpiryTimestamp") => non_neg_integer(),
-        required("Id") => String.t(),
-        required("LockToken") => String.t(),
-        required("Name") => String.t(),
+        required("Id") => String.t() | atom(),
+        required("LockToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Scope") => list(any()),
-        required("VersionToExpire") => String.t()
+        required("VersionToExpire") => String.t() | atom()
       }
       
   """
-  @type update_managed_rule_set_version_expiry_date_request() :: %{String.t() => any()}
+  @type update_managed_rule_set_version_expiry_date_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       managed_rule_group_summary() :: %{
-        "Description" => String.t(),
-        "Name" => String.t(),
-        "VendorName" => String.t(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "VendorName" => String.t() | atom(),
         "VersioningSupported" => boolean()
       }
       
   """
-  @type managed_rule_group_summary() :: %{String.t() => any()}
+  @type managed_rule_group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2179,11 +2181,11 @@ defmodule AWS.WAFV2 do
       
       forwarded_ip_config() :: %{
         "FallbackBehavior" => list(any()),
-        "HeaderName" => String.t()
+        "HeaderName" => String.t() | atom()
       }
       
   """
-  @type forwarded_ip_config() :: %{String.t() => any()}
+  @type forwarded_ip_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2191,23 +2193,23 @@ defmodule AWS.WAFV2 do
       
       list_logging_configurations_response() :: %{
         "LoggingConfigurations" => list(logging_configuration()),
-        "NextMarker" => String.t()
+        "NextMarker" => String.t() | atom()
       }
       
   """
-  @type list_logging_configurations_response() :: %{String.t() => any()}
+  @type list_logging_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       h_t_t_p_header() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type h_t_t_p_header() :: %{String.t() => any()}
+  @type h_t_t_p_header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2215,12 +2217,12 @@ defmodule AWS.WAFV2 do
       
       list_mobile_sdk_releases_request() :: %{
         optional("Limit") => integer(),
-        optional("NextMarker") => String.t(),
+        optional("NextMarker") => String.t() | atom(),
         required("Platform") => list(any())
       }
       
   """
-  @type list_mobile_sdk_releases_request() :: %{String.t() => any()}
+  @type list_mobile_sdk_releases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2231,7 +2233,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type challenge_config() :: %{String.t() => any()}
+  @type challenge_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2242,7 +2244,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type and_statement() :: %{String.t() => any()}
+  @type and_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2253,40 +2255,40 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type or_statement() :: %{String.t() => any()}
+  @type or_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_permission_policy_response() :: %{
-        "Policy" => String.t()
+        "Policy" => String.t() | atom()
       }
       
   """
-  @type get_permission_policy_response() :: %{String.t() => any()}
+  @type get_permission_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       excluded_rule() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type excluded_rule() :: %{String.t() => any()}
+  @type excluded_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       w_a_f_invalid_resource_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_invalid_resource_exception() :: %{String.t() => any()}
+  @type w_a_f_invalid_resource_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2299,35 +2301,35 @@ defmodule AWS.WAFV2 do
         optional("ChallengeConfig") => challenge_config(),
         optional("CustomResponseBodies") => map(),
         optional("DataProtectionConfig") => data_protection_config(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("OnSourceDDoSProtectionConfig") => on_source_d_do_s_protection_config(),
         optional("Rules") => list(rule()),
         optional("Tags") => list(tag()),
-        optional("TokenDomains") => list(String.t()),
+        optional("TokenDomains") => list(String.t() | atom()),
         required("DefaultAction") => default_action(),
-        required("Name") => String.t(),
+        required("Name") => String.t() | atom(),
         required("Scope") => list(any()),
         required("VisibilityConfig") => visibility_config()
       }
       
   """
-  @type create_web_acl_request() :: %{String.t() => any()}
+  @type create_web_acl_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_ip_set_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("Addresses") => list(String.t()),
+        required("Addresses") => list(String.t() | atom()),
         required("IPAddressVersion") => list(any()),
-        required("Name") => String.t(),
+        required("Name") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type create_ip_set_request() :: %{String.t() => any()}
+  @type create_ip_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2335,17 +2337,17 @@ defmodule AWS.WAFV2 do
       
       update_rule_group_request() :: %{
         optional("CustomResponseBodies") => map(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Rules") => list(rule()),
-        required("Id") => String.t(),
-        required("LockToken") => String.t(),
-        required("Name") => String.t(),
+        required("Id") => String.t() | atom(),
+        required("LockToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Scope") => list(any()),
         required("VisibilityConfig") => visibility_config()
       }
       
   """
-  @type update_rule_group_request() :: %{String.t() => any()}
+  @type update_rule_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2353,11 +2355,11 @@ defmodule AWS.WAFV2 do
       
       get_ip_set_response() :: %{
         "IPSet" => ip_set(),
-        "LockToken" => String.t()
+        "LockToken" => String.t() | atom()
       }
       
   """
-  @type get_ip_set_response() :: %{String.t() => any()}
+  @type get_ip_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2378,23 +2380,23 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type text_transformation() :: %{String.t() => any()}
+  @type text_transformation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       h_t_t_p_request() :: %{
-        "ClientIP" => String.t(),
-        "Country" => String.t(),
-        "HTTPVersion" => String.t(),
+        "ClientIP" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "HTTPVersion" => String.t() | atom(),
         "Headers" => list(h_t_t_p_header()),
-        "Method" => String.t(),
-        "URI" => String.t()
+        "Method" => String.t() | atom(),
+        "URI" => String.t() | atom()
       }
       
   """
-  @type h_t_t_p_request() :: %{String.t() => any()}
+  @type h_t_t_p_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2415,34 +2417,34 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type asn_match_statement() :: %{String.t() => any()}
+  @type asn_match_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       regex_pattern_set() :: %{
-        "ARN" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "ARN" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "RegularExpressionList" => list(regex())
       }
       
   """
-  @type regex_pattern_set() :: %{String.t() => any()}
+  @type regex_pattern_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_api_key_request() :: %{
-        required("APIKey") => String.t(),
+        required("APIKey") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type delete_api_key_request() :: %{String.t() => any()}
+  @type delete_api_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2454,19 +2456,19 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type logging_filter() :: %{String.t() => any()}
+  @type logging_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       release_summary() :: %{
-        "ReleaseVersion" => String.t(),
+        "ReleaseVersion" => String.t() | atom(),
         "Timestamp" => non_neg_integer()
       }
       
   """
-  @type release_summary() :: %{String.t() => any()}
+  @type release_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2474,29 +2476,29 @@ defmodule AWS.WAFV2 do
       
       list_available_managed_rule_group_versions_request() :: %{
         optional("Limit") => integer(),
-        optional("NextMarker") => String.t(),
-        required("Name") => String.t(),
+        optional("NextMarker") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Scope") => list(any()),
-        required("VendorName") => String.t()
+        required("VendorName") => String.t() | atom()
       }
       
   """
-  @type list_available_managed_rule_group_versions_request() :: %{String.t() => any()}
+  @type list_available_managed_rule_group_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rule_group_summary() :: %{
-        "ARN" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "LockToken" => String.t(),
-        "Name" => String.t()
+        "ARN" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LockToken" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type rule_group_summary() :: %{String.t() => any()}
+  @type rule_group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2504,41 +2506,41 @@ defmodule AWS.WAFV2 do
       
       describe_managed_products_by_vendor_request() :: %{
         required("Scope") => list(any()),
-        required("VendorName") => String.t()
+        required("VendorName") => String.t() | atom()
       }
       
   """
-  @type describe_managed_products_by_vendor_request() :: %{String.t() => any()}
+  @type describe_managed_products_by_vendor_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ip_set_summary() :: %{
-        "ARN" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "LockToken" => String.t(),
-        "Name" => String.t()
+        "ARN" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LockToken" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type ip_set_summary() :: %{String.t() => any()}
+  @type ip_set_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_regex_pattern_set_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("Name") => String.t(),
+        required("Name") => String.t() | atom(),
         required("RegularExpressionList") => list(regex()),
         required("Scope") => list(any())
       }
       
   """
-  @type create_regex_pattern_set_request() :: %{String.t() => any()}
+  @type create_regex_pattern_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2551,7 +2553,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type headers() :: %{String.t() => any()}
+  @type headers() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2559,12 +2561,12 @@ defmodule AWS.WAFV2 do
       
       list_tags_for_resource_request() :: %{
         optional("Limit") => integer(),
-        optional("NextMarker") => String.t(),
-        required("ResourceARN") => String.t()
+        optional("NextMarker") => String.t() | atom(),
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2575,7 +2577,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type on_source_d_do_s_protection_config() :: %{String.t() => any()}
+  @type on_source_d_do_s_protection_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2587,18 +2589,18 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type firewall_manager_statement() :: %{String.t() => any()}
+  @type firewall_manager_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_permission_policy_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type delete_permission_policy_request() :: %{String.t() => any()}
+  @type delete_permission_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2606,12 +2608,12 @@ defmodule AWS.WAFV2 do
       
       list_api_keys_request() :: %{
         optional("Limit") => integer(),
-        optional("NextMarker") => String.t(),
+        optional("NextMarker") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type list_api_keys_request() :: %{String.t() => any()}
+  @type list_api_keys_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2622,62 +2624,62 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type body() :: %{String.t() => any()}
+  @type body() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_permission_policy_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type get_permission_policy_request() :: %{String.t() => any()}
+  @type get_permission_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       w_a_f_duplicate_item_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_duplicate_item_exception() :: %{String.t() => any()}
+  @type w_a_f_duplicate_item_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_firewall_manager_rule_groups_response() :: %{
-        "NextWebACLLockToken" => String.t()
+        "NextWebACLLockToken" => String.t() | atom()
       }
       
   """
-  @type delete_firewall_manager_rule_groups_response() :: %{String.t() => any()}
+  @type delete_firewall_manager_rule_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       label_name_condition() :: %{
-        "LabelName" => String.t()
+        "LabelName" => String.t() | atom()
       }
       
   """
-  @type label_name_condition() :: %{String.t() => any()}
+  @type label_name_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resources_for_web_acl_response() :: %{
-        "ResourceArns" => list(String.t())
+        "ResourceArns" => list(String.t() | atom())
       }
       
   """
-  @type list_resources_for_web_acl_response() :: %{String.t() => any()}
+  @type list_resources_for_web_acl_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2686,23 +2688,23 @@ defmodule AWS.WAFV2 do
       list_logging_configurations_request() :: %{
         optional("Limit") => integer(),
         optional("LogScope") => list(any()),
-        optional("NextMarker") => String.t(),
+        optional("NextMarker") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type list_logging_configurations_request() :: %{String.t() => any()}
+  @type list_logging_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       single_header() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type single_header() :: %{String.t() => any()}
+  @type single_header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2718,37 +2720,37 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       get_managed_rule_set_request() :: %{
-        required("Id") => String.t(),
-        required("Name") => String.t(),
+        required("Id") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type get_managed_rule_set_request() :: %{String.t() => any()}
+  @type get_managed_rule_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       w_a_f_optimistic_lock_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_optimistic_lock_exception() :: %{String.t() => any()}
+  @type w_a_f_optimistic_lock_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_ip_set_request() :: %{
-        required("Id") => String.t(),
-        required("Name") => String.t(),
+        required("Id") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type get_ip_set_request() :: %{String.t() => any()}
+  @type get_ip_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2760,7 +2762,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type geo_match_statement() :: %{String.t() => any()}
+  @type geo_match_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2771,19 +2773,19 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type captcha_action() :: %{String.t() => any()}
+  @type captcha_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_managed_rule_set_response() :: %{
-        "LockToken" => String.t(),
+        "LockToken" => String.t() | atom(),
         "ManagedRuleSet" => managed_rule_set()
       }
       
   """
-  @type get_managed_rule_set_response() :: %{String.t() => any()}
+  @type get_managed_rule_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2803,7 +2805,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type put_logging_configuration_request() :: %{String.t() => any()}
+  @type put_logging_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2816,7 +2818,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type cookies() :: %{String.t() => any()}
+  @type cookies() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2832,23 +2834,23 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       w_a_f_log_destination_permission_issue_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_log_destination_permission_issue_exception() :: %{String.t() => any()}
+  @type w_a_f_log_destination_permission_issue_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rate_limit_header() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "TextTransformations" => list(text_transformation())
       }
       
   """
-  @type rate_limit_header() :: %{String.t() => any()}
+  @type rate_limit_header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2860,7 +2862,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type aws_managed_rules_bot_control_rule_set() :: %{String.t() => any()}
+  @type aws_managed_rules_bot_control_rule_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2869,11 +2871,11 @@ defmodule AWS.WAFV2 do
       delete_logging_configuration_request() :: %{
         optional("LogScope") => list(any()),
         optional("LogType") => list(any()),
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type delete_logging_configuration_request() :: %{String.t() => any()}
+  @type delete_logging_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2893,7 +2895,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type action_condition() :: %{String.t() => any()}
+  @type action_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2906,7 +2908,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type get_sampled_requests_response() :: %{String.t() => any()}
+  @type get_sampled_requests_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2917,14 +2919,14 @@ defmodule AWS.WAFV2 do
         "AWSManagedRulesATPRuleSet" => aws_managed_rules_a_t_p_rule_set(),
         "AWSManagedRulesAntiDDoSRuleSet" => aws_managed_rules_anti_d_do_s_rule_set(),
         "AWSManagedRulesBotControlRuleSet" => aws_managed_rules_bot_control_rule_set(),
-        "LoginPath" => String.t(),
+        "LoginPath" => String.t() | atom(),
         "PasswordField" => password_field(),
         "PayloadType" => list(any()),
         "UsernameField" => username_field()
       }
       
   """
-  @type managed_rule_group_config() :: %{String.t() => any()}
+  @type managed_rule_group_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2935,30 +2937,30 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type application_config() :: %{String.t() => any()}
+  @type application_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       w_a_f_configuration_warning_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_configuration_warning_exception() :: %{String.t() => any()}
+  @type w_a_f_configuration_warning_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_regex_pattern_sets_response() :: %{
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | atom(),
         "RegexPatternSets" => list(regex_pattern_set_summary())
       }
       
   """
-  @type list_regex_pattern_sets_response() :: %{String.t() => any()}
+  @type list_regex_pattern_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2966,12 +2968,12 @@ defmodule AWS.WAFV2 do
       
       list_web_acls_request() :: %{
         optional("Limit") => integer(),
-        optional("NextMarker") => String.t(),
+        optional("NextMarker") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type list_web_acls_request() :: %{String.t() => any()}
+  @type list_web_acls_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2985,19 +2987,19 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type byte_match_statement() :: %{String.t() => any()}
+  @type byte_match_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_web_acls_response() :: %{
-        "NextMarker" => String.t(),
+        "NextMarker" => String.t() | atom(),
         "WebACLs" => list(web_acl_summary())
       }
       
   """
-  @type list_web_acls_response() :: %{String.t() => any()}
+  @type list_web_acls_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3008,7 +3010,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type rate_limit_j_a4_fingerprint() :: %{String.t() => any()}
+  @type rate_limit_j_a4_fingerprint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3019,7 +3021,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type create_ip_set_response() :: %{String.t() => any()}
+  @type create_ip_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3027,23 +3029,23 @@ defmodule AWS.WAFV2 do
       
       header_match_pattern() :: %{
         "All" => all(),
-        "ExcludedHeaders" => list(String.t()),
-        "IncludedHeaders" => list(String.t())
+        "ExcludedHeaders" => list(String.t() | atom()),
+        "IncludedHeaders" => list(String.t() | atom())
       }
       
   """
-  @type header_match_pattern() :: %{String.t() => any()}
+  @type header_match_pattern() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_regex_pattern_set_response() :: %{
-        "NextLockToken" => String.t()
+        "NextLockToken" => String.t() | atom()
       }
       
   """
-  @type update_regex_pattern_set_response() :: %{String.t() => any()}
+  @type update_regex_pattern_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3051,13 +3053,13 @@ defmodule AWS.WAFV2 do
       
       aws_managed_rules_a_t_p_rule_set() :: %{
         "EnableRegexInPath" => boolean(),
-        "LoginPath" => String.t(),
+        "LoginPath" => String.t() | atom(),
         "RequestInspection" => request_inspection(),
         "ResponseInspection" => response_inspection()
       }
       
   """
-  @type aws_managed_rules_a_t_p_rule_set() :: %{String.t() => any()}
+  @type aws_managed_rules_a_t_p_rule_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3070,21 +3072,21 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type captcha_response() :: %{String.t() => any()}
+  @type captcha_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_web_acl_request() :: %{
-        optional("ARN") => String.t(),
-        optional("Id") => String.t(),
-        optional("Name") => String.t(),
+        optional("ARN") => String.t() | atom(),
+        optional("Id") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
         optional("Scope") => list(any())
       }
       
   """
-  @type get_web_acl_request() :: %{String.t() => any()}
+  @type get_web_acl_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3096,45 +3098,45 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type override_action() :: %{String.t() => any()}
+  @type override_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_decrypted_api_key_request() :: %{
-        required("APIKey") => String.t(),
+        required("APIKey") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type get_decrypted_api_key_request() :: %{String.t() => any()}
+  @type get_decrypted_api_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_firewall_manager_rule_groups_request() :: %{
-        required("WebACLArn") => String.t(),
-        required("WebACLLockToken") => String.t()
+        required("WebACLArn") => String.t() | atom(),
+        required("WebACLLockToken") => String.t() | atom()
       }
       
   """
-  @type delete_firewall_manager_rule_groups_request() :: %{String.t() => any()}
+  @type delete_firewall_manager_rule_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_managed_rule_group_request() :: %{
-        optional("VersionName") => String.t(),
-        required("Name") => String.t(),
+        optional("VersionName") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Scope") => list(any()),
-        required("VendorName") => String.t()
+        required("VendorName") => String.t() | atom()
       }
       
   """
-  @type describe_managed_rule_group_request() :: %{String.t() => any()}
+  @type describe_managed_rule_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3154,56 +3156,56 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type not_statement() :: %{String.t() => any()}
+  @type not_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       w_a_f_subscription_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_subscription_not_found_exception() :: %{String.t() => any()}
+  @type w_a_f_subscription_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_h_t_t_p_header() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type custom_h_t_t_p_header() :: %{String.t() => any()}
+  @type custom_h_t_t_p_header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_rule_group_request() :: %{
-        required("Id") => String.t(),
-        required("LockToken") => String.t(),
-        required("Name") => String.t(),
+        required("Id") => String.t() | atom(),
+        required("LockToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type delete_rule_group_request() :: %{String.t() => any()}
+  @type delete_rule_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       w_a_f_limits_exceeded_exception() :: %{
-        "Message" => String.t(),
-        "SourceType" => String.t()
+        "Message" => String.t() | atom(),
+        "SourceType" => String.t() | atom()
       }
       
   """
-  @type w_a_f_limits_exceeded_exception() :: %{String.t() => any()}
+  @type w_a_f_limits_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3211,28 +3213,28 @@ defmodule AWS.WAFV2 do
       
       firewall_manager_rule_group() :: %{
         "FirewallManagerStatement" => firewall_manager_statement(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "OverrideAction" => override_action(),
         "Priority" => integer(),
         "VisibilityConfig" => visibility_config()
       }
       
   """
-  @type firewall_manager_rule_group() :: %{String.t() => any()}
+  @type firewall_manager_rule_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_web_acl_request() :: %{
-        required("Id") => String.t(),
-        required("LockToken") => String.t(),
-        required("Name") => String.t(),
+        required("Id") => String.t() | atom(),
+        required("LockToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type delete_web_acl_request() :: %{String.t() => any()}
+  @type delete_web_acl_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3240,60 +3242,60 @@ defmodule AWS.WAFV2 do
       
       ip_set_forwarded_ip_config() :: %{
         "FallbackBehavior" => list(any()),
-        "HeaderName" => String.t(),
+        "HeaderName" => String.t() | atom(),
         "Position" => list(any())
       }
       
   """
-  @type ip_set_forwarded_ip_config() :: %{String.t() => any()}
+  @type ip_set_forwarded_ip_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       regex() :: %{
-        "RegexString" => String.t()
+        "RegexString" => String.t() | atom()
       }
       
   """
-  @type regex() :: %{String.t() => any()}
+  @type regex() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       w_a_f_tag_operation_internal_error_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_tag_operation_internal_error_exception() :: %{String.t() => any()}
+  @type w_a_f_tag_operation_internal_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       label_summary() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type label_summary() :: %{String.t() => any()}
+  @type label_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       web_acl_summary() :: %{
-        "ARN" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "LockToken" => String.t(),
-        "Name" => String.t()
+        "ARN" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LockToken" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type web_acl_summary() :: %{String.t() => any()}
+  @type web_acl_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3301,37 +3303,37 @@ defmodule AWS.WAFV2 do
       
       list_rule_groups_request() :: %{
         optional("Limit") => integer(),
-        optional("NextMarker") => String.t(),
+        optional("NextMarker") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type list_rule_groups_request() :: %{String.t() => any()}
+  @type list_rule_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       mobile_sdk_release() :: %{
-        "ReleaseNotes" => String.t(),
-        "ReleaseVersion" => String.t(),
+        "ReleaseNotes" => String.t() | atom(),
+        "ReleaseVersion" => String.t() | atom(),
         "Tags" => list(tag()),
         "Timestamp" => non_neg_integer()
       }
       
   """
-  @type mobile_sdk_release() :: %{String.t() => any()}
+  @type mobile_sdk_release() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       label() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type label() :: %{String.t() => any()}
+  @type label() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3351,7 +3353,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type immunity_time_property() :: %{String.t() => any()}
+  @type immunity_time_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3359,12 +3361,12 @@ defmodule AWS.WAFV2 do
       
       list_available_managed_rule_groups_request() :: %{
         optional("Limit") => integer(),
-        optional("NextMarker") => String.t(),
+        optional("NextMarker") => String.t() | atom(),
         required("Scope") => list(any())
       }
       
   """
-  @type list_available_managed_rule_groups_request() :: %{String.t() => any()}
+  @type list_available_managed_rule_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3375,7 +3377,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type create_regex_pattern_set_response() :: %{String.t() => any()}
+  @type create_regex_pattern_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3386,7 +3388,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type association_config() :: %{String.t() => any()}
+  @type association_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3397,7 +3399,7 @@ defmodule AWS.WAFV2 do
       }
       
   """
-  @type client_side_action_config() :: %{String.t() => any()}
+  @type client_side_action_config() :: %{(String.t() | atom()) => any()}
 
   @type associate_web_acl_errors() ::
           w_a_f_invalid_operation_exception()
@@ -3861,7 +3863,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, associate_web_acl_errors()}
   def associate_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateWebACL", input, options)
   end
@@ -3891,7 +3894,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, check_capacity_errors()}
   def check_capacity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckCapacity", input, options)
   end
@@ -3917,7 +3921,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, create_api_key_errors()}
   def create_api_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAPIKey", input, options)
   end
@@ -3937,7 +3942,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, create_ip_set_errors()}
   def create_ip_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIPSet", input, options)
   end
@@ -3953,7 +3959,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, create_regex_pattern_set_errors()}
   def create_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRegexPatternSet", input, options)
   end
@@ -3973,7 +3980,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, create_rule_group_errors()}
   def create_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRuleGroup", input, options)
   end
@@ -3999,7 +4007,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, create_web_acl_errors()}
   def create_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWebACL", input, options)
   end
@@ -4016,7 +4025,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, delete_api_key_errors()}
   def delete_api_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAPIKey", input, options)
   end
@@ -4038,7 +4048,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, delete_firewall_manager_rule_groups_errors()}
   def delete_firewall_manager_rule_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFirewallManagerRuleGroups", input, options)
   end
@@ -4052,7 +4063,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, delete_ip_set_errors()}
   def delete_ip_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIPSet", input, options)
   end
@@ -4066,7 +4078,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, delete_logging_configuration_errors()}
   def delete_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLoggingConfiguration", input, options)
   end
@@ -4082,7 +4095,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, delete_permission_policy_errors()}
   def delete_permission_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePermissionPolicy", input, options)
   end
@@ -4096,7 +4110,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, delete_regex_pattern_set_errors()}
   def delete_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRegexPatternSet", input, options)
   end
@@ -4110,7 +4125,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, delete_rule_group_errors()}
   def delete_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRuleGroup", input, options)
   end
@@ -4153,7 +4169,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, delete_web_acl_errors()}
   def delete_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWebACL", input, options)
   end
@@ -4168,7 +4185,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, describe_all_managed_products_errors()}
   def describe_all_managed_products(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAllManagedProducts", input, options)
   end
@@ -4187,7 +4205,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, describe_managed_products_by_vendor_errors()}
   def describe_managed_products_by_vendor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeManagedProductsByVendor", input, options)
   end
@@ -4202,7 +4221,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, describe_managed_rule_group_errors()}
   def describe_managed_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeManagedRuleGroup", input, options)
   end
@@ -4229,7 +4249,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, disassociate_web_acl_errors()}
   def disassociate_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateWebACL", input, options)
   end
@@ -4249,7 +4270,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, generate_mobile_sdk_release_url_errors()}
   def generate_mobile_sdk_release_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateMobileSdkReleaseUrl", input, options)
   end
@@ -4273,7 +4295,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_decrypted_api_key_errors()}
   def get_decrypted_api_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDecryptedAPIKey", input, options)
   end
@@ -4287,7 +4310,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_ip_set_errors()}
   def get_ip_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIPSet", input, options)
   end
@@ -4301,7 +4325,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_logging_configuration_errors()}
   def get_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLoggingConfiguration", input, options)
   end
@@ -4323,7 +4348,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_managed_rule_set_errors()}
   def get_managed_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetManagedRuleSet", input, options)
   end
@@ -4345,7 +4371,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_mobile_sdk_release_errors()}
   def get_mobile_sdk_release(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMobileSdkRelease", input, options)
   end
@@ -4361,7 +4388,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_permission_policy_errors()}
   def get_permission_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPermissionPolicy", input, options)
   end
@@ -4412,7 +4440,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_rate_based_statement_managed_keys_errors()}
   def get_rate_based_statement_managed_keys(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRateBasedStatementManagedKeys", input, options)
   end
@@ -4426,7 +4455,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_regex_pattern_set_errors()}
   def get_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRegexPatternSet", input, options)
   end
@@ -4440,7 +4470,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_rule_group_errors()}
   def get_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRuleGroup", input, options)
   end
@@ -4469,7 +4500,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_sampled_requests_errors()}
   def get_sampled_requests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSampledRequests", input, options)
   end
@@ -4483,7 +4515,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_web_acl_errors()}
   def get_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWebACL", input, options)
   end
@@ -4514,7 +4547,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_web_acl_for_resource_errors()}
   def get_web_acl_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWebACLForResource", input, options)
   end
@@ -4536,7 +4570,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_api_keys_errors()}
   def list_api_keys(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAPIKeys", input, options)
   end
@@ -4554,7 +4589,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_available_managed_rule_group_versions_errors()}
   def list_available_managed_rule_group_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAvailableManagedRuleGroupVersions", input, options)
   end
@@ -4577,7 +4613,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_available_managed_rule_groups_errors()}
   def list_available_managed_rule_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAvailableManagedRuleGroups", input, options)
   end
@@ -4592,7 +4629,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_ip_sets_errors()}
   def list_ip_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIPSets", input, options)
   end
@@ -4606,7 +4644,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_logging_configurations_errors()}
   def list_logging_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLoggingConfigurations", input, options)
   end
@@ -4628,7 +4667,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_managed_rule_sets_errors()}
   def list_managed_rule_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListManagedRuleSets", input, options)
   end
@@ -4650,7 +4690,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_mobile_sdk_releases_errors()}
   def list_mobile_sdk_releases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMobileSdkReleases", input, options)
   end
@@ -4665,7 +4706,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_regex_pattern_sets_errors()}
   def list_regex_pattern_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRegexPatternSets", input, options)
   end
@@ -4691,7 +4733,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_resources_for_web_acl_errors()}
   def list_resources_for_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourcesForWebACL", input, options)
   end
@@ -4706,7 +4749,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_rule_groups_errors()}
   def list_rule_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRuleGroups", input, options)
   end
@@ -4735,7 +4779,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4750,7 +4795,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_web_acls_errors()}
   def list_web_acls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWebACLs", input, options)
   end
@@ -4817,7 +4863,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, put_logging_configuration_errors()}
   def put_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutLoggingConfiguration", input, options)
   end
@@ -4855,7 +4902,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, put_managed_rule_set_versions_errors()}
   def put_managed_rule_set_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutManagedRuleSetVersions", input, options)
   end
@@ -4891,7 +4939,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, put_permission_policy_errors()}
   def put_permission_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutPermissionPolicy", input, options)
   end
@@ -4920,7 +4969,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4941,7 +4991,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4994,7 +5045,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, update_ip_set_errors()}
   def update_ip_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIPSet", input, options)
   end
@@ -5026,7 +5078,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, update_managed_rule_set_version_expiry_date_errors()}
   def update_managed_rule_set_version_expiry_date(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateManagedRuleSetVersionExpiryDate", input, options)
   end
@@ -5079,7 +5132,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, update_regex_pattern_set_errors()}
   def update_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRegexPatternSet", input, options)
   end
@@ -5138,7 +5192,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, update_rule_group_errors()}
   def update_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRuleGroup", input, options)
   end
@@ -5206,7 +5261,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, update_web_acl_errors()}
   def update_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWebACL", input, options)
   end

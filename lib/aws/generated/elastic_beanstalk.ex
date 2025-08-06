@@ -35,38 +35,38 @@ defmodule AWS.ElasticBeanstalk do
       
       environment_descriptions_message() :: %{
         "Environments" => list(environment_description()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type environment_descriptions_message() :: %{String.t() => any()}
+  @type environment_descriptions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_platform_version_request() :: %{
-        optional("EnvironmentName") => String.t(),
+        optional("EnvironmentName") => String.t() | atom(),
         optional("OptionSettings") => list(configuration_option_setting()),
         optional("Tags") => list(tag()),
         required("PlatformDefinitionBundle") => s3_location(),
-        required("PlatformName") => String.t(),
-        required("PlatformVersion") => String.t()
+        required("PlatformName") => String.t() | atom(),
+        required("PlatformVersion") => String.t() | atom()
       }
       
   """
-  @type create_platform_version_request() :: %{String.t() => any()}
+  @type create_platform_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_environment_operations_role_message() :: %{
-        required("EnvironmentName") => String.t()
+        required("EnvironmentName") => String.t() | atom()
       }
       
   """
-  @type disassociate_environment_operations_role_message() :: %{String.t() => any()}
+  @type disassociate_environment_operations_role_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -84,72 +84,72 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type c_p_u_utilization() :: %{String.t() => any()}
+  @type c_p_u_utilization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       apply_environment_managed_action_request() :: %{
-        optional("EnvironmentId") => String.t(),
-        optional("EnvironmentName") => String.t(),
-        required("ActionId") => String.t()
+        optional("EnvironmentId") => String.t() | atom(),
+        optional("EnvironmentName") => String.t() | atom(),
+        required("ActionId") => String.t() | atom()
       }
       
   """
-  @type apply_environment_managed_action_request() :: %{String.t() => any()}
+  @type apply_environment_managed_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_configuration_template_message() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("OptionSettings") => list(configuration_option_setting()),
         optional("OptionsToRemove") => list(option_specification()),
-        required("ApplicationName") => String.t(),
-        required("TemplateName") => String.t()
+        required("ApplicationName") => String.t() | atom(),
+        required("TemplateName") => String.t() | atom()
       }
       
   """
-  @type update_configuration_template_message() :: %{String.t() => any()}
+  @type update_configuration_template_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       compose_environments_message() :: %{
-        optional("ApplicationName") => String.t(),
-        optional("GroupName") => String.t(),
-        optional("VersionLabels") => list(String.t())
+        optional("ApplicationName") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom(),
+        optional("VersionLabels") => list(String.t() | atom())
       }
       
   """
-  @type compose_environments_message() :: %{String.t() => any()}
+  @type compose_environments_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rebuild_environment_message() :: %{
-        optional("EnvironmentId") => String.t(),
-        optional("EnvironmentName") => String.t()
+        optional("EnvironmentId") => String.t() | atom(),
+        optional("EnvironmentName") => String.t() | atom()
       }
       
   """
-  @type rebuild_environment_message() :: %{String.t() => any()}
+  @type rebuild_environment_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_link() :: %{
-        "EnvironmentName" => String.t(),
-        "LinkName" => String.t()
+        "EnvironmentName" => String.t() | atom(),
+        "LinkName" => String.t() | atom()
       }
       
   """
-  @type environment_link() :: %{String.t() => any()}
+  @type environment_link() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -163,7 +163,7 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type status_codes() :: %{String.t() => any()}
+  @type status_codes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -176,53 +176,53 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type max_age_rule() :: %{String.t() => any()}
+  @type max_age_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_type_not_supported_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_type_not_supported_exception() :: %{String.t() => any()}
+  @type resource_type_not_supported_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       solution_stack_description() :: %{
-        "PermittedFileTypes" => list(String.t()),
-        "SolutionStackName" => String.t()
+        "PermittedFileTypes" => list(String.t() | atom()),
+        "SolutionStackName" => String.t() | atom()
       }
       
   """
-  @type solution_stack_description() :: %{String.t() => any()}
+  @type solution_stack_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_platform_version_request() :: %{
-        optional("PlatformArn") => String.t()
+        optional("PlatformArn") => String.t() | atom()
       }
       
   """
-  @type delete_platform_version_request() :: %{String.t() => any()}
+  @type delete_platform_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_environment_operations_role_message() :: %{
-        required("EnvironmentName") => String.t(),
-        required("OperationsRole") => String.t()
+        required("EnvironmentName") => String.t() | atom(),
+        required("OperationsRole") => String.t() | atom()
       }
       
   """
-  @type associate_environment_operations_role_message() :: %{String.t() => any()}
+  @type associate_environment_operations_role_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -230,82 +230,82 @@ defmodule AWS.ElasticBeanstalk do
       
       single_instance_health() :: %{
         "ApplicationMetrics" => application_metrics(),
-        "AvailabilityZone" => String.t(),
-        "Causes" => list(String.t()),
-        "Color" => String.t(),
+        "AvailabilityZone" => String.t() | atom(),
+        "Causes" => list(String.t() | atom()),
+        "Color" => String.t() | atom(),
         "Deployment" => deployment(),
-        "HealthStatus" => String.t(),
-        "InstanceId" => String.t(),
-        "InstanceType" => String.t(),
+        "HealthStatus" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
         "LaunchedAt" => non_neg_integer(),
         "System" => system_status()
       }
       
   """
-  @type single_instance_health() :: %{String.t() => any()}
+  @type single_instance_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_environments_message() :: %{
-        optional("ApplicationName") => String.t(),
-        optional("EnvironmentIds") => list(String.t()),
-        optional("EnvironmentNames") => list(String.t()),
+        optional("ApplicationName") => String.t() | atom(),
+        optional("EnvironmentIds") => list(String.t() | atom()),
+        optional("EnvironmentNames") => list(String.t() | atom()),
         optional("IncludeDeleted") => boolean(),
         optional("IncludedDeletedBackTo") => non_neg_integer(),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t(),
-        optional("VersionLabel") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("VersionLabel") => String.t() | atom()
       }
       
   """
-  @type describe_environments_message() :: %{String.t() => any()}
+  @type describe_environments_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_buckets_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type too_many_buckets_exception() :: %{String.t() => any()}
+  @type too_many_buckets_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_environments_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type too_many_environments_exception() :: %{String.t() => any()}
+  @type too_many_environments_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       trigger() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type trigger() :: %{String.t() => any()}
+  @type trigger() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       option_restriction_regex() :: %{
-        "Label" => String.t(),
-        "Pattern" => String.t()
+        "Label" => String.t() | atom(),
+        "Pattern" => String.t() | atom()
       }
       
   """
-  @type option_restriction_regex() :: %{String.t() => any()}
+  @type option_restriction_regex() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -314,11 +314,11 @@ defmodule AWS.ElasticBeanstalk do
       list_platform_versions_request() :: %{
         optional("Filters") => list(platform_filter()),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_platform_versions_request() :: %{String.t() => any()}
+  @type list_platform_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -326,11 +326,11 @@ defmodule AWS.ElasticBeanstalk do
       
       check_dns_availability_result_message() :: %{
         "Available" => boolean(),
-        "FullyQualifiedCNAME" => String.t()
+        "FullyQualifiedCNAME" => String.t() | atom()
       }
       
   """
-  @type check_dns_availability_result_message() :: %{String.t() => any()}
+  @type check_dns_availability_result_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -339,23 +339,23 @@ defmodule AWS.ElasticBeanstalk do
       deployment() :: %{
         "DeploymentId" => float(),
         "DeploymentTime" => non_neg_integer(),
-        "Status" => String.t(),
-        "VersionLabel" => String.t()
+        "Status" => String.t() | atom(),
+        "VersionLabel" => String.t() | atom()
       }
       
   """
-  @type deployment() :: %{String.t() => any()}
+  @type deployment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_platforms_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type too_many_platforms_exception() :: %{String.t() => any()}
+  @type too_many_platforms_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -363,11 +363,11 @@ defmodule AWS.ElasticBeanstalk do
       
       delete_application_message() :: %{
         optional("TerminateEnvByForce") => boolean(),
-        required("ApplicationName") => String.t()
+        required("ApplicationName") => String.t() | atom()
       }
       
   """
-  @type delete_application_message() :: %{String.t() => any()}
+  @type delete_application_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -375,11 +375,11 @@ defmodule AWS.ElasticBeanstalk do
       
       describe_environment_managed_action_history_result() :: %{
         "ManagedActionHistoryItems" => list(managed_action_history_item()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_environment_managed_action_history_result() :: %{String.t() => any()}
+  @type describe_environment_managed_action_history_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -387,11 +387,11 @@ defmodule AWS.ElasticBeanstalk do
       
       listener() :: %{
         "Port" => integer(),
-        "Protocol" => String.t()
+        "Protocol" => String.t() | atom()
       }
       
   """
-  @type listener() :: %{String.t() => any()}
+  @type listener() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -399,42 +399,42 @@ defmodule AWS.ElasticBeanstalk do
       
       describe_instances_health_result() :: %{
         "InstanceHealthList" => list(single_instance_health()),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "RefreshedAt" => non_neg_integer()
       }
       
   """
-  @type describe_instances_health_result() :: %{String.t() => any()}
+  @type describe_instances_health_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       managed_action() :: %{
-        "ActionDescription" => String.t(),
-        "ActionId" => String.t(),
+        "ActionDescription" => String.t() | atom(),
+        "ActionId" => String.t() | atom(),
         "ActionType" => list(any()),
         "Status" => list(any()),
         "WindowStartTime" => non_neg_integer()
       }
       
   """
-  @type managed_action() :: %{String.t() => any()}
+  @type managed_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       build_configuration() :: %{
-        "ArtifactName" => String.t(),
-        "CodeBuildServiceRole" => String.t(),
+        "ArtifactName" => String.t() | atom(),
+        "CodeBuildServiceRole" => String.t() | atom(),
         "ComputeType" => list(any()),
-        "Image" => String.t(),
+        "Image" => String.t() | atom(),
         "TimeoutInMinutes" => integer()
       }
       
   """
-  @type build_configuration() :: %{String.t() => any()}
+  @type build_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -442,39 +442,39 @@ defmodule AWS.ElasticBeanstalk do
       
       describe_instances_health_request() :: %{
         optional("AttributeNames") => list(list(any())()),
-        optional("EnvironmentId") => String.t(),
-        optional("EnvironmentName") => String.t(),
-        optional("NextToken") => String.t()
+        optional("EnvironmentId") => String.t() | atom(),
+        optional("EnvironmentName") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_instances_health_request() :: %{String.t() => any()}
+  @type describe_instances_health_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       apply_environment_managed_action_result() :: %{
-        "ActionDescription" => String.t(),
-        "ActionId" => String.t(),
+        "ActionDescription" => String.t() | atom(),
+        "ActionId" => String.t() | atom(),
         "ActionType" => list(any()),
-        "Status" => String.t()
+        "Status" => String.t() | atom()
       }
       
   """
-  @type apply_environment_managed_action_result() :: %{String.t() => any()}
+  @type apply_environment_managed_action_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       custom_ami() :: %{
-        "ImageId" => String.t(),
-        "VirtualizationType" => String.t()
+        "ImageId" => String.t() | atom(),
+        "VirtualizationType" => String.t() | atom()
       }
       
   """
-  @type custom_ami() :: %{String.t() => any()}
+  @type custom_ami() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -482,209 +482,209 @@ defmodule AWS.ElasticBeanstalk do
       
       event_descriptions_message() :: %{
         "Events" => list(event_description()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type event_descriptions_message() :: %{String.t() => any()}
+  @type event_descriptions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_description() :: %{
-        "ApplicationName" => String.t(),
-        "EnvironmentName" => String.t(),
+        "ApplicationName" => String.t() | atom(),
+        "EnvironmentName" => String.t() | atom(),
         "EventDate" => non_neg_integer(),
-        "Message" => String.t(),
-        "PlatformArn" => String.t(),
-        "RequestId" => String.t(),
+        "Message" => String.t() | atom(),
+        "PlatformArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
         "Severity" => list(any()),
-        "TemplateName" => String.t(),
-        "VersionLabel" => String.t()
+        "TemplateName" => String.t() | atom(),
+        "VersionLabel" => String.t() | atom()
       }
       
   """
-  @type event_description() :: %{String.t() => any()}
+  @type event_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       request_environment_info_message() :: %{
-        optional("EnvironmentId") => String.t(),
-        optional("EnvironmentName") => String.t(),
+        optional("EnvironmentId") => String.t() | atom(),
+        optional("EnvironmentName") => String.t() | atom(),
         required("InfoType") => list(any())
       }
       
   """
-  @type request_environment_info_message() :: %{String.t() => any()}
+  @type request_environment_info_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_message() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_message() :: %{String.t() => any()}
+  @type list_tags_for_resource_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       configuration_option_description() :: %{
-        "ChangeSeverity" => String.t(),
-        "DefaultValue" => String.t(),
+        "ChangeSeverity" => String.t() | atom(),
+        "DefaultValue" => String.t() | atom(),
         "MaxLength" => integer(),
         "MaxValue" => integer(),
         "MinValue" => integer(),
-        "Name" => String.t(),
-        "Namespace" => String.t(),
+        "Name" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
         "Regex" => option_restriction_regex(),
         "UserDefined" => boolean(),
-        "ValueOptions" => list(String.t()),
+        "ValueOptions" => list(String.t() | atom()),
         "ValueType" => list(any())
       }
       
   """
-  @type configuration_option_description() :: %{String.t() => any()}
+  @type configuration_option_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       load_balancer_description() :: %{
-        "Domain" => String.t(),
+        "Domain" => String.t() | atom(),
         "Listeners" => list(listener()),
-        "LoadBalancerName" => String.t()
+        "LoadBalancerName" => String.t() | atom()
       }
       
   """
-  @type load_balancer_description() :: %{String.t() => any()}
+  @type load_balancer_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       queue() :: %{
-        "Name" => String.t(),
-        "URL" => String.t()
+        "Name" => String.t() | atom(),
+        "URL" => String.t() | atom()
       }
       
   """
-  @type queue() :: %{String.t() => any()}
+  @type queue() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       managed_action_invalid_state_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type managed_action_invalid_state_exception() :: %{String.t() => any()}
+  @type managed_action_invalid_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_tier() :: %{
-        "Name" => String.t(),
-        "Type" => String.t(),
-        "Version" => String.t()
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
       
   """
-  @type environment_tier() :: %{String.t() => any()}
+  @type environment_tier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_platform_branches_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "PlatformBranchSummaryList" => list(platform_branch_summary())
       }
       
   """
-  @type list_platform_branches_result() :: %{String.t() => any()}
+  @type list_platform_branches_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_environment_managed_actions_request() :: %{
-        optional("EnvironmentId") => String.t(),
-        optional("EnvironmentName") => String.t(),
+        optional("EnvironmentId") => String.t() | atom(),
+        optional("EnvironmentName") => String.t() | atom(),
         optional("Status") => list(any())
       }
       
   """
-  @type describe_environment_managed_actions_request() :: %{String.t() => any()}
+  @type describe_environment_managed_actions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       platform_version_still_referenced_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type platform_version_still_referenced_exception() :: %{String.t() => any()}
+  @type platform_version_still_referenced_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_info_description() :: %{
-        "Ec2InstanceId" => String.t(),
+        "Ec2InstanceId" => String.t() | atom(),
         "InfoType" => list(any()),
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "SampleTimestamp" => non_neg_integer()
       }
       
   """
-  @type environment_info_description() :: %{String.t() => any()}
+  @type environment_info_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       platform_framework() :: %{
-        "Name" => String.t(),
-        "Version" => String.t()
+        "Name" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
       
   """
-  @type platform_framework() :: %{String.t() => any()}
+  @type platform_framework() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       elastic_beanstalk_service_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type elastic_beanstalk_service_exception() :: %{String.t() => any()}
+  @type elastic_beanstalk_service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_environment_configuration_message() :: %{
-        required("ApplicationName") => String.t(),
-        required("EnvironmentName") => String.t()
+        required("ApplicationName") => String.t() | atom(),
+        required("EnvironmentName") => String.t() | atom()
       }
       
   """
-  @type delete_environment_configuration_message() :: %{String.t() => any()}
+  @type delete_environment_configuration_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -694,52 +694,52 @@ defmodule AWS.ElasticBeanstalk do
         "CustomAmiList" => list(custom_ami()),
         "DateCreated" => non_neg_integer(),
         "DateUpdated" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "Frameworks" => list(platform_framework()),
-        "Maintainer" => String.t(),
-        "OperatingSystemName" => String.t(),
-        "OperatingSystemVersion" => String.t(),
-        "PlatformArn" => String.t(),
-        "PlatformBranchLifecycleState" => String.t(),
-        "PlatformBranchName" => String.t(),
-        "PlatformCategory" => String.t(),
-        "PlatformLifecycleState" => String.t(),
-        "PlatformName" => String.t(),
-        "PlatformOwner" => String.t(),
+        "Maintainer" => String.t() | atom(),
+        "OperatingSystemName" => String.t() | atom(),
+        "OperatingSystemVersion" => String.t() | atom(),
+        "PlatformArn" => String.t() | atom(),
+        "PlatformBranchLifecycleState" => String.t() | atom(),
+        "PlatformBranchName" => String.t() | atom(),
+        "PlatformCategory" => String.t() | atom(),
+        "PlatformLifecycleState" => String.t() | atom(),
+        "PlatformName" => String.t() | atom(),
+        "PlatformOwner" => String.t() | atom(),
         "PlatformStatus" => list(any()),
-        "PlatformVersion" => String.t(),
+        "PlatformVersion" => String.t() | atom(),
         "ProgrammingLanguages" => list(platform_programming_language()),
-        "SolutionStackName" => String.t(),
-        "SupportedAddonList" => list(String.t()),
-        "SupportedTierList" => list(String.t())
+        "SolutionStackName" => String.t() | atom(),
+        "SupportedAddonList" => list(String.t() | atom()),
+        "SupportedTierList" => list(String.t() | atom())
       }
       
   """
-  @type platform_description() :: %{String.t() => any()}
+  @type platform_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       retrieve_environment_info_message() :: %{
-        optional("EnvironmentId") => String.t(),
-        optional("EnvironmentName") => String.t(),
+        optional("EnvironmentId") => String.t() | atom(),
+        optional("EnvironmentName") => String.t() | atom(),
         required("InfoType") => list(any())
       }
       
   """
-  @type retrieve_environment_info_message() :: %{String.t() => any()}
+  @type retrieve_environment_info_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       builder() :: %{
-        "ARN" => String.t()
+        "ARN" => String.t() | atom()
       }
       
   """
-  @type builder() :: %{String.t() => any()}
+  @type builder() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -750,7 +750,7 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type resource_quota() :: %{String.t() => any()}
+  @type resource_quota() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -758,7 +758,7 @@ defmodule AWS.ElasticBeanstalk do
       
       environment_resource_description() :: %{
         "AutoScalingGroups" => list(auto_scaling_group()),
-        "EnvironmentName" => String.t(),
+        "EnvironmentName" => String.t() | atom(),
         "Instances" => list(instance()),
         "LaunchConfigurations" => list(launch_configuration()),
         "LaunchTemplates" => list(launch_template()),
@@ -768,37 +768,37 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type environment_resource_description() :: %{String.t() => any()}
+  @type environment_resource_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       managed_action_history_item() :: %{
-        "ActionDescription" => String.t(),
-        "ActionId" => String.t(),
+        "ActionDescription" => String.t() | atom(),
+        "ActionId" => String.t() | atom(),
         "ActionType" => list(any()),
         "ExecutedTime" => non_neg_integer(),
-        "FailureDescription" => String.t(),
+        "FailureDescription" => String.t() | atom(),
         "FailureType" => list(any()),
         "FinishedTime" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type managed_action_history_item() :: %{String.t() => any()}
+  @type managed_action_history_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       abort_environment_update_message() :: %{
-        optional("EnvironmentId") => String.t(),
-        optional("EnvironmentName") => String.t()
+        optional("EnvironmentId") => String.t() | atom(),
+        optional("EnvironmentName") => String.t() | atom()
       }
       
   """
-  @type abort_environment_update_message() :: %{String.t() => any()}
+  @type abort_environment_update_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -816,38 +816,38 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type instance_health_summary() :: %{String.t() => any()}
+  @type instance_health_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       configuration_settings_description() :: %{
-        "ApplicationName" => String.t(),
+        "ApplicationName" => String.t() | atom(),
         "DateCreated" => non_neg_integer(),
         "DateUpdated" => non_neg_integer(),
         "DeploymentStatus" => list(any()),
-        "Description" => String.t(),
-        "EnvironmentName" => String.t(),
+        "Description" => String.t() | atom(),
+        "EnvironmentName" => String.t() | atom(),
         "OptionSettings" => list(configuration_option_setting()),
-        "PlatformArn" => String.t(),
-        "SolutionStackName" => String.t(),
-        "TemplateName" => String.t()
+        "PlatformArn" => String.t() | atom(),
+        "SolutionStackName" => String.t() | atom(),
+        "TemplateName" => String.t() | atom()
       }
       
   """
-  @type configuration_settings_description() :: %{String.t() => any()}
+  @type configuration_settings_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       check_dns_availability_message() :: %{
-        required("CNAMEPrefix") => String.t()
+        required("CNAMEPrefix") => String.t() | atom()
       }
       
   """
-  @type check_dns_availability_message() :: %{String.t() => any()}
+  @type check_dns_availability_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -858,178 +858,178 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type configuration_settings_validation_messages() :: %{String.t() => any()}
+  @type configuration_settings_validation_messages() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       search_filter() :: %{
-        "Attribute" => String.t(),
-        "Operator" => String.t(),
-        "Values" => list(String.t())
+        "Attribute" => String.t() | atom(),
+        "Operator" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type search_filter() :: %{String.t() => any()}
+  @type search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       platform_filter() :: %{
-        "Operator" => String.t(),
-        "Type" => String.t(),
-        "Values" => list(String.t())
+        "Operator" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type platform_filter() :: %{String.t() => any()}
+  @type platform_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       configuration_option_setting() :: %{
-        "Namespace" => String.t(),
-        "OptionName" => String.t(),
-        "ResourceName" => String.t(),
-        "Value" => String.t()
+        "Namespace" => String.t() | atom(),
+        "OptionName" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type configuration_option_setting() :: %{String.t() => any()}
+  @type configuration_option_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_configuration_options_message() :: %{
-        optional("ApplicationName") => String.t(),
-        optional("EnvironmentName") => String.t(),
+        optional("ApplicationName") => String.t() | atom(),
+        optional("EnvironmentName") => String.t() | atom(),
         optional("Options") => list(option_specification()),
-        optional("PlatformArn") => String.t(),
-        optional("SolutionStackName") => String.t(),
-        optional("TemplateName") => String.t()
+        optional("PlatformArn") => String.t() | atom(),
+        optional("SolutionStackName") => String.t() | atom(),
+        optional("TemplateName") => String.t() | atom()
       }
       
   """
-  @type describe_configuration_options_message() :: %{String.t() => any()}
+  @type describe_configuration_options_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       option_specification() :: %{
-        "Namespace" => String.t(),
-        "OptionName" => String.t(),
-        "ResourceName" => String.t()
+        "Namespace" => String.t() | atom(),
+        "OptionName" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
       }
       
   """
-  @type option_specification() :: %{String.t() => any()}
+  @type option_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       platform_programming_language() :: %{
-        "Name" => String.t(),
-        "Version" => String.t()
+        "Name" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
       
   """
-  @type platform_programming_language() :: %{String.t() => any()}
+  @type platform_programming_language() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_environment_message() :: %{
-        optional("ApplicationName") => String.t(),
-        optional("Description") => String.t(),
-        optional("EnvironmentId") => String.t(),
-        optional("EnvironmentName") => String.t(),
-        optional("GroupName") => String.t(),
+        optional("ApplicationName") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("EnvironmentId") => String.t() | atom(),
+        optional("EnvironmentName") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom(),
         optional("OptionSettings") => list(configuration_option_setting()),
         optional("OptionsToRemove") => list(option_specification()),
-        optional("PlatformArn") => String.t(),
-        optional("SolutionStackName") => String.t(),
-        optional("TemplateName") => String.t(),
+        optional("PlatformArn") => String.t() | atom(),
+        optional("SolutionStackName") => String.t() | atom(),
+        optional("TemplateName") => String.t() | atom(),
         optional("Tier") => environment_tier(),
-        optional("VersionLabel") => String.t()
+        optional("VersionLabel") => String.t() | atom()
       }
       
   """
-  @type update_environment_message() :: %{String.t() => any()}
+  @type update_environment_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application_resource_lifecycle_description_message() :: %{
-        "ApplicationName" => String.t(),
+        "ApplicationName" => String.t() | atom(),
         "ResourceLifecycleConfig" => application_resource_lifecycle_config()
       }
       
   """
-  @type application_resource_lifecycle_description_message() :: %{String.t() => any()}
+  @type application_resource_lifecycle_description_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_applications_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type too_many_applications_exception() :: %{String.t() => any()}
+  @type too_many_applications_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_in_progress_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type operation_in_progress_exception() :: %{String.t() => any()}
+  @type operation_in_progress_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1037,17 +1037,17 @@ defmodule AWS.ElasticBeanstalk do
       
       describe_environment_health_result() :: %{
         "ApplicationMetrics" => application_metrics(),
-        "Causes" => list(String.t()),
-        "Color" => String.t(),
-        "EnvironmentName" => String.t(),
-        "HealthStatus" => String.t(),
+        "Causes" => list(String.t() | atom()),
+        "Color" => String.t() | atom(),
+        "EnvironmentName" => String.t() | atom(),
+        "HealthStatus" => String.t() | atom(),
         "InstancesHealth" => instance_health_summary(),
         "RefreshedAt" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type describe_environment_health_result() :: %{String.t() => any()}
+  @type describe_environment_health_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1059,7 +1059,7 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type application_version_lifecycle_config() :: %{String.t() => any()}
+  @type application_version_lifecycle_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1068,17 +1068,17 @@ defmodule AWS.ElasticBeanstalk do
       create_application_version_message() :: %{
         optional("AutoCreateApplication") => boolean(),
         optional("BuildConfiguration") => build_configuration(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Process") => boolean(),
         optional("SourceBuildInformation") => source_build_information(),
         optional("SourceBundle") => s3_location(),
         optional("Tags") => list(tag()),
-        required("ApplicationName") => String.t(),
-        required("VersionLabel") => String.t()
+        required("ApplicationName") => String.t() | atom(),
+        required("VersionLabel") => String.t() | atom()
       }
       
   """
-  @type create_application_version_message() :: %{String.t() => any()}
+  @type create_application_version_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1092,33 +1092,33 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type application_metrics() :: %{String.t() => any()}
+  @type application_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_subscription_required_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type s3_subscription_required_exception() :: %{String.t() => any()}
+  @type s3_subscription_required_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       platform_branch_summary() :: %{
-        "BranchName" => String.t(),
+        "BranchName" => String.t() | atom(),
         "BranchOrder" => integer(),
-        "LifecycleState" => String.t(),
-        "PlatformName" => String.t(),
-        "SupportedTierList" => list(String.t())
+        "LifecycleState" => String.t() | atom(),
+        "PlatformName" => String.t() | atom(),
+        "SupportedTierList" => list(String.t() | atom())
       }
       
   """
-  @type platform_branch_summary() :: %{String.t() => any()}
+  @type platform_branch_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1126,23 +1126,23 @@ defmodule AWS.ElasticBeanstalk do
       
       list_available_solution_stacks_result_message() :: %{
         "SolutionStackDetails" => list(solution_stack_description()),
-        "SolutionStacks" => list(String.t())
+        "SolutionStacks" => list(String.t() | atom())
       }
       
   """
-  @type list_available_solution_stacks_result_message() :: %{String.t() => any()}
+  @type list_available_solution_stacks_result_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       source_configuration() :: %{
-        "ApplicationName" => String.t(),
-        "TemplateName" => String.t()
+        "ApplicationName" => String.t() | atom(),
+        "TemplateName" => String.t() | atom()
       }
       
   """
-  @type source_configuration() :: %{String.t() => any()}
+  @type source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1150,24 +1150,24 @@ defmodule AWS.ElasticBeanstalk do
       
       delete_application_version_message() :: %{
         optional("DeleteSourceBundle") => boolean(),
-        required("ApplicationName") => String.t(),
-        required("VersionLabel") => String.t()
+        required("ApplicationName") => String.t() | atom(),
+        required("VersionLabel") => String.t() | atom()
       }
       
   """
-  @type delete_application_version_message() :: %{String.t() => any()}
+  @type delete_application_version_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_location() :: %{
-        "S3Bucket" => String.t(),
-        "S3Key" => String.t()
+        "S3Bucket" => String.t() | atom(),
+        "S3Key" => String.t() | atom()
       }
       
   """
-  @type s3_location() :: %{String.t() => any()}
+  @type s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1179,7 +1179,7 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type system_status() :: %{String.t() => any()}
+  @type system_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1197,43 +1197,43 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type latency() :: %{String.t() => any()}
+  @type latency() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_application_versions_message() :: %{
-        optional("ApplicationName") => String.t(),
+        optional("ApplicationName") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t(),
-        optional("VersionLabels") => list(String.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("VersionLabels") => list(String.t() | atom())
       }
       
   """
-  @type describe_application_versions_message() :: %{String.t() => any()}
+  @type describe_application_versions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       platform_summary() :: %{
-        "OperatingSystemName" => String.t(),
-        "OperatingSystemVersion" => String.t(),
-        "PlatformArn" => String.t(),
-        "PlatformBranchLifecycleState" => String.t(),
-        "PlatformBranchName" => String.t(),
-        "PlatformCategory" => String.t(),
-        "PlatformLifecycleState" => String.t(),
-        "PlatformOwner" => String.t(),
+        "OperatingSystemName" => String.t() | atom(),
+        "OperatingSystemVersion" => String.t() | atom(),
+        "PlatformArn" => String.t() | atom(),
+        "PlatformBranchLifecycleState" => String.t() | atom(),
+        "PlatformBranchName" => String.t() | atom(),
+        "PlatformCategory" => String.t() | atom(),
+        "PlatformLifecycleState" => String.t() | atom(),
+        "PlatformOwner" => String.t() | atom(),
         "PlatformStatus" => list(any()),
-        "PlatformVersion" => String.t(),
-        "SupportedAddonList" => list(String.t()),
-        "SupportedTierList" => list(String.t())
+        "PlatformVersion" => String.t() | atom(),
+        "SupportedAddonList" => list(String.t() | atom()),
+        "SupportedTierList" => list(String.t() | atom())
       }
       
   """
-  @type platform_summary() :: %{String.t() => any()}
+  @type platform_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1241,12 +1241,12 @@ defmodule AWS.ElasticBeanstalk do
       
       describe_environment_health_request() :: %{
         optional("AttributeNames") => list(list(any())()),
-        optional("EnvironmentId") => String.t(),
-        optional("EnvironmentName") => String.t()
+        optional("EnvironmentId") => String.t() | atom(),
+        optional("EnvironmentName") => String.t() | atom()
       }
       
   """
-  @type describe_environment_health_request() :: %{String.t() => any()}
+  @type describe_environment_health_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1257,18 +1257,18 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type retrieve_environment_info_result_message() :: %{String.t() => any()}
+  @type retrieve_environment_info_result_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_location_not_in_service_region_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type s3_location_not_in_service_region_exception() :: %{String.t() => any()}
+  @type s3_location_not_in_service_region_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1276,30 +1276,30 @@ defmodule AWS.ElasticBeanstalk do
       
       environment_description() :: %{
         "AbortableOperationInProgress" => boolean(),
-        "ApplicationName" => String.t(),
-        "CNAME" => String.t(),
+        "ApplicationName" => String.t() | atom(),
+        "CNAME" => String.t() | atom(),
         "DateCreated" => non_neg_integer(),
         "DateUpdated" => non_neg_integer(),
-        "Description" => String.t(),
-        "EndpointURL" => String.t(),
-        "EnvironmentArn" => String.t(),
-        "EnvironmentId" => String.t(),
+        "Description" => String.t() | atom(),
+        "EndpointURL" => String.t() | atom(),
+        "EnvironmentArn" => String.t() | atom(),
+        "EnvironmentId" => String.t() | atom(),
         "EnvironmentLinks" => list(environment_link()),
-        "EnvironmentName" => String.t(),
+        "EnvironmentName" => String.t() | atom(),
         "Health" => list(any()),
         "HealthStatus" => list(any()),
-        "OperationsRole" => String.t(),
-        "PlatformArn" => String.t(),
+        "OperationsRole" => String.t() | atom(),
+        "PlatformArn" => String.t() | atom(),
         "Resources" => environment_resources_description(),
-        "SolutionStackName" => String.t(),
+        "SolutionStackName" => String.t() | atom(),
         "Status" => list(any()),
-        "TemplateName" => String.t(),
+        "TemplateName" => String.t() | atom(),
         "Tier" => environment_tier(),
-        "VersionLabel" => String.t()
+        "VersionLabel" => String.t() | atom()
       }
       
   """
-  @type environment_description() :: %{String.t() => any()}
+  @type environment_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1310,21 +1310,21 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type application_version_description_message() :: %{String.t() => any()}
+  @type application_version_description_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       swap_environment_cnames_message() :: %{
-        optional("DestinationEnvironmentId") => String.t(),
-        optional("DestinationEnvironmentName") => String.t(),
-        optional("SourceEnvironmentId") => String.t(),
-        optional("SourceEnvironmentName") => String.t()
+        optional("DestinationEnvironmentId") => String.t() | atom(),
+        optional("DestinationEnvironmentName") => String.t() | atom(),
+        optional("SourceEnvironmentId") => String.t() | atom(),
+        optional("SourceEnvironmentName") => String.t() | atom()
       }
       
   """
-  @type swap_environment_cnames_message() :: %{String.t() => any()}
+  @type swap_environment_cnames_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1337,18 +1337,18 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type max_count_rule() :: %{String.t() => any()}
+  @type max_count_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_application_versions_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type too_many_application_versions_exception() :: %{String.t() => any()}
+  @type too_many_application_versions_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1359,58 +1359,58 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type application_description_message() :: %{String.t() => any()}
+  @type application_description_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_message() :: %{
-        "Message" => String.t(),
-        "Namespace" => String.t(),
-        "OptionName" => String.t(),
+        "Message" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
+        "OptionName" => String.t() | atom(),
         "Severity" => list(any())
       }
       
   """
-  @type validation_message() :: %{String.t() => any()}
+  @type validation_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validate_configuration_settings_message() :: %{
-        optional("EnvironmentName") => String.t(),
-        optional("TemplateName") => String.t(),
-        required("ApplicationName") => String.t(),
+        optional("EnvironmentName") => String.t() | atom(),
+        optional("TemplateName") => String.t() | atom(),
+        required("ApplicationName") => String.t() | atom(),
         required("OptionSettings") => list(configuration_option_setting())
       }
       
   """
-  @type validate_configuration_settings_message() :: %{String.t() => any()}
+  @type validate_configuration_settings_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | atom()
       }
       
   """
-  @type instance() :: %{String.t() => any()}
+  @type instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_application_resource_lifecycle_message() :: %{
-        required("ApplicationName") => String.t(),
+        required("ApplicationName") => String.t() | atom(),
         required("ResourceLifecycleConfig") => application_resource_lifecycle_config()
       }
       
   """
-  @type update_application_resource_lifecycle_message() :: %{String.t() => any()}
+  @type update_application_resource_lifecycle_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1421,7 +1421,7 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type environment_resource_descriptions_message() :: %{String.t() => any()}
+  @type environment_resource_descriptions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1429,12 +1429,12 @@ defmodule AWS.ElasticBeanstalk do
       
       configuration_options_description() :: %{
         "Options" => list(configuration_option_description()),
-        "PlatformArn" => String.t(),
-        "SolutionStackName" => String.t()
+        "PlatformArn" => String.t() | atom(),
+        "SolutionStackName" => String.t() | atom()
       }
       
   """
-  @type configuration_options_description() :: %{String.t() => any()}
+  @type configuration_options_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1445,7 +1445,7 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type application_descriptions_message() :: %{String.t() => any()}
+  @type application_descriptions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1456,90 +1456,90 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type describe_account_attributes_result() :: %{String.t() => any()}
+  @type describe_account_attributes_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_configuration_settings_message() :: %{
-        optional("EnvironmentName") => String.t(),
-        optional("TemplateName") => String.t(),
-        required("ApplicationName") => String.t()
+        optional("EnvironmentName") => String.t() | atom(),
+        optional("TemplateName") => String.t() | atom(),
+        required("ApplicationName") => String.t() | atom()
       }
       
   """
-  @type describe_configuration_settings_message() :: %{String.t() => any()}
+  @type describe_configuration_settings_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       terminate_environment_message() :: %{
-        optional("EnvironmentId") => String.t(),
-        optional("EnvironmentName") => String.t(),
+        optional("EnvironmentId") => String.t() | atom(),
+        optional("EnvironmentName") => String.t() | atom(),
         optional("ForceTerminate") => boolean(),
         optional("TerminateResources") => boolean()
       }
       
   """
-  @type terminate_environment_message() :: %{String.t() => any()}
+  @type terminate_environment_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_environment_resources_message() :: %{
-        optional("EnvironmentId") => String.t(),
-        optional("EnvironmentName") => String.t()
+        optional("EnvironmentId") => String.t() | atom(),
+        optional("EnvironmentName") => String.t() | atom()
       }
       
   """
-  @type describe_environment_resources_message() :: %{String.t() => any()}
+  @type describe_environment_resources_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_events_message() :: %{
-        optional("ApplicationName") => String.t(),
+        optional("ApplicationName") => String.t() | atom(),
         optional("EndTime") => non_neg_integer(),
-        optional("EnvironmentId") => String.t(),
-        optional("EnvironmentName") => String.t(),
+        optional("EnvironmentId") => String.t() | atom(),
+        optional("EnvironmentName") => String.t() | atom(),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t(),
-        optional("PlatformArn") => String.t(),
-        optional("RequestId") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PlatformArn") => String.t() | atom(),
+        optional("RequestId") => String.t() | atom(),
         optional("Severity") => list(any()),
         optional("StartTime") => non_neg_integer(),
-        optional("TemplateName") => String.t(),
-        optional("VersionLabel") => String.t()
+        optional("TemplateName") => String.t() | atom(),
+        optional("VersionLabel") => String.t() | atom()
       }
       
   """
-  @type describe_events_message() :: %{String.t() => any()}
+  @type describe_events_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       load_balancer() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type load_balancer() :: %{String.t() => any()}
+  @type load_balancer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_scaling_group() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type auto_scaling_group() :: %{String.t() => any()}
+  @type auto_scaling_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1550,30 +1550,30 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type describe_environment_managed_actions_result() :: %{String.t() => any()}
+  @type describe_environment_managed_actions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_tags_description_message() :: %{
-        "ResourceArn" => String.t(),
+        "ResourceArn" => String.t() | atom(),
         "ResourceTags" => list(tag())
       }
       
   """
-  @type resource_tags_description_message() :: %{String.t() => any()}
+  @type resource_tags_description_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_privileges_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type insufficient_privileges_exception() :: %{String.t() => any()}
+  @type insufficient_privileges_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1584,7 +1584,7 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type configuration_settings_descriptions() :: %{String.t() => any()}
+  @type configuration_settings_descriptions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1596,7 +1596,7 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type create_platform_version_result() :: %{String.t() => any()}
+  @type create_platform_version_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1607,25 +1607,25 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type environment_resources_description() :: %{String.t() => any()}
+  @type environment_resources_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application_description() :: %{
-        "ApplicationArn" => String.t(),
-        "ApplicationName" => String.t(),
-        "ConfigurationTemplates" => list(String.t()),
+        "ApplicationArn" => String.t() | atom(),
+        "ApplicationName" => String.t() | atom(),
+        "ConfigurationTemplates" => list(String.t() | atom()),
         "DateCreated" => non_neg_integer(),
         "DateUpdated" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "ResourceLifecycleConfig" => application_resource_lifecycle_config(),
-        "Versions" => list(String.t())
+        "Versions" => list(String.t() | atom())
       }
       
   """
-  @type application_description() :: %{String.t() => any()}
+  @type application_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1634,33 +1634,33 @@ defmodule AWS.ElasticBeanstalk do
       list_platform_branches_request() :: %{
         optional("Filters") => list(search_filter()),
         optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_platform_branches_request() :: %{String.t() => any()}
+  @type list_platform_branches_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       launch_template() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | atom()
       }
       
   """
-  @type launch_template() :: %{String.t() => any()}
+  @type launch_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_applications_message() :: %{
-        optional("ApplicationNames") => list(String.t())
+        optional("ApplicationNames") => list(String.t() | atom())
       }
       
   """
-  @type describe_applications_message() :: %{String.t() => any()}
+  @type describe_applications_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1671,7 +1671,7 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type describe_platform_version_result() :: %{String.t() => any()}
+  @type describe_platform_version_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1679,76 +1679,76 @@ defmodule AWS.ElasticBeanstalk do
       
       application_version_descriptions_message() :: %{
         "ApplicationVersions" => list(application_version_description()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type application_version_descriptions_message() :: %{String.t() => any()}
+  @type application_version_descriptions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       source_build_information() :: %{
-        "SourceLocation" => String.t(),
+        "SourceLocation" => String.t() | atom(),
         "SourceRepository" => list(any()),
         "SourceType" => list(any())
       }
       
   """
-  @type source_build_information() :: %{String.t() => any()}
+  @type source_build_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_storage_location_result_message() :: %{
-        "S3Bucket" => String.t()
+        "S3Bucket" => String.t() | atom()
       }
       
   """
-  @type create_storage_location_result_message() :: %{String.t() => any()}
+  @type create_storage_location_result_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_configuration_templates_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type too_many_configuration_templates_exception() :: %{String.t() => any()}
+  @type too_many_configuration_templates_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       launch_configuration() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type launch_configuration() :: %{String.t() => any()}
+  @type launch_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_configuration_template_message() :: %{
-        optional("Description") => String.t(),
-        optional("EnvironmentId") => String.t(),
+        optional("Description") => String.t() | atom(),
+        optional("EnvironmentId") => String.t() | atom(),
         optional("OptionSettings") => list(configuration_option_setting()),
-        optional("PlatformArn") => String.t(),
-        optional("SolutionStackName") => String.t(),
+        optional("PlatformArn") => String.t() | atom(),
+        optional("SolutionStackName") => String.t() | atom(),
         optional("SourceConfiguration") => source_configuration(),
         optional("Tags") => list(tag()),
-        required("ApplicationName") => String.t(),
-        required("TemplateName") => String.t()
+        required("ApplicationName") => String.t() | atom(),
+        required("TemplateName") => String.t() | atom()
       }
       
   """
-  @type create_configuration_template_message() :: %{String.t() => any()}
+  @type create_configuration_template_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1759,52 +1759,52 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type delete_platform_version_result() :: %{String.t() => any()}
+  @type delete_platform_version_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_platform_version_request() :: %{
-        optional("PlatformArn") => String.t()
+        optional("PlatformArn") => String.t() | atom()
       }
       
   """
-  @type describe_platform_version_request() :: %{String.t() => any()}
+  @type describe_platform_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application_version_description() :: %{
-        "ApplicationName" => String.t(),
-        "ApplicationVersionArn" => String.t(),
-        "BuildArn" => String.t(),
+        "ApplicationName" => String.t() | atom(),
+        "ApplicationVersionArn" => String.t() | atom(),
+        "BuildArn" => String.t() | atom(),
         "DateCreated" => non_neg_integer(),
         "DateUpdated" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "SourceBuildInformation" => source_build_information(),
         "SourceBundle" => s3_location(),
         "Status" => list(any()),
-        "VersionLabel" => String.t()
+        "VersionLabel" => String.t() | atom()
       }
       
   """
-  @type application_version_description() :: %{String.t() => any()}
+  @type application_version_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_environment_managed_action_history_request() :: %{
-        optional("EnvironmentId") => String.t(),
-        optional("EnvironmentName") => String.t(),
+        optional("EnvironmentId") => String.t() | atom(),
+        optional("EnvironmentName") => String.t() | atom(),
         optional("MaxItems") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_environment_managed_action_history_request() :: %{String.t() => any()}
+  @type describe_environment_managed_action_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1819,78 +1819,78 @@ defmodule AWS.ElasticBeanstalk do
       }
       
   """
-  @type resource_quotas() :: %{String.t() => any()}
+  @type resource_quotas() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_application_message() :: %{
-        optional("Description") => String.t(),
-        required("ApplicationName") => String.t()
+        optional("Description") => String.t() | atom(),
+        required("ApplicationName") => String.t() | atom()
       }
       
   """
-  @type update_application_message() :: %{String.t() => any()}
+  @type update_application_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_application_version_message() :: %{
-        optional("Description") => String.t(),
-        required("ApplicationName") => String.t(),
-        required("VersionLabel") => String.t()
+        optional("Description") => String.t() | atom(),
+        required("ApplicationName") => String.t() | atom(),
+        required("VersionLabel") => String.t() | atom()
       }
       
   """
-  @type update_application_version_message() :: %{String.t() => any()}
+  @type update_application_version_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_platform_versions_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "PlatformSummaryList" => list(platform_summary())
       }
       
   """
-  @type list_platform_versions_result() :: %{String.t() => any()}
+  @type list_platform_versions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_configuration_template_message() :: %{
-        required("ApplicationName") => String.t(),
-        required("TemplateName") => String.t()
+        required("ApplicationName") => String.t() | atom(),
+        required("TemplateName") => String.t() | atom()
       }
       
   """
-  @type delete_configuration_template_message() :: %{String.t() => any()}
+  @type delete_configuration_template_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       source_bundle_deletion_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type source_bundle_deletion_exception() :: %{String.t() => any()}
+  @type source_bundle_deletion_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       code_build_not_in_service_region_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type code_build_not_in_service_region_exception() :: %{String.t() => any()}
+  @type code_build_not_in_service_region_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1898,85 +1898,85 @@ defmodule AWS.ElasticBeanstalk do
       
       update_tags_for_resource_message() :: %{
         optional("TagsToAdd") => list(tag()),
-        optional("TagsToRemove") => list(String.t()),
-        required("ResourceArn") => String.t()
+        optional("TagsToRemove") => list(String.t() | atom()),
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type update_tags_for_resource_message() :: %{String.t() => any()}
+  @type update_tags_for_resource_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       restart_app_server_message() :: %{
-        optional("EnvironmentId") => String.t(),
-        optional("EnvironmentName") => String.t()
+        optional("EnvironmentId") => String.t() | atom(),
+        optional("EnvironmentName") => String.t() | atom()
       }
       
   """
-  @type restart_app_server_message() :: %{String.t() => any()}
+  @type restart_app_server_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tags_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_application_message() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("ResourceLifecycleConfig") => application_resource_lifecycle_config(),
         optional("Tags") => list(tag()),
-        required("ApplicationName") => String.t()
+        required("ApplicationName") => String.t() | atom()
       }
       
   """
-  @type create_application_message() :: %{String.t() => any()}
+  @type create_application_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application_resource_lifecycle_config() :: %{
-        "ServiceRole" => String.t(),
+        "ServiceRole" => String.t() | atom(),
         "VersionLifecycleConfig" => application_version_lifecycle_config()
       }
       
   """
-  @type application_resource_lifecycle_config() :: %{String.t() => any()}
+  @type application_resource_lifecycle_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_environment_message() :: %{
-        optional("CNAMEPrefix") => String.t(),
-        optional("Description") => String.t(),
-        optional("EnvironmentName") => String.t(),
-        optional("GroupName") => String.t(),
-        optional("OperationsRole") => String.t(),
+        optional("CNAMEPrefix") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("EnvironmentName") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom(),
+        optional("OperationsRole") => String.t() | atom(),
         optional("OptionSettings") => list(configuration_option_setting()),
         optional("OptionsToRemove") => list(option_specification()),
-        optional("PlatformArn") => String.t(),
-        optional("SolutionStackName") => String.t(),
+        optional("PlatformArn") => String.t() | atom(),
+        optional("SolutionStackName") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("TemplateName") => String.t(),
+        optional("TemplateName") => String.t() | atom(),
         optional("Tier") => environment_tier(),
-        optional("VersionLabel") => String.t(),
-        required("ApplicationName") => String.t()
+        optional("VersionLabel") => String.t() | atom(),
+        required("ApplicationName") => String.t() | atom()
       }
       
   """
-  @type create_environment_message() :: %{String.t() => any()}
+  @type create_environment_message() :: %{(String.t() | atom()) => any()}
 
   @type abort_environment_update_errors() :: insufficient_privileges_exception()
 
@@ -2111,7 +2111,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, abort_environment_update_errors()}
   def abort_environment_update(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AbortEnvironmentUpdate", input, options)
   end
@@ -2133,7 +2134,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, apply_environment_managed_action_errors()}
   def apply_environment_managed_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ApplyEnvironmentManagedAction", input, options)
   end
@@ -2158,7 +2160,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, associate_environment_operations_role_errors()}
   def associate_environment_operations_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateEnvironmentOperationsRole", input, options)
   end
@@ -2171,7 +2174,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def check_dns_availability(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckDNSAvailability", input, options)
   end
@@ -2195,7 +2199,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, compose_environments_errors()}
   def compose_environments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ComposeEnvironments", input, options)
   end
@@ -2210,7 +2215,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -2248,7 +2254,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_application_version_errors()}
   def create_application_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplicationVersion", input, options)
   end
@@ -2286,7 +2293,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_configuration_template_errors()}
   def create_configuration_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConfigurationTemplate", input, options)
   end
@@ -2302,7 +2310,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEnvironment", input, options)
   end
@@ -2316,7 +2325,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_platform_version_errors()}
   def create_platform_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePlatformVersion", input, options)
   end
@@ -2338,7 +2348,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_storage_location_errors()}
   def create_storage_location(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStorageLocation", input, options)
   end
@@ -2358,7 +2369,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
@@ -2375,7 +2387,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, delete_application_version_errors()}
   def delete_application_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplicationVersion", input, options)
   end
@@ -2395,7 +2408,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, delete_configuration_template_errors()}
   def delete_configuration_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConfigurationTemplate", input, options)
   end
@@ -2420,7 +2434,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_environment_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEnvironmentConfiguration", input, options)
   end
@@ -2434,7 +2449,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, delete_platform_version_errors()}
   def delete_platform_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePlatformVersion", input, options)
   end
@@ -2452,7 +2468,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_account_attributes_errors()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
@@ -2465,7 +2482,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_application_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplicationVersions", input, options)
   end
@@ -2478,7 +2496,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplications", input, options)
   end
@@ -2498,7 +2517,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_configuration_options_errors()}
   def describe_configuration_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationOptions", input, options)
   end
@@ -2529,7 +2549,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_configuration_settings_errors()}
   def describe_configuration_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationSettings", input, options)
   end
@@ -2547,7 +2568,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_environment_health_errors()}
   def describe_environment_health(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentHealth", input, options)
   end
@@ -2565,7 +2587,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_environment_managed_action_history_errors()}
   def describe_environment_managed_action_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentManagedActionHistory", input, options)
   end
@@ -2583,7 +2606,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_environment_managed_actions_errors()}
   def describe_environment_managed_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentManagedActions", input, options)
   end
@@ -2597,7 +2621,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_environment_resources_errors()}
   def describe_environment_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentResources", input, options)
   end
@@ -2610,7 +2635,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_environments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEnvironments", input, options)
   end
@@ -2626,7 +2652,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -2643,7 +2670,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_instances_health_errors()}
   def describe_instances_health(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstancesHealth", input, options)
   end
@@ -2665,7 +2693,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_platform_version_errors()}
   def describe_platform_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePlatformVersion", input, options)
   end
@@ -2690,7 +2719,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, disassociate_environment_operations_role_errors()}
   def disassociate_environment_operations_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateEnvironmentOperationsRole", input, options)
   end
@@ -2705,7 +2735,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_available_solution_stacks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAvailableSolutionStacks", input, options)
   end
@@ -2725,7 +2756,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_platform_branches(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPlatformBranches", input, options)
   end
@@ -2748,7 +2780,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, list_platform_versions_errors()}
   def list_platform_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPlatformVersions", input, options)
   end
@@ -2768,7 +2801,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2784,7 +2818,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, rebuild_environment_errors()}
   def rebuild_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebuildEnvironment", input, options)
   end
@@ -2815,7 +2850,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def request_environment_info(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RequestEnvironmentInfo", input, options)
   end
@@ -2830,7 +2866,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def restart_app_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestartAppServer", input, options)
   end
@@ -2850,7 +2887,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def retrieve_environment_info(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RetrieveEnvironmentInfo", input, options)
   end
@@ -2863,7 +2901,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def swap_environment_cnames(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SwapEnvironmentCNAMEs", input, options)
   end
@@ -2877,7 +2916,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, terminate_environment_errors()}
   def terminate_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateEnvironment", input, options)
   end
@@ -2893,7 +2933,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end
@@ -2911,7 +2952,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, update_application_resource_lifecycle_errors()}
   def update_application_resource_lifecycle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplicationResourceLifecycle", input, options)
   end
@@ -2927,7 +2969,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def update_application_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplicationVersion", input, options)
   end
@@ -2951,7 +2994,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, update_configuration_template_errors()}
   def update_configuration_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConfigurationTemplate", input, options)
   end
@@ -2979,7 +3023,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEnvironment", input, options)
   end
@@ -3021,7 +3066,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, update_tags_for_resource_errors()}
   def update_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTagsForResource", input, options)
   end
@@ -3040,7 +3086,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, validate_configuration_settings_errors()}
   def validate_configuration_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ValidateConfigurationSettings", input, options)
   end

@@ -32,11 +32,11 @@ defmodule AWS.ARCZonalShift do
 
       list_managed_resources_response() :: %{
         "items" => list(managed_resource_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_managed_resources_response() :: %{String.t() => any()}
+  @type list_managed_resources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -44,16 +44,16 @@ defmodule AWS.ARCZonalShift do
 
       get_managed_resource_response() :: %{
         "appliedWeights" => map(),
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "autoshifts" => list(autoshift_in_resource()),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "practiceRunConfiguration" => practice_run_configuration(),
         "zonalAutoshiftStatus" => list(any()),
         "zonalShifts" => list(zonal_shift_in_resource())
       }
 
   """
-  @type get_managed_resource_response() :: %{String.t() => any()}
+  @type get_managed_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -61,50 +61,50 @@ defmodule AWS.ARCZonalShift do
 
       list_zonal_shifts_response() :: %{
         "items" => list(zonal_shift_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_zonal_shifts_response() :: %{String.t() => any()}
+  @type list_zonal_shifts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_zonal_shift_request() :: %{
-        optional("comment") => String.t(),
-        optional("expiresIn") => String.t()
+        optional("comment") => String.t() | atom(),
+        optional("expiresIn") => String.t() | atom()
       }
 
   """
-  @type update_zonal_shift_request() :: %{String.t() => any()}
+  @type update_zonal_shift_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_practice_run_request() :: %{
-        required("awayFrom") => String.t(),
-        required("comment") => String.t(),
-        required("resourceIdentifier") => String.t()
+        required("awayFrom") => String.t() | atom(),
+        required("comment") => String.t() | atom(),
+        required("resourceIdentifier") => String.t() | atom()
       }
 
   """
-  @type start_practice_run_request() :: %{String.t() => any()}
+  @type start_practice_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       autoshift_summary() :: %{
-        "awayFrom" => String.t(),
+        "awayFrom" => String.t() | atom(),
         "endTime" => non_neg_integer(),
         "startTime" => non_neg_integer(),
         "status" => list(any())
       }
 
   """
-  @type autoshift_summary() :: %{String.t() => any()}
+  @type autoshift_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -112,29 +112,29 @@ defmodule AWS.ARCZonalShift do
 
       list_autoshifts_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         optional("status") => list(any())
       }
 
   """
-  @type list_autoshifts_request() :: %{String.t() => any()}
+  @type list_autoshifts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       zonal_shift() :: %{
-        required("awayFrom") => String.t(),
-        required("comment") => String.t(),
+        required("awayFrom") => String.t() | atom(),
+        required("comment") => String.t() | atom(),
         required("expiryTime") => non_neg_integer(),
-        required("resourceIdentifier") => String.t(),
+        required("resourceIdentifier") => String.t() | atom(),
         required("startTime") => non_neg_integer(),
         required("status") => list(any()),
-        required("zonalShiftId") => String.t()
+        required("zonalShiftId") => String.t() | atom()
       }
 
   """
-  @type zonal_shift() :: %{String.t() => any()}
+  @type zonal_shift() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -142,12 +142,12 @@ defmodule AWS.ARCZonalShift do
 
       autoshift_in_resource() :: %{
         "appliedStatus" => list(any()),
-        "awayFrom" => String.t(),
+        "awayFrom" => String.t() | atom(),
         "startTime" => non_neg_integer()
       }
 
   """
-  @type autoshift_in_resource() :: %{String.t() => any()}
+  @type autoshift_in_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -155,17 +155,17 @@ defmodule AWS.ARCZonalShift do
 
       managed_resource_summary() :: %{
         "appliedWeights" => map(),
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "autoshifts" => list(autoshift_in_resource()),
-        "availabilityZones" => list(String.t()),
-        "name" => String.t(),
+        "availabilityZones" => list(String.t() | atom()),
+        "name" => String.t() | atom(),
         "practiceRunStatus" => list(any()),
         "zonalAutoshiftStatus" => list(any()),
         "zonalShifts" => list(zonal_shift_in_resource())
       }
 
   """
-  @type managed_resource_summary() :: %{String.t() => any()}
+  @type managed_resource_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -176,26 +176,26 @@ defmodule AWS.ARCZonalShift do
       }
 
   """
-  @type update_zonal_autoshift_configuration_request() :: %{String.t() => any()}
+  @type update_zonal_autoshift_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       zonal_shift_summary() :: %{
-        "awayFrom" => String.t(),
-        "comment" => String.t(),
+        "awayFrom" => String.t() | atom(),
+        "comment" => String.t() | atom(),
         "expiryTime" => non_neg_integer(),
         "practiceRunOutcome" => list(any()),
-        "resourceIdentifier" => String.t(),
+        "resourceIdentifier" => String.t() | atom(),
         "shiftType" => list(any()),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
-        "zonalShiftId" => String.t()
+        "zonalShiftId" => String.t() | atom()
       }
 
   """
-  @type zonal_shift_summary() :: %{String.t() => any()}
+  @type zonal_shift_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -211,38 +211,38 @@ defmodule AWS.ARCZonalShift do
   ## Example:
 
       update_practice_run_configuration_request() :: %{
-        optional("blockedDates") => list(String.t()),
-        optional("blockedWindows") => list(String.t()),
+        optional("blockedDates") => list(String.t() | atom()),
+        optional("blockedWindows") => list(String.t() | atom()),
         optional("blockingAlarms") => list(control_condition()),
         optional("outcomeAlarms") => list(control_condition())
       }
 
   """
-  @type update_practice_run_configuration_request() :: %{String.t() => any()}
+  @type update_practice_run_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "reason" => list(any()),
-        "zonalShiftId" => [String.t()]
+        "zonalShiftId" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -250,18 +250,18 @@ defmodule AWS.ARCZonalShift do
 
       zonal_shift_in_resource() :: %{
         "appliedStatus" => list(any()),
-        "awayFrom" => String.t(),
-        "comment" => String.t(),
+        "awayFrom" => String.t() | atom(),
+        "comment" => String.t() | atom(),
         "expiryTime" => non_neg_integer(),
         "practiceRunOutcome" => list(any()),
-        "resourceIdentifier" => String.t(),
+        "resourceIdentifier" => String.t() | atom(),
         "shiftType" => list(any()),
         "startTime" => non_neg_integer(),
-        "zonalShiftId" => String.t()
+        "zonalShiftId" => String.t() | atom()
       }
 
   """
-  @type zonal_shift_in_resource() :: %{String.t() => any()}
+  @type zonal_shift_in_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -269,13 +269,13 @@ defmodule AWS.ARCZonalShift do
 
       list_zonal_shifts_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t()],
-        optional("resourceIdentifier") => String.t(),
+        optional("nextToken") => [String.t() | atom()],
+        optional("resourceIdentifier") => String.t() | atom(),
         optional("status") => list(any())
       }
 
   """
-  @type list_zonal_shifts_request() :: %{String.t() => any()}
+  @type list_zonal_shifts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -283,35 +283,35 @@ defmodule AWS.ARCZonalShift do
 
       list_managed_resources_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_managed_resources_request() :: %{String.t() => any()}
+  @type list_managed_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_zonal_autoshift_configuration_response() :: %{
-        "resourceIdentifier" => String.t(),
+        "resourceIdentifier" => String.t() | atom(),
         "zonalAutoshiftStatus" => list(any())
       }
 
   """
-  @type update_zonal_autoshift_configuration_response() :: %{String.t() => any()}
+  @type update_zonal_autoshift_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       control_condition() :: %{
-        "alarmIdentifier" => String.t(),
+        "alarmIdentifier" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type control_condition() :: %{String.t() => any()}
+  @type control_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -322,32 +322,34 @@ defmodule AWS.ARCZonalShift do
       }
 
   """
-  @type update_autoshift_observer_notification_status_response() :: %{String.t() => any()}
+  @type update_autoshift_observer_notification_status_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       create_practice_run_configuration_response() :: %{
-        "arn" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "practiceRunConfiguration" => practice_run_configuration(),
         "zonalAutoshiftStatus" => list(any())
       }
 
   """
-  @type create_practice_run_configuration_response() :: %{String.t() => any()}
+  @type create_practice_run_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -358,7 +360,9 @@ defmodule AWS.ARCZonalShift do
       }
 
   """
-  @type update_autoshift_observer_notification_status_request() :: %{String.t() => any()}
+  @type update_autoshift_observer_notification_status_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -378,7 +382,7 @@ defmodule AWS.ARCZonalShift do
       }
 
   """
-  @type get_autoshift_observer_notification_status_response() :: %{String.t() => any()}
+  @type get_autoshift_observer_notification_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -394,25 +398,25 @@ defmodule AWS.ARCZonalShift do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_zonal_shift_request() :: %{
-        required("awayFrom") => String.t(),
-        required("comment") => String.t(),
-        required("expiresIn") => String.t(),
-        required("resourceIdentifier") => String.t()
+        required("awayFrom") => String.t() | atom(),
+        required("comment") => String.t() | atom(),
+        required("expiresIn") => String.t() | atom(),
+        required("resourceIdentifier") => String.t() | atom()
       }
 
   """
-  @type start_zonal_shift_request() :: %{String.t() => any()}
+  @type start_zonal_shift_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -429,80 +433,80 @@ defmodule AWS.ARCZonalShift do
 
       list_autoshifts_response() :: %{
         "items" => list(autoshift_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_autoshifts_response() :: %{String.t() => any()}
+  @type list_autoshifts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_practice_run_configuration_response() :: %{
-        "arn" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "practiceRunConfiguration" => practice_run_configuration(),
         "zonalAutoshiftStatus" => list(any())
       }
 
   """
-  @type update_practice_run_configuration_response() :: %{String.t() => any()}
+  @type update_practice_run_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_practice_run_configuration_request() :: %{
-        optional("blockedDates") => list(String.t()),
-        optional("blockedWindows") => list(String.t()),
+        optional("blockedDates") => list(String.t() | atom()),
+        optional("blockedWindows") => list(String.t() | atom()),
         optional("blockingAlarms") => list(control_condition()),
         required("outcomeAlarms") => list(control_condition()),
-        required("resourceIdentifier") => String.t()
+        required("resourceIdentifier") => String.t() | atom()
       }
 
   """
-  @type create_practice_run_configuration_request() :: %{String.t() => any()}
+  @type create_practice_run_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_practice_run_response() :: %{
-        "awayFrom" => String.t(),
-        "comment" => String.t(),
+        "awayFrom" => String.t() | atom(),
+        "comment" => String.t() | atom(),
         "expiryTime" => non_neg_integer(),
-        "resourceIdentifier" => String.t(),
+        "resourceIdentifier" => String.t() | atom(),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
-        "zonalShiftId" => String.t()
+        "zonalShiftId" => String.t() | atom()
       }
 
   """
-  @type start_practice_run_response() :: %{String.t() => any()}
+  @type start_practice_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -518,44 +522,44 @@ defmodule AWS.ARCZonalShift do
   ## Example:
 
       practice_run_configuration() :: %{
-        "blockedDates" => list(String.t()),
-        "blockedWindows" => list(String.t()),
+        "blockedDates" => list(String.t() | atom()),
+        "blockedWindows" => list(String.t() | atom()),
         "blockingAlarms" => list(control_condition()),
         "outcomeAlarms" => list(control_condition())
       }
 
   """
-  @type practice_run_configuration() :: %{String.t() => any()}
+  @type practice_run_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_practice_run_configuration_response() :: %{
-        "arn" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "zonalAutoshiftStatus" => list(any())
       }
 
   """
-  @type delete_practice_run_configuration_response() :: %{String.t() => any()}
+  @type delete_practice_run_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_practice_run_response() :: %{
-        "awayFrom" => String.t(),
-        "comment" => String.t(),
+        "awayFrom" => String.t() | atom(),
+        "comment" => String.t() | atom(),
         "expiryTime" => non_neg_integer(),
-        "resourceIdentifier" => String.t(),
+        "resourceIdentifier" => String.t() | atom(),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
-        "zonalShiftId" => String.t()
+        "zonalShiftId" => String.t() | atom()
       }
 
   """
-  @type cancel_practice_run_response() :: %{String.t() => any()}
+  @type cancel_practice_run_response() :: %{(String.t() | atom()) => any()}
 
   @type cancel_practice_run_errors() ::
           throttling_exception()
@@ -683,7 +687,7 @@ defmodule AWS.ARCZonalShift do
   Cancel an in-progress practice run zonal shift in Amazon Application Recovery
   Controller.
   """
-  @spec cancel_practice_run(map(), String.t(), cancel_practice_run_request(), list()) ::
+  @spec cancel_practice_run(map(), String.t() | atom(), cancel_practice_run_request(), list()) ::
           {:ok, cancel_practice_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -718,7 +722,7 @@ defmodule AWS.ARCZonalShift do
   Services account in an Amazon Web Services Region, or it can be a zonal shift
   started by a practice run with zonal autoshift.
   """
-  @spec cancel_zonal_shift(map(), String.t(), cancel_zonal_shift_request(), list()) ::
+  @spec cancel_zonal_shift(map(), String.t() | atom(), cancel_zonal_shift_request(), list()) ::
           {:ok, zonal_shift(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -801,7 +805,7 @@ defmodule AWS.ARCZonalShift do
   """
   @spec delete_practice_run_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_practice_run_configuration_request(),
           list()
         ) ::
@@ -865,7 +869,7 @@ defmodule AWS.ARCZonalShift do
   Resources that are registered for zonal shifts are managed resources in ARC. You
   can start zonal shifts and configure zonal autoshift for managed resources.
   """
-  @spec get_managed_resource(map(), String.t(), list()) ::
+  @spec get_managed_resource(map(), String.t() | atom(), list()) ::
           {:ok, get_managed_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -886,7 +890,13 @@ defmodule AWS.ARCZonalShift do
   By default, the call returns only `ACTIVE` autoshifts. Optionally, you can
   specify the `status` parameter to return `COMPLETED` autoshifts.
   """
-  @spec list_autoshifts(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_autoshifts(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_autoshifts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -937,7 +947,12 @@ defmodule AWS.ARCZonalShift do
   the Amazon Resource Name (ARN), the Availability Zones that each resource is
   deployed in, and the resource name.
   """
-  @spec list_managed_resources(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_managed_resources(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_managed_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -984,10 +999,10 @@ defmodule AWS.ARCZonalShift do
   """
   @spec list_zonal_shifts(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_zonal_shifts_response(), any()}
@@ -1182,7 +1197,7 @@ defmodule AWS.ARCZonalShift do
   """
   @spec update_practice_run_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_practice_run_configuration_request(),
           list()
         ) ::
@@ -1233,7 +1248,7 @@ defmodule AWS.ARCZonalShift do
   """
   @spec update_zonal_autoshift_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_zonal_autoshift_configuration_request(),
           list()
         ) ::
@@ -1274,7 +1289,7 @@ defmodule AWS.ARCZonalShift do
   You can update a zonal shift to set a new expiration, or edit or replace the
   comment for the zonal shift.
   """
-  @spec update_zonal_shift(map(), String.t(), update_zonal_shift_request(), list()) ::
+  @spec update_zonal_shift(map(), String.t() | atom(), update_zonal_shift_request(), list()) ::
           {:ok, zonal_shift(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

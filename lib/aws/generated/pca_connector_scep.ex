@@ -18,10 +18,10 @@ defmodule AWS.PcaConnectorScep do
   ## Example:
 
       connector() :: %{
-        "Arn" => String.t(),
-        "CertificateAuthorityArn" => String.t(),
+        "Arn" => String.t() | atom(),
+        "CertificateAuthorityArn" => String.t() | atom(),
         "CreatedAt" => [non_neg_integer()],
-        "Endpoint" => [String.t()],
+        "Endpoint" => [String.t() | atom()],
         "MobileDeviceManagement" => list(),
         "OpenIdConfiguration" => open_id_configuration(),
         "Status" => list(any()),
@@ -31,7 +31,7 @@ defmodule AWS.PcaConnectorScep do
       }
 
   """
-  @type connector() :: %{String.t() => any()}
+  @type connector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -42,7 +42,7 @@ defmodule AWS.PcaConnectorScep do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -50,11 +50,11 @@ defmodule AWS.PcaConnectorScep do
 
       list_connectors_response() :: %{
         "Connectors" => list(connector_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_connectors_response() :: %{String.t() => any()}
+  @type list_connectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -65,7 +65,7 @@ defmodule AWS.PcaConnectorScep do
       }
 
   """
-  @type create_challenge_response() :: %{String.t() => any()}
+  @type create_challenge_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -76,7 +76,7 @@ defmodule AWS.PcaConnectorScep do
       }
 
   """
-  @type get_challenge_metadata_response() :: %{String.t() => any()}
+  @type get_challenge_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -84,11 +84,11 @@ defmodule AWS.PcaConnectorScep do
 
       list_connectors_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_connectors_request() :: %{String.t() => any()}
+  @type list_connectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -104,91 +104,91 @@ defmodule AWS.PcaConnectorScep do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list([String.t()]())
+        required("TagKeys") => list([String.t() | atom()]())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_challenge_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => map(),
-        required("ConnectorArn") => String.t()
+        required("ConnectorArn") => String.t() | atom()
       }
 
   """
-  @type create_challenge_request() :: %{String.t() => any()}
+  @type create_challenge_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       challenge_metadata_summary() :: %{
-        "Arn" => String.t(),
-        "ConnectorArn" => String.t(),
+        "Arn" => String.t() | atom(),
+        "ConnectorArn" => String.t() | atom(),
         "CreatedAt" => [non_neg_integer()],
         "UpdatedAt" => [non_neg_integer()]
       }
 
   """
-  @type challenge_metadata_summary() :: %{String.t() => any()}
+  @type challenge_metadata_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => [String.t()],
-        "ResourceId" => [String.t()],
-        "ResourceType" => [String.t()]
+        "Message" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => [String.t()],
-        "ResourceId" => [String.t()],
-        "ResourceType" => [String.t()]
+        "Message" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => [String.t()],
-        "QuotaCode" => [String.t()],
-        "ResourceType" => [String.t()],
-        "ServiceCode" => [String.t()]
+        "Message" => [String.t() | atom()],
+        "QuotaCode" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()],
+        "ServiceCode" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       open_id_configuration() :: %{
-        "Audience" => [String.t()],
-        "Issuer" => [String.t()],
-        "Subject" => [String.t()]
+        "Audience" => [String.t() | atom()],
+        "Issuer" => [String.t() | atom()],
+        "Subject" => [String.t() | atom()]
       }
 
   """
-  @type open_id_configuration() :: %{String.t() => any()}
+  @type open_id_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -204,11 +204,11 @@ defmodule AWS.PcaConnectorScep do
   ## Example:
 
       create_connector_response() :: %{
-        "ConnectorArn" => String.t()
+        "ConnectorArn" => String.t() | atom()
       }
 
   """
-  @type create_connector_response() :: %{String.t() => any()}
+  @type create_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -219,22 +219,22 @@ defmodule AWS.PcaConnectorScep do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       challenge() :: %{
-        "Arn" => String.t(),
-        "ConnectorArn" => String.t(),
+        "Arn" => String.t() | atom(),
+        "ConnectorArn" => String.t() | atom(),
         "CreatedAt" => [non_neg_integer()],
-        "Password" => String.t(),
+        "Password" => String.t() | atom(),
         "UpdatedAt" => [non_neg_integer()]
       }
 
   """
-  @type challenge() :: %{String.t() => any()}
+  @type challenge() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -250,46 +250,46 @@ defmodule AWS.PcaConnectorScep do
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_connector_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("MobileDeviceManagement") => list(),
         optional("Tags") => map(),
-        required("CertificateAuthorityArn") => String.t()
+        required("CertificateAuthorityArn") => String.t() | atom()
       }
 
   """
-  @type create_connector_request() :: %{String.t() => any()}
+  @type create_connector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_summary() :: %{
-        "Arn" => String.t(),
-        "CertificateAuthorityArn" => String.t(),
+        "Arn" => String.t() | atom(),
+        "CertificateAuthorityArn" => String.t() | atom(),
         "CreatedAt" => [non_neg_integer()],
-        "Endpoint" => [String.t()],
+        "Endpoint" => [String.t() | atom()],
         "MobileDeviceManagement" => list(),
         "OpenIdConfiguration" => open_id_configuration(),
         "Status" => list(any()),
@@ -299,19 +299,19 @@ defmodule AWS.PcaConnectorScep do
       }
 
   """
-  @type connector_summary() :: %{String.t() => any()}
+  @type connector_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => [String.t()],
+        "Message" => [String.t() | atom()],
         "Reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -327,11 +327,11 @@ defmodule AWS.PcaConnectorScep do
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -342,7 +342,7 @@ defmodule AWS.PcaConnectorScep do
       }
 
   """
-  @type get_connector_response() :: %{String.t() => any()}
+  @type get_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -350,23 +350,23 @@ defmodule AWS.PcaConnectorScep do
 
       list_challenge_metadata_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ConnectorArn") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ConnectorArn") => String.t() | atom()
       }
 
   """
-  @type list_challenge_metadata_request() :: %{String.t() => any()}
+  @type list_challenge_metadata_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -382,14 +382,14 @@ defmodule AWS.PcaConnectorScep do
   ## Example:
 
       challenge_metadata() :: %{
-        "Arn" => String.t(),
-        "ConnectorArn" => String.t(),
+        "Arn" => String.t() | atom(),
+        "ConnectorArn" => String.t() | atom(),
         "CreatedAt" => [non_neg_integer()],
         "UpdatedAt" => [non_neg_integer()]
       }
 
   """
-  @type challenge_metadata() :: %{String.t() => any()}
+  @type challenge_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -405,12 +405,12 @@ defmodule AWS.PcaConnectorScep do
   ## Example:
 
       intune_configuration() :: %{
-        "AzureApplicationId" => String.t(),
-        "Domain" => String.t()
+        "AzureApplicationId" => String.t() | atom(),
+        "Domain" => String.t() | atom()
       }
 
   """
-  @type intune_configuration() :: %{String.t() => any()}
+  @type intune_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -418,22 +418,22 @@ defmodule AWS.PcaConnectorScep do
 
       list_challenge_metadata_response() :: %{
         "Challenges" => list(challenge_metadata_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_challenge_metadata_response() :: %{String.t() => any()}
+  @type list_challenge_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_challenge_password_response() :: %{
-        "Password" => String.t()
+        "Password" => String.t() | atom()
       }
 
   """
-  @type get_challenge_password_response() :: %{String.t() => any()}
+  @type get_challenge_password_response() :: %{(String.t() | atom()) => any()}
 
   @type create_challenge_errors() ::
           bad_request_exception()
@@ -621,7 +621,7 @@ defmodule AWS.PcaConnectorScep do
   Deletes the specified
   [Challenge](https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Challenge.html).
   """
-  @spec delete_challenge(map(), String.t(), delete_challenge_request(), list()) ::
+  @spec delete_challenge(map(), String.t() | atom(), delete_challenge_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -653,7 +653,7 @@ defmodule AWS.PcaConnectorScep do
 
   This operation also deletes any challenges associated with the connector.
   """
-  @spec delete_connector(map(), String.t(), delete_connector_request(), list()) ::
+  @spec delete_connector(map(), String.t() | atom(), delete_connector_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -683,7 +683,7 @@ defmodule AWS.PcaConnectorScep do
   Retrieves the metadata for the specified
   [Challenge](https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Challenge.html).
   """
-  @spec get_challenge_metadata(map(), String.t(), list()) ::
+  @spec get_challenge_metadata(map(), String.t() | atom(), list()) ::
           {:ok, get_challenge_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -702,7 +702,7 @@ defmodule AWS.PcaConnectorScep do
   Retrieves the challenge password for the specified
   [Challenge](https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Challenge.html).
   """
-  @spec get_challenge_password(map(), String.t(), list()) ::
+  @spec get_challenge_password(map(), String.t() | atom(), list()) ::
           {:ok, get_challenge_password_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -724,7 +724,7 @@ defmodule AWS.PcaConnectorScep do
   Calling this action returns important details about the connector, such as the
   public SCEP URL where your clients can request certificates.
   """
-  @spec get_connector(map(), String.t(), list()) ::
+  @spec get_connector(map(), String.t() | atom(), list()) ::
           {:ok, get_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -742,7 +742,13 @@ defmodule AWS.PcaConnectorScep do
   @doc """
   Retrieves the challenge metadata for the specified ARN.
   """
-  @spec list_challenge_metadata(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_challenge_metadata(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_challenge_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -787,7 +793,7 @@ defmodule AWS.PcaConnectorScep do
   @doc """
   Lists the connectors belonging to your Amazon Web Services account.
   """
-  @spec list_connectors(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_connectors(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_connectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -828,7 +834,7 @@ defmodule AWS.PcaConnectorScep do
   to 50 tags for a
   resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -846,7 +852,7 @@ defmodule AWS.PcaConnectorScep do
   @doc """
   Adds one or more tags to your resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -875,7 +881,7 @@ defmodule AWS.PcaConnectorScep do
   @doc """
   Removes one or more tags from your resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

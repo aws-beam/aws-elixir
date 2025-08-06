@@ -20,26 +20,26 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       managed_thing_association() :: %{
-        "AccountAssociationId" => String.t(),
-        "ManagedThingId" => String.t()
+        "AccountAssociationId" => String.t() | atom(),
+        "ManagedThingId" => String.t() | atom()
       }
 
   """
-  @type managed_thing_association() :: %{String.t() => any()}
+  @type managed_thing_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       capability_action() :: %{
-        "actionTraceId" => String.t(),
-        "name" => String.t(),
+        "actionTraceId" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "parameters" => any(),
-        "ref" => String.t()
+        "ref" => String.t() | atom()
       }
 
   """
-  @type capability_action() :: %{String.t() => any()}
+  @type capability_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -47,11 +47,11 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_destinations_response() :: %{
         "DestinationList" => list(destination_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_destinations_response() :: %{String.t() => any()}
+  @type list_destinations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -60,11 +60,11 @@ defmodule AWS.IoTManagedIntegrations do
       put_default_encryption_configuration_response() :: %{
         "configurationStatus" => configuration_status(),
         "encryptionType" => list(any()),
-        "kmsKeyArn" => String.t()
+        "kmsKeyArn" => String.t() | atom()
       }
 
   """
-  @type put_default_encryption_configuration_response() :: %{String.t() => any()}
+  @type put_default_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -74,11 +74,11 @@ defmodule AWS.IoTManagedIntegrations do
         "attributes" => any(),
         "commands" => map(),
         "events" => map(),
-        "id" => String.t()
+        "id" => String.t() | atom()
       }
 
   """
-  @type matter_cluster() :: %{String.t() => any()}
+  @type matter_cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -90,7 +90,7 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type get_hub_configuration_response() :: %{String.t() => any()}
+  @type get_hub_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -98,27 +98,27 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_device_discoveries_response() :: %{
         "Items" => list(device_discovery_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_device_discoveries_response() :: %{String.t() => any()}
+  @type list_device_discoveries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_provisioning_profile_response() :: %{
-        "Arn" => String.t(),
-        "ClaimCertificate" => String.t(),
-        "ClaimCertificatePrivateKey" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Arn" => String.t() | atom(),
+        "ClaimCertificate" => String.t() | atom(),
+        "ClaimCertificatePrivateKey" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ProvisioningType" => list(any())
       }
 
   """
-  @type create_provisioning_profile_response() :: %{String.t() => any()}
+  @type create_provisioning_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -126,24 +126,24 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_ota_task_executions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_ota_task_executions_request() :: %{String.t() => any()}
+  @type list_ota_task_executions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       send_managed_thing_command_request() :: %{
-        optional("AccountAssociationId") => String.t(),
-        optional("ConnectorAssociationId") => String.t(),
+        optional("AccountAssociationId") => String.t() | atom(),
+        optional("ConnectorAssociationId") => String.t() | atom(),
         required("Endpoints") => list(command_endpoint())
       }
 
   """
-  @type send_managed_thing_command_request() :: %{String.t() => any()}
+  @type send_managed_thing_command_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -154,7 +154,7 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type put_runtime_log_configuration_request() :: %{String.t() => any()}
+  @type put_runtime_log_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -165,7 +165,7 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type auth_config_update() :: %{String.t() => any()}
+  @type auth_config_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -176,45 +176,45 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       schema_version_list_item() :: %{
-        "Description" => String.t(),
-        "Namespace" => String.t(),
-        "SchemaId" => String.t(),
-        "SemanticVersion" => String.t(),
+        "Description" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
+        "SchemaId" => String.t() | atom(),
+        "SemanticVersion" => String.t() | atom(),
         "Type" => list(any()),
         "Visibility" => list(any())
       }
 
   """
-  @type schema_version_list_item() :: %{String.t() => any()}
+  @type schema_version_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_destination_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_destination_response() :: %{String.t() => any()}
+  @type create_destination_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_failure_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_failure_exception() :: %{String.t() => any()}
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -235,65 +235,65 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type proactive_refresh_token_renewal() :: %{String.t() => any()}
+  @type proactive_refresh_token_renewal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_managed_thing_account_associations_request() :: %{
-        optional("AccountAssociationId") => String.t(),
-        optional("ManagedThingId") => String.t(),
+        optional("AccountAssociationId") => String.t() | atom(),
+        optional("ManagedThingId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_managed_thing_account_associations_request() :: %{String.t() => any()}
+  @type list_managed_thing_account_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       o_auth_config() :: %{
-        "authUrl" => String.t(),
-        "oAuthCompleteRedirectUrl" => [String.t()],
+        "authUrl" => String.t() | atom(),
+        "oAuthCompleteRedirectUrl" => [String.t() | atom()],
         "proactiveRefreshTokenRenewal" => proactive_refresh_token_renewal(),
-        "scope" => [String.t()],
+        "scope" => [String.t() | atom()],
         "tokenEndpointAuthenticationScheme" => list(any()),
-        "tokenUrl" => String.t()
+        "tokenUrl" => String.t() | atom()
       }
 
   """
-  @type o_auth_config() :: %{String.t() => any()}
+  @type o_auth_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_connector_destination_response() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | atom()
       }
 
   """
-  @type create_connector_destination_response() :: %{String.t() => any()}
+  @type create_connector_destination_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_destination_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
-        required("DeliveryDestinationArn") => String.t(),
+        required("DeliveryDestinationArn") => String.t() | atom(),
         required("DeliveryDestinationType") => list(any()),
-        required("Name") => String.t(),
-        required("RoleArn") => String.t()
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
       }
 
   """
-  @type create_destination_request() :: %{String.t() => any()}
+  @type create_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -309,45 +309,45 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       unauthorized_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_cloud_connector_request() :: %{
-        optional("Description") => String.t(),
-        optional("Name") => String.t()
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_cloud_connector_request() :: %{String.t() => any()}
+  @type update_cloud_connector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_ota_task_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("OtaMechanism") => list(any()),
         optional("OtaSchedulingConfig") => ota_task_scheduling_config(),
-        optional("OtaTargetQueryString") => String.t(),
+        optional("OtaTargetQueryString") => String.t() | atom(),
         optional("OtaTaskExecutionRetryConfig") => ota_task_execution_retry_config(),
         optional("Protocol") => list(any()),
         optional("Tags") => map(),
-        optional("Target") => list([String.t()]()),
-        optional("TaskConfigurationId") => String.t(),
+        optional("Target") => list([String.t() | atom()]()),
+        optional("TaskConfigurationId") => String.t() | atom(),
         required("OtaType") => list(any()),
-        required("S3Url") => String.t()
+        required("S3Url") => String.t() | atom()
       }
 
   """
-  @type create_ota_task_request() :: %{String.t() => any()}
+  @type create_ota_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -359,7 +359,7 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type retry_config_criteria() :: %{String.t() => any()}
+  @type retry_config_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -367,32 +367,32 @@ defmodule AWS.IoTManagedIntegrations do
 
       matter_capability_report_cluster() :: %{
         "attributes" => list(matter_capability_report_attribute()),
-        "commands" => list(String.t()),
-        "events" => list(String.t()),
+        "commands" => list(String.t() | atom()),
+        "events" => list(String.t() | atom()),
         "fabricIndex" => integer(),
         "featureMap" => float(),
-        "generatedCommands" => list(String.t()),
-        "id" => String.t(),
-        "name" => String.t(),
-        "publicId" => String.t(),
+        "generatedCommands" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "publicId" => String.t() | atom(),
         "revision" => integer(),
-        "specVersion" => String.t()
+        "specVersion" => String.t() | atom()
       }
 
   """
-  @type matter_capability_report_cluster() :: %{String.t() => any()}
+  @type matter_capability_report_cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       secrets_manager() :: %{
-        "arn" => String.t(),
-        "versionId" => String.t()
+        "arn" => String.t() | atom(),
+        "versionId" => String.t() | atom()
       }
 
   """
-  @type secrets_manager() :: %{String.t() => any()}
+  @type secrets_manager() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -400,26 +400,26 @@ defmodule AWS.IoTManagedIntegrations do
 
       get_ota_task_configuration_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "PushConfig" => push_config(),
-        "TaskConfigurationId" => String.t()
+        "TaskConfigurationId" => String.t() | atom()
       }
 
   """
-  @type get_ota_task_configuration_response() :: %{String.t() => any()}
+  @type get_ota_task_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_ota_task_request() :: %{
-        optional("Description") => String.t(),
-        optional("TaskConfigurationId") => String.t()
+        optional("Description") => String.t() | atom(),
+        optional("TaskConfigurationId") => String.t() | atom()
       }
 
   """
-  @type update_ota_task_request() :: %{String.t() => any()}
+  @type update_ota_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -439,7 +439,7 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type ota_task_execution_retry_config() :: %{String.t() => any()}
+  @type ota_task_execution_retry_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -456,13 +456,13 @@ defmodule AWS.IoTManagedIntegrations do
 
       event_log_configuration_summary() :: %{
         "EventLogLevel" => list(any()),
-        "Id" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t()
+        "Id" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type event_log_configuration_summary() :: %{String.t() => any()}
+  @type event_log_configuration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -470,17 +470,17 @@ defmodule AWS.IoTManagedIntegrations do
 
       get_destination_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DeliveryDestinationArn" => String.t(),
+        "DeliveryDestinationArn" => String.t() | atom(),
         "DeliveryDestinationType" => list(any()),
-        "Description" => String.t(),
-        "Name" => String.t(),
-        "RoleArn" => String.t(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "Tags" => map(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type get_destination_response() :: %{String.t() => any()}
+  @type get_destination_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -492,26 +492,26 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type rollout_rate_increase_criteria() :: %{String.t() => any()}
+  @type rollout_rate_increase_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       discovered_device_summary() :: %{
-        "AuthenticationMaterial" => String.t(),
-        "Brand" => String.t(),
-        "ConnectorDeviceId" => String.t(),
-        "ConnectorDeviceName" => String.t(),
-        "DeviceTypes" => list(String.t()),
+        "AuthenticationMaterial" => String.t() | atom(),
+        "Brand" => String.t() | atom(),
+        "ConnectorDeviceId" => String.t() | atom(),
+        "ConnectorDeviceName" => String.t() | atom(),
+        "DeviceTypes" => list(String.t() | atom()),
         "DiscoveredAt" => non_neg_integer(),
-        "ManagedThingId" => String.t(),
-        "Model" => String.t(),
+        "ManagedThingId" => String.t() | atom(),
+        "Model" => String.t() | atom(),
         "Modification" => list(any())
       }
 
   """
-  @type discovered_device_summary() :: %{String.t() => any()}
+  @type discovered_device_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -537,11 +537,11 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_schema_versions_response() :: %{
         "Items" => list(schema_version_list_item()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_schema_versions_response() :: %{String.t() => any()}
+  @type list_schema_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -557,7 +557,7 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type ota_task_execution_summary() :: %{String.t() => any()}
+  @type ota_task_execution_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -573,13 +573,13 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       matter_capability_report_attribute() :: %{
-        "id" => String.t(),
-        "name" => String.t(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "value" => any()
       }
 
   """
-  @type matter_capability_report_attribute() :: %{String.t() => any()}
+  @type matter_capability_report_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -595,12 +595,12 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       start_device_discovery_response() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "StartedAt" => non_neg_integer()
       }
 
   """
-  @type start_device_discovery_response() :: %{String.t() => any()}
+  @type start_device_discovery_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -611,7 +611,7 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type put_hub_configuration_request() :: %{String.t() => any()}
+  @type put_hub_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -619,26 +619,26 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_cloud_connectors_response() :: %{
         "Items" => list(connector_item()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_cloud_connectors_response() :: %{String.t() => any()}
+  @type list_cloud_connectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_provisioning_profile_request() :: %{
-        optional("CaCertificate") => String.t(),
-        optional("ClientToken") => String.t(),
-        optional("Name") => String.t(),
+        optional("CaCertificate") => String.t() | atom(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
         optional("Tags") => map(),
         required("ProvisioningType") => list(any())
       }
 
   """
-  @type create_provisioning_profile_request() :: %{String.t() => any()}
+  @type create_provisioning_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -647,12 +647,12 @@ defmodule AWS.IoTManagedIntegrations do
       get_managed_thing_connectivity_data_response() :: %{
         "Connected" => boolean(),
         "DisconnectReason" => list(any()),
-        "ManagedThingId" => String.t(),
+        "ManagedThingId" => String.t() | atom(),
         "Timestamp" => non_neg_integer()
       }
 
   """
-  @type get_managed_thing_connectivity_data_response() :: %{String.t() => any()}
+  @type get_managed_thing_connectivity_data_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -660,11 +660,11 @@ defmodule AWS.IoTManagedIntegrations do
 
       state_endpoint() :: %{
         "capabilities" => list(state_capability()),
-        "endpointId" => String.t()
+        "endpointId" => String.t() | atom()
       }
 
   """
-  @type state_endpoint() :: %{String.t() => any()}
+  @type state_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -677,19 +677,19 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type exponential_rollout_rate() :: %{String.t() => any()}
+  @type exponential_rollout_rate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       o_auth_update() :: %{
-        "oAuthCompleteRedirectUrl" => [String.t()],
+        "oAuthCompleteRedirectUrl" => [String.t() | atom()],
         "proactiveRefreshTokenRenewal" => proactive_refresh_token_renewal()
       }
 
   """
-  @type o_auth_update() :: %{String.t() => any()}
+  @type o_auth_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -697,12 +697,12 @@ defmodule AWS.IoTManagedIntegrations do
 
       device_discovery_summary() :: %{
         "DiscoveryType" => list(any()),
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type device_discovery_summary() :: %{String.t() => any()}
+  @type device_discovery_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -710,11 +710,11 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_credential_lockers_response() :: %{
         "Items" => list(credential_locker_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_credential_lockers_response() :: %{String.t() => any()}
+  @type list_credential_lockers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -739,11 +739,11 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -756,7 +756,7 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type push_config() :: %{String.t() => any()}
+  @type push_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -773,11 +773,11 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_notification_configurations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_notification_configurations_request() :: %{String.t() => any()}
+  @type list_notification_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -795,16 +795,16 @@ defmodule AWS.IoTManagedIntegrations do
       get_connector_destination_response() :: %{
         "AuthConfig" => auth_config(),
         "AuthType" => list(any()),
-        "CloudConnectorId" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
-        "OAuthCompleteRedirectUrl" => String.t(),
+        "CloudConnectorId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OAuthCompleteRedirectUrl" => String.t() | atom(),
         "SecretsManager" => secrets_manager()
       }
 
   """
-  @type get_connector_destination_response() :: %{String.t() => any()}
+  @type get_connector_destination_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -812,12 +812,12 @@ defmodule AWS.IoTManagedIntegrations do
 
       ota_task_configuration_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Name" => String.t(),
-        "TaskConfigurationId" => String.t()
+        "Name" => String.t() | atom(),
+        "TaskConfigurationId" => String.t() | atom()
       }
 
   """
-  @type ota_task_configuration_summary() :: %{String.t() => any()}
+  @type ota_task_configuration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -829,7 +829,7 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type configuration_status() :: %{String.t() => any()}
+  @type configuration_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -837,27 +837,27 @@ defmodule AWS.IoTManagedIntegrations do
 
       get_notification_configuration_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DestinationName" => String.t(),
+        "DestinationName" => String.t() | atom(),
         "EventType" => list(any()),
         "Tags" => map(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type get_notification_configuration_response() :: %{String.t() => any()}
+  @type get_notification_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_credential_locker_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Name") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
         optional("Tags") => map()
       }
 
   """
-  @type create_credential_locker_request() :: %{String.t() => any()}
+  @type create_credential_locker_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -876,13 +876,13 @@ defmodule AWS.IoTManagedIntegrations do
         "CreatedAt" => non_neg_integer(),
         "LastUpdatedAt" => non_neg_integer(),
         "Status" => list(any()),
-        "TaskArn" => String.t(),
-        "TaskConfigurationId" => String.t(),
-        "TaskId" => String.t()
+        "TaskArn" => String.t() | atom(),
+        "TaskConfigurationId" => String.t() | atom(),
+        "TaskId" => String.t() | atom()
       }
 
   """
-  @type ota_task_summary() :: %{String.t() => any()}
+  @type ota_task_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -890,11 +890,11 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_ota_task_configurations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_ota_task_configurations_request() :: %{String.t() => any()}
+  @type list_ota_task_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -911,12 +911,12 @@ defmodule AWS.IoTManagedIntegrations do
 
       capability_report_endpoint() :: %{
         "capabilities" => list(capability_report_capability()),
-        "deviceTypes" => list(String.t()),
-        "id" => String.t()
+        "deviceTypes" => list(String.t() | atom()),
+        "id" => String.t() | atom()
       }
 
   """
-  @type capability_report_endpoint() :: %{String.t() => any()}
+  @type capability_report_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -924,11 +924,11 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_managed_thing_account_associations_response() :: %{
         "Items" => list(managed_thing_association()),
-        "NextToken" => [String.t()]
+        "NextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_managed_thing_account_associations_response() :: %{String.t() => any()}
+  @type list_managed_thing_account_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -936,11 +936,11 @@ defmodule AWS.IoTManagedIntegrations do
 
       matter_endpoint() :: %{
         "clusters" => list(matter_cluster()),
-        "id" => String.t()
+        "id" => String.t() | atom()
       }
 
   """
-  @type matter_endpoint() :: %{String.t() => any()}
+  @type matter_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -948,11 +948,11 @@ defmodule AWS.IoTManagedIntegrations do
 
       schedule_maintenance_window() :: %{
         "DurationInMinutes" => integer(),
-        "StartTime" => String.t()
+        "StartTime" => String.t() | atom()
       }
 
   """
-  @type schedule_maintenance_window() :: %{String.t() => any()}
+  @type schedule_maintenance_window() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -960,29 +960,29 @@ defmodule AWS.IoTManagedIntegrations do
 
       command_capability() :: %{
         "actions" => list(capability_action()),
-        "id" => String.t(),
-        "name" => String.t(),
-        "version" => String.t()
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type command_capability() :: %{String.t() => any()}
+  @type command_capability() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_cloud_connector_response() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "EndpointConfig" => endpoint_config(),
         "EndpointType" => list(any()),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type get_cloud_connector_response() :: %{String.t() => any()}
+  @type get_cloud_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -998,25 +998,25 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_ota_tasks_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Tasks" => list(ota_task_summary())
       }
 
   """
-  @type list_ota_tasks_response() :: %{String.t() => any()}
+  @type list_ota_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_managed_thing_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Id" => String.t()
+        "Id" => String.t() | atom()
       }
 
   """
-  @type create_managed_thing_response() :: %{String.t() => any()}
+  @type create_managed_thing_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1024,13 +1024,13 @@ defmodule AWS.IoTManagedIntegrations do
 
       ota_task_scheduling_config() :: %{
         "EndBehavior" => list(any()),
-        "EndTime" => String.t(),
+        "EndTime" => String.t() | atom(),
         "MaintenanceWindows" => list(schedule_maintenance_window()),
-        "StartTime" => String.t()
+        "StartTime" => String.t() | atom()
       }
 
   """
-  @type ota_task_scheduling_config() :: %{String.t() => any()}
+  @type ota_task_scheduling_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1046,25 +1046,25 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       credential_locker_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type credential_locker_summary() :: %{String.t() => any()}
+  @type credential_locker_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1075,20 +1075,20 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type put_hub_configuration_response() :: %{String.t() => any()}
+  @type put_hub_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1104,12 +1104,12 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_notification_configurations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "NotificationConfigurationList" => list(notification_configuration_summary())
       }
 
   """
-  @type list_notification_configurations_response() :: %{String.t() => any()}
+  @type list_notification_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1117,79 +1117,79 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_event_log_configurations_response() :: %{
         "EventLogConfigurationList" => list(event_log_configuration_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_event_log_configurations_response() :: %{String.t() => any()}
+  @type list_event_log_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       send_connector_event_request() :: %{
-        optional("ConnectorDeviceId") => String.t(),
-        optional("DeviceDiscoveryId") => String.t(),
+        optional("ConnectorDeviceId") => String.t() | atom(),
+        optional("DeviceDiscoveryId") => String.t() | atom(),
         optional("Devices") => list(device()),
         optional("MatterEndpoint") => matter_endpoint(),
-        optional("Message") => String.t(),
-        optional("OperationVersion") => String.t(),
+        optional("Message") => String.t() | atom(),
+        optional("OperationVersion") => String.t() | atom(),
         optional("StatusCode") => integer(),
-        optional("TraceId") => String.t(),
-        optional("UserId") => String.t(),
+        optional("TraceId") => String.t() | atom(),
+        optional("UserId") => String.t() | atom(),
         required("Operation") => list(any())
       }
 
   """
-  @type send_connector_event_request() :: %{String.t() => any()}
+  @type send_connector_event_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_account_association_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
         optional("Tags") => map(),
-        required("ConnectorDestinationId") => String.t()
+        required("ConnectorDestinationId") => String.t() | atom()
       }
 
   """
-  @type create_account_association_request() :: %{String.t() => any()}
+  @type create_account_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_custom_endpoint_response() :: %{
-        "EndpointAddress" => String.t()
+        "EndpointAddress" => String.t() | atom()
       }
 
   """
-  @type get_custom_endpoint_response() :: %{String.t() => any()}
+  @type get_custom_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_event_log_configuration_response() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | atom()
       }
 
   """
-  @type create_event_log_configuration_response() :: %{String.t() => any()}
+  @type create_event_log_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1198,11 +1198,11 @@ defmodule AWS.IoTManagedIntegrations do
       get_default_encryption_configuration_response() :: %{
         "configurationStatus" => configuration_status(),
         "encryptionType" => list(any()),
-        "kmsKeyArn" => String.t()
+        "kmsKeyArn" => String.t() | atom()
       }
 
   """
-  @type get_default_encryption_configuration_response() :: %{String.t() => any()}
+  @type get_default_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1227,11 +1227,11 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1251,80 +1251,80 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type ota_task_abort_config() :: %{String.t() => any()}
+  @type ota_task_abort_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account_association_item() :: %{
-        "AccountAssociationId" => String.t(),
-        "Arn" => String.t(),
+        "AccountAssociationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
         "AssociationState" => list(any()),
-        "ConnectorDestinationId" => String.t(),
-        "Description" => String.t(),
-        "ErrorMessage" => String.t(),
-        "Name" => String.t()
+        "ConnectorDestinationId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type account_association_item() :: %{String.t() => any()}
+  @type account_association_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ota_task_execution_summaries() :: %{
-        "ManagedThingId" => String.t(),
+        "ManagedThingId" => String.t() | atom(),
         "TaskExecutionSummary" => ota_task_execution_summary()
       }
 
   """
-  @type ota_task_execution_summaries() :: %{String.t() => any()}
+  @type ota_task_execution_summaries() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       destination_summary() :: %{
-        "DeliveryDestinationArn" => String.t(),
+        "DeliveryDestinationArn" => String.t() | atom(),
         "DeliveryDestinationType" => list(any()),
-        "Description" => String.t(),
-        "Name" => String.t(),
-        "RoleArn" => String.t()
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
       }
 
   """
-  @type destination_summary() :: %{String.t() => any()}
+  @type destination_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       capability_schema_item() :: %{
-        "CapabilityId" => String.t(),
-        "ExtrinsicId" => String.t(),
+        "CapabilityId" => String.t() | atom(),
+        "ExtrinsicId" => String.t() | atom(),
         "ExtrinsicVersion" => integer(),
         "Format" => list(any()),
         "Schema" => any()
       }
 
   """
-  @type capability_schema_item() :: %{String.t() => any()}
+  @type capability_schema_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_notification_configuration_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => map(),
-        required("DestinationName") => String.t(),
+        required("DestinationName") => String.t() | atom(),
         required("EventType") => list(any())
       }
 
   """
-  @type create_notification_configuration_request() :: %{String.t() => any()}
+  @type create_notification_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1349,11 +1349,11 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       create_cloud_connector_response() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | atom()
       }
 
   """
-  @type create_cloud_connector_response() :: %{String.t() => any()}
+  @type create_cloud_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1364,7 +1364,7 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1381,50 +1381,50 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_destinations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_destinations_request() :: %{String.t() => any()}
+  @type list_destinations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       send_managed_thing_command_response() :: %{
-        "TraceId" => String.t()
+        "TraceId" => String.t() | atom()
       }
 
   """
-  @type send_managed_thing_command_response() :: %{String.t() => any()}
+  @type send_managed_thing_command_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_notification_configuration_request() :: %{
-        required("DestinationName") => String.t()
+        required("DestinationName") => String.t() | atom()
       }
 
   """
-  @type update_notification_configuration_request() :: %{String.t() => any()}
+  @type update_notification_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_connector_destination_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
         required("AuthConfig") => auth_config(),
         required("AuthType") => list(any()),
-        required("CloudConnectorId") => String.t(),
+        required("CloudConnectorId") => String.t() | atom(),
         required("SecretsManager") => secrets_manager()
       }
 
   """
-  @type create_connector_destination_request() :: %{String.t() => any()}
+  @type create_connector_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1435,7 +1435,7 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type get_managed_thing_state_response() :: %{String.t() => any()}
+  @type get_managed_thing_state_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1446,18 +1446,18 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type create_notification_configuration_response() :: %{String.t() => any()}
+  @type create_notification_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1473,77 +1473,77 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       create_event_log_configuration_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("ResourceId") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("ResourceId") => String.t() | atom(),
         required("EventLogLevel") => list(any()),
-        required("ResourceType") => String.t()
+        required("ResourceType") => String.t() | atom()
       }
 
   """
-  @type create_event_log_configuration_request() :: %{String.t() => any()}
+  @type create_event_log_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_managed_thing_request() :: %{
-        optional("Brand") => String.t(),
-        optional("Capabilities") => String.t(),
+        optional("Brand") => String.t() | atom(),
+        optional("Capabilities") => String.t() | atom(),
         optional("CapabilityReport") => capability_report(),
         optional("CapabilitySchemas") => list(capability_schema_item()),
-        optional("Classification") => String.t(),
-        optional("CredentialLockerId") => String.t(),
+        optional("Classification") => String.t() | atom(),
+        optional("CredentialLockerId") => String.t() | atom(),
         optional("HubNetworkMode") => list(any()),
         optional("MetaData") => map(),
-        optional("Model") => String.t(),
-        optional("Name") => String.t(),
-        optional("Owner") => String.t(),
-        optional("SerialNumber") => String.t()
+        optional("Model") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Owner") => String.t() | atom(),
+        optional("SerialNumber") => String.t() | atom()
       }
 
   """
-  @type update_managed_thing_request() :: %{String.t() => any()}
+  @type update_managed_thing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_ota_task_configuration_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
         optional("PushConfig") => push_config()
       }
 
   """
-  @type create_ota_task_configuration_request() :: %{String.t() => any()}
+  @type create_ota_task_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_credential_locker_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type get_credential_locker_response() :: %{String.t() => any()}
+  @type get_credential_locker_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_runtime_log_configuration_response() :: %{
-        "ManagedThingId" => String.t(),
+        "ManagedThingId" => String.t() | atom(),
         "RuntimeLogConfigurations" => runtime_log_configurations()
       }
 
   """
-  @type get_runtime_log_configuration_response() :: %{String.t() => any()}
+  @type get_runtime_log_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1551,11 +1551,11 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_account_associations_response() :: %{
         "Items" => list(account_association_item()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_account_associations_response() :: %{String.t() => any()}
+  @type list_account_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1563,23 +1563,23 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_ota_tasks_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_ota_tasks_request() :: %{String.t() => any()}
+  @type list_ota_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_managed_thing_meta_data_response() :: %{
-        "ManagedThingId" => String.t(),
+        "ManagedThingId" => String.t() | atom(),
         "MetaData" => map()
       }
 
   """
-  @type get_managed_thing_meta_data_response() :: %{String.t() => any()}
+  @type get_managed_thing_meta_data_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1587,11 +1587,11 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_connector_destinations_response() :: %{
         "ConnectorDestinationList" => list(connector_destination_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_connector_destinations_response() :: %{String.t() => any()}
+  @type list_connector_destinations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1599,11 +1599,11 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_event_log_configurations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_event_log_configurations_request() :: %{String.t() => any()}
+  @type list_event_log_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1614,36 +1614,36 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type endpoint_config() :: %{String.t() => any()}
+  @type endpoint_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_item() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "EndpointConfig" => endpoint_config(),
         "EndpointType" => list(any()),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type connector_item() :: %{String.t() => any()}
+  @type connector_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_ota_task_response() :: %{
-        "Description" => String.t(),
-        "TaskArn" => String.t(),
-        "TaskId" => String.t()
+        "Description" => String.t() | atom(),
+        "TaskArn" => String.t() | atom(),
+        "TaskId" => String.t() | atom()
       }
 
   """
-  @type create_ota_task_response() :: %{String.t() => any()}
+  @type create_ota_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1651,11 +1651,11 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_discovered_devices_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_discovered_devices_request() :: %{String.t() => any()}
+  @type list_discovered_devices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1670,11 +1670,11 @@ defmodule AWS.IoTManagedIntegrations do
         "numberOfRemovedThings" => [integer()],
         "numberOfSucceededThings" => [integer()],
         "numberOfTimedOutThings" => [integer()],
-        "processingTargets" => list([String.t()]())
+        "processingTargets" => list([String.t() | atom()]())
       }
 
   """
-  @type task_processing_details() :: %{String.t() => any()}
+  @type task_processing_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1682,36 +1682,36 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_provisioning_profiles_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_provisioning_profiles_request() :: %{String.t() => any()}
+  @type list_provisioning_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_destination_request() :: %{
-        optional("DeliveryDestinationArn") => String.t(),
+        optional("DeliveryDestinationArn") => String.t() | atom(),
         optional("DeliveryDestinationType") => list(any()),
-        optional("Description") => String.t(),
-        optional("RoleArn") => String.t()
+        optional("Description") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom()
       }
 
   """
-  @type update_destination_request() :: %{String.t() => any()}
+  @type update_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1719,26 +1719,26 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_schema_versions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("Namespace") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("SchemaId") => String.t(),
-        optional("SemanticVersion") => String.t(),
+        optional("Namespace") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SchemaId") => String.t() | atom(),
+        optional("SemanticVersion") => String.t() | atom(),
         optional("Visibility") => list(any())
       }
 
   """
-  @type list_schema_versions_request() :: %{String.t() => any()}
+  @type list_schema_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_account_association_refresh_response() :: %{
-        "OAuthAuthorizationUrl" => String.t()
+        "OAuthAuthorizationUrl" => String.t() | atom()
       }
 
   """
-  @type start_account_association_refresh_response() :: %{String.t() => any()}
+  @type start_account_association_refresh_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1746,13 +1746,13 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_device_discoveries_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("StatusFilter") => list(any()),
         optional("TypeFilter") => list(any())
       }
 
   """
-  @type list_device_discoveries_request() :: %{String.t() => any()}
+  @type list_device_discoveries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1768,19 +1768,19 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       start_device_discovery_request() :: %{
-        optional("AccountAssociationId") => String.t(),
-        optional("AuthenticationMaterial") => String.t(),
+        optional("AccountAssociationId") => String.t() | atom(),
+        optional("AuthenticationMaterial") => String.t() | atom(),
         optional("AuthenticationMaterialType") => list(any()),
-        optional("ClientToken") => String.t(),
-        optional("ConnectorAssociationIdentifier") => String.t(),
-        optional("ControllerIdentifier") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("ConnectorAssociationIdentifier") => String.t() | atom(),
+        optional("ControllerIdentifier") => String.t() | atom(),
         optional("CustomProtocolDetail") => map(),
         optional("Tags") => map(),
         required("DiscoveryType") => list(any())
       }
 
   """
-  @type start_device_discovery_request() :: %{String.t() => any()}
+  @type start_device_discovery_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1788,45 +1788,45 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_managed_thing_schemas_response() :: %{
         "Items" => list(managed_thing_schema_list_item()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_managed_thing_schemas_response() :: %{String.t() => any()}
+  @type list_managed_thing_schemas_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       provisioning_profile_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ProvisioningType" => list(any())
       }
 
   """
-  @type provisioning_profile_summary() :: %{String.t() => any()}
+  @type provisioning_profile_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_device_discovery_response() :: %{
-        "AccountAssociationId" => String.t(),
-        "Arn" => String.t(),
-        "ConnectorAssociationId" => String.t(),
-        "ControllerId" => String.t(),
+        "AccountAssociationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "ConnectorAssociationId" => String.t() | atom(),
+        "ControllerId" => String.t() | atom(),
         "DiscoveryType" => list(any()),
         "FinishedAt" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "StartedAt" => non_neg_integer(),
         "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type get_device_discovery_response() :: %{String.t() => any()}
+  @type get_device_discovery_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1834,28 +1834,28 @@ defmodule AWS.IoTManagedIntegrations do
 
       managed_thing_summary() :: %{
         "ActivatedAt" => non_neg_integer(),
-        "AdvertisedProductId" => String.t(),
-        "Arn" => String.t(),
-        "Brand" => String.t(),
-        "Classification" => String.t(),
-        "ConnectorDestinationId" => String.t(),
-        "ConnectorDeviceId" => String.t(),
-        "ConnectorPolicyId" => String.t(),
+        "AdvertisedProductId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "Brand" => String.t() | atom(),
+        "Classification" => String.t() | atom(),
+        "ConnectorDestinationId" => String.t() | atom(),
+        "ConnectorDeviceId" => String.t() | atom(),
+        "ConnectorPolicyId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "CredentialLockerId" => String.t(),
-        "Id" => String.t(),
-        "Model" => String.t(),
-        "Name" => String.t(),
-        "Owner" => String.t(),
-        "ParentControllerId" => String.t(),
+        "CredentialLockerId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Model" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "ParentControllerId" => String.t() | atom(),
         "ProvisioningStatus" => list(any()),
         "Role" => list(any()),
-        "SerialNumber" => String.t(),
+        "SerialNumber" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type managed_thing_summary() :: %{String.t() => any()}
+  @type managed_thing_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1863,24 +1863,24 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_provisioning_profiles_response() :: %{
         "Items" => list(provisioning_profile_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_provisioning_profiles_response() :: %{String.t() => any()}
+  @type list_provisioning_profiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_account_association_response() :: %{
-        "AccountAssociationId" => String.t(),
-        "DeviceDiscoveryId" => String.t(),
-        "ManagedThingId" => String.t()
+        "AccountAssociationId" => String.t() | atom(),
+        "DeviceDiscoveryId" => String.t() | atom(),
+        "ManagedThingId" => String.t() | atom()
       }
 
   """
-  @type register_account_association_response() :: %{String.t() => any()}
+  @type register_account_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1897,11 +1897,11 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_ota_task_executions_response() :: %{
         "ExecutionSummaries" => list(ota_task_execution_summaries()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_ota_task_executions_response() :: %{String.t() => any()}
+  @type list_ota_task_executions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1912,7 +1912,7 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type get_schema_version_request() :: %{String.t() => any()}
+  @type get_schema_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1937,24 +1937,24 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_managed_thing_capabilities_response() :: %{
-        "Capabilities" => String.t(),
+        "Capabilities" => String.t() | atom(),
         "CapabilityReport" => capability_report(),
-        "ManagedThingId" => String.t()
+        "ManagedThingId" => String.t() | atom()
       }
 
   """
-  @type get_managed_thing_capabilities_response() :: %{String.t() => any()}
+  @type get_managed_thing_capabilities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1982,7 +1982,7 @@ defmodule AWS.IoTManagedIntegrations do
         "DeleteLocalStoreAfterUpload" => boolean(),
         "LocalStoreFileRotationMaxBytes" => integer(),
         "LocalStoreFileRotationMaxFiles" => integer(),
-        "LocalStoreLocation" => String.t(),
+        "LocalStoreLocation" => String.t() | atom(),
         "LogFlushLevel" => list(any()),
         "LogLevel" => list(any()),
         "UploadLog" => boolean(),
@@ -1990,7 +1990,7 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type runtime_log_configurations() :: %{String.t() => any()}
+  @type runtime_log_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2006,36 +2006,36 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_managed_things_request() :: %{
-        optional("ConnectorDestinationIdFilter") => String.t(),
-        optional("ConnectorDeviceIdFilter") => String.t(),
-        optional("ConnectorPolicyIdFilter") => String.t(),
-        optional("CredentialLockerFilter") => String.t(),
+        optional("ConnectorDestinationIdFilter") => String.t() | atom(),
+        optional("ConnectorDeviceIdFilter") => String.t() | atom(),
+        optional("ConnectorPolicyIdFilter") => String.t() | atom(),
+        optional("CredentialLockerFilter") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("OwnerFilter") => String.t(),
-        optional("ParentControllerIdentifierFilter") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OwnerFilter") => String.t() | atom(),
+        optional("ParentControllerIdentifierFilter") => String.t() | atom(),
         optional("ProvisioningStatusFilter") => list(any()),
         optional("RoleFilter") => list(any()),
-        optional("SerialNumberFilter") => String.t()
+        optional("SerialNumberFilter") => String.t() | atom()
       }
 
   """
-  @type list_managed_things_request() :: %{String.t() => any()}
+  @type list_managed_things_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_cloud_connector_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("EndpointType") => list(any()),
         required("EndpointConfig") => endpoint_config(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_cloud_connector_request() :: %{String.t() => any()}
+  @type create_cloud_connector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2043,26 +2043,26 @@ defmodule AWS.IoTManagedIntegrations do
 
       matter_capability_report() :: %{
         "endpoints" => list(matter_capability_report_endpoint()),
-        "nodeId" => String.t(),
-        "version" => String.t()
+        "nodeId" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type matter_capability_report() :: %{String.t() => any()}
+  @type matter_capability_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connector_destination_summary() :: %{
-        "CloudConnectorId" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "CloudConnectorId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type connector_destination_summary() :: %{String.t() => any()}
+  @type connector_destination_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2082,7 +2082,7 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type auth_config() :: %{String.t() => any()}
+  @type auth_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2090,11 +2090,11 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_credential_lockers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_credential_lockers_request() :: %{String.t() => any()}
+  @type list_credential_lockers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2102,36 +2102,36 @@ defmodule AWS.IoTManagedIntegrations do
 
       command_endpoint() :: %{
         "capabilities" => list(command_capability()),
-        "endpointId" => String.t()
+        "endpointId" => String.t() | atom()
       }
 
   """
-  @type command_endpoint() :: %{String.t() => any()}
+  @type command_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_managed_thing_schemas_request() :: %{
-        optional("CapabilityIdFilter") => String.t(),
-        optional("EndpointIdFilter") => String.t(),
+        optional("CapabilityIdFilter") => String.t() | atom(),
+        optional("EndpointIdFilter") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_managed_thing_schemas_request() :: %{String.t() => any()}
+  @type list_managed_thing_schemas_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2147,16 +2147,16 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       capability_report_capability() :: %{
-        "actions" => list(String.t()),
-        "events" => list(String.t()),
-        "id" => String.t(),
-        "name" => String.t(),
-        "properties" => list(String.t()),
-        "version" => String.t()
+        "actions" => list(String.t() | atom()),
+        "events" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "properties" => list(String.t() | atom()),
+        "version" => String.t() | atom()
       }
 
   """
-  @type capability_report_capability() :: %{String.t() => any()}
+  @type capability_report_capability() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2164,50 +2164,50 @@ defmodule AWS.IoTManagedIntegrations do
 
       get_ota_task_response() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
         "OtaMechanism" => list(any()),
         "OtaSchedulingConfig" => ota_task_scheduling_config(),
-        "OtaTargetQueryString" => String.t(),
+        "OtaTargetQueryString" => String.t() | atom(),
         "OtaTaskExecutionRetryConfig" => ota_task_execution_retry_config(),
         "OtaType" => list(any()),
         "Protocol" => list(any()),
-        "S3Url" => String.t(),
+        "S3Url" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => map(),
-        "Target" => list([String.t()]()),
-        "TaskArn" => String.t(),
-        "TaskConfigurationId" => String.t(),
-        "TaskId" => String.t(),
+        "Target" => list([String.t() | atom()]()),
+        "TaskArn" => String.t() | atom(),
+        "TaskConfigurationId" => String.t() | atom(),
+        "TaskId" => String.t() | atom(),
         "TaskProcessingDetails" => task_processing_details()
       }
 
   """
-  @type get_ota_task_response() :: %{String.t() => any()}
+  @type get_ota_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lambda_config() :: %{
-        "arn" => String.t()
+        "arn" => String.t() | atom()
       }
 
   """
-  @type lambda_config() :: %{String.t() => any()}
+  @type lambda_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_account_association_request() :: %{
-        required("AccountAssociationId") => String.t(),
-        required("DeviceDiscoveryId") => String.t(),
-        required("ManagedThingId") => String.t()
+        required("AccountAssociationId") => String.t() | atom(),
+        required("DeviceDiscoveryId") => String.t() | atom(),
+        required("ManagedThingId") => String.t() | atom()
       }
 
   """
-  @type register_account_association_request() :: %{String.t() => any()}
+  @type register_account_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2215,22 +2215,22 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_managed_things_response() :: %{
         "Items" => list(managed_thing_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_managed_things_response() :: %{String.t() => any()}
+  @type list_managed_things_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2238,13 +2238,13 @@ defmodule AWS.IoTManagedIntegrations do
 
       get_event_log_configuration_response() :: %{
         "EventLogLevel" => list(any()),
-        "Id" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t()
+        "Id" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type get_event_log_configuration_response() :: %{String.t() => any()}
+  @type get_event_log_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2253,32 +2253,32 @@ defmodule AWS.IoTManagedIntegrations do
       update_connector_destination_request() :: %{
         optional("AuthConfig") => auth_config_update(),
         optional("AuthType") => list(any()),
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
         optional("SecretsManager") => secrets_manager()
       }
 
   """
-  @type update_connector_destination_request() :: %{String.t() => any()}
+  @type update_connector_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_account_association_response() :: %{
-        "AccountAssociationId" => String.t(),
-        "Arn" => String.t(),
+        "AccountAssociationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
         "AssociationState" => list(any()),
-        "ConnectorDestinationId" => String.t(),
-        "Description" => String.t(),
-        "ErrorMessage" => String.t(),
-        "Name" => String.t(),
-        "OAuthAuthorizationUrl" => String.t(),
+        "ConnectorDestinationId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OAuthAuthorizationUrl" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type get_account_association_response() :: %{String.t() => any()}
+  @type get_account_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2289,7 +2289,7 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type update_event_log_configuration_request() :: %{String.t() => any()}
+  @type update_event_log_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2300,30 +2300,30 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type ota_task_timeout_config() :: %{String.t() => any()}
+  @type ota_task_timeout_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_account_association_request() :: %{
-        optional("Description") => String.t(),
-        optional("Name") => String.t()
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_account_association_request() :: %{String.t() => any()}
+  @type update_account_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2331,11 +2331,11 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_discovered_devices_response() :: %{
         "Items" => list(discovered_device_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_discovered_devices_response() :: %{String.t() => any()}
+  @type list_discovered_devices_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2351,27 +2351,27 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       create_credential_locker_response() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Id" => String.t()
+        "Id" => String.t() | atom()
       }
 
   """
-  @type create_credential_locker_response() :: %{String.t() => any()}
+  @type create_credential_locker_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_cloud_connectors_request() :: %{
-        optional("LambdaArn") => String.t(),
+        optional("LambdaArn") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Type") => list(any())
       }
 
   """
-  @type list_cloud_connectors_request() :: %{String.t() => any()}
+  @type list_cloud_connectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2379,12 +2379,12 @@ defmodule AWS.IoTManagedIntegrations do
 
       capability_report() :: %{
         "endpoints" => list(capability_report_endpoint()),
-        "nodeId" => String.t(),
-        "version" => String.t()
+        "nodeId" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type capability_report() :: %{String.t() => any()}
+  @type capability_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2393,13 +2393,13 @@ defmodule AWS.IoTManagedIntegrations do
       device() :: %{
         "CapabilityReport" => matter_capability_report(),
         "CapabilitySchemas" => list(capability_schema_item()),
-        "ConnectorDeviceId" => String.t(),
-        "ConnectorDeviceName" => String.t(),
+        "ConnectorDeviceId" => String.t() | atom(),
+        "ConnectorDeviceName" => String.t() | atom(),
         "DeviceMetadata" => any()
       }
 
   """
-  @type device() :: %{String.t() => any()}
+  @type device() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2407,35 +2407,35 @@ defmodule AWS.IoTManagedIntegrations do
 
       get_managed_thing_response() :: %{
         "ActivatedAt" => non_neg_integer(),
-        "AdvertisedProductId" => String.t(),
-        "Arn" => String.t(),
-        "Brand" => String.t(),
-        "Classification" => String.t(),
-        "ConnectorDestinationId" => String.t(),
-        "ConnectorDeviceId" => String.t(),
-        "ConnectorPolicyId" => String.t(),
+        "AdvertisedProductId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "Brand" => String.t() | atom(),
+        "Classification" => String.t() | atom(),
+        "ConnectorDestinationId" => String.t() | atom(),
+        "ConnectorDeviceId" => String.t() | atom(),
+        "ConnectorPolicyId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "CredentialLockerId" => String.t(),
-        "DeviceSpecificKey" => String.t(),
+        "CredentialLockerId" => String.t() | atom(),
+        "DeviceSpecificKey" => String.t() | atom(),
         "HubNetworkMode" => list(any()),
-        "Id" => String.t(),
-        "InternationalArticleNumber" => String.t(),
-        "MacAddress" => String.t(),
+        "Id" => String.t() | atom(),
+        "InternationalArticleNumber" => String.t() | atom(),
+        "MacAddress" => String.t() | atom(),
         "MetaData" => map(),
-        "Model" => String.t(),
-        "Name" => String.t(),
-        "Owner" => String.t(),
-        "ParentControllerId" => String.t(),
+        "Model" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "ParentControllerId" => String.t() | atom(),
         "ProvisioningStatus" => list(any()),
         "Role" => list(any()),
-        "SerialNumber" => String.t(),
+        "SerialNumber" => String.t() | atom(),
         "Tags" => map(),
-        "UniversalProductCode" => String.t(),
+        "UniversalProductCode" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type get_managed_thing_response() :: %{String.t() => any()}
+  @type get_managed_thing_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2446,7 +2446,7 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type delete_managed_thing_request() :: %{String.t() => any()}
+  @type delete_managed_thing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2454,25 +2454,25 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_ota_task_configurations_response() :: %{
         "Items" => list(ota_task_configuration_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_ota_task_configurations_response() :: %{String.t() => any()}
+  @type list_ota_task_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       state_capability() :: %{
-        "id" => String.t(),
-        "name" => String.t(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "properties" => any(),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type state_capability() :: %{String.t() => any()}
+  @type state_capability() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2486,19 +2486,19 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type abort_config_criteria() :: %{String.t() => any()}
+  @type abort_config_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       notification_configuration_summary() :: %{
-        "DestinationName" => String.t(),
+        "DestinationName" => String.t() | atom(),
         "EventType" => list(any())
       }
 
   """
-  @type notification_configuration_summary() :: %{String.t() => any()}
+  @type notification_configuration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2514,133 +2514,133 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       get_schema_version_response() :: %{
-        "Description" => String.t(),
-        "Namespace" => String.t(),
+        "Description" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
         "Schema" => any(),
-        "SchemaId" => String.t(),
-        "SemanticVersion" => String.t(),
+        "SchemaId" => String.t() | atom(),
+        "SemanticVersion" => String.t() | atom(),
         "Type" => list(any()),
         "Visibility" => list(any())
       }
 
   """
-  @type get_schema_version_response() :: %{String.t() => any()}
+  @type get_schema_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_account_associations_request() :: %{
-        optional("ConnectorDestinationId") => String.t(),
+        optional("ConnectorDestinationId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_account_associations_request() :: %{String.t() => any()}
+  @type list_account_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_custom_endpoint_response() :: %{
-        "EndpointAddress" => String.t()
+        "EndpointAddress" => String.t() | atom()
       }
 
   """
-  @type register_custom_endpoint_response() :: %{String.t() => any()}
+  @type register_custom_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       configuration_error() :: %{
-        "code" => String.t(),
-        "message" => String.t()
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type configuration_error() :: %{String.t() => any()}
+  @type configuration_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       deregister_account_association_request() :: %{
-        required("AccountAssociationId") => String.t(),
-        required("ManagedThingId") => String.t()
+        required("AccountAssociationId") => String.t() | atom(),
+        required("ManagedThingId") => String.t() | atom()
       }
 
   """
-  @type deregister_account_association_request() :: %{String.t() => any()}
+  @type deregister_account_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_default_encryption_configuration_request() :: %{
-        optional("kmsKeyArn") => String.t(),
+        optional("kmsKeyArn") => String.t() | atom(),
         required("encryptionType") => list(any())
       }
 
   """
-  @type put_default_encryption_configuration_request() :: %{String.t() => any()}
+  @type put_default_encryption_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_managed_thing_request() :: %{
-        optional("Brand") => String.t(),
-        optional("Capabilities") => String.t(),
+        optional("Brand") => String.t() | atom(),
+        optional("Capabilities") => String.t() | atom(),
         optional("CapabilityReport") => capability_report(),
         optional("CapabilitySchemas") => list(capability_schema_item()),
-        optional("Classification") => String.t(),
-        optional("ClientToken") => String.t(),
-        optional("CredentialLockerId") => String.t(),
+        optional("Classification") => String.t() | atom(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("CredentialLockerId") => String.t() | atom(),
         optional("MetaData") => map(),
-        optional("Model") => String.t(),
-        optional("Name") => String.t(),
-        optional("Owner") => String.t(),
-        optional("SerialNumber") => String.t(),
+        optional("Model") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Owner") => String.t() | atom(),
+        optional("SerialNumber") => String.t() | atom(),
         optional("Tags") => map(),
-        required("AuthenticationMaterial") => String.t(),
+        required("AuthenticationMaterial") => String.t() | atom(),
         required("AuthenticationMaterialType") => list(any()),
         required("Role") => list(any())
       }
 
   """
-  @type create_managed_thing_request() :: %{String.t() => any()}
+  @type create_managed_thing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       matter_capability_report_endpoint() :: %{
-        "clientClusters" => list(String.t()),
+        "clientClusters" => list(String.t() | atom()),
         "clusters" => list(matter_capability_report_cluster()),
-        "deviceTypes" => list(String.t()),
-        "id" => String.t(),
-        "parts" => list(String.t()),
-        "semanticTags" => list(String.t())
+        "deviceTypes" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "parts" => list(String.t() | atom()),
+        "semanticTags" => list(String.t() | atom())
       }
 
   """
-  @type matter_capability_report_endpoint() :: %{String.t() => any()}
+  @type matter_capability_report_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_account_association_response() :: %{
-        "AccountAssociationId" => String.t(),
-        "Arn" => String.t(),
+        "AccountAssociationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
         "AssociationState" => list(any()),
-        "OAuthAuthorizationUrl" => String.t()
+        "OAuthAuthorizationUrl" => String.t() | atom()
       }
 
   """
-  @type create_account_association_response() :: %{String.t() => any()}
+  @type create_account_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2656,64 +2656,64 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       managed_thing_schema_list_item() :: %{
-        "CapabilityId" => String.t(),
-        "EndpointId" => String.t(),
+        "CapabilityId" => String.t() | atom(),
+        "EndpointId" => String.t() | atom(),
         "Schema" => any()
       }
 
   """
-  @type managed_thing_schema_list_item() :: %{String.t() => any()}
+  @type managed_thing_schema_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       send_connector_event_response() :: %{
-        "ConnectorId" => String.t()
+        "ConnectorId" => String.t() | atom()
       }
 
   """
-  @type send_connector_event_response() :: %{String.t() => any()}
+  @type send_connector_event_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_provisioning_profile_response() :: %{
-        "Arn" => String.t(),
-        "ClaimCertificate" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Arn" => String.t() | atom(),
+        "ClaimCertificate" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ProvisioningType" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type get_provisioning_profile_response() :: %{String.t() => any()}
+  @type get_provisioning_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_connector_destinations_request() :: %{
-        optional("CloudConnectorId") => String.t(),
+        optional("CloudConnectorId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_connector_destinations_request() :: %{String.t() => any()}
+  @type list_connector_destinations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_ota_task_configuration_response() :: %{
-        "TaskConfigurationId" => String.t()
+        "TaskConfigurationId" => String.t() | atom()
       }
 
   """
-  @type create_ota_task_configuration_response() :: %{String.t() => any()}
+  @type create_ota_task_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2725,7 +2725,7 @@ defmodule AWS.IoTManagedIntegrations do
       }
 
   """
-  @type ota_task_execution_rollout_config() :: %{String.t() => any()}
+  @type ota_task_execution_rollout_config() :: %{(String.t() | atom()) => any()}
 
   @type create_account_association_errors() ::
           throttling_exception()
@@ -3725,7 +3725,7 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec delete_account_association(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_account_association_request(),
           list()
         ) ::
@@ -3757,7 +3757,12 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Delete a cloud connector.
   """
-  @spec delete_cloud_connector(map(), String.t(), delete_cloud_connector_request(), list()) ::
+  @spec delete_cloud_connector(
+          map(),
+          String.t() | atom(),
+          delete_cloud_connector_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3789,7 +3794,7 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec delete_connector_destination(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_connector_destination_request(),
           list()
         ) ::
@@ -3824,7 +3829,12 @@ defmodule AWS.IoTManagedIntegrations do
   This operation can't be undone and any existing device won't be able to use IoT
   managed integrations.
   """
-  @spec delete_credential_locker(map(), String.t(), delete_credential_locker_request(), list()) ::
+  @spec delete_credential_locker(
+          map(),
+          String.t() | atom(),
+          delete_credential_locker_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3853,7 +3863,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Deletes a customer-managed destination specified by id.
   """
-  @spec delete_destination(map(), String.t(), delete_destination_request(), list()) ::
+  @spec delete_destination(map(), String.t() | atom(), delete_destination_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3884,7 +3894,7 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec delete_event_log_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_event_log_configuration_request(),
           list()
         ) ::
@@ -3919,7 +3929,7 @@ defmodule AWS.IoTManagedIntegrations do
   If a controller is deleted, all of the devices connected to it will have their
   status changed to `PENDING`. It is not possible to remove a cloud device.
   """
-  @spec delete_managed_thing(map(), String.t(), delete_managed_thing_request(), list()) ::
+  @spec delete_managed_thing(map(), String.t() | atom(), delete_managed_thing_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3955,7 +3965,7 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec delete_notification_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_notification_configuration_request(),
           list()
         ) ::
@@ -3987,7 +3997,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Delete the over-the-air (OTA) task.
   """
-  @spec delete_ota_task(map(), String.t(), delete_ota_task_request(), list()) ::
+  @spec delete_ota_task(map(), String.t() | atom(), delete_ota_task_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4018,7 +4028,7 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec delete_ota_task_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_ota_task_configuration_request(),
           list()
         ) ::
@@ -4052,7 +4062,7 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec delete_provisioning_profile(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_provisioning_profile_request(),
           list()
         ) ::
@@ -4115,7 +4125,7 @@ defmodule AWS.IoTManagedIntegrations do
   Get an account association for an Amazon Web Services account linked to a
   customer-managed destination.
   """
-  @spec get_account_association(map(), String.t(), list()) ::
+  @spec get_account_association(map(), String.t() | atom(), list()) ::
           {:ok, get_account_association_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4133,7 +4143,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Gets all the information about a connector for a connector developer.
   """
-  @spec get_cloud_connector(map(), String.t(), list()) ::
+  @spec get_cloud_connector(map(), String.t() | atom(), list()) ::
           {:ok, get_cloud_connector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4152,7 +4162,7 @@ defmodule AWS.IoTManagedIntegrations do
   Get a connector destination of a cloud-to-cloud (C2C) connector connecting to a
   customer's Amazon Web Services account.
   """
-  @spec get_connector_destination(map(), String.t(), list()) ::
+  @spec get_connector_destination(map(), String.t() | atom(), list()) ::
           {:ok, get_connector_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4170,7 +4180,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Get information on an existing credential locker
   """
-  @spec get_credential_locker(map(), String.t(), list()) ::
+  @spec get_credential_locker(map(), String.t() | atom(), list()) ::
           {:ok, get_credential_locker_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4228,7 +4238,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Gets a destination by ID.
   """
-  @spec get_destination(map(), String.t(), list()) ::
+  @spec get_destination(map(), String.t() | atom(), list()) ::
           {:ok, get_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4246,7 +4256,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Get the current state of a device discovery.
   """
-  @spec get_device_discovery(map(), String.t(), list()) ::
+  @spec get_device_discovery(map(), String.t() | atom(), list()) ::
           {:ok, get_device_discovery_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4264,7 +4274,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Get an event log configuration.
   """
-  @spec get_event_log_configuration(map(), String.t(), list()) ::
+  @spec get_event_log_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_event_log_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4300,7 +4310,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Get the attributes and capabilities associated with a managed thing.
   """
-  @spec get_managed_thing(map(), String.t(), list()) ::
+  @spec get_managed_thing(map(), String.t() | atom(), list()) ::
           {:ok, get_managed_thing_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4318,7 +4328,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Get the capabilities for a managed thing using the device ID.
   """
-  @spec get_managed_thing_capabilities(map(), String.t(), list()) ::
+  @spec get_managed_thing_capabilities(map(), String.t() | atom(), list()) ::
           {:ok, get_managed_thing_capabilities_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4338,7 +4348,7 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec get_managed_thing_connectivity_data(
           map(),
-          String.t(),
+          String.t() | atom(),
           get_managed_thing_connectivity_data_request(),
           list()
         ) ::
@@ -4375,7 +4385,7 @@ defmodule AWS.IoTManagedIntegrations do
   value pairs in `metadata` can be used in the `OtaTargetQueryString` parameter
   for the `CreateOtaTask` API operation.
   """
-  @spec get_managed_thing_meta_data(map(), String.t(), list()) ::
+  @spec get_managed_thing_meta_data(map(), String.t() | atom(), list()) ::
           {:ok, get_managed_thing_meta_data_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4393,7 +4403,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Returns the managed thing state for the given device Id.
   """
-  @spec get_managed_thing_state(map(), String.t(), list()) ::
+  @spec get_managed_thing_state(map(), String.t() | atom(), list()) ::
           {:ok, get_managed_thing_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4411,7 +4421,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Get a notification configuration.
   """
-  @spec get_notification_configuration(map(), String.t(), list()) ::
+  @spec get_notification_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_notification_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4429,7 +4439,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Get the over-the-air (OTA) task.
   """
-  @spec get_ota_task(map(), String.t(), list()) ::
+  @spec get_ota_task(map(), String.t() | atom(), list()) ::
           {:ok, get_ota_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4447,7 +4457,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Get a configuraiton for the over-the-air (OTA) task.
   """
-  @spec get_ota_task_configuration(map(), String.t(), list()) ::
+  @spec get_ota_task_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_ota_task_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4465,7 +4475,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Get a provisioning profile by template name.
   """
-  @spec get_provisioning_profile(map(), String.t(), list()) ::
+  @spec get_provisioning_profile(map(), String.t() | atom(), list()) ::
           {:ok, get_provisioning_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4484,7 +4494,7 @@ defmodule AWS.IoTManagedIntegrations do
   Get the runtime log configuration for a specific managed thing or for all
   managed things as a group.
   """
-  @spec get_runtime_log_configuration(map(), String.t(), list()) ::
+  @spec get_runtime_log_configuration(map(), String.t() | atom(), list()) ::
           {:ok, get_runtime_log_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4502,7 +4512,13 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Gets a schema version with the provided information.
   """
-  @spec get_schema_version(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_schema_version(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_schema_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4538,9 +4554,9 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec list_account_associations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_account_associations_response(), any()}
@@ -4589,10 +4605,10 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec list_cloud_connectors(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_cloud_connectors_response(), any()}
@@ -4649,9 +4665,9 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec list_connector_destinations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_connector_destinations_response(), any()}
@@ -4698,7 +4714,12 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   List information on an existing credential locker.
   """
-  @spec list_credential_lockers(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_credential_lockers(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_credential_lockers_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4735,7 +4756,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   List all destination names under one Amazon Web Services account.
   """
-  @spec list_destinations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_destinations(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_destinations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4769,10 +4790,10 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec list_device_discoveries(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_device_discoveries_response(), any()}
@@ -4827,7 +4848,13 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Lists all devices discovered during a specific device discovery task.
   """
-  @spec list_discovered_devices(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_discovered_devices(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_discovered_devices_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4865,7 +4892,12 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   List all event log configurations for an account.
   """
-  @spec list_event_log_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_event_log_configurations(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_event_log_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4904,10 +4936,10 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec list_managed_thing_account_associations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_managed_thing_account_associations_response(), any()}
@@ -4964,11 +4996,11 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec list_managed_thing_schemas(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_managed_thing_schemas_response(), any()}
@@ -5026,17 +5058,17 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec list_managed_things(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_managed_things_response(), any()}
@@ -5147,7 +5179,12 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   List all notification configurations.
   """
-  @spec list_notification_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_notification_configurations(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_notification_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5184,7 +5221,12 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   List all of the over-the-air (OTA) task configurations.
   """
-  @spec list_ota_task_configurations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_ota_task_configurations(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_ota_task_configurations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5221,7 +5263,13 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   List all of the over-the-air (OTA) task executions.
   """
-  @spec list_ota_task_executions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_ota_task_executions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_ota_task_executions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5259,7 +5307,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   List all of the over-the-air (OTA) tasks.
   """
-  @spec list_ota_tasks(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_ota_tasks(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_ota_tasks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5291,7 +5339,12 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   List the provisioning profiles within the Amazon Web Services account.
   """
-  @spec list_provisioning_profiles(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_provisioning_profiles(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_provisioning_profiles_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5330,13 +5383,13 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec list_schema_versions(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_schema_versions_response(), any()}
@@ -5408,7 +5461,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   List tags for the specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5494,7 +5547,7 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec put_runtime_log_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           put_runtime_log_configuration_request(),
           list()
         ) ::
@@ -5591,7 +5644,7 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec reset_runtime_log_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           reset_runtime_log_configuration_request(),
           list()
         ) ::
@@ -5624,7 +5677,7 @@ defmodule AWS.IoTManagedIntegrations do
   Relays third-party device events for a connector such as a new device or a
   device state change event.
   """
-  @spec send_connector_event(map(), String.t(), send_connector_event_request(), list()) ::
+  @spec send_connector_event(map(), String.t() | atom(), send_connector_event_request(), list()) ::
           {:ok, send_connector_event_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5655,7 +5708,7 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec send_managed_thing_command(
           map(),
-          String.t(),
+          String.t() | atom(),
           send_managed_thing_command_request(),
           list()
         ) ::
@@ -5690,7 +5743,7 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec start_account_association_refresh(
           map(),
-          String.t(),
+          String.t() | atom(),
           start_account_association_refresh_request(),
           list()
         ) ::
@@ -5760,7 +5813,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Add tags for the specified resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5789,7 +5842,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Remove tags for the specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5825,7 +5878,7 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec update_account_association(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_account_association_request(),
           list()
         ) ::
@@ -5857,7 +5910,12 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Update an existing cloud connector.
   """
-  @spec update_cloud_connector(map(), String.t(), update_cloud_connector_request(), list()) ::
+  @spec update_cloud_connector(
+          map(),
+          String.t() | atom(),
+          update_cloud_connector_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5888,7 +5946,7 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec update_connector_destination(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_connector_destination_request(),
           list()
         ) ::
@@ -5920,7 +5978,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Update a destination specified by id.
   """
-  @spec update_destination(map(), String.t(), update_destination_request(), list()) ::
+  @spec update_destination(map(), String.t() | atom(), update_destination_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5951,7 +6009,7 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec update_event_log_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_event_log_configuration_request(),
           list()
         ) ::
@@ -5983,7 +6041,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Update the attributes and capabilities associated with a managed thing.
   """
-  @spec update_managed_thing(map(), String.t(), update_managed_thing_request(), list()) ::
+  @spec update_managed_thing(map(), String.t() | atom(), update_managed_thing_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6014,7 +6072,7 @@ defmodule AWS.IoTManagedIntegrations do
   """
   @spec update_notification_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_notification_configuration_request(),
           list()
         ) ::
@@ -6046,7 +6104,7 @@ defmodule AWS.IoTManagedIntegrations do
   @doc """
   Update an over-the-air (OTA) task.
   """
-  @spec update_ota_task(map(), String.t(), update_ota_task_request(), list()) ::
+  @spec update_ota_task(map(), String.t() | atom(), update_ota_task_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

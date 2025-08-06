@@ -24,16 +24,16 @@ defmodule AWS.MediaConvert do
 
       video_overlay() :: %{
         "Crop" => video_overlay_crop(),
-        "EndTimecode" => String.t(),
+        "EndTimecode" => String.t() | atom(),
         "InitialPosition" => video_overlay_position(),
         "Input" => video_overlay_input(),
         "Playback" => list(any()),
-        "StartTimecode" => String.t(),
+        "StartTimecode" => String.t() | atom(),
         "Transitions" => list(video_overlay_transition())
       }
 
   """
-  @type video_overlay() :: %{String.t() => any()}
+  @type video_overlay() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -46,7 +46,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type deinterlacer() :: %{String.t() => any()}
+  @type deinterlacer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -57,7 +57,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type xavc4k_intra_vbr_profile_settings() :: %{String.t() => any()}
+  @type xavc4k_intra_vbr_profile_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -69,7 +69,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type output_detail() :: %{String.t() => any()}
+  @type output_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -78,17 +78,17 @@ defmodule AWS.MediaConvert do
       mp4_settings() :: %{
         "AudioDuration" => list(any()),
         "C2paManifest" => list(any()),
-        "CertificateSecret" => String.t(),
+        "CertificateSecret" => String.t() | atom(),
         "CslgAtom" => list(any()),
         "CttsVersion" => integer(),
         "FreeSpaceBox" => list(any()),
         "MoovPlacement" => list(any()),
-        "Mp4MajorBrand" => String.t(),
-        "SigningKmsKey" => String.t()
+        "Mp4MajorBrand" => String.t() | atom(),
+        "SigningKmsKey" => String.t() | atom()
       }
 
   """
-  @type mp4_settings() :: %{String.t() => any()}
+  @type mp4_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -99,19 +99,19 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type acceleration_settings() :: %{String.t() => any()}
+  @type acceleration_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       file_group_settings() :: %{
-        "Destination" => String.t(),
+        "Destination" => String.t() | atom(),
         "DestinationSettings" => destination_settings()
       }
 
   """
-  @type file_group_settings() :: %{String.t() => any()}
+  @type file_group_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -132,7 +132,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type motion_image_insertion_framerate() :: %{String.t() => any()}
+  @type motion_image_insertion_framerate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -145,7 +145,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type mxf_settings() :: %{String.t() => any()}
+  @type mxf_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -156,19 +156,19 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type get_queue_response() :: %{String.t() => any()}
+  @type get_queue_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("Arn") => String.t(),
+        required("Arn") => String.t() | atom(),
         required("Tags") => map()
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -176,17 +176,17 @@ defmodule AWS.MediaConvert do
 
       update_job_template_request() :: %{
         optional("AccelerationSettings") => acceleration_settings(),
-        optional("Category") => String.t(),
-        optional("Description") => String.t(),
+        optional("Category") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("HopDestinations") => list(hop_destination()),
         optional("Priority") => integer(),
-        optional("Queue") => String.t(),
+        optional("Queue") => String.t() | atom(),
         optional("Settings") => job_template_settings(),
         optional("StatusUpdateInterval") => list(any())
       }
 
   """
-  @type update_job_template_request() :: %{String.t() => any()}
+  @type update_job_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -210,7 +210,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type prores_settings() :: %{String.t() => any()}
+  @type prores_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -221,7 +221,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type create_job_template_response() :: %{String.t() => any()}
+  @type create_job_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -233,7 +233,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type advanced_input_filter_settings() :: %{String.t() => any()}
+  @type advanced_input_filter_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -242,12 +242,12 @@ defmodule AWS.MediaConvert do
       list_queues_request() :: %{
         optional("ListBy") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Order") => list(any())
       }
 
   """
-  @type list_queues_request() :: %{String.t() => any()}
+  @type list_queues_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -258,7 +258,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type partner_watermarking() :: %{String.t() => any()}
+  @type partner_watermarking() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -271,7 +271,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type container() :: %{String.t() => any()}
+  @type container() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -285,7 +285,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type rectangle() :: %{String.t() => any()}
+  @type rectangle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -297,7 +297,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type force_include_rendition_size() :: %{String.t() => any()}
+  @type force_include_rendition_size() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -312,7 +312,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type mov_settings() :: %{String.t() => any()}
+  @type mov_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -323,7 +323,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type create_job_response() :: %{String.t() => any()}
+  @type create_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -340,28 +340,28 @@ defmodule AWS.MediaConvert do
 
       hls_caption_language_mapping() :: %{
         "CaptionChannel" => integer(),
-        "CustomLanguageCode" => String.t(),
+        "CustomLanguageCode" => String.t() | atom(),
         "LanguageCode" => list(any()),
-        "LanguageDescription" => String.t()
+        "LanguageDescription" => String.t() | atom()
       }
 
   """
-  @type hls_caption_language_mapping() :: %{String.t() => any()}
+  @type hls_caption_language_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_preset_request() :: %{
-        optional("Category") => String.t(),
-        optional("Description") => String.t(),
+        optional("Category") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
-        required("Name") => String.t(),
+        required("Name") => String.t() | atom(),
         required("Settings") => preset_settings()
       }
 
   """
-  @type create_preset_request() :: %{String.t() => any()}
+  @type create_preset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -369,12 +369,12 @@ defmodule AWS.MediaConvert do
 
       s3_encryption_settings() :: %{
         "EncryptionType" => list(any()),
-        "KmsEncryptionContext" => String.t(),
-        "KmsKeyArn" => String.t()
+        "KmsEncryptionContext" => String.t() | atom(),
+        "KmsKeyArn" => String.t() | atom()
       }
 
   """
-  @type s3_encryption_settings() :: %{String.t() => any()}
+  @type s3_encryption_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -387,7 +387,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type mp2_settings() :: %{String.t() => any()}
+  @type mp2_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -399,7 +399,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type extended_data_services() :: %{String.t() => any()}
+  @type extended_data_services() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -415,15 +415,15 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       list_presets_request() :: %{
-        optional("Category") => String.t(),
+        optional("Category") => String.t() | atom(),
         optional("ListBy") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Order") => list(any())
       }
 
   """
-  @type list_presets_request() :: %{String.t() => any()}
+  @type list_presets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -435,7 +435,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type audio_channel_tagging_settings() :: %{String.t() => any()}
+  @type audio_channel_tagging_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -443,24 +443,24 @@ defmodule AWS.MediaConvert do
 
       nielsen_configuration() :: %{
         "BreakoutCode" => integer(),
-        "DistributorId" => String.t()
+        "DistributorId" => String.t() | atom()
       }
 
   """
-  @type nielsen_configuration() :: %{String.t() => any()}
+  @type nielsen_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       caption_selector() :: %{
-        "CustomLanguageCode" => String.t(),
+        "CustomLanguageCode" => String.t() | atom(),
         "LanguageCode" => list(any()),
         "SourceSettings" => caption_source_settings()
       }
 
   """
-  @type caption_selector() :: %{String.t() => any()}
+  @type caption_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -469,11 +469,11 @@ defmodule AWS.MediaConvert do
       timecode_burnin() :: %{
         "FontSize" => integer(),
         "Position" => list(any()),
-        "Prefix" => String.t()
+        "Prefix" => String.t() | atom()
       }
 
   """
-  @type timecode_burnin() :: %{String.t() => any()}
+  @type timecode_burnin() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -481,14 +481,14 @@ defmodule AWS.MediaConvert do
 
       list_jobs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Order") => list(any()),
-        optional("Queue") => String.t(),
+        optional("Queue") => String.t() | atom(),
         optional("Status") => list(any())
       }
 
   """
-  @type list_jobs_request() :: %{String.t() => any()}
+  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -504,11 +504,11 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       forbidden_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type forbidden_exception() :: %{String.t() => any()}
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -519,7 +519,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type destination_settings() :: %{String.t() => any()}
+  @type destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -541,19 +541,19 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type audio_codec_settings() :: %{String.t() => any()}
+  @type audio_codec_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_tags() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type resource_tags() :: %{String.t() => any()}
+  @type resource_tags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -566,7 +566,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type aiff_settings() :: %{String.t() => any()}
+  @type aiff_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -579,7 +579,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type esam_settings() :: %{String.t() => any()}
+  @type esam_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -592,15 +592,15 @@ defmodule AWS.MediaConvert do
         "BackgroundOpacity" => integer(),
         "FallbackFont" => list(any()),
         "FontColor" => list(any()),
-        "FontFileBold" => String.t(),
-        "FontFileBoldItalic" => String.t(),
-        "FontFileItalic" => String.t(),
-        "FontFileRegular" => String.t(),
+        "FontFileBold" => String.t() | atom(),
+        "FontFileBoldItalic" => String.t() | atom(),
+        "FontFileItalic" => String.t() | atom(),
+        "FontFileRegular" => String.t() | atom(),
         "FontOpacity" => integer(),
         "FontResolution" => integer(),
         "FontScript" => list(any()),
         "FontSize" => integer(),
-        "HexFontColor" => String.t(),
+        "HexFontColor" => String.t() | atom(),
         "OutlineColor" => list(any()),
         "OutlineSize" => integer(),
         "RemoveRubyReserveAttributes" => list(any()),
@@ -615,20 +615,20 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type burnin_destination_settings() :: %{String.t() => any()}
+  @type burnin_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       hls_rendition_group_settings() :: %{
-        "RenditionGroupId" => String.t(),
+        "RenditionGroupId" => String.t() | atom(),
         "RenditionLanguageCode" => list(any()),
-        "RenditionName" => String.t()
+        "RenditionName" => String.t() | atom()
       }
 
   """
-  @type hls_rendition_group_settings() :: %{String.t() => any()}
+  @type hls_rendition_group_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -646,7 +646,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type xavc4k_profile_settings() :: %{String.t() => any()}
+  @type xavc4k_profile_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -667,7 +667,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type color_corrector() :: %{String.t() => any()}
+  @type color_corrector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -689,7 +689,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type aac_settings() :: %{String.t() => any()}
+  @type aac_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -701,21 +701,21 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type bandwidth_reduction_filter() :: %{String.t() => any()}
+  @type bandwidth_reduction_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metadata() :: %{
-        "ETag" => String.t(),
+        "ETag" => String.t() | atom(),
         "FileSize" => float(),
         "LastModified" => non_neg_integer(),
-        "MimeType" => String.t()
+        "MimeType" => String.t() | atom()
       }
 
   """
-  @type metadata() :: %{String.t() => any()}
+  @type metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -730,7 +730,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type input_video_generator() :: %{String.t() => any()}
+  @type input_video_generator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -738,11 +738,11 @@ defmodule AWS.MediaConvert do
 
       describe_endpoints_response() :: %{
         "Endpoints" => list(endpoint()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type describe_endpoints_response() :: %{String.t() => any()}
+  @type describe_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -757,7 +757,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type video_overlay_position() :: %{String.t() => any()}
+  @type video_overlay_position() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -765,22 +765,22 @@ defmodule AWS.MediaConvert do
 
       job_template() :: %{
         "AccelerationSettings" => acceleration_settings(),
-        "Arn" => String.t(),
-        "Category" => String.t(),
+        "Arn" => String.t() | atom(),
+        "Category" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "HopDestinations" => list(hop_destination()),
         "LastUpdated" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Priority" => integer(),
-        "Queue" => String.t(),
+        "Queue" => String.t() | atom(),
         "Settings" => job_template_settings(),
         "StatusUpdateInterval" => list(any()),
         "Type" => list(any())
       }
 
   """
-  @type job_template() :: %{String.t() => any()}
+  @type job_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -795,7 +795,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type automated_abr_rule() :: %{String.t() => any()}
+  @type automated_abr_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -827,7 +827,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type m3u8_settings() :: %{String.t() => any()}
+  @type m3u8_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -835,11 +835,11 @@ defmodule AWS.MediaConvert do
 
       list_jobs_response() :: %{
         "Jobs" => list(job()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_jobs_response() :: %{String.t() => any()}
+  @type list_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -848,36 +848,36 @@ defmodule AWS.MediaConvert do
       create_job_request() :: %{
         optional("AccelerationSettings") => acceleration_settings(),
         optional("BillingTagsSource") => list(any()),
-        optional("ClientRequestToken") => String.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
         optional("HopDestinations") => list(hop_destination()),
-        optional("JobEngineVersion") => String.t(),
-        optional("JobTemplate") => String.t(),
+        optional("JobEngineVersion") => String.t() | atom(),
+        optional("JobTemplate") => String.t() | atom(),
         optional("Priority") => integer(),
-        optional("Queue") => String.t(),
+        optional("Queue") => String.t() | atom(),
         optional("SimulateReservedQueue") => list(any()),
         optional("StatusUpdateInterval") => list(any()),
         optional("Tags") => map(),
         optional("UserMetadata") => map(),
-        required("Role") => String.t(),
+        required("Role") => String.t() | atom(),
         required("Settings") => job_settings()
       }
 
   """
-  @type create_job_request() :: %{String.t() => any()}
+  @type create_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       nex_guard_file_marker_settings() :: %{
-        "License" => String.t(),
+        "License" => String.t() | atom(),
         "Payload" => integer(),
-        "Preset" => String.t(),
+        "Preset" => String.t() | atom(),
         "Strength" => list(any())
       }
 
   """
-  @type nex_guard_file_marker_settings() :: %{String.t() => any()}
+  @type nex_guard_file_marker_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -888,7 +888,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type ms_smooth_encryption_settings() :: %{String.t() => any()}
+  @type ms_smooth_encryption_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -899,7 +899,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type dvb_sub_source_settings() :: %{String.t() => any()}
+  @type dvb_sub_source_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -912,19 +912,19 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type reservation_plan_settings() :: %{String.t() => any()}
+  @type reservation_plan_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       queue() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "ConcurrentJobs" => integer(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "LastUpdated" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "PricingPlan" => list(any()),
         "ProgressingJobsCount" => integer(),
         "ReservationPlan" => reservation_plan(),
@@ -935,7 +935,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type queue() :: %{String.t() => any()}
+  @type queue() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -951,11 +951,11 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       untag_resource_request() :: %{
-        optional("TagKeys") => list(String.t())
+        optional("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -963,24 +963,24 @@ defmodule AWS.MediaConvert do
 
       update_queue_request() :: %{
         optional("ConcurrentJobs") => integer(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("ReservationPlanSettings") => reservation_plan_settings(),
         optional("Status") => list(any())
       }
 
   """
-  @type update_queue_request() :: %{String.t() => any()}
+  @type update_queue_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -993,7 +993,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type flac_settings() :: %{String.t() => any()}
+  @type flac_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1004,21 +1004,21 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type s3_destination_access_control() :: %{String.t() => any()}
+  @type s3_destination_access_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       static_key_provider() :: %{
-        "KeyFormat" => String.t(),
-        "KeyFormatVersions" => String.t(),
-        "StaticKeyValue" => String.t(),
-        "Url" => String.t()
+        "KeyFormat" => String.t() | atom(),
+        "KeyFormatVersions" => String.t() | atom(),
+        "StaticKeyValue" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type static_key_provider() :: %{String.t() => any()}
+  @type static_key_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1042,7 +1042,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type job_template_settings() :: %{String.t() => any()}
+  @type job_template_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1059,7 +1059,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type track() :: %{String.t() => any()}
+  @type track() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1072,23 +1072,23 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type track_mapping() :: %{String.t() => any()}
+  @type track_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       speke_key_provider_cmaf() :: %{
-        "CertificateArn" => String.t(),
-        "DashSignaledSystemIds" => list(String.t()),
+        "CertificateArn" => String.t() | atom(),
+        "DashSignaledSystemIds" => list(String.t() | atom()),
         "EncryptionContractConfiguration" => encryption_contract_configuration(),
-        "HlsSignaledSystemIds" => list(String.t()),
-        "ResourceId" => String.t(),
-        "Url" => String.t()
+        "HlsSignaledSystemIds" => list(String.t() | atom()),
+        "ResourceId" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type speke_key_provider_cmaf() :: %{String.t() => any()}
+  @type speke_key_provider_cmaf() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1115,7 +1115,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type video_description() :: %{String.t() => any()}
+  @type video_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1130,7 +1130,7 @@ defmodule AWS.MediaConvert do
         "Crop" => rectangle(),
         "DeblockFilter" => list(any()),
         "DenoiseFilter" => list(any()),
-        "DolbyVisionMetadataXml" => String.t(),
+        "DolbyVisionMetadataXml" => String.t() | atom(),
         "DynamicAudioSelectors" => map(),
         "FilterEnable" => list(any()),
         "FilterStrength" => integer(),
@@ -1141,20 +1141,20 @@ defmodule AWS.MediaConvert do
         "ProgramNumber" => integer(),
         "PsiControl" => list(any()),
         "TimecodeSource" => list(any()),
-        "TimecodeStart" => String.t(),
+        "TimecodeStart" => String.t() | atom(),
         "VideoOverlays" => list(video_overlay()),
         "VideoSelector" => video_selector()
       }
 
   """
-  @type input_template() :: %{String.t() => any()}
+  @type input_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       hls_encryption_settings() :: %{
-        "ConstantInitializationVector" => String.t(),
+        "ConstantInitializationVector" => String.t() | atom(),
         "EncryptionMethod" => list(any()),
         "InitializationVectorInManifest" => list(any()),
         "OfflineEncrypted" => list(any()),
@@ -1164,7 +1164,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type hls_encryption_settings() :: %{String.t() => any()}
+  @type hls_encryption_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1175,7 +1175,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type ttml_destination_settings() :: %{String.t() => any()}
+  @type ttml_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1189,7 +1189,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type noise_reducer() :: %{String.t() => any()}
+  @type noise_reducer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1214,25 +1214,25 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       timecode_config() :: %{
-        "Anchor" => String.t(),
+        "Anchor" => String.t() | atom(),
         "Source" => list(any()),
-        "Start" => String.t(),
-        "TimestampOffset" => String.t()
+        "Start" => String.t() | atom(),
+        "TimestampOffset" => String.t() | atom()
       }
 
   """
-  @type timecode_config() :: %{String.t() => any()}
+  @type timecode_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       audio_selector_group() :: %{
-        "AudioSelectorNames" => list(String.t())
+        "AudioSelectorNames" => list(String.t() | atom())
       }
 
   """
-  @type audio_selector_group() :: %{String.t() => any()}
+  @type audio_selector_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1240,12 +1240,12 @@ defmodule AWS.MediaConvert do
 
       video_overlay_transition() :: %{
         "EndPosition" => video_overlay_position(),
-        "EndTimecode" => String.t(),
-        "StartTimecode" => String.t()
+        "EndTimecode" => String.t() | atom(),
+        "StartTimecode" => String.t() | atom()
       }
 
   """
-  @type video_overlay_transition() :: %{String.t() => any()}
+  @type video_overlay_transition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1262,7 +1262,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type output_group_settings() :: %{String.t() => any()}
+  @type output_group_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1270,12 +1270,12 @@ defmodule AWS.MediaConvert do
 
       cmaf_group_settings() :: %{
         "AdditionalManifests" => list(cmaf_additional_manifest()),
-        "BaseUrl" => String.t(),
+        "BaseUrl" => String.t() | atom(),
         "ClientCache" => list(any()),
         "CodecSpecification" => list(any()),
-        "DashIFrameTrickPlayNameModifier" => String.t(),
+        "DashIFrameTrickPlayNameModifier" => String.t() | atom(),
         "DashManifestStyle" => list(any()),
-        "Destination" => String.t(),
+        "Destination" => String.t() | atom(),
         "DestinationSettings" => destination_settings(),
         "Encryption" => cmaf_encryption_settings(),
         "FragmentLength" => integer(),
@@ -1300,7 +1300,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type cmaf_group_settings() :: %{String.t() => any()}
+  @type cmaf_group_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1308,14 +1308,14 @@ defmodule AWS.MediaConvert do
 
       dynamic_audio_selector() :: %{
         "AudioDurationCorrection" => list(any()),
-        "ExternalAudioFileInput" => String.t(),
+        "ExternalAudioFileInput" => String.t() | atom(),
         "LanguageCode" => list(any()),
         "Offset" => integer(),
         "SelectorType" => list(any())
       }
 
   """
-  @type dynamic_audio_selector() :: %{String.t() => any()}
+  @type dynamic_audio_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1327,18 +1327,18 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type image_inserter() :: %{String.t() => any()}
+  @type image_inserter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       esam_manifest_confirm_condition_notification() :: %{
-        "MccXml" => String.t()
+        "MccXml" => String.t() | atom()
       }
 
   """
-  @type esam_manifest_confirm_condition_notification() :: %{String.t() => any()}
+  @type esam_manifest_confirm_condition_notification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1362,7 +1362,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type job_settings() :: %{String.t() => any()}
+  @type job_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1373,7 +1373,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type timed_metadata_insertion() :: %{String.t() => any()}
+  @type timed_metadata_insertion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1382,7 +1382,7 @@ defmodule AWS.MediaConvert do
       ms_smooth_group_settings() :: %{
         "AdditionalManifests" => list(ms_smooth_additional_manifest()),
         "AudioDeduplication" => list(any()),
-        "Destination" => String.t(),
+        "Destination" => String.t() | atom(),
         "DestinationSettings" => destination_settings(),
         "Encryption" => ms_smooth_encryption_settings(),
         "FragmentLength" => integer(),
@@ -1391,7 +1391,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type ms_smooth_group_settings() :: %{String.t() => any()}
+  @type ms_smooth_group_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1403,52 +1403,52 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type min_top_rendition_size() :: %{String.t() => any()}
+  @type min_top_rendition_size() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_jobs_request() :: %{
-        optional("InputFile") => String.t(),
+        optional("InputFile") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Order") => list(any()),
-        optional("Queue") => String.t(),
+        optional("Queue") => String.t() | atom(),
         optional("Status") => list(any())
       }
 
   """
-  @type search_jobs_request() :: %{String.t() => any()}
+  @type search_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       hls_settings() :: %{
-        "AudioGroupId" => String.t(),
+        "AudioGroupId" => String.t() | atom(),
         "AudioOnlyContainer" => list(any()),
-        "AudioRenditionSets" => String.t(),
+        "AudioRenditionSets" => String.t() | atom(),
         "AudioTrackType" => list(any()),
         "DescriptiveVideoServiceFlag" => list(any()),
         "IFrameOnlyManifest" => list(any()),
-        "SegmentModifier" => String.t()
+        "SegmentModifier" => String.t() | atom()
       }
 
   """
-  @type hls_settings() :: %{String.t() => any()}
+  @type hls_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       video_overlay_input_clipping() :: %{
-        "EndTimecode" => String.t(),
-        "StartTimecode" => String.t()
+        "EndTimecode" => String.t() | atom(),
+        "StartTimecode" => String.t() | atom()
       }
 
   """
-  @type video_overlay_input_clipping() :: %{String.t() => any()}
+  @type video_overlay_input_clipping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1464,9 +1464,9 @@ defmodule AWS.MediaConvert do
         "DeblockFilter" => list(any()),
         "DecryptionSettings" => input_decryption_settings(),
         "DenoiseFilter" => list(any()),
-        "DolbyVisionMetadataXml" => String.t(),
+        "DolbyVisionMetadataXml" => String.t() | atom(),
         "DynamicAudioSelectors" => map(),
-        "FileInput" => String.t(),
+        "FileInput" => String.t() | atom(),
         "FilterEnable" => list(any()),
         "FilterStrength" => integer(),
         "ImageInserter" => image_inserter(),
@@ -1475,17 +1475,17 @@ defmodule AWS.MediaConvert do
         "Position" => rectangle(),
         "ProgramNumber" => integer(),
         "PsiControl" => list(any()),
-        "SupplementalImps" => list(String.t()),
+        "SupplementalImps" => list(String.t() | atom()),
         "TamsSettings" => input_tams_settings(),
         "TimecodeSource" => list(any()),
-        "TimecodeStart" => String.t(),
+        "TimecodeStart" => String.t() | atom(),
         "VideoGenerator" => input_video_generator(),
         "VideoOverlays" => list(video_overlay()),
         "VideoSelector" => video_selector()
       }
 
   """
-  @type input() :: %{String.t() => any()}
+  @type input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1494,29 +1494,29 @@ defmodule AWS.MediaConvert do
       describe_endpoints_request() :: %{
         optional("MaxResults") => integer(),
         optional("Mode") => list(any()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_endpoints_request() :: %{String.t() => any()}
+  @type describe_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       color_conversion3_d_l_u_t_setting() :: %{
-        "FileInput" => String.t(),
+        "FileInput" => String.t() | atom(),
         "InputColorSpace" => list(any()),
         "InputMasteringLuminance" => integer(),
         "OutputColorSpace" => list(any()),
@@ -1524,7 +1524,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type color_conversion3_d_l_u_t_setting() :: %{String.t() => any()}
+  @type color_conversion3_d_l_u_t_setting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1535,7 +1535,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type get_job_template_response() :: %{String.t() => any()}
+  @type get_job_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1551,7 +1551,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type reservation_plan() :: %{String.t() => any()}
+  @type reservation_plan() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1559,14 +1559,14 @@ defmodule AWS.MediaConvert do
 
       output_group() :: %{
         "AutomatedEncodingSettings" => automated_encoding_settings(),
-        "CustomName" => String.t(),
-        "Name" => String.t(),
+        "CustomName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "OutputGroupSettings" => output_group_settings(),
         "Outputs" => list(output())
       }
 
   """
-  @type output_group() :: %{String.t() => any()}
+  @type output_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1584,19 +1584,19 @@ defmodule AWS.MediaConvert do
       audio_description() :: %{
         "AudioChannelTaggingSettings" => audio_channel_tagging_settings(),
         "AudioNormalizationSettings" => audio_normalization_settings(),
-        "AudioSourceName" => String.t(),
+        "AudioSourceName" => String.t() | atom(),
         "AudioType" => integer(),
         "AudioTypeControl" => list(any()),
         "CodecSettings" => audio_codec_settings(),
-        "CustomLanguageCode" => String.t(),
+        "CustomLanguageCode" => String.t() | atom(),
         "LanguageCode" => list(any()),
         "LanguageCodeControl" => list(any()),
         "RemixSettings" => remix_settings(),
-        "StreamName" => String.t()
+        "StreamName" => String.t() | atom()
       }
 
   """
-  @type audio_description() :: %{String.t() => any()}
+  @type audio_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1623,7 +1623,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type xavc_settings() :: %{String.t() => any()}
+  @type xavc_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1637,7 +1637,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type preset_settings() :: %{String.t() => any()}
+  @type preset_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1648,7 +1648,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type scc_destination_settings() :: %{String.t() => any()}
+  @type scc_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1672,7 +1672,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type video_codec_settings() :: %{String.t() => any()}
+  @type video_codec_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1684,7 +1684,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type motion_image_insertion_offset() :: %{String.t() => any()}
+  @type motion_image_insertion_offset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1695,12 +1695,12 @@ defmodule AWS.MediaConvert do
         "BitRate" => float(),
         "Channels" => integer(),
         "FrameRate" => frame_rate(),
-        "LanguageCode" => String.t(),
+        "LanguageCode" => String.t() | atom(),
         "SampleRate" => integer()
       }
 
   """
-  @type audio_properties() :: %{String.t() => any()}
+  @type audio_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1711,7 +1711,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type put_policy_response() :: %{String.t() => any()}
+  @type put_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1719,11 +1719,11 @@ defmodule AWS.MediaConvert do
 
       job_engine_version() :: %{
         "ExpirationDate" => non_neg_integer(),
-        "Version" => String.t()
+        "Version" => String.t() | atom()
       }
 
   """
-  @type job_engine_version() :: %{String.t() => any()}
+  @type job_engine_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1744,7 +1744,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type avc_intra_settings() :: %{String.t() => any()}
+  @type avc_intra_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1775,7 +1775,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type eac3_settings() :: %{String.t() => any()}
+  @type eac3_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1798,7 +1798,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type vp9_settings() :: %{String.t() => any()}
+  @type vp9_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1809,18 +1809,18 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type output_group_detail() :: %{String.t() => any()}
+  @type output_group_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{String.t() => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1840,22 +1840,22 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type caption_destination_settings() :: %{String.t() => any()}
+  @type caption_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       speke_key_provider() :: %{
-        "CertificateArn" => String.t(),
+        "CertificateArn" => String.t() | atom(),
         "EncryptionContractConfiguration" => encryption_contract_configuration(),
-        "ResourceId" => String.t(),
-        "SystemIds" => list(String.t()),
-        "Url" => String.t()
+        "ResourceId" => String.t() | atom(),
+        "SystemIds" => list(String.t() | atom()),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type speke_key_provider() :: %{String.t() => any()}
+  @type speke_key_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1867,7 +1867,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type frame_rate() :: %{String.t() => any()}
+  @type frame_rate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1880,7 +1880,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type s3_destination_settings() :: %{String.t() => any()}
+  @type s3_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1935,7 +1935,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type h265_settings() :: %{String.t() => any()}
+  @type h265_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1947,19 +1947,19 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type av1_qvbr_settings() :: %{String.t() => any()}
+  @type av1_qvbr_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       teletext_destination_settings() :: %{
-        "PageNumber" => String.t(),
+        "PageNumber" => String.t() | atom(),
         "PageTypes" => list(list(any())())
       }
 
   """
-  @type teletext_destination_settings() :: %{String.t() => any()}
+  @type teletext_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1970,14 +1970,14 @@ defmodule AWS.MediaConvert do
         "Convert608To708" => list(any()),
         "ConvertPaintToPop" => list(any()),
         "Framerate" => caption_source_framerate(),
-        "SourceFile" => String.t(),
+        "SourceFile" => String.t() | atom(),
         "TimeDelta" => integer(),
         "TimeDeltaUnits" => list(any()),
         "UpconvertSTLToTeletext" => list(any())
       }
 
   """
-  @type file_source_settings() :: %{String.t() => any()}
+  @type file_source_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1988,19 +1988,19 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       hls_additional_manifest() :: %{
-        "ManifestNameModifier" => String.t(),
-        "SelectedOutputs" => list(String.t())
+        "ManifestNameModifier" => String.t() | atom(),
+        "SelectedOutputs" => list(String.t() | atom())
       }
 
   """
-  @type hls_additional_manifest() :: %{String.t() => any()}
+  @type hls_additional_manifest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2012,7 +2012,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type mxf_xavc_profile_settings() :: %{String.t() => any()}
+  @type mxf_xavc_profile_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2024,7 +2024,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type dash_iso_encryption_settings() :: %{String.t() => any()}
+  @type dash_iso_encryption_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2038,7 +2038,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type dolby_vision() :: %{String.t() => any()}
+  @type dolby_vision() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2046,37 +2046,37 @@ defmodule AWS.MediaConvert do
 
       search_jobs_response() :: %{
         "Jobs" => list(job()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type search_jobs_response() :: %{String.t() => any()}
+  @type search_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       caption_description_preset() :: %{
-        "CustomLanguageCode" => String.t(),
+        "CustomLanguageCode" => String.t() | atom(),
         "DestinationSettings" => caption_destination_settings(),
         "LanguageCode" => list(any()),
-        "LanguageDescription" => String.t()
+        "LanguageDescription" => String.t() | atom()
       }
 
   """
-  @type caption_description_preset() :: %{String.t() => any()}
+  @type caption_description_preset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_presets_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Presets" => list(preset())
       }
 
   """
-  @type list_presets_response() :: %{String.t() => any()}
+  @type list_presets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2091,19 +2091,19 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type noise_reducer_temporal_filter_settings() :: %{String.t() => any()}
+  @type noise_reducer_temporal_filter_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_versions_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Versions" => list(job_engine_version())
       }
 
   """
-  @type list_versions_response() :: %{String.t() => any()}
+  @type list_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2111,16 +2111,16 @@ defmodule AWS.MediaConvert do
 
       create_queue_request() :: %{
         optional("ConcurrentJobs") => integer(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("PricingPlan") => list(any()),
         optional("ReservationPlanSettings") => reservation_plan_settings(),
         optional("Status") => list(any()),
         optional("Tags") => map(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_queue_request() :: %{String.t() => any()}
+  @type create_queue_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2133,19 +2133,19 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type ancillary_source_settings() :: %{String.t() => any()}
+  @type ancillary_source_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_messages() :: %{
-        "Info" => list(String.t()),
-        "Warning" => list(String.t())
+        "Info" => list(String.t() | atom()),
+        "Warning" => list(String.t() | atom())
       }
 
   """
-  @type job_messages() :: %{String.t() => any()}
+  @type job_messages() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2170,7 +2170,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type hls_image_based_trick_play_settings() :: %{String.t() => any()}
+  @type hls_image_based_trick_play_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2186,16 +2186,16 @@ defmodule AWS.MediaConvert do
         "DdsYCoordinate" => integer(),
         "FallbackFont" => list(any()),
         "FontColor" => list(any()),
-        "FontFileBold" => String.t(),
-        "FontFileBoldItalic" => String.t(),
-        "FontFileItalic" => String.t(),
-        "FontFileRegular" => String.t(),
+        "FontFileBold" => String.t() | atom(),
+        "FontFileBoldItalic" => String.t() | atom(),
+        "FontFileItalic" => String.t() | atom(),
+        "FontFileRegular" => String.t() | atom(),
         "FontOpacity" => integer(),
         "FontResolution" => integer(),
         "FontScript" => list(any()),
         "FontSize" => integer(),
         "Height" => integer(),
-        "HexFontColor" => String.t(),
+        "HexFontColor" => String.t() | atom(),
         "OutlineColor" => list(any()),
         "OutlineSize" => integer(),
         "ShadowColor" => list(any()),
@@ -2211,18 +2211,18 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type dvb_sub_destination_settings() :: %{String.t() => any()}
+  @type dvb_sub_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       esam_signal_processing_notification() :: %{
-        "SccXml" => String.t()
+        "SccXml" => String.t() | atom()
       }
 
   """
-  @type esam_signal_processing_notification() :: %{String.t() => any()}
+  @type esam_signal_processing_notification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2243,7 +2243,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type video_selector() :: %{String.t() => any()}
+  @type video_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2255,7 +2255,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type hdr10_plus() :: %{String.t() => any()}
+  @type hdr10_plus() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2268,7 +2268,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type opus_settings() :: %{String.t() => any()}
+  @type opus_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2287,13 +2287,13 @@ defmodule AWS.MediaConvert do
         "AdMarkers" => list(list(any())()),
         "AdditionalManifests" => list(hls_additional_manifest()),
         "AudioOnlyHeader" => list(any()),
-        "BaseUrl" => String.t(),
+        "BaseUrl" => String.t() | atom(),
         "CaptionLanguageMappings" => list(hls_caption_language_mapping()),
         "CaptionLanguageSetting" => list(any()),
         "CaptionSegmentLengthControl" => list(any()),
         "ClientCache" => list(any()),
         "CodecSpecification" => list(any()),
-        "Destination" => String.t(),
+        "Destination" => String.t() | atom(),
         "DestinationSettings" => destination_settings(),
         "DirectoryStructure" => list(any()),
         "Encryption" => hls_encryption_settings(),
@@ -2319,7 +2319,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type hls_group_settings() :: %{String.t() => any()}
+  @type hls_group_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2330,7 +2330,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type output_settings() :: %{String.t() => any()}
+  @type output_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2338,9 +2338,9 @@ defmodule AWS.MediaConvert do
 
       audio_selector() :: %{
         "AudioDurationCorrection" => list(any()),
-        "CustomLanguageCode" => String.t(),
+        "CustomLanguageCode" => String.t() | atom(),
         "DefaultSelection" => list(any()),
-        "ExternalAudioFileInput" => String.t(),
+        "ExternalAudioFileInput" => String.t() | atom(),
         "HlsRenditionGroupSettings" => hls_rendition_group_settings(),
         "LanguageCode" => list(any()),
         "Offset" => integer(),
@@ -2352,7 +2352,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type audio_selector() :: %{String.t() => any()}
+  @type audio_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2377,21 +2377,21 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type av1_settings() :: %{String.t() => any()}
+  @type av1_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_override() :: %{
-        "Message" => String.t(),
-        "Name" => String.t(),
-        "OverrideValue" => String.t(),
-        "Value" => String.t()
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OverrideValue" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type service_override() :: %{String.t() => any()}
+  @type service_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2410,7 +2410,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type xavc_hd_profile_settings() :: %{String.t() => any()}
+  @type xavc_hd_profile_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2421,7 +2421,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type get_policy_response() :: %{String.t() => any()}
+  @type get_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2433,18 +2433,18 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type video_detail() :: %{String.t() => any()}
+  @type video_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       endpoint() :: %{
-        "Url" => String.t()
+        "Url" => String.t() | atom()
       }
 
   """
-  @type endpoint() :: %{String.t() => any()}
+  @type endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2462,41 +2462,41 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type video_preprocessor() :: %{String.t() => any()}
+  @type video_preprocessor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_certificate_request() :: %{
-        required("Arn") => String.t()
+        required("Arn") => String.t() | atom()
       }
 
   """
-  @type associate_certificate_request() :: %{String.t() => any()}
+  @type associate_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       avail_blanking() :: %{
-        "AvailBlankingImage" => String.t()
+        "AvailBlankingImage" => String.t() | atom()
       }
 
   """
-  @type avail_blanking() :: %{String.t() => any()}
+  @type avail_blanking() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dash_additional_manifest() :: %{
-        "ManifestNameModifier" => String.t(),
-        "SelectedOutputs" => list(String.t())
+        "ManifestNameModifier" => String.t() | atom(),
+        "SelectedOutputs" => list(String.t() | atom())
       }
 
   """
-  @type dash_additional_manifest() :: %{String.t() => any()}
+  @type dash_additional_manifest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2517,20 +2517,20 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type encryption_contract_configuration() :: %{String.t() => any()}
+  @type encryption_contract_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_preset_request() :: %{
-        optional("Category") => String.t(),
-        optional("Description") => String.t(),
+        optional("Category") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Settings") => preset_settings()
       }
 
   """
-  @type update_preset_request() :: %{String.t() => any()}
+  @type update_preset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2541,7 +2541,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type avc_intra_uhd_settings() :: %{String.t() => any()}
+  @type avc_intra_uhd_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2549,15 +2549,15 @@ defmodule AWS.MediaConvert do
 
       motion_image_inserter() :: %{
         "Framerate" => motion_image_insertion_framerate(),
-        "Input" => String.t(),
+        "Input" => String.t() | atom(),
         "InsertionMode" => list(any()),
         "Offset" => motion_image_insertion_offset(),
         "Playback" => list(any()),
-        "StartTime" => String.t()
+        "StartTime" => String.t() | atom()
       }
 
   """
-  @type motion_image_inserter() :: %{String.t() => any()}
+  @type motion_image_inserter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2570,7 +2570,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type timing() :: %{String.t() => any()}
+  @type timing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2597,7 +2597,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type video_properties() :: %{String.t() => any()}
+  @type video_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2613,39 +2613,39 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       teletext_source_settings() :: %{
-        "PageNumber" => String.t()
+        "PageNumber" => String.t() | atom()
       }
 
   """
-  @type teletext_source_settings() :: %{String.t() => any()}
+  @type teletext_source_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       queue_transition() :: %{
-        "DestinationQueue" => String.t(),
-        "SourceQueue" => String.t(),
+        "DestinationQueue" => String.t() | atom(),
+        "SourceQueue" => String.t() | atom(),
         "Timestamp" => non_neg_integer()
       }
 
   """
-  @type queue_transition() :: %{String.t() => any()}
+  @type queue_transition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_job_templates_request() :: %{
-        optional("Category") => String.t(),
+        optional("Category") => String.t() | atom(),
         optional("ListBy") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("Order") => list(any())
       }
 
   """
-  @type list_job_templates_request() :: %{String.t() => any()}
+  @type list_job_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2658,7 +2658,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type policy() :: %{String.t() => any()}
+  @type policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2671,19 +2671,19 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type probe_result() :: %{String.t() => any()}
+  @type probe_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cmaf_additional_manifest() :: %{
-        "ManifestNameModifier" => String.t(),
-        "SelectedOutputs" => list(String.t())
+        "ManifestNameModifier" => String.t() | atom(),
+        "SelectedOutputs" => list(String.t() | atom())
       }
 
   """
-  @type cmaf_additional_manifest() :: %{String.t() => any()}
+  @type cmaf_additional_manifest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2691,19 +2691,19 @@ defmodule AWS.MediaConvert do
 
       create_job_template_request() :: %{
         optional("AccelerationSettings") => acceleration_settings(),
-        optional("Category") => String.t(),
-        optional("Description") => String.t(),
+        optional("Category") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("HopDestinations") => list(hop_destination()),
         optional("Priority") => integer(),
-        optional("Queue") => String.t(),
+        optional("Queue") => String.t() | atom(),
         optional("StatusUpdateInterval") => list(any()),
         optional("Tags") => map(),
-        required("Name") => String.t(),
+        required("Name") => String.t() | atom(),
         required("Settings") => job_template_settings()
       }
 
   """
-  @type create_job_template_request() :: %{String.t() => any()}
+  @type create_job_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2714,7 +2714,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type automated_encoding_settings() :: %{String.t() => any()}
+  @type automated_encoding_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2725,19 +2725,19 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type dvb_tdt_settings() :: %{String.t() => any()}
+  @type dvb_tdt_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       id3_insertion() :: %{
-        "Id3" => String.t(),
-        "Timecode" => String.t()
+        "Id3" => String.t() | atom(),
+        "Timecode" => String.t() | atom()
       }
 
   """
-  @type id3_insertion() :: %{String.t() => any()}
+  @type id3_insertion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2759,7 +2759,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type hdr10_metadata() :: %{String.t() => any()}
+  @type hdr10_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2774,7 +2774,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type mp3_settings() :: %{String.t() => any()}
+  @type mp3_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2786,7 +2786,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type webvtt_destination_settings() :: %{String.t() => any()}
+  @type webvtt_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2797,7 +2797,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type update_job_template_response() :: %{String.t() => any()}
+  @type update_job_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2825,7 +2825,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type uncompressed_settings() :: %{String.t() => any()}
+  @type uncompressed_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2849,7 +2849,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type remix_settings() :: %{String.t() => any()}
+  @type remix_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2893,7 +2893,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type mpeg2_settings() :: %{String.t() => any()}
+  @type mpeg2_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2911,30 +2911,30 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type caption_source_settings() :: %{String.t() => any()}
+  @type caption_source_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kantar_watermark_settings() :: %{
-        "ChannelName" => String.t(),
-        "ContentReference" => String.t(),
-        "CredentialsSecretName" => String.t(),
+        "ChannelName" => String.t() | atom(),
+        "ContentReference" => String.t() | atom(),
+        "CredentialsSecretName" => String.t() | atom(),
         "FileOffset" => float(),
         "KantarLicenseId" => integer(),
-        "KantarServerUrl" => String.t(),
-        "LogDestination" => String.t(),
-        "Metadata3" => String.t(),
-        "Metadata4" => String.t(),
-        "Metadata5" => String.t(),
-        "Metadata6" => String.t(),
-        "Metadata7" => String.t(),
-        "Metadata8" => String.t()
+        "KantarServerUrl" => String.t() | atom(),
+        "LogDestination" => String.t() | atom(),
+        "Metadata3" => String.t() | atom(),
+        "Metadata4" => String.t() | atom(),
+        "Metadata5" => String.t() | atom(),
+        "Metadata6" => String.t() | atom(),
+        "Metadata7" => String.t() | atom(),
+        "Metadata8" => String.t() | atom()
       }
 
   """
-  @type kantar_watermark_settings() :: %{String.t() => any()}
+  @type kantar_watermark_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2942,12 +2942,12 @@ defmodule AWS.MediaConvert do
 
       hop_destination() :: %{
         "Priority" => integer(),
-        "Queue" => String.t(),
+        "Queue" => String.t() | atom(),
         "WaitMinutes" => integer()
       }
 
   """
-  @type hop_destination() :: %{String.t() => any()}
+  @type hop_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2958,7 +2958,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type get_job_response() :: %{String.t() => any()}
+  @type get_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2969,19 +2969,19 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type update_preset_response() :: %{String.t() => any()}
+  @type update_preset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ms_smooth_additional_manifest() :: %{
-        "ManifestNameModifier" => String.t(),
-        "SelectedOutputs" => list(String.t())
+        "ManifestNameModifier" => String.t() | atom(),
+        "SelectedOutputs" => list(String.t() | atom())
       }
 
   """
-  @type ms_smooth_additional_manifest() :: %{String.t() => any()}
+  @type ms_smooth_additional_manifest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2994,7 +2994,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type vorbis_settings() :: %{String.t() => any()}
+  @type vorbis_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3005,7 +3005,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type probe_response() :: %{String.t() => any()}
+  @type probe_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3025,7 +3025,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type ac3_settings() :: %{String.t() => any()}
+  @type ac3_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3043,26 +3043,26 @@ defmodule AWS.MediaConvert do
       job() :: %{
         "AccelerationSettings" => acceleration_settings(),
         "AccelerationStatus" => list(any()),
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "BillingTagsSource" => list(any()),
-        "ClientRequestToken" => String.t(),
+        "ClientRequestToken" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
         "CurrentPhase" => list(any()),
         "ErrorCode" => integer(),
-        "ErrorMessage" => String.t(),
+        "ErrorMessage" => String.t() | atom(),
         "HopDestinations" => list(hop_destination()),
-        "Id" => String.t(),
-        "JobEngineVersionRequested" => String.t(),
-        "JobEngineVersionUsed" => String.t(),
+        "Id" => String.t() | atom(),
+        "JobEngineVersionRequested" => String.t() | atom(),
+        "JobEngineVersionUsed" => String.t() | atom(),
         "JobPercentComplete" => integer(),
-        "JobTemplate" => String.t(),
+        "JobTemplate" => String.t() | atom(),
         "Messages" => job_messages(),
         "OutputGroupDetails" => list(output_group_detail()),
         "Priority" => integer(),
-        "Queue" => String.t(),
+        "Queue" => String.t() | atom(),
         "QueueTransitions" => list(queue_transition()),
         "RetryCount" => integer(),
-        "Role" => String.t(),
+        "Role" => String.t() | atom(),
         "Settings" => job_settings(),
         "SimulateReservedQueue" => list(any()),
         "Status" => list(any()),
@@ -3073,18 +3073,18 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type job() :: %{String.t() => any()}
+  @type job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_error_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_error_exception() :: %{String.t() => any()}
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3098,7 +3098,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type embedded_source_settings() :: %{String.t() => any()}
+  @type embedded_source_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3114,7 +3114,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type dash_iso_image_based_trick_play_settings() :: %{String.t() => any()}
+  @type dash_iso_image_based_trick_play_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3133,32 +3133,32 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type container_settings() :: %{String.t() => any()}
+  @type container_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       video_overlay_input() :: %{
-        "FileInput" => String.t(),
+        "FileInput" => String.t() | atom(),
         "InputClippings" => list(video_overlay_input_clipping()),
         "TimecodeSource" => list(any()),
-        "TimecodeStart" => String.t()
+        "TimecodeStart" => String.t() | atom()
       }
 
   """
-  @type video_overlay_input() :: %{String.t() => any()}
+  @type video_overlay_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       probe_input_file() :: %{
-        "FileUrl" => String.t()
+        "FileUrl" => String.t() | atom()
       }
 
   """
-  @type probe_input_file() :: %{String.t() => any()}
+  @type probe_input_file() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3174,7 +3174,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       cmaf_encryption_settings() :: %{
-        "ConstantInitializationVector" => String.t(),
+        "ConstantInitializationVector" => String.t() | atom(),
         "EncryptionMethod" => list(any()),
         "InitializationVectorInManifest" => list(any()),
         "SpekeKeyProvider" => speke_key_provider_cmaf(),
@@ -3183,7 +3183,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type cmaf_encryption_settings() :: %{String.t() => any()}
+  @type cmaf_encryption_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3194,7 +3194,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type get_preset_response() :: %{String.t() => any()}
+  @type get_preset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3202,26 +3202,26 @@ defmodule AWS.MediaConvert do
 
       list_versions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_versions_request() :: %{String.t() => any()}
+  @type list_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       caption_description() :: %{
-        "CaptionSelectorName" => String.t(),
-        "CustomLanguageCode" => String.t(),
+        "CaptionSelectorName" => String.t() | atom(),
+        "CustomLanguageCode" => String.t() | atom(),
         "DestinationSettings" => caption_destination_settings(),
         "LanguageCode" => list(any()),
-        "LanguageDescription" => String.t()
+        "LanguageDescription" => String.t() | atom()
       }
 
   """
-  @type caption_description() :: %{String.t() => any()}
+  @type caption_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3236,7 +3236,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type video_overlay_crop() :: %{String.t() => any()}
+  @type video_overlay_crop() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3244,20 +3244,20 @@ defmodule AWS.MediaConvert do
 
       nielsen_non_linear_watermark_settings() :: %{
         "ActiveWatermarkProcess" => list(any()),
-        "AdiFilename" => String.t(),
-        "AssetId" => String.t(),
-        "AssetName" => String.t(),
-        "CbetSourceId" => String.t(),
-        "EpisodeId" => String.t(),
-        "MetadataDestination" => String.t(),
+        "AdiFilename" => String.t() | atom(),
+        "AssetId" => String.t() | atom(),
+        "AssetName" => String.t() | atom(),
+        "CbetSourceId" => String.t() | atom(),
+        "EpisodeId" => String.t() | atom(),
+        "MetadataDestination" => String.t() | atom(),
         "SourceId" => integer(),
         "SourceWatermarkStatus" => list(any()),
-        "TicServerUrl" => String.t(),
+        "TicServerUrl" => String.t() | atom(),
         "UniqueTicPerAudioTrack" => list(any())
       }
 
   """
-  @type nielsen_non_linear_watermark_settings() :: %{String.t() => any()}
+  @type nielsen_non_linear_watermark_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3273,7 +3273,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type cmaf_image_based_trick_play_settings() :: %{String.t() => any()}
+  @type cmaf_image_based_trick_play_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3287,7 +3287,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type frame_capture_settings() :: %{String.t() => any()}
+  @type frame_capture_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3340,7 +3340,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type m2ts_settings() :: %{String.t() => any()}
+  @type m2ts_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3349,37 +3349,37 @@ defmodule AWS.MediaConvert do
       dvb_sdt_settings() :: %{
         "OutputSdt" => list(any()),
         "SdtInterval" => integer(),
-        "ServiceName" => String.t(),
-        "ServiceProviderName" => String.t()
+        "ServiceName" => String.t() | atom(),
+        "ServiceProviderName" => String.t() | atom()
       }
 
   """
-  @type dvb_sdt_settings() :: %{String.t() => any()}
+  @type dvb_sdt_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_queues_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Queues" => list(queue()),
         "TotalConcurrentJobs" => integer(),
         "UnallocatedConcurrentJobs" => integer()
       }
 
   """
-  @type list_queues_response() :: %{String.t() => any()}
+  @type list_queues_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_properties() :: %{
-        "LanguageCode" => String.t()
+        "LanguageCode" => String.t() | atom()
       }
 
   """
-  @type data_properties() :: %{String.t() => any()}
+  @type data_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3390,7 +3390,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type m2ts_scte35_esam() :: %{String.t() => any()}
+  @type m2ts_scte35_esam() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3402,7 +3402,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type warning_group() :: %{String.t() => any()}
+  @type warning_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3413,7 +3413,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type srt_destination_settings() :: %{String.t() => any()}
+  @type srt_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3425,7 +3425,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type min_bottom_rendition_size() :: %{String.t() => any()}
+  @type min_bottom_rendition_size() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3452,7 +3452,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type eac3_atmos_settings() :: %{String.t() => any()}
+  @type eac3_atmos_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3464,7 +3464,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type dolby_vision_level6_metadata() :: %{String.t() => any()}
+  @type dolby_vision_level6_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3475,7 +3475,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type f4v_settings() :: %{String.t() => any()}
+  @type f4v_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3483,13 +3483,13 @@ defmodule AWS.MediaConvert do
 
       input_decryption_settings() :: %{
         "DecryptionMode" => list(any()),
-        "EncryptedDecryptionKey" => String.t(),
-        "InitializationVector" => String.t(),
-        "KmsKeyRegion" => String.t()
+        "EncryptedDecryptionKey" => String.t() | atom(),
+        "InitializationVector" => String.t() | atom(),
+        "KmsKeyRegion" => String.t() | atom()
       }
 
   """
-  @type input_decryption_settings() :: %{String.t() => any()}
+  @type input_decryption_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3500,7 +3500,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type channel_mapping() :: %{String.t() => any()}
+  @type channel_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3514,30 +3514,30 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type wav_settings() :: %{String.t() => any()}
+  @type wav_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       input_clipping() :: %{
-        "EndTimecode" => String.t(),
-        "StartTimecode" => String.t()
+        "EndTimecode" => String.t() | atom(),
+        "StartTimecode" => String.t() | atom()
       }
 
   """
-  @type input_clipping() :: %{String.t() => any()}
+  @type input_clipping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3548,7 +3548,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type update_queue_response() :: %{String.t() => any()}
+  @type update_queue_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3572,7 +3572,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type automated_abr_settings() :: %{String.t() => any()}
+  @type automated_abr_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3583,7 +3583,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type xavc_hd_intra_cbg_profile_settings() :: %{String.t() => any()}
+  @type xavc_hd_intra_cbg_profile_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3595,7 +3595,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type embedded_destination_settings() :: %{String.t() => any()}
+  @type embedded_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3606,7 +3606,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type put_policy_request() :: %{String.t() => any()}
+  @type put_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3614,11 +3614,11 @@ defmodule AWS.MediaConvert do
 
       list_job_templates_response() :: %{
         "JobTemplates" => list(job_template()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_job_templates_response() :: %{String.t() => any()}
+  @type list_job_templates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3634,12 +3634,12 @@ defmodule AWS.MediaConvert do
         "Scte35Source" => list(any()),
         "TimedMetadata" => list(any()),
         "TimedMetadataBoxVersion" => list(any()),
-        "TimedMetadataSchemeIdUri" => String.t(),
-        "TimedMetadataValue" => String.t()
+        "TimedMetadataSchemeIdUri" => String.t() | atom(),
+        "TimedMetadataValue" => String.t() | atom()
       }
 
   """
-  @type mpd_settings() :: %{String.t() => any()}
+  @type mpd_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3650,7 +3650,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type create_preset_response() :: %{String.t() => any()}
+  @type create_preset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3664,7 +3664,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type gif_settings() :: %{String.t() => any()}
+  @type gif_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3676,7 +3676,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type caption_source_framerate() :: %{String.t() => any()}
+  @type caption_source_framerate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3689,7 +3689,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type h265_qvbr_settings() :: %{String.t() => any()}
+  @type h265_qvbr_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3706,7 +3706,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type audio_normalization_settings() :: %{String.t() => any()}
+  @type audio_normalization_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3718,7 +3718,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type output_channel_mapping() :: %{String.t() => any()}
+  @type output_channel_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3729,7 +3729,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type probe_request() :: %{String.t() => any()}
+  @type probe_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3738,10 +3738,10 @@ defmodule AWS.MediaConvert do
       dash_iso_group_settings() :: %{
         "AdditionalManifests" => list(dash_additional_manifest()),
         "AudioChannelConfigSchemeIdUri" => list(any()),
-        "BaseUrl" => String.t(),
-        "DashIFrameTrickPlayNameModifier" => String.t(),
+        "BaseUrl" => String.t() | atom(),
+        "DashIFrameTrickPlayNameModifier" => String.t() | atom(),
         "DashManifestStyle" => list(any()),
-        "Destination" => String.t(),
+        "Destination" => String.t() | atom(),
         "DestinationSettings" => destination_settings(),
         "Encryption" => dash_iso_encryption_settings(),
         "FragmentLength" => integer(),
@@ -3761,7 +3761,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type dash_iso_group_settings() :: %{String.t() => any()}
+  @type dash_iso_group_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3773,21 +3773,21 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type imsc_destination_settings() :: %{String.t() => any()}
+  @type imsc_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       input_tams_settings() :: %{
-        "AuthConnectionArn" => String.t(),
+        "AuthConnectionArn" => String.t() | atom(),
         "GapHandling" => list(any()),
-        "SourceId" => String.t(),
-        "Timerange" => String.t()
+        "SourceId" => String.t() | atom(),
+        "Timerange" => String.t() | atom()
       }
 
   """
-  @type input_tams_settings() :: %{String.t() => any()}
+  @type input_tams_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3819,25 +3819,25 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type clip_limits() :: %{String.t() => any()}
+  @type clip_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       preset() :: %{
-        "Arn" => String.t(),
-        "Category" => String.t(),
+        "Arn" => String.t() | atom(),
+        "Category" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "LastUpdated" => non_neg_integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Settings" => preset_settings(),
         "Type" => list(any())
       }
 
   """
-  @type preset() :: %{String.t() => any()}
+  @type preset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3850,7 +3850,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type noise_reducer_spatial_filter_settings() :: %{String.t() => any()}
+  @type noise_reducer_spatial_filter_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3873,7 +3873,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type vp8_settings() :: %{String.t() => any()}
+  @type vp8_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3886,7 +3886,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type h264_qvbr_settings() :: %{String.t() => any()}
+  @type h264_qvbr_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3894,12 +3894,12 @@ defmodule AWS.MediaConvert do
 
       dvb_nit_settings() :: %{
         "NetworkId" => integer(),
-        "NetworkName" => String.t(),
+        "NetworkName" => String.t() | atom(),
         "NitInterval" => integer()
       }
 
   """
-  @type dvb_nit_settings() :: %{String.t() => any()}
+  @type dvb_nit_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3918,7 +3918,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type vc3_settings() :: %{String.t() => any()}
+  @type vc3_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3929,7 +3929,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type track_source_settings() :: %{String.t() => any()}
+  @type track_source_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3937,8 +3937,8 @@ defmodule AWS.MediaConvert do
 
       cmfc_settings() :: %{
         "AudioDuration" => list(any()),
-        "AudioGroupId" => String.t(),
-        "AudioRenditionSets" => String.t(),
+        "AudioGroupId" => String.t() | atom(),
+        "AudioRenditionSets" => String.t() | atom(),
         "AudioTrackType" => list(any()),
         "DescriptiveVideoServiceFlag" => list(any()),
         "IFrameOnlyManifest" => list(any()),
@@ -3948,12 +3948,12 @@ defmodule AWS.MediaConvert do
         "Scte35Source" => list(any()),
         "TimedMetadata" => list(any()),
         "TimedMetadataBoxVersion" => list(any()),
-        "TimedMetadataSchemeIdUri" => String.t(),
-        "TimedMetadataValue" => String.t()
+        "TimedMetadataSchemeIdUri" => String.t() | atom(),
+        "TimedMetadataValue" => String.t() | atom()
       }
 
   """
-  @type cmfc_settings() :: %{String.t() => any()}
+  @type cmfc_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3964,7 +3964,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type create_queue_response() :: %{String.t() => any()}
+  @type create_queue_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3974,15 +3974,15 @@ defmodule AWS.MediaConvert do
         "AudioDescriptions" => list(audio_description()),
         "CaptionDescriptions" => list(caption_description()),
         "ContainerSettings" => container_settings(),
-        "Extension" => String.t(),
-        "NameModifier" => String.t(),
+        "Extension" => String.t() | atom(),
+        "NameModifier" => String.t() | atom(),
         "OutputSettings" => output_settings(),
-        "Preset" => String.t(),
+        "Preset" => String.t() | atom(),
         "VideoDescription" => video_description()
       }
 
   """
-  @type output() :: %{String.t() => any()}
+  @type output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3993,17 +3993,17 @@ defmodule AWS.MediaConvert do
         "FadeIn" => integer(),
         "FadeOut" => integer(),
         "Height" => integer(),
-        "ImageInserterInput" => String.t(),
+        "ImageInserterInput" => String.t() | atom(),
         "ImageX" => integer(),
         "ImageY" => integer(),
         "Layer" => integer(),
         "Opacity" => integer(),
-        "StartTime" => String.t(),
+        "StartTime" => String.t() | atom(),
         "Width" => integer()
       }
 
   """
-  @type insertable_image() :: %{String.t() => any()}
+  @type insertable_image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4059,7 +4059,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type h264_settings() :: %{String.t() => any()}
+  @type h264_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4072,7 +4072,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type allowed_rendition_size() :: %{String.t() => any()}
+  @type allowed_rendition_size() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4083,20 +4083,20 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type noise_reducer_filter_settings() :: %{String.t() => any()}
+  @type noise_reducer_filter_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       webvtt_hls_source_settings() :: %{
-        "RenditionGroupId" => String.t(),
+        "RenditionGroupId" => String.t() | atom(),
         "RenditionLanguageCode" => list(any()),
-        "RenditionName" => String.t()
+        "RenditionName" => String.t() | atom()
       }
 
   """
-  @type webvtt_hls_source_settings() :: %{String.t() => any()}
+  @type webvtt_hls_source_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4107,7 +4107,7 @@ defmodule AWS.MediaConvert do
       }
 
   """
-  @type xavc4k_intra_cbg_profile_settings() :: %{String.t() => any()}
+  @type xavc4k_intra_cbg_profile_settings() :: %{(String.t() | atom()) => any()}
 
   @type associate_certificate_errors() ::
           bad_request_exception()
@@ -4408,7 +4408,7 @@ defmodule AWS.MediaConvert do
 
   Once you have canceled a job, you can't start it again.
   """
-  @spec cancel_job(map(), String.t(), cancel_job_request(), list()) ::
+  @spec cancel_job(map(), String.t() | atom(), cancel_job_request(), list()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4565,7 +4565,7 @@ defmodule AWS.MediaConvert do
   @doc """
   Permanently delete a job template you have created.
   """
-  @spec delete_job_template(map(), String.t(), delete_job_template_request(), list()) ::
+  @spec delete_job_template(map(), String.t() | atom(), delete_job_template_request(), list()) ::
           {:ok, delete_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4623,7 +4623,7 @@ defmodule AWS.MediaConvert do
   @doc """
   Permanently delete a preset you have created.
   """
-  @spec delete_preset(map(), String.t(), delete_preset_request(), list()) ::
+  @spec delete_preset(map(), String.t() | atom(), delete_preset_request(), list()) ::
           {:ok, delete_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4652,7 +4652,7 @@ defmodule AWS.MediaConvert do
   @doc """
   Permanently delete a queue you have created.
   """
-  @spec delete_queue(map(), String.t(), delete_queue_request(), list()) ::
+  @spec delete_queue(map(), String.t() | atom(), delete_queue_request(), list()) ::
           {:ok, delete_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4716,7 +4716,12 @@ defmodule AWS.MediaConvert do
   Certificate Manager (ACM) certificate and an AWS Elemental MediaConvert
   resource.
   """
-  @spec disassociate_certificate(map(), String.t(), disassociate_certificate_request(), list()) ::
+  @spec disassociate_certificate(
+          map(),
+          String.t() | atom(),
+          disassociate_certificate_request(),
+          list()
+        ) ::
           {:ok, disassociate_certificate_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4745,7 +4750,7 @@ defmodule AWS.MediaConvert do
   @doc """
   Retrieve the JSON for a specific transcoding job.
   """
-  @spec get_job(map(), String.t(), list()) ::
+  @spec get_job(map(), String.t() | atom(), list()) ::
           {:ok, get_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4763,7 +4768,7 @@ defmodule AWS.MediaConvert do
   @doc """
   Retrieve the JSON for a specific job template.
   """
-  @spec get_job_template(map(), String.t(), list()) ::
+  @spec get_job_template(map(), String.t() | atom(), list()) ::
           {:ok, get_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4799,7 +4804,7 @@ defmodule AWS.MediaConvert do
   @doc """
   Retrieve the JSON for a specific preset.
   """
-  @spec get_preset(map(), String.t(), list()) ::
+  @spec get_preset(map(), String.t() | atom(), list()) ::
           {:ok, get_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4817,7 +4822,7 @@ defmodule AWS.MediaConvert do
   @doc """
   Retrieve the JSON for a specific queue.
   """
-  @spec get_queue(map(), String.t(), list()) ::
+  @spec get_queue(map(), String.t() | atom(), list()) ::
           {:ok, get_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4840,11 +4845,11 @@ defmodule AWS.MediaConvert do
   """
   @spec list_job_templates(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_job_templates_response(), any()}
@@ -4913,11 +4918,11 @@ defmodule AWS.MediaConvert do
   """
   @spec list_jobs(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_jobs_response(), any()}
@@ -4985,11 +4990,11 @@ defmodule AWS.MediaConvert do
   """
   @spec list_presets(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_presets_response(), any()}
@@ -5057,10 +5062,10 @@ defmodule AWS.MediaConvert do
   """
   @spec list_queues(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_queues_response(), any()}
@@ -5115,7 +5120,7 @@ defmodule AWS.MediaConvert do
   @doc """
   Retrieve the tags for a MediaConvert resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5134,7 +5139,7 @@ defmodule AWS.MediaConvert do
   Retrieve a JSON array of all available Job engine versions and the date they
   expire.
   """
-  @spec list_versions(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_versions(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5239,12 +5244,12 @@ defmodule AWS.MediaConvert do
   """
   @spec search_jobs(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, search_jobs_response(), any()}
@@ -5350,7 +5355,7 @@ defmodule AWS.MediaConvert do
   For information about tagging, see the User Guide at
   https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5379,7 +5384,7 @@ defmodule AWS.MediaConvert do
   @doc """
   Modify one of your existing job templates.
   """
-  @spec update_job_template(map(), String.t(), update_job_template_request(), list()) ::
+  @spec update_job_template(map(), String.t() | atom(), update_job_template_request(), list()) ::
           {:ok, update_job_template_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5408,7 +5413,7 @@ defmodule AWS.MediaConvert do
   @doc """
   Modify one of your existing presets.
   """
-  @spec update_preset(map(), String.t(), update_preset_request(), list()) ::
+  @spec update_preset(map(), String.t() | atom(), update_preset_request(), list()) ::
           {:ok, update_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5437,7 +5442,7 @@ defmodule AWS.MediaConvert do
   @doc """
   Modify one of your existing queues.
   """
-  @spec update_queue(map(), String.t(), update_queue_request(), list()) ::
+  @spec update_queue(map(), String.t() | atom(), update_queue_request(), list()) ::
           {:ok, update_queue_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

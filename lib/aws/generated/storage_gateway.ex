@@ -92,7 +92,7 @@ defmodule AWS.StorageGateway do
       }
       
   """
-  @type describe_cache_report_output() :: %{String.t() => any()}
+  @type describe_cache_report_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -100,11 +100,11 @@ defmodule AWS.StorageGateway do
       
       join_domain_output() :: %{
         "ActiveDirectoryStatus" => list(any()),
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type join_domain_output() :: %{String.t() => any()}
+  @type join_domain_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -112,143 +112,143 @@ defmodule AWS.StorageGateway do
       
       create_stored_iscsi_volume_input() :: %{
         optional("KMSEncrypted") => boolean(),
-        optional("KMSKey") => String.t(),
-        optional("SnapshotId") => String.t(),
+        optional("KMSKey") => String.t() | atom(),
+        optional("SnapshotId") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("DiskId") => String.t(),
-        required("GatewayARN") => String.t(),
-        required("NetworkInterfaceId") => String.t(),
+        required("DiskId") => String.t() | atom(),
+        required("GatewayARN") => String.t() | atom(),
+        required("NetworkInterfaceId") => String.t() | atom(),
         required("PreserveExistingData") => boolean(),
-        required("TargetName") => String.t()
+        required("TargetName") => String.t() | atom()
       }
       
   """
-  @type create_stored_iscsi_volume_input() :: %{String.t() => any()}
+  @type create_stored_iscsi_volume_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       evict_files_failing_upload_output() :: %{
-        "NotificationId" => String.t()
+        "NotificationId" => String.t() | atom()
       }
       
   """
-  @type evict_files_failing_upload_output() :: %{String.t() => any()}
+  @type evict_files_failing_upload_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_file_system_output() :: %{
-        "FileSystemAssociationARN" => String.t()
+        "FileSystemAssociationARN" => String.t() | atom()
       }
       
   """
-  @type associate_file_system_output() :: %{String.t() => any()}
+  @type associate_file_system_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_snapshot_schedule_input() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("RecurrenceInHours") => integer(),
         required("StartAt") => integer(),
-        required("VolumeARN") => String.t()
+        required("VolumeARN") => String.t() | atom()
       }
       
   """
-  @type update_snapshot_schedule_input() :: %{String.t() => any()}
+  @type update_snapshot_schedule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_archival_input() :: %{
-        required("GatewayARN") => String.t(),
-        required("TapeARN") => String.t()
+        required("GatewayARN") => String.t() | atom(),
+        required("TapeARN") => String.t() | atom()
       }
       
   """
-  @type cancel_archival_input() :: %{String.t() => any()}
+  @type cancel_archival_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_gateway_information_output() :: %{
-        "CloudWatchLogGroupARN" => String.t(),
-        "DeprecationDate" => String.t(),
-        "Ec2InstanceId" => String.t(),
-        "Ec2InstanceRegion" => String.t(),
-        "EndpointType" => String.t(),
-        "GatewayARN" => String.t(),
+        "CloudWatchLogGroupARN" => String.t() | atom(),
+        "DeprecationDate" => String.t() | atom(),
+        "Ec2InstanceId" => String.t() | atom(),
+        "Ec2InstanceRegion" => String.t() | atom(),
+        "EndpointType" => String.t() | atom(),
+        "GatewayARN" => String.t() | atom(),
         "GatewayCapacity" => list(any()),
-        "GatewayId" => String.t(),
-        "GatewayName" => String.t(),
+        "GatewayId" => String.t() | atom(),
+        "GatewayName" => String.t() | atom(),
         "GatewayNetworkInterfaces" => list(network_interface()),
-        "GatewayState" => String.t(),
-        "GatewayTimezone" => String.t(),
-        "GatewayType" => String.t(),
+        "GatewayState" => String.t() | atom(),
+        "GatewayTimezone" => String.t() | atom(),
+        "GatewayType" => String.t() | atom(),
         "HostEnvironment" => list(any()),
-        "HostEnvironmentId" => String.t(),
-        "LastSoftwareUpdate" => String.t(),
-        "NextUpdateAvailabilityDate" => String.t(),
-        "SoftwareUpdatesEndDate" => String.t(),
-        "SoftwareVersion" => String.t(),
+        "HostEnvironmentId" => String.t() | atom(),
+        "LastSoftwareUpdate" => String.t() | atom(),
+        "NextUpdateAvailabilityDate" => String.t() | atom(),
+        "SoftwareUpdatesEndDate" => String.t() | atom(),
+        "SoftwareVersion" => String.t() | atom(),
         "SupportedGatewayCapacities" => list(list(any())()),
         "Tags" => list(tag()),
-        "VPCEndpoint" => String.t()
+        "VPCEndpoint" => String.t() | atom()
       }
       
   """
-  @type describe_gateway_information_output() :: %{String.t() => any()}
+  @type describe_gateway_information_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_volume_initiators_input() :: %{
-        required("VolumeARN") => String.t()
+        required("VolumeARN") => String.t() | atom()
       }
       
   """
-  @type list_volume_initiators_input() :: %{String.t() => any()}
+  @type list_volume_initiators_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       notify_when_uploaded_input() :: %{
-        required("FileShareARN") => String.t()
+        required("FileShareARN") => String.t() | atom()
       }
       
   """
-  @type notify_when_uploaded_input() :: %{String.t() => any()}
+  @type notify_when_uploaded_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_volume_recovery_points_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type list_volume_recovery_points_input() :: %{String.t() => any()}
+  @type list_volume_recovery_points_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_upload_buffer_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type describe_upload_buffer_input() :: %{String.t() => any()}
+  @type describe_upload_buffer_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -260,12 +260,12 @@ defmodule AWS.StorageGateway do
         "CacheHitPercentage" => float(),
         "CacheMissPercentage" => float(),
         "CacheUsedPercentage" => float(),
-        "DiskIds" => list(String.t()),
-        "GatewayARN" => String.t()
+        "DiskIds" => list(String.t() | atom()),
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type describe_cache_output() :: %{String.t() => any()}
+  @type describe_cache_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -275,27 +275,27 @@ defmodule AWS.StorageGateway do
         optional("ExclusionFilters") => list(cache_report_filter()),
         optional("InclusionFilters") => list(cache_report_filter()),
         optional("Tags") => list(tag()),
-        optional("VPCEndpointDNSName") => String.t(),
-        required("BucketRegion") => String.t(),
-        required("ClientToken") => String.t(),
-        required("FileShareARN") => String.t(),
-        required("LocationARN") => String.t(),
-        required("Role") => String.t()
+        optional("VPCEndpointDNSName") => String.t() | atom(),
+        required("BucketRegion") => String.t() | atom(),
+        required("ClientToken") => String.t() | atom(),
+        required("FileShareARN") => String.t() | atom(),
+        required("LocationARN") => String.t() | atom(),
+        required("Role") => String.t() | atom()
       }
       
   """
-  @type start_cache_report_input() :: %{String.t() => any()}
+  @type start_cache_report_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       assign_tape_pool_output() :: %{
-        "TapeARN" => String.t()
+        "TapeARN" => String.t() | atom()
       }
       
   """
-  @type assign_tape_pool_output() :: %{String.t() => any()}
+  @type assign_tape_pool_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -306,7 +306,7 @@ defmodule AWS.StorageGateway do
       }
       
   """
-  @type describe_file_system_associations_output() :: %{String.t() => any()}
+  @type describe_file_system_associations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -314,35 +314,35 @@ defmodule AWS.StorageGateway do
       
       create_tape_with_barcode_input() :: %{
         optional("KMSEncrypted") => boolean(),
-        optional("KMSKey") => String.t(),
-        optional("PoolId") => String.t(),
+        optional("KMSKey") => String.t() | atom(),
+        optional("PoolId") => String.t() | atom(),
         optional("Tags") => list(tag()),
         optional("Worm") => boolean(),
-        required("GatewayARN") => String.t(),
-        required("TapeBarcode") => String.t(),
+        required("GatewayARN") => String.t() | atom(),
+        required("TapeBarcode") => String.t() | atom(),
         required("TapeSizeInBytes") => float()
       }
       
   """
-  @type create_tape_with_barcode_input() :: %{String.t() => any()}
+  @type create_tape_with_barcode_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tape_info() :: %{
-        "GatewayARN" => String.t(),
+        "GatewayARN" => String.t() | atom(),
         "PoolEntryDate" => non_neg_integer(),
-        "PoolId" => String.t(),
+        "PoolId" => String.t() | atom(),
         "RetentionStartDate" => non_neg_integer(),
-        "TapeARN" => String.t(),
-        "TapeBarcode" => String.t(),
+        "TapeARN" => String.t() | atom(),
+        "TapeBarcode" => String.t() | atom(),
         "TapeSizeInBytes" => float(),
-        "TapeStatus" => String.t()
+        "TapeStatus" => String.t() | atom()
       }
       
   """
-  @type tape_info() :: %{String.t() => any()}
+  @type tape_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -350,55 +350,55 @@ defmodule AWS.StorageGateway do
       
       delete_file_share_input() :: %{
         optional("ForceDelete") => boolean(),
-        required("FileShareARN") => String.t()
+        required("FileShareARN") => String.t() | atom()
       }
       
   """
-  @type delete_file_share_input() :: %{String.t() => any()}
+  @type delete_file_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       join_domain_input() :: %{
-        optional("DomainControllers") => list(String.t()),
-        optional("OrganizationalUnit") => String.t(),
+        optional("DomainControllers") => list(String.t() | atom()),
+        optional("OrganizationalUnit") => String.t() | atom(),
         optional("TimeoutInSeconds") => integer(),
-        required("DomainName") => String.t(),
-        required("GatewayARN") => String.t(),
-        required("Password") => String.t(),
-        required("UserName") => String.t()
+        required("DomainName") => String.t() | atom(),
+        required("GatewayARN") => String.t() | atom(),
+        required("Password") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
       }
       
   """
-  @type join_domain_input() :: %{String.t() => any()}
+  @type join_domain_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_file_system_association_input() :: %{
-        optional("AuditDestinationARN") => String.t(),
+        optional("AuditDestinationARN") => String.t() | atom(),
         optional("CacheAttributes") => cache_attributes(),
-        optional("Password") => String.t(),
-        optional("UserName") => String.t(),
-        required("FileSystemAssociationARN") => String.t()
+        optional("Password") => String.t() | atom(),
+        optional("UserName") => String.t() | atom(),
+        required("FileSystemAssociationARN") => String.t() | atom()
       }
       
   """
-  @type update_file_system_association_input() :: %{String.t() => any()}
+  @type update_file_system_association_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_bandwidth_rate_limit_input() :: %{
-        required("BandwidthType") => String.t(),
-        required("GatewayARN") => String.t()
+        required("BandwidthType") => String.t() | atom(),
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type delete_bandwidth_rate_limit_input() :: %{String.t() => any()}
+  @type delete_bandwidth_rate_limit_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -410,11 +410,11 @@ defmodule AWS.StorageGateway do
         optional("HourOfDay") => integer(),
         optional("MinuteOfHour") => integer(),
         optional("SoftwareUpdatePreferences") => software_update_preferences(),
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type update_maintenance_start_time_input() :: %{String.t() => any()}
+  @type update_maintenance_start_time_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -423,13 +423,13 @@ defmodule AWS.StorageGateway do
       volume_iscsi_attributes() :: %{
         "ChapEnabled" => boolean(),
         "LunNumber" => integer(),
-        "NetworkInterfaceId" => String.t(),
+        "NetworkInterfaceId" => String.t() | atom(),
         "NetworkInterfacePort" => integer(),
-        "TargetARN" => String.t()
+        "TargetARN" => String.t() | atom()
       }
       
   """
-  @type volume_iscsi_attributes() :: %{String.t() => any()}
+  @type volume_iscsi_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -438,72 +438,72 @@ defmodule AWS.StorageGateway do
       describe_maintenance_start_time_output() :: %{
         "DayOfMonth" => integer(),
         "DayOfWeek" => integer(),
-        "GatewayARN" => String.t(),
+        "GatewayARN" => String.t() | atom(),
         "HourOfDay" => integer(),
         "MinuteOfHour" => integer(),
         "SoftwareUpdatePreferences" => software_update_preferences(),
-        "Timezone" => String.t()
+        "Timezone" => String.t() | atom()
       }
       
   """
-  @type describe_maintenance_start_time_output() :: %{String.t() => any()}
+  @type describe_maintenance_start_time_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_file_system_input() :: %{
-        optional("AuditDestinationARN") => String.t(),
+        optional("AuditDestinationARN") => String.t() | atom(),
         optional("CacheAttributes") => cache_attributes(),
         optional("EndpointNetworkConfiguration") => endpoint_network_configuration(),
         optional("Tags") => list(tag()),
-        required("ClientToken") => String.t(),
-        required("GatewayARN") => String.t(),
-        required("LocationARN") => String.t(),
-        required("Password") => String.t(),
-        required("UserName") => String.t()
+        required("ClientToken") => String.t() | atom(),
+        required("GatewayARN") => String.t() | atom(),
+        required("LocationARN") => String.t() | atom(),
+        required("Password") => String.t() | atom(),
+        required("UserName") => String.t() | atom()
       }
       
   """
-  @type associate_file_system_input() :: %{String.t() => any()}
+  @type associate_file_system_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_volume_recovery_points_output() :: %{
-        "GatewayARN" => String.t(),
+        "GatewayARN" => String.t() | atom(),
         "VolumeRecoveryPointInfos" => list(volume_recovery_point_info())
       }
       
   """
-  @type list_volume_recovery_points_output() :: %{String.t() => any()}
+  @type list_volume_recovery_points_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_smb_settings_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type describe_smb_settings_input() :: %{String.t() => any()}
+  @type describe_smb_settings_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       file_share_info() :: %{
-        "FileShareARN" => String.t(),
-        "FileShareId" => String.t(),
-        "FileShareStatus" => String.t(),
+        "FileShareARN" => String.t() | atom(),
+        "FileShareId" => String.t() | atom(),
+        "FileShareStatus" => String.t() | atom(),
         "FileShareType" => list(any()),
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type file_share_info() :: %{String.t() => any()}
+  @type file_share_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -511,44 +511,44 @@ defmodule AWS.StorageGateway do
       
       delete_tape_archive_input() :: %{
         optional("BypassGovernanceRetention") => boolean(),
-        required("TapeARN") => String.t()
+        required("TapeARN") => String.t() | atom()
       }
       
   """
-  @type delete_tape_archive_input() :: %{String.t() => any()}
+  @type delete_tape_archive_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_cache_report_output() :: %{
-        "CacheReportARN" => String.t()
+        "CacheReportARN" => String.t() | atom()
       }
       
   """
-  @type start_cache_report_output() :: %{String.t() => any()}
+  @type start_cache_report_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       volume_recovery_point_info() :: %{
-        "VolumeARN" => String.t(),
-        "VolumeRecoveryPointTime" => String.t(),
+        "VolumeARN" => String.t() | atom(),
+        "VolumeRecoveryPointTime" => String.t() | atom(),
         "VolumeSizeInBytes" => float(),
         "VolumeUsageInBytes" => float()
       }
       
   """
-  @type volume_recovery_point_info() :: %{String.t() => any()}
+  @type volume_recovery_point_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       pool_info() :: %{
-        "PoolARN" => String.t(),
-        "PoolName" => String.t(),
+        "PoolARN" => String.t() | atom(),
+        "PoolName" => String.t() | atom(),
         "PoolStatus" => list(any()),
         "RetentionLockTimeInDays" => integer(),
         "RetentionLockType" => list(any()),
@@ -556,90 +556,90 @@ defmodule AWS.StorageGateway do
       }
       
   """
-  @type pool_info() :: %{String.t() => any()}
+  @type pool_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cache_report_input() :: %{
-        required("CacheReportARN") => String.t()
+        required("CacheReportARN") => String.t() | atom()
       }
       
   """
-  @type describe_cache_report_input() :: %{String.t() => any()}
+  @type describe_cache_report_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_tapes_output() :: %{
-        "TapeARNs" => list(String.t())
+        "TapeARNs" => list(String.t() | atom())
       }
       
   """
-  @type create_tapes_output() :: %{String.t() => any()}
+  @type create_tapes_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       network_interface() :: %{
-        "Ipv4Address" => String.t(),
-        "Ipv6Address" => String.t(),
-        "MacAddress" => String.t()
+        "Ipv4Address" => String.t() | atom(),
+        "Ipv6Address" => String.t() | atom(),
+        "MacAddress" => String.t() | atom()
       }
       
   """
-  @type network_interface() :: %{String.t() => any()}
+  @type network_interface() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tape_recovery_point_info() :: %{
-        "TapeARN" => String.t(),
+        "TapeARN" => String.t() | atom(),
         "TapeRecoveryPointTime" => non_neg_integer(),
         "TapeSizeInBytes" => float(),
-        "TapeStatus" => String.t()
+        "TapeStatus" => String.t() | atom()
       }
       
   """
-  @type tape_recovery_point_info() :: %{String.t() => any()}
+  @type tape_recovery_point_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_volume_input() :: %{
-        required("VolumeARN") => String.t()
+        required("VolumeARN") => String.t() | atom()
       }
       
   """
-  @type delete_volume_input() :: %{String.t() => any()}
+  @type delete_volume_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cached_iscsi_volumes_input() :: %{
-        required("VolumeARNs") => list(String.t())
+        required("VolumeARNs") => list(String.t() | atom())
       }
       
   """
-  @type describe_cached_iscsi_volumes_input() :: %{String.t() => any()}
+  @type describe_cached_iscsi_volumes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_local_console_password_input() :: %{
-        required("GatewayARN") => String.t(),
-        required("LocalConsolePassword") => String.t()
+        required("GatewayARN") => String.t() | atom(),
+        required("LocalConsolePassword") => String.t() | atom()
       }
       
   """
-  @type set_local_console_password_input() :: %{String.t() => any()}
+  @type set_local_console_password_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -647,35 +647,35 @@ defmodule AWS.StorageGateway do
       
       list_file_system_associations_output() :: %{
         "FileSystemAssociationSummaryList" => list(file_system_association_summary()),
-        "Marker" => String.t(),
-        "NextMarker" => String.t()
+        "Marker" => String.t() | atom(),
+        "NextMarker" => String.t() | atom()
       }
       
   """
-  @type list_file_system_associations_output() :: %{String.t() => any()}
+  @type list_file_system_associations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_snapshot_schedule_output() :: %{
-        "VolumeARN" => String.t()
+        "VolumeARN" => String.t() | atom()
       }
       
   """
-  @type delete_snapshot_schedule_output() :: %{String.t() => any()}
+  @type delete_snapshot_schedule_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tape_pools_output() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "PoolInfos" => list(pool_info())
       }
       
   """
-  @type list_tape_pools_output() :: %{String.t() => any()}
+  @type list_tape_pools_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -683,12 +683,12 @@ defmodule AWS.StorageGateway do
       
       describe_tape_recovery_points_input() :: %{
         optional("Limit") => integer(),
-        optional("Marker") => String.t(),
-        required("GatewayARN") => String.t()
+        optional("Marker") => String.t() | atom(),
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type describe_tape_recovery_points_input() :: %{String.t() => any()}
+  @type describe_tape_recovery_points_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -696,60 +696,60 @@ defmodule AWS.StorageGateway do
       
       describe_vtl_devices_input() :: %{
         optional("Limit") => integer(),
-        optional("Marker") => String.t(),
-        optional("VTLDeviceARNs") => list(String.t()),
-        required("GatewayARN") => String.t()
+        optional("Marker") => String.t() | atom(),
+        optional("VTLDeviceARNs") => list(String.t() | atom()),
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type describe_vtl_devices_input() :: %{String.t() => any()}
+  @type describe_vtl_devices_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_file_system_associations_input() :: %{
-        optional("GatewayARN") => String.t(),
+        optional("GatewayARN") => String.t() | atom(),
         optional("Limit") => integer(),
-        optional("Marker") => String.t()
+        optional("Marker") => String.t() | atom()
       }
       
   """
-  @type list_file_system_associations_input() :: %{String.t() => any()}
+  @type list_file_system_associations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_volumes_input() :: %{
-        optional("GatewayARN") => String.t(),
+        optional("GatewayARN") => String.t() | atom(),
         optional("Limit") => integer(),
-        optional("Marker") => String.t()
+        optional("Marker") => String.t() | atom()
       }
       
   """
-  @type list_volumes_input() :: %{String.t() => any()}
+  @type list_volumes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       gateway_info() :: %{
-        "DeprecationDate" => String.t(),
-        "Ec2InstanceId" => String.t(),
-        "Ec2InstanceRegion" => String.t(),
-        "GatewayARN" => String.t(),
-        "GatewayId" => String.t(),
-        "GatewayName" => String.t(),
-        "GatewayOperationalState" => String.t(),
-        "GatewayType" => String.t(),
+        "DeprecationDate" => String.t() | atom(),
+        "Ec2InstanceId" => String.t() | atom(),
+        "Ec2InstanceRegion" => String.t() | atom(),
+        "GatewayARN" => String.t() | atom(),
+        "GatewayId" => String.t() | atom(),
+        "GatewayName" => String.t() | atom(),
+        "GatewayOperationalState" => String.t() | atom(),
+        "GatewayType" => String.t() | atom(),
         "HostEnvironment" => list(any()),
-        "HostEnvironmentId" => String.t(),
-        "SoftwareVersion" => String.t()
+        "HostEnvironmentId" => String.t() | atom(),
+        "SoftwareVersion" => String.t() | atom()
       }
       
   """
-  @type gateway_info() :: %{String.t() => any()}
+  @type gateway_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -757,29 +757,29 @@ defmodule AWS.StorageGateway do
       
       update_smb_file_share_input() :: %{
         optional("AccessBasedEnumeration") => boolean(),
-        optional("AdminUserList") => list(String.t()),
-        optional("AuditDestinationARN") => String.t(),
+        optional("AdminUserList") => list(String.t() | atom()),
+        optional("AuditDestinationARN") => String.t() | atom(),
         optional("CacheAttributes") => cache_attributes(),
         optional("CaseSensitivity") => list(any()),
-        optional("DefaultStorageClass") => String.t(),
+        optional("DefaultStorageClass") => String.t() | atom(),
         optional("EncryptionType") => list(any()),
-        optional("FileShareName") => String.t(),
+        optional("FileShareName") => String.t() | atom(),
         optional("GuessMIMETypeEnabled") => boolean(),
-        optional("InvalidUserList") => list(String.t()),
+        optional("InvalidUserList") => list(String.t() | atom()),
         optional("KMSEncrypted") => boolean(),
-        optional("KMSKey") => String.t(),
-        optional("NotificationPolicy") => String.t(),
+        optional("KMSKey") => String.t() | atom(),
+        optional("NotificationPolicy") => String.t() | atom(),
         optional("ObjectACL") => list(any()),
         optional("OplocksEnabled") => boolean(),
         optional("ReadOnly") => boolean(),
         optional("RequesterPays") => boolean(),
         optional("SMBACLEnabled") => boolean(),
-        optional("ValidUserList") => list(String.t()),
-        required("FileShareARN") => String.t()
+        optional("ValidUserList") => list(String.t() | atom()),
+        required("FileShareARN") => String.t() | atom()
       }
       
   """
-  @type update_smb_file_share_input() :: %{String.t() => any()}
+  @type update_smb_file_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -787,70 +787,70 @@ defmodule AWS.StorageGateway do
       
       list_local_disks_output() :: %{
         "Disks" => list(disk()),
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type list_local_disks_output() :: %{String.t() => any()}
+  @type list_local_disks_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       activate_gateway_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type activate_gateway_output() :: %{String.t() => any()}
+  @type activate_gateway_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detach_volume_output() :: %{
-        "VolumeARN" => String.t()
+        "VolumeARN" => String.t() | atom()
       }
       
   """
-  @type detach_volume_output() :: %{String.t() => any()}
+  @type detach_volume_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_local_console_password_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type set_local_console_password_output() :: %{String.t() => any()}
+  @type set_local_console_password_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_snapshot_from_volume_recovery_point_output() :: %{
-        "SnapshotId" => String.t(),
-        "VolumeARN" => String.t(),
-        "VolumeRecoveryPointTime" => String.t()
+        "SnapshotId" => String.t() | atom(),
+        "VolumeARN" => String.t() | atom(),
+        "VolumeRecoveryPointTime" => String.t() | atom()
       }
       
   """
-  @type create_snapshot_from_volume_recovery_point_output() :: %{String.t() => any()}
+  @type create_snapshot_from_volume_recovery_point_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_output() :: %{
-        "Marker" => String.t(),
-        "ResourceARN" => String.t(),
+        "Marker" => String.t() | atom(),
+        "ResourceARN" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -858,22 +858,22 @@ defmodule AWS.StorageGateway do
       
       cached_iscsi_volume() :: %{
         "CreatedDate" => non_neg_integer(),
-        "KMSKey" => String.t(),
-        "SourceSnapshotId" => String.t(),
-        "TargetName" => String.t(),
-        "VolumeARN" => String.t(),
-        "VolumeAttachmentStatus" => String.t(),
-        "VolumeId" => String.t(),
+        "KMSKey" => String.t() | atom(),
+        "SourceSnapshotId" => String.t() | atom(),
+        "TargetName" => String.t() | atom(),
+        "VolumeARN" => String.t() | atom(),
+        "VolumeAttachmentStatus" => String.t() | atom(),
+        "VolumeId" => String.t() | atom(),
         "VolumeProgress" => float(),
         "VolumeSizeInBytes" => float(),
-        "VolumeStatus" => String.t(),
-        "VolumeType" => String.t(),
+        "VolumeStatus" => String.t() | atom(),
+        "VolumeType" => String.t() | atom(),
         "VolumeUsedInBytes" => float(),
         "VolumeiSCSIAttributes" => volume_iscsi_attributes()
       }
       
   """
-  @type cached_iscsi_volume() :: %{String.t() => any()}
+  @type cached_iscsi_volume() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -882,151 +882,151 @@ defmodule AWS.StorageGateway do
       describe_bandwidth_rate_limit_output() :: %{
         "AverageDownloadRateLimitInBitsPerSec" => float(),
         "AverageUploadRateLimitInBitsPerSec" => float(),
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type describe_bandwidth_rate_limit_output() :: %{String.t() => any()}
+  @type describe_bandwidth_rate_limit_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_gateway_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type start_gateway_input() :: %{String.t() => any()}
+  @type start_gateway_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_smb_file_share_output() :: %{
-        "FileShareARN" => String.t()
+        "FileShareARN" => String.t() | atom()
       }
       
   """
-  @type create_smb_file_share_output() :: %{String.t() => any()}
+  @type create_smb_file_share_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attach_volume_input() :: %{
-        optional("DiskId") => String.t(),
-        optional("TargetName") => String.t(),
-        required("GatewayARN") => String.t(),
-        required("NetworkInterfaceId") => String.t(),
-        required("VolumeARN") => String.t()
+        optional("DiskId") => String.t() | atom(),
+        optional("TargetName") => String.t() | atom(),
+        required("GatewayARN") => String.t() | atom(),
+        required("NetworkInterfaceId") => String.t() | atom(),
+        required("VolumeARN") => String.t() | atom()
       }
       
   """
-  @type attach_volume_input() :: %{String.t() => any()}
+  @type attach_volume_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_snapshot_schedule_input() :: %{
-        required("VolumeARN") => String.t()
+        required("VolumeARN") => String.t() | atom()
       }
       
   """
-  @type delete_snapshot_schedule_input() :: %{String.t() => any()}
+  @type delete_snapshot_schedule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_snapshot_output() :: %{
-        "SnapshotId" => String.t(),
-        "VolumeARN" => String.t()
+        "SnapshotId" => String.t() | atom(),
+        "VolumeARN" => String.t() | atom()
       }
       
   """
-  @type create_snapshot_output() :: %{String.t() => any()}
+  @type create_snapshot_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_tags_from_resource_output() :: %{
-        "ResourceARN" => String.t()
+        "ResourceARN" => String.t() | atom()
       }
       
   """
-  @type remove_tags_from_resource_output() :: %{String.t() => any()}
+  @type remove_tags_from_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       nfs_file_share_defaults() :: %{
-        "DirectoryMode" => String.t(),
-        "FileMode" => String.t(),
+        "DirectoryMode" => String.t() | atom(),
+        "FileMode" => String.t() | atom(),
         "GroupId" => float(),
         "OwnerId" => float()
       }
       
   """
-  @type nfs_file_share_defaults() :: %{String.t() => any()}
+  @type nfs_file_share_defaults() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_tape_with_barcode_output() :: %{
-        "TapeARN" => String.t()
+        "TapeARN" => String.t() | atom()
       }
       
   """
-  @type create_tape_with_barcode_output() :: %{String.t() => any()}
+  @type create_tape_with_barcode_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_gateway_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type disable_gateway_input() :: %{String.t() => any()}
+  @type disable_gateway_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_tape_pool_output() :: %{
-        "PoolARN" => String.t()
+        "PoolARN" => String.t() | atom()
       }
       
   """
-  @type delete_tape_pool_output() :: %{String.t() => any()}
+  @type delete_tape_pool_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_local_disks_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type list_local_disks_input() :: %{String.t() => any()}
+  @type list_local_disks_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_working_storage_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type add_working_storage_output() :: %{String.t() => any()}
+  @type add_working_storage_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1034,35 +1034,35 @@ defmodule AWS.StorageGateway do
       
       update_smb_file_share_visibility_input() :: %{
         required("FileSharesVisible") => boolean(),
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type update_smb_file_share_visibility_input() :: %{String.t() => any()}
+  @type update_smb_file_share_visibility_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_retrieval_input() :: %{
-        required("GatewayARN") => String.t(),
-        required("TapeARN") => String.t()
+        required("GatewayARN") => String.t() | atom(),
+        required("TapeARN") => String.t() | atom()
       }
       
   """
-  @type cancel_retrieval_input() :: %{String.t() => any()}
+  @type cancel_retrieval_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       notify_when_uploaded_output() :: %{
-        "FileShareARN" => String.t(),
-        "NotificationId" => String.t()
+        "FileShareARN" => String.t() | atom(),
+        "NotificationId" => String.t() | atom()
       }
       
   """
-  @type notify_when_uploaded_output() :: %{String.t() => any()}
+  @type notify_when_uploaded_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1070,22 +1070,22 @@ defmodule AWS.StorageGateway do
       
       service_unavailable_error() :: %{
         "error" => storage_gateway_error(),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type service_unavailable_error() :: %{String.t() => any()}
+  @type service_unavailable_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       retrieve_tape_recovery_point_output() :: %{
-        "TapeARN" => String.t()
+        "TapeARN" => String.t() | atom()
       }
       
   """
-  @type retrieve_tape_recovery_point_output() :: %{String.t() => any()}
+  @type retrieve_tape_recovery_point_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1093,35 +1093,35 @@ defmodule AWS.StorageGateway do
       
       cache_report_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type cache_report_filter() :: %{String.t() => any()}
+  @type cache_report_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_vtl_device_type_input() :: %{
-        required("DeviceType") => String.t(),
-        required("VTLDeviceARN") => String.t()
+        required("DeviceType") => String.t() | atom(),
+        required("VTLDeviceARN") => String.t() | atom()
       }
       
   """
-  @type update_vtl_device_type_input() :: %{String.t() => any()}
+  @type update_vtl_device_type_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_to_resource_input() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type add_tags_to_resource_input() :: %{String.t() => any()}
+  @type add_tags_to_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1129,73 +1129,73 @@ defmodule AWS.StorageGateway do
       
       describe_smb_settings_output() :: %{
         "ActiveDirectoryStatus" => list(any()),
-        "DomainName" => String.t(),
+        "DomainName" => String.t() | atom(),
         "FileSharesVisible" => boolean(),
-        "GatewayARN" => String.t(),
+        "GatewayARN" => String.t() | atom(),
         "SMBGuestPasswordSet" => boolean(),
         "SMBLocalGroups" => smb_local_groups(),
         "SMBSecurityStrategy" => list(any())
       }
       
   """
-  @type describe_smb_settings_output() :: %{String.t() => any()}
+  @type describe_smb_settings_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_gateway_information_output() :: %{
-        "GatewayARN" => String.t(),
-        "GatewayName" => String.t()
+        "GatewayARN" => String.t() | atom(),
+        "GatewayName" => String.t() | atom()
       }
       
   """
-  @type update_gateway_information_output() :: %{String.t() => any()}
+  @type update_gateway_information_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_to_resource_output() :: %{
-        "ResourceARN" => String.t()
+        "ResourceARN" => String.t() | atom()
       }
       
   """
-  @type add_tags_to_resource_output() :: %{String.t() => any()}
+  @type add_tags_to_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_cache_report_input() :: %{
-        required("CacheReportARN") => String.t()
+        required("CacheReportARN") => String.t() | atom()
       }
       
   """
-  @type cancel_cache_report_input() :: %{String.t() => any()}
+  @type cancel_cache_report_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_bandwidth_rate_limit_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type update_bandwidth_rate_limit_output() :: %{String.t() => any()}
+  @type update_bandwidth_rate_limit_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1203,82 +1203,82 @@ defmodule AWS.StorageGateway do
       
       device_iscsi_attributes() :: %{
         "ChapEnabled" => boolean(),
-        "NetworkInterfaceId" => String.t(),
+        "NetworkInterfaceId" => String.t() | atom(),
         "NetworkInterfacePort" => integer(),
-        "TargetARN" => String.t()
+        "TargetARN" => String.t() | atom()
       }
       
   """
-  @type device_iscsi_attributes() :: %{String.t() => any()}
+  @type device_iscsi_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_vtl_devices_output() :: %{
-        "GatewayARN" => String.t(),
-        "Marker" => String.t(),
+        "GatewayARN" => String.t() | atom(),
+        "Marker" => String.t() | atom(),
         "VTLDevices" => list(vtl_device())
       }
       
   """
-  @type describe_vtl_devices_output() :: %{String.t() => any()}
+  @type describe_vtl_devices_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cache_report_info() :: %{
-        "CacheReportARN" => String.t(),
+        "CacheReportARN" => String.t() | atom(),
         "CacheReportStatus" => list(any()),
         "EndTime" => non_neg_integer(),
         "ExclusionFilters" => list(cache_report_filter()),
-        "FileShareARN" => String.t(),
+        "FileShareARN" => String.t() | atom(),
         "InclusionFilters" => list(cache_report_filter()),
-        "LocationARN" => String.t(),
+        "LocationARN" => String.t() | atom(),
         "ReportCompletionPercent" => integer(),
-        "ReportName" => String.t(),
-        "Role" => String.t(),
+        "ReportName" => String.t() | atom(),
+        "Role" => String.t() | atom(),
         "StartTime" => non_neg_integer(),
         "Tags" => list(tag())
       }
       
   """
-  @type cache_report_info() :: %{String.t() => any()}
+  @type cache_report_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_archival_output() :: %{
-        "TapeARN" => String.t()
+        "TapeARN" => String.t() | atom()
       }
       
   """
-  @type cancel_archival_output() :: %{String.t() => any()}
+  @type cancel_archival_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_availability_monitor_test_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type start_availability_monitor_test_input() :: %{String.t() => any()}
+  @type start_availability_monitor_test_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       retrieve_tape_recovery_point_input() :: %{
-        required("GatewayARN") => String.t(),
-        required("TapeARN") => String.t()
+        required("GatewayARN") => String.t() | atom(),
+        required("TapeARN") => String.t() | atom()
       }
       
   """
-  @type retrieve_tape_recovery_point_input() :: %{String.t() => any()}
+  @type retrieve_tape_recovery_point_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1286,55 +1286,55 @@ defmodule AWS.StorageGateway do
       
       describe_bandwidth_rate_limit_schedule_output() :: %{
         "BandwidthRateLimitIntervals" => list(bandwidth_rate_limit_interval()),
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type describe_bandwidth_rate_limit_schedule_output() :: %{String.t() => any()}
+  @type describe_bandwidth_rate_limit_schedule_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_gateway_information_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type describe_gateway_information_input() :: %{String.t() => any()}
+  @type describe_gateway_information_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_cache_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type add_cache_output() :: %{String.t() => any()}
+  @type add_cache_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_gateway_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type start_gateway_output() :: %{String.t() => any()}
+  @type start_gateway_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_cache_reports_input() :: %{
-        optional("Marker") => String.t()
+        optional("Marker") => String.t() | atom()
       }
       
   """
-  @type list_cache_reports_input() :: %{String.t() => any()}
+  @type list_cache_reports_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1342,11 +1342,11 @@ defmodule AWS.StorageGateway do
       
       list_cache_reports_output() :: %{
         "CacheReportList" => list(cache_report_info()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type list_cache_reports_output() :: %{String.t() => any()}
+  @type list_cache_reports_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1354,12 +1354,12 @@ defmodule AWS.StorageGateway do
       
       assign_tape_pool_input() :: %{
         optional("BypassGovernanceRetention") => boolean(),
-        required("PoolId") => String.t(),
-        required("TapeARN") => String.t()
+        required("PoolId") => String.t() | atom(),
+        required("TapeARN") => String.t() | atom()
       }
       
   """
-  @type assign_tape_pool_input() :: %{String.t() => any()}
+  @type assign_tape_pool_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1370,7 +1370,7 @@ defmodule AWS.StorageGateway do
       }
       
   """
-  @type describe_nfs_file_shares_output() :: %{String.t() => any()}
+  @type describe_nfs_file_shares_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1378,12 +1378,12 @@ defmodule AWS.StorageGateway do
       
       create_snapshot_input() :: %{
         optional("Tags") => list(tag()),
-        required("SnapshotDescription") => String.t(),
-        required("VolumeARN") => String.t()
+        required("SnapshotDescription") => String.t() | atom(),
+        required("VolumeARN") => String.t() | atom()
       }
       
   """
-  @type create_snapshot_input() :: %{String.t() => any()}
+  @type create_snapshot_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1395,43 +1395,43 @@ defmodule AWS.StorageGateway do
       }
       
   """
-  @type storage_gateway_error() :: %{String.t() => any()}
+  @type storage_gateway_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_file_shares_input() :: %{
-        optional("GatewayARN") => String.t(),
+        optional("GatewayARN") => String.t() | atom(),
         optional("Limit") => integer(),
-        optional("Marker") => String.t()
+        optional("Marker") => String.t() | atom()
       }
       
   """
-  @type list_file_shares_input() :: %{String.t() => any()}
+  @type list_file_shares_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tape() :: %{
-        "KMSKey" => String.t(),
+        "KMSKey" => String.t() | atom(),
         "PoolEntryDate" => non_neg_integer(),
-        "PoolId" => String.t(),
+        "PoolId" => String.t() | atom(),
         "Progress" => float(),
         "RetentionStartDate" => non_neg_integer(),
-        "TapeARN" => String.t(),
-        "TapeBarcode" => String.t(),
+        "TapeARN" => String.t() | atom(),
+        "TapeBarcode" => String.t() | atom(),
         "TapeCreatedDate" => non_neg_integer(),
         "TapeSizeInBytes" => float(),
-        "TapeStatus" => String.t(),
+        "TapeStatus" => String.t() | atom(),
         "TapeUsedInBytes" => float(),
-        "VTLDevice" => String.t(),
+        "VTLDevice" => String.t() | atom(),
         "Worm" => boolean()
       }
       
   """
-  @type tape() :: %{String.t() => any()}
+  @type tape() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1448,7 +1448,7 @@ defmodule AWS.StorageGateway do
       }
       
   """
-  @type bandwidth_rate_limit_interval() :: %{String.t() => any()}
+  @type bandwidth_rate_limit_interval() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1456,22 +1456,22 @@ defmodule AWS.StorageGateway do
       
       list_gateways_output() :: %{
         "Gateways" => list(gateway_info()),
-        "Marker" => String.t()
+        "Marker" => String.t() | atom()
       }
       
   """
-  @type list_gateways_output() :: %{String.t() => any()}
+  @type list_gateways_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_tape_pool_input() :: %{
-        required("PoolARN") => String.t()
+        required("PoolARN") => String.t() | atom()
       }
       
   """
-  @type delete_tape_pool_input() :: %{String.t() => any()}
+  @type delete_tape_pool_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1480,45 +1480,45 @@ defmodule AWS.StorageGateway do
       update_bandwidth_rate_limit_input() :: %{
         optional("AverageDownloadRateLimitInBitsPerSec") => float(),
         optional("AverageUploadRateLimitInBitsPerSec") => float(),
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type update_bandwidth_rate_limit_input() :: %{String.t() => any()}
+  @type update_bandwidth_rate_limit_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_gateway_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type delete_gateway_input() :: %{String.t() => any()}
+  @type delete_gateway_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reset_cache_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type reset_cache_input() :: %{String.t() => any()}
+  @type reset_cache_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tapes_output() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "TapeInfos" => list(tape_info())
       }
       
   """
-  @type list_tapes_output() :: %{String.t() => any()}
+  @type list_tapes_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1526,23 +1526,23 @@ defmodule AWS.StorageGateway do
       
       delete_tape_input() :: %{
         optional("BypassGovernanceRetention") => boolean(),
-        required("GatewayARN") => String.t(),
-        required("TapeARN") => String.t()
+        required("GatewayARN") => String.t() | atom(),
+        required("TapeARN") => String.t() | atom()
       }
       
   """
-  @type delete_tape_input() :: %{String.t() => any()}
+  @type delete_tape_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint_network_configuration() :: %{
-        "IpAddresses" => list(String.t())
+        "IpAddresses" => list(String.t() | atom())
       }
       
   """
-  @type endpoint_network_configuration() :: %{String.t() => any()}
+  @type endpoint_network_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1553,30 +1553,30 @@ defmodule AWS.StorageGateway do
       }
       
   """
-  @type describe_stored_iscsi_volumes_output() :: %{String.t() => any()}
+  @type describe_stored_iscsi_volumes_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_volume_initiators_output() :: %{
-        "Initiators" => list(String.t())
+        "Initiators" => list(String.t() | atom())
       }
       
   """
-  @type list_volume_initiators_output() :: %{String.t() => any()}
+  @type list_volume_initiators_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       remove_tags_from_resource_input() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type remove_tags_from_resource_input() :: %{String.t() => any()}
+  @type remove_tags_from_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1584,49 +1584,49 @@ defmodule AWS.StorageGateway do
       
       evict_files_failing_upload_input() :: %{
         optional("ForceRemove") => boolean(),
-        required("FileShareARN") => String.t()
+        required("FileShareARN") => String.t() | atom()
       }
       
   """
-  @type evict_files_failing_upload_input() :: %{String.t() => any()}
+  @type evict_files_failing_upload_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_smb_file_share_visibility_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type update_smb_file_share_visibility_output() :: %{String.t() => any()}
+  @type update_smb_file_share_visibility_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       retrieve_tape_archive_output() :: %{
-        "TapeARN" => String.t()
+        "TapeARN" => String.t() | atom()
       }
       
   """
-  @type retrieve_tape_archive_output() :: %{String.t() => any()}
+  @type retrieve_tape_archive_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_snapshot_schedule_output() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "RecurrenceInHours" => integer(),
         "StartAt" => integer(),
         "Tags" => list(tag()),
-        "Timezone" => String.t(),
-        "VolumeARN" => String.t()
+        "Timezone" => String.t() | atom(),
+        "VolumeARN" => String.t() | atom()
       }
       
   """
-  @type describe_snapshot_schedule_output() :: %{String.t() => any()}
+  @type describe_snapshot_schedule_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1636,23 +1636,23 @@ defmodule AWS.StorageGateway do
         optional("RetentionLockTimeInDays") => integer(),
         optional("RetentionLockType") => list(any()),
         optional("Tags") => list(tag()),
-        required("PoolName") => String.t(),
+        required("PoolName") => String.t() | atom(),
         required("StorageClass") => list(any())
       }
       
   """
-  @type create_tape_pool_input() :: %{String.t() => any()}
+  @type create_tape_pool_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cache_report_input() :: %{
-        required("CacheReportARN") => String.t()
+        required("CacheReportARN") => String.t() | atom()
       }
       
   """
-  @type delete_cache_report_input() :: %{String.t() => any()}
+  @type delete_cache_report_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1660,11 +1660,11 @@ defmodule AWS.StorageGateway do
       
       detach_volume_input() :: %{
         optional("ForceDetach") => boolean(),
-        required("VolumeARN") => String.t()
+        required("VolumeARN") => String.t() | atom()
       }
       
   """
-  @type detach_volume_input() :: %{String.t() => any()}
+  @type detach_volume_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1672,61 +1672,61 @@ defmodule AWS.StorageGateway do
       
       smb_file_share_info() :: %{
         "AccessBasedEnumeration" => boolean(),
-        "AdminUserList" => list(String.t()),
-        "AuditDestinationARN" => String.t(),
-        "Authentication" => String.t(),
-        "BucketRegion" => String.t(),
+        "AdminUserList" => list(String.t() | atom()),
+        "AuditDestinationARN" => String.t() | atom(),
+        "Authentication" => String.t() | atom(),
+        "BucketRegion" => String.t() | atom(),
         "CacheAttributes" => cache_attributes(),
         "CaseSensitivity" => list(any()),
-        "DefaultStorageClass" => String.t(),
+        "DefaultStorageClass" => String.t() | atom(),
         "EncryptionType" => list(any()),
-        "FileShareARN" => String.t(),
-        "FileShareId" => String.t(),
-        "FileShareName" => String.t(),
-        "FileShareStatus" => String.t(),
-        "GatewayARN" => String.t(),
+        "FileShareARN" => String.t() | atom(),
+        "FileShareId" => String.t() | atom(),
+        "FileShareName" => String.t() | atom(),
+        "FileShareStatus" => String.t() | atom(),
+        "GatewayARN" => String.t() | atom(),
         "GuessMIMETypeEnabled" => boolean(),
-        "InvalidUserList" => list(String.t()),
+        "InvalidUserList" => list(String.t() | atom()),
         "KMSEncrypted" => boolean(),
-        "KMSKey" => String.t(),
-        "LocationARN" => String.t(),
-        "NotificationPolicy" => String.t(),
+        "KMSKey" => String.t() | atom(),
+        "LocationARN" => String.t() | atom(),
+        "NotificationPolicy" => String.t() | atom(),
         "ObjectACL" => list(any()),
         "OplocksEnabled" => boolean(),
-        "Path" => String.t(),
+        "Path" => String.t() | atom(),
         "ReadOnly" => boolean(),
         "RequesterPays" => boolean(),
-        "Role" => String.t(),
+        "Role" => String.t() | atom(),
         "SMBACLEnabled" => boolean(),
         "Tags" => list(tag()),
-        "VPCEndpointDNSName" => String.t(),
-        "ValidUserList" => list(String.t())
+        "VPCEndpointDNSName" => String.t() | atom(),
+        "ValidUserList" => list(String.t() | atom())
       }
       
   """
-  @type smb_file_share_info() :: %{String.t() => any()}
+  @type smb_file_share_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cache_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type describe_cache_input() :: %{String.t() => any()}
+  @type describe_cache_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_file_system_association_output() :: %{
-        "FileSystemAssociationARN" => String.t()
+        "FileSystemAssociationARN" => String.t() | atom()
       }
       
   """
-  @type update_file_system_association_output() :: %{String.t() => any()}
+  @type update_file_system_association_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1734,25 +1734,25 @@ defmodule AWS.StorageGateway do
       
       vtl_device() :: %{
         "DeviceiSCSIAttributes" => device_iscsi_attributes(),
-        "VTLDeviceARN" => String.t(),
-        "VTLDeviceProductIdentifier" => String.t(),
-        "VTLDeviceType" => String.t(),
-        "VTLDeviceVendor" => String.t()
+        "VTLDeviceARN" => String.t() | atom(),
+        "VTLDeviceProductIdentifier" => String.t() | atom(),
+        "VTLDeviceType" => String.t() | atom(),
+        "VTLDeviceVendor" => String.t() | atom()
       }
       
   """
-  @type vtl_device() :: %{String.t() => any()}
+  @type vtl_device() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_tape_output() :: %{
-        "TapeARN" => String.t()
+        "TapeARN" => String.t() | atom()
       }
       
   """
-  @type delete_tape_output() :: %{String.t() => any()}
+  @type delete_tape_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1760,72 +1760,72 @@ defmodule AWS.StorageGateway do
       
       list_file_shares_output() :: %{
         "FileShareInfoList" => list(file_share_info()),
-        "Marker" => String.t(),
-        "NextMarker" => String.t()
+        "Marker" => String.t() | atom(),
+        "NextMarker" => String.t() | atom()
       }
       
   """
-  @type list_file_shares_output() :: %{String.t() => any()}
+  @type list_file_shares_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_availability_monitor_test_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type start_availability_monitor_test_output() :: %{String.t() => any()}
+  @type start_availability_monitor_test_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_maintenance_start_time_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type describe_maintenance_start_time_input() :: %{String.t() => any()}
+  @type describe_maintenance_start_time_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_chap_credentials_input() :: %{
-        required("InitiatorName") => String.t(),
-        required("TargetARN") => String.t()
+        required("InitiatorName") => String.t() | atom(),
+        required("TargetARN") => String.t() | atom()
       }
       
   """
-  @type delete_chap_credentials_input() :: %{String.t() => any()}
+  @type delete_chap_credentials_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_availability_monitor_test_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type describe_availability_monitor_test_input() :: %{String.t() => any()}
+  @type describe_availability_monitor_test_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_gateway_information_input() :: %{
-        optional("CloudWatchLogGroupARN") => String.t(),
+        optional("CloudWatchLogGroupARN") => String.t() | atom(),
         optional("GatewayCapacity") => list(any()),
-        optional("GatewayName") => String.t(),
-        optional("GatewayTimezone") => String.t(),
-        required("GatewayARN") => String.t()
+        optional("GatewayName") => String.t() | atom(),
+        optional("GatewayTimezone") => String.t() | atom(),
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type update_gateway_information_input() :: %{String.t() => any()}
+  @type update_gateway_information_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1833,12 +1833,12 @@ defmodule AWS.StorageGateway do
       
       create_snapshot_from_volume_recovery_point_input() :: %{
         optional("Tags") => list(tag()),
-        required("SnapshotDescription") => String.t(),
-        required("VolumeARN") => String.t()
+        required("SnapshotDescription") => String.t() | atom(),
+        required("VolumeARN") => String.t() | atom()
       }
       
   """
-  @type create_snapshot_from_volume_recovery_point_input() :: %{String.t() => any()}
+  @type create_snapshot_from_volume_recovery_point_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1846,81 +1846,81 @@ defmodule AWS.StorageGateway do
       
       create_smb_file_share_input() :: %{
         optional("AccessBasedEnumeration") => boolean(),
-        optional("AdminUserList") => list(String.t()),
-        optional("AuditDestinationARN") => String.t(),
-        optional("Authentication") => String.t(),
-        optional("BucketRegion") => String.t(),
+        optional("AdminUserList") => list(String.t() | atom()),
+        optional("AuditDestinationARN") => String.t() | atom(),
+        optional("Authentication") => String.t() | atom(),
+        optional("BucketRegion") => String.t() | atom(),
         optional("CacheAttributes") => cache_attributes(),
         optional("CaseSensitivity") => list(any()),
-        optional("DefaultStorageClass") => String.t(),
+        optional("DefaultStorageClass") => String.t() | atom(),
         optional("EncryptionType") => list(any()),
-        optional("FileShareName") => String.t(),
+        optional("FileShareName") => String.t() | atom(),
         optional("GuessMIMETypeEnabled") => boolean(),
-        optional("InvalidUserList") => list(String.t()),
+        optional("InvalidUserList") => list(String.t() | atom()),
         optional("KMSEncrypted") => boolean(),
-        optional("KMSKey") => String.t(),
-        optional("NotificationPolicy") => String.t(),
+        optional("KMSKey") => String.t() | atom(),
+        optional("NotificationPolicy") => String.t() | atom(),
         optional("ObjectACL") => list(any()),
         optional("OplocksEnabled") => boolean(),
         optional("ReadOnly") => boolean(),
         optional("RequesterPays") => boolean(),
         optional("SMBACLEnabled") => boolean(),
         optional("Tags") => list(tag()),
-        optional("VPCEndpointDNSName") => String.t(),
-        optional("ValidUserList") => list(String.t()),
-        required("ClientToken") => String.t(),
-        required("GatewayARN") => String.t(),
-        required("LocationARN") => String.t(),
-        required("Role") => String.t()
+        optional("VPCEndpointDNSName") => String.t() | atom(),
+        optional("ValidUserList") => list(String.t() | atom()),
+        required("ClientToken") => String.t() | atom(),
+        required("GatewayARN") => String.t() | atom(),
+        required("LocationARN") => String.t() | atom(),
+        required("Role") => String.t() | atom()
       }
       
   """
-  @type create_smb_file_share_input() :: %{String.t() => any()}
+  @type create_smb_file_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_retrieval_output() :: %{
-        "TapeARN" => String.t()
+        "TapeARN" => String.t() | atom()
       }
       
   """
-  @type cancel_retrieval_output() :: %{String.t() => any()}
+  @type cancel_retrieval_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_smb_local_groups_input() :: %{
-        required("GatewayARN") => String.t(),
+        required("GatewayARN") => String.t() | atom(),
         required("SMBLocalGroups") => smb_local_groups()
       }
       
   """
-  @type update_smb_local_groups_input() :: %{String.t() => any()}
+  @type update_smb_local_groups_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reset_cache_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type reset_cache_output() :: %{String.t() => any()}
+  @type reset_cache_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_vtl_device_type_output() :: %{
-        "VTLDeviceARN" => String.t()
+        "VTLDeviceARN" => String.t() | atom()
       }
       
   """
-  @type update_vtl_device_type_output() :: %{String.t() => any()}
+  @type update_vtl_device_type_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1928,12 +1928,12 @@ defmodule AWS.StorageGateway do
       
       describe_tape_archives_input() :: %{
         optional("Limit") => integer(),
-        optional("Marker") => String.t(),
-        optional("TapeARNs") => list(String.t())
+        optional("Marker") => String.t() | atom(),
+        optional("TapeARNs") => list(String.t() | atom())
       }
       
   """
-  @type describe_tape_archives_input() :: %{String.t() => any()}
+  @type describe_tape_archives_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1941,14 +1941,14 @@ defmodule AWS.StorageGateway do
       
       automatic_tape_creation_rule() :: %{
         "MinimumNumTapes" => integer(),
-        "PoolId" => String.t(),
-        "TapeBarcodePrefix" => String.t(),
+        "PoolId" => String.t() | atom(),
+        "TapeBarcodePrefix" => String.t() | atom(),
         "TapeSizeInBytes" => float(),
         "Worm" => boolean()
       }
       
   """
-  @type automatic_tape_creation_rule() :: %{String.t() => any()}
+  @type automatic_tape_creation_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1956,11 +1956,11 @@ defmodule AWS.StorageGateway do
       
       list_gateways_input() :: %{
         optional("Limit") => integer(),
-        optional("Marker") => String.t()
+        optional("Marker") => String.t() | atom()
       }
       
   """
-  @type list_gateways_input() :: %{String.t() => any()}
+  @type list_gateways_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1971,7 +1971,7 @@ defmodule AWS.StorageGateway do
       }
       
   """
-  @type describe_chap_credentials_output() :: %{String.t() => any()}
+  @type describe_chap_credentials_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1982,84 +1982,84 @@ defmodule AWS.StorageGateway do
       }
       
   """
-  @type describe_smb_file_shares_output() :: %{String.t() => any()}
+  @type describe_smb_file_shares_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_chap_credentials_output() :: %{
-        "InitiatorName" => String.t(),
-        "TargetARN" => String.t()
+        "InitiatorName" => String.t() | atom(),
+        "TargetARN" => String.t() | atom()
       }
       
   """
-  @type delete_chap_credentials_output() :: %{String.t() => any()}
+  @type delete_chap_credentials_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_tape_archive_output() :: %{
-        "TapeARN" => String.t()
+        "TapeARN" => String.t() | atom()
       }
       
   """
-  @type delete_tape_archive_output() :: %{String.t() => any()}
+  @type delete_tape_archive_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       shutdown_gateway_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type shutdown_gateway_input() :: %{String.t() => any()}
+  @type shutdown_gateway_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_snapshot_schedule_input() :: %{
-        required("VolumeARN") => String.t()
+        required("VolumeARN") => String.t() | atom()
       }
       
   """
-  @type describe_snapshot_schedule_input() :: %{String.t() => any()}
+  @type describe_snapshot_schedule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_nfs_file_share_input() :: %{
-        optional("AuditDestinationARN") => String.t(),
-        optional("BucketRegion") => String.t(),
+        optional("AuditDestinationARN") => String.t() | atom(),
+        optional("BucketRegion") => String.t() | atom(),
         optional("CacheAttributes") => cache_attributes(),
-        optional("ClientList") => list(String.t()),
-        optional("DefaultStorageClass") => String.t(),
+        optional("ClientList") => list(String.t() | atom()),
+        optional("DefaultStorageClass") => String.t() | atom(),
         optional("EncryptionType") => list(any()),
-        optional("FileShareName") => String.t(),
+        optional("FileShareName") => String.t() | atom(),
         optional("GuessMIMETypeEnabled") => boolean(),
         optional("KMSEncrypted") => boolean(),
-        optional("KMSKey") => String.t(),
+        optional("KMSKey") => String.t() | atom(),
         optional("NFSFileShareDefaults") => nfs_file_share_defaults(),
-        optional("NotificationPolicy") => String.t(),
+        optional("NotificationPolicy") => String.t() | atom(),
         optional("ObjectACL") => list(any()),
         optional("ReadOnly") => boolean(),
         optional("RequesterPays") => boolean(),
-        optional("Squash") => String.t(),
+        optional("Squash") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("VPCEndpointDNSName") => String.t(),
-        required("ClientToken") => String.t(),
-        required("GatewayARN") => String.t(),
-        required("LocationARN") => String.t(),
-        required("Role") => String.t()
+        optional("VPCEndpointDNSName") => String.t() | atom(),
+        required("ClientToken") => String.t() | atom(),
+        required("GatewayARN") => String.t() | atom(),
+        required("LocationARN") => String.t() | atom(),
+        required("Role") => String.t() | atom()
       }
       
   """
-  @type create_nfs_file_share_input() :: %{String.t() => any()}
+  @type create_nfs_file_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2067,44 +2067,44 @@ defmodule AWS.StorageGateway do
       
       internal_server_error() :: %{
         "error" => storage_gateway_error(),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type internal_server_error() :: %{String.t() => any()}
+  @type internal_server_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_smb_security_strategy_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type update_smb_security_strategy_output() :: %{String.t() => any()}
+  @type update_smb_security_strategy_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_file_share_output() :: %{
-        "FileShareARN" => String.t()
+        "FileShareARN" => String.t() | atom()
       }
       
   """
-  @type delete_file_share_output() :: %{String.t() => any()}
+  @type delete_file_share_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_nfs_file_share_output() :: %{
-        "FileShareARN" => String.t()
+        "FileShareARN" => String.t() | atom()
       }
       
   """
-  @type create_nfs_file_share_output() :: %{String.t() => any()}
+  @type create_nfs_file_share_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2112,35 +2112,35 @@ defmodule AWS.StorageGateway do
       
       describe_tapes_input() :: %{
         optional("Limit") => integer(),
-        optional("Marker") => String.t(),
-        optional("TapeARNs") => list(String.t()),
-        required("GatewayARN") => String.t()
+        optional("Marker") => String.t() | atom(),
+        optional("TapeARNs") => list(String.t() | atom()),
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type describe_tapes_input() :: %{String.t() => any()}
+  @type describe_tapes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_automatic_tape_creation_policies_input() :: %{
-        optional("GatewayARN") => String.t()
+        optional("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type list_automatic_tape_creation_policies_input() :: %{String.t() => any()}
+  @type list_automatic_tape_creation_policies_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_snapshot_schedule_output() :: %{
-        "VolumeARN" => String.t()
+        "VolumeARN" => String.t() | atom()
       }
       
   """
-  @type update_snapshot_schedule_output() :: %{String.t() => any()}
+  @type update_snapshot_schedule_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2148,63 +2148,63 @@ defmodule AWS.StorageGateway do
       
       stored_iscsi_volume() :: %{
         "CreatedDate" => non_neg_integer(),
-        "KMSKey" => String.t(),
+        "KMSKey" => String.t() | atom(),
         "PreservedExistingData" => boolean(),
-        "SourceSnapshotId" => String.t(),
-        "TargetName" => String.t(),
-        "VolumeARN" => String.t(),
-        "VolumeAttachmentStatus" => String.t(),
-        "VolumeDiskId" => String.t(),
-        "VolumeId" => String.t(),
+        "SourceSnapshotId" => String.t() | atom(),
+        "TargetName" => String.t() | atom(),
+        "VolumeARN" => String.t() | atom(),
+        "VolumeAttachmentStatus" => String.t() | atom(),
+        "VolumeDiskId" => String.t() | atom(),
+        "VolumeId" => String.t() | atom(),
         "VolumeProgress" => float(),
         "VolumeSizeInBytes" => float(),
-        "VolumeStatus" => String.t(),
-        "VolumeType" => String.t(),
+        "VolumeStatus" => String.t() | atom(),
+        "VolumeType" => String.t() | atom(),
         "VolumeUsedInBytes" => float(),
         "VolumeiSCSIAttributes" => volume_iscsi_attributes()
       }
       
   """
-  @type stored_iscsi_volume() :: %{String.t() => any()}
+  @type stored_iscsi_volume() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       volume_info() :: %{
-        "GatewayARN" => String.t(),
-        "GatewayId" => String.t(),
-        "VolumeARN" => String.t(),
-        "VolumeAttachmentStatus" => String.t(),
-        "VolumeId" => String.t(),
+        "GatewayARN" => String.t() | atom(),
+        "GatewayId" => String.t() | atom(),
+        "VolumeARN" => String.t() | atom(),
+        "VolumeAttachmentStatus" => String.t() | atom(),
+        "VolumeId" => String.t() | atom(),
         "VolumeSizeInBytes" => float(),
-        "VolumeType" => String.t()
+        "VolumeType" => String.t() | atom()
       }
       
   """
-  @type volume_info() :: %{String.t() => any()}
+  @type volume_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_nfs_file_share_output() :: %{
-        "FileShareARN" => String.t()
+        "FileShareARN" => String.t() | atom()
       }
       
   """
-  @type update_nfs_file_share_output() :: %{String.t() => any()}
+  @type update_nfs_file_share_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_gateway_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type disable_gateway_output() :: %{String.t() => any()}
+  @type disable_gateway_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2215,59 +2215,59 @@ defmodule AWS.StorageGateway do
       }
       
   """
-  @type software_update_preferences() :: %{String.t() => any()}
+  @type software_update_preferences() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stored_iscsi_volumes_input() :: %{
-        required("VolumeARNs") => list(String.t())
+        required("VolumeARNs") => list(String.t() | atom())
       }
       
   """
-  @type describe_stored_iscsi_volumes_input() :: %{String.t() => any()}
+  @type describe_stored_iscsi_volumes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_file_system_associations_input() :: %{
-        required("FileSystemAssociationARNList") => list(String.t())
+        required("FileSystemAssociationARNList") => list(String.t() | atom())
       }
       
   """
-  @type describe_file_system_associations_input() :: %{String.t() => any()}
+  @type describe_file_system_associations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disk() :: %{
-        "DiskAllocationResource" => String.t(),
-        "DiskAllocationType" => String.t(),
-        "DiskAttributeList" => list(String.t()),
-        "DiskId" => String.t(),
-        "DiskNode" => String.t(),
-        "DiskPath" => String.t(),
+        "DiskAllocationResource" => String.t() | atom(),
+        "DiskAllocationType" => String.t() | atom(),
+        "DiskAttributeList" => list(String.t() | atom()),
+        "DiskId" => String.t() | atom(),
+        "DiskNode" => String.t() | atom(),
+        "DiskPath" => String.t() | atom(),
         "DiskSizeInBytes" => float(),
-        "DiskStatus" => String.t()
+        "DiskStatus" => String.t() | atom()
       }
       
   """
-  @type disk() :: %{String.t() => any()}
+  @type disk() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_tapes_output() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "Tapes" => list(tape())
       }
       
   """
-  @type describe_tapes_output() :: %{String.t() => any()}
+  @type describe_tapes_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2278,43 +2278,43 @@ defmodule AWS.StorageGateway do
       }
       
   """
-  @type list_automatic_tape_creation_policies_output() :: %{String.t() => any()}
+  @type list_automatic_tape_creation_policies_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_cache_input() :: %{
-        required("DiskIds") => list(String.t()),
-        required("GatewayARN") => String.t()
+        required("DiskIds") => list(String.t() | atom()),
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type add_cache_input() :: %{String.t() => any()}
+  @type add_cache_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       shutdown_gateway_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type shutdown_gateway_output() :: %{String.t() => any()}
+  @type shutdown_gateway_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_volumes_output() :: %{
-        "GatewayARN" => String.t(),
-        "Marker" => String.t(),
+        "GatewayARN" => String.t() | atom(),
+        "Marker" => String.t() | atom(),
         "VolumeInfos" => list(volume_info())
       }
       
   """
-  @type list_volumes_output() :: %{String.t() => any()}
+  @type list_volumes_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2322,61 +2322,61 @@ defmodule AWS.StorageGateway do
       
       list_tags_for_resource_input() :: %{
         optional("Limit") => integer(),
-        optional("Marker") => String.t(),
-        required("ResourceARN") => String.t()
+        optional("Marker") => String.t() | atom(),
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_input() :: %{String.t() => any()}
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       chap_info() :: %{
-        "InitiatorName" => String.t(),
-        "SecretToAuthenticateInitiator" => String.t(),
-        "SecretToAuthenticateTarget" => String.t(),
-        "TargetARN" => String.t()
+        "InitiatorName" => String.t() | atom(),
+        "SecretToAuthenticateInitiator" => String.t() | atom(),
+        "SecretToAuthenticateTarget" => String.t() | atom(),
+        "TargetARN" => String.t() | atom()
       }
       
   """
-  @type chap_info() :: %{String.t() => any()}
+  @type chap_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_upload_buffer_input() :: %{
-        required("DiskIds") => list(String.t()),
-        required("GatewayARN") => String.t()
+        required("DiskIds") => list(String.t() | atom()),
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type add_upload_buffer_input() :: %{String.t() => any()}
+  @type add_upload_buffer_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_cached_iscsi_volume_output() :: %{
-        "TargetARN" => String.t(),
-        "VolumeARN" => String.t()
+        "TargetARN" => String.t() | atom(),
+        "VolumeARN" => String.t() | atom()
       }
       
   """
-  @type create_cached_iscsi_volume_output() :: %{String.t() => any()}
+  @type create_cached_iscsi_volume_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_automatic_tape_creation_policy_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type update_automatic_tape_creation_policy_output() :: %{String.t() => any()}
+  @type update_automatic_tape_creation_policy_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2384,46 +2384,46 @@ defmodule AWS.StorageGateway do
       
       automatic_tape_creation_policy_info() :: %{
         "AutomaticTapeCreationRules" => list(automatic_tape_creation_rule()),
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type automatic_tape_creation_policy_info() :: %{String.t() => any()}
+  @type automatic_tape_creation_policy_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_chap_credentials_output() :: %{
-        "InitiatorName" => String.t(),
-        "TargetARN" => String.t()
+        "InitiatorName" => String.t() | atom(),
+        "TargetARN" => String.t() | atom()
       }
       
   """
-  @type update_chap_credentials_output() :: %{String.t() => any()}
+  @type update_chap_credentials_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       retrieve_tape_archive_input() :: %{
-        required("GatewayARN") => String.t(),
-        required("TapeARN") => String.t()
+        required("GatewayARN") => String.t() | atom(),
+        required("TapeARN") => String.t() | atom()
       }
       
   """
-  @type retrieve_tape_archive_input() :: %{String.t() => any()}
+  @type retrieve_tape_archive_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_automatic_tape_creation_policy_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type delete_automatic_tape_creation_policy_output() :: %{String.t() => any()}
+  @type delete_automatic_tape_creation_policy_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2431,11 +2431,11 @@ defmodule AWS.StorageGateway do
       
       update_automatic_tape_creation_policy_input() :: %{
         required("AutomaticTapeCreationRules") => list(automatic_tape_creation_rule()),
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type update_automatic_tape_creation_policy_input() :: %{String.t() => any()}
+  @type update_automatic_tape_creation_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2443,122 +2443,122 @@ defmodule AWS.StorageGateway do
       
       create_tapes_input() :: %{
         optional("KMSEncrypted") => boolean(),
-        optional("KMSKey") => String.t(),
-        optional("PoolId") => String.t(),
+        optional("KMSKey") => String.t() | atom(),
+        optional("PoolId") => String.t() | atom(),
         optional("Tags") => list(tag()),
         optional("Worm") => boolean(),
-        required("ClientToken") => String.t(),
-        required("GatewayARN") => String.t(),
+        required("ClientToken") => String.t() | atom(),
+        required("GatewayARN") => String.t() | atom(),
         required("NumTapesToCreate") => integer(),
-        required("TapeBarcodePrefix") => String.t(),
+        required("TapeBarcodePrefix") => String.t() | atom(),
         required("TapeSizeInBytes") => float()
       }
       
   """
-  @type create_tapes_input() :: %{String.t() => any()}
+  @type create_tapes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_gateway_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type delete_gateway_output() :: %{String.t() => any()}
+  @type delete_gateway_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       nfs_file_share_info() :: %{
-        "AuditDestinationARN" => String.t(),
-        "BucketRegion" => String.t(),
+        "AuditDestinationARN" => String.t() | atom(),
+        "BucketRegion" => String.t() | atom(),
         "CacheAttributes" => cache_attributes(),
-        "ClientList" => list(String.t()),
-        "DefaultStorageClass" => String.t(),
+        "ClientList" => list(String.t() | atom()),
+        "DefaultStorageClass" => String.t() | atom(),
         "EncryptionType" => list(any()),
-        "FileShareARN" => String.t(),
-        "FileShareId" => String.t(),
-        "FileShareName" => String.t(),
-        "FileShareStatus" => String.t(),
-        "GatewayARN" => String.t(),
+        "FileShareARN" => String.t() | atom(),
+        "FileShareId" => String.t() | atom(),
+        "FileShareName" => String.t() | atom(),
+        "FileShareStatus" => String.t() | atom(),
+        "GatewayARN" => String.t() | atom(),
         "GuessMIMETypeEnabled" => boolean(),
         "KMSEncrypted" => boolean(),
-        "KMSKey" => String.t(),
-        "LocationARN" => String.t(),
+        "KMSKey" => String.t() | atom(),
+        "LocationARN" => String.t() | atom(),
         "NFSFileShareDefaults" => nfs_file_share_defaults(),
-        "NotificationPolicy" => String.t(),
+        "NotificationPolicy" => String.t() | atom(),
         "ObjectACL" => list(any()),
-        "Path" => String.t(),
+        "Path" => String.t() | atom(),
         "ReadOnly" => boolean(),
         "RequesterPays" => boolean(),
-        "Role" => String.t(),
-        "Squash" => String.t(),
+        "Role" => String.t() | atom(),
+        "Squash" => String.t() | atom(),
         "Tags" => list(tag()),
-        "VPCEndpointDNSName" => String.t()
+        "VPCEndpointDNSName" => String.t() | atom()
       }
       
   """
-  @type nfs_file_share_info() :: %{String.t() => any()}
+  @type nfs_file_share_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       file_system_association_info() :: %{
-        "AuditDestinationARN" => String.t(),
+        "AuditDestinationARN" => String.t() | atom(),
         "CacheAttributes" => cache_attributes(),
         "EndpointNetworkConfiguration" => endpoint_network_configuration(),
-        "FileSystemAssociationARN" => String.t(),
-        "FileSystemAssociationStatus" => String.t(),
+        "FileSystemAssociationARN" => String.t() | atom(),
+        "FileSystemAssociationStatus" => String.t() | atom(),
         "FileSystemAssociationStatusDetails" => list(file_system_association_status_detail()),
-        "GatewayARN" => String.t(),
-        "LocationARN" => String.t(),
+        "GatewayARN" => String.t() | atom(),
+        "LocationARN" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type file_system_association_info() :: %{String.t() => any()}
+  @type file_system_association_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_working_storage_output() :: %{
-        "DiskIds" => list(String.t()),
-        "GatewayARN" => String.t(),
+        "DiskIds" => list(String.t() | atom()),
+        "GatewayARN" => String.t() | atom(),
         "WorkingStorageAllocatedInBytes" => float(),
         "WorkingStorageUsedInBytes" => float()
       }
       
   """
-  @type describe_working_storage_output() :: %{String.t() => any()}
+  @type describe_working_storage_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cache_report_output() :: %{
-        "CacheReportARN" => String.t()
+        "CacheReportARN" => String.t() | atom()
       }
       
   """
-  @type delete_cache_report_output() :: %{String.t() => any()}
+  @type delete_cache_report_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_stored_iscsi_volume_output() :: %{
-        "TargetARN" => String.t(),
-        "VolumeARN" => String.t(),
+        "TargetARN" => String.t() | atom(),
+        "VolumeARN" => String.t() | atom(),
         "VolumeSizeInBytes" => float()
       }
       
   """
-  @type create_stored_iscsi_volume_output() :: %{String.t() => any()}
+  @type create_stored_iscsi_volume_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2566,72 +2566,72 @@ defmodule AWS.StorageGateway do
       
       tape_archive() :: %{
         "CompletionTime" => non_neg_integer(),
-        "KMSKey" => String.t(),
+        "KMSKey" => String.t() | atom(),
         "PoolEntryDate" => non_neg_integer(),
-        "PoolId" => String.t(),
+        "PoolId" => String.t() | atom(),
         "RetentionStartDate" => non_neg_integer(),
-        "RetrievedTo" => String.t(),
-        "TapeARN" => String.t(),
-        "TapeBarcode" => String.t(),
+        "RetrievedTo" => String.t() | atom(),
+        "TapeARN" => String.t() | atom(),
+        "TapeBarcode" => String.t() | atom(),
         "TapeCreatedDate" => non_neg_integer(),
         "TapeSizeInBytes" => float(),
-        "TapeStatus" => String.t(),
+        "TapeStatus" => String.t() | atom(),
         "TapeUsedInBytes" => float(),
         "Worm" => boolean()
       }
       
   """
-  @type tape_archive() :: %{String.t() => any()}
+  @type tape_archive() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       file_system_association_summary() :: %{
-        "FileSystemAssociationARN" => String.t(),
-        "FileSystemAssociationId" => String.t(),
-        "FileSystemAssociationStatus" => String.t(),
-        "GatewayARN" => String.t()
+        "FileSystemAssociationARN" => String.t() | atom(),
+        "FileSystemAssociationId" => String.t() | atom(),
+        "FileSystemAssociationStatus" => String.t() | atom(),
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type file_system_association_summary() :: %{String.t() => any()}
+  @type file_system_association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attach_volume_output() :: %{
-        "TargetARN" => String.t(),
-        "VolumeARN" => String.t()
+        "TargetARN" => String.t() | atom(),
+        "VolumeARN" => String.t() | atom()
       }
       
   """
-  @type attach_volume_output() :: %{String.t() => any()}
+  @type attach_volume_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_maintenance_start_time_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type update_maintenance_start_time_output() :: %{String.t() => any()}
+  @type update_maintenance_start_time_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_availability_monitor_test_output() :: %{
-        "GatewayARN" => String.t(),
+        "GatewayARN" => String.t() | atom(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type describe_availability_monitor_test_output() :: %{String.t() => any()}
+  @type describe_availability_monitor_test_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2639,73 +2639,73 @@ defmodule AWS.StorageGateway do
       
       list_tape_pools_input() :: %{
         optional("Limit") => integer(),
-        optional("Marker") => String.t(),
-        optional("PoolARNs") => list(String.t())
+        optional("Marker") => String.t() | atom(),
+        optional("PoolARNs") => list(String.t() | atom())
       }
       
   """
-  @type list_tape_pools_input() :: %{String.t() => any()}
+  @type list_tape_pools_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_tape_archives_output() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "TapeArchives" => list(tape_archive())
       }
       
   """
-  @type describe_tape_archives_output() :: %{String.t() => any()}
+  @type describe_tape_archives_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_nfs_file_share_input() :: %{
-        optional("AuditDestinationARN") => String.t(),
+        optional("AuditDestinationARN") => String.t() | atom(),
         optional("CacheAttributes") => cache_attributes(),
-        optional("ClientList") => list(String.t()),
-        optional("DefaultStorageClass") => String.t(),
+        optional("ClientList") => list(String.t() | atom()),
+        optional("DefaultStorageClass") => String.t() | atom(),
         optional("EncryptionType") => list(any()),
-        optional("FileShareName") => String.t(),
+        optional("FileShareName") => String.t() | atom(),
         optional("GuessMIMETypeEnabled") => boolean(),
         optional("KMSEncrypted") => boolean(),
-        optional("KMSKey") => String.t(),
+        optional("KMSKey") => String.t() | atom(),
         optional("NFSFileShareDefaults") => nfs_file_share_defaults(),
-        optional("NotificationPolicy") => String.t(),
+        optional("NotificationPolicy") => String.t() | atom(),
         optional("ObjectACL") => list(any()),
         optional("ReadOnly") => boolean(),
         optional("RequesterPays") => boolean(),
-        optional("Squash") => String.t(),
-        required("FileShareARN") => String.t()
+        optional("Squash") => String.t() | atom(),
+        required("FileShareARN") => String.t() | atom()
       }
       
   """
-  @type update_nfs_file_share_input() :: %{String.t() => any()}
+  @type update_nfs_file_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_smb_guest_password_input() :: %{
-        required("GatewayARN") => String.t(),
-        required("Password") => String.t()
+        required("GatewayARN") => String.t() | atom(),
+        required("Password") => String.t() | atom()
       }
       
   """
-  @type set_smb_guest_password_input() :: %{String.t() => any()}
+  @type set_smb_guest_password_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_gateway_software_now_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type update_gateway_software_now_output() :: %{String.t() => any()}
+  @type update_gateway_software_now_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2713,124 +2713,124 @@ defmodule AWS.StorageGateway do
       
       update_bandwidth_rate_limit_schedule_input() :: %{
         required("BandwidthRateLimitIntervals") => list(bandwidth_rate_limit_interval()),
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type update_bandwidth_rate_limit_schedule_input() :: %{String.t() => any()}
+  @type update_bandwidth_rate_limit_schedule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_file_system_output() :: %{
-        "FileSystemAssociationARN" => String.t()
+        "FileSystemAssociationARN" => String.t() | atom()
       }
       
   """
-  @type disassociate_file_system_output() :: %{String.t() => any()}
+  @type disassociate_file_system_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       refresh_cache_output() :: %{
-        "FileShareARN" => String.t(),
-        "NotificationId" => String.t()
+        "FileShareARN" => String.t() | atom(),
+        "NotificationId" => String.t() | atom()
       }
       
   """
-  @type refresh_cache_output() :: %{String.t() => any()}
+  @type refresh_cache_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       smb_local_groups() :: %{
-        "GatewayAdmins" => list(String.t())
+        "GatewayAdmins" => list(String.t() | atom())
       }
       
   """
-  @type smb_local_groups() :: %{String.t() => any()}
+  @type smb_local_groups() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_bandwidth_rate_limit_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type describe_bandwidth_rate_limit_input() :: %{String.t() => any()}
+  @type describe_bandwidth_rate_limit_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_bandwidth_rate_limit_schedule_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type update_bandwidth_rate_limit_schedule_output() :: %{String.t() => any()}
+  @type update_bandwidth_rate_limit_schedule_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_smb_file_shares_input() :: %{
-        required("FileShareARNList") => list(String.t())
+        required("FileShareARNList") => list(String.t() | atom())
       }
       
   """
-  @type describe_smb_file_shares_input() :: %{String.t() => any()}
+  @type describe_smb_file_shares_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_chap_credentials_input() :: %{
-        required("TargetARN") => String.t()
+        required("TargetARN") => String.t() | atom()
       }
       
   """
-  @type describe_chap_credentials_input() :: %{String.t() => any()}
+  @type describe_chap_credentials_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_gateway_software_now_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type update_gateway_software_now_input() :: %{String.t() => any()}
+  @type update_gateway_software_now_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_smb_local_groups_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type update_smb_local_groups_output() :: %{String.t() => any()}
+  @type update_smb_local_groups_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_tape_recovery_points_output() :: %{
-        "GatewayARN" => String.t(),
-        "Marker" => String.t(),
+        "GatewayARN" => String.t() | atom(),
+        "Marker" => String.t() | atom(),
         "TapeRecoveryPointInfos" => list(tape_recovery_point_info())
       }
       
   """
-  @type describe_tape_recovery_points_output() :: %{String.t() => any()}
+  @type describe_tape_recovery_points_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2841,66 +2841,66 @@ defmodule AWS.StorageGateway do
       }
       
   """
-  @type cache_attributes() :: %{String.t() => any()}
+  @type cache_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_tape_pool_output() :: %{
-        "PoolARN" => String.t()
+        "PoolARN" => String.t() | atom()
       }
       
   """
-  @type create_tape_pool_output() :: %{String.t() => any()}
+  @type create_tape_pool_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       file_system_association_status_detail() :: %{
-        "ErrorCode" => String.t()
+        "ErrorCode" => String.t() | atom()
       }
       
   """
-  @type file_system_association_status_detail() :: %{String.t() => any()}
+  @type file_system_association_status_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_smb_security_strategy_input() :: %{
-        required("GatewayARN") => String.t(),
+        required("GatewayARN") => String.t() | atom(),
         required("SMBSecurityStrategy") => list(any())
       }
       
   """
-  @type update_smb_security_strategy_input() :: %{String.t() => any()}
+  @type update_smb_security_strategy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_working_storage_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type describe_working_storage_input() :: %{String.t() => any()}
+  @type describe_working_storage_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_upload_buffer_output() :: %{
-        "DiskIds" => list(String.t()),
-        "GatewayARN" => String.t(),
+        "DiskIds" => list(String.t() | atom()),
+        "GatewayARN" => String.t() | atom(),
         "UploadBufferAllocatedInBytes" => float(),
         "UploadBufferUsedInBytes" => float()
       }
       
   """
-  @type describe_upload_buffer_output() :: %{String.t() => any()}
+  @type describe_upload_buffer_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2908,30 +2908,30 @@ defmodule AWS.StorageGateway do
       
       list_tapes_input() :: %{
         optional("Limit") => integer(),
-        optional("Marker") => String.t(),
-        optional("TapeARNs") => list(String.t())
+        optional("Marker") => String.t() | atom(),
+        optional("TapeARNs") => list(String.t() | atom())
       }
       
   """
-  @type list_tapes_input() :: %{String.t() => any()}
+  @type list_tapes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       activate_gateway_input() :: %{
-        optional("GatewayType") => String.t(),
-        optional("MediumChangerType") => String.t(),
+        optional("GatewayType") => String.t() | atom(),
+        optional("MediumChangerType") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("TapeDriveType") => String.t(),
-        required("ActivationKey") => String.t(),
-        required("GatewayName") => String.t(),
-        required("GatewayRegion") => String.t(),
-        required("GatewayTimezone") => String.t()
+        optional("TapeDriveType") => String.t() | atom(),
+        required("ActivationKey") => String.t() | atom(),
+        required("GatewayName") => String.t() | atom(),
+        required("GatewayRegion") => String.t() | atom(),
+        required("GatewayTimezone") => String.t() | atom()
       }
       
   """
-  @type activate_gateway_input() :: %{String.t() => any()}
+  @type activate_gateway_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2942,18 +2942,18 @@ defmodule AWS.StorageGateway do
       }
       
   """
-  @type describe_cached_iscsi_volumes_output() :: %{String.t() => any()}
+  @type describe_cached_iscsi_volumes_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_nfs_file_shares_input() :: %{
-        required("FileShareARNList") => list(String.t())
+        required("FileShareARNList") => list(String.t() | atom())
       }
       
   """
-  @type describe_nfs_file_shares_input() :: %{String.t() => any()}
+  @type describe_nfs_file_shares_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2961,58 +2961,58 @@ defmodule AWS.StorageGateway do
       
       disassociate_file_system_input() :: %{
         optional("ForceDelete") => boolean(),
-        required("FileSystemAssociationARN") => String.t()
+        required("FileSystemAssociationARN") => String.t() | atom()
       }
       
   """
-  @type disassociate_file_system_input() :: %{String.t() => any()}
+  @type disassociate_file_system_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_automatic_tape_creation_policy_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type delete_automatic_tape_creation_policy_input() :: %{String.t() => any()}
+  @type delete_automatic_tape_creation_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_upload_buffer_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type add_upload_buffer_output() :: %{String.t() => any()}
+  @type add_upload_buffer_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_chap_credentials_input() :: %{
-        optional("SecretToAuthenticateTarget") => String.t(),
-        required("InitiatorName") => String.t(),
-        required("SecretToAuthenticateInitiator") => String.t(),
-        required("TargetARN") => String.t()
+        optional("SecretToAuthenticateTarget") => String.t() | atom(),
+        required("InitiatorName") => String.t() | atom(),
+        required("SecretToAuthenticateInitiator") => String.t() | atom(),
+        required("TargetARN") => String.t() | atom()
       }
       
   """
-  @type update_chap_credentials_input() :: %{String.t() => any()}
+  @type update_chap_credentials_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_bandwidth_rate_limit_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type delete_bandwidth_rate_limit_output() :: %{String.t() => any()}
+  @type delete_bandwidth_rate_limit_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3020,99 +3020,99 @@ defmodule AWS.StorageGateway do
       
       create_cached_iscsi_volume_input() :: %{
         optional("KMSEncrypted") => boolean(),
-        optional("KMSKey") => String.t(),
-        optional("SnapshotId") => String.t(),
-        optional("SourceVolumeARN") => String.t(),
+        optional("KMSKey") => String.t() | atom(),
+        optional("SnapshotId") => String.t() | atom(),
+        optional("SourceVolumeARN") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("ClientToken") => String.t(),
-        required("GatewayARN") => String.t(),
-        required("NetworkInterfaceId") => String.t(),
-        required("TargetName") => String.t(),
+        required("ClientToken") => String.t() | atom(),
+        required("GatewayARN") => String.t() | atom(),
+        required("NetworkInterfaceId") => String.t() | atom(),
+        required("TargetName") => String.t() | atom(),
         required("VolumeSizeInBytes") => float()
       }
       
   """
-  @type create_cached_iscsi_volume_input() :: %{String.t() => any()}
+  @type create_cached_iscsi_volume_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_bandwidth_rate_limit_schedule_input() :: %{
-        required("GatewayARN") => String.t()
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type describe_bandwidth_rate_limit_schedule_input() :: %{String.t() => any()}
+  @type describe_bandwidth_rate_limit_schedule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_volume_output() :: %{
-        "VolumeARN" => String.t()
+        "VolumeARN" => String.t() | atom()
       }
       
   """
-  @type delete_volume_output() :: %{String.t() => any()}
+  @type delete_volume_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_smb_guest_password_output() :: %{
-        "GatewayARN" => String.t()
+        "GatewayARN" => String.t() | atom()
       }
       
   """
-  @type set_smb_guest_password_output() :: %{String.t() => any()}
+  @type set_smb_guest_password_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_cache_report_output() :: %{
-        "CacheReportARN" => String.t()
+        "CacheReportARN" => String.t() | atom()
       }
       
   """
-  @type cancel_cache_report_output() :: %{String.t() => any()}
+  @type cancel_cache_report_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_working_storage_input() :: %{
-        required("DiskIds") => list(String.t()),
-        required("GatewayARN") => String.t()
+        required("DiskIds") => list(String.t() | atom()),
+        required("GatewayARN") => String.t() | atom()
       }
       
   """
-  @type add_working_storage_input() :: %{String.t() => any()}
+  @type add_working_storage_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_smb_file_share_output() :: %{
-        "FileShareARN" => String.t()
+        "FileShareARN" => String.t() | atom()
       }
       
   """
-  @type update_smb_file_share_output() :: %{String.t() => any()}
+  @type update_smb_file_share_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       refresh_cache_input() :: %{
-        optional("FolderList") => list(String.t()),
+        optional("FolderList") => list(String.t() | atom()),
         optional("Recursive") => boolean(),
-        required("FileShareARN") => String.t()
+        required("FileShareARN") => String.t() | atom()
       }
       
   """
-  @type refresh_cache_input() :: %{String.t() => any()}
+  @type refresh_cache_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3120,11 +3120,11 @@ defmodule AWS.StorageGateway do
       
       invalid_gateway_request_exception() :: %{
         "error" => storage_gateway_error(),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_gateway_request_exception() :: %{String.t() => any()}
+  @type invalid_gateway_request_exception() :: %{(String.t() | atom()) => any()}
 
   @type activate_gateway_errors() :: invalid_gateway_request_exception() | internal_server_error()
 
@@ -3428,7 +3428,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, activate_gateway_errors()}
   def activate_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ActivateGateway", input, options)
   end
@@ -3450,7 +3451,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, add_cache_errors()}
   def add_cache(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddCache", input, options)
   end
@@ -3490,7 +3492,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -3514,7 +3517,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, add_upload_buffer_errors()}
   def add_upload_buffer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddUploadBuffer", input, options)
   end
@@ -3544,7 +3548,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, add_working_storage_errors()}
   def add_working_storage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddWorkingStorage", input, options)
   end
@@ -3565,7 +3570,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, assign_tape_pool_errors()}
   def assign_tape_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssignTapePool", input, options)
   end
@@ -3586,7 +3592,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, associate_file_system_errors()}
   def associate_file_system(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateFileSystem", input, options)
   end
@@ -3609,7 +3616,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, attach_volume_errors()}
   def attach_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachVolume", input, options)
   end
@@ -3627,7 +3635,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, cancel_archival_errors()}
   def cancel_archival(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelArchival", input, options)
   end
@@ -3650,7 +3659,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, cancel_cache_report_errors()}
   def cancel_cache_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelCacheReport", input, options)
   end
@@ -3669,7 +3679,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, cancel_retrieval_errors()}
   def cancel_retrieval(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelRetrieval", input, options)
   end
@@ -3705,7 +3716,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_cached_iscsi_volume_errors()}
   def create_cached_iscsi_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCachediSCSIVolume", input, options)
   end
@@ -3741,7 +3753,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_nfs_file_share_errors()}
   def create_nfs_file_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNFSFileShare", input, options)
   end
@@ -3777,7 +3790,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_smb_file_share_errors()}
   def create_smb_file_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSMBFileShare", input, options)
   end
@@ -3826,7 +3840,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
@@ -3872,7 +3887,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_snapshot_from_volume_recovery_point_errors()}
   def create_snapshot_from_volume_recovery_point(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshotFromVolumeRecoveryPoint", input, options)
   end
@@ -3905,7 +3921,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_stored_iscsi_volume_errors()}
   def create_stored_iscsi_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStorediSCSIVolume", input, options)
   end
@@ -3922,7 +3939,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_tape_pool_errors()}
   def create_tape_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTapePool", input, options)
   end
@@ -3947,7 +3965,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_tape_with_barcode_errors()}
   def create_tape_with_barcode(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTapeWithBarcode", input, options)
   end
@@ -3968,7 +3987,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_tapes_errors()}
   def create_tapes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTapes", input, options)
   end
@@ -3991,7 +4011,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_automatic_tape_creation_policy_errors()}
   def delete_automatic_tape_creation_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAutomaticTapeCreationPolicy", input, options)
   end
@@ -4014,7 +4035,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_bandwidth_rate_limit_errors()}
   def delete_bandwidth_rate_limit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBandwidthRateLimit", input, options)
   end
@@ -4037,7 +4059,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_cache_report_errors()}
   def delete_cache_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCacheReport", input, options)
   end
@@ -4056,7 +4079,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_chap_credentials_errors()}
   def delete_chap_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteChapCredentials", input, options)
   end
@@ -4073,7 +4097,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_file_share_errors()}
   def delete_file_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFileShare", input, options)
   end
@@ -4110,7 +4135,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_gateway_errors()}
   def delete_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGateway", input, options)
   end
@@ -4140,7 +4166,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_snapshot_schedule_errors()}
   def delete_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSnapshotSchedule", input, options)
   end
@@ -4157,7 +4184,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_tape_errors()}
   def delete_tape(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTape", input, options)
   end
@@ -4174,7 +4202,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_tape_archive_errors()}
   def delete_tape_archive(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTapeArchive", input, options)
   end
@@ -4193,7 +4222,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_tape_pool_errors()}
   def delete_tape_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTapePool", input, options)
   end
@@ -4229,7 +4259,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_volume_errors()}
   def delete_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVolume", input, options)
   end
@@ -4252,7 +4283,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_availability_monitor_test_errors()}
   def describe_availability_monitor_test(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAvailabilityMonitorTest", input, options)
   end
@@ -4281,7 +4313,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_bandwidth_rate_limit_errors()}
   def describe_bandwidth_rate_limit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBandwidthRateLimit", input, options)
   end
@@ -4327,7 +4360,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_bandwidth_rate_limit_schedule_errors()}
   def describe_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBandwidthRateLimitSchedule", input, options)
   end
@@ -4348,7 +4382,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_cache_errors()}
   def describe_cache(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCache", input, options)
   end
@@ -4364,7 +4399,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_cache_report_errors()}
   def describe_cache_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCacheReport", input, options)
   end
@@ -4386,7 +4422,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_cached_iscsi_volumes_errors()}
   def describe_cached_iscsi_volumes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCachediSCSIVolumes", input, options)
   end
@@ -4405,7 +4442,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_chap_credentials_errors()}
   def describe_chap_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeChapCredentials", input, options)
   end
@@ -4426,7 +4464,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_file_system_associations_errors()}
   def describe_file_system_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFileSystemAssociations", input, options)
   end
@@ -4445,7 +4484,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_gateway_information_errors()}
   def describe_gateway_information(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGatewayInformation", input, options)
   end
@@ -4464,7 +4504,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_maintenance_start_time_errors()}
   def describe_maintenance_start_time(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMaintenanceStartTime", input, options)
   end
@@ -4482,7 +4523,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_nfs_file_shares_errors()}
   def describe_nfs_file_shares(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNFSFileShares", input, options)
   end
@@ -4500,7 +4542,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_smb_file_shares_errors()}
   def describe_smb_file_shares(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSMBFileShares", input, options)
   end
@@ -4518,7 +4561,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_smb_settings_errors()}
   def describe_smb_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSMBSettings", input, options)
   end
@@ -4538,7 +4582,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_snapshot_schedule_errors()}
   def describe_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSnapshotSchedule", input, options)
   end
@@ -4558,7 +4603,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_stored_iscsi_volumes_errors()}
   def describe_stored_iscsi_volumes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStorediSCSIVolumes", input, options)
   end
@@ -4579,7 +4625,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_tape_archives_errors()}
   def describe_tape_archives(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTapeArchives", input, options)
   end
@@ -4603,7 +4650,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_tape_recovery_points_errors()}
   def describe_tape_recovery_points(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTapeRecoveryPoints", input, options)
   end
@@ -4633,7 +4681,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_tapes_errors()}
   def describe_tapes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTapes", input, options)
   end
@@ -4654,7 +4703,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_upload_buffer_errors()}
   def describe_upload_buffer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUploadBuffer", input, options)
   end
@@ -4674,7 +4724,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_vtl_devices_errors()}
   def describe_vtl_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVTLDevices", input, options)
   end
@@ -4700,7 +4751,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_working_storage_errors()}
   def describe_working_storage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkingStorage", input, options)
   end
@@ -4723,7 +4775,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, detach_volume_errors()}
   def detach_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachVolume", input, options)
   end
@@ -4747,7 +4800,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, disable_gateway_errors()}
   def disable_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableGateway", input, options)
   end
@@ -4765,7 +4819,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, disassociate_file_system_errors()}
   def disassociate_file_system(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateFileSystem", input, options)
   end
@@ -4797,7 +4852,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, evict_files_failing_upload_errors()}
   def evict_files_failing_upload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EvictFilesFailingUpload", input, options)
   end
@@ -4826,7 +4882,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, join_domain_errors()}
   def join_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "JoinDomain", input, options)
   end
@@ -4849,7 +4906,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_automatic_tape_creation_policies_errors()}
   def list_automatic_tape_creation_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAutomaticTapeCreationPolicies", input, options)
   end
@@ -4869,7 +4927,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_cache_reports_errors()}
   def list_cache_reports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCacheReports", input, options)
   end
@@ -4888,7 +4947,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_file_shares_errors()}
   def list_file_shares(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFileShares", input, options)
   end
@@ -4907,7 +4967,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_file_system_associations_errors()}
   def list_file_system_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFileSystemAssociations", input, options)
   end
@@ -4938,7 +4999,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_gateways_errors()}
   def list_gateways(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGateways", input, options)
   end
@@ -4967,7 +5029,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_local_disks_errors()}
   def list_local_disks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLocalDisks", input, options)
   end
@@ -4984,7 +5047,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5010,7 +5074,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_tape_pools_errors()}
   def list_tape_pools(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTapePools", input, options)
   end
@@ -5042,7 +5107,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_tapes_errors()}
   def list_tapes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTapes", input, options)
   end
@@ -5061,7 +5127,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_volume_initiators_errors()}
   def list_volume_initiators(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVolumeInitiators", input, options)
   end
@@ -5086,7 +5153,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_volume_recovery_points_errors()}
   def list_volume_recovery_points(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVolumeRecoveryPoints", input, options)
   end
@@ -5116,7 +5184,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_volumes_errors()}
   def list_volumes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVolumes", input, options)
   end
@@ -5147,7 +5216,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, notify_when_uploaded_errors()}
   def notify_when_uploaded(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "NotifyWhenUploaded", input, options)
   end
@@ -5215,7 +5285,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, refresh_cache_errors()}
   def refresh_cache(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RefreshCache", input, options)
   end
@@ -5232,7 +5303,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
@@ -5263,7 +5335,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, reset_cache_errors()}
   def reset_cache(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetCache", input, options)
   end
@@ -5290,7 +5363,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, retrieve_tape_archive_errors()}
   def retrieve_tape_archive(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RetrieveTapeArchive", input, options)
   end
@@ -5318,7 +5392,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, retrieve_tape_recovery_point_errors()}
   def retrieve_tape_recovery_point(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RetrieveTapeRecoveryPoint", input, options)
   end
@@ -5338,7 +5413,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, set_local_console_password_errors()}
   def set_local_console_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetLocalConsolePassword", input, options)
   end
@@ -5356,7 +5432,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, set_smb_guest_password_errors()}
   def set_smb_guest_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetSMBGuestPassword", input, options)
   end
@@ -5399,7 +5476,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, shutdown_gateway_errors()}
   def shutdown_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ShutdownGateway", input, options)
   end
@@ -5421,7 +5499,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, start_availability_monitor_test_errors()}
   def start_availability_monitor_test(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartAvailabilityMonitorTest", input, options)
   end
@@ -5475,7 +5554,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, start_cache_report_errors()}
   def start_cache_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartCacheReport", input, options)
   end
@@ -5505,7 +5585,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, start_gateway_errors()}
   def start_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartGateway", input, options)
   end
@@ -5531,7 +5612,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_automatic_tape_creation_policy_errors()}
   def update_automatic_tape_creation_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAutomaticTapeCreationPolicy", input, options)
   end
@@ -5562,7 +5644,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_bandwidth_rate_limit_errors()}
   def update_bandwidth_rate_limit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBandwidthRateLimit", input, options)
   end
@@ -5591,7 +5674,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_bandwidth_rate_limit_schedule_errors()}
   def update_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBandwidthRateLimitSchedule", input, options)
   end
@@ -5615,7 +5699,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_chap_credentials_errors()}
   def update_chap_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateChapCredentials", input, options)
   end
@@ -5632,7 +5717,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_file_system_association_errors()}
   def update_file_system_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFileSystemAssociation", input, options)
   end
@@ -5655,7 +5741,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_gateway_information_errors()}
   def update_gateway_information(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGatewayInformation", input, options)
   end
@@ -5687,7 +5774,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_gateway_software_now_errors()}
   def update_gateway_software_now(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGatewaySoftwareNow", input, options)
   end
@@ -5724,7 +5812,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_maintenance_start_time_errors()}
   def update_maintenance_start_time(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMaintenanceStartTime", input, options)
   end
@@ -5761,7 +5850,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_nfs_file_share_errors()}
   def update_nfs_file_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateNFSFileShare", input, options)
   end
@@ -5797,7 +5887,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_smb_file_share_errors()}
   def update_smb_file_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSMBFileShare", input, options)
   end
@@ -5815,7 +5906,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_smb_file_share_visibility_errors()}
   def update_smb_file_share_visibility(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSMBFileShareVisibility", input, options)
   end
@@ -5831,7 +5923,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_smb_local_groups_errors()}
   def update_smb_local_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSMBLocalGroups", input, options)
   end
@@ -5856,7 +5949,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_smb_security_strategy_errors()}
   def update_smb_security_strategy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSMBSecurityStrategy", input, options)
   end
@@ -5884,7 +5978,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_snapshot_schedule_errors()}
   def update_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSnapshotSchedule", input, options)
   end
@@ -5905,7 +6000,8 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_vtl_device_type_errors()}
   def update_vtl_device_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateVTLDeviceType", input, options)
   end

@@ -28,23 +28,23 @@ defmodule AWS.ECRPUBLIC do
   ## Example:
       
       get_repository_policy_request() :: %{
-        optional("registryId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
       }
       
   """
-  @type get_repository_policy_request() :: %{String.t() => any()}
+  @type get_repository_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       upload_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type upload_not_found_exception() :: %{String.t() => any()}
+  @type upload_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -56,41 +56,41 @@ defmodule AWS.ECRPUBLIC do
       }
       
   """
-  @type create_repository_response() :: %{String.t() => any()}
+  @type create_repository_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       image_digest_does_not_match_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type image_digest_does_not_match_exception() :: %{String.t() => any()}
+  @type image_digest_does_not_match_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | atom(),
         required("tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       image_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type image_already_exists_exception() :: %{String.t() => any()}
+  @type image_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -98,12 +98,12 @@ defmodule AWS.ECRPUBLIC do
       
       layer_failure() :: %{
         "failureCode" => list(any()),
-        "failureReason" => String.t(),
-        "layerDigest" => String.t()
+        "failureReason" => String.t() | atom(),
+        "layerDigest" => String.t() | atom()
       }
       
   """
-  @type layer_failure() :: %{String.t() => any()}
+  @type layer_failure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -119,22 +119,22 @@ defmodule AWS.ECRPUBLIC do
   ## Example:
       
       image_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type image_not_found_exception() :: %{String.t() => any()}
+  @type image_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       registry_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type registry_not_found_exception() :: %{String.t() => any()}
+  @type registry_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -143,38 +143,38 @@ defmodule AWS.ECRPUBLIC do
       describe_images_request() :: %{
         optional("imageIds") => list(image_identifier()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("registryId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
       }
       
   """
-  @type describe_images_request() :: %{String.t() => any()}
+  @type describe_images_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       set_repository_policy_response() :: %{
-        "policyText" => String.t(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t()
+        "policyText" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
       }
       
   """
-  @type set_repository_policy_response() :: %{String.t() => any()}
+  @type set_repository_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       initiate_layer_upload_request() :: %{
-        optional("registryId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
       }
       
   """
-  @type initiate_layer_upload_request() :: %{String.t() => any()}
+  @type initiate_layer_upload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -182,11 +182,11 @@ defmodule AWS.ECRPUBLIC do
       
       describe_registries_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type describe_registries_request() :: %{String.t() => any()}
+  @type describe_registries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -197,7 +197,7 @@ defmodule AWS.ECRPUBLIC do
       }
       
   """
-  @type get_repository_catalog_data_response() :: %{String.t() => any()}
+  @type get_repository_catalog_data_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -209,122 +209,122 @@ defmodule AWS.ECRPUBLIC do
       }
       
   """
-  @type batch_check_layer_availability_response() :: %{String.t() => any()}
+  @type batch_check_layer_availability_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       layers_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type layers_not_found_exception() :: %{String.t() => any()}
+  @type layers_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_repository_policy_request() :: %{
-        optional("registryId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
       }
       
   """
-  @type delete_repository_policy_request() :: %{String.t() => any()}
+  @type delete_repository_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_not_empty_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type repository_not_empty_exception() :: %{String.t() => any()}
+  @type repository_not_empty_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_tag_parameter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_tag_parameter_exception() :: %{String.t() => any()}
+  @type invalid_tag_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_repository_catalog_data_request() :: %{
-        optional("registryId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
       }
       
   """
-  @type get_repository_catalog_data_request() :: %{String.t() => any()}
+  @type get_repository_catalog_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type repository_already_exists_exception() :: %{String.t() => any()}
+  @type repository_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_policy_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type repository_policy_not_found_exception() :: %{String.t() => any()}
+  @type repository_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_repository_policy_response() :: %{
-        "policyText" => String.t(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t()
+        "policyText" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
       }
       
   """
-  @type get_repository_policy_response() :: %{String.t() => any()}
+  @type get_repository_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       layer_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type layer_already_exists_exception() :: %{String.t() => any()}
+  @type layer_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -332,11 +332,11 @@ defmodule AWS.ECRPUBLIC do
       
       describe_images_response() :: %{
         "imageDetails" => list(image_detail()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type describe_images_response() :: %{String.t() => any()}
+  @type describe_images_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -344,43 +344,43 @@ defmodule AWS.ECRPUBLIC do
       
       describe_repositories_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("registryId") => String.t(),
-        optional("repositoryNames") => list(String.t())
+        optional("nextToken") => String.t() | atom(),
+        optional("registryId") => String.t() | atom(),
+        optional("repositoryNames") => list(String.t() | atom())
       }
       
   """
-  @type describe_repositories_request() :: %{String.t() => any()}
+  @type describe_repositories_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_image_request() :: %{
-        optional("imageDigest") => String.t(),
-        optional("imageManifestMediaType") => String.t(),
-        optional("imageTag") => String.t(),
-        optional("registryId") => String.t(),
-        required("imageManifest") => String.t(),
-        required("repositoryName") => String.t()
+        optional("imageDigest") => String.t() | atom(),
+        optional("imageManifestMediaType") => String.t() | atom(),
+        optional("imageTag") => String.t() | atom(),
+        optional("registryId") => String.t() | atom(),
+        required("imageManifest") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
       }
       
   """
-  @type put_image_request() :: %{String.t() => any()}
+  @type put_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       complete_layer_upload_request() :: %{
-        optional("registryId") => String.t(),
-        required("layerDigests") => list(String.t()),
-        required("repositoryName") => String.t(),
-        required("uploadId") => String.t()
+        optional("registryId") => String.t() | atom(),
+        required("layerDigests") => list(String.t() | atom()),
+        required("repositoryName") => String.t() | atom(),
+        required("uploadId") => String.t() | atom()
       }
       
   """
-  @type complete_layer_upload_request() :: %{String.t() => any()}
+  @type complete_layer_upload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -388,13 +388,13 @@ defmodule AWS.ECRPUBLIC do
       
       set_repository_policy_request() :: %{
         optional("force") => boolean(),
-        optional("registryId") => String.t(),
-        required("policyText") => String.t(),
-        required("repositoryName") => String.t()
+        optional("registryId") => String.t() | atom(),
+        required("policyText") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
       }
       
   """
-  @type set_repository_policy_request() :: %{String.t() => any()}
+  @type set_repository_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -402,51 +402,51 @@ defmodule AWS.ECRPUBLIC do
       
       registry_alias() :: %{
         "defaultRegistryAlias" => boolean(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "primaryRegistryAlias" => boolean(),
         "status" => list(any())
       }
       
   """
-  @type registry_alias() :: %{String.t() => any()}
+  @type registry_alias() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_command_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type unsupported_command_exception() :: %{String.t() => any()}
+  @type unsupported_command_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_delete_image_request() :: %{
-        optional("registryId") => String.t(),
+        optional("registryId") => String.t() | atom(),
         required("imageIds") => list(image_identifier()),
-        required("repositoryName") => String.t()
+        required("repositoryName") => String.t() | atom()
       }
       
   """
-  @type batch_delete_image_request() :: %{String.t() => any()}
+  @type batch_delete_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       complete_layer_upload_response() :: %{
-        "layerDigest" => String.t(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t(),
-        "uploadId" => String.t()
+        "layerDigest" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom(),
+        "uploadId" => String.t() | atom()
       }
       
   """
-  @type complete_layer_upload_response() :: %{String.t() => any()}
+  @type complete_layer_upload_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -454,12 +454,12 @@ defmodule AWS.ECRPUBLIC do
       
       image_failure() :: %{
         "failureCode" => list(any()),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | atom(),
         "imageId" => image_identifier()
       }
       
   """
-  @type image_failure() :: %{String.t() => any()}
+  @type image_failure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -467,25 +467,25 @@ defmodule AWS.ECRPUBLIC do
       
       invalid_layer_part_exception() :: %{
         "lastValidByteReceived" => float(),
-        "message" => String.t(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t(),
-        "uploadId" => String.t()
+        "message" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom(),
+        "uploadId" => String.t() | atom()
       }
       
   """
-  @type invalid_layer_part_exception() :: %{String.t() => any()}
+  @type invalid_layer_part_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       image_tag_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type image_tag_already_exists_exception() :: %{String.t() => any()}
+  @type image_tag_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -496,19 +496,19 @@ defmodule AWS.ECRPUBLIC do
       }
       
   """
-  @type put_image_response() :: %{String.t() => any()}
+  @type put_image_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -519,7 +519,7 @@ defmodule AWS.ECRPUBLIC do
       }
       
   """
-  @type put_repository_catalog_data_response() :: %{String.t() => any()}
+  @type put_repository_catalog_data_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -527,14 +527,14 @@ defmodule AWS.ECRPUBLIC do
       
       repository() :: %{
         "createdAt" => non_neg_integer(),
-        "registryId" => String.t(),
-        "repositoryArn" => String.t(),
-        "repositoryName" => String.t(),
-        "repositoryUri" => String.t()
+        "registryId" => String.t() | atom(),
+        "repositoryArn" => String.t() | atom(),
+        "repositoryName" => String.t() | atom(),
+        "repositoryUri" => String.t() | atom()
       }
       
   """
-  @type repository() :: %{String.t() => any()}
+  @type repository() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -542,12 +542,12 @@ defmodule AWS.ECRPUBLIC do
       
       delete_repository_request() :: %{
         optional("force") => boolean(),
-        optional("registryId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
       }
       
   """
-  @type delete_repository_request() :: %{String.t() => any()}
+  @type delete_repository_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -555,63 +555,63 @@ defmodule AWS.ECRPUBLIC do
       
       layer() :: %{
         "layerAvailability" => list(any()),
-        "layerDigest" => String.t(),
+        "layerDigest" => String.t() | atom(),
         "layerSize" => float(),
-        "mediaType" => String.t()
+        "mediaType" => String.t() | atom()
       }
       
   """
-  @type layer() :: %{String.t() => any()}
+  @type layer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       layer_part_too_small_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type layer_part_too_small_exception() :: %{String.t() => any()}
+  @type layer_part_too_small_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       registry_catalog_data() :: %{
-        "displayName" => String.t()
+        "displayName" => String.t() | atom()
       }
       
   """
-  @type registry_catalog_data() :: %{String.t() => any()}
+  @type registry_catalog_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       referenced_images_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type referenced_images_not_found_exception() :: %{String.t() => any()}
+  @type referenced_images_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_catalog_data() :: %{
-        "aboutText" => String.t(),
-        "architectures" => list(String.t()),
-        "description" => String.t(),
-        "logoUrl" => String.t(),
+        "aboutText" => String.t() | atom(),
+        "architectures" => list(String.t() | atom()),
+        "description" => String.t() | atom(),
+        "logoUrl" => String.t() | atom(),
         "marketplaceCertified" => boolean(),
-        "operatingSystems" => list(String.t()),
-        "usageText" => String.t()
+        "operatingSystems" => list(String.t() | atom()),
+        "usageText" => String.t() | atom()
       }
       
   """
-  @type repository_catalog_data() :: %{String.t() => any()}
+  @type repository_catalog_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -622,7 +622,7 @@ defmodule AWS.ECRPUBLIC do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -630,13 +630,13 @@ defmodule AWS.ECRPUBLIC do
       
       describe_image_tags_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("registryId") => String.t(),
-        required("repositoryName") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("registryId") => String.t() | atom(),
+        required("repositoryName") => String.t() | atom()
       }
       
   """
-  @type describe_image_tags_request() :: %{String.t() => any()}
+  @type describe_image_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -647,7 +647,7 @@ defmodule AWS.ECRPUBLIC do
       }
       
   """
-  @type get_authorization_token_response() :: %{String.t() => any()}
+  @type get_authorization_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -663,28 +663,28 @@ defmodule AWS.ECRPUBLIC do
   ## Example:
       
       describe_registries_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "registries" => list(registry())
       }
       
   """
-  @type describe_registries_response() :: %{String.t() => any()}
+  @type describe_registries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_catalog_data_input() :: %{
-        "aboutText" => String.t(),
-        "architectures" => list(String.t()),
-        "description" => String.t(),
+        "aboutText" => String.t() | atom(),
+        "architectures" => list(String.t() | atom()),
+        "description" => String.t() | atom(),
         "logoImageBlob" => binary(),
-        "operatingSystems" => list(String.t()),
-        "usageText" => String.t()
+        "operatingSystems" => list(String.t() | atom()),
+        "usageText" => String.t() | atom()
       }
       
   """
-  @type repository_catalog_data_input() :: %{String.t() => any()}
+  @type repository_catalog_data_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -692,24 +692,24 @@ defmodule AWS.ECRPUBLIC do
       
       upload_layer_part_response() :: %{
         "lastByteReceived" => float(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t(),
-        "uploadId" => String.t()
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom(),
+        "uploadId" => String.t() | atom()
       }
       
   """
-  @type upload_layer_part_response() :: %{String.t() => any()}
+  @type upload_layer_part_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_registry_catalog_data_request() :: %{
-        optional("displayName") => String.t()
+        optional("displayName") => String.t() | atom()
       }
       
   """
-  @type put_registry_catalog_data_request() :: %{String.t() => any()}
+  @type put_registry_catalog_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -718,11 +718,11 @@ defmodule AWS.ECRPUBLIC do
       create_repository_request() :: %{
         optional("catalogData") => repository_catalog_data_input(),
         optional("tags") => list(tag()),
-        required("repositoryName") => String.t()
+        required("repositoryName") => String.t() | atom()
       }
       
   """
-  @type create_repository_request() :: %{String.t() => any()}
+  @type create_repository_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -739,27 +739,27 @@ defmodule AWS.ECRPUBLIC do
       
       image() :: %{
         "imageId" => image_identifier(),
-        "imageManifest" => String.t(),
-        "imageManifestMediaType" => String.t(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t()
+        "imageManifest" => String.t() | atom(),
+        "imageManifestMediaType" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
       }
       
   """
-  @type image() :: %{String.t() => any()}
+  @type image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_repository_policy_response() :: %{
-        "policyText" => String.t(),
-        "registryId" => String.t(),
-        "repositoryName" => String.t()
+        "policyText" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
       }
       
   """
-  @type delete_repository_policy_response() :: %{String.t() => any()}
+  @type delete_repository_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -770,7 +770,7 @@ defmodule AWS.ECRPUBLIC do
       }
       
   """
-  @type get_registry_catalog_data_response() :: %{String.t() => any()}
+  @type get_registry_catalog_data_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -782,18 +782,18 @@ defmodule AWS.ECRPUBLIC do
       }
       
   """
-  @type batch_delete_image_response() :: %{String.t() => any()}
+  @type batch_delete_image_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -809,26 +809,26 @@ defmodule AWS.ECRPUBLIC do
   ## Example:
       
       invalid_layer_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_layer_exception() :: %{String.t() => any()}
+  @type invalid_layer_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       referenced_image_detail() :: %{
-        "artifactMediaType" => String.t(),
-        "imageDigest" => String.t(),
-        "imageManifestMediaType" => String.t(),
+        "artifactMediaType" => String.t() | atom(),
+        "imageDigest" => String.t() | atom(),
+        "imageManifestMediaType" => String.t() | atom(),
         "imagePushedAt" => non_neg_integer(),
         "imageSizeInBytes" => float()
       }
       
   """
-  @type referenced_image_detail() :: %{String.t() => any()}
+  @type referenced_image_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -837,80 +837,80 @@ defmodule AWS.ECRPUBLIC do
       image_tag_detail() :: %{
         "createdAt" => non_neg_integer(),
         "imageDetail" => referenced_image_detail(),
-        "imageTag" => String.t()
+        "imageTag" => String.t() | atom()
       }
       
   """
-  @type image_tag_detail() :: %{String.t() => any()}
+  @type image_tag_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_check_layer_availability_request() :: %{
-        optional("registryId") => String.t(),
-        required("layerDigests") => list(String.t()),
-        required("repositoryName") => String.t()
+        optional("registryId") => String.t() | atom(),
+        required("layerDigests") => list(String.t() | atom()),
+        required("repositoryName") => String.t() | atom()
       }
       
   """
-  @type batch_check_layer_availability_request() :: %{String.t() => any()}
+  @type batch_check_layer_availability_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_catalog_data_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type repository_catalog_data_not_found_exception() :: %{String.t() => any()}
+  @type repository_catalog_data_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type server_exception() :: %{String.t() => any()}
+  @type server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       image_identifier() :: %{
-        "imageDigest" => String.t(),
-        "imageTag" => String.t()
+        "imageDigest" => String.t() | atom(),
+        "imageTag" => String.t() | atom()
       }
       
   """
-  @type image_identifier() :: %{String.t() => any()}
+  @type image_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       repository_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type repository_not_found_exception() :: %{String.t() => any()}
+  @type repository_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -918,14 +918,14 @@ defmodule AWS.ECRPUBLIC do
       
       registry() :: %{
         "aliases" => list(registry_alias()),
-        "registryArn" => String.t(),
-        "registryId" => String.t(),
-        "registryUri" => String.t(),
+        "registryArn" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "registryUri" => String.t() | atom(),
         "verified" => boolean()
       }
       
   """
-  @type registry() :: %{String.t() => any()}
+  @type registry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -936,30 +936,30 @@ defmodule AWS.ECRPUBLIC do
       }
       
   """
-  @type delete_repository_response() :: %{String.t() => any()}
+  @type delete_repository_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_repositories_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "repositories" => list(repository())
       }
       
   """
-  @type describe_repositories_response() :: %{String.t() => any()}
+  @type describe_repositories_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -970,7 +970,7 @@ defmodule AWS.ECRPUBLIC do
       }
       
   """
-  @type put_registry_catalog_data_response() :: %{String.t() => any()}
+  @type put_registry_catalog_data_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -978,52 +978,52 @@ defmodule AWS.ECRPUBLIC do
       
       describe_image_tags_response() :: %{
         "imageTagDetails" => list(image_tag_detail()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type describe_image_tags_response() :: %{String.t() => any()}
+  @type describe_image_tags_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       authorization_data() :: %{
-        "authorizationToken" => String.t(),
+        "authorizationToken" => String.t() | atom(),
         "expiresAt" => non_neg_integer()
       }
       
   """
-  @type authorization_data() :: %{String.t() => any()}
+  @type authorization_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       image_detail() :: %{
-        "artifactMediaType" => String.t(),
-        "imageDigest" => String.t(),
-        "imageManifestMediaType" => String.t(),
+        "artifactMediaType" => String.t() | atom(),
+        "imageDigest" => String.t() | atom(),
+        "imageManifestMediaType" => String.t() | atom(),
         "imagePushedAt" => non_neg_integer(),
         "imageSizeInBytes" => float(),
-        "imageTags" => list(String.t()),
-        "registryId" => String.t(),
-        "repositoryName" => String.t()
+        "imageTags" => list(String.t() | atom()),
+        "registryId" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
       }
       
   """
-  @type image_detail() :: %{String.t() => any()}
+  @type image_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       empty_upload_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type empty_upload_exception() :: %{String.t() => any()}
+  @type empty_upload_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1031,51 +1031,51 @@ defmodule AWS.ECRPUBLIC do
       
       initiate_layer_upload_response() :: %{
         "partSize" => float(),
-        "uploadId" => String.t()
+        "uploadId" => String.t() | atom()
       }
       
   """
-  @type initiate_layer_upload_response() :: %{String.t() => any()}
+  @type initiate_layer_upload_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_repository_catalog_data_request() :: %{
-        optional("registryId") => String.t(),
+        optional("registryId") => String.t() | atom(),
         required("catalogData") => repository_catalog_data_input(),
-        required("repositoryName") => String.t()
+        required("repositoryName") => String.t() | atom()
       }
       
   """
-  @type put_repository_catalog_data_request() :: %{String.t() => any()}
+  @type put_repository_catalog_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tags_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       upload_layer_part_request() :: %{
-        optional("registryId") => String.t(),
+        optional("registryId") => String.t() | atom(),
         required("layerPartBlob") => binary(),
         required("partFirstByte") => float(),
         required("partLastByte") => float(),
-        required("repositoryName") => String.t(),
-        required("uploadId") => String.t()
+        required("repositoryName") => String.t() | atom(),
+        required("uploadId") => String.t() | atom()
       }
       
   """
-  @type upload_layer_part_request() :: %{String.t() => any()}
+  @type upload_layer_part_request() :: %{(String.t() | atom()) => any()}
 
   @type batch_check_layer_availability_errors() ::
           repository_not_found_exception()
@@ -1269,7 +1269,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, batch_check_layer_availability_errors()}
   def batch_check_layer_availability(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchCheckLayerAvailability", input, options)
   end
@@ -1296,7 +1297,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, batch_delete_image_errors()}
   def batch_delete_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteImage", input, options)
   end
@@ -1323,7 +1325,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, complete_layer_upload_errors()}
   def complete_layer_upload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CompleteLayerUpload", input, options)
   end
@@ -1340,7 +1343,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, create_repository_errors()}
   def create_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRepository", input, options)
   end
@@ -1358,7 +1362,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, delete_repository_errors()}
   def delete_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRepository", input, options)
   end
@@ -1372,7 +1377,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, delete_repository_policy_errors()}
   def delete_repository_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRepositoryPolicy", input, options)
   end
@@ -1386,7 +1392,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, describe_image_tags_errors()}
   def describe_image_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImageTags", input, options)
   end
@@ -1408,7 +1415,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, describe_images_errors()}
   def describe_images(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImages", input, options)
   end
@@ -1422,7 +1430,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, describe_registries_errors()}
   def describe_registries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRegistries", input, options)
   end
@@ -1436,7 +1445,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, describe_repositories_errors()}
   def describe_repositories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRepositories", input, options)
   end
@@ -1458,7 +1468,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, get_authorization_token_errors()}
   def get_authorization_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAuthorizationToken", input, options)
   end
@@ -1472,7 +1483,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, get_registry_catalog_data_errors()}
   def get_registry_catalog_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRegistryCatalogData", input, options)
   end
@@ -1489,7 +1501,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, get_repository_catalog_data_errors()}
   def get_repository_catalog_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRepositoryCatalogData", input, options)
   end
@@ -1503,7 +1516,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, get_repository_policy_errors()}
   def get_repository_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRepositoryPolicy", input, options)
   end
@@ -1527,7 +1541,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, initiate_layer_upload_errors()}
   def initiate_layer_upload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "InitiateLayerUpload", input, options)
   end
@@ -1541,7 +1556,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1566,7 +1582,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, put_image_errors()}
   def put_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutImage", input, options)
   end
@@ -1580,7 +1597,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, put_registry_catalog_data_errors()}
   def put_registry_catalog_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRegistryCatalogData", input, options)
   end
@@ -1594,7 +1612,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, put_repository_catalog_data_errors()}
   def put_repository_catalog_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRepositoryCatalogData", input, options)
   end
@@ -1612,7 +1631,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, set_repository_policy_errors()}
   def set_repository_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetRepositoryPolicy", input, options)
   end
@@ -1632,7 +1652,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1646,7 +1667,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1670,7 +1692,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, upload_layer_part_errors()}
   def upload_layer_part(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UploadLayerPart", input, options)
   end

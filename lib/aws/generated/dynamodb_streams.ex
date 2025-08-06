@@ -23,14 +23,14 @@ defmodule AWS.DynamoDBStreams do
   ## Example:
       
       describe_stream_input() :: %{
-        optional("ExclusiveStartShardId") => String.t(),
+        optional("ExclusiveStartShardId") => String.t() | atom(),
         optional("Limit") => integer(),
         optional("ShardFilter") => shard_filter(),
-        required("StreamArn") => String.t()
+        required("StreamArn") => String.t() | atom()
       }
       
   """
-  @type describe_stream_input() :: %{String.t() => any()}
+  @type describe_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -41,18 +41,18 @@ defmodule AWS.DynamoDBStreams do
       }
       
   """
-  @type describe_stream_output() :: %{String.t() => any()}
+  @type describe_stream_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       expired_iterator_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type expired_iterator_exception() :: %{String.t() => any()}
+  @type expired_iterator_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -60,197 +60,197 @@ defmodule AWS.DynamoDBStreams do
       
       get_records_input() :: %{
         optional("Limit") => integer(),
-        required("ShardIterator") => String.t()
+        required("ShardIterator") => String.t() | atom()
       }
       
   """
-  @type get_records_input() :: %{String.t() => any()}
+  @type get_records_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_records_output() :: %{
-        "NextShardIterator" => String.t(),
+        "NextShardIterator" => String.t() | atom(),
         "Records" => list(record())
       }
       
   """
-  @type get_records_output() :: %{String.t() => any()}
+  @type get_records_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_shard_iterator_input() :: %{
-        optional("SequenceNumber") => String.t(),
-        required("ShardId") => String.t(),
+        optional("SequenceNumber") => String.t() | atom(),
+        required("ShardId") => String.t() | atom(),
         required("ShardIteratorType") => list(any()),
-        required("StreamArn") => String.t()
+        required("StreamArn") => String.t() | atom()
       }
       
   """
-  @type get_shard_iterator_input() :: %{String.t() => any()}
+  @type get_shard_iterator_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_shard_iterator_output() :: %{
-        "ShardIterator" => String.t()
+        "ShardIterator" => String.t() | atom()
       }
       
   """
-  @type get_shard_iterator_output() :: %{String.t() => any()}
+  @type get_shard_iterator_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       identity() :: %{
-        "PrincipalId" => String.t(),
-        "Type" => String.t()
+        "PrincipalId" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type identity() :: %{String.t() => any()}
+  @type identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_error() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type internal_server_error() :: %{String.t() => any()}
+  @type internal_server_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       key_schema_element() :: %{
-        "AttributeName" => String.t(),
+        "AttributeName" => String.t() | atom(),
         "KeyType" => list(any())
       }
       
   """
-  @type key_schema_element() :: %{String.t() => any()}
+  @type key_schema_element() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_streams_input() :: %{
-        optional("ExclusiveStartStreamArn") => String.t(),
+        optional("ExclusiveStartStreamArn") => String.t() | atom(),
         optional("Limit") => integer(),
-        optional("TableName") => String.t()
+        optional("TableName") => String.t() | atom()
       }
       
   """
-  @type list_streams_input() :: %{String.t() => any()}
+  @type list_streams_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_streams_output() :: %{
-        "LastEvaluatedStreamArn" => String.t(),
+        "LastEvaluatedStreamArn" => String.t() | atom(),
         "Streams" => list(stream())
       }
       
   """
-  @type list_streams_output() :: %{String.t() => any()}
+  @type list_streams_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       record() :: %{
-        "awsRegion" => String.t(),
+        "awsRegion" => String.t() | atom(),
         "dynamodb" => stream_record(),
-        "eventID" => String.t(),
+        "eventID" => String.t() | atom(),
         "eventName" => list(any()),
-        "eventSource" => String.t(),
-        "eventVersion" => String.t(),
+        "eventSource" => String.t() | atom(),
+        "eventVersion" => String.t() | atom(),
         "userIdentity" => identity()
       }
       
   """
-  @type record() :: %{String.t() => any()}
+  @type record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sequence_number_range() :: %{
-        "EndingSequenceNumber" => String.t(),
-        "StartingSequenceNumber" => String.t()
+        "EndingSequenceNumber" => String.t() | atom(),
+        "StartingSequenceNumber" => String.t() | atom()
       }
       
   """
-  @type sequence_number_range() :: %{String.t() => any()}
+  @type sequence_number_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       shard() :: %{
-        "ParentShardId" => String.t(),
+        "ParentShardId" => String.t() | atom(),
         "SequenceNumberRange" => sequence_number_range(),
-        "ShardId" => String.t()
+        "ShardId" => String.t() | atom()
       }
       
   """
-  @type shard() :: %{String.t() => any()}
+  @type shard() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       shard_filter() :: %{
-        "ShardId" => String.t(),
+        "ShardId" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type shard_filter() :: %{String.t() => any()}
+  @type shard_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stream() :: %{
-        "StreamArn" => String.t(),
-        "StreamLabel" => String.t(),
-        "TableName" => String.t()
+        "StreamArn" => String.t() | atom(),
+        "StreamLabel" => String.t() | atom(),
+        "TableName" => String.t() | atom()
       }
       
   """
-  @type stream() :: %{String.t() => any()}
+  @type stream() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -259,17 +259,17 @@ defmodule AWS.DynamoDBStreams do
       stream_description() :: %{
         "CreationRequestDateTime" => non_neg_integer(),
         "KeySchema" => list(key_schema_element()),
-        "LastEvaluatedShardId" => String.t(),
+        "LastEvaluatedShardId" => String.t() | atom(),
         "Shards" => list(shard()),
-        "StreamArn" => String.t(),
-        "StreamLabel" => String.t(),
+        "StreamArn" => String.t() | atom(),
+        "StreamLabel" => String.t() | atom(),
         "StreamStatus" => list(any()),
         "StreamViewType" => list(any()),
-        "TableName" => String.t()
+        "TableName" => String.t() | atom()
       }
       
   """
-  @type stream_description() :: %{String.t() => any()}
+  @type stream_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -280,24 +280,24 @@ defmodule AWS.DynamoDBStreams do
         "Keys" => map(),
         "NewImage" => map(),
         "OldImage" => map(),
-        "SequenceNumber" => String.t(),
+        "SequenceNumber" => String.t() | atom(),
         "SizeBytes" => float(),
         "StreamViewType" => list(any())
       }
       
   """
-  @type stream_record() :: %{String.t() => any()}
+  @type stream_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       trimmed_data_access_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type trimmed_data_access_exception() :: %{String.t() => any()}
+  @type trimmed_data_access_exception() :: %{(String.t() | atom()) => any()}
 
   @type describe_stream_errors() :: resource_not_found_exception() | internal_server_error()
 
@@ -351,7 +351,8 @@ defmodule AWS.DynamoDBStreams do
           | {:error, term()}
           | {:error, describe_stream_errors()}
   def describe_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStream", input, options)
   end
@@ -376,7 +377,8 @@ defmodule AWS.DynamoDBStreams do
           | {:error, term()}
           | {:error, get_records_errors()}
   def get_records(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRecords", input, options)
   end
@@ -398,7 +400,8 @@ defmodule AWS.DynamoDBStreams do
           | {:error, term()}
           | {:error, get_shard_iterator_errors()}
   def get_shard_iterator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetShardIterator", input, options)
   end
@@ -419,7 +422,8 @@ defmodule AWS.DynamoDBStreams do
           | {:error, term()}
           | {:error, list_streams_errors()}
   def list_streams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStreams", input, options)
   end

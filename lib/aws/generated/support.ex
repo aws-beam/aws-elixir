@@ -75,15 +75,15 @@ defmodule AWS.Support do
   ## Example:
       
       describe_communications_request() :: %{
-        optional("afterTime") => String.t(),
-        optional("beforeTime") => String.t(),
+        optional("afterTime") => String.t() | atom(),
+        optional("beforeTime") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("caseId") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("caseId") => String.t() | atom()
       }
       
   """
-  @type describe_communications_request() :: %{String.t() => any()}
+  @type describe_communications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -94,42 +94,42 @@ defmodule AWS.Support do
       }
       
   """
-  @type trusted_advisor_category_specific_summary() :: %{String.t() => any()}
+  @type trusted_advisor_category_specific_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_severity_levels_request() :: %{
-        optional("language") => String.t()
+        optional("language") => String.t() | atom()
       }
       
   """
-  @type describe_severity_levels_request() :: %{String.t() => any()}
+  @type describe_severity_levels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       supported_language() :: %{
-        "code" => String.t(),
-        "display" => String.t(),
-        "language" => String.t()
+        "code" => String.t() | atom(),
+        "display" => String.t() | atom(),
+        "language" => String.t() | atom()
       }
       
   """
-  @type supported_language() :: %{String.t() => any()}
+  @type supported_language() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attachment_limit_exceeded() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type attachment_limit_exceeded() :: %{String.t() => any()}
+  @type attachment_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -137,127 +137,127 @@ defmodule AWS.Support do
       
       communication() :: %{
         "attachmentSet" => list(attachment_details()),
-        "body" => String.t(),
-        "caseId" => String.t(),
-        "submittedBy" => String.t(),
-        "timeCreated" => String.t()
+        "body" => String.t() | atom(),
+        "caseId" => String.t() | atom(),
+        "submittedBy" => String.t() | atom(),
+        "timeCreated" => String.t() | atom()
       }
       
   """
-  @type communication() :: %{String.t() => any()}
+  @type communication() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       refresh_trusted_advisor_check_request() :: %{
-        required("checkId") => String.t()
+        required("checkId") => String.t() | atom()
       }
       
   """
-  @type refresh_trusted_advisor_check_request() :: %{String.t() => any()}
+  @type refresh_trusted_advisor_check_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       trusted_advisor_check_refresh_status() :: %{
-        "checkId" => String.t(),
+        "checkId" => String.t() | atom(),
         "millisUntilNextRefreshable" => float(),
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
       
   """
-  @type trusted_advisor_check_refresh_status() :: %{String.t() => any()}
+  @type trusted_advisor_check_refresh_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_attachments_to_set_request() :: %{
-        optional("attachmentSetId") => String.t(),
+        optional("attachmentSetId") => String.t() | atom(),
         required("attachments") => list(attachment())
       }
       
   """
-  @type add_attachments_to_set_request() :: %{String.t() => any()}
+  @type add_attachments_to_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_services_request() :: %{
-        optional("language") => String.t(),
-        optional("serviceCodeList") => list(String.t())
+        optional("language") => String.t() | atom(),
+        optional("serviceCodeList") => list(String.t() | atom())
       }
       
   """
-  @type describe_services_request() :: %{String.t() => any()}
+  @type describe_services_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_case_request() :: %{
-        optional("attachmentSetId") => String.t(),
-        optional("categoryCode") => String.t(),
-        optional("ccEmailAddresses") => list(String.t()),
-        optional("issueType") => String.t(),
-        optional("language") => String.t(),
-        optional("serviceCode") => String.t(),
-        optional("severityCode") => String.t(),
-        required("communicationBody") => String.t(),
-        required("subject") => String.t()
+        optional("attachmentSetId") => String.t() | atom(),
+        optional("categoryCode") => String.t() | atom(),
+        optional("ccEmailAddresses") => list(String.t() | atom()),
+        optional("issueType") => String.t() | atom(),
+        optional("language") => String.t() | atom(),
+        optional("serviceCode") => String.t() | atom(),
+        optional("severityCode") => String.t() | atom(),
+        required("communicationBody") => String.t() | atom(),
+        required("subject") => String.t() | atom()
       }
       
   """
-  @type create_case_request() :: %{String.t() => any()}
+  @type create_case_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_trusted_advisor_check_result_request() :: %{
-        optional("language") => String.t(),
-        required("checkId") => String.t()
+        optional("language") => String.t() | atom(),
+        required("checkId") => String.t() | atom()
       }
       
   """
-  @type describe_trusted_advisor_check_result_request() :: %{String.t() => any()}
+  @type describe_trusted_advisor_check_result_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       case_id_not_found() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type case_id_not_found() :: %{String.t() => any()}
+  @type case_id_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       date_interval() :: %{
-        "endDateTime" => String.t(),
-        "startDateTime" => String.t()
+        "endDateTime" => String.t() | atom(),
+        "startDateTime" => String.t() | atom()
       }
       
   """
-  @type date_interval() :: %{String.t() => any()}
+  @type date_interval() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_trusted_advisor_check_summaries_request() :: %{
-        required("checkIds") => list(String.t())
+        required("checkIds") => list(String.t() | atom())
       }
       
   """
-  @type describe_trusted_advisor_check_summaries_request() :: %{String.t() => any()}
+  @type describe_trusted_advisor_check_summaries_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -265,11 +265,11 @@ defmodule AWS.Support do
       
       recent_case_communications() :: %{
         "communications" => list(communication()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type recent_case_communications() :: %{String.t() => any()}
+  @type recent_case_communications() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -277,22 +277,22 @@ defmodule AWS.Support do
       
       attachment() :: %{
         "data" => binary(),
-        "fileName" => String.t()
+        "fileName" => String.t() | atom()
       }
       
   """
-  @type attachment() :: %{String.t() => any()}
+  @type attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_case_response() :: %{
-        "caseId" => String.t()
+        "caseId" => String.t() | atom()
       }
       
   """
-  @type create_case_response() :: %{String.t() => any()}
+  @type create_case_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -300,12 +300,12 @@ defmodule AWS.Support do
       
       service() :: %{
         "categories" => list(category()),
-        "code" => String.t(),
-        "name" => String.t()
+        "code" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
       
   """
-  @type service() :: %{String.t() => any()}
+  @type service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -316,58 +316,60 @@ defmodule AWS.Support do
       }
       
   """
-  @type describe_trusted_advisor_check_refresh_statuses_response() :: %{String.t() => any()}
+  @type describe_trusted_advisor_check_refresh_statuses_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       describe_trusted_advisor_checks_request() :: %{
-        required("language") => String.t()
+        required("language") => String.t() | atom()
       }
       
   """
-  @type describe_trusted_advisor_checks_request() :: %{String.t() => any()}
+  @type describe_trusted_advisor_checks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_supported_languages_request() :: %{
-        required("categoryCode") => String.t(),
-        required("issueType") => String.t(),
-        required("serviceCode") => String.t()
+        required("categoryCode") => String.t() | atom(),
+        required("issueType") => String.t() | atom(),
+        required("serviceCode") => String.t() | atom()
       }
       
   """
-  @type describe_supported_languages_request() :: %{String.t() => any()}
+  @type describe_supported_languages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_attachments_to_set_response() :: %{
-        "attachmentSetId" => String.t(),
-        "expiryTime" => String.t()
+        "attachmentSetId" => String.t() | atom(),
+        "expiryTime" => String.t() | atom()
       }
       
   """
-  @type add_attachments_to_set_response() :: %{String.t() => any()}
+  @type add_attachments_to_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       trusted_advisor_check_description() :: %{
-        "category" => String.t(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "metadata" => list(String.t()),
-        "name" => String.t()
+        "category" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "metadata" => list(String.t() | atom()),
+        "name" => String.t() | atom()
       }
       
   """
-  @type trusted_advisor_check_description() :: %{String.t() => any()}
+  @type trusted_advisor_check_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -378,18 +380,18 @@ defmodule AWS.Support do
       }
       
   """
-  @type describe_services_response() :: %{String.t() => any()}
+  @type describe_services_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_attachment_request() :: %{
-        required("attachmentId") => String.t()
+        required("attachmentId") => String.t() | atom()
       }
       
   """
-  @type describe_attachment_request() :: %{String.t() => any()}
+  @type describe_attachment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -400,21 +402,21 @@ defmodule AWS.Support do
       }
       
   """
-  @type describe_trusted_advisor_checks_response() :: %{String.t() => any()}
+  @type describe_trusted_advisor_checks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_communication_to_case_request() :: %{
-        optional("attachmentSetId") => String.t(),
-        optional("caseId") => String.t(),
-        optional("ccEmailAddresses") => list(String.t()),
-        required("communicationBody") => String.t()
+        optional("attachmentSetId") => String.t() | atom(),
+        optional("caseId") => String.t() | atom(),
+        optional("ccEmailAddresses") => list(String.t() | atom()),
+        required("communicationBody") => String.t() | atom()
       }
       
   """
-  @type add_communication_to_case_request() :: %{String.t() => any()}
+  @type add_communication_to_case_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -422,59 +424,61 @@ defmodule AWS.Support do
       
       trusted_advisor_resource_detail() :: %{
         "isSuppressed" => boolean(),
-        "metadata" => list(String.t()),
-        "region" => String.t(),
-        "resourceId" => String.t(),
-        "status" => String.t()
+        "metadata" => list(String.t() | atom()),
+        "region" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
       
   """
-  @type trusted_advisor_resource_detail() :: %{String.t() => any()}
+  @type trusted_advisor_resource_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       case_creation_limit_exceeded() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type case_creation_limit_exceeded() :: %{String.t() => any()}
+  @type case_creation_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attachment_details() :: %{
-        "attachmentId" => String.t(),
-        "fileName" => String.t()
+        "attachmentId" => String.t() | atom(),
+        "fileName" => String.t() | atom()
       }
       
   """
-  @type attachment_details() :: %{String.t() => any()}
+  @type attachment_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attachment_set_expired() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type attachment_set_expired() :: %{String.t() => any()}
+  @type attachment_set_expired() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_trusted_advisor_check_refresh_statuses_request() :: %{
-        required("checkIds") => list(String.t())
+        required("checkIds") => list(String.t() | atom())
       }
       
   """
-  @type describe_trusted_advisor_check_refresh_statuses_request() :: %{String.t() => any()}
+  @type describe_trusted_advisor_check_refresh_statuses_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -485,7 +489,7 @@ defmodule AWS.Support do
       }
       
   """
-  @type refresh_trusted_advisor_check_response() :: %{String.t() => any()}
+  @type refresh_trusted_advisor_check_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -496,18 +500,18 @@ defmodule AWS.Support do
       }
       
   """
-  @type describe_severity_levels_response() :: %{String.t() => any()}
+  @type describe_severity_levels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resolve_case_request() :: %{
-        optional("caseId") => String.t()
+        optional("caseId") => String.t() | atom()
       }
       
   """
-  @type resolve_case_request() :: %{String.t() => any()}
+  @type resolve_case_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -519,7 +523,7 @@ defmodule AWS.Support do
       }
       
   """
-  @type trusted_advisor_cost_optimizing_summary() :: %{String.t() => any()}
+  @type trusted_advisor_cost_optimizing_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -527,11 +531,11 @@ defmodule AWS.Support do
       
       describe_cases_response() :: %{
         "cases" => list(case_details()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type describe_cases_response() :: %{String.t() => any()}
+  @type describe_cases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -539,11 +543,11 @@ defmodule AWS.Support do
       
       describe_create_case_options_response() :: %{
         "communicationTypes" => list(communication_type_options()),
-        "languageAvailability" => String.t()
+        "languageAvailability" => String.t() | atom()
       }
       
   """
-  @type describe_create_case_options_response() :: %{String.t() => any()}
+  @type describe_create_case_options_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -554,29 +558,29 @@ defmodule AWS.Support do
       }
       
   """
-  @type describe_supported_languages_response() :: %{String.t() => any()}
+  @type describe_supported_languages_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       case_details() :: %{
-        "caseId" => String.t(),
-        "categoryCode" => String.t(),
-        "ccEmailAddresses" => list(String.t()),
-        "displayId" => String.t(),
-        "language" => String.t(),
+        "caseId" => String.t() | atom(),
+        "categoryCode" => String.t() | atom(),
+        "ccEmailAddresses" => list(String.t() | atom()),
+        "displayId" => String.t() | atom(),
+        "language" => String.t() | atom(),
         "recentCommunications" => recent_case_communications(),
-        "serviceCode" => String.t(),
-        "severityCode" => String.t(),
-        "status" => String.t(),
-        "subject" => String.t(),
-        "submittedBy" => String.t(),
-        "timeCreated" => String.t()
+        "serviceCode" => String.t() | atom(),
+        "severityCode" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "subject" => String.t() | atom(),
+        "submittedBy" => String.t() | atom(),
+        "timeCreated" => String.t() | atom()
       }
       
   """
-  @type case_details() :: %{String.t() => any()}
+  @type case_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -584,15 +588,15 @@ defmodule AWS.Support do
       
       trusted_advisor_check_result() :: %{
         "categorySpecificSummary" => trusted_advisor_category_specific_summary(),
-        "checkId" => String.t(),
+        "checkId" => String.t() | atom(),
         "flaggedResources" => list(trusted_advisor_resource_detail()),
         "resourcesSummary" => trusted_advisor_resources_summary(),
-        "status" => String.t(),
-        "timestamp" => String.t()
+        "status" => String.t() | atom(),
+        "timestamp" => String.t() | atom()
       }
       
   """
-  @type trusted_advisor_check_result() :: %{String.t() => any()}
+  @type trusted_advisor_check_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -603,21 +607,21 @@ defmodule AWS.Support do
       }
       
   """
-  @type describe_trusted_advisor_check_result_response() :: %{String.t() => any()}
+  @type describe_trusted_advisor_check_result_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_create_case_options_request() :: %{
-        required("categoryCode") => String.t(),
-        required("issueType") => String.t(),
-        required("language") => String.t(),
-        required("serviceCode") => String.t()
+        required("categoryCode") => String.t() | atom(),
+        required("issueType") => String.t() | atom(),
+        required("language") => String.t() | atom(),
+        required("serviceCode") => String.t() | atom()
       }
       
   """
-  @type describe_create_case_options_request() :: %{String.t() => any()}
+  @type describe_create_case_options_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -625,22 +629,22 @@ defmodule AWS.Support do
       
       describe_communications_response() :: %{
         "communications" => list(communication()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type describe_communications_response() :: %{String.t() => any()}
+  @type describe_communications_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attachment_set_id_not_found() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type attachment_set_id_not_found() :: %{String.t() => any()}
+  @type attachment_set_id_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -651,7 +655,7 @@ defmodule AWS.Support do
       }
       
   """
-  @type describe_attachment_response() :: %{String.t() => any()}
+  @type describe_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -662,37 +666,37 @@ defmodule AWS.Support do
       }
       
   """
-  @type add_communication_to_case_response() :: %{String.t() => any()}
+  @type add_communication_to_case_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_error() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type internal_server_error() :: %{String.t() => any()}
+  @type internal_server_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cases_request() :: %{
-        optional("afterTime") => String.t(),
-        optional("beforeTime") => String.t(),
-        optional("caseIdList") => list(String.t()),
-        optional("displayId") => String.t(),
+        optional("afterTime") => String.t() | atom(),
+        optional("beforeTime") => String.t() | atom(),
+        optional("caseIdList") => list(String.t() | atom()),
+        optional("displayId") => String.t() | atom(),
         optional("includeCommunications") => boolean(),
         optional("includeResolvedCases") => boolean(),
-        optional("language") => String.t(),
+        optional("language") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type describe_cases_request() :: %{String.t() => any()}
+  @type describe_cases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -701,11 +705,11 @@ defmodule AWS.Support do
       communication_type_options() :: %{
         "datesWithoutSupport" => list(date_interval()),
         "supportedHours" => list(supported_hour()),
-        "type" => String.t()
+        "type" => String.t() | atom()
       }
       
   """
-  @type communication_type_options() :: %{String.t() => any()}
+  @type communication_type_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -716,19 +720,19 @@ defmodule AWS.Support do
       }
       
   """
-  @type describe_trusted_advisor_check_summaries_response() :: %{String.t() => any()}
+  @type describe_trusted_advisor_check_summaries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       supported_hour() :: %{
-        "endTime" => String.t(),
-        "startTime" => String.t()
+        "endTime" => String.t() | atom(),
+        "startTime" => String.t() | atom()
       }
       
   """
-  @type supported_hour() :: %{String.t() => any()}
+  @type supported_hour() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -742,53 +746,53 @@ defmodule AWS.Support do
       }
       
   """
-  @type trusted_advisor_resources_summary() :: %{String.t() => any()}
+  @type trusted_advisor_resources_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       severity_level() :: %{
-        "code" => String.t(),
-        "name" => String.t()
+        "code" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
       
   """
-  @type severity_level() :: %{String.t() => any()}
+  @type severity_level() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       category() :: %{
-        "code" => String.t(),
-        "name" => String.t()
+        "code" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
       
   """
-  @type category() :: %{String.t() => any()}
+  @type category() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attachment_set_size_limit_exceeded() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type attachment_set_size_limit_exceeded() :: %{String.t() => any()}
+  @type attachment_set_size_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -796,49 +800,49 @@ defmodule AWS.Support do
       
       trusted_advisor_check_summary() :: %{
         "categorySpecificSummary" => trusted_advisor_category_specific_summary(),
-        "checkId" => String.t(),
+        "checkId" => String.t() | atom(),
         "hasFlaggedResources" => boolean(),
         "resourcesSummary" => trusted_advisor_resources_summary(),
-        "status" => String.t(),
-        "timestamp" => String.t()
+        "status" => String.t() | atom(),
+        "timestamp" => String.t() | atom()
       }
       
   """
-  @type trusted_advisor_check_summary() :: %{String.t() => any()}
+  @type trusted_advisor_check_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resolve_case_response() :: %{
-        "finalCaseStatus" => String.t(),
-        "initialCaseStatus" => String.t()
+        "finalCaseStatus" => String.t() | atom(),
+        "initialCaseStatus" => String.t() | atom()
       }
       
   """
-  @type resolve_case_response() :: %{String.t() => any()}
+  @type resolve_case_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attachment_id_not_found() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type attachment_id_not_found() :: %{String.t() => any()}
+  @type attachment_id_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_attachment_limit_exceeded() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type describe_attachment_limit_exceeded() :: %{String.t() => any()}
+  @type describe_attachment_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @type add_attachments_to_set_errors() ::
           attachment_set_size_limit_exceeded()
@@ -934,7 +938,8 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, add_attachments_to_set_errors()}
   def add_attachments_to_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddAttachmentsToSet", input, options)
   end
@@ -967,7 +972,8 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, add_communication_to_case_errors()}
   def add_communication_to_case(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddCommunicationToCase", input, options)
   end
@@ -1019,7 +1025,8 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, create_case_errors()}
   def create_case(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCase", input, options)
   end
@@ -1053,7 +1060,8 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_attachment_errors()}
   def describe_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAttachment", input, options)
   end
@@ -1100,7 +1108,8 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_cases_errors()}
   def describe_cases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCases", input, options)
   end
@@ -1140,7 +1149,8 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_communications_errors()}
   def describe_communications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCommunications", input, options)
   end
@@ -1171,7 +1181,8 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_create_case_options_errors()}
   def describe_create_case_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCreateCaseOptions", input, options)
   end
@@ -1211,7 +1222,8 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_services_errors()}
   def describe_services(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServices", input, options)
   end
@@ -1241,7 +1253,8 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_severity_levels_errors()}
   def describe_severity_levels(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSeverityLevels", input, options)
   end
@@ -1271,7 +1284,8 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_supported_languages_errors()}
   def describe_supported_languages(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSupportedLanguages", input, options)
   end
@@ -1319,7 +1333,8 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_trusted_advisor_check_refresh_statuses_errors()}
   def describe_trusted_advisor_check_refresh_statuses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1400,7 +1415,8 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_trusted_advisor_check_result_errors()}
   def describe_trusted_advisor_check_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrustedAdvisorCheckResult", input, options)
   end
@@ -1445,7 +1461,8 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_trusted_advisor_check_summaries_errors()}
   def describe_trusted_advisor_check_summaries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrustedAdvisorCheckSummaries", input, options)
   end
@@ -1490,7 +1507,8 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_trusted_advisor_checks_errors()}
   def describe_trusted_advisor_checks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrustedAdvisorChecks", input, options)
   end
@@ -1534,7 +1552,8 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, refresh_trusted_advisor_check_errors()}
   def refresh_trusted_advisor_check(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RefreshTrustedAdvisorCheck", input, options)
   end
@@ -1563,7 +1582,8 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, resolve_case_errors()}
   def resolve_case(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResolveCase", input, options)
   end

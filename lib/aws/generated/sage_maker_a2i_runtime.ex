@@ -58,11 +58,11 @@ defmodule AWS.SageMakerA2IRuntime do
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -97,17 +97,17 @@ defmodule AWS.SageMakerA2IRuntime do
 
       describe_human_loop_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "FailureCode" => String.t(),
-        "FailureReason" => String.t(),
-        "FlowDefinitionArn" => String.t(),
-        "HumanLoopArn" => String.t(),
-        "HumanLoopName" => String.t(),
+        "FailureCode" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
+        "FlowDefinitionArn" => String.t() | atom(),
+        "HumanLoopArn" => String.t() | atom(),
+        "HumanLoopName" => String.t() | atom(),
         "HumanLoopOutput" => human_loop_output(),
         "HumanLoopStatus" => list(any())
       }
 
   """
-  @type describe_human_loop_response() :: %{String.t() => any()}
+  @type describe_human_loop_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -118,29 +118,29 @@ defmodule AWS.SageMakerA2IRuntime do
       }
 
   """
-  @type human_loop_data_attributes() :: %{String.t() => any()}
+  @type human_loop_data_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       human_loop_input() :: %{
-        "InputContent" => String.t()
+        "InputContent" => String.t() | atom()
       }
 
   """
-  @type human_loop_input() :: %{String.t() => any()}
+  @type human_loop_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       human_loop_output() :: %{
-        "OutputS3Uri" => String.t()
+        "OutputS3Uri" => String.t() | atom()
       }
 
   """
-  @type human_loop_output() :: %{String.t() => any()}
+  @type human_loop_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -148,25 +148,25 @@ defmodule AWS.SageMakerA2IRuntime do
 
       human_loop_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "FailureReason" => String.t(),
-        "FlowDefinitionArn" => String.t(),
-        "HumanLoopName" => String.t(),
+        "FailureReason" => String.t() | atom(),
+        "FlowDefinitionArn" => String.t() | atom(),
+        "HumanLoopName" => String.t() | atom(),
         "HumanLoopStatus" => list(any())
       }
 
   """
-  @type human_loop_summary() :: %{String.t() => any()}
+  @type human_loop_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -176,13 +176,13 @@ defmodule AWS.SageMakerA2IRuntime do
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortOrder") => list(any()),
-        required("FlowDefinitionArn") => String.t()
+        required("FlowDefinitionArn") => String.t() | atom()
       }
 
   """
-  @type list_human_loops_request() :: %{String.t() => any()}
+  @type list_human_loops_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -190,33 +190,33 @@ defmodule AWS.SageMakerA2IRuntime do
 
       list_human_loops_response() :: %{
         "HumanLoopSummaries" => list(human_loop_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_human_loops_response() :: %{String.t() => any()}
+  @type list_human_loops_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -224,35 +224,35 @@ defmodule AWS.SageMakerA2IRuntime do
 
       start_human_loop_request() :: %{
         optional("DataAttributes") => human_loop_data_attributes(),
-        required("FlowDefinitionArn") => String.t(),
+        required("FlowDefinitionArn") => String.t() | atom(),
         required("HumanLoopInput") => human_loop_input(),
-        required("HumanLoopName") => String.t()
+        required("HumanLoopName") => String.t() | atom()
       }
 
   """
-  @type start_human_loop_request() :: %{String.t() => any()}
+  @type start_human_loop_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_human_loop_response() :: %{
-        "HumanLoopArn" => String.t()
+        "HumanLoopArn" => String.t() | atom()
       }
 
   """
-  @type start_human_loop_response() :: %{String.t() => any()}
+  @type start_human_loop_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_human_loop_request() :: %{
-        required("HumanLoopName") => String.t()
+        required("HumanLoopName") => String.t() | atom()
       }
 
   """
-  @type stop_human_loop_request() :: %{String.t() => any()}
+  @type stop_human_loop_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -268,22 +268,22 @@ defmodule AWS.SageMakerA2IRuntime do
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type delete_human_loop_errors() ::
           validation_exception()
@@ -338,7 +338,7 @@ defmodule AWS.SageMakerA2IRuntime do
   If the human loop was deleted, this operation will return a
   `ResourceNotFoundException`.
   """
-  @spec delete_human_loop(map(), String.t(), delete_human_loop_request(), list()) ::
+  @spec delete_human_loop(map(), String.t() | atom(), delete_human_loop_request(), list()) ::
           {:ok, delete_human_loop_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -370,7 +370,7 @@ defmodule AWS.SageMakerA2IRuntime do
   If the human loop was deleted, this
   operation will return a `ResourceNotFoundException` error.
   """
-  @spec describe_human_loop(map(), String.t(), list()) ::
+  @spec describe_human_loop(map(), String.t() | atom(), list()) ::
           {:ok, describe_human_loop_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -392,12 +392,12 @@ defmodule AWS.SageMakerA2IRuntime do
   """
   @spec list_human_loops(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_human_loops_response(), any()}

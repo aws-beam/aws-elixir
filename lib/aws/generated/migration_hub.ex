@@ -23,13 +23,13 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       list_application_states_request() :: %{
-        optional("ApplicationIds") => list(String.t()),
+        optional("ApplicationIds") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_application_states_request() :: %{String.t() => any()}
+  @type list_application_states_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -38,11 +38,11 @@ defmodule AWS.MigrationHub do
       task() :: %{
         "ProgressPercent" => integer(),
         "Status" => list(any()),
-        "StatusDetail" => String.t()
+        "StatusDetail" => String.t() | atom()
       }
       
   """
-  @type task() :: %{String.t() => any()}
+  @type task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -50,11 +50,11 @@ defmodule AWS.MigrationHub do
       
       resource_attribute() :: %{
         "Type" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type resource_attribute() :: %{String.t() => any()}
+  @type resource_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -62,13 +62,13 @@ defmodule AWS.MigrationHub do
       
       list_source_resources_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
       }
       
   """
-  @type list_source_resources_request() :: %{String.t() => any()}
+  @type list_source_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -77,12 +77,12 @@ defmodule AWS.MigrationHub do
       notify_application_state_request() :: %{
         optional("DryRun") => boolean(),
         optional("UpdateDateTime") => non_neg_integer(),
-        required("ApplicationId") => String.t(),
+        required("ApplicationId") => String.t() | atom(),
         required("Status") => list(any())
       }
       
   """
-  @type notify_application_state_request() :: %{String.t() => any()}
+  @type notify_application_state_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -90,11 +90,11 @@ defmodule AWS.MigrationHub do
       
       list_migration_tasks_result() :: %{
         "MigrationTaskSummaryList" => list(migration_task_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_migration_tasks_result() :: %{String.t() => any()}
+  @type list_migration_tasks_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -120,25 +120,25 @@ defmodule AWS.MigrationHub do
       
       put_resource_attributes_request() :: %{
         optional("DryRun") => boolean(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom(),
         required("ResourceAttributeList") => list(resource_attribute())
       }
       
   """
-  @type put_resource_attributes_request() :: %{String.t() => any()}
+  @type put_resource_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_progress_update_streams_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ProgressUpdateStreamSummaryList" => list(progress_update_stream_summary())
       }
       
   """
-  @type list_progress_update_streams_result() :: %{String.t() => any()}
+  @type list_progress_update_streams_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -155,11 +155,11 @@ defmodule AWS.MigrationHub do
       
       delete_progress_update_stream_request() :: %{
         optional("DryRun") => boolean(),
-        required("ProgressUpdateStreamName") => String.t()
+        required("ProgressUpdateStreamName") => String.t() | atom()
       }
       
   """
-  @type delete_progress_update_stream_request() :: %{String.t() => any()}
+  @type delete_progress_update_stream_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -175,12 +175,12 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       list_source_resources_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "SourceResourceList" => list(source_resource())
       }
       
   """
-  @type list_source_resources_result() :: %{String.t() => any()}
+  @type list_source_resources_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -189,23 +189,23 @@ defmodule AWS.MigrationHub do
       associate_discovered_resource_request() :: %{
         optional("DryRun") => boolean(),
         required("DiscoveredResource") => discovered_resource(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
       }
       
   """
-  @type associate_discovered_resource_request() :: %{String.t() => any()}
+  @type associate_discovered_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unauthorized_operation() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type unauthorized_operation() :: %{String.t() => any()}
+  @type unauthorized_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -213,11 +213,11 @@ defmodule AWS.MigrationHub do
       
       create_progress_update_stream_request() :: %{
         optional("DryRun") => boolean(),
-        required("ProgressUpdateStreamName") => String.t()
+        required("ProgressUpdateStreamName") => String.t() | atom()
       }
       
   """
-  @type create_progress_update_stream_request() :: %{String.t() => any()}
+  @type create_progress_update_stream_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -233,11 +233,11 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       dry_run_operation() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type dry_run_operation() :: %{String.t() => any()}
+  @type dry_run_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -245,35 +245,35 @@ defmodule AWS.MigrationHub do
       
       list_application_states_result() :: %{
         "ApplicationStateList" => list(application_state()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_application_states_result() :: %{String.t() => any()}
+  @type list_application_states_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       source_resource() :: %{
-        "Description" => String.t(),
-        "Name" => String.t(),
-        "StatusDetail" => String.t()
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "StatusDetail" => String.t() | atom()
       }
       
   """
-  @type source_resource() :: %{String.t() => any()}
+  @type source_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -281,24 +281,24 @@ defmodule AWS.MigrationHub do
       
       import_migration_task_request() :: %{
         optional("DryRun") => boolean(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
       }
       
   """
-  @type import_migration_task_request() :: %{String.t() => any()}
+  @type import_migration_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       created_artifact() :: %{
-        "Description" => String.t(),
-        "Name" => String.t()
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type created_artifact() :: %{String.t() => any()}
+  @type created_artifact() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -306,13 +306,13 @@ defmodule AWS.MigrationHub do
       
       associate_source_resource_request() :: %{
         optional("DryRun") => boolean(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom(),
         required("SourceResource") => source_resource()
       }
       
   """
-  @type associate_source_resource_request() :: %{String.t() => any()}
+  @type associate_source_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -320,13 +320,13 @@ defmodule AWS.MigrationHub do
       
       list_discovered_resources_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
       }
       
   """
-  @type list_discovered_resources_request() :: %{String.t() => any()}
+  @type list_discovered_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -334,11 +334,11 @@ defmodule AWS.MigrationHub do
       
       list_progress_update_streams_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_progress_update_streams_request() :: %{String.t() => any()}
+  @type list_progress_update_streams_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -346,33 +346,33 @@ defmodule AWS.MigrationHub do
       
       list_created_artifacts_result() :: %{
         "CreatedArtifactList" => list(created_artifact()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_created_artifacts_result() :: %{String.t() => any()}
+  @type list_created_artifacts_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_input_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       progress_update_stream_summary() :: %{
-        "ProgressUpdateStreamName" => String.t()
+        "ProgressUpdateStreamName" => String.t() | atom()
       }
       
   """
-  @type progress_update_stream_summary() :: %{String.t() => any()}
+  @type progress_update_stream_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -381,12 +381,12 @@ defmodule AWS.MigrationHub do
       associate_created_artifact_request() :: %{
         optional("DryRun") => boolean(),
         required("CreatedArtifact") => created_artifact(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
       }
       
   """
-  @type associate_created_artifact_request() :: %{String.t() => any()}
+  @type associate_created_artifact_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -403,24 +403,24 @@ defmodule AWS.MigrationHub do
       
       disassociate_discovered_resource_request() :: %{
         optional("DryRun") => boolean(),
-        required("ConfigurationId") => String.t(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        required("ConfigurationId") => String.t() | atom(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
       }
       
   """
-  @type disassociate_discovered_resource_request() :: %{String.t() => any()}
+  @type disassociate_discovered_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_unavailable_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -428,11 +428,11 @@ defmodule AWS.MigrationHub do
       
       list_migration_task_updates_result() :: %{
         "MigrationTaskUpdateList" => list(migration_task_update()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_migration_task_updates_result() :: %{String.t() => any()}
+  @type list_migration_task_updates_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -440,15 +440,15 @@ defmodule AWS.MigrationHub do
       
       notify_migration_task_state_request() :: %{
         optional("DryRun") => boolean(),
-        required("MigrationTaskName") => String.t(),
+        required("MigrationTaskName") => String.t() | atom(),
         required("NextUpdateSeconds") => integer(),
-        required("ProgressUpdateStream") => String.t(),
+        required("ProgressUpdateStream") => String.t() | atom(),
         required("Task") => task(),
         required("UpdateDateTime") => non_neg_integer()
       }
       
   """
-  @type notify_migration_task_state_request() :: %{String.t() => any()}
+  @type notify_migration_task_state_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -456,13 +456,13 @@ defmodule AWS.MigrationHub do
       
       disassociate_created_artifact_request() :: %{
         optional("DryRun") => boolean(),
-        required("CreatedArtifactName") => String.t(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        required("CreatedArtifactName") => String.t() | atom(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
       }
       
   """
-  @type disassociate_created_artifact_request() :: %{String.t() => any()}
+  @type disassociate_created_artifact_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -470,13 +470,13 @@ defmodule AWS.MigrationHub do
       
       disassociate_source_resource_request() :: %{
         optional("DryRun") => boolean(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t(),
-        required("SourceResourceName") => String.t()
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom(),
+        required("SourceResourceName") => String.t() | atom()
       }
       
   """
-  @type disassociate_source_resource_request() :: %{String.t() => any()}
+  @type disassociate_source_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -484,25 +484,25 @@ defmodule AWS.MigrationHub do
       
       list_created_artifacts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
       }
       
   """
-  @type list_created_artifacts_request() :: %{String.t() => any()}
+  @type list_created_artifacts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       discovered_resource() :: %{
-        "ConfigurationId" => String.t(),
-        "Description" => String.t()
+        "ConfigurationId" => String.t() | atom(),
+        "Description" => String.t() | atom()
       }
       
   """
-  @type discovered_resource() :: %{String.t() => any()}
+  @type discovered_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -510,47 +510,47 @@ defmodule AWS.MigrationHub do
       
       list_migration_task_updates_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
       }
       
   """
-  @type list_migration_task_updates_request() :: %{String.t() => any()}
+  @type list_migration_task_updates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_error() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_server_error() :: %{String.t() => any()}
+  @type internal_server_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_migration_task_request() :: %{
-        required("MigrationTaskName") => String.t(),
-        required("ProgressUpdateStream") => String.t()
+        required("MigrationTaskName") => String.t() | atom(),
+        required("ProgressUpdateStream") => String.t() | atom()
       }
       
   """
-  @type describe_migration_task_request() :: %{String.t() => any()}
+  @type describe_migration_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -558,12 +558,12 @@ defmodule AWS.MigrationHub do
       
       list_migration_tasks_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ResourceName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceName") => String.t() | atom()
       }
       
   """
-  @type list_migration_tasks_request() :: %{String.t() => any()}
+  @type list_migration_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -574,18 +574,18 @@ defmodule AWS.MigrationHub do
       }
       
   """
-  @type describe_migration_task_result() :: %{String.t() => any()}
+  @type describe_migration_task_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       policy_error_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type policy_error_exception() :: %{String.t() => any()}
+  @type policy_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -601,12 +601,12 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "RetryAfterSeconds" => integer()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -622,11 +622,11 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       home_region_not_set_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type home_region_not_set_exception() :: %{String.t() => any()}
+  @type home_region_not_set_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -660,27 +660,27 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       describe_application_state_request() :: %{
-        required("ApplicationId") => String.t()
+        required("ApplicationId") => String.t() | atom()
       }
       
   """
-  @type describe_application_state_request() :: %{String.t() => any()}
+  @type describe_application_state_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       migration_task_summary() :: %{
-        "MigrationTaskName" => String.t(),
+        "MigrationTaskName" => String.t() | atom(),
         "ProgressPercent" => integer(),
-        "ProgressUpdateStream" => String.t(),
+        "ProgressUpdateStream" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusDetail" => String.t(),
+        "StatusDetail" => String.t() | atom(),
         "UpdateDateTime" => non_neg_integer()
       }
       
   """
-  @type migration_task_summary() :: %{String.t() => any()}
+  @type migration_task_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -688,11 +688,11 @@ defmodule AWS.MigrationHub do
       
       list_discovered_resources_result() :: %{
         "DiscoveredResourceList" => list(discovered_resource()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_discovered_resources_result() :: %{String.t() => any()}
+  @type list_discovered_resources_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -705,20 +705,20 @@ defmodule AWS.MigrationHub do
       }
       
   """
-  @type migration_task_update() :: %{String.t() => any()}
+  @type migration_task_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       application_state() :: %{
-        "ApplicationId" => String.t(),
+        "ApplicationId" => String.t() | atom(),
         "ApplicationStatus" => list(any()),
         "LastUpdatedTime" => non_neg_integer()
       }
       
   """
-  @type application_state() :: %{String.t() => any()}
+  @type application_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -739,22 +739,22 @@ defmodule AWS.MigrationHub do
       }
       
   """
-  @type describe_application_state_result() :: %{String.t() => any()}
+  @type describe_application_state_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       migration_task() :: %{
-        "MigrationTaskName" => String.t(),
-        "ProgressUpdateStream" => String.t(),
+        "MigrationTaskName" => String.t() | atom(),
+        "ProgressUpdateStream" => String.t() | atom(),
         "ResourceAttributeList" => list(resource_attribute()),
         "Task" => task(),
         "UpdateDateTime" => non_neg_integer()
       }
       
   """
-  @type migration_task() :: %{String.t() => any()}
+  @type migration_task() :: %{(String.t() | atom()) => any()}
 
   @type associate_created_artifact_errors() ::
           home_region_not_set_exception()
@@ -1009,7 +1009,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, associate_created_artifact_errors()}
   def associate_created_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateCreatedArtifact", input, options)
   end
@@ -1025,7 +1026,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, associate_discovered_resource_errors()}
   def associate_discovered_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateDiscoveredResource", input, options)
   end
@@ -1042,7 +1044,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, associate_source_resource_errors()}
   def associate_source_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateSourceResource", input, options)
   end
@@ -1065,7 +1068,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, create_progress_update_stream_errors()}
   def create_progress_update_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProgressUpdateStream", input, options)
   end
@@ -1112,7 +1116,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, delete_progress_update_stream_errors()}
   def delete_progress_update_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProgressUpdateStream", input, options)
   end
@@ -1126,7 +1131,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, describe_application_state_errors()}
   def describe_application_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplicationState", input, options)
   end
@@ -1140,7 +1146,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, describe_migration_task_errors()}
   def describe_migration_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMigrationTask", input, options)
   end
@@ -1172,7 +1179,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, disassociate_created_artifact_errors()}
   def disassociate_created_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateCreatedArtifact", input, options)
   end
@@ -1192,7 +1200,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, disassociate_discovered_resource_errors()}
   def disassociate_discovered_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateDiscoveredResource", input, options)
   end
@@ -1206,7 +1215,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, disassociate_source_resource_errors()}
   def disassociate_source_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateSourceResource", input, options)
   end
@@ -1225,7 +1235,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, import_migration_task_errors()}
   def import_migration_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportMigrationTask", input, options)
   end
@@ -1243,7 +1254,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, list_application_states_errors()}
   def list_application_states(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplicationStates", input, options)
   end
@@ -1272,7 +1284,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, list_created_artifacts_errors()}
   def list_created_artifacts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCreatedArtifacts", input, options)
   end
@@ -1286,7 +1299,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, list_discovered_resources_errors()}
   def list_discovered_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDiscoveredResources", input, options)
   end
@@ -1302,7 +1316,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, list_migration_task_updates_errors()}
   def list_migration_task_updates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMigrationTaskUpdates", input, options)
   end
@@ -1330,7 +1345,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, list_migration_tasks_errors()}
   def list_migration_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMigrationTasks", input, options)
   end
@@ -1344,7 +1360,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, list_progress_update_streams_errors()}
   def list_progress_update_streams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProgressUpdateStreams", input, options)
   end
@@ -1359,7 +1376,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, list_source_resources_errors()}
   def list_source_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSourceResources", input, options)
   end
@@ -1384,7 +1402,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, notify_application_state_errors()}
   def notify_application_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "NotifyApplicationState", input, options)
   end
@@ -1416,7 +1435,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, notify_migration_task_state_errors()}
   def notify_migration_task_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "NotifyMigrationTaskState", input, options)
   end
@@ -1454,7 +1474,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, put_resource_attributes_errors()}
   def put_resource_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourceAttributes", input, options)
   end

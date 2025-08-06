@@ -43,14 +43,14 @@ defmodule AWS.ApplicationSignals do
 
       list_service_operations_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("EndTime") => [non_neg_integer()],
         required("KeyAttributes") => map(),
         required("StartTime") => [non_neg_integer()]
       }
 
   """
-  @type list_service_operations_input() :: %{String.t() => any()}
+  @type list_service_operations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -63,19 +63,19 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type get_service_input() :: %{String.t() => any()}
+  @type get_service_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("Tags") => list(tag())
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -83,14 +83,14 @@ defmodule AWS.ApplicationSignals do
 
       list_service_dependencies_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("EndTime") => [non_neg_integer()],
         required("KeyAttributes") => map(),
         required("StartTime") => [non_neg_integer()]
       }
 
   """
-  @type list_service_dependencies_input() :: %{String.t() => any()}
+  @type list_service_dependencies_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -98,13 +98,13 @@ defmodule AWS.ApplicationSignals do
 
       service_dependency() :: %{
         "DependencyKeyAttributes" => map(),
-        "DependencyOperationName" => String.t(),
+        "DependencyOperationName" => String.t() | atom(),
         "MetricReferences" => list(metric_reference()),
-        "OperationName" => String.t()
+        "OperationName" => String.t() | atom()
       }
 
   """
-  @type service_dependency() :: %{String.t() => any()}
+  @type service_dependency() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -112,13 +112,13 @@ defmodule AWS.ApplicationSignals do
 
       list_service_dependencies_output() :: %{
         "EndTime" => [non_neg_integer()],
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ServiceDependencies" => list(service_dependency()),
         "StartTime" => [non_neg_integer()]
       }
 
   """
-  @type list_service_dependencies_output() :: %{String.t() => any()}
+  @type list_service_dependencies_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -126,11 +126,11 @@ defmodule AWS.ApplicationSignals do
 
       service_operation() :: %{
         "MetricReferences" => list(metric_reference()),
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type service_operation() :: %{String.t() => any()}
+  @type service_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -143,7 +143,7 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type calendar_interval() :: %{String.t() => any()}
+  @type calendar_interval() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -160,57 +160,57 @@ defmodule AWS.ApplicationSignals do
 
       metric() :: %{
         "Dimensions" => list(dimension()),
-        "MetricName" => String.t(),
-        "Namespace" => String.t()
+        "MetricName" => String.t() | atom(),
+        "Namespace" => String.t() | atom()
       }
 
   """
-  @type metric() :: %{String.t() => any()}
+  @type metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_update_exclusion_windows_error() :: %{
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t(),
-        "SloId" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "SloId" => String.t() | atom()
       }
 
   """
-  @type batch_update_exclusion_windows_error() :: %{String.t() => any()}
+  @type batch_update_exclusion_windows_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_level_objective_budget_report_error() :: %{
-        "Arn" => String.t(),
-        "ErrorCode" => String.t(),
-        "ErrorMessage" => String.t(),
-        "Name" => String.t()
+        "Arn" => String.t() | atom(),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type service_level_objective_budget_report_error() :: %{String.t() => any()}
+  @type service_level_objective_budget_report_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_level_objective_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => [non_neg_integer()],
         "DependencyConfig" => dependency_config(),
         "EvaluationType" => list(any()),
         "KeyAttributes" => map(),
         "MetricSourceType" => list(any()),
-        "Name" => String.t(),
-        "OperationName" => String.t()
+        "Name" => String.t() | atom(),
+        "OperationName" => String.t() | atom()
       }
 
   """
-  @type service_level_objective_summary() :: %{String.t() => any()}
+  @type service_level_objective_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -230,13 +230,13 @@ defmodule AWS.ApplicationSignals do
         "KeyAttributes" => map(),
         "MetricDataQueries" => list(metric_data_query()),
         "MetricType" => list(any()),
-        "OperationName" => String.t(),
+        "OperationName" => String.t() | atom(),
         "PeriodSeconds" => integer(),
-        "Statistic" => String.t()
+        "Statistic" => String.t() | atom()
       }
 
   """
-  @type service_level_indicator_metric_config() :: %{String.t() => any()}
+  @type service_level_indicator_metric_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -248,28 +248,28 @@ defmodule AWS.ApplicationSignals do
         optional("KeyAttributes") => map(),
         optional("MaxResults") => integer(),
         optional("MetricSourceTypes") => list(list(any())()),
-        optional("NextToken") => String.t(),
-        optional("OperationName") => String.t(),
-        optional("SloOwnerAwsAccountId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("OperationName") => String.t() | atom(),
+        optional("SloOwnerAwsAccountId") => String.t() | atom()
       }
 
   """
-  @type list_service_level_objectives_input() :: %{String.t() => any()}
+  @type list_service_level_objectives_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metric_reference() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | atom(),
         "Dimensions" => list(dimension()),
-        "MetricName" => String.t(),
-        "MetricType" => String.t(),
-        "Namespace" => String.t()
+        "MetricName" => String.t() | atom(),
+        "MetricType" => String.t() | atom(),
+        "Namespace" => String.t() | atom()
       }
 
   """
-  @type metric_reference() :: %{String.t() => any()}
+  @type metric_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -283,7 +283,7 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type service() :: %{String.t() => any()}
+  @type service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -291,49 +291,49 @@ defmodule AWS.ApplicationSignals do
 
       create_service_level_objective_input() :: %{
         optional("BurnRateConfigurations") => list(burn_rate_configuration()),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Goal") => goal(),
         optional("RequestBasedSliConfig") => request_based_service_level_indicator_config(),
         optional("SliConfig") => service_level_indicator_config(),
         optional("Tags") => list(tag()),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_service_level_objective_input() :: %{String.t() => any()}
+  @type create_service_level_objective_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_level_objective() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "BurnRateConfigurations" => list(burn_rate_configuration()),
         "CreatedTime" => [non_neg_integer()],
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "EvaluationType" => list(any()),
         "Goal" => goal(),
         "LastUpdatedTime" => [non_neg_integer()],
         "MetricSourceType" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "RequestBasedSli" => request_based_service_level_indicator(),
         "Sli" => service_level_indicator()
       }
 
   """
-  @type service_level_objective() :: %{String.t() => any()}
+  @type service_level_objective() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -341,11 +341,11 @@ defmodule AWS.ApplicationSignals do
 
       batch_update_exclusion_windows_output() :: %{
         "Errors" => list(batch_update_exclusion_windows_error()),
-        "SloIds" => list([String.t()]())
+        "SloIds" => list([String.t() | atom()]())
       }
 
   """
-  @type batch_update_exclusion_windows_output() :: %{String.t() => any()}
+  @type batch_update_exclusion_windows_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -358,7 +358,7 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type goal() :: %{String.t() => any()}
+  @type goal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -371,7 +371,9 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type batch_get_service_level_objective_budget_report_output() :: %{String.t() => any()}
+  @type batch_get_service_level_objective_budget_report_output() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -382,11 +384,11 @@ defmodule AWS.ApplicationSignals do
         "KeyAttributes" => map(),
         "MetricDataQueries" => list(metric_data_query()),
         "MetricType" => list(any()),
-        "OperationName" => String.t()
+        "OperationName" => String.t() | atom()
       }
 
   """
-  @type service_level_indicator_metric() :: %{String.t() => any()}
+  @type service_level_indicator_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -397,12 +399,12 @@ defmodule AWS.ApplicationSignals do
         "KeyAttributes" => map(),
         "MetricType" => list(any()),
         "MonitoredRequestCountMetric" => list(),
-        "OperationName" => String.t(),
+        "OperationName" => String.t() | atom(),
         "TotalRequestCountMetric" => list(metric_data_query())
       }
 
   """
-  @type request_based_service_level_indicator_metric_config() :: %{String.t() => any()}
+  @type request_based_service_level_indicator_metric_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -414,7 +416,7 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type rolling_interval() :: %{String.t() => any()}
+  @type rolling_interval() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -430,24 +432,24 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -455,11 +457,13 @@ defmodule AWS.ApplicationSignals do
 
       list_service_level_objective_exclusion_windows_output() :: %{
         "ExclusionWindows" => list(exclusion_window()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_service_level_objective_exclusion_windows_output() :: %{String.t() => any()}
+  @type list_service_level_objective_exclusion_windows_output() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -473,30 +477,30 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type get_service_output() :: %{String.t() => any()}
+  @type get_service_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -509,24 +513,24 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type service_summary() :: %{String.t() => any()}
+  @type service_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metric_data_query() :: %{
-        "AccountId" => String.t(),
-        "Expression" => String.t(),
-        "Id" => String.t(),
-        "Label" => String.t(),
+        "AccountId" => String.t() | atom(),
+        "Expression" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Label" => String.t() | atom(),
         "MetricStat" => metric_stat(),
         "Period" => integer(),
         "ReturnData" => boolean()
       }
 
   """
-  @type metric_data_query() :: %{String.t() => any()}
+  @type metric_data_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -539,7 +543,7 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type service_level_indicator() :: %{String.t() => any()}
+  @type service_level_indicator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -550,7 +554,7 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type get_service_level_objective_output() :: %{String.t() => any()}
+  @type get_service_level_objective_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -561,7 +565,7 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type burn_rate_configuration() :: %{String.t() => any()}
+  @type burn_rate_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -572,7 +576,7 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -580,27 +584,27 @@ defmodule AWS.ApplicationSignals do
 
       service_dependent() :: %{
         "DependentKeyAttributes" => map(),
-        "DependentOperationName" => String.t(),
+        "DependentOperationName" => String.t() | atom(),
         "MetricReferences" => list(metric_reference()),
-        "OperationName" => String.t()
+        "OperationName" => String.t() | atom()
       }
 
   """
-  @type service_dependent() :: %{String.t() => any()}
+  @type service_dependent() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_level_objective_budget_report() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "Attainment" => float(),
         "BudgetRequestsRemaining" => integer(),
         "BudgetSecondsRemaining" => integer(),
         "BudgetStatus" => list(any()),
         "EvaluationType" => list(any()),
         "Goal" => goal(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "RequestBasedSli" => request_based_service_level_indicator(),
         "Sli" => service_level_indicator(),
         "TotalBudgetRequests" => integer(),
@@ -608,7 +612,7 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type service_level_objective_budget_report() :: %{String.t() => any()}
+  @type service_level_objective_budget_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -619,18 +623,18 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type update_service_level_objective_output() :: %{String.t() => any()}
+  @type update_service_level_objective_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       recurrence_rule() :: %{
-        "Expression" => String.t()
+        "Expression" => String.t() | atom()
       }
 
   """
-  @type recurrence_rule() :: %{String.t() => any()}
+  @type recurrence_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -638,14 +642,14 @@ defmodule AWS.ApplicationSignals do
 
       list_service_dependents_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("EndTime") => [non_neg_integer()],
         required("KeyAttributes") => map(),
         required("StartTime") => [non_neg_integer()]
       }
 
   """
-  @type list_service_dependents_input() :: %{String.t() => any()}
+  @type list_service_dependents_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -654,23 +658,23 @@ defmodule AWS.ApplicationSignals do
       batch_update_exclusion_windows_input() :: %{
         optional("AddExclusionWindows") => list(exclusion_window()),
         optional("RemoveExclusionWindows") => list(exclusion_window()),
-        required("SloIds") => list([String.t()]())
+        required("SloIds") => list([String.t() | atom()]())
       }
 
   """
-  @type batch_update_exclusion_windows_input() :: %{String.t() => any()}
+  @type batch_update_exclusion_windows_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_service_level_objectives_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "SloSummaries" => list(service_level_objective_summary())
       }
 
   """
-  @type list_service_level_objectives_output() :: %{String.t() => any()}
+  @type list_service_level_objectives_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -683,18 +687,18 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type request_based_service_level_indicator() :: %{String.t() => any()}
+  @type request_based_service_level_indicator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -703,24 +707,26 @@ defmodule AWS.ApplicationSignals do
       metric_stat() :: %{
         "Metric" => metric(),
         "Period" => integer(),
-        "Stat" => String.t(),
+        "Stat" => String.t() | atom(),
         "Unit" => list(any())
       }
 
   """
-  @type metric_stat() :: %{String.t() => any()}
+  @type metric_stat() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_get_service_level_objective_budget_report_input() :: %{
-        required("SloIds") => list([String.t()]()),
+        required("SloIds") => list([String.t() | atom()]()),
         required("Timestamp") => [non_neg_integer()]
       }
 
   """
-  @type batch_get_service_level_objective_budget_report_input() :: %{String.t() => any()}
+  @type batch_get_service_level_objective_budget_report_input() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -740,12 +746,12 @@ defmodule AWS.ApplicationSignals do
         "KeyAttributes" => map(),
         "MetricType" => list(any()),
         "MonitoredRequestCountMetric" => list(),
-        "OperationName" => String.t(),
+        "OperationName" => String.t() | atom(),
         "TotalRequestCountMetric" => list(metric_data_query())
       }
 
   """
-  @type request_based_service_level_indicator_metric() :: %{String.t() => any()}
+  @type request_based_service_level_indicator_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -753,13 +759,13 @@ defmodule AWS.ApplicationSignals do
 
       list_service_operations_output() :: %{
         "EndTime" => [non_neg_integer()],
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ServiceOperations" => list(service_operation()),
         "StartTime" => [non_neg_integer()]
       }
 
   """
-  @type list_service_operations_output() :: %{String.t() => any()}
+  @type list_service_operations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -767,14 +773,14 @@ defmodule AWS.ApplicationSignals do
 
       update_service_level_objective_input() :: %{
         optional("BurnRateConfigurations") => list(burn_rate_configuration()),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Goal") => goal(),
         optional("RequestBasedSliConfig") => request_based_service_level_indicator_config(),
         optional("SliConfig") => service_level_indicator_config()
       }
 
   """
-  @type update_service_level_objective_input() :: %{String.t() => any()}
+  @type update_service_level_objective_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -782,11 +788,11 @@ defmodule AWS.ApplicationSignals do
 
       dependency_config() :: %{
         "DependencyKeyAttributes" => map(),
-        "DependencyOperationName" => String.t()
+        "DependencyOperationName" => String.t() | atom()
       }
 
   """
-  @type dependency_config() :: %{String.t() => any()}
+  @type dependency_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -803,11 +809,13 @@ defmodule AWS.ApplicationSignals do
 
       list_service_level_objective_exclusion_windows_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_service_level_objective_exclusion_windows_input() :: %{String.t() => any()}
+  @type list_service_level_objective_exclusion_windows_input() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -819,52 +827,52 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type window() :: %{String.t() => any()}
+  @type window() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dimension() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type dimension() :: %{String.t() => any()}
+  @type dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -877,7 +885,7 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type service_level_indicator_config() :: %{String.t() => any()}
+  @type service_level_indicator_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -888,7 +896,7 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type create_service_level_objective_output() :: %{String.t() => any()}
+  @type create_service_level_objective_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -905,13 +913,13 @@ defmodule AWS.ApplicationSignals do
 
       list_service_dependents_output() :: %{
         "EndTime" => [non_neg_integer()],
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ServiceDependents" => list(service_dependent()),
         "StartTime" => [non_neg_integer()]
       }
 
   """
-  @type list_service_dependents_output() :: %{String.t() => any()}
+  @type list_service_dependents_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -928,43 +936,43 @@ defmodule AWS.ApplicationSignals do
 
       list_services_output() :: %{
         "EndTime" => [non_neg_integer()],
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ServiceSummaries" => list(service_summary()),
         "StartTime" => [non_neg_integer()]
       }
 
   """
-  @type list_services_output() :: %{String.t() => any()}
+  @type list_services_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       exclusion_window() :: %{
-        "Reason" => String.t(),
+        "Reason" => String.t() | atom(),
         "RecurrenceRule" => recurrence_rule(),
         "StartTime" => [non_neg_integer()],
         "Window" => window()
       }
 
   """
-  @type exclusion_window() :: %{String.t() => any()}
+  @type exclusion_window() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_services_input() :: %{
-        optional("AwsAccountId") => String.t(),
+        optional("AwsAccountId") => String.t() | atom(),
         optional("IncludeLinkedAccounts") => [boolean()],
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("EndTime") => [non_neg_integer()],
         required("StartTime") => [non_neg_integer()]
       }
 
   """
-  @type list_services_input() :: %{String.t() => any()}
+  @type list_services_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -977,7 +985,7 @@ defmodule AWS.ApplicationSignals do
       }
 
   """
-  @type request_based_service_level_indicator_config() :: %{String.t() => any()}
+  @type request_based_service_level_indicator_config() :: %{(String.t() | atom()) => any()}
 
   @type batch_get_service_level_objective_budget_report_errors() ::
           throttling_exception() | validation_exception()
@@ -1262,7 +1270,7 @@ defmodule AWS.ApplicationSignals do
   """
   @spec delete_service_level_objective(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_service_level_objective_input(),
           list()
         ) ::
@@ -1329,7 +1337,7 @@ defmodule AWS.ApplicationSignals do
   @doc """
   Returns information about one SLO created in the account.
   """
-  @spec get_service_level_objective(map(), String.t(), list()) ::
+  @spec get_service_level_objective(map(), String.t() | atom(), list()) ::
           {:ok, get_service_level_objective_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1433,9 +1441,9 @@ defmodule AWS.ApplicationSignals do
   """
   @spec list_service_level_objective_exclusion_windows(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_service_level_objective_exclusion_windows_output(), any()}
@@ -1560,12 +1568,12 @@ defmodule AWS.ApplicationSignals do
   """
   @spec list_services(
           map(),
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_services_output(), any()}
@@ -1638,7 +1646,7 @@ defmodule AWS.ApplicationSignals do
 
   Tags can be assigned to service level objectives.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1817,7 +1825,7 @@ defmodule AWS.ApplicationSignals do
   """
   @spec update_service_level_objective(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_service_level_objective_input(),
           list()
         ) ::

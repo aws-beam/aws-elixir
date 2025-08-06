@@ -26,11 +26,11 @@ defmodule AWS.Snowball do
   ## Example:
       
       cancel_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type cancel_job_request() :: %{String.t() => any()}
+  @type cancel_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -42,52 +42,52 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type get_snowball_usage_result() :: %{String.t() => any()}
+  @type get_snowball_usage_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_cluster_request() :: %{
-        required("ClusterId") => String.t()
+        required("ClusterId") => String.t() | atom()
       }
       
   """
-  @type describe_cluster_request() :: %{String.t() => any()}
+  @type describe_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_job_manifest_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_job_manifest_request() :: %{String.t() => any()}
+  @type get_job_manifest_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       shipment() :: %{
-        "Status" => String.t(),
-        "TrackingNumber" => String.t()
+        "Status" => String.t() | atom(),
+        "TrackingNumber" => String.t() | atom()
       }
       
   """
-  @type shipment() :: %{String.t() => any()}
+  @type shipment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_job_manifest_result() :: %{
-        "ManifestURI" => String.t()
+        "ManifestURI" => String.t() | atom()
       }
       
   """
-  @type get_job_manifest_result() :: %{String.t() => any()}
+  @type get_job_manifest_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -99,7 +99,7 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type describe_job_result() :: %{String.t() => any()}
+  @type describe_job_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -107,11 +107,11 @@ defmodule AWS.Snowball do
       
       list_compatible_images_result() :: %{
         "CompatibleImages" => list(compatible_image()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_compatible_images_result() :: %{String.t() => any()}
+  @type list_compatible_images_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -119,22 +119,22 @@ defmodule AWS.Snowball do
       
       list_jobs_result() :: %{
         "JobListEntries" => list(job_list_entry()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_jobs_result() :: %{String.t() => any()}
+  @type list_jobs_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       event_trigger_definition() :: %{
-        "EventResourceARN" => String.t()
+        "EventResourceARN" => String.t() | atom()
       }
       
   """
-  @type event_trigger_definition() :: %{String.t() => any()}
+  @type event_trigger_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -145,7 +145,7 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type device_configuration() :: %{String.t() => any()}
+  @type device_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -153,11 +153,11 @@ defmodule AWS.Snowball do
       
       list_pickup_locations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_pickup_locations_request() :: %{String.t() => any()}
+  @type list_pickup_locations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -183,11 +183,11 @@ defmodule AWS.Snowball do
       
       list_jobs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_jobs_request() :: %{String.t() => any()}
+  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -210,7 +210,7 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type data_transfer() :: %{String.t() => any()}
+  @type data_transfer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -221,7 +221,7 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type snowcone_device_configuration() :: %{String.t() => any()}
+  @type snowcone_device_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -237,23 +237,23 @@ defmodule AWS.Snowball do
   ## Example:
       
       get_software_updates_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_software_updates_request() :: %{String.t() => any()}
+  @type get_software_updates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ec2_ami_resource() :: %{
-        "AmiId" => String.t(),
-        "SnowballAmiId" => String.t()
+        "AmiId" => String.t() | atom(),
+        "SnowballAmiId" => String.t() | atom()
       }
       
   """
-  @type ec2_ami_resource() :: %{String.t() => any()}
+  @type ec2_ami_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -264,28 +264,28 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type describe_cluster_result() :: %{String.t() => any()}
+  @type describe_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_job_request() :: %{
-        optional("AddressId") => String.t(),
-        optional("ClusterId") => String.t(),
-        optional("Description") => String.t(),
+        optional("AddressId") => String.t() | atom(),
+        optional("ClusterId") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("DeviceConfiguration") => device_configuration(),
-        optional("ForwardingAddressId") => String.t(),
+        optional("ForwardingAddressId") => String.t() | atom(),
         optional("ImpactLevel") => list(any()),
         optional("JobType") => list(any()),
-        optional("KmsKeyARN") => String.t(),
-        optional("LongTermPricingId") => String.t(),
+        optional("KmsKeyARN") => String.t() | atom(),
+        optional("LongTermPricingId") => String.t() | atom(),
         optional("Notification") => notification(),
         optional("OnDeviceServiceConfiguration") => on_device_service_configuration(),
         optional("PickupDetails") => pickup_details(),
         optional("RemoteManagement") => list(any()),
         optional("Resources") => job_resource(),
-        optional("RoleARN") => String.t(),
+        optional("RoleARN") => String.t() | atom(),
         optional("ShippingOption") => list(any()),
         optional("SnowballCapacityPreference") => list(any()),
         optional("SnowballType") => list(any()),
@@ -293,18 +293,18 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type create_job_request() :: %{String.t() => any()}
+  @type create_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_input_combination_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_input_combination_exception() :: %{String.t() => any()}
+  @type invalid_input_combination_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -316,7 +316,7 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type t_g_w_on_device_service_configuration() :: %{String.t() => any()}
+  @type t_g_w_on_device_service_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -324,22 +324,22 @@ defmodule AWS.Snowball do
       
       list_long_term_pricing_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_long_term_pricing_request() :: %{String.t() => any()}
+  @type list_long_term_pricing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_return_shipping_label_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type describe_return_shipping_label_request() :: %{String.t() => any()}
+  @type describe_return_shipping_label_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -347,30 +347,30 @@ defmodule AWS.Snowball do
       
       lambda_resource() :: %{
         "EventTriggers" => list(event_trigger_definition()),
-        "LambdaArn" => String.t()
+        "LambdaArn" => String.t() | atom()
       }
       
   """
-  @type lambda_resource() :: %{String.t() => any()}
+  @type lambda_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_cluster_request() :: %{
-        optional("AddressId") => String.t(),
-        optional("Description") => String.t(),
-        optional("ForwardingAddressId") => String.t(),
+        optional("AddressId") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("ForwardingAddressId") => String.t() | atom(),
         optional("Notification") => notification(),
         optional("OnDeviceServiceConfiguration") => on_device_service_configuration(),
         optional("Resources") => job_resource(),
-        optional("RoleARN") => String.t(),
+        optional("RoleARN") => String.t() | atom(),
         optional("ShippingOption") => list(any()),
-        required("ClusterId") => String.t()
+        required("ClusterId") => String.t() | atom()
       }
       
   """
-  @type update_cluster_request() :: %{String.t() => any()}
+  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -379,48 +379,48 @@ defmodule AWS.Snowball do
       list_service_versions_request() :: %{
         optional("DependentServices") => list(dependent_service()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         required("ServiceName") => list(any())
       }
       
   """
-  @type list_service_versions_request() :: %{String.t() => any()}
+  @type list_service_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_cluster_request() :: %{
-        required("ClusterId") => String.t()
+        required("ClusterId") => String.t() | atom()
       }
       
   """
-  @type cancel_cluster_request() :: %{String.t() => any()}
+  @type cancel_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_metadata() :: %{
-        "AddressId" => String.t(),
-        "ClusterId" => String.t(),
+        "AddressId" => String.t() | atom(),
+        "ClusterId" => String.t() | atom(),
         "ClusterState" => list(any()),
         "CreationDate" => non_neg_integer(),
-        "Description" => String.t(),
-        "ForwardingAddressId" => String.t(),
+        "Description" => String.t() | atom(),
+        "ForwardingAddressId" => String.t() | atom(),
         "JobType" => list(any()),
-        "KmsKeyARN" => String.t(),
+        "KmsKeyARN" => String.t() | atom(),
         "Notification" => notification(),
         "OnDeviceServiceConfiguration" => on_device_service_configuration(),
         "Resources" => job_resource(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | atom(),
         "ShippingOption" => list(any()),
         "SnowballType" => list(any()),
         "TaxDocuments" => tax_documents()
       }
       
   """
-  @type cluster_metadata() :: %{String.t() => any()}
+  @type cluster_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -428,73 +428,73 @@ defmodule AWS.Snowball do
       
       describe_addresses_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_addresses_request() :: %{String.t() => any()}
+  @type describe_addresses_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       i_n_d_tax_documents() :: %{
-        "GSTIN" => String.t()
+        "GSTIN" => String.t() | atom()
       }
       
   """
-  @type i_n_d_tax_documents() :: %{String.t() => any()}
+  @type i_n_d_tax_documents() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_long_term_pricing_result() :: %{
-        "LongTermPricingId" => String.t()
+        "LongTermPricingId" => String.t() | atom()
       }
       
   """
-  @type create_long_term_pricing_result() :: %{String.t() => any()}
+  @type create_long_term_pricing_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_resource() :: %{
-        "BucketArn" => String.t(),
+        "BucketArn" => String.t() | atom(),
         "KeyRange" => key_range(),
         "TargetOnDeviceServices" => list(target_on_device_service())
       }
       
   """
-  @type s3_resource() :: %{String.t() => any()}
+  @type s3_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_cluster_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("ForceCreateJobs") => boolean(),
-        optional("ForwardingAddressId") => String.t(),
+        optional("ForwardingAddressId") => String.t() | atom(),
         optional("InitialClusterSize") => integer(),
-        optional("KmsKeyARN") => String.t(),
-        optional("LongTermPricingIds") => list(String.t()),
+        optional("KmsKeyARN") => String.t() | atom(),
+        optional("LongTermPricingIds") => list(String.t() | atom()),
         optional("Notification") => notification(),
         optional("OnDeviceServiceConfiguration") => on_device_service_configuration(),
         optional("RemoteManagement") => list(any()),
         optional("Resources") => job_resource(),
-        optional("RoleARN") => String.t(),
+        optional("RoleARN") => String.t() | atom(),
         optional("SnowballCapacityPreference") => list(any()),
         optional("TaxDocuments") => tax_documents(),
-        required("AddressId") => String.t(),
+        required("AddressId") => String.t() | atom(),
         required("JobType") => list(any()),
         required("ShippingOption") => list(any()),
         required("SnowballType") => list(any())
       }
       
   """
-  @type create_cluster_request() :: %{String.t() => any()}
+  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -510,12 +510,12 @@ defmodule AWS.Snowball do
   ## Example:
       
       conflict_exception() :: %{
-        "ConflictResource" => String.t(),
-        "Message" => String.t()
+        "ConflictResource" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -523,39 +523,39 @@ defmodule AWS.Snowball do
       
       job_list_entry() :: %{
         "CreationDate" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "IsMaster" => boolean(),
-        "JobId" => String.t(),
+        "JobId" => String.t() | atom(),
         "JobState" => list(any()),
         "JobType" => list(any()),
         "SnowballType" => list(any())
       }
       
   """
-  @type job_list_entry() :: %{String.t() => any()}
+  @type job_list_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_address_result() :: %{
-        "AddressId" => String.t()
+        "AddressId" => String.t() | atom()
       }
       
   """
-  @type create_address_result() :: %{String.t() => any()}
+  @type create_address_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       compatible_image() :: %{
-        "AmiId" => String.t(),
-        "Name" => String.t()
+        "AmiId" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type compatible_image() :: %{String.t() => any()}
+  @type compatible_image() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -563,33 +563,33 @@ defmodule AWS.Snowball do
       
       describe_return_shipping_label_result() :: %{
         "ExpirationDate" => non_neg_integer(),
-        "ReturnShippingLabelURI" => String.t(),
+        "ReturnShippingLabelURI" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type describe_return_shipping_label_result() :: %{String.t() => any()}
+  @type describe_return_shipping_label_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_job_request() :: %{
-        optional("AddressId") => String.t(),
-        optional("Description") => String.t(),
-        optional("ForwardingAddressId") => String.t(),
+        optional("AddressId") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("ForwardingAddressId") => String.t() | atom(),
         optional("Notification") => notification(),
         optional("OnDeviceServiceConfiguration") => on_device_service_configuration(),
         optional("PickupDetails") => pickup_details(),
         optional("Resources") => job_resource(),
-        optional("RoleARN") => String.t(),
+        optional("RoleARN") => String.t() | atom(),
         optional("ShippingOption") => list(any()),
         optional("SnowballCapacityPreference") => list(any()),
-        required("JobId") => String.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type update_job_request() :: %{String.t() => any()}
+  @type update_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -601,41 +601,41 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type nfs_on_device_service_configuration() :: %{String.t() => any()}
+  @type nfs_on_device_service_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_cluster_result() :: %{
-        "ClusterId" => String.t(),
+        "ClusterId" => String.t() | atom(),
         "JobListEntries" => list(job_list_entry())
       }
       
   """
-  @type create_cluster_result() :: %{String.t() => any()}
+  @type create_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_version() :: %{
-        "Version" => String.t()
+        "Version" => String.t() | atom()
       }
       
   """
-  @type service_version() :: %{String.t() => any()}
+  @type service_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_next_token_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_next_token_exception() :: %{String.t() => any()}
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -643,33 +643,33 @@ defmodule AWS.Snowball do
       
       list_long_term_pricing_result() :: %{
         "LongTermPricingEntries" => list(long_term_pricing_list_entry()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_long_term_pricing_result() :: %{String.t() => any()}
+  @type list_long_term_pricing_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type cluster_limit_exceeded_exception() :: %{String.t() => any()}
+  @type cluster_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_address_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_address_exception() :: %{String.t() => any()}
+  @type invalid_address_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -677,22 +677,22 @@ defmodule AWS.Snowball do
       
       list_compatible_images_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_compatible_images_request() :: %{String.t() => any()}
+  @type list_compatible_images_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type describe_job_request() :: %{String.t() => any()}
+  @type describe_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -700,13 +700,13 @@ defmodule AWS.Snowball do
       
       list_service_versions_result() :: %{
         "DependentServices" => list(dependent_service()),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ServiceName" => list(any()),
         "ServiceVersions" => list(service_version())
       }
       
   """
-  @type list_service_versions_result() :: %{String.t() => any()}
+  @type list_service_versions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -717,7 +717,7 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type create_address_request() :: %{String.t() => any()}
+  @type create_address_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -725,45 +725,45 @@ defmodule AWS.Snowball do
       
       describe_addresses_result() :: %{
         "Addresses" => list(address()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_addresses_result() :: %{String.t() => any()}
+  @type describe_addresses_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_address_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type unsupported_address_exception() :: %{String.t() => any()}
+  @type unsupported_address_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_request_failed_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type kms_request_failed_exception() :: %{String.t() => any()}
+  @type kms_request_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       key_range() :: %{
-        "BeginMarker" => String.t(),
-        "EndMarker" => String.t()
+        "BeginMarker" => String.t() | atom(),
+        "EndMarker" => String.t() | atom()
       }
       
   """
-  @type key_range() :: %{String.t() => any()}
+  @type key_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -771,58 +771,58 @@ defmodule AWS.Snowball do
       
       list_pickup_locations_result() :: %{
         "Addresses" => list(address()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_pickup_locations_result() :: %{String.t() => any()}
+  @type list_pickup_locations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       job_metadata() :: %{
-        "AddressId" => String.t(),
-        "ClusterId" => String.t(),
+        "AddressId" => String.t() | atom(),
+        "ClusterId" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
         "DataTransferProgress" => data_transfer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "DeviceConfiguration" => device_configuration(),
-        "ForwardingAddressId" => String.t(),
+        "ForwardingAddressId" => String.t() | atom(),
         "ImpactLevel" => list(any()),
-        "JobId" => String.t(),
+        "JobId" => String.t() | atom(),
         "JobLogInfo" => job_logs(),
         "JobState" => list(any()),
         "JobType" => list(any()),
-        "KmsKeyARN" => String.t(),
-        "LongTermPricingId" => String.t(),
+        "KmsKeyARN" => String.t() | atom(),
+        "LongTermPricingId" => String.t() | atom(),
         "Notification" => notification(),
         "OnDeviceServiceConfiguration" => on_device_service_configuration(),
         "PickupDetails" => pickup_details(),
         "RemoteManagement" => list(any()),
         "Resources" => job_resource(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | atom(),
         "ShippingDetails" => shipping_details(),
         "SnowballCapacityPreference" => list(any()),
-        "SnowballId" => String.t(),
+        "SnowballId" => String.t() | atom(),
         "SnowballType" => list(any()),
         "TaxDocuments" => tax_documents()
       }
       
   """
-  @type job_metadata() :: %{String.t() => any()}
+  @type job_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_resource_exception() :: %{
-        "Message" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type invalid_resource_exception() :: %{String.t() => any()}
+  @type invalid_resource_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -836,7 +836,7 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type on_device_service_configuration() :: %{String.t() => any()}
+  @type on_device_service_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -844,11 +844,11 @@ defmodule AWS.Snowball do
       
       list_clusters_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_clusters_request() :: %{String.t() => any()}
+  @type list_clusters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -859,18 +859,18 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type create_return_shipping_label_result() :: %{String.t() => any()}
+  @type create_return_shipping_label_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_job_unlock_code_result() :: %{
-        "UnlockCode" => String.t()
+        "UnlockCode" => String.t() | atom()
       }
       
   """
-  @type get_job_unlock_code_result() :: %{String.t() => any()}
+  @type get_job_unlock_code_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -878,11 +878,11 @@ defmodule AWS.Snowball do
       
       list_cluster_jobs_result() :: %{
         "JobListEntries" => list(job_list_entry()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_cluster_jobs_result() :: %{String.t() => any()}
+  @type list_cluster_jobs_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -893,7 +893,7 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type wireless_connection() :: %{String.t() => any()}
+  @type wireless_connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -904,24 +904,24 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type describe_address_result() :: %{String.t() => any()}
+  @type describe_address_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       pickup_details() :: %{
-        "DevicePickupId" => String.t(),
-        "Email" => String.t(),
+        "DevicePickupId" => String.t() | atom(),
+        "Email" => String.t() | atom(),
         "IdentificationExpirationDate" => non_neg_integer(),
-        "IdentificationIssuingOrg" => String.t(),
-        "IdentificationNumber" => String.t(),
-        "Name" => String.t(),
-        "PhoneNumber" => String.t()
+        "IdentificationIssuingOrg" => String.t() | atom(),
+        "IdentificationNumber" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom()
       }
       
   """
-  @type pickup_details() :: %{String.t() => any()}
+  @type pickup_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -929,45 +929,45 @@ defmodule AWS.Snowball do
       
       list_clusters_result() :: %{
         "ClusterListEntries" => list(cluster_list_entry()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_clusters_result() :: %{String.t() => any()}
+  @type list_clusters_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_job_result() :: %{
-        "JobId" => String.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type create_job_result() :: %{String.t() => any()}
+  @type create_job_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       return_shipping_label_already_exists_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type return_shipping_label_already_exists_exception() :: %{String.t() => any()}
+  @type return_shipping_label_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_job_shipment_state_request() :: %{
-        required("JobId") => String.t(),
+        required("JobId") => String.t() | atom(),
         required("ShipmentState") => list(any())
       }
       
   """
-  @type update_job_shipment_state_request() :: %{String.t() => any()}
+  @type update_job_shipment_state_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -992,11 +992,11 @@ defmodule AWS.Snowball do
   ## Example:
       
       ec2_request_failed_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type ec2_request_failed_exception() :: %{String.t() => any()}
+  @type ec2_request_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1008,32 +1008,32 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type dependent_service() :: %{String.t() => any()}
+  @type dependent_service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       notification() :: %{
-        "DevicePickupSnsTopicARN" => String.t(),
+        "DevicePickupSnsTopicARN" => String.t() | atom(),
         "JobStatesToNotify" => list(list(any())()),
         "NotifyAll" => boolean(),
-        "SnsTopicARN" => String.t()
+        "SnsTopicARN" => String.t() | atom()
       }
       
   """
-  @type notification() :: %{String.t() => any()}
+  @type notification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_software_updates_result() :: %{
-        "UpdatesURI" => String.t()
+        "UpdatesURI" => String.t() | atom()
       }
       
   """
-  @type get_software_updates_result() :: %{String.t() => any()}
+  @type get_software_updates_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1046,7 +1046,7 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type create_long_term_pricing_request() :: %{String.t() => any()}
+  @type create_long_term_pricing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1057,21 +1057,21 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type tax_documents() :: %{String.t() => any()}
+  @type tax_documents() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_list_entry() :: %{
-        "ClusterId" => String.t(),
+        "ClusterId" => String.t() | atom(),
         "ClusterState" => list(any()),
         "CreationDate" => non_neg_integer(),
-        "Description" => String.t()
+        "Description" => String.t() | atom()
       }
       
   """
-  @type cluster_list_entry() :: %{String.t() => any()}
+  @type cluster_list_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1084,7 +1084,7 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type shipping_details() :: %{String.t() => any()}
+  @type shipping_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1092,69 +1092,69 @@ defmodule AWS.Snowball do
       
       update_long_term_pricing_request() :: %{
         optional("IsLongTermPricingAutoRenew") => boolean(),
-        optional("ReplacementJob") => String.t(),
-        required("LongTermPricingId") => String.t()
+        optional("ReplacementJob") => String.t() | atom(),
+        required("LongTermPricingId") => String.t() | atom()
       }
       
   """
-  @type update_long_term_pricing_request() :: %{String.t() => any()}
+  @type update_long_term_pricing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       long_term_pricing_list_entry() :: %{
-        "CurrentActiveJob" => String.t(),
+        "CurrentActiveJob" => String.t() | atom(),
         "IsLongTermPricingAutoRenew" => boolean(),
-        "JobIds" => list(String.t()),
+        "JobIds" => list(String.t() | atom()),
         "LongTermPricingEndDate" => non_neg_integer(),
-        "LongTermPricingId" => String.t(),
+        "LongTermPricingId" => String.t() | atom(),
         "LongTermPricingStartDate" => non_neg_integer(),
-        "LongTermPricingStatus" => String.t(),
+        "LongTermPricingStatus" => String.t() | atom(),
         "LongTermPricingType" => list(any()),
-        "ReplacementJob" => String.t(),
+        "ReplacementJob" => String.t() | atom(),
         "SnowballType" => list(any())
       }
       
   """
-  @type long_term_pricing_list_entry() :: %{String.t() => any()}
+  @type long_term_pricing_list_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       address() :: %{
-        "AddressId" => String.t(),
-        "City" => String.t(),
-        "Company" => String.t(),
-        "Country" => String.t(),
+        "AddressId" => String.t() | atom(),
+        "City" => String.t() | atom(),
+        "Company" => String.t() | atom(),
+        "Country" => String.t() | atom(),
         "IsRestricted" => boolean(),
-        "Landmark" => String.t(),
-        "Name" => String.t(),
-        "PhoneNumber" => String.t(),
-        "PostalCode" => String.t(),
-        "PrefectureOrDistrict" => String.t(),
-        "StateOrProvince" => String.t(),
-        "Street1" => String.t(),
-        "Street2" => String.t(),
-        "Street3" => String.t(),
+        "Landmark" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "PostalCode" => String.t() | atom(),
+        "PrefectureOrDistrict" => String.t() | atom(),
+        "StateOrProvince" => String.t() | atom(),
+        "Street1" => String.t() | atom(),
+        "Street2" => String.t() | atom(),
+        "Street3" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type address() :: %{String.t() => any()}
+  @type address() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       e_k_s_on_device_service_configuration() :: %{
-        "EKSAnywhereVersion" => String.t(),
-        "KubernetesVersion" => String.t()
+        "EKSAnywhereVersion" => String.t() | atom(),
+        "KubernetesVersion" => String.t() | atom()
       }
       
   """
-  @type e_k_s_on_device_service_configuration() :: %{String.t() => any()}
+  @type e_k_s_on_device_service_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1162,12 +1162,12 @@ defmodule AWS.Snowball do
       
       list_cluster_jobs_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ClusterId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ClusterId") => String.t() | atom()
       }
       
   """
-  @type list_cluster_jobs_request() :: %{String.t() => any()}
+  @type list_cluster_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1180,42 +1180,42 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type job_resource() :: %{String.t() => any()}
+  @type job_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_address_request() :: %{
-        required("AddressId") => String.t()
+        required("AddressId") => String.t() | atom()
       }
       
   """
-  @type describe_address_request() :: %{String.t() => any()}
+  @type describe_address_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       job_logs() :: %{
-        "JobCompletionReportURI" => String.t(),
-        "JobFailureLogURI" => String.t(),
-        "JobSuccessLogURI" => String.t()
+        "JobCompletionReportURI" => String.t() | atom(),
+        "JobFailureLogURI" => String.t() | atom(),
+        "JobSuccessLogURI" => String.t() | atom()
       }
       
   """
-  @type job_logs() :: %{String.t() => any()}
+  @type job_logs() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_job_unlock_code_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_job_unlock_code_request() :: %{String.t() => any()}
+  @type get_job_unlock_code_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1229,7 +1229,7 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type s3_on_device_service_configuration() :: %{String.t() => any()}
+  @type s3_on_device_service_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1237,22 +1237,22 @@ defmodule AWS.Snowball do
       
       create_return_shipping_label_request() :: %{
         optional("ShippingOption") => list(any()),
-        required("JobId") => String.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type create_return_shipping_label_request() :: %{String.t() => any()}
+  @type create_return_shipping_label_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_job_state_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_job_state_exception() :: %{String.t() => any()}
+  @type invalid_job_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1264,7 +1264,7 @@ defmodule AWS.Snowball do
       }
       
   """
-  @type target_on_device_service() :: %{String.t() => any()}
+  @type target_on_device_service() :: %{(String.t() | atom()) => any()}
 
   @type cancel_cluster_errors() ::
           invalid_job_state_exception()
@@ -1387,7 +1387,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, cancel_cluster_errors()}
   def cancel_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelCluster", input, options)
   end
@@ -1406,7 +1407,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, cancel_job_errors()}
   def cancel_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelJob", input, options)
   end
@@ -1429,7 +1431,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, create_address_errors()}
   def create_address(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAddress", input, options)
   end
@@ -1447,7 +1450,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -1579,7 +1583,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, create_job_errors()}
   def create_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateJob", input, options)
   end
@@ -1597,7 +1602,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, create_long_term_pricing_errors()}
   def create_long_term_pricing(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLongTermPricing", input, options)
   end
@@ -1612,7 +1618,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, create_return_shipping_label_errors()}
   def create_return_shipping_label(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReturnShippingLabel", input, options)
   end
@@ -1627,7 +1634,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, describe_address_errors()}
   def describe_address(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAddress", input, options)
   end
@@ -1646,7 +1654,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, describe_addresses_errors()}
   def describe_addresses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAddresses", input, options)
   end
@@ -1662,7 +1671,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCluster", input, options)
   end
@@ -1678,7 +1688,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, describe_job_errors()}
   def describe_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeJob", input, options)
   end
@@ -1693,7 +1704,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, describe_return_shipping_label_errors()}
   def describe_return_shipping_label(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReturnShippingLabel", input, options)
   end
@@ -1735,7 +1747,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, get_job_manifest_errors()}
   def get_job_manifest(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobManifest", input, options)
   end
@@ -1769,7 +1782,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, get_job_unlock_code_errors()}
   def get_job_unlock_code(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobUnlockCode", input, options)
   end
@@ -1789,7 +1803,8 @@ defmodule AWS.Snowball do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_snowball_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSnowballUsage", input, options)
   end
@@ -1805,7 +1820,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, get_software_updates_errors()}
   def get_software_updates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSoftwareUpdates", input, options)
   end
@@ -1823,7 +1839,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_cluster_jobs_errors()}
   def list_cluster_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClusterJobs", input, options)
   end
@@ -1841,7 +1858,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClusters", input, options)
   end
@@ -1865,7 +1883,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_compatible_images_errors()}
   def list_compatible_images(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCompatibleImages", input, options)
   end
@@ -1887,7 +1906,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_jobs_errors()}
   def list_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListJobs", input, options)
   end
@@ -1901,7 +1921,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_long_term_pricing_errors()}
   def list_long_term_pricing(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLongTermPricing", input, options)
   end
@@ -1915,7 +1936,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_pickup_locations_errors()}
   def list_pickup_locations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPickupLocations", input, options)
   end
@@ -1933,7 +1955,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_service_versions_errors()}
   def list_service_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServiceVersions", input, options)
   end
@@ -1953,7 +1976,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
   end
@@ -1971,7 +1995,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, update_job_errors()}
   def update_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateJob", input, options)
   end
@@ -1985,7 +2010,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, update_job_shipment_state_errors()}
   def update_job_shipment_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateJobShipmentState", input, options)
   end
@@ -1999,7 +2025,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, update_long_term_pricing_errors()}
   def update_long_term_pricing(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLongTermPricing", input, options)
   end

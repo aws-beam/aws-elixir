@@ -29,18 +29,18 @@ defmodule AWS.DAX do
       }
       
   """
-  @type sse_description() :: %{String.t() => any()}
+  @type sse_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       node_quota_for_customer_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type node_quota_for_customer_exceeded_fault() :: %{String.t() => any()}
+  @type node_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -51,7 +51,7 @@ defmodule AWS.DAX do
       }
       
   """
-  @type reboot_node_response() :: %{String.t() => any()}
+  @type reboot_node_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -62,43 +62,43 @@ defmodule AWS.DAX do
       }
       
   """
-  @type create_subnet_group_response() :: %{String.t() => any()}
+  @type create_subnet_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceName") => String.t(),
+        required("ResourceName") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_parameter_group_request() :: %{
-        optional("Description") => String.t(),
-        required("ParameterGroupName") => String.t()
+        optional("Description") => String.t() | atom(),
+        required("ParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type create_parameter_group_request() :: %{String.t() => any()}
+  @type create_parameter_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_parameter_groups_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ParameterGroups" => list(parameter_group())
       }
       
   """
-  @type describe_parameter_groups_response() :: %{String.t() => any()}
+  @type describe_parameter_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -109,7 +109,7 @@ defmodule AWS.DAX do
       }
       
   """
-  @type untag_resource_response() :: %{String.t() => any()}
+  @type untag_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -120,18 +120,18 @@ defmodule AWS.DAX do
       }
       
   """
-  @type create_cluster_response() :: %{String.t() => any()}
+  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subnet_group_already_exists_fault() :: %{String.t() => any()}
+  @type subnet_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -142,7 +142,7 @@ defmodule AWS.DAX do
       }
       
   """
-  @type create_parameter_group_response() :: %{String.t() => any()}
+  @type create_parameter_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -150,239 +150,239 @@ defmodule AWS.DAX do
       
       describe_parameters_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("Source") => String.t(),
-        required("ParameterGroupName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("Source") => String.t() | atom(),
+        required("ParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_parameters_request() :: %{String.t() => any()}
+  @type describe_parameters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       security_group_membership() :: %{
-        "SecurityGroupIdentifier" => String.t(),
-        "Status" => String.t()
+        "SecurityGroupIdentifier" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type security_group_membership() :: %{String.t() => any()}
+  @type security_group_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type cluster_not_found_fault() :: %{String.t() => any()}
+  @type cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet() :: %{
-        "SubnetAvailabilityZone" => String.t(),
-        "SubnetIdentifier" => String.t()
+        "SubnetAvailabilityZone" => String.t() | atom(),
+        "SubnetIdentifier" => String.t() | atom()
       }
       
   """
-  @type subnet() :: %{String.t() => any()}
+  @type subnet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_subnet() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_subnet() :: %{String.t() => any()}
+  @type invalid_subnet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_name_value() :: %{
-        "ParameterName" => String.t(),
-        "ParameterValue" => String.t()
+        "ParameterName" => String.t() | atom(),
+        "ParameterValue" => String.t() | atom()
       }
       
   """
-  @type parameter_name_value() :: %{String.t() => any()}
+  @type parameter_name_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type list_tags_response() :: %{String.t() => any()}
+  @type list_tags_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_parameters_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Parameters" => list(parameter())
       }
       
   """
-  @type describe_parameters_response() :: %{String.t() => any()}
+  @type describe_parameters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_group_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_group_state_fault() :: %{String.t() => any()}
+  @type invalid_parameter_group_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subnet_group_not_found_fault() :: %{String.t() => any()}
+  @type subnet_group_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceName") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceName") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_parameter_group_request() :: %{
-        required("ParameterGroupName") => String.t()
+        required("ParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_parameter_group_request() :: %{String.t() => any()}
+  @type delete_parameter_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_group_status() :: %{
-        "NodeIdsToReboot" => list(String.t()),
-        "ParameterApplyStatus" => String.t(),
-        "ParameterGroupName" => String.t()
+        "NodeIdsToReboot" => list(String.t() | atom()),
+        "ParameterApplyStatus" => String.t() | atom(),
+        "ParameterGroupName" => String.t() | atom()
       }
       
   """
-  @type parameter_group_status() :: %{String.t() => any()}
+  @type parameter_group_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type tag_not_found_fault() :: %{String.t() => any()}
+  @type tag_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_cluster_request() :: %{
-        optional("Description") => String.t(),
-        optional("NotificationTopicArn") => String.t(),
-        optional("NotificationTopicStatus") => String.t(),
-        optional("ParameterGroupName") => String.t(),
-        optional("PreferredMaintenanceWindow") => String.t(),
-        optional("SecurityGroupIds") => list(String.t()),
-        required("ClusterName") => String.t()
+        optional("Description") => String.t() | atom(),
+        optional("NotificationTopicArn") => String.t() | atom(),
+        optional("NotificationTopicStatus") => String.t() | atom(),
+        optional("ParameterGroupName") => String.t() | atom(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        required("ClusterName") => String.t() | atom()
       }
       
   """
-  @type update_cluster_request() :: %{String.t() => any()}
+  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_combination_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_combination_exception() :: %{String.t() => any()}
+  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_vpc_network_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_vpc_network_state_fault() :: %{String.t() => any()}
+  @type invalid_vpc_network_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_quota_per_resource_exceeded() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type tag_quota_per_resource_exceeded() :: %{String.t() => any()}
+  @type tag_quota_per_resource_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_subnet_group_request() :: %{
-        required("SubnetGroupName") => String.t()
+        required("SubnetGroupName") => String.t() | atom()
       }
       
   """
-  @type delete_subnet_group_request() :: %{String.t() => any()}
+  @type delete_subnet_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_group() :: %{
-        "Description" => String.t(),
-        "SubnetGroupName" => String.t(),
+        "Description" => String.t() | atom(),
+        "SubnetGroupName" => String.t() | atom(),
         "Subnets" => list(subnet()),
-        "VpcId" => String.t()
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type subnet_group() :: %{String.t() => any()}
+  @type subnet_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -393,55 +393,55 @@ defmodule AWS.DAX do
       }
       
   """
-  @type decrease_replication_factor_response() :: %{String.t() => any()}
+  @type decrease_replication_factor_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_cluster_request() :: %{
-        optional("AvailabilityZones") => list(String.t()),
+        optional("AvailabilityZones") => list(String.t() | atom()),
         optional("ClusterEndpointEncryptionType") => list(any()),
-        optional("Description") => String.t(),
-        optional("NotificationTopicArn") => String.t(),
-        optional("ParameterGroupName") => String.t(),
-        optional("PreferredMaintenanceWindow") => String.t(),
+        optional("Description") => String.t() | atom(),
+        optional("NotificationTopicArn") => String.t() | atom(),
+        optional("ParameterGroupName") => String.t() | atom(),
+        optional("PreferredMaintenanceWindow") => String.t() | atom(),
         optional("SSESpecification") => sse_specification(),
-        optional("SecurityGroupIds") => list(String.t()),
-        optional("SubnetGroupName") => String.t(),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        optional("SubnetGroupName") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("ClusterName") => String.t(),
-        required("IamRoleArn") => String.t(),
-        required("NodeType") => String.t(),
+        required("ClusterName") => String.t() | atom(),
+        required("IamRoleArn") => String.t() | atom(),
+        required("NodeType") => String.t() | atom(),
         required("ReplicationFactor") => integer()
       }
       
   """
-  @type create_cluster_request() :: %{String.t() => any()}
+  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_default_parameters_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Parameters" => list(parameter())
       }
       
   """
-  @type describe_default_parameters_response() :: %{String.t() => any()}
+  @type describe_default_parameters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -449,38 +449,38 @@ defmodule AWS.DAX do
       
       cluster() :: %{
         "ActiveNodes" => integer(),
-        "ClusterArn" => String.t(),
+        "ClusterArn" => String.t() | atom(),
         "ClusterDiscoveryEndpoint" => endpoint(),
         "ClusterEndpointEncryptionType" => list(any()),
-        "ClusterName" => String.t(),
-        "Description" => String.t(),
-        "IamRoleArn" => String.t(),
-        "NodeIdsToRemove" => list(String.t()),
-        "NodeType" => String.t(),
+        "ClusterName" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "IamRoleArn" => String.t() | atom(),
+        "NodeIdsToRemove" => list(String.t() | atom()),
+        "NodeType" => String.t() | atom(),
         "Nodes" => list(node()),
         "NotificationConfiguration" => notification_configuration(),
         "ParameterGroup" => parameter_group_status(),
-        "PreferredMaintenanceWindow" => String.t(),
+        "PreferredMaintenanceWindow" => String.t() | atom(),
         "SSEDescription" => sse_description(),
         "SecurityGroups" => list(security_group_membership()),
-        "Status" => String.t(),
-        "SubnetGroup" => String.t(),
+        "Status" => String.t() | atom(),
+        "SubnetGroup" => String.t() | atom(),
         "TotalNodes" => integer()
       }
       
   """
-  @type cluster() :: %{String.t() => any()}
+  @type cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subnet_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type subnet_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -496,80 +496,80 @@ defmodule AWS.DAX do
   ## Example:
       
       invalid_parameter_value_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_value_exception() :: %{String.t() => any()}
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       increase_replication_factor_request() :: %{
-        optional("AvailabilityZones") => list(String.t()),
-        required("ClusterName") => String.t(),
+        optional("AvailabilityZones") => list(String.t() | atom()),
+        required("ClusterName") => String.t() | atom(),
         required("NewReplicationFactor") => integer()
       }
       
   """
-  @type increase_replication_factor_request() :: %{String.t() => any()}
+  @type increase_replication_factor_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_subnet_groups_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "SubnetGroups" => list(subnet_group())
       }
       
   """
-  @type describe_subnet_groups_response() :: %{String.t() => any()}
+  @type describe_subnet_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter() :: %{
-        "AllowedValues" => String.t(),
+        "AllowedValues" => String.t() | atom(),
         "ChangeType" => list(any()),
-        "DataType" => String.t(),
-        "Description" => String.t(),
+        "DataType" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "IsModifiable" => list(any()),
         "NodeTypeSpecificValues" => list(node_type_specific_value()),
-        "ParameterName" => String.t(),
+        "ParameterName" => String.t() | atom(),
         "ParameterType" => list(any()),
-        "ParameterValue" => String.t(),
-        "Source" => String.t()
+        "ParameterValue" => String.t() | atom(),
+        "Source" => String.t() | atom()
       }
       
   """
-  @type parameter() :: %{String.t() => any()}
+  @type parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_subnet_group_request() :: %{
-        optional("Description") => String.t(),
-        optional("SubnetIds") => list(String.t()),
-        required("SubnetGroupName") => String.t()
+        optional("Description") => String.t() | atom(),
+        optional("SubnetIds") => list(String.t() | atom()),
+        required("SubnetGroupName") => String.t() | atom()
       }
       
   """
-  @type update_subnet_group_request() :: %{String.t() => any()}
+  @type update_subnet_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_arn_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_arn_fault() :: %{String.t() => any()}
+  @type invalid_arn_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -577,47 +577,47 @@ defmodule AWS.DAX do
       
       describe_default_parameters_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_default_parameters_request() :: %{String.t() => any()}
+  @type describe_default_parameters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_subnet_group_request() :: %{
-        optional("Description") => String.t(),
-        required("SubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t())
+        optional("Description") => String.t() | atom(),
+        required("SubnetGroupName") => String.t() | atom(),
+        required("SubnetIds") => list(String.t() | atom())
       }
       
   """
-  @type create_subnet_group_request() :: %{String.t() => any()}
+  @type create_subnet_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_group_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type parameter_group_already_exists_fault() :: %{String.t() => any()}
+  @type parameter_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       node_type_specific_value() :: %{
-        "NodeType" => String.t(),
-        "Value" => String.t()
+        "NodeType" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type node_type_specific_value() :: %{String.t() => any()}
+  @type node_type_specific_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -628,95 +628,95 @@ defmodule AWS.DAX do
       }
       
   """
-  @type delete_cluster_response() :: %{String.t() => any()}
+  @type delete_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_subnet_group_response() :: %{
-        "DeletionMessage" => String.t()
+        "DeletionMessage" => String.t() | atom()
       }
       
   """
-  @type delete_subnet_group_response() :: %{String.t() => any()}
+  @type delete_subnet_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       decrease_replication_factor_request() :: %{
-        optional("AvailabilityZones") => list(String.t()),
-        optional("NodeIdsToRemove") => list(String.t()),
-        required("ClusterName") => String.t(),
+        optional("AvailabilityZones") => list(String.t() | atom()),
+        optional("NodeIdsToRemove") => list(String.t() | atom()),
+        required("ClusterName") => String.t() | atom(),
         required("NewReplicationFactor") => integer()
       }
       
   """
-  @type decrease_replication_factor_request() :: %{String.t() => any()}
+  @type decrease_replication_factor_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_quota_for_customer_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type cluster_quota_for_customer_exceeded_fault() :: %{String.t() => any()}
+  @type cluster_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       notification_configuration() :: %{
-        "TopicArn" => String.t(),
-        "TopicStatus" => String.t()
+        "TopicArn" => String.t() | atom(),
+        "TopicStatus" => String.t() | atom()
       }
       
   """
-  @type notification_configuration() :: %{String.t() => any()}
+  @type notification_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_parameter_group_response() :: %{
-        "DeletionMessage" => String.t()
+        "DeletionMessage" => String.t() | atom()
       }
       
   """
-  @type delete_parameter_group_response() :: %{String.t() => any()}
+  @type delete_parameter_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       endpoint() :: %{
-        "Address" => String.t(),
+        "Address" => String.t() | atom(),
         "Port" => integer(),
-        "URL" => String.t()
+        "URL" => String.t() | atom()
       }
       
   """
-  @type endpoint() :: %{String.t() => any()}
+  @type endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       dax_node() :: %{
-        "AvailabilityZone" => String.t(),
+        "AvailabilityZone" => String.t() | atom(),
         "Endpoint" => endpoint(),
         "NodeCreateTime" => non_neg_integer(),
-        "NodeId" => String.t(),
-        "NodeStatus" => String.t(),
-        "ParameterGroupStatus" => String.t()
+        "NodeId" => String.t() | atom(),
+        "NodeStatus" => String.t() | atom(),
+        "ParameterGroupStatus" => String.t() | atom()
       }
       
   """
-  @type dax_node() :: %{String.t() => any()}
+  @type dax_node() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -724,35 +724,35 @@ defmodule AWS.DAX do
       
       event() :: %{
         "Date" => non_neg_integer(),
-        "Message" => String.t(),
-        "SourceName" => String.t(),
+        "Message" => String.t() | atom(),
+        "SourceName" => String.t() | atom(),
         "SourceType" => list(any())
       }
       
   """
-  @type event() :: %{String.t() => any()}
+  @type event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_cluster_request() :: %{
-        required("ClusterName") => String.t()
+        required("ClusterName") => String.t() | atom()
       }
       
   """
-  @type delete_cluster_request() :: %{String.t() => any()}
+  @type delete_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_group_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type parameter_group_quota_exceeded_fault() :: %{String.t() => any()}
+  @type parameter_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -762,14 +762,14 @@ defmodule AWS.DAX do
         optional("Duration") => integer(),
         optional("EndTime") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SourceName") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SourceName") => String.t() | atom(),
         optional("SourceType") => list(any()),
         optional("StartTime") => non_neg_integer()
       }
       
   """
-  @type describe_events_request() :: %{String.t() => any()}
+  @type describe_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -777,34 +777,34 @@ defmodule AWS.DAX do
       
       describe_subnet_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SubnetGroupNames") => list(String.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("SubnetGroupNames") => list(String.t() | atom())
       }
       
   """
-  @type describe_subnet_groups_request() :: %{String.t() => any()}
+  @type describe_subnet_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_in_use() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subnet_in_use() :: %{String.t() => any()}
+  @type subnet_in_use() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_linked_role_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type service_linked_role_not_found_fault() :: %{String.t() => any()}
+  @type service_linked_role_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -815,7 +815,7 @@ defmodule AWS.DAX do
       }
       
   """
-  @type increase_replication_factor_response() :: %{String.t() => any()}
+  @type increase_replication_factor_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -826,7 +826,7 @@ defmodule AWS.DAX do
       }
       
   """
-  @type sse_specification() :: %{String.t() => any()}
+  @type sse_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -837,7 +837,7 @@ defmodule AWS.DAX do
       }
       
   """
-  @type tag_resource_response() :: %{String.t() => any()}
+  @type tag_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -845,12 +845,12 @@ defmodule AWS.DAX do
       
       describe_parameter_groups_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ParameterGroupNames") => list(String.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("ParameterGroupNames") => list(String.t() | atom())
       }
       
   """
-  @type describe_parameter_groups_request() :: %{String.t() => any()}
+  @type describe_parameter_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -858,34 +858,34 @@ defmodule AWS.DAX do
       
       describe_clusters_response() :: %{
         "Clusters" => list(cluster()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_clusters_response() :: %{String.t() => any()}
+  @type describe_clusters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reboot_node_request() :: %{
-        required("ClusterName") => String.t(),
-        required("NodeId") => String.t()
+        required("ClusterName") => String.t() | atom(),
+        required("NodeId") => String.t() | atom()
       }
       
   """
-  @type reboot_node_request() :: %{String.t() => any()}
+  @type reboot_node_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_cluster_state_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_cluster_state_fault() :: %{String.t() => any()}
+  @type invalid_cluster_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -896,122 +896,122 @@ defmodule AWS.DAX do
       }
       
   """
-  @type update_parameter_group_response() :: %{String.t() => any()}
+  @type update_parameter_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_group_in_use_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subnet_group_in_use_fault() :: %{String.t() => any()}
+  @type subnet_group_in_use_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_parameter_group_request() :: %{
-        required("ParameterGroupName") => String.t(),
+        required("ParameterGroupName") => String.t() | atom(),
         required("ParameterNameValues") => list(parameter_name_value())
       }
       
   """
-  @type update_parameter_group_request() :: %{String.t() => any()}
+  @type update_parameter_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_group() :: %{
-        "Description" => String.t(),
-        "ParameterGroupName" => String.t()
+        "Description" => String.t() | atom(),
+        "ParameterGroupName" => String.t() | atom()
       }
       
   """
-  @type parameter_group() :: %{String.t() => any()}
+  @type parameter_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       insufficient_cluster_capacity_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type insufficient_cluster_capacity_fault() :: %{String.t() => any()}
+  @type insufficient_cluster_capacity_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cluster_already_exists_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type cluster_already_exists_fault() :: %{String.t() => any()}
+  @type cluster_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_request() :: %{
-        optional("NextToken") => String.t(),
-        required("ResourceName") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceName") => String.t() | atom()
       }
       
   """
-  @type list_tags_request() :: %{String.t() => any()}
+  @type list_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       subnet_quota_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type subnet_quota_exceeded_fault() :: %{String.t() => any()}
+  @type subnet_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       node_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type node_not_found_fault() :: %{String.t() => any()}
+  @type node_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_group_not_found_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type parameter_group_not_found_fault() :: %{String.t() => any()}
+  @type parameter_group_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_clusters_request() :: %{
-        optional("ClusterNames") => list(String.t()),
+        optional("ClusterNames") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_clusters_request() :: %{String.t() => any()}
+  @type describe_clusters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1019,11 +1019,11 @@ defmodule AWS.DAX do
       
       describe_events_response() :: %{
         "Events" => list(event()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_events_response() :: %{String.t() => any()}
+  @type describe_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1034,18 +1034,18 @@ defmodule AWS.DAX do
       }
       
   """
-  @type update_subnet_group_response() :: %{String.t() => any()}
+  @type update_subnet_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       node_quota_for_cluster_exceeded_fault() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type node_quota_for_cluster_exceeded_fault() :: %{String.t() => any()}
+  @type node_quota_for_cluster_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1056,7 +1056,7 @@ defmodule AWS.DAX do
       }
       
   """
-  @type update_cluster_response() :: %{String.t() => any()}
+  @type update_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @type create_cluster_errors() ::
           node_quota_for_cluster_exceeded_fault()
@@ -1243,7 +1243,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -1260,7 +1261,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, create_parameter_group_errors()}
   def create_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateParameterGroup", input, options)
   end
@@ -1274,7 +1276,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, create_subnet_group_errors()}
   def create_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSubnetGroup", input, options)
   end
@@ -1291,7 +1294,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, decrease_replication_factor_errors()}
   def decrease_replication_factor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DecreaseReplicationFactor", input, options)
   end
@@ -1311,7 +1315,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -1328,7 +1333,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, delete_parameter_group_errors()}
   def delete_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteParameterGroup", input, options)
   end
@@ -1345,7 +1351,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, delete_subnet_group_errors()}
   def delete_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSubnetGroup", input, options)
   end
@@ -1375,7 +1382,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusters", input, options)
   end
@@ -1390,7 +1398,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_default_parameters_errors()}
   def describe_default_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDefaultParameters", input, options)
   end
@@ -1413,7 +1422,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -1430,7 +1440,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_parameter_groups_errors()}
   def describe_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeParameterGroups", input, options)
   end
@@ -1444,7 +1455,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_parameters_errors()}
   def describe_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeParameters", input, options)
   end
@@ -1461,7 +1473,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_subnet_groups_errors()}
   def describe_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSubnetGroups", input, options)
   end
@@ -1475,7 +1488,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, increase_replication_factor_errors()}
   def increase_replication_factor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IncreaseReplicationFactor", input, options)
   end
@@ -1492,7 +1506,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
   end
@@ -1513,7 +1528,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, reboot_node_errors()}
   def reboot_node(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootNode", input, options)
   end
@@ -1530,7 +1546,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1547,7 +1564,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1565,7 +1583,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
   end
@@ -1583,7 +1602,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, update_parameter_group_errors()}
   def update_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateParameterGroup", input, options)
   end
@@ -1597,7 +1617,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, update_subnet_group_errors()}
   def update_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSubnetGroup", input, options)
   end

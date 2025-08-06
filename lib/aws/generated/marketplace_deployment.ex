@@ -21,46 +21,46 @@ defmodule AWS.MarketplaceDeployment do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => String.t()
+        "message" => [String.t() | atom()],
+        "resourceId" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       deployment_parameter_input() :: %{
-        "name" => String.t(),
-        "secretString" => String.t()
+        "name" => String.t() | atom(),
+        "secretString" => String.t() | atom()
       }
 
   """
-  @type deployment_parameter_input() :: %{String.t() => any()}
+  @type deployment_parameter_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -80,58 +80,58 @@ defmodule AWS.MarketplaceDeployment do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_deployment_parameter_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("expirationDate") => [non_neg_integer()],
         optional("tags") => map(),
-        required("agreementId") => String.t(),
+        required("agreementId") => String.t() | atom(),
         required("deploymentParameter") => deployment_parameter_input()
       }
 
   """
-  @type put_deployment_parameter_request() :: %{String.t() => any()}
+  @type put_deployment_parameter_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_deployment_parameter_response() :: %{
-        "agreementId" => String.t(),
-        "deploymentParameterId" => String.t(),
-        "resourceArn" => String.t(),
+        "agreementId" => String.t() | atom(),
+        "deploymentParameterId" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type put_deployment_parameter_response() :: %{String.t() => any()}
+  @type put_deployment_parameter_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -142,7 +142,7 @@ defmodule AWS.MarketplaceDeployment do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -158,22 +158,22 @@ defmodule AWS.MarketplaceDeployment do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list([String.t()]())
+        required("tagKeys") => list([String.t() | atom()]())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -189,12 +189,12 @@ defmodule AWS.MarketplaceDeployment do
   ## Example:
 
       validation_exception() :: %{
-        "fieldName" => [String.t()],
-        "message" => [String.t()]
+        "fieldName" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type list_tags_for_resource_errors() ::
           validation_exception()
@@ -247,7 +247,7 @@ defmodule AWS.MarketplaceDeployment do
   @doc """
   Lists all tags that have been added to a deployment parameter resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -268,8 +268,8 @@ defmodule AWS.MarketplaceDeployment do
   """
   @spec put_deployment_parameter(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           put_deployment_parameter_request(),
           list()
         ) ::
@@ -303,7 +303,7 @@ defmodule AWS.MarketplaceDeployment do
   @doc """
   Tags a resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -332,7 +332,7 @@ defmodule AWS.MarketplaceDeployment do
   @doc """
   Removes a tag or list of tags from a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

@@ -16,74 +16,74 @@ defmodule AWS.MachineLearning do
       
       create_data_source_from_s3_input() :: %{
         optional("ComputeStatistics") => boolean(),
-        optional("DataSourceName") => String.t(),
-        required("DataSourceId") => String.t(),
+        optional("DataSourceName") => String.t() | atom(),
+        required("DataSourceId") => String.t() | atom(),
         required("DataSpec") => s3_data_spec()
       }
       
   """
-  @type create_data_source_from_s3_input() :: %{String.t() => any()}
+  @type create_data_source_from_s3_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_batch_prediction_output() :: %{
-        "BatchPredictionDataSourceId" => String.t(),
-        "BatchPredictionId" => String.t(),
+        "BatchPredictionDataSourceId" => String.t() | atom(),
+        "BatchPredictionId" => String.t() | atom(),
         "ComputeTime" => float(),
         "CreatedAt" => non_neg_integer(),
-        "CreatedByIamUser" => String.t(),
+        "CreatedByIamUser" => String.t() | atom(),
         "FinishedAt" => non_neg_integer(),
-        "InputDataLocationS3" => String.t(),
+        "InputDataLocationS3" => String.t() | atom(),
         "InvalidRecordCount" => float(),
         "LastUpdatedAt" => non_neg_integer(),
-        "LogUri" => String.t(),
-        "MLModelId" => String.t(),
-        "Message" => String.t(),
-        "Name" => String.t(),
-        "OutputUri" => String.t(),
+        "LogUri" => String.t() | atom(),
+        "MLModelId" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OutputUri" => String.t() | atom(),
         "StartedAt" => non_neg_integer(),
         "Status" => list(any()),
         "TotalRecordCount" => float()
       }
       
   """
-  @type get_batch_prediction_output() :: %{String.t() => any()}
+  @type get_batch_prediction_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_evaluation_output() :: %{
-        "EvaluationId" => String.t()
+        "EvaluationId" => String.t() | atom()
       }
       
   """
-  @type delete_evaluation_output() :: %{String.t() => any()}
+  @type delete_evaluation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_realtime_endpoint_output() :: %{
-        "MLModelId" => String.t(),
+        "MLModelId" => String.t() | atom(),
         "RealtimeEndpointInfo" => realtime_endpoint_info()
       }
       
   """
-  @type create_realtime_endpoint_output() :: %{String.t() => any()}
+  @type create_realtime_endpoint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_evaluation_input() :: %{
-        required("EvaluationId") => String.t()
+        required("EvaluationId") => String.t() | atom()
       }
       
   """
-  @type delete_evaluation_input() :: %{String.t() => any()}
+  @type delete_evaluation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -91,28 +91,28 @@ defmodule AWS.MachineLearning do
       
       get_data_source_input() :: %{
         optional("Verbose") => boolean(),
-        required("DataSourceId") => String.t()
+        required("DataSourceId") => String.t() | atom()
       }
       
   """
-  @type get_data_source_input() :: %{String.t() => any()}
+  @type get_data_source_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       redshift_data_spec() :: %{
-        "DataRearrangement" => String.t(),
-        "DataSchema" => String.t(),
-        "DataSchemaUri" => String.t(),
+        "DataRearrangement" => String.t() | atom(),
+        "DataSchema" => String.t() | atom(),
+        "DataSchemaUri" => String.t() | atom(),
         "DatabaseCredentials" => redshift_database_credentials(),
         "DatabaseInformation" => redshift_database(),
-        "S3StagingLocation" => String.t(),
-        "SelectSqlQuery" => String.t()
+        "S3StagingLocation" => String.t() | atom(),
+        "SelectSqlQuery" => String.t() | atom()
       }
       
   """
-  @type redshift_data_spec() :: %{String.t() => any()}
+  @type redshift_data_spec() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -121,120 +121,120 @@ defmodule AWS.MachineLearning do
       get_ml_model_output() :: %{
         "ComputeTime" => float(),
         "CreatedAt" => non_neg_integer(),
-        "CreatedByIamUser" => String.t(),
+        "CreatedByIamUser" => String.t() | atom(),
         "EndpointInfo" => realtime_endpoint_info(),
         "FinishedAt" => non_neg_integer(),
-        "InputDataLocationS3" => String.t(),
+        "InputDataLocationS3" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
-        "LogUri" => String.t(),
-        "MLModelId" => String.t(),
+        "LogUri" => String.t() | atom(),
+        "MLModelId" => String.t() | atom(),
         "MLModelType" => list(any()),
-        "Message" => String.t(),
-        "Name" => String.t(),
-        "Recipe" => String.t(),
-        "Schema" => String.t(),
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Recipe" => String.t() | atom(),
+        "Schema" => String.t() | atom(),
         "ScoreThreshold" => float(),
         "ScoreThresholdLastUpdatedAt" => non_neg_integer(),
         "SizeInBytes" => float(),
         "StartedAt" => non_neg_integer(),
         "Status" => list(any()),
-        "TrainingDataSourceId" => String.t(),
+        "TrainingDataSourceId" => String.t() | atom(),
         "TrainingParameters" => map()
       }
       
   """
-  @type get_ml_model_output() :: %{String.t() => any()}
+  @type get_ml_model_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_tags_input() :: %{
-        required("ResourceId") => String.t(),
+        required("ResourceId") => String.t() | atom(),
         required("ResourceType") => list(any()),
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type delete_tags_input() :: %{String.t() => any()}
+  @type delete_tags_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       predict_input() :: %{
-        required("MLModelId") => String.t(),
-        required("PredictEndpoint") => String.t(),
+        required("MLModelId") => String.t() | atom(),
+        required("PredictEndpoint") => String.t() | atom(),
         required("Record") => map()
       }
       
   """
-  @type predict_input() :: %{String.t() => any()}
+  @type predict_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       redshift_metadata() :: %{
-        "DatabaseUserName" => String.t(),
+        "DatabaseUserName" => String.t() | atom(),
         "RedshiftDatabase" => redshift_database(),
-        "SelectSqlQuery" => String.t()
+        "SelectSqlQuery" => String.t() | atom()
       }
       
   """
-  @type redshift_metadata() :: %{String.t() => any()}
+  @type redshift_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_output() :: %{
-        "ResourceId" => String.t(),
+        "ResourceId" => String.t() | atom(),
         "ResourceType" => list(any())
       }
       
   """
-  @type add_tags_output() :: %{String.t() => any()}
+  @type add_tags_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_ml_model_output() :: %{
-        "MLModelId" => String.t()
+        "MLModelId" => String.t() | atom()
       }
       
   """
-  @type delete_ml_model_output() :: %{String.t() => any()}
+  @type delete_ml_model_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_ml_model_input() :: %{
-        optional("MLModelName") => String.t(),
+        optional("MLModelName") => String.t() | atom(),
         optional("Parameters") => map(),
-        optional("Recipe") => String.t(),
-        optional("RecipeUri") => String.t(),
-        required("MLModelId") => String.t(),
+        optional("Recipe") => String.t() | atom(),
+        optional("RecipeUri") => String.t() | atom(),
+        required("MLModelId") => String.t() | atom(),
         required("MLModelType") => list(any()),
-        required("TrainingDataSourceId") => String.t()
+        required("TrainingDataSourceId") => String.t() | atom()
       }
       
   """
-  @type create_ml_model_input() :: %{String.t() => any()}
+  @type create_ml_model_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_batch_predictions_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Results" => list(batch_prediction())
       }
       
   """
-  @type describe_batch_predictions_output() :: %{String.t() => any()}
+  @type describe_batch_predictions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -244,27 +244,27 @@ defmodule AWS.MachineLearning do
         "ComputeStatistics" => boolean(),
         "ComputeTime" => float(),
         "CreatedAt" => non_neg_integer(),
-        "CreatedByIamUser" => String.t(),
-        "DataLocationS3" => String.t(),
-        "DataRearrangement" => String.t(),
+        "CreatedByIamUser" => String.t() | atom(),
+        "DataLocationS3" => String.t() | atom(),
+        "DataRearrangement" => String.t() | atom(),
         "DataSizeInBytes" => float(),
-        "DataSourceId" => String.t(),
-        "DataSourceSchema" => String.t(),
+        "DataSourceId" => String.t() | atom(),
+        "DataSourceSchema" => String.t() | atom(),
         "FinishedAt" => non_neg_integer(),
         "LastUpdatedAt" => non_neg_integer(),
-        "LogUri" => String.t(),
-        "Message" => String.t(),
-        "Name" => String.t(),
+        "LogUri" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "NumberOfFiles" => float(),
         "RDSMetadata" => rds_metadata(),
         "RedshiftMetadata" => redshift_metadata(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | atom(),
         "StartedAt" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type get_data_source_output() :: %{String.t() => any()}
+  @type get_data_source_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -273,36 +273,36 @@ defmodule AWS.MachineLearning do
       get_evaluation_output() :: %{
         "ComputeTime" => float(),
         "CreatedAt" => non_neg_integer(),
-        "CreatedByIamUser" => String.t(),
-        "EvaluationDataSourceId" => String.t(),
-        "EvaluationId" => String.t(),
+        "CreatedByIamUser" => String.t() | atom(),
+        "EvaluationDataSourceId" => String.t() | atom(),
+        "EvaluationId" => String.t() | atom(),
         "FinishedAt" => non_neg_integer(),
-        "InputDataLocationS3" => String.t(),
+        "InputDataLocationS3" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
-        "LogUri" => String.t(),
-        "MLModelId" => String.t(),
-        "Message" => String.t(),
-        "Name" => String.t(),
+        "LogUri" => String.t() | atom(),
+        "MLModelId" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "PerformanceMetrics" => performance_metrics(),
         "StartedAt" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type get_evaluation_output() :: %{String.t() => any()}
+  @type get_evaluation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_tags_input() :: %{
-        required("ResourceId") => String.t(),
+        required("ResourceId") => String.t() | atom(),
         required("ResourceType") => list(any()),
         required("Tags") => list(tag())
       }
       
   """
-  @type add_tags_input() :: %{String.t() => any()}
+  @type add_tags_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -313,113 +313,113 @@ defmodule AWS.MachineLearning do
       }
       
   """
-  @type predict_output() :: %{String.t() => any()}
+  @type predict_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_evaluations_input() :: %{
-        optional("EQ") => String.t(),
+        optional("EQ") => String.t() | atom(),
         optional("FilterVariable") => list(any()),
-        optional("GE") => String.t(),
-        optional("GT") => String.t(),
-        optional("LE") => String.t(),
-        optional("LT") => String.t(),
+        optional("GE") => String.t() | atom(),
+        optional("GT") => String.t() | atom(),
+        optional("LE") => String.t() | atom(),
+        optional("LT") => String.t() | atom(),
         optional("Limit") => integer(),
-        optional("NE") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("Prefix") => String.t(),
+        optional("NE") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Prefix") => String.t() | atom(),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type describe_evaluations_input() :: %{String.t() => any()}
+  @type describe_evaluations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rds_database() :: %{
-        "DatabaseName" => String.t(),
-        "InstanceIdentifier" => String.t()
+        "DatabaseName" => String.t() | atom(),
+        "InstanceIdentifier" => String.t() | atom()
       }
       
   """
-  @type rds_database() :: %{String.t() => any()}
+  @type rds_database() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_evaluation_input() :: %{
-        required("EvaluationId") => String.t(),
-        required("EvaluationName") => String.t()
+        required("EvaluationId") => String.t() | atom(),
+        required("EvaluationName") => String.t() | atom()
       }
       
   """
-  @type update_evaluation_input() :: %{String.t() => any()}
+  @type update_evaluation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_prediction() :: %{
-        "BatchPredictionDataSourceId" => String.t(),
-        "BatchPredictionId" => String.t(),
+        "BatchPredictionDataSourceId" => String.t() | atom(),
+        "BatchPredictionId" => String.t() | atom(),
         "ComputeTime" => float(),
         "CreatedAt" => non_neg_integer(),
-        "CreatedByIamUser" => String.t(),
+        "CreatedByIamUser" => String.t() | atom(),
         "FinishedAt" => non_neg_integer(),
-        "InputDataLocationS3" => String.t(),
+        "InputDataLocationS3" => String.t() | atom(),
         "InvalidRecordCount" => float(),
         "LastUpdatedAt" => non_neg_integer(),
-        "MLModelId" => String.t(),
-        "Message" => String.t(),
-        "Name" => String.t(),
-        "OutputUri" => String.t(),
+        "MLModelId" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OutputUri" => String.t() | atom(),
         "StartedAt" => non_neg_integer(),
         "Status" => list(any()),
         "TotalRecordCount" => float()
       }
       
   """
-  @type batch_prediction() :: %{String.t() => any()}
+  @type batch_prediction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_ml_models_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Results" => list(ml_model())
       }
       
   """
-  @type describe_ml_models_output() :: %{String.t() => any()}
+  @type describe_ml_models_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_ml_model_input() :: %{
-        required("MLModelId") => String.t()
+        required("MLModelId") => String.t() | atom()
       }
       
   """
-  @type delete_ml_model_input() :: %{String.t() => any()}
+  @type delete_ml_model_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_data_source_input() :: %{
-        required("DataSourceId") => String.t(),
-        required("DataSourceName") => String.t()
+        required("DataSourceId") => String.t() | atom(),
+        required("DataSourceName") => String.t() | atom()
       }
       
   """
-  @type update_data_source_input() :: %{String.t() => any()}
+  @type update_data_source_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -427,24 +427,24 @@ defmodule AWS.MachineLearning do
       
       get_ml_model_input() :: %{
         optional("Verbose") => boolean(),
-        required("MLModelId") => String.t()
+        required("MLModelId") => String.t() | atom()
       }
       
   """
-  @type get_ml_model_input() :: %{String.t() => any()}
+  @type get_ml_model_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_ml_model_input() :: %{
-        optional("MLModelName") => String.t(),
+        optional("MLModelName") => String.t() | atom(),
         optional("ScoreThreshold") => float(),
-        required("MLModelId") => String.t()
+        required("MLModelId") => String.t() | atom()
       }
       
   """
-  @type update_ml_model_input() :: %{String.t() => any()}
+  @type update_ml_model_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -454,61 +454,61 @@ defmodule AWS.MachineLearning do
         "Algorithm" => list(any()),
         "ComputeTime" => float(),
         "CreatedAt" => non_neg_integer(),
-        "CreatedByIamUser" => String.t(),
+        "CreatedByIamUser" => String.t() | atom(),
         "EndpointInfo" => realtime_endpoint_info(),
         "FinishedAt" => non_neg_integer(),
-        "InputDataLocationS3" => String.t(),
+        "InputDataLocationS3" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
-        "MLModelId" => String.t(),
+        "MLModelId" => String.t() | atom(),
         "MLModelType" => list(any()),
-        "Message" => String.t(),
-        "Name" => String.t(),
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ScoreThreshold" => float(),
         "ScoreThresholdLastUpdatedAt" => non_neg_integer(),
         "SizeInBytes" => float(),
         "StartedAt" => non_neg_integer(),
         "Status" => list(any()),
-        "TrainingDataSourceId" => String.t(),
+        "TrainingDataSourceId" => String.t() | atom(),
         "TrainingParameters" => map()
       }
       
   """
-  @type ml_model() :: %{String.t() => any()}
+  @type ml_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rds_data_spec() :: %{
-        "DataRearrangement" => String.t(),
-        "DataSchema" => String.t(),
-        "DataSchemaUri" => String.t(),
+        "DataRearrangement" => String.t() | atom(),
+        "DataSchema" => String.t() | atom(),
+        "DataSchemaUri" => String.t() | atom(),
         "DatabaseCredentials" => rds_database_credentials(),
         "DatabaseInformation" => rds_database(),
-        "ResourceRole" => String.t(),
-        "S3StagingLocation" => String.t(),
-        "SecurityGroupIds" => list(String.t()),
-        "SelectSqlQuery" => String.t(),
-        "ServiceRole" => String.t(),
-        "SubnetId" => String.t()
+        "ResourceRole" => String.t() | atom(),
+        "S3StagingLocation" => String.t() | atom(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SelectSqlQuery" => String.t() | atom(),
+        "ServiceRole" => String.t() | atom(),
+        "SubnetId" => String.t() | atom()
       }
       
   """
-  @type rds_data_spec() :: %{String.t() => any()}
+  @type rds_data_spec() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_evaluation_input() :: %{
-        optional("EvaluationName") => String.t(),
-        required("EvaluationDataSourceId") => String.t(),
-        required("EvaluationId") => String.t(),
-        required("MLModelId") => String.t()
+        optional("EvaluationName") => String.t() | atom(),
+        required("EvaluationDataSourceId") => String.t() | atom(),
+        required("EvaluationId") => String.t() | atom(),
+        required("MLModelId") => String.t() | atom()
       }
       
   """
-  @type create_evaluation_input() :: %{String.t() => any()}
+  @type create_evaluation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -516,57 +516,57 @@ defmodule AWS.MachineLearning do
       
       resource_not_found_exception() :: %{
         "code" => integer(),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_tags_input() :: %{
-        required("ResourceId") => String.t(),
+        required("ResourceId") => String.t() | atom(),
         required("ResourceType") => list(any())
       }
       
   """
-  @type describe_tags_input() :: %{String.t() => any()}
+  @type describe_tags_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_data_source_output() :: %{
-        "DataSourceId" => String.t()
+        "DataSourceId" => String.t() | atom()
       }
       
   """
-  @type delete_data_source_output() :: %{String.t() => any()}
+  @type delete_data_source_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       predictor_not_mounted_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type predictor_not_mounted_exception() :: %{String.t() => any()}
+  @type predictor_not_mounted_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -574,11 +574,11 @@ defmodule AWS.MachineLearning do
       
       idempotent_parameter_mismatch_exception() :: %{
         "code" => integer(),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type idempotent_parameter_mismatch_exception() :: %{String.t() => any()}
+  @type idempotent_parameter_mismatch_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -587,58 +587,58 @@ defmodule AWS.MachineLearning do
       realtime_endpoint_info() :: %{
         "CreatedAt" => non_neg_integer(),
         "EndpointStatus" => list(any()),
-        "EndpointUrl" => String.t(),
+        "EndpointUrl" => String.t() | atom(),
         "PeakRequestsPerSecond" => integer()
       }
       
   """
-  @type realtime_endpoint_info() :: %{String.t() => any()}
+  @type realtime_endpoint_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_data_source_from_s3_output() :: %{
-        "DataSourceId" => String.t()
+        "DataSourceId" => String.t() | atom()
       }
       
   """
-  @type create_data_source_from_s3_output() :: %{String.t() => any()}
+  @type create_data_source_from_s3_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type tag_limit_exceeded_exception() :: %{String.t() => any()}
+  @type tag_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_data_source_from_redshift_output() :: %{
-        "DataSourceId" => String.t()
+        "DataSourceId" => String.t() | atom()
       }
       
   """
-  @type create_data_source_from_redshift_output() :: %{String.t() => any()}
+  @type create_data_source_from_redshift_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_tags_output() :: %{
-        "ResourceId" => String.t(),
+        "ResourceId" => String.t() | atom(),
         "ResourceType" => list(any()),
         "Tags" => list(tag())
       }
       
   """
-  @type describe_tags_output() :: %{String.t() => any()}
+  @type describe_tags_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -646,11 +646,11 @@ defmodule AWS.MachineLearning do
       
       invalid_input_exception() :: %{
         "code" => integer(),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -658,111 +658,111 @@ defmodule AWS.MachineLearning do
       
       create_data_source_from_rds_input() :: %{
         optional("ComputeStatistics") => boolean(),
-        optional("DataSourceName") => String.t(),
-        required("DataSourceId") => String.t(),
+        optional("DataSourceName") => String.t() | atom(),
+        required("DataSourceId") => String.t() | atom(),
         required("RDSData") => rds_data_spec(),
-        required("RoleARN") => String.t()
+        required("RoleARN") => String.t() | atom()
       }
       
   """
-  @type create_data_source_from_rds_input() :: %{String.t() => any()}
+  @type create_data_source_from_rds_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_evaluation_output() :: %{
-        "EvaluationId" => String.t()
+        "EvaluationId" => String.t() | atom()
       }
       
   """
-  @type update_evaluation_output() :: %{String.t() => any()}
+  @type update_evaluation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_evaluation_input() :: %{
-        required("EvaluationId") => String.t()
+        required("EvaluationId") => String.t() | atom()
       }
       
   """
-  @type get_evaluation_input() :: %{String.t() => any()}
+  @type get_evaluation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_batch_prediction_input() :: %{
-        required("BatchPredictionId") => String.t()
+        required("BatchPredictionId") => String.t() | atom()
       }
       
   """
-  @type get_batch_prediction_input() :: %{String.t() => any()}
+  @type get_batch_prediction_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rds_metadata() :: %{
-        "DataPipelineId" => String.t(),
+        "DataPipelineId" => String.t() | atom(),
         "Database" => rds_database(),
-        "DatabaseUserName" => String.t(),
-        "ResourceRole" => String.t(),
-        "SelectSqlQuery" => String.t(),
-        "ServiceRole" => String.t()
+        "DatabaseUserName" => String.t() | atom(),
+        "ResourceRole" => String.t() | atom(),
+        "SelectSqlQuery" => String.t() | atom(),
+        "ServiceRole" => String.t() | atom()
       }
       
   """
-  @type rds_metadata() :: %{String.t() => any()}
+  @type rds_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_realtime_endpoint_output() :: %{
-        "MLModelId" => String.t(),
+        "MLModelId" => String.t() | atom(),
         "RealtimeEndpointInfo" => realtime_endpoint_info()
       }
       
   """
-  @type delete_realtime_endpoint_output() :: %{String.t() => any()}
+  @type delete_realtime_endpoint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_data_source_output() :: %{
-        "DataSourceId" => String.t()
+        "DataSourceId" => String.t() | atom()
       }
       
   """
-  @type update_data_source_output() :: %{String.t() => any()}
+  @type update_data_source_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_realtime_endpoint_input() :: %{
-        required("MLModelId") => String.t()
+        required("MLModelId") => String.t() | atom()
       }
       
   """
-  @type create_realtime_endpoint_input() :: %{String.t() => any()}
+  @type create_realtime_endpoint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_data_spec() :: %{
-        "DataLocationS3" => String.t(),
-        "DataRearrangement" => String.t(),
-        "DataSchema" => String.t(),
-        "DataSchemaLocationS3" => String.t()
+        "DataLocationS3" => String.t() | atom(),
+        "DataRearrangement" => String.t() | atom(),
+        "DataSchema" => String.t() | atom(),
+        "DataSchemaLocationS3" => String.t() | atom()
       }
       
   """
-  @type s3_data_spec() :: %{String.t() => any()}
+  @type s3_data_spec() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -770,90 +770,90 @@ defmodule AWS.MachineLearning do
       
       internal_server_exception() :: %{
         "code" => integer(),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_data_sources_input() :: %{
-        optional("EQ") => String.t(),
+        optional("EQ") => String.t() | atom(),
         optional("FilterVariable") => list(any()),
-        optional("GE") => String.t(),
-        optional("GT") => String.t(),
-        optional("LE") => String.t(),
-        optional("LT") => String.t(),
+        optional("GE") => String.t() | atom(),
+        optional("GT") => String.t() | atom(),
+        optional("LE") => String.t() | atom(),
+        optional("LT") => String.t() | atom(),
         optional("Limit") => integer(),
-        optional("NE") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("Prefix") => String.t(),
+        optional("NE") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Prefix") => String.t() | atom(),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type describe_data_sources_input() :: %{String.t() => any()}
+  @type describe_data_sources_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_batch_prediction_input() :: %{
-        required("BatchPredictionId") => String.t(),
-        required("BatchPredictionName") => String.t()
+        required("BatchPredictionId") => String.t() | atom(),
+        required("BatchPredictionName") => String.t() | atom()
       }
       
   """
-  @type update_batch_prediction_input() :: %{String.t() => any()}
+  @type update_batch_prediction_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_data_sources_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Results" => list(data_source())
       }
       
   """
-  @type describe_data_sources_output() :: %{String.t() => any()}
+  @type describe_data_sources_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_evaluation_output() :: %{
-        "EvaluationId" => String.t()
+        "EvaluationId" => String.t() | atom()
       }
       
   """
-  @type create_evaluation_output() :: %{String.t() => any()}
+  @type create_evaluation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_batch_prediction_output() :: %{
-        "BatchPredictionId" => String.t()
+        "BatchPredictionId" => String.t() | atom()
       }
       
   """
-  @type create_batch_prediction_output() :: %{String.t() => any()}
+  @type create_batch_prediction_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       redshift_database() :: %{
-        "ClusterIdentifier" => String.t(),
-        "DatabaseName" => String.t()
+        "ClusterIdentifier" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom()
       }
       
   """
-  @type redshift_database() :: %{String.t() => any()}
+  @type redshift_database() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -864,28 +864,28 @@ defmodule AWS.MachineLearning do
       }
       
   """
-  @type performance_metrics() :: %{String.t() => any()}
+  @type performance_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_ml_models_input() :: %{
-        optional("EQ") => String.t(),
+        optional("EQ") => String.t() | atom(),
         optional("FilterVariable") => list(any()),
-        optional("GE") => String.t(),
-        optional("GT") => String.t(),
-        optional("LE") => String.t(),
-        optional("LT") => String.t(),
+        optional("GE") => String.t() | atom(),
+        optional("GT") => String.t() | atom(),
+        optional("LE") => String.t() | atom(),
+        optional("LT") => String.t() | atom(),
         optional("Limit") => integer(),
-        optional("NE") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("Prefix") => String.t(),
+        optional("NE") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Prefix") => String.t() | atom(),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type describe_ml_models_input() :: %{String.t() => any()}
+  @type describe_ml_models_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -893,32 +893,32 @@ defmodule AWS.MachineLearning do
       
       limit_exceeded_exception() :: %{
         "code" => integer(),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_batch_predictions_input() :: %{
-        optional("EQ") => String.t(),
+        optional("EQ") => String.t() | atom(),
         optional("FilterVariable") => list(any()),
-        optional("GE") => String.t(),
-        optional("GT") => String.t(),
-        optional("LE") => String.t(),
-        optional("LT") => String.t(),
+        optional("GE") => String.t() | atom(),
+        optional("GT") => String.t() | atom(),
+        optional("LE") => String.t() | atom(),
+        optional("LT") => String.t() | atom(),
         optional("Limit") => integer(),
-        optional("NE") => String.t(),
-        optional("NextToken") => String.t(),
-        optional("Prefix") => String.t(),
+        optional("NE") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Prefix") => String.t() | atom(),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type describe_batch_predictions_input() :: %{String.t() => any()}
+  @type describe_batch_predictions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -927,22 +927,22 @@ defmodule AWS.MachineLearning do
       evaluation() :: %{
         "ComputeTime" => float(),
         "CreatedAt" => non_neg_integer(),
-        "CreatedByIamUser" => String.t(),
-        "EvaluationDataSourceId" => String.t(),
-        "EvaluationId" => String.t(),
+        "CreatedByIamUser" => String.t() | atom(),
+        "EvaluationDataSourceId" => String.t() | atom(),
+        "EvaluationId" => String.t() | atom(),
         "FinishedAt" => non_neg_integer(),
-        "InputDataLocationS3" => String.t(),
+        "InputDataLocationS3" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
-        "MLModelId" => String.t(),
-        "Message" => String.t(),
-        "Name" => String.t(),
+        "MLModelId" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "PerformanceMetrics" => performance_metrics(),
         "StartedAt" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type evaluation() :: %{String.t() => any()}
+  @type evaluation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -952,103 +952,103 @@ defmodule AWS.MachineLearning do
         "ComputeStatistics" => boolean(),
         "ComputeTime" => float(),
         "CreatedAt" => non_neg_integer(),
-        "CreatedByIamUser" => String.t(),
-        "DataLocationS3" => String.t(),
-        "DataRearrangement" => String.t(),
+        "CreatedByIamUser" => String.t() | atom(),
+        "DataLocationS3" => String.t() | atom(),
+        "DataRearrangement" => String.t() | atom(),
         "DataSizeInBytes" => float(),
-        "DataSourceId" => String.t(),
+        "DataSourceId" => String.t() | atom(),
         "FinishedAt" => non_neg_integer(),
         "LastUpdatedAt" => non_neg_integer(),
-        "Message" => String.t(),
-        "Name" => String.t(),
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "NumberOfFiles" => float(),
         "RDSMetadata" => rds_metadata(),
         "RedshiftMetadata" => redshift_metadata(),
-        "RoleARN" => String.t(),
+        "RoleARN" => String.t() | atom(),
         "StartedAt" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type data_source() :: %{String.t() => any()}
+  @type data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_ml_model_output() :: %{
-        "MLModelId" => String.t()
+        "MLModelId" => String.t() | atom()
       }
       
   """
-  @type update_ml_model_output() :: %{String.t() => any()}
+  @type update_ml_model_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_data_source_input() :: %{
-        required("DataSourceId") => String.t()
+        required("DataSourceId") => String.t() | atom()
       }
       
   """
-  @type delete_data_source_input() :: %{String.t() => any()}
+  @type delete_data_source_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       redshift_database_credentials() :: %{
-        "Password" => String.t(),
-        "Username" => String.t()
+        "Password" => String.t() | atom(),
+        "Username" => String.t() | atom()
       }
       
   """
-  @type redshift_database_credentials() :: %{String.t() => any()}
+  @type redshift_database_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_realtime_endpoint_input() :: %{
-        required("MLModelId") => String.t()
+        required("MLModelId") => String.t() | atom()
       }
       
   """
-  @type delete_realtime_endpoint_input() :: %{String.t() => any()}
+  @type delete_realtime_endpoint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_batch_prediction_output() :: %{
-        "BatchPredictionId" => String.t()
+        "BatchPredictionId" => String.t() | atom()
       }
       
   """
-  @type delete_batch_prediction_output() :: %{String.t() => any()}
+  @type delete_batch_prediction_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_tag_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_tag_exception() :: %{String.t() => any()}
+  @type invalid_tag_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_data_source_from_rds_output() :: %{
-        "DataSourceId" => String.t()
+        "DataSourceId" => String.t() | atom()
       }
       
   """
-  @type create_data_source_from_rds_output() :: %{String.t() => any()}
+  @type create_data_source_from_rds_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1056,25 +1056,25 @@ defmodule AWS.MachineLearning do
       
       create_data_source_from_redshift_input() :: %{
         optional("ComputeStatistics") => boolean(),
-        optional("DataSourceName") => String.t(),
-        required("DataSourceId") => String.t(),
+        optional("DataSourceName") => String.t() | atom(),
+        required("DataSourceId") => String.t() | atom(),
         required("DataSpec") => redshift_data_spec(),
-        required("RoleARN") => String.t()
+        required("RoleARN") => String.t() | atom()
       }
       
   """
-  @type create_data_source_from_redshift_input() :: %{String.t() => any()}
+  @type create_data_source_from_redshift_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_batch_prediction_output() :: %{
-        "BatchPredictionId" => String.t()
+        "BatchPredictionId" => String.t() | atom()
       }
       
   """
-  @type update_batch_prediction_output() :: %{String.t() => any()}
+  @type update_batch_prediction_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1082,86 +1082,86 @@ defmodule AWS.MachineLearning do
       
       prediction() :: %{
         "details" => map(),
-        "predictedLabel" => String.t(),
+        "predictedLabel" => String.t() | atom(),
         "predictedScores" => map(),
         "predictedValue" => float()
       }
       
   """
-  @type prediction() :: %{String.t() => any()}
+  @type prediction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_ml_model_output() :: %{
-        "MLModelId" => String.t()
+        "MLModelId" => String.t() | atom()
       }
       
   """
-  @type create_ml_model_output() :: %{String.t() => any()}
+  @type create_ml_model_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rds_database_credentials() :: %{
-        "Password" => String.t(),
-        "Username" => String.t()
+        "Password" => String.t() | atom(),
+        "Username" => String.t() | atom()
       }
       
   """
-  @type rds_database_credentials() :: %{String.t() => any()}
+  @type rds_database_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_batch_prediction_input() :: %{
-        optional("BatchPredictionName") => String.t(),
-        required("BatchPredictionDataSourceId") => String.t(),
-        required("BatchPredictionId") => String.t(),
-        required("MLModelId") => String.t(),
-        required("OutputUri") => String.t()
+        optional("BatchPredictionName") => String.t() | atom(),
+        required("BatchPredictionDataSourceId") => String.t() | atom(),
+        required("BatchPredictionId") => String.t() | atom(),
+        required("MLModelId") => String.t() | atom(),
+        required("OutputUri") => String.t() | atom()
       }
       
   """
-  @type create_batch_prediction_input() :: %{String.t() => any()}
+  @type create_batch_prediction_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_batch_prediction_input() :: %{
-        required("BatchPredictionId") => String.t()
+        required("BatchPredictionId") => String.t() | atom()
       }
       
   """
-  @type delete_batch_prediction_input() :: %{String.t() => any()}
+  @type delete_batch_prediction_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_tags_output() :: %{
-        "ResourceId" => String.t(),
+        "ResourceId" => String.t() | atom(),
         "ResourceType" => list(any())
       }
       
   """
-  @type delete_tags_output() :: %{String.t() => any()}
+  @type delete_tags_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_evaluations_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Results" => list(evaluation())
       }
       
   """
-  @type describe_evaluations_output() :: %{String.t() => any()}
+  @type describe_evaluations_output() :: %{(String.t() | atom()) => any()}
 
   @type add_tags_errors() ::
           invalid_tag_exception()
@@ -1297,7 +1297,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
@@ -1328,7 +1329,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, create_batch_prediction_errors()}
   def create_batch_prediction(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBatchPrediction", input, options)
   end
@@ -1359,7 +1361,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, create_data_source_from_rds_errors()}
   def create_data_source_from_rds(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataSourceFromRDS", input, options)
   end
@@ -1414,7 +1417,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, create_data_source_from_redshift_errors()}
   def create_data_source_from_redshift(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataSourceFromRedshift", input, options)
   end
@@ -1466,7 +1470,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, create_data_source_from_s3_errors()}
   def create_data_source_from_s3(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataSourceFromS3", input, options)
   end
@@ -1499,7 +1504,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, create_evaluation_errors()}
   def create_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEvaluation", input, options)
   end
@@ -1532,7 +1538,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, create_ml_model_errors()}
   def create_ml_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMLModel", input, options)
   end
@@ -1549,7 +1556,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, create_realtime_endpoint_errors()}
   def create_realtime_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRealtimeEndpoint", input, options)
   end
@@ -1570,7 +1578,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, delete_batch_prediction_errors()}
   def delete_batch_prediction(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBatchPrediction", input, options)
   end
@@ -1589,7 +1598,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, delete_data_source_errors()}
   def delete_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataSource", input, options)
   end
@@ -1609,7 +1619,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, delete_evaluation_errors()}
   def delete_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEvaluation", input, options)
   end
@@ -1629,7 +1640,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, delete_ml_model_errors()}
   def delete_ml_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMLModel", input, options)
   end
@@ -1643,7 +1655,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, delete_realtime_endpoint_errors()}
   def delete_realtime_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRealtimeEndpoint", input, options)
   end
@@ -1661,7 +1674,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
   end
@@ -1676,7 +1690,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, describe_batch_predictions_errors()}
   def describe_batch_predictions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBatchPredictions", input, options)
   end
@@ -1690,7 +1705,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, describe_data_sources_errors()}
   def describe_data_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataSources", input, options)
   end
@@ -1705,7 +1721,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, describe_evaluations_errors()}
   def describe_evaluations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvaluations", input, options)
   end
@@ -1719,7 +1736,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, describe_ml_models_errors()}
   def describe_ml_models(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMLModels", input, options)
   end
@@ -1733,7 +1751,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -1749,7 +1768,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, get_batch_prediction_errors()}
   def get_batch_prediction(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBatchPrediction", input, options)
   end
@@ -1768,7 +1788,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, get_data_source_errors()}
   def get_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataSource", input, options)
   end
@@ -1783,7 +1804,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, get_evaluation_errors()}
   def get_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEvaluation", input, options)
   end
@@ -1800,7 +1822,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, get_ml_model_errors()}
   def get_ml_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLModel", input, options)
   end
@@ -1817,7 +1840,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, predict_errors()}
   def predict(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Predict", input, options)
   end
@@ -1834,7 +1858,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, update_batch_prediction_errors()}
   def update_batch_prediction(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBatchPrediction", input, options)
   end
@@ -1851,7 +1876,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, update_data_source_errors()}
   def update_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDataSource", input, options)
   end
@@ -1868,7 +1894,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, update_evaluation_errors()}
   def update_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEvaluation", input, options)
   end
@@ -1885,7 +1912,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, update_ml_model_errors()}
   def update_ml_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMLModel", input, options)
   end

@@ -29,12 +29,12 @@ defmodule AWS.Grafana do
   ## Example:
 
       list_permissions_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("permissions") => list(permission_entry())
       }
 
   """
-  @type list_permissions_response() :: %{String.t() => any()}
+  @type list_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -45,44 +45,44 @@ defmodule AWS.Grafana do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_configuration() :: %{
-        "securityGroupIds" => list(String.t()),
-        "subnetIds" => list(String.t())
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom())
       }
 
   """
-  @type vpc_configuration() :: %{String.t() => any()}
+  @type vpc_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_workspace_configuration_request() :: %{
-        optional("grafanaVersion") => String.t(),
-        required("configuration") => String.t()
+        optional("grafanaVersion") => String.t() | atom(),
+        required("configuration") => String.t() | atom()
       }
 
   """
-  @type update_workspace_configuration_request() :: %{String.t() => any()}
+  @type update_workspace_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workspace_api_key_response() :: %{
-        required("key") => String.t(),
-        required("keyName") => String.t(),
-        required("workspaceId") => String.t()
+        required("key") => String.t() | atom(),
+        required("keyName") => String.t() | atom(),
+        required("workspaceId") => String.t() | atom()
       }
 
   """
-  @type create_workspace_api_key_response() :: %{String.t() => any()}
+  @type create_workspace_api_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -99,11 +99,11 @@ defmodule AWS.Grafana do
 
       list_workspace_service_accounts_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_workspace_service_accounts_request() :: %{String.t() => any()}
+  @type list_workspace_service_accounts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -114,19 +114,19 @@ defmodule AWS.Grafana do
       }
 
   """
-  @type describe_workspace_authentication_response() :: %{String.t() => any()}
+  @type describe_workspace_authentication_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network_access_configuration() :: %{
-        "prefixListIds" => list(String.t()),
-        "vpceIds" => list(String.t())
+        "prefixListIds" => list(String.t() | atom()),
+        "vpceIds" => list(String.t() | atom())
       }
 
   """
-  @type network_access_configuration() :: %{String.t() => any()}
+  @type network_access_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -134,11 +134,11 @@ defmodule AWS.Grafana do
 
       saml_authentication() :: %{
         "configuration" => saml_configuration(),
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type saml_authentication() :: %{String.t() => any()}
+  @type saml_authentication() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -147,21 +147,21 @@ defmodule AWS.Grafana do
       workspace_summary() :: %{
         "authentication" => authentication_summary(),
         "created" => [non_neg_integer()],
-        "description" => String.t(),
-        "endpoint" => String.t(),
-        "grafanaToken" => String.t(),
-        "grafanaVersion" => String.t(),
-        "id" => String.t(),
-        "licenseType" => String.t(),
+        "description" => String.t() | atom(),
+        "endpoint" => String.t() | atom(),
+        "grafanaToken" => String.t() | atom(),
+        "grafanaVersion" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "licenseType" => String.t() | atom(),
         "modified" => [non_neg_integer()],
-        "name" => String.t(),
-        "notificationDestinations" => list(String.t()),
-        "status" => String.t(),
+        "name" => String.t() | atom(),
+        "notificationDestinations" => list(String.t() | atom()),
+        "status" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type workspace_summary() :: %{String.t() => any()}
+  @type workspace_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -177,37 +177,37 @@ defmodule AWS.Grafana do
   ## Example:
 
       delete_workspace_service_account_token_response() :: %{
-        "serviceAccountId" => [String.t()],
-        "tokenId" => [String.t()],
-        "workspaceId" => String.t()
+        "serviceAccountId" => [String.t() | atom()],
+        "tokenId" => [String.t() | atom()],
+        "workspaceId" => String.t() | atom()
       }
 
   """
-  @type delete_workspace_service_account_token_response() :: %{String.t() => any()}
+  @type delete_workspace_service_account_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workspace_api_key_request() :: %{
-        required("keyName") => String.t(),
-        required("keyRole") => [String.t()],
+        required("keyName") => String.t() | atom(),
+        required("keyRole") => [String.t() | atom()],
         required("secondsToLive") => [integer()]
       }
 
   """
-  @type create_workspace_api_key_request() :: %{String.t() => any()}
+  @type create_workspace_api_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -218,7 +218,7 @@ defmodule AWS.Grafana do
       }
 
   """
-  @type delete_workspace_response() :: %{String.t() => any()}
+  @type delete_workspace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -234,14 +234,14 @@ defmodule AWS.Grafana do
   ## Example:
 
       service_account_summary() :: %{
-        "grafanaRole" => String.t(),
-        "id" => [String.t()],
-        "isDisabled" => [String.t()],
-        "name" => [String.t()]
+        "grafanaRole" => String.t() | atom(),
+        "id" => [String.t() | atom()],
+        "isDisabled" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type service_account_summary() :: %{String.t() => any()}
+  @type service_account_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -249,24 +249,24 @@ defmodule AWS.Grafana do
 
       authentication_description() :: %{
         "awsSso" => aws_sso_authentication(),
-        "providers" => list(String.t()),
+        "providers" => list(String.t() | atom()),
         "saml" => saml_authentication()
       }
 
   """
-  @type authentication_description() :: %{String.t() => any()}
+  @type authentication_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_workspace_service_account_response() :: %{
-        "serviceAccountId" => [String.t()],
-        "workspaceId" => String.t()
+        "serviceAccountId" => [String.t() | atom()],
+        "workspaceId" => String.t() | atom()
       }
 
   """
-  @type delete_workspace_service_account_response() :: %{String.t() => any()}
+  @type delete_workspace_service_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -277,7 +277,7 @@ defmodule AWS.Grafana do
       }
 
   """
-  @type update_workspace_authentication_response() :: %{String.t() => any()}
+  @type update_workspace_authentication_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -286,11 +286,11 @@ defmodule AWS.Grafana do
       update_error() :: %{
         "causedBy" => update_instruction(),
         "code" => [integer()],
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type update_error() :: %{String.t() => any()}
+  @type update_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -301,45 +301,45 @@ defmodule AWS.Grafana do
       }
 
   """
-  @type describe_workspace_response() :: %{String.t() => any()}
+  @type describe_workspace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_workspace_configuration_response() :: %{
-        optional("grafanaVersion") => String.t(),
-        required("configuration") => String.t()
+        optional("grafanaVersion") => String.t() | atom(),
+        required("configuration") => String.t() | atom()
       }
 
   """
-  @type describe_workspace_configuration_response() :: %{String.t() => any()}
+  @type describe_workspace_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -347,51 +347,51 @@ defmodule AWS.Grafana do
 
       update_workspace_authentication_request() :: %{
         optional("samlConfiguration") => saml_configuration(),
-        required("authenticationProviders") => list(String.t())
+        required("authenticationProviders") => list(String.t() | atom())
       }
 
   """
-  @type update_workspace_authentication_request() :: %{String.t() => any()}
+  @type update_workspace_authentication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()],
-        "serviceCode" => [String.t()]
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workspace_service_account_token_response() :: %{
-        "serviceAccountId" => [String.t()],
+        "serviceAccountId" => [String.t() | atom()],
         "serviceAccountToken" => service_account_token_summary_with_key(),
-        "workspaceId" => String.t()
+        "workspaceId" => String.t() | atom()
       }
 
   """
-  @type create_workspace_service_account_token_response() :: %{String.t() => any()}
+  @type create_workspace_service_account_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       authentication_summary() :: %{
-        "providers" => list(String.t()),
-        "samlConfigurationStatus" => String.t()
+        "providers" => list(String.t() | atom()),
+        "samlConfigurationStatus" => String.t() | atom()
       }
 
   """
-  @type authentication_summary() :: %{String.t() => any()}
+  @type authentication_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -402,21 +402,21 @@ defmodule AWS.Grafana do
       }
 
   """
-  @type associate_license_response() :: %{String.t() => any()}
+  @type associate_license_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workspace_service_account_response() :: %{
-        "grafanaRole" => String.t(),
-        "id" => [String.t()],
-        "name" => [String.t()],
-        "workspaceId" => String.t()
+        "grafanaRole" => String.t() | atom(),
+        "id" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "workspaceId" => String.t() | atom()
       }
 
   """
-  @type create_workspace_service_account_response() :: %{String.t() => any()}
+  @type create_workspace_service_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -436,7 +436,7 @@ defmodule AWS.Grafana do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -452,12 +452,12 @@ defmodule AWS.Grafana do
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t()],
-        "name" => [String.t()]
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -466,13 +466,13 @@ defmodule AWS.Grafana do
       service_account_token_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "expiresAt" => [non_neg_integer()],
-        "id" => [String.t()],
+        "id" => [String.t() | atom()],
         "lastUsedAt" => [non_neg_integer()],
-        "name" => [String.t()]
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type service_account_token_summary() :: %{String.t() => any()}
+  @type service_account_token_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -483,33 +483,33 @@ defmodule AWS.Grafana do
       }
 
   """
-  @type update_workspace_response() :: %{String.t() => any()}
+  @type update_workspace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_versions_response() :: %{
-        "grafanaVersions" => list(String.t()),
-        "nextToken" => String.t()
+        "grafanaVersions" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_versions_response() :: %{String.t() => any()}
+  @type list_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_workspace_service_account_tokens_response() :: %{
-        "nextToken" => String.t(),
-        "serviceAccountId" => [String.t()],
+        "nextToken" => String.t() | atom(),
+        "serviceAccountId" => [String.t() | atom()],
         "serviceAccountTokens" => list(service_account_token_summary()),
-        "workspaceId" => String.t()
+        "workspaceId" => String.t() | atom()
       }
 
   """
-  @type list_workspace_service_account_tokens_response() :: %{String.t() => any()}
+  @type list_workspace_service_account_tokens_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -525,86 +525,86 @@ defmodule AWS.Grafana do
   ## Example:
 
       update_workspace_request() :: %{
-        optional("accountAccessType") => String.t(),
+        optional("accountAccessType") => String.t() | atom(),
         optional("networkAccessControl") => network_access_configuration(),
-        optional("organizationRoleName") => String.t(),
-        optional("permissionType") => String.t(),
+        optional("organizationRoleName") => String.t() | atom(),
+        optional("permissionType") => String.t() | atom(),
         optional("removeNetworkAccessConfiguration") => [boolean()],
         optional("removeVpcConfiguration") => [boolean()],
-        optional("stackSetName") => String.t(),
+        optional("stackSetName") => String.t() | atom(),
         optional("vpcConfiguration") => vpc_configuration(),
-        optional("workspaceDataSources") => list(String.t()),
-        optional("workspaceDescription") => String.t(),
-        optional("workspaceName") => String.t(),
-        optional("workspaceNotificationDestinations") => list(String.t()),
-        optional("workspaceOrganizationalUnits") => list(String.t()),
-        optional("workspaceRoleArn") => String.t()
+        optional("workspaceDataSources") => list(String.t() | atom()),
+        optional("workspaceDescription") => String.t() | atom(),
+        optional("workspaceName") => String.t() | atom(),
+        optional("workspaceNotificationDestinations") => list(String.t() | atom()),
+        optional("workspaceOrganizationalUnits") => list(String.t() | atom()),
+        optional("workspaceRoleArn") => String.t() | atom()
       }
 
   """
-  @type update_workspace_request() :: %{String.t() => any()}
+  @type update_workspace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_permissions_request() :: %{
-        optional("groupId") => String.t(),
+        optional("groupId") => String.t() | atom(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
-        optional("userId") => String.t(),
-        optional("userType") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("userId") => String.t() | atom(),
+        optional("userType") => String.t() | atom()
       }
 
   """
-  @type list_permissions_request() :: %{String.t() => any()}
+  @type list_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       workspace_description() :: %{
-        "accountAccessType" => String.t(),
+        "accountAccessType" => String.t() | atom(),
         "authentication" => authentication_summary(),
         "created" => [non_neg_integer()],
-        "dataSources" => list(String.t()),
-        "description" => String.t(),
-        "endpoint" => String.t(),
+        "dataSources" => list(String.t() | atom()),
+        "description" => String.t() | atom(),
+        "endpoint" => String.t() | atom(),
         "freeTrialConsumed" => [boolean()],
         "freeTrialExpiration" => [non_neg_integer()],
-        "grafanaToken" => String.t(),
-        "grafanaVersion" => String.t(),
-        "id" => String.t(),
+        "grafanaToken" => String.t() | atom(),
+        "grafanaVersion" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "licenseExpiration" => [non_neg_integer()],
-        "licenseType" => String.t(),
+        "licenseType" => String.t() | atom(),
         "modified" => [non_neg_integer()],
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "networkAccessControl" => network_access_configuration(),
-        "notificationDestinations" => list(String.t()),
-        "organizationRoleName" => String.t(),
-        "organizationalUnits" => list(String.t()),
-        "permissionType" => String.t(),
-        "stackSetName" => String.t(),
-        "status" => String.t(),
+        "notificationDestinations" => list(String.t() | atom()),
+        "organizationRoleName" => String.t() | atom(),
+        "organizationalUnits" => list(String.t() | atom()),
+        "permissionType" => String.t() | atom(),
+        "stackSetName" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "tags" => map(),
         "vpcConfiguration" => vpc_configuration(),
-        "workspaceRoleArn" => String.t()
+        "workspaceRoleArn" => String.t() | atom()
       }
 
   """
-  @type workspace_description() :: %{String.t() => any()}
+  @type workspace_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -615,41 +615,41 @@ defmodule AWS.Grafana do
       }
 
   """
-  @type create_workspace_response() :: %{String.t() => any()}
+  @type create_workspace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_workspaces_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("workspaces") => list(workspace_summary())
       }
 
   """
-  @type list_workspaces_response() :: %{String.t() => any()}
+  @type list_workspaces_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_license_request() :: %{
-        optional("grafanaToken") => String.t()
+        optional("grafanaToken") => String.t() | atom()
       }
 
   """
-  @type associate_license_request() :: %{String.t() => any()}
+  @type associate_license_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -669,7 +669,7 @@ defmodule AWS.Grafana do
       }
 
   """
-  @type update_permissions_response() :: %{String.t() => any()}
+  @type update_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -694,23 +694,23 @@ defmodule AWS.Grafana do
   ## Example:
 
       permission_entry() :: %{
-        "role" => String.t(),
+        "role" => String.t() | atom(),
         "user" => user()
       }
 
   """
-  @type permission_entry() :: %{String.t() => any()}
+  @type permission_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_sso_authentication() :: %{
-        "ssoClientId" => String.t()
+        "ssoClientId" => String.t() | atom()
       }
 
   """
-  @type aws_sso_authentication() :: %{String.t() => any()}
+  @type aws_sso_authentication() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -718,12 +718,12 @@ defmodule AWS.Grafana do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t()],
-        "reason" => String.t()
+        "message" => [String.t() | atom()],
+        "reason" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -740,50 +740,50 @@ defmodule AWS.Grafana do
 
       list_workspaces_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_workspaces_request() :: %{String.t() => any()}
+  @type list_workspaces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t()]
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_instruction() :: %{
-        "action" => String.t(),
-        "role" => String.t(),
+        "action" => String.t() | atom(),
+        "role" => String.t() | atom(),
         "users" => list(user())
       }
 
   """
-  @type update_instruction() :: %{String.t() => any()}
+  @type update_instruction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       user() :: %{
-        "id" => String.t(),
-        "type" => String.t()
+        "id" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type user() :: %{String.t() => any()}
+  @type user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -800,28 +800,28 @@ defmodule AWS.Grafana do
 
       list_versions_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
-        optional("workspaceId") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("workspaceId") => String.t() | atom()
       }
 
   """
-  @type list_versions_request() :: %{String.t() => any()}
+  @type list_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       assertion_attributes() :: %{
-        "email" => String.t(),
-        "groups" => String.t(),
-        "login" => String.t(),
-        "name" => String.t(),
-        "org" => String.t(),
-        "role" => String.t()
+        "email" => String.t() | atom(),
+        "groups" => String.t() | atom(),
+        "login" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "org" => String.t() | atom(),
+        "role" => String.t() | atom()
       }
 
   """
-  @type assertion_attributes() :: %{String.t() => any()}
+  @type assertion_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -829,23 +829,23 @@ defmodule AWS.Grafana do
 
       list_workspace_service_account_tokens_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_workspace_service_account_tokens_request() :: %{String.t() => any()}
+  @type list_workspace_service_account_tokens_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       role_values() :: %{
-        "admin" => list(String.t()),
-        "editor" => list(String.t())
+        "admin" => list(String.t() | atom()),
+        "editor" => list(String.t() | atom())
       }
 
   """
-  @type role_values() :: %{String.t() => any()}
+  @type role_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -856,19 +856,19 @@ defmodule AWS.Grafana do
       }
 
   """
-  @type disassociate_license_response() :: %{String.t() => any()}
+  @type disassociate_license_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workspace_service_account_request() :: %{
-        required("grafanaRole") => String.t(),
-        required("name") => String.t()
+        required("grafanaRole") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_workspace_service_account_request() :: %{String.t() => any()}
+  @type create_workspace_service_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -879,32 +879,32 @@ defmodule AWS.Grafana do
       }
 
   """
-  @type update_permissions_request() :: %{String.t() => any()}
+  @type update_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_account_token_summary_with_key() :: %{
-        "id" => [String.t()],
-        "key" => String.t(),
-        "name" => [String.t()]
+        "id" => [String.t() | atom()],
+        "key" => String.t() | atom(),
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type service_account_token_summary_with_key() :: %{String.t() => any()}
+  @type service_account_token_summary_with_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_workspace_api_key_response() :: %{
-        required("keyName") => String.t(),
-        required("workspaceId") => String.t()
+        required("keyName") => String.t() | atom(),
+        required("workspaceId") => String.t() | atom()
       }
 
   """
-  @type delete_workspace_api_key_response() :: %{String.t() => any()}
+  @type delete_workspace_api_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -920,32 +920,32 @@ defmodule AWS.Grafana do
   ## Example:
 
       list_workspace_service_accounts_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "serviceAccounts" => list(service_account_summary()),
-        "workspaceId" => String.t()
+        "workspaceId" => String.t() | atom()
       }
 
   """
-  @type list_workspace_service_accounts_response() :: %{String.t() => any()}
+  @type list_workspace_service_accounts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workspace_service_account_token_request() :: %{
-        required("name") => String.t(),
+        required("name") => String.t() | atom(),
         required("secondsToLive") => [integer()]
       }
 
   """
-  @type create_workspace_service_account_token_request() :: %{String.t() => any()}
+  @type create_workspace_service_account_token_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       saml_configuration() :: %{
-        "allowedOrganizations" => list(String.t()),
+        "allowedOrganizations" => list(String.t() | atom()),
         "assertionAttributes" => assertion_attributes(),
         "idpMetadata" => list(),
         "loginValidityDuration" => integer(),
@@ -953,34 +953,34 @@ defmodule AWS.Grafana do
       }
 
   """
-  @type saml_configuration() :: %{String.t() => any()}
+  @type saml_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workspace_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("configuration") => String.t(),
-        optional("grafanaVersion") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("configuration") => String.t() | atom(),
+        optional("grafanaVersion") => String.t() | atom(),
         optional("networkAccessControl") => network_access_configuration(),
-        optional("organizationRoleName") => String.t(),
-        optional("stackSetName") => String.t(),
+        optional("organizationRoleName") => String.t() | atom(),
+        optional("stackSetName") => String.t() | atom(),
         optional("tags") => map(),
         optional("vpcConfiguration") => vpc_configuration(),
-        optional("workspaceDataSources") => list(String.t()),
-        optional("workspaceDescription") => String.t(),
-        optional("workspaceName") => String.t(),
-        optional("workspaceNotificationDestinations") => list(String.t()),
-        optional("workspaceOrganizationalUnits") => list(String.t()),
-        optional("workspaceRoleArn") => String.t(),
-        required("accountAccessType") => String.t(),
-        required("authenticationProviders") => list(String.t()),
-        required("permissionType") => String.t()
+        optional("workspaceDataSources") => list(String.t() | atom()),
+        optional("workspaceDescription") => String.t() | atom(),
+        optional("workspaceName") => String.t() | atom(),
+        optional("workspaceNotificationDestinations") => list(String.t() | atom()),
+        optional("workspaceOrganizationalUnits") => list(String.t() | atom()),
+        optional("workspaceRoleArn") => String.t() | atom(),
+        required("accountAccessType") => String.t() | atom(),
+        required("authenticationProviders") => list(String.t() | atom()),
+        required("permissionType") => String.t() | atom()
       }
 
   """
-  @type create_workspace_request() :: %{String.t() => any()}
+  @type create_workspace_request() :: %{(String.t() | atom()) => any()}
 
   @type associate_license_errors() ::
           throttling_exception()
@@ -1194,7 +1194,13 @@ defmodule AWS.Grafana do
   incurs additional fees. For more information, see [Upgrade a workspace to Grafana
   Enterprise](https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html).
   """
-  @spec associate_license(map(), String.t(), String.t(), associate_license_request(), list()) ::
+  @spec associate_license(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          associate_license_request(),
+          list()
+        ) ::
           {:ok, associate_license_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1275,7 +1281,12 @@ defmodule AWS.Grafana do
   In workspaces compatible with Grafana version 9 or above, use workspace service
   accounts instead of API keys. API keys will be removed in a future release.
   """
-  @spec create_workspace_api_key(map(), String.t(), create_workspace_api_key_request(), list()) ::
+  @spec create_workspace_api_key(
+          map(),
+          String.t() | atom(),
+          create_workspace_api_key_request(),
+          list()
+        ) ::
           {:ok, create_workspace_api_key_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1324,7 +1335,7 @@ defmodule AWS.Grafana do
   """
   @spec create_workspace_service_account(
           map(),
-          String.t(),
+          String.t() | atom(),
           create_workspace_service_account_request(),
           list()
         ) ::
@@ -1373,8 +1384,8 @@ defmodule AWS.Grafana do
   """
   @spec create_workspace_service_account_token(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           create_workspace_service_account_token_request(),
           list()
         ) ::
@@ -1414,7 +1425,7 @@ defmodule AWS.Grafana do
   @doc """
   Deletes an Amazon Managed Grafana workspace.
   """
-  @spec delete_workspace(map(), String.t(), delete_workspace_request(), list()) ::
+  @spec delete_workspace(map(), String.t() | atom(), delete_workspace_request(), list()) ::
           {:ok, delete_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1448,8 +1459,8 @@ defmodule AWS.Grafana do
   """
   @spec delete_workspace_api_key(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_workspace_api_key_request(),
           list()
         ) ::
@@ -1494,8 +1505,8 @@ defmodule AWS.Grafana do
   """
   @spec delete_workspace_service_account(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_workspace_service_account_request(),
           list()
         ) ::
@@ -1547,9 +1558,9 @@ defmodule AWS.Grafana do
   """
   @spec delete_workspace_service_account_token(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_workspace_service_account_token_request(),
           list()
         ) ::
@@ -1590,7 +1601,7 @@ defmodule AWS.Grafana do
   @doc """
   Displays information about one Amazon Managed Grafana workspace.
   """
-  @spec describe_workspace(map(), String.t(), list()) ::
+  @spec describe_workspace(map(), String.t() | atom(), list()) ::
           {:ok, describe_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1610,7 +1621,7 @@ defmodule AWS.Grafana do
   Grafana
   workspace.
   """
-  @spec describe_workspace_authentication(map(), String.t(), list()) ::
+  @spec describe_workspace_authentication(map(), String.t() | atom(), list()) ::
           {:ok, describe_workspace_authentication_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1628,7 +1639,7 @@ defmodule AWS.Grafana do
   @doc """
   Gets the current configuration string for the given workspace.
   """
-  @spec describe_workspace_configuration(map(), String.t(), list()) ::
+  @spec describe_workspace_configuration(map(), String.t() | atom(), list()) ::
           {:ok, describe_workspace_configuration_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1648,8 +1659,8 @@ defmodule AWS.Grafana do
   """
   @spec disassociate_license(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           disassociate_license_request(),
           list()
         ) ::
@@ -1693,12 +1704,12 @@ defmodule AWS.Grafana do
   """
   @spec list_permissions(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_permissions_response(), any()}
@@ -1767,7 +1778,7 @@ defmodule AWS.Grafana do
   Currently, the only resource that can be tagged is a
   workspace.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1789,7 +1800,13 @@ defmodule AWS.Grafana do
   `CreateWorkspace`. Optionally, include a workspace to list the versions
   to which it can be upgraded.
   """
-  @spec list_versions(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_versions(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1843,10 +1860,10 @@ defmodule AWS.Grafana do
   """
   @spec list_workspace_service_account_tokens(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_workspace_service_account_tokens_response(), any()}
@@ -1895,9 +1912,9 @@ defmodule AWS.Grafana do
   """
   @spec list_workspace_service_accounts(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_workspace_service_accounts_response(), any()}
@@ -1942,7 +1959,7 @@ defmodule AWS.Grafana do
   For more complete information about one workspace, use
   [DescribeWorkspace](https://docs.aws.amazon.com/AAMG/latest/APIReference/API_DescribeWorkspace.html).
   """
-  @spec list_workspaces(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_workspaces(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_workspaces_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1985,7 +2002,7 @@ defmodule AWS.Grafana do
   value for
   that tag.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2015,7 +2032,7 @@ defmodule AWS.Grafana do
   The `UntagResource` operation removes the association of the tag with the
   Amazon Managed Grafana resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2050,7 +2067,7 @@ defmodule AWS.Grafana do
   Updates which users in a workspace have the Grafana `Admin` or
   `Editor` roles.
   """
-  @spec update_permissions(map(), String.t(), update_permissions_request(), list()) ::
+  @spec update_permissions(map(), String.t() | atom(), update_permissions_request(), list()) ::
           {:ok, update_permissions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2090,7 +2107,7 @@ defmodule AWS.Grafana do
   `Editor` Grafana roles, use
   [UpdatePermissions](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html).
   """
-  @spec update_workspace(map(), String.t(), update_workspace_request(), list()) ::
+  @spec update_workspace(map(), String.t() | atom(), update_workspace_request(), list()) ::
           {:ok, update_workspace_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2130,7 +2147,7 @@ defmodule AWS.Grafana do
   """
   @spec update_workspace_authentication(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_workspace_authentication_request(),
           list()
         ) ::
@@ -2164,7 +2181,7 @@ defmodule AWS.Grafana do
   """
   @spec update_workspace_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_workspace_configuration_request(),
           list()
         ) ::

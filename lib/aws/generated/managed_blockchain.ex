@@ -35,7 +35,7 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type voting_policy() :: %{String.t() => any()}
+  @type voting_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -51,11 +51,11 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       create_proposal_output() :: %{
-        "ProposalId" => String.t()
+        "ProposalId" => String.t() | atom()
       }
 
   """
-  @type create_proposal_output() :: %{String.t() => any()}
+  @type create_proposal_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,12 +71,12 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       node_ethereum_attributes() :: %{
-        "HttpEndpoint" => String.t(),
-        "WebSocketEndpoint" => String.t()
+        "HttpEndpoint" => String.t() | atom(),
+        "WebSocketEndpoint" => String.t() | atom()
       }
 
   """
-  @type node_ethereum_attributes() :: %{String.t() => any()}
+  @type node_ethereum_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -87,17 +87,17 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       accessor() :: %{
-        "Arn" => String.t(),
-        "BillingToken" => String.t(),
+        "Arn" => String.t() | atom(),
+        "BillingToken" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "NetworkType" => list(any()),
         "Status" => list(any()),
         "Tags" => map(),
@@ -105,7 +105,7 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type accessor() :: %{String.t() => any()}
+  @type accessor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -113,11 +113,11 @@ defmodule AWS.ManagedBlockchain do
 
       list_proposal_votes_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_proposal_votes_input() :: %{String.t() => any()}
+  @type list_proposal_votes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -125,11 +125,11 @@ defmodule AWS.ManagedBlockchain do
 
       network_fabric_attributes() :: %{
         "Edition" => list(any()),
-        "OrderingServiceEndpoint" => String.t()
+        "OrderingServiceEndpoint" => String.t() | atom()
       }
 
   """
-  @type network_fabric_attributes() :: %{String.t() => any()}
+  @type network_fabric_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -137,11 +137,11 @@ defmodule AWS.ManagedBlockchain do
 
       list_proposals_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_proposals_input() :: %{String.t() => any()}
+  @type list_proposals_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -157,13 +157,13 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       create_member_input() :: %{
-        required("ClientRequestToken") => String.t(),
-        required("InvitationId") => String.t(),
+        required("ClientRequestToken") => String.t() | atom(),
+        required("InvitationId") => String.t() | atom(),
         required("MemberConfiguration") => member_configuration()
       }
 
   """
-  @type create_member_input() :: %{String.t() => any()}
+  @type create_member_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -171,11 +171,11 @@ defmodule AWS.ManagedBlockchain do
 
       list_members_output() :: %{
         "Members" => list(member_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_members_output() :: %{String.t() => any()}
+  @type list_members_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -187,7 +187,7 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type proposal_actions() :: %{String.t() => any()}
+  @type proposal_actions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -198,7 +198,7 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type network_framework_configuration() :: %{String.t() => any()}
+  @type network_framework_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -218,7 +218,7 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type get_proposal_output() :: %{String.t() => any()}
+  @type get_proposal_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -231,23 +231,23 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type approval_threshold_policy() :: %{String.t() => any()}
+  @type approval_threshold_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invitation() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
         "ExpirationDate" => non_neg_integer(),
-        "InvitationId" => String.t(),
+        "InvitationId" => String.t() | atom(),
         "NetworkSummary" => network_summary(),
         "Status" => list(any())
       }
 
   """
-  @type invitation() :: %{String.t() => any()}
+  @type invitation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -258,7 +258,7 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type get_accessor_output() :: %{String.t() => any()}
+  @type get_accessor_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -276,11 +276,11 @@ defmodule AWS.ManagedBlockchain do
       list_accessors_input() :: %{
         optional("MaxResults") => integer(),
         optional("NetworkType") => list(any()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_accessors_input() :: %{String.t() => any()}
+  @type list_accessors_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -292,19 +292,19 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type node_fabric_log_publishing_configuration() :: %{String.t() => any()}
+  @type node_fabric_log_publishing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       node_fabric_attributes() :: %{
-        "PeerEndpoint" => String.t(),
-        "PeerEventEndpoint" => String.t()
+        "PeerEndpoint" => String.t() | atom(),
+        "PeerEventEndpoint" => String.t() | atom()
       }
 
   """
-  @type node_fabric_attributes() :: %{String.t() => any()}
+  @type node_fabric_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -324,7 +324,7 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type network_fabric_configuration() :: %{String.t() => any()}
+  @type network_fabric_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -333,40 +333,40 @@ defmodule AWS.ManagedBlockchain do
       list_networks_input() :: %{
         optional("Framework") => list(any()),
         optional("MaxResults") => integer(),
-        optional("Name") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("Name") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("Status") => list(any())
       }
 
   """
-  @type list_networks_input() :: %{String.t() => any()}
+  @type list_networks_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       member_configuration() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "FrameworkConfiguration" => member_framework_configuration(),
-        "KmsKeyArn" => String.t(),
+        "KmsKeyArn" => String.t() | atom(),
         "LogPublishingConfiguration" => member_log_publishing_configuration(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type member_configuration() :: %{String.t() => any()}
+  @type member_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -377,7 +377,7 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type member_fabric_log_publishing_configuration() :: %{String.t() => any()}
+  @type member_fabric_log_publishing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -394,13 +394,13 @@ defmodule AWS.ManagedBlockchain do
 
       list_nodes_input() :: %{
         optional("MaxResults") => integer(),
-        optional("MemberId") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("MemberId") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("Status") => list(any())
       }
 
   """
-  @type list_nodes_input() :: %{String.t() => any()}
+  @type list_nodes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -411,26 +411,26 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type member_framework_attributes() :: %{String.t() => any()}
+  @type member_framework_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_network_input() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("FrameworkConfiguration") => network_framework_configuration(),
         optional("Tags") => map(),
-        required("ClientRequestToken") => String.t(),
+        required("ClientRequestToken") => String.t() | atom(),
         required("Framework") => list(any()),
-        required("FrameworkVersion") => String.t(),
+        required("FrameworkVersion") => String.t() | atom(),
         required("MemberConfiguration") => member_configuration(),
-        required("Name") => String.t(),
+        required("Name") => String.t() | atom(),
         required("VotingPolicy") => voting_policy()
       }
 
   """
-  @type create_network_input() :: %{String.t() => any()}
+  @type create_network_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -446,15 +446,15 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       create_proposal_input() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
         required("Actions") => proposal_actions(),
-        required("ClientRequestToken") => String.t(),
-        required("MemberId") => String.t()
+        required("ClientRequestToken") => String.t() | atom(),
+        required("MemberId") => String.t() | atom()
       }
 
   """
-  @type create_proposal_input() :: %{String.t() => any()}
+  @type create_proposal_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -470,12 +470,12 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       list_proposal_votes_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ProposalVotes" => list(vote_summary())
       }
 
   """
-  @type list_proposal_votes_output() :: %{String.t() => any()}
+  @type list_proposal_votes_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -486,7 +486,7 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type get_network_output() :: %{String.t() => any()}
+  @type get_network_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -494,11 +494,11 @@ defmodule AWS.ManagedBlockchain do
 
       update_node_input() :: %{
         optional("LogPublishingConfiguration") => node_log_publishing_configuration(),
-        optional("MemberId") => String.t()
+        optional("MemberId") => String.t() | atom()
       }
 
   """
-  @type update_node_input() :: %{String.t() => any()}
+  @type update_node_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -514,12 +514,12 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "ResourceName" => String.t()
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -527,11 +527,11 @@ defmodule AWS.ManagedBlockchain do
 
       list_networks_output() :: %{
         "Networks" => list(network_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_networks_output() :: %{String.t() => any()}
+  @type list_networks_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -542,41 +542,41 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type update_member_input() :: %{String.t() => any()}
+  @type update_member_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       managedblockchain_node() :: %{
-        "Arn" => String.t(),
-        "AvailabilityZone" => String.t(),
+        "Arn" => String.t() | atom(),
+        "AvailabilityZone" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
         "FrameworkAttributes" => node_framework_attributes(),
-        "Id" => String.t(),
-        "InstanceType" => String.t(),
-        "KmsKeyArn" => String.t(),
+        "Id" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
+        "KmsKeyArn" => String.t() | atom(),
         "LogPublishingConfiguration" => node_log_publishing_configuration(),
-        "MemberId" => String.t(),
-        "NetworkId" => String.t(),
+        "MemberId" => String.t() | atom(),
+        "NetworkId" => String.t() | atom(),
         "StateDB" => list(any()),
         "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type managedblockchain_node() :: %{String.t() => any()}
+  @type managedblockchain_node() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -587,29 +587,29 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type node_log_publishing_configuration() :: %{String.t() => any()}
+  @type node_log_publishing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invite_action() :: %{
-        "Principal" => String.t()
+        "Principal" => String.t() | atom()
       }
 
   """
-  @type invite_action() :: %{String.t() => any()}
+  @type invite_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_limit_exceeded_exception() :: %{String.t() => any()}
+  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -629,7 +629,7 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -640,19 +640,19 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type get_member_output() :: %{String.t() => any()}
+  @type get_member_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       member_fabric_configuration() :: %{
-        "AdminPassword" => String.t(),
-        "AdminUsername" => String.t()
+        "AdminPassword" => String.t() | atom(),
+        "AdminUsername" => String.t() | atom()
       }
 
   """
-  @type member_fabric_configuration() :: %{String.t() => any()}
+  @type member_fabric_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -661,13 +661,13 @@ defmodule AWS.ManagedBlockchain do
       list_members_input() :: %{
         optional("IsOwned") => boolean(),
         optional("MaxResults") => integer(),
-        optional("Name") => String.t(),
-        optional("NextToken") => String.t(),
+        optional("Name") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("Status") => list(any())
       }
 
   """
-  @type list_members_input() :: %{String.t() => any()}
+  @type list_members_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -675,11 +675,11 @@ defmodule AWS.ManagedBlockchain do
 
       vote_on_proposal_input() :: %{
         required("Vote") => list(any()),
-        required("VoterMemberId") => String.t()
+        required("VoterMemberId") => String.t() | atom()
       }
 
   """
-  @type vote_on_proposal_input() :: %{String.t() => any()}
+  @type vote_on_proposal_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -695,29 +695,29 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       create_accessor_output() :: %{
-        "AccessorId" => String.t(),
-        "BillingToken" => String.t(),
+        "AccessorId" => String.t() | atom(),
+        "BillingToken" => String.t() | atom(),
         "NetworkType" => list(any())
       }
 
   """
-  @type create_accessor_output() :: %{String.t() => any()}
+  @type create_accessor_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       accessor_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "NetworkType" => list(any()),
         "Status" => list(any()),
         "Type" => list(any())
       }
 
   """
-  @type accessor_summary() :: %{String.t() => any()}
+  @type accessor_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -725,45 +725,45 @@ defmodule AWS.ManagedBlockchain do
 
       proposal() :: %{
         "Actions" => proposal_actions(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "ExpirationDate" => non_neg_integer(),
-        "NetworkId" => String.t(),
+        "NetworkId" => String.t() | atom(),
         "NoVoteCount" => integer(),
         "OutstandingVoteCount" => integer(),
-        "ProposalId" => String.t(),
-        "ProposedByMemberId" => String.t(),
-        "ProposedByMemberName" => String.t(),
+        "ProposalId" => String.t() | atom(),
+        "ProposedByMemberId" => String.t() | atom(),
+        "ProposedByMemberName" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => map(),
         "YesVoteCount" => integer()
       }
 
   """
-  @type proposal() :: %{String.t() => any()}
+  @type proposal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_node_input() :: %{
-        optional("MemberId") => String.t()
+        optional("MemberId") => String.t() | atom()
       }
 
   """
-  @type get_node_input() :: %{String.t() => any()}
+  @type get_node_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -784,40 +784,40 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type network_framework_attributes() :: %{String.t() => any()}
+  @type network_framework_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       remove_action() :: %{
-        "MemberId" => String.t()
+        "MemberId" => String.t() | atom()
       }
 
   """
-  @type remove_action() :: %{String.t() => any()}
+  @type remove_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "Framework" => list(any()),
         "FrameworkAttributes" => network_framework_attributes(),
-        "FrameworkVersion" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "FrameworkVersion" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => map(),
         "VotingPolicy" => voting_policy(),
-        "VpcEndpointServiceName" => String.t()
+        "VpcEndpointServiceName" => String.t() | atom()
       }
 
   """
-  @type network() :: %{String.t() => any()}
+  @type network() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -833,34 +833,34 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       proposal_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "ExpirationDate" => non_neg_integer(),
-        "ProposalId" => String.t(),
-        "ProposedByMemberId" => String.t(),
-        "ProposedByMemberName" => String.t(),
+        "ProposalId" => String.t() | atom(),
+        "ProposedByMemberId" => String.t() | atom(),
+        "ProposedByMemberName" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type proposal_summary() :: %{String.t() => any()}
+  @type proposal_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       node_summary() :: %{
-        "Arn" => String.t(),
-        "AvailabilityZone" => String.t(),
+        "Arn" => String.t() | atom(),
+        "AvailabilityZone" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
-        "Id" => String.t(),
-        "InstanceType" => String.t(),
+        "Id" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type node_summary() :: %{String.t() => any()}
+  @type node_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -876,11 +876,11 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       delete_node_input() :: %{
-        optional("MemberId") => String.t()
+        optional("MemberId") => String.t() | atom()
       }
 
   """
-  @type delete_node_input() :: %{String.t() => any()}
+  @type delete_node_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -890,11 +890,11 @@ defmodule AWS.ManagedBlockchain do
         optional("NetworkType") => list(any()),
         optional("Tags") => map(),
         required("AccessorType") => list(any()),
-        required("ClientRequestToken") => String.t()
+        required("ClientRequestToken") => String.t() | atom()
       }
 
   """
-  @type create_accessor_input() :: %{String.t() => any()}
+  @type create_accessor_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -911,11 +911,11 @@ defmodule AWS.ManagedBlockchain do
 
       list_invitations_output() :: %{
         "Invitations" => list(invitation()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_invitations_output() :: %{String.t() => any()}
+  @type list_invitations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -931,92 +931,92 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       network_ethereum_attributes() :: %{
-        "ChainId" => String.t()
+        "ChainId" => String.t() | atom()
       }
 
   """
-  @type network_ethereum_attributes() :: %{String.t() => any()}
+  @type network_ethereum_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       member() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "FrameworkAttributes" => member_framework_attributes(),
-        "Id" => String.t(),
-        "KmsKeyArn" => String.t(),
+        "Id" => String.t() | atom(),
+        "KmsKeyArn" => String.t() | atom(),
         "LogPublishingConfiguration" => member_log_publishing_configuration(),
-        "Name" => String.t(),
-        "NetworkId" => String.t(),
+        "Name" => String.t() | atom(),
+        "NetworkId" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type member() :: %{String.t() => any()}
+  @type member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_node_output() :: %{
-        "NodeId" => String.t()
+        "NodeId" => String.t() | atom()
       }
 
   """
-  @type create_node_output() :: %{String.t() => any()}
+  @type create_node_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "Framework" => list(any()),
-        "FrameworkVersion" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "FrameworkVersion" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type network_summary() :: %{String.t() => any()}
+  @type network_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       member_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "IsOwned" => boolean(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type member_summary() :: %{String.t() => any()}
+  @type member_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       node_configuration() :: %{
-        "AvailabilityZone" => String.t(),
-        "InstanceType" => String.t(),
+        "AvailabilityZone" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
         "LogPublishingConfiguration" => node_log_publishing_configuration(),
         "StateDB" => list(any())
       }
 
   """
-  @type node_configuration() :: %{String.t() => any()}
+  @type node_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1032,12 +1032,12 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       member_fabric_attributes() :: %{
-        "AdminUsername" => String.t(),
-        "CaEndpoint" => String.t()
+        "AdminUsername" => String.t() | atom(),
+        "CaEndpoint" => String.t() | atom()
       }
 
   """
-  @type member_fabric_attributes() :: %{String.t() => any()}
+  @type member_fabric_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1048,7 +1048,7 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type log_configurations() :: %{String.t() => any()}
+  @type log_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1056,36 +1056,36 @@ defmodule AWS.ManagedBlockchain do
 
       list_invitations_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_invitations_input() :: %{String.t() => any()}
+  @type list_invitations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_already_exists_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_node_input() :: %{
-        optional("MemberId") => String.t(),
+        optional("MemberId") => String.t() | atom(),
         optional("Tags") => map(),
-        required("ClientRequestToken") => String.t(),
+        required("ClientRequestToken") => String.t() | atom(),
         required("NodeConfiguration") => node_configuration()
       }
 
   """
-  @type create_node_input() :: %{String.t() => any()}
+  @type create_node_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1096,18 +1096,18 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type log_configuration() :: %{String.t() => any()}
+  @type log_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       illegal_action_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type illegal_action_exception() :: %{String.t() => any()}
+  @type illegal_action_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1118,41 +1118,41 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type member_log_publishing_configuration() :: %{String.t() => any()}
+  @type member_log_publishing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_nodes_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Nodes" => list(node_summary())
       }
 
   """
-  @type list_nodes_output() :: %{String.t() => any()}
+  @type list_nodes_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_ready_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_not_ready_exception() :: %{String.t() => any()}
+  @type resource_not_ready_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_member_output() :: %{
-        "MemberId" => String.t()
+        "MemberId" => String.t() | atom()
       }
 
   """
-  @type create_member_output() :: %{String.t() => any()}
+  @type create_member_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1169,11 +1169,11 @@ defmodule AWS.ManagedBlockchain do
 
       list_accessors_output() :: %{
         "Accessors" => list(accessor_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_accessors_output() :: %{String.t() => any()}
+  @type list_accessors_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1185,43 +1185,43 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type node_framework_attributes() :: %{String.t() => any()}
+  @type node_framework_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_tags_exception() :: %{
-        "Message" => String.t(),
-        "ResourceName" => String.t()
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
       }
 
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_network_output() :: %{
-        "MemberId" => String.t(),
-        "NetworkId" => String.t()
+        "MemberId" => String.t() | atom(),
+        "NetworkId" => String.t() | atom()
       }
 
   """
-  @type create_network_output() :: %{String.t() => any()}
+  @type create_network_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_proposals_output() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Proposals" => list(proposal_summary())
       }
 
   """
-  @type list_proposals_output() :: %{String.t() => any()}
+  @type list_proposals_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1232,7 +1232,7 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type get_node_output() :: %{String.t() => any()}
+  @type get_node_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1243,20 +1243,20 @@ defmodule AWS.ManagedBlockchain do
       }
 
   """
-  @type member_framework_configuration() :: %{String.t() => any()}
+  @type member_framework_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vote_summary() :: %{
-        "MemberId" => String.t(),
-        "MemberName" => String.t(),
+        "MemberId" => String.t() | atom(),
+        "MemberName" => String.t() | atom(),
         "Vote" => list(any())
       }
 
   """
-  @type vote_summary() :: %{String.t() => any()}
+  @type vote_summary() :: %{(String.t() | atom()) => any()}
 
   @type create_accessor_errors() ::
           too_many_tags_exception()
@@ -1512,7 +1512,7 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
-  @spec create_member(map(), String.t(), create_member_input(), list()) ::
+  @spec create_member(map(), String.t() | atom(), create_member_input(), list()) ::
           {:ok, create_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1574,7 +1574,7 @@ defmodule AWS.ManagedBlockchain do
 
   Applies to Hyperledger Fabric and Ethereum.
   """
-  @spec create_node(map(), String.t(), create_node_input(), list()) ::
+  @spec create_node(map(), String.t() | atom(), create_node_input(), list()) ::
           {:ok, create_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1608,7 +1608,7 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
-  @spec create_proposal(map(), String.t(), create_proposal_input(), list()) ::
+  @spec create_proposal(map(), String.t() | atom(), create_proposal_input(), list()) ::
           {:ok, create_proposal_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1648,7 +1648,7 @@ defmodule AWS.ManagedBlockchain do
   accessor was in the
   `AVAILABLE` state remain open until they expire (up to 2 hours).
   """
-  @spec delete_accessor(map(), String.t(), delete_accessor_input(), list()) ::
+  @spec delete_accessor(map(), String.t() | atom(), delete_accessor_input(), list()) ::
           {:ok, delete_accessor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1687,7 +1687,13 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
-  @spec delete_member(map(), String.t(), String.t(), delete_member_input(), list()) ::
+  @spec delete_member(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_member_input(),
+          list()
+        ) ::
           {:ok, delete_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1722,7 +1728,7 @@ defmodule AWS.ManagedBlockchain do
 
   Applies to Hyperledger Fabric and Ethereum.
   """
-  @spec delete_node(map(), String.t(), String.t(), delete_node_input(), list()) ::
+  @spec delete_node(map(), String.t() | atom(), String.t() | atom(), delete_node_input(), list()) ::
           {:ok, delete_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1761,7 +1767,7 @@ defmodule AWS.ManagedBlockchain do
   An accessor object is a container that has the
   information required for token based access to your Ethereum nodes.
   """
-  @spec get_accessor(map(), String.t(), list()) ::
+  @spec get_accessor(map(), String.t() | atom(), list()) ::
           {:ok, get_accessor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1781,7 +1787,7 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
-  @spec get_member(map(), String.t(), String.t(), list()) ::
+  @spec get_member(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1803,7 +1809,7 @@ defmodule AWS.ManagedBlockchain do
 
   Applies to Hyperledger Fabric and Ethereum.
   """
-  @spec get_network(map(), String.t(), list()) ::
+  @spec get_network(map(), String.t() | atom(), list()) ::
           {:ok, get_network_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1823,7 +1829,13 @@ defmodule AWS.ManagedBlockchain do
 
   Applies to Hyperledger Fabric and Ethereum.
   """
-  @spec get_node(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec get_node(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1852,7 +1864,7 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
-  @spec get_proposal(map(), String.t(), String.t(), list()) ::
+  @spec get_proposal(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_proposal_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1875,7 +1887,13 @@ defmodule AWS.ManagedBlockchain do
   Accessor objects are containers that have the
   information required for token based access to your Ethereum nodes.
   """
-  @spec list_accessors(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_accessors(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_accessors_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1922,7 +1940,7 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
-  @spec list_invitations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_invitations(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_invitations_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1959,12 +1977,12 @@ defmodule AWS.ManagedBlockchain do
   """
   @spec list_members(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_members_output(), any()}
@@ -2033,11 +2051,11 @@ defmodule AWS.ManagedBlockchain do
   """
   @spec list_networks(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_networks_output(), any()}
@@ -2104,11 +2122,11 @@ defmodule AWS.ManagedBlockchain do
   """
   @spec list_nodes(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_nodes_output(), any()}
@@ -2169,10 +2187,10 @@ defmodule AWS.ManagedBlockchain do
   """
   @spec list_proposal_votes(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_proposal_votes_output(), any()}
@@ -2217,7 +2235,13 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
-  @spec list_proposals(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_proposals(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_proposals_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2261,7 +2285,7 @@ defmodule AWS.ManagedBlockchain do
   in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html)
   in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2284,7 +2308,7 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
-  @spec reject_invitation(map(), String.t(), reject_invitation_input(), list()) ::
+  @spec reject_invitation(map(), String.t() | atom(), reject_invitation_input(), list()) ::
           {:ok, reject_invitation_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2326,7 +2350,7 @@ defmodule AWS.ManagedBlockchain do
   in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html)
   in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2359,7 +2383,7 @@ defmodule AWS.ManagedBlockchain do
   in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html)
   in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2395,7 +2419,13 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
-  @spec update_member(map(), String.t(), String.t(), update_member_input(), list()) ::
+  @spec update_member(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_member_input(),
+          list()
+        ) ::
           {:ok, update_member_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2428,7 +2458,7 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
-  @spec update_node(map(), String.t(), String.t(), update_node_input(), list()) ::
+  @spec update_node(map(), String.t() | atom(), String.t() | atom(), update_node_input(), list()) ::
           {:ok, update_node_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2464,7 +2494,13 @@ defmodule AWS.ManagedBlockchain do
 
   Applies only to Hyperledger Fabric.
   """
-  @spec vote_on_proposal(map(), String.t(), String.t(), vote_on_proposal_input(), list()) ::
+  @spec vote_on_proposal(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          vote_on_proposal_input(),
+          list()
+        ) ::
           {:ok, vote_on_proposal_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

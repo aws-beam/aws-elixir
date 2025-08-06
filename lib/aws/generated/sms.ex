@@ -41,41 +41,41 @@ defmodule AWS.SMS do
       connector() :: %{
         "associatedOn" => non_neg_integer(),
         "capabilityList" => list(list(any())()),
-        "connectorId" => String.t(),
-        "ipAddress" => String.t(),
-        "macAddress" => String.t(),
+        "connectorId" => String.t() | atom(),
+        "ipAddress" => String.t() | atom(),
+        "macAddress" => String.t() | atom(),
         "status" => list(any()),
-        "version" => String.t(),
-        "vmManagerId" => String.t(),
-        "vmManagerName" => String.t(),
+        "version" => String.t() | atom(),
+        "vmManagerId" => String.t() | atom(),
+        "vmManagerName" => String.t() | atom(),
         "vmManagerType" => list(any())
       }
       
   """
-  @type connector() :: %{String.t() => any()}
+  @type connector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_app_launch_configuration_request() :: %{
-        optional("appId") => String.t()
+        optional("appId") => String.t() | atom()
       }
       
   """
-  @type get_app_launch_configuration_request() :: %{String.t() => any()}
+  @type get_app_launch_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_replication_jobs_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "replicationJobList" => list(replication_job())
       }
       
   """
-  @type get_replication_jobs_response() :: %{String.t() => any()}
+  @type get_replication_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -83,11 +83,11 @@ defmodule AWS.SMS do
       
       list_apps_response() :: %{
         "apps" => list(app_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_apps_response() :: %{String.t() => any()}
+  @type list_apps_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -112,38 +112,38 @@ defmodule AWS.SMS do
   ## Example:
       
       terminate_app_request() :: %{
-        optional("appId") => String.t()
+        optional("appId") => String.t() | atom()
       }
       
   """
-  @type terminate_app_request() :: %{String.t() => any()}
+  @type terminate_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_app_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("name") => String.t(),
-        optional("roleName") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("roleName") => String.t() | atom(),
         optional("serverGroups") => list(server_group()),
         optional("tags") => list(tag())
       }
       
   """
-  @type create_app_request() :: %{String.t() => any()}
+  @type create_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       dry_run_operation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type dry_run_operation_exception() :: %{String.t() => any()}
+  @type dry_run_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -159,12 +159,12 @@ defmodule AWS.SMS do
   ## Example:
       
       generate_change_set_request() :: %{
-        optional("appId") => String.t(),
+        optional("appId") => String.t() | atom(),
         optional("changesetFormat") => list(any())
       }
       
   """
-  @type generate_change_set_request() :: %{String.t() => any()}
+  @type generate_change_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -191,7 +191,7 @@ defmodule AWS.SMS do
       server_replication_parameters() :: %{
         "encrypted" => boolean(),
         "frequency" => integer(),
-        "kmsKeyId" => String.t(),
+        "kmsKeyId" => String.t() | atom(),
         "licenseType" => list(any()),
         "numberOfRecentAmisToKeep" => integer(),
         "runOnce" => boolean(),
@@ -199,7 +199,7 @@ defmodule AWS.SMS do
       }
       
   """
-  @type server_replication_parameters() :: %{String.t() => any()}
+  @type server_replication_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -215,72 +215,72 @@ defmodule AWS.SMS do
   ## Example:
       
       delete_app_launch_configuration_request() :: %{
-        optional("appId") => String.t()
+        optional("appId") => String.t() | atom()
       }
       
   """
-  @type delete_app_launch_configuration_request() :: %{String.t() => any()}
+  @type delete_app_launch_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_replication_job_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("encrypted") => boolean(),
         optional("frequency") => integer(),
-        optional("kmsKeyId") => String.t(),
+        optional("kmsKeyId") => String.t() | atom(),
         optional("licenseType") => list(any()),
         optional("numberOfRecentAmisToKeep") => integer(),
-        optional("roleName") => String.t(),
+        optional("roleName") => String.t() | atom(),
         optional("runOnce") => boolean(),
         required("seedReplicationTime") => non_neg_integer(),
-        required("serverId") => String.t()
+        required("serverId") => String.t() | atom()
       }
       
   """
-  @type create_replication_job_request() :: %{String.t() => any()}
+  @type create_replication_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unauthorized_operation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type unauthorized_operation_exception() :: %{String.t() => any()}
+  @type unauthorized_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       replication_job_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type replication_job_not_found_exception() :: %{String.t() => any()}
+  @type replication_job_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_replication_job_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("encrypted") => boolean(),
         optional("frequency") => integer(),
-        optional("kmsKeyId") => String.t(),
+        optional("kmsKeyId") => String.t() | atom(),
         optional("licenseType") => list(any()),
         optional("nextReplicationRunStartTime") => non_neg_integer(),
         optional("numberOfRecentAmisToKeep") => integer(),
-        optional("roleName") => String.t(),
-        required("replicationJobId") => String.t()
+        optional("roleName") => String.t() | atom(),
+        required("replicationJobId") => String.t() | atom()
       }
       
   """
-  @type update_replication_job_request() :: %{String.t() => any()}
+  @type update_replication_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -296,26 +296,26 @@ defmodule AWS.SMS do
   ## Example:
       
       vm_server() :: %{
-        "vmManagerName" => String.t(),
+        "vmManagerName" => String.t() | atom(),
         "vmManagerType" => list(any()),
-        "vmName" => String.t(),
-        "vmPath" => String.t(),
+        "vmName" => String.t() | atom(),
+        "vmPath" => String.t() | atom(),
         "vmServerAddress" => vm_server_address()
       }
       
   """
-  @type vm_server() :: %{String.t() => any()}
+  @type vm_server() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       missing_required_parameter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type missing_required_parameter_exception() :: %{String.t() => any()}
+  @type missing_required_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -323,50 +323,50 @@ defmodule AWS.SMS do
       
       get_connectors_response() :: %{
         "connectorList" => list(connector()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type get_connectors_response() :: %{String.t() => any()}
+  @type get_connectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_app_replication_configuration_request() :: %{
-        optional("appId") => String.t(),
+        optional("appId") => String.t() | atom(),
         optional("serverGroupReplicationConfigurations") => list(server_group_replication_configuration())
       }
       
   """
-  @type put_app_replication_configuration_request() :: %{String.t() => any()}
+  @type put_app_replication_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       launch_app_request() :: %{
-        optional("appId") => String.t()
+        optional("appId") => String.t() | atom()
       }
       
   """
-  @type launch_app_request() :: %{String.t() => any()}
+  @type launch_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s_s_m_validation_parameters() :: %{
-        "command" => String.t(),
+        "command" => String.t() | atom(),
         "executionTimeoutSeconds" => integer(),
-        "instanceId" => String.t(),
-        "outputS3BucketName" => String.t(),
+        "instanceId" => String.t() | atom(),
+        "outputS3BucketName" => String.t() | atom(),
         "scriptType" => list(any()),
         "source" => source()
       }
       
   """
-  @type s_s_m_validation_parameters() :: %{String.t() => any()}
+  @type s_s_m_validation_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -383,12 +383,12 @@ defmodule AWS.SMS do
       
       server_group_launch_configuration() :: %{
         "launchOrder" => integer(),
-        "serverGroupId" => String.t(),
+        "serverGroupId" => String.t() | atom(),
         "serverLaunchConfigurations" => list(server_launch_configuration())
       }
       
   """
-  @type server_group_launch_configuration() :: %{String.t() => any()}
+  @type server_group_launch_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -404,23 +404,23 @@ defmodule AWS.SMS do
   ## Example:
       
       server_cannot_be_replicated_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type server_cannot_be_replicated_exception() :: %{String.t() => any()}
+  @type server_cannot_be_replicated_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       replication_run_stage_details() :: %{
-        "stage" => String.t(),
-        "stageProgress" => String.t()
+        "stage" => String.t() | atom(),
+        "stageProgress" => String.t() | atom()
       }
       
   """
-  @type replication_run_stage_details() :: %{String.t() => any()}
+  @type replication_run_stage_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -429,15 +429,15 @@ defmodule AWS.SMS do
       validation_output() :: %{
         "appValidationOutput" => app_validation_output(),
         "latestValidationTime" => non_neg_integer(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "serverValidationOutput" => server_validation_output(),
         "status" => list(any()),
-        "statusMessage" => String.t(),
-        "validationId" => String.t()
+        "statusMessage" => String.t() | atom(),
+        "validationId" => String.t() | atom()
       }
       
   """
-  @type validation_output() :: %{String.t() => any()}
+  @type validation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -448,41 +448,41 @@ defmodule AWS.SMS do
       }
       
   """
-  @type user_data() :: %{String.t() => any()}
+  @type user_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       server_group_replication_configuration() :: %{
-        "serverGroupId" => String.t(),
+        "serverGroupId" => String.t() | atom(),
         "serverReplicationConfigurations" => list(server_replication_configuration())
       }
       
   """
-  @type server_group_replication_configuration() :: %{String.t() => any()}
+  @type server_group_replication_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_app_request() :: %{
-        optional("appId") => String.t()
+        optional("appId") => String.t() | atom()
       }
       
   """
-  @type get_app_request() :: %{String.t() => any()}
+  @type get_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_replication_job_request() :: %{
-        required("replicationJobId") => String.t()
+        required("replicationJobId") => String.t() | atom()
       }
       
   """
-  @type delete_replication_job_request() :: %{String.t() => any()}
+  @type delete_replication_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -490,23 +490,23 @@ defmodule AWS.SMS do
       
       get_servers_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("vmServerAddressList") => list(vm_server_address())
       }
       
   """
-  @type get_servers_request() :: %{String.t() => any()}
+  @type get_servers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_app_replication_configuration_request() :: %{
-        optional("appId") => String.t()
+        optional("appId") => String.t() | atom()
       }
       
   """
-  @type get_app_replication_configuration_request() :: %{String.t() => any()}
+  @type get_app_replication_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -523,61 +523,61 @@ defmodule AWS.SMS do
       
       app_validation_configuration() :: %{
         "appValidationStrategy" => list(any()),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "ssmValidationParameters" => s_s_m_validation_parameters(),
-        "validationId" => String.t()
+        "validationId" => String.t() | atom()
       }
       
   """
-  @type app_validation_configuration() :: %{String.t() => any()}
+  @type app_validation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_app_launch_configuration_request() :: %{
-        optional("appId") => String.t(),
+        optional("appId") => String.t() | atom(),
         optional("autoLaunch") => boolean(),
-        optional("roleName") => String.t(),
+        optional("roleName") => String.t() | atom(),
         optional("serverGroupLaunchConfigurations") => list(server_group_launch_configuration())
       }
       
   """
-  @type put_app_launch_configuration_request() :: %{String.t() => any()}
+  @type put_app_launch_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_app_replication_configuration_request() :: %{
-        optional("appId") => String.t()
+        optional("appId") => String.t() | atom()
       }
       
   """
-  @type delete_app_replication_configuration_request() :: %{String.t() => any()}
+  @type delete_app_replication_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_error() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type internal_error() :: %{String.t() => any()}
+  @type internal_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -593,11 +593,11 @@ defmodule AWS.SMS do
   ## Example:
       
       no_connectors_available_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type no_connectors_available_exception() :: %{String.t() => any()}
+  @type no_connectors_available_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -613,11 +613,11 @@ defmodule AWS.SMS do
   ## Example:
       
       start_app_replication_request() :: %{
-        optional("appId") => String.t()
+        optional("appId") => String.t() | atom()
       }
       
   """
-  @type start_app_replication_request() :: %{String.t() => any()}
+  @type start_app_replication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -625,11 +625,11 @@ defmodule AWS.SMS do
       
       get_connectors_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type get_connectors_request() :: %{String.t() => any()}
+  @type get_connectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -640,7 +640,7 @@ defmodule AWS.SMS do
       }
       
   """
-  @type generate_template_response() :: %{String.t() => any()}
+  @type generate_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -651,7 +651,7 @@ defmodule AWS.SMS do
       }
       
   """
-  @type generate_change_set_response() :: %{String.t() => any()}
+  @type generate_change_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -660,23 +660,23 @@ defmodule AWS.SMS do
       put_app_validation_configuration_request() :: %{
         optional("appValidationConfigurations") => list(app_validation_configuration()),
         optional("serverGroupValidationConfigurations") => list(server_group_validation_configuration()),
-        required("appId") => String.t()
+        required("appId") => String.t() | atom()
       }
       
   """
-  @type put_app_validation_configuration_request() :: %{String.t() => any()}
+  @type put_app_validation_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       vm_server_address() :: %{
-        "vmId" => String.t(),
-        "vmManagerId" => String.t()
+        "vmId" => String.t() | atom(),
+        "vmManagerId" => String.t() | atom()
       }
       
   """
-  @type vm_server_address() :: %{String.t() => any()}
+  @type vm_server_address() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -688,7 +688,7 @@ defmodule AWS.SMS do
       }
       
   """
-  @type user_data_validation_parameters() :: %{String.t() => any()}
+  @type user_data_validation_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -699,18 +699,18 @@ defmodule AWS.SMS do
       }
       
   """
-  @type server_validation_output() :: %{String.t() => any()}
+  @type server_validation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_not_permitted_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type operation_not_permitted_exception() :: %{String.t() => any()}
+  @type operation_not_permitted_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -721,81 +721,81 @@ defmodule AWS.SMS do
       }
       
   """
-  @type s_s_m_output() :: %{String.t() => any()}
+  @type s_s_m_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_location() :: %{
-        "bucket" => String.t(),
-        "key" => String.t()
+        "bucket" => String.t() | atom(),
+        "key" => String.t() | atom()
       }
       
   """
-  @type s3_location() :: %{String.t() => any()}
+  @type s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_app_catalog_request() :: %{
-        optional("roleName") => String.t()
+        optional("roleName") => String.t() | atom()
       }
       
   """
-  @type import_app_catalog_request() :: %{String.t() => any()}
+  @type import_app_catalog_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_app_replication_request() :: %{
-        optional("appId") => String.t()
+        optional("appId") => String.t() | atom()
       }
       
   """
-  @type stop_app_replication_request() :: %{String.t() => any()}
+  @type stop_app_replication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       replication_job_already_exists_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type replication_job_already_exists_exception() :: %{String.t() => any()}
+  @type replication_job_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       app_summary() :: %{
-        "appId" => String.t(),
+        "appId" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
-        "importedAppId" => String.t(),
+        "description" => String.t() | atom(),
+        "importedAppId" => String.t() | atom(),
         "lastModified" => non_neg_integer(),
         "latestReplicationTime" => non_neg_integer(),
         "launchConfigurationStatus" => list(any()),
         "launchDetails" => launch_details(),
         "launchStatus" => list(any()),
-        "launchStatusMessage" => String.t(),
-        "name" => String.t(),
+        "launchStatusMessage" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "replicationConfigurationStatus" => list(any()),
         "replicationStatus" => list(any()),
-        "replicationStatusMessage" => String.t(),
-        "roleName" => String.t(),
+        "replicationStatusMessage" => String.t() | atom(),
+        "roleName" => String.t() | atom(),
         "status" => list(any()),
-        "statusMessage" => String.t(),
+        "statusMessage" => String.t() | atom(),
         "totalServerGroups" => integer(),
         "totalServers" => integer()
       }
       
   """
-  @type app_summary() :: %{String.t() => any()}
+  @type app_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -817,18 +817,18 @@ defmodule AWS.SMS do
       }
       
   """
-  @type get_app_response() :: %{String.t() => any()}
+  @type get_app_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_app_validation_configuration_request() :: %{
-        required("appId") => String.t()
+        required("appId") => String.t() | atom()
       }
       
   """
-  @type get_app_validation_configuration_request() :: %{String.t() => any()}
+  @type get_app_validation_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -841,7 +841,7 @@ defmodule AWS.SMS do
       }
       
   """
-  @type update_app_response() :: %{String.t() => any()}
+  @type update_app_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -852,44 +852,44 @@ defmodule AWS.SMS do
       }
       
   """
-  @type source() :: %{String.t() => any()}
+  @type source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       server_group_validation_configuration() :: %{
-        "serverGroupId" => String.t(),
+        "serverGroupId" => String.t() | atom(),
         "serverValidationConfigurations" => list(server_validation_configuration())
       }
       
   """
-  @type server_group_validation_configuration() :: %{String.t() => any()}
+  @type server_group_validation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       generate_template_request() :: %{
-        optional("appId") => String.t(),
+        optional("appId") => String.t() | atom(),
         optional("templateFormat") => list(any())
       }
       
   """
-  @type generate_template_request() :: %{String.t() => any()}
+  @type generate_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_app_request() :: %{
-        optional("appId") => String.t(),
+        optional("appId") => String.t() | atom(),
         optional("forceStopAppReplication") => boolean(),
         optional("forceTerminateApp") => boolean()
       }
       
   """
-  @type delete_app_request() :: %{String.t() => any()}
+  @type delete_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -910,7 +910,7 @@ defmodule AWS.SMS do
       }
       
   """
-  @type get_app_validation_configuration_response() :: %{String.t() => any()}
+  @type get_app_validation_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -918,23 +918,23 @@ defmodule AWS.SMS do
       
       notification_context() :: %{
         "status" => list(any()),
-        "statusMessage" => String.t(),
-        "validationId" => String.t()
+        "statusMessage" => String.t() | atom(),
+        "validationId" => String.t() | atom()
       }
       
   """
-  @type notification_context() :: %{String.t() => any()}
+  @type notification_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_on_demand_replication_run_response() :: %{
-        "replicationRunId" => String.t()
+        "replicationRunId" => String.t() | atom()
       }
       
   """
-  @type start_on_demand_replication_run_response() :: %{String.t() => any()}
+  @type start_on_demand_replication_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -946,56 +946,56 @@ defmodule AWS.SMS do
       }
       
   """
-  @type server_replication_configuration() :: %{String.t() => any()}
+  @type server_replication_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_on_demand_replication_run_request() :: %{
-        optional("description") => String.t(),
-        required("replicationJobId") => String.t()
+        optional("description") => String.t() | atom(),
+        required("replicationJobId") => String.t() | atom()
       }
       
   """
-  @type start_on_demand_replication_run_request() :: %{String.t() => any()}
+  @type start_on_demand_replication_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_app_validation_configuration_request() :: %{
-        required("appId") => String.t()
+        required("appId") => String.t() | atom()
       }
       
   """
-  @type delete_app_validation_configuration_request() :: %{String.t() => any()}
+  @type delete_app_validation_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       server() :: %{
-        "replicationJobId" => String.t(),
+        "replicationJobId" => String.t() | atom(),
         "replicationJobTerminated" => boolean(),
-        "serverId" => String.t(),
+        "serverId" => String.t() | atom(),
         "serverType" => list(any()),
         "vmServer" => vm_server()
       }
       
   """
-  @type server() :: %{String.t() => any()}
+  @type server() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1011,12 +1011,12 @@ defmodule AWS.SMS do
   ## Example:
       
       start_on_demand_app_replication_request() :: %{
-        optional("description") => String.t(),
-        required("appId") => String.t()
+        optional("description") => String.t() | atom(),
+        required("appId") => String.t() | atom()
       }
       
   """
-  @type start_on_demand_app_replication_request() :: %{String.t() => any()}
+  @type start_on_demand_app_replication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1032,27 +1032,27 @@ defmodule AWS.SMS do
   ## Example:
       
       create_replication_job_response() :: %{
-        "replicationJobId" => String.t()
+        "replicationJobId" => String.t() | atom()
       }
       
   """
-  @type create_replication_job_response() :: %{String.t() => any()}
+  @type create_replication_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_app_request() :: %{
-        optional("appId") => String.t(),
-        optional("description") => String.t(),
-        optional("name") => String.t(),
-        optional("roleName") => String.t(),
+        optional("appId") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("roleName") => String.t() | atom(),
         optional("serverGroups") => list(server_group()),
         optional("tags") => list(tag())
       }
       
   """
-  @type update_app_request() :: %{String.t() => any()}
+  @type update_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1063,7 +1063,7 @@ defmodule AWS.SMS do
       }
       
   """
-  @type app_validation_output() :: %{String.t() => any()}
+  @type app_validation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1071,13 +1071,13 @@ defmodule AWS.SMS do
       
       get_servers_response() :: %{
         "lastModifiedOn" => non_neg_integer(),
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "serverCatalogStatus" => list(any()),
         "serverList" => list(server())
       }
       
   """
-  @type get_servers_response() :: %{String.t() => any()}
+  @type get_servers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1085,73 +1085,73 @@ defmodule AWS.SMS do
       
       get_replication_runs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("replicationJobId") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("replicationJobId") => String.t() | atom()
       }
       
   """
-  @type get_replication_runs_request() :: %{String.t() => any()}
+  @type get_replication_runs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_connector_request() :: %{
-        required("connectorId") => String.t()
+        required("connectorId") => String.t() | atom()
       }
       
   """
-  @type disassociate_connector_request() :: %{String.t() => any()}
+  @type disassociate_connector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       replication_run_limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type replication_run_limit_exceeded_exception() :: %{String.t() => any()}
+  @type replication_run_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_apps_request() :: %{
-        optional("appIds") => list(String.t()),
+        optional("appIds") => list(String.t() | atom()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_apps_request() :: %{String.t() => any()}
+  @type list_apps_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_app_validation_output_request() :: %{
-        required("appId") => String.t()
+        required("appId") => String.t() | atom()
       }
       
   """
-  @type get_app_validation_output_request() :: %{String.t() => any()}
+  @type get_app_validation_output_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       server_validation_configuration() :: %{
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "server" => server(),
         "serverValidationStrategy" => list(any()),
         "userDataValidationParameters" => user_data_validation_parameters(),
-        "validationId" => String.t()
+        "validationId" => String.t() | atom()
       }
       
   """
-  @type server_validation_configuration() :: %{String.t() => any()}
+  @type server_validation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1167,21 +1167,21 @@ defmodule AWS.SMS do
   ## Example:
       
       replication_run() :: %{
-        "amiId" => String.t(),
+        "amiId" => String.t() | atom(),
         "completedTime" => non_neg_integer(),
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "encrypted" => boolean(),
-        "kmsKeyId" => String.t(),
-        "replicationRunId" => String.t(),
+        "kmsKeyId" => String.t() | atom(),
+        "replicationRunId" => String.t() | atom(),
         "scheduledStartTime" => non_neg_integer(),
         "stageDetails" => replication_run_stage_details(),
         "state" => list(any()),
-        "statusMessage" => String.t(),
+        "statusMessage" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type replication_run() :: %{String.t() => any()}
+  @type replication_run() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1192,7 +1192,7 @@ defmodule AWS.SMS do
       }
       
   """
-  @type get_app_replication_configuration_response() :: %{String.t() => any()}
+  @type get_app_replication_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1232,7 +1232,7 @@ defmodule AWS.SMS do
       }
       
   """
-  @type create_app_response() :: %{String.t() => any()}
+  @type create_app_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1240,12 +1240,12 @@ defmodule AWS.SMS do
       
       launch_details() :: %{
         "latestLaunchTime" => non_neg_integer(),
-        "stackId" => String.t(),
-        "stackName" => String.t()
+        "stackId" => String.t() | atom(),
+        "stackName" => String.t() | atom()
       }
       
   """
-  @type launch_details() :: %{String.t() => any()}
+  @type launch_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1255,19 +1255,19 @@ defmodule AWS.SMS do
         "associatePublicIpAddress" => boolean(),
         "configureScript" => s3_location(),
         "configureScriptType" => list(any()),
-        "ec2KeyName" => String.t(),
-        "iamInstanceProfileName" => String.t(),
-        "instanceType" => String.t(),
-        "logicalId" => String.t(),
-        "securityGroup" => String.t(),
+        "ec2KeyName" => String.t() | atom(),
+        "iamInstanceProfileName" => String.t() | atom(),
+        "instanceType" => String.t() | atom(),
+        "logicalId" => String.t() | atom(),
+        "securityGroup" => String.t() | atom(),
         "server" => server(),
-        "subnet" => String.t(),
+        "subnet" => String.t() | atom(),
         "userData" => user_data(),
-        "vpc" => String.t()
+        "vpc" => String.t() | atom()
       }
       
   """
-  @type server_launch_configuration() :: %{String.t() => any()}
+  @type server_launch_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1278,21 +1278,21 @@ defmodule AWS.SMS do
       }
       
   """
-  @type get_app_validation_output_response() :: %{String.t() => any()}
+  @type get_app_validation_output_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_app_launch_configuration_response() :: %{
-        "appId" => String.t(),
+        "appId" => String.t() | atom(),
         "autoLaunch" => boolean(),
-        "roleName" => String.t(),
+        "roleName" => String.t() | atom(),
         "serverGroupLaunchConfigurations" => list(server_group_launch_configuration())
       }
       
   """
-  @type get_app_launch_configuration_response() :: %{String.t() => any()}
+  @type get_app_launch_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1309,11 +1309,11 @@ defmodule AWS.SMS do
       
       notify_app_validation_output_request() :: %{
         optional("notificationContext") => notification_context(),
-        required("appId") => String.t()
+        required("appId") => String.t() | atom()
       }
       
   """
-  @type notify_app_validation_output_request() :: %{String.t() => any()}
+  @type notify_app_validation_output_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1329,41 +1329,41 @@ defmodule AWS.SMS do
   ## Example:
       
       replication_job() :: %{
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "encrypted" => boolean(),
         "frequency" => integer(),
-        "kmsKeyId" => String.t(),
-        "latestAmiId" => String.t(),
+        "kmsKeyId" => String.t() | atom(),
+        "latestAmiId" => String.t() | atom(),
         "licenseType" => list(any()),
         "nextReplicationRunStartTime" => non_neg_integer(),
         "numberOfRecentAmisToKeep" => integer(),
-        "replicationJobId" => String.t(),
+        "replicationJobId" => String.t() | atom(),
         "replicationRunList" => list(replication_run()),
-        "roleName" => String.t(),
+        "roleName" => String.t() | atom(),
         "runOnce" => boolean(),
         "seedReplicationTime" => non_neg_integer(),
-        "serverId" => String.t(),
+        "serverId" => String.t() | atom(),
         "serverType" => list(any()),
         "state" => list(any()),
-        "statusMessage" => String.t(),
+        "statusMessage" => String.t() | atom(),
         "vmServer" => vm_server()
       }
       
   """
-  @type replication_job() :: %{String.t() => any()}
+  @type replication_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_replication_runs_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "replicationJob" => replication_job(),
         "replicationRunList" => list(replication_run())
       }
       
   """
-  @type get_replication_runs_response() :: %{String.t() => any()}
+  @type get_replication_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1371,25 +1371,25 @@ defmodule AWS.SMS do
       
       get_replication_jobs_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("replicationJobId") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        optional("replicationJobId") => String.t() | atom()
       }
       
   """
-  @type get_replication_jobs_request() :: %{String.t() => any()}
+  @type get_replication_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       server_group() :: %{
-        "name" => String.t(),
-        "serverGroupId" => String.t(),
+        "name" => String.t() | atom(),
+        "serverGroupId" => String.t() | atom(),
         "serverList" => list(server())
       }
       
   """
-  @type server_group() :: %{String.t() => any()}
+  @type server_group() :: %{(String.t() | atom()) => any()}
 
   @type create_app_errors() ::
           invalid_parameter_exception()
@@ -1660,7 +1660,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, create_app_errors()}
   def create_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApp", input, options)
   end
@@ -1679,7 +1680,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, create_replication_job_errors()}
   def create_replication_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReplicationJob", input, options)
   end
@@ -1697,7 +1699,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, delete_app_errors()}
   def delete_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApp", input, options)
   end
@@ -1711,7 +1714,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, delete_app_launch_configuration_errors()}
   def delete_app_launch_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAppLaunchConfiguration", input, options)
   end
@@ -1729,7 +1733,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, delete_app_replication_configuration_errors()}
   def delete_app_replication_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAppReplicationConfiguration", input, options)
   end
@@ -1747,7 +1752,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, delete_app_validation_configuration_errors()}
   def delete_app_validation_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAppValidationConfiguration", input, options)
   end
@@ -1767,7 +1773,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, delete_replication_job_errors()}
   def delete_replication_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReplicationJob", input, options)
   end
@@ -1781,7 +1788,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, delete_server_catalog_errors()}
   def delete_server_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteServerCatalog", input, options)
   end
@@ -1798,7 +1806,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, disassociate_connector_errors()}
   def disassociate_connector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateConnector", input, options)
   end
@@ -1814,7 +1823,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, generate_change_set_errors()}
   def generate_change_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateChangeSet", input, options)
   end
@@ -1830,7 +1840,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, generate_template_errors()}
   def generate_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateTemplate", input, options)
   end
@@ -1844,7 +1855,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_app_errors()}
   def get_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetApp", input, options)
   end
@@ -1859,7 +1871,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_app_launch_configuration_errors()}
   def get_app_launch_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAppLaunchConfiguration", input, options)
   end
@@ -1879,7 +1892,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_app_replication_configuration_errors()}
   def get_app_replication_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAppReplicationConfiguration", input, options)
   end
@@ -1897,7 +1911,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_app_validation_configuration_errors()}
   def get_app_validation_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAppValidationConfiguration", input, options)
   end
@@ -1911,7 +1926,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_app_validation_output_errors()}
   def get_app_validation_output(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAppValidationOutput", input, options)
   end
@@ -1925,7 +1941,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_connectors_errors()}
   def get_connectors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConnectors", input, options)
   end
@@ -1939,7 +1956,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_replication_jobs_errors()}
   def get_replication_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReplicationJobs", input, options)
   end
@@ -1953,7 +1971,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_replication_runs_errors()}
   def get_replication_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReplicationRuns", input, options)
   end
@@ -1970,7 +1989,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_servers_errors()}
   def get_servers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetServers", input, options)
   end
@@ -1984,7 +2004,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, import_app_catalog_errors()}
   def import_app_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportAppCatalog", input, options)
   end
@@ -2005,7 +2026,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, import_server_catalog_errors()}
   def import_server_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportServerCatalog", input, options)
   end
@@ -2019,7 +2041,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, launch_app_errors()}
   def launch_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "LaunchApp", input, options)
   end
@@ -2033,7 +2056,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, list_apps_errors()}
   def list_apps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApps", input, options)
   end
@@ -2048,7 +2072,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, notify_app_validation_output_errors()}
   def notify_app_validation_output(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "NotifyAppValidationOutput", input, options)
   end
@@ -2062,7 +2087,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, put_app_launch_configuration_errors()}
   def put_app_launch_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAppLaunchConfiguration", input, options)
   end
@@ -2080,7 +2106,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, put_app_replication_configuration_errors()}
   def put_app_replication_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAppReplicationConfiguration", input, options)
   end
@@ -2098,7 +2125,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, put_app_validation_configuration_errors()}
   def put_app_validation_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAppValidationConfiguration", input, options)
   end
@@ -2114,7 +2142,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, start_app_replication_errors()}
   def start_app_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartAppReplication", input, options)
   end
@@ -2128,7 +2157,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, start_on_demand_app_replication_errors()}
   def start_on_demand_app_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartOnDemandAppReplication", input, options)
   end
@@ -2151,7 +2181,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, start_on_demand_replication_run_errors()}
   def start_on_demand_replication_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartOnDemandReplicationRun", input, options)
   end
@@ -2167,7 +2198,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, stop_app_replication_errors()}
   def stop_app_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopAppReplication", input, options)
   end
@@ -2181,7 +2213,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, terminate_app_errors()}
   def terminate_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateApp", input, options)
   end
@@ -2195,7 +2228,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, update_app_errors()}
   def update_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApp", input, options)
   end
@@ -2209,7 +2243,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, update_replication_job_errors()}
   def update_replication_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateReplicationJob", input, options)
   end

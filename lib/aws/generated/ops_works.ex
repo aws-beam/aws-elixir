@@ -133,31 +133,31 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_operating_systems_response() :: %{String.t() => any()}
+  @type describe_operating_systems_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       app() :: %{
-        "AppId" => String.t(),
+        "AppId" => String.t() | atom(),
         "AppSource" => source(),
         "Attributes" => map(),
-        "CreatedAt" => String.t(),
+        "CreatedAt" => String.t() | atom(),
         "DataSources" => list(data_source()),
-        "Description" => String.t(),
-        "Domains" => list(String.t()),
+        "Description" => String.t() | atom(),
+        "Domains" => list(String.t() | atom()),
         "EnableSsl" => boolean(),
         "Environment" => list(environment_variable()),
-        "Name" => String.t(),
-        "Shortname" => String.t(),
+        "Name" => String.t() | atom(),
+        "Shortname" => String.t() | atom(),
         "SslConfiguration" => ssl_configuration(),
-        "StackId" => String.t(),
+        "StackId" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type app() :: %{String.t() => any()}
+  @type app() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -165,26 +165,26 @@ defmodule AWS.OpsWorks do
       
       user_profile() :: %{
         "AllowSelfManagement" => boolean(),
-        "IamUserArn" => String.t(),
-        "Name" => String.t(),
-        "SshPublicKey" => String.t(),
-        "SshUsername" => String.t()
+        "IamUserArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "SshPublicKey" => String.t() | atom(),
+        "SshUsername" => String.t() | atom()
       }
       
   """
-  @type user_profile() :: %{String.t() => any()}
+  @type user_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_apps_request() :: %{
-        optional("AppIds") => list(String.t()),
-        optional("StackId") => String.t()
+        optional("AppIds") => list(String.t() | atom()),
+        optional("StackId") => String.t() | atom()
       }
       
   """
-  @type describe_apps_request() :: %{String.t() => any()}
+  @type describe_apps_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -192,52 +192,52 @@ defmodule AWS.OpsWorks do
       
       update_user_profile_request() :: %{
         optional("AllowSelfManagement") => boolean(),
-        optional("SshPublicKey") => String.t(),
-        optional("SshUsername") => String.t(),
-        required("IamUserArn") => String.t()
+        optional("SshPublicKey") => String.t() | atom(),
+        optional("SshUsername") => String.t() | atom(),
+        required("IamUserArn") => String.t() | atom()
       }
       
   """
-  @type update_user_profile_request() :: %{String.t() => any()}
+  @type update_user_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("Tags") => map()
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_ecs_cluster_request() :: %{
-        required("EcsClusterArn") => String.t(),
-        required("StackId") => String.t()
+        required("EcsClusterArn") => String.t() | atom(),
+        required("StackId") => String.t() | atom()
       }
       
   """
-  @type register_ecs_cluster_request() :: %{String.t() => any()}
+  @type register_ecs_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       elastic_ip() :: %{
-        "Domain" => String.t(),
-        "InstanceId" => String.t(),
-        "Ip" => String.t(),
-        "Name" => String.t(),
-        "Region" => String.t()
+        "Domain" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "Ip" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Region" => String.t() | atom()
       }
       
   """
-  @type elastic_ip() :: %{String.t() => any()}
+  @type elastic_ip() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -247,30 +247,30 @@ defmodule AWS.OpsWorks do
         optional("AppSource") => source(),
         optional("Attributes") => map(),
         optional("DataSources") => list(data_source()),
-        optional("Description") => String.t(),
-        optional("Domains") => list(String.t()),
+        optional("Description") => String.t() | atom(),
+        optional("Domains") => list(String.t() | atom()),
         optional("EnableSsl") => boolean(),
         optional("Environment") => list(environment_variable()),
-        optional("Shortname") => String.t(),
+        optional("Shortname") => String.t() | atom(),
         optional("SslConfiguration") => ssl_configuration(),
-        required("Name") => String.t(),
-        required("StackId") => String.t(),
+        required("Name") => String.t() | atom(),
+        required("StackId") => String.t() | atom(),
         required("Type") => list(any())
       }
       
   """
-  @type create_app_request() :: %{String.t() => any()}
+  @type create_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_stack_request() :: %{
-        required("StackId") => String.t()
+        required("StackId") => String.t() | atom()
       }
       
   """
-  @type stop_stack_request() :: %{String.t() => any()}
+  @type stop_stack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -281,135 +281,135 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_elastic_ips_result() :: %{String.t() => any()}
+  @type describe_elastic_ips_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_rds_db_instances_request() :: %{
-        optional("RdsDbInstanceArns") => list(String.t()),
-        required("StackId") => String.t()
+        optional("RdsDbInstanceArns") => list(String.t() | atom()),
+        required("StackId") => String.t() | atom()
       }
       
   """
-  @type describe_rds_db_instances_request() :: %{String.t() => any()}
+  @type describe_rds_db_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deployment() :: %{
-        "AppId" => String.t(),
+        "AppId" => String.t() | atom(),
         "Command" => deployment_command(),
-        "Comment" => String.t(),
-        "CompletedAt" => String.t(),
-        "CreatedAt" => String.t(),
-        "CustomJson" => String.t(),
-        "DeploymentId" => String.t(),
+        "Comment" => String.t() | atom(),
+        "CompletedAt" => String.t() | atom(),
+        "CreatedAt" => String.t() | atom(),
+        "CustomJson" => String.t() | atom(),
+        "DeploymentId" => String.t() | atom(),
         "Duration" => integer(),
-        "IamUserArn" => String.t(),
-        "InstanceIds" => list(String.t()),
-        "StackId" => String.t(),
-        "Status" => String.t()
+        "IamUserArn" => String.t() | atom(),
+        "InstanceIds" => list(String.t() | atom()),
+        "StackId" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type deployment() :: %{String.t() => any()}
+  @type deployment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Tags" => map()
       }
       
   """
-  @type list_tags_result() :: %{String.t() => any()}
+  @type list_tags_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_ecs_cluster_request() :: %{
-        required("EcsClusterArn") => String.t()
+        required("EcsClusterArn") => String.t() | atom()
       }
       
   """
-  @type deregister_ecs_cluster_request() :: %{String.t() => any()}
+  @type deregister_ecs_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       block_device_mapping() :: %{
-        "DeviceName" => String.t(),
+        "DeviceName" => String.t() | atom(),
         "Ebs" => ebs_block_device(),
-        "NoDevice" => String.t(),
-        "VirtualName" => String.t()
+        "NoDevice" => String.t() | atom(),
+        "VirtualName" => String.t() | atom()
       }
       
   """
-  @type block_device_mapping() :: %{String.t() => any()}
+  @type block_device_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_stack_request() :: %{
-        optional("AgentVersion") => String.t(),
+        optional("AgentVersion") => String.t() | atom(),
         optional("Attributes") => map(),
         optional("ChefConfiguration") => chef_configuration(),
         optional("ConfigurationManager") => stack_configuration_manager(),
         optional("CustomCookbooksSource") => source(),
-        optional("CustomJson") => String.t(),
-        optional("DefaultAvailabilityZone") => String.t(),
-        optional("DefaultOs") => String.t(),
+        optional("CustomJson") => String.t() | atom(),
+        optional("DefaultAvailabilityZone") => String.t() | atom(),
+        optional("DefaultOs") => String.t() | atom(),
         optional("DefaultRootDeviceType") => list(any()),
-        optional("DefaultSshKeyName") => String.t(),
-        optional("DefaultSubnetId") => String.t(),
-        optional("HostnameTheme") => String.t(),
+        optional("DefaultSshKeyName") => String.t() | atom(),
+        optional("DefaultSubnetId") => String.t() | atom(),
+        optional("HostnameTheme") => String.t() | atom(),
         optional("UseCustomCookbooks") => boolean(),
         optional("UseOpsworksSecurityGroups") => boolean(),
-        optional("VpcId") => String.t(),
-        required("DefaultInstanceProfileArn") => String.t(),
-        required("Name") => String.t(),
-        required("Region") => String.t(),
-        required("ServiceRoleArn") => String.t()
+        optional("VpcId") => String.t() | atom(),
+        required("DefaultInstanceProfileArn") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Region") => String.t() | atom(),
+        required("ServiceRoleArn") => String.t() | atom()
       }
       
   """
-  @type create_stack_request() :: %{String.t() => any()}
+  @type create_stack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_stack_request() :: %{
-        optional("AgentVersion") => String.t(),
+        optional("AgentVersion") => String.t() | atom(),
         optional("Attributes") => map(),
         optional("ChefConfiguration") => chef_configuration(),
         optional("ConfigurationManager") => stack_configuration_manager(),
         optional("CustomCookbooksSource") => source(),
-        optional("CustomJson") => String.t(),
-        optional("DefaultAvailabilityZone") => String.t(),
-        optional("DefaultInstanceProfileArn") => String.t(),
-        optional("DefaultOs") => String.t(),
+        optional("CustomJson") => String.t() | atom(),
+        optional("DefaultAvailabilityZone") => String.t() | atom(),
+        optional("DefaultInstanceProfileArn") => String.t() | atom(),
+        optional("DefaultOs") => String.t() | atom(),
         optional("DefaultRootDeviceType") => list(any()),
-        optional("DefaultSshKeyName") => String.t(),
-        optional("DefaultSubnetId") => String.t(),
-        optional("HostnameTheme") => String.t(),
-        optional("Name") => String.t(),
-        optional("ServiceRoleArn") => String.t(),
+        optional("DefaultSshKeyName") => String.t() | atom(),
+        optional("DefaultSubnetId") => String.t() | atom(),
+        optional("HostnameTheme") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("ServiceRoleArn") => String.t() | atom(),
         optional("UseCustomCookbooks") => boolean(),
         optional("UseOpsworksSecurityGroups") => boolean(),
-        required("StackId") => String.t()
+        required("StackId") => String.t() | atom()
       }
       
   """
-  @type update_stack_request() :: %{String.t() => any()}
+  @type update_stack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -420,7 +420,7 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_raid_arrays_result() :: %{String.t() => any()}
+  @type describe_raid_arrays_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -428,24 +428,24 @@ defmodule AWS.OpsWorks do
       
       stop_instance_request() :: %{
         optional("Force") => boolean(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | atom()
       }
       
   """
-  @type stop_instance_request() :: %{String.t() => any()}
+  @type stop_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_elastic_ips_request() :: %{
-        optional("InstanceId") => String.t(),
-        optional("Ips") => list(String.t()),
-        optional("StackId") => String.t()
+        optional("InstanceId") => String.t() | atom(),
+        optional("Ips") => list(String.t() | atom()),
+        optional("StackId") => String.t() | atom()
       }
       
   """
-  @type describe_elastic_ips_request() :: %{String.t() => any()}
+  @type describe_elastic_ips_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -456,20 +456,20 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_commands_result() :: %{String.t() => any()}
+  @type describe_commands_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       environment_variable() :: %{
-        "Key" => String.t(),
+        "Key" => String.t() | atom(),
         "Secure" => boolean(),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type environment_variable() :: %{String.t() => any()}
+  @type environment_variable() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -480,99 +480,99 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type lifecycle_event_configuration() :: %{String.t() => any()}
+  @type lifecycle_event_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_volumes_request() :: %{
-        optional("InstanceId") => String.t(),
-        optional("RaidArrayId") => String.t(),
-        optional("StackId") => String.t(),
-        optional("VolumeIds") => list(String.t())
+        optional("InstanceId") => String.t() | atom(),
+        optional("RaidArrayId") => String.t() | atom(),
+        optional("StackId") => String.t() | atom(),
+        optional("VolumeIds") => list(String.t() | atom())
       }
       
   """
-  @type describe_volumes_request() :: %{String.t() => any()}
+  @type describe_volumes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_volume_request() :: %{
-        optional("MountPoint") => String.t(),
-        optional("Name") => String.t(),
-        required("VolumeId") => String.t()
+        optional("MountPoint") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        required("VolumeId") => String.t() | atom()
       }
       
   """
-  @type update_volume_request() :: %{String.t() => any()}
+  @type update_volume_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_stack_result() :: %{
-        "StackId" => String.t()
+        "StackId" => String.t() | atom()
       }
       
   """
-  @type create_stack_result() :: %{String.t() => any()}
+  @type create_stack_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_deployment_request() :: %{
-        optional("AppId") => String.t(),
-        optional("Comment") => String.t(),
-        optional("CustomJson") => String.t(),
-        optional("InstanceIds") => list(String.t()),
-        optional("LayerIds") => list(String.t()),
+        optional("AppId") => String.t() | atom(),
+        optional("Comment") => String.t() | atom(),
+        optional("CustomJson") => String.t() | atom(),
+        optional("InstanceIds") => list(String.t() | atom()),
+        optional("LayerIds") => list(String.t() | atom()),
         required("Command") => deployment_command(),
-        required("StackId") => String.t()
+        required("StackId") => String.t() | atom()
       }
       
   """
-  @type create_deployment_request() :: %{String.t() => any()}
+  @type create_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       temporary_credential() :: %{
-        "InstanceId" => String.t(),
-        "Password" => String.t(),
-        "Username" => String.t(),
+        "InstanceId" => String.t() | atom(),
+        "Password" => String.t() | atom(),
+        "Username" => String.t() | atom(),
         "ValidForInMinutes" => integer()
       }
       
   """
-  @type temporary_credential() :: %{String.t() => any()}
+  @type temporary_credential() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_layer_result() :: %{
-        "LayerId" => String.t()
+        "LayerId" => String.t() | atom()
       }
       
   """
-  @type create_layer_result() :: %{String.t() => any()}
+  @type create_layer_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stack_provisioning_parameters_result() :: %{
-        "AgentInstallerUrl" => String.t(),
+        "AgentInstallerUrl" => String.t() | atom(),
         "Parameters" => map()
       }
       
   """
-  @type describe_stack_provisioning_parameters_result() :: %{String.t() => any()}
+  @type describe_stack_provisioning_parameters_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -584,7 +584,7 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type shutdown_event_configuration() :: %{String.t() => any()}
+  @type shutdown_event_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -595,33 +595,33 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_my_user_profile_result() :: %{String.t() => any()}
+  @type describe_my_user_profile_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_rds_db_instance_request() :: %{
-        required("DbPassword") => String.t(),
-        required("DbUser") => String.t(),
-        required("RdsDbInstanceArn") => String.t(),
-        required("StackId") => String.t()
+        required("DbPassword") => String.t() | atom(),
+        required("DbUser") => String.t() | atom(),
+        required("RdsDbInstanceArn") => String.t() | atom(),
+        required("StackId") => String.t() | atom()
       }
       
   """
-  @type register_rds_db_instance_request() :: %{String.t() => any()}
+  @type register_rds_db_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_permissions_request() :: %{
-        optional("IamUserArn") => String.t(),
-        optional("StackId") => String.t()
+        optional("IamUserArn") => String.t() | atom(),
+        optional("StackId") => String.t() | atom()
       }
       
   """
-  @type describe_permissions_request() :: %{String.t() => any()}
+  @type describe_permissions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -629,16 +629,16 @@ defmodule AWS.OpsWorks do
       
       operating_system() :: %{
         "ConfigurationManagers" => list(operating_system_configuration_manager()),
-        "Id" => String.t(),
-        "Name" => String.t(),
-        "ReportedName" => String.t(),
-        "ReportedVersion" => String.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ReportedName" => String.t() | atom(),
+        "ReportedVersion" => String.t() | atom(),
         "Supported" => boolean(),
-        "Type" => String.t()
+        "Type" => String.t() | atom()
       }
       
   """
-  @type operating_system() :: %{String.t() => any()}
+  @type operating_system() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -649,31 +649,31 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_permissions_result() :: %{String.t() => any()}
+  @type describe_permissions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_volume_request() :: %{
-        optional("Ec2VolumeId") => String.t(),
-        required("StackId") => String.t()
+        optional("Ec2VolumeId") => String.t() | atom(),
+        required("StackId") => String.t() | atom()
       }
       
   """
-  @type register_volume_request() :: %{String.t() => any()}
+  @type register_volume_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -684,31 +684,31 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_stack_summary_result() :: %{String.t() => any()}
+  @type describe_stack_summary_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_commands_request() :: %{
-        optional("CommandIds") => list(String.t()),
-        optional("DeploymentId") => String.t(),
-        optional("InstanceId") => String.t()
+        optional("CommandIds") => list(String.t() | atom()),
+        optional("DeploymentId") => String.t() | atom(),
+        optional("InstanceId") => String.t() | atom()
       }
       
   """
-  @type describe_commands_request() :: %{String.t() => any()}
+  @type describe_commands_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_instance_request() :: %{
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | atom()
       }
       
   """
-  @type deregister_instance_request() :: %{String.t() => any()}
+  @type deregister_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -738,7 +738,7 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type instances_count() :: %{String.t() => any()}
+  @type instances_count() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -746,11 +746,11 @@ defmodule AWS.OpsWorks do
       
       grant_access_request() :: %{
         optional("ValidForInMinutes") => integer(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | atom()
       }
       
   """
-  @type grant_access_request() :: %{String.t() => any()}
+  @type grant_access_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -760,33 +760,33 @@ defmodule AWS.OpsWorks do
         optional("DownScaling") => auto_scaling_thresholds(),
         optional("Enable") => boolean(),
         optional("UpScaling") => auto_scaling_thresholds(),
-        required("LayerId") => String.t()
+        required("LayerId") => String.t() | atom()
       }
       
   """
-  @type set_load_based_auto_scaling_request() :: %{String.t() => any()}
+  @type set_load_based_auto_scaling_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unassign_volume_request() :: %{
-        required("VolumeId") => String.t()
+        required("VolumeId") => String.t() | atom()
       }
       
   """
-  @type unassign_volume_request() :: %{String.t() => any()}
+  @type unassign_volume_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_hostname_suggestion_request() :: %{
-        required("LayerId") => String.t()
+        required("LayerId") => String.t() | atom()
       }
       
   """
-  @type get_hostname_suggestion_request() :: %{String.t() => any()}
+  @type get_hostname_suggestion_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -798,7 +798,7 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type cloud_watch_logs_configuration() :: %{String.t() => any()}
+  @type cloud_watch_logs_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -807,13 +807,13 @@ defmodule AWS.OpsWorks do
       set_permission_request() :: %{
         optional("AllowSsh") => boolean(),
         optional("AllowSudo") => boolean(),
-        optional("Level") => String.t(),
-        required("IamUserArn") => String.t(),
-        required("StackId") => String.t()
+        optional("Level") => String.t() | atom(),
+        required("IamUserArn") => String.t() | atom(),
+        required("StackId") => String.t() | atom()
       }
       
   """
-  @type set_permission_request() :: %{String.t() => any()}
+  @type set_permission_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -821,77 +821,77 @@ defmodule AWS.OpsWorks do
       
       describe_agent_versions_request() :: %{
         optional("ConfigurationManager") => stack_configuration_manager(),
-        optional("StackId") => String.t()
+        optional("StackId") => String.t() | atom()
       }
       
   """
-  @type describe_agent_versions_request() :: %{String.t() => any()}
+  @type describe_agent_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       assign_volume_request() :: %{
-        optional("InstanceId") => String.t(),
-        required("VolumeId") => String.t()
+        optional("InstanceId") => String.t() | atom(),
+        required("VolumeId") => String.t() | atom()
       }
       
   """
-  @type assign_volume_request() :: %{String.t() => any()}
+  @type assign_volume_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reboot_instance_request() :: %{
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | atom()
       }
       
   """
-  @type reboot_instance_request() :: %{String.t() => any()}
+  @type reboot_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_stack_request() :: %{
-        required("StackId") => String.t()
+        required("StackId") => String.t() | atom()
       }
       
   """
-  @type delete_stack_request() :: %{String.t() => any()}
+  @type delete_stack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack() :: %{
-        "AgentVersion" => String.t(),
-        "Arn" => String.t(),
+        "AgentVersion" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
         "Attributes" => map(),
         "ChefConfiguration" => chef_configuration(),
         "ConfigurationManager" => stack_configuration_manager(),
-        "CreatedAt" => String.t(),
+        "CreatedAt" => String.t() | atom(),
         "CustomCookbooksSource" => source(),
-        "CustomJson" => String.t(),
-        "DefaultAvailabilityZone" => String.t(),
-        "DefaultInstanceProfileArn" => String.t(),
-        "DefaultOs" => String.t(),
+        "CustomJson" => String.t() | atom(),
+        "DefaultAvailabilityZone" => String.t() | atom(),
+        "DefaultInstanceProfileArn" => String.t() | atom(),
+        "DefaultOs" => String.t() | atom(),
         "DefaultRootDeviceType" => list(any()),
-        "DefaultSshKeyName" => String.t(),
-        "DefaultSubnetId" => String.t(),
-        "HostnameTheme" => String.t(),
-        "Name" => String.t(),
-        "Region" => String.t(),
-        "ServiceRoleArn" => String.t(),
-        "StackId" => String.t(),
+        "DefaultSshKeyName" => String.t() | atom(),
+        "DefaultSubnetId" => String.t() | atom(),
+        "HostnameTheme" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "ServiceRoleArn" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
         "UseCustomCookbooks" => boolean(),
         "UseOpsworksSecurityGroups" => boolean(),
-        "VpcId" => String.t()
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type stack() :: %{String.t() => any()}
+  @type stack() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -902,76 +902,76 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_rds_db_instances_result() :: %{String.t() => any()}
+  @type describe_rds_db_instances_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_elastic_load_balancers_request() :: %{
-        optional("LayerIds") => list(String.t()),
-        optional("StackId") => String.t()
+        optional("LayerIds") => list(String.t() | atom()),
+        optional("StackId") => String.t() | atom()
       }
       
   """
-  @type describe_elastic_load_balancers_request() :: %{String.t() => any()}
+  @type describe_elastic_load_balancers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       elastic_load_balancer() :: %{
-        "AvailabilityZones" => list(String.t()),
-        "DnsName" => String.t(),
-        "Ec2InstanceIds" => list(String.t()),
-        "ElasticLoadBalancerName" => String.t(),
-        "LayerId" => String.t(),
-        "Region" => String.t(),
-        "StackId" => String.t(),
-        "SubnetIds" => list(String.t()),
-        "VpcId" => String.t()
+        "AvailabilityZones" => list(String.t() | atom()),
+        "DnsName" => String.t() | atom(),
+        "Ec2InstanceIds" => list(String.t() | atom()),
+        "ElasticLoadBalancerName" => String.t() | atom(),
+        "LayerId" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type elastic_load_balancer() :: %{String.t() => any()}
+  @type elastic_load_balancer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       recipes() :: %{
-        "Configure" => list(String.t()),
-        "Deploy" => list(String.t()),
-        "Setup" => list(String.t()),
-        "Shutdown" => list(String.t()),
-        "Undeploy" => list(String.t())
+        "Configure" => list(String.t() | atom()),
+        "Deploy" => list(String.t() | atom()),
+        "Setup" => list(String.t() | atom()),
+        "Shutdown" => list(String.t() | atom()),
+        "Undeploy" => list(String.t() | atom())
       }
       
   """
-  @type recipes() :: %{String.t() => any()}
+  @type recipes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_elastic_ip_request() :: %{
-        optional("InstanceId") => String.t(),
-        required("ElasticIp") => String.t()
+        optional("InstanceId") => String.t() | atom(),
+        required("ElasticIp") => String.t() | atom()
       }
       
   """
-  @type associate_elastic_ip_request() :: %{String.t() => any()}
+  @type associate_elastic_ip_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -979,15 +979,15 @@ defmodule AWS.OpsWorks do
       
       stack_summary() :: %{
         "AppsCount" => integer(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "InstancesCount" => instances_count(),
         "LayersCount" => integer(),
-        "Name" => String.t(),
-        "StackId" => String.t()
+        "Name" => String.t() | atom(),
+        "StackId" => String.t() | atom()
       }
       
   """
-  @type stack_summary() :: %{String.t() => any()}
+  @type stack_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -999,85 +999,85 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type deployment_command() :: %{String.t() => any()}
+  @type deployment_command() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stacks_request() :: %{
-        optional("StackIds") => list(String.t())
+        optional("StackIds") => list(String.t() | atom())
       }
       
   """
-  @type describe_stacks_request() :: %{String.t() => any()}
+  @type describe_stacks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unassign_instance_request() :: %{
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | atom()
       }
       
   """
-  @type unassign_instance_request() :: %{String.t() => any()}
+  @type unassign_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       raid_array() :: %{
-        "AvailabilityZone" => String.t(),
-        "CreatedAt" => String.t(),
-        "Device" => String.t(),
-        "InstanceId" => String.t(),
+        "AvailabilityZone" => String.t() | atom(),
+        "CreatedAt" => String.t() | atom(),
+        "Device" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
         "Iops" => integer(),
-        "MountPoint" => String.t(),
-        "Name" => String.t(),
+        "MountPoint" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "NumberOfDisks" => integer(),
-        "RaidArrayId" => String.t(),
+        "RaidArrayId" => String.t() | atom(),
         "RaidLevel" => integer(),
         "Size" => integer(),
-        "StackId" => String.t(),
-        "VolumeType" => String.t()
+        "StackId" => String.t() | atom(),
+        "VolumeType" => String.t() | atom()
       }
       
   """
-  @type raid_array() :: %{String.t() => any()}
+  @type raid_array() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_elastic_ip_request() :: %{
-        required("ElasticIp") => String.t()
+        required("ElasticIp") => String.t() | atom()
       }
       
   """
-  @type disassociate_elastic_ip_request() :: %{String.t() => any()}
+  @type disassociate_elastic_ip_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_user_profile_request() :: %{
-        required("IamUserArn") => String.t()
+        required("IamUserArn") => String.t() | atom()
       }
       
   """
-  @type delete_user_profile_request() :: %{String.t() => any()}
+  @type delete_user_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_deployment_result() :: %{
-        "DeploymentId" => String.t()
+        "DeploymentId" => String.t() | atom()
       }
       
   """
-  @type create_deployment_result() :: %{String.t() => any()}
+  @type create_deployment_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1088,7 +1088,7 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_user_profiles_result() :: %{String.t() => any()}
+  @type describe_user_profiles_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1105,75 +1105,75 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type weekly_auto_scaling_schedule() :: %{String.t() => any()}
+  @type weekly_auto_scaling_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       assign_instance_request() :: %{
-        required("InstanceId") => String.t(),
-        required("LayerIds") => list(String.t())
+        required("InstanceId") => String.t() | atom(),
+        required("LayerIds") => list(String.t() | atom())
       }
       
   """
-  @type assign_instance_request() :: %{String.t() => any()}
+  @type assign_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_instance_result() :: %{
-        "InstanceId" => String.t()
+        "InstanceId" => String.t() | atom()
       }
       
   """
-  @type create_instance_result() :: %{String.t() => any()}
+  @type create_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_load_based_auto_scaling_request() :: %{
-        required("LayerIds") => list(String.t())
+        required("LayerIds") => list(String.t() | atom())
       }
       
   """
-  @type describe_load_based_auto_scaling_request() :: %{String.t() => any()}
+  @type describe_load_based_auto_scaling_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_instance_request() :: %{
-        optional("AgentVersion") => String.t(),
-        optional("AmiId") => String.t(),
+        optional("AgentVersion") => String.t() | atom(),
+        optional("AmiId") => String.t() | atom(),
         optional("Architecture") => list(any()),
         optional("AutoScalingType") => list(any()),
         optional("EbsOptimized") => boolean(),
-        optional("Hostname") => String.t(),
+        optional("Hostname") => String.t() | atom(),
         optional("InstallUpdatesOnBoot") => boolean(),
-        optional("InstanceType") => String.t(),
-        optional("LayerIds") => list(String.t()),
-        optional("Os") => String.t(),
-        optional("SshKeyName") => String.t(),
-        required("InstanceId") => String.t()
+        optional("InstanceType") => String.t() | atom(),
+        optional("LayerIds") => list(String.t() | atom()),
+        optional("Os") => String.t() | atom(),
+        optional("SshKeyName") => String.t() | atom(),
+        required("InstanceId") => String.t() | atom()
       }
       
   """
-  @type update_instance_request() :: %{String.t() => any()}
+  @type update_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stack_configuration_manager() :: %{
-        "Name" => String.t(),
-        "Version" => String.t()
+        "Name" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
       
   """
-  @type stack_configuration_manager() :: %{String.t() => any()}
+  @type stack_configuration_manager() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1184,94 +1184,94 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_layers_result() :: %{String.t() => any()}
+  @type describe_layers_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       layer() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "Attributes" => map(),
         "AutoAssignElasticIps" => boolean(),
         "AutoAssignPublicIps" => boolean(),
         "CloudWatchLogsConfiguration" => cloud_watch_logs_configuration(),
-        "CreatedAt" => String.t(),
-        "CustomInstanceProfileArn" => String.t(),
-        "CustomJson" => String.t(),
+        "CreatedAt" => String.t() | atom(),
+        "CustomInstanceProfileArn" => String.t() | atom(),
+        "CustomJson" => String.t() | atom(),
         "CustomRecipes" => recipes(),
-        "CustomSecurityGroupIds" => list(String.t()),
+        "CustomSecurityGroupIds" => list(String.t() | atom()),
         "DefaultRecipes" => recipes(),
-        "DefaultSecurityGroupNames" => list(String.t()),
+        "DefaultSecurityGroupNames" => list(String.t() | atom()),
         "EnableAutoHealing" => boolean(),
         "InstallUpdatesOnBoot" => boolean(),
-        "LayerId" => String.t(),
+        "LayerId" => String.t() | atom(),
         "LifecycleEventConfiguration" => lifecycle_event_configuration(),
-        "Name" => String.t(),
-        "Packages" => list(String.t()),
-        "Shortname" => String.t(),
-        "StackId" => String.t(),
+        "Name" => String.t() | atom(),
+        "Packages" => list(String.t() | atom()),
+        "Shortname" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
         "Type" => list(any()),
         "UseEbsOptimizedInstances" => boolean(),
         "VolumeConfigurations" => list(volume_configuration())
       }
       
   """
-  @type layer() :: %{String.t() => any()}
+  @type layer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_instance_request() :: %{
-        optional("Hostname") => String.t(),
+        optional("Hostname") => String.t() | atom(),
         optional("InstanceIdentity") => instance_identity(),
-        optional("PrivateIp") => String.t(),
-        optional("PublicIp") => String.t(),
-        optional("RsaPublicKey") => String.t(),
-        optional("RsaPublicKeyFingerprint") => String.t(),
-        required("StackId") => String.t()
+        optional("PrivateIp") => String.t() | atom(),
+        optional("PublicIp") => String.t() | atom(),
+        optional("RsaPublicKey") => String.t() | atom(),
+        optional("RsaPublicKeyFingerprint") => String.t() | atom(),
+        required("StackId") => String.t() | atom()
       }
       
   """
-  @type register_instance_request() :: %{String.t() => any()}
+  @type register_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_instances_request() :: %{
-        optional("InstanceIds") => list(String.t()),
-        optional("LayerId") => String.t(),
-        optional("StackId") => String.t()
+        optional("InstanceIds") => list(String.t() | atom()),
+        optional("LayerId") => String.t() | atom(),
+        optional("StackId") => String.t() | atom()
       }
       
   """
-  @type describe_instances_request() :: %{String.t() => any()}
+  @type describe_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ssl_configuration() :: %{
-        "Certificate" => String.t(),
-        "Chain" => String.t(),
-        "PrivateKey" => String.t()
+        "Certificate" => String.t() | atom(),
+        "Chain" => String.t() | atom(),
+        "PrivateKey" => String.t() | atom()
       }
       
   """
-  @type ssl_configuration() :: %{String.t() => any()}
+  @type ssl_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_user_profiles_request() :: %{
-        optional("IamUserArns") => list(String.t())
+        optional("IamUserArns") => list(String.t() | atom())
       }
       
   """
-  @type describe_user_profiles_request() :: %{String.t() => any()}
+  @type describe_user_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1282,44 +1282,44 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_elastic_load_balancers_result() :: %{String.t() => any()}
+  @type describe_elastic_load_balancers_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_time_based_auto_scaling_request() :: %{
-        required("InstanceIds") => list(String.t())
+        required("InstanceIds") => list(String.t() | atom())
       }
       
   """
-  @type describe_time_based_auto_scaling_request() :: %{String.t() => any()}
+  @type describe_time_based_auto_scaling_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_elastic_ip_request() :: %{
-        optional("Name") => String.t(),
-        required("ElasticIp") => String.t()
+        optional("Name") => String.t() | atom(),
+        required("ElasticIp") => String.t() | atom()
       }
       
   """
-  @type update_elastic_ip_request() :: %{String.t() => any()}
+  @type update_elastic_ip_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_ecs_clusters_request() :: %{
-        optional("EcsClusterArns") => list(String.t()),
+        optional("EcsClusterArns") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("StackId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("StackId") => String.t() | atom()
       }
       
   """
-  @type describe_ecs_clusters_request() :: %{String.t() => any()}
+  @type describe_ecs_clusters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1328,36 +1328,36 @@ defmodule AWS.OpsWorks do
       ebs_block_device() :: %{
         "DeleteOnTermination" => boolean(),
         "Iops" => integer(),
-        "SnapshotId" => String.t(),
+        "SnapshotId" => String.t() | atom(),
         "VolumeSize" => integer(),
         "VolumeType" => list(any())
       }
       
   """
-  @type ebs_block_device() :: %{String.t() => any()}
+  @type ebs_block_device() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_elastic_ip_result() :: %{
-        "ElasticIp" => String.t()
+        "ElasticIp" => String.t() | atom()
       }
       
   """
-  @type register_elastic_ip_result() :: %{String.t() => any()}
+  @type register_elastic_ip_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       detach_elastic_load_balancer_request() :: %{
-        required("ElasticLoadBalancerName") => String.t(),
-        required("LayerId") => String.t()
+        required("ElasticLoadBalancerName") => String.t() | atom(),
+        required("LayerId") => String.t() | atom()
       }
       
   """
-  @type detach_elastic_load_balancer_request() :: %{String.t() => any()}
+  @type detach_elastic_load_balancer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1365,11 +1365,11 @@ defmodule AWS.OpsWorks do
       
       agent_version() :: %{
         "ConfigurationManager" => stack_configuration_manager(),
-        "Version" => String.t()
+        "Version" => String.t() | atom()
       }
       
   """
-  @type agent_version() :: %{String.t() => any()}
+  @type agent_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1380,14 +1380,14 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_deployments_result() :: %{String.t() => any()}
+  @type describe_deployments_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       auto_scaling_thresholds() :: %{
-        "Alarms" => list(String.t()),
+        "Alarms" => list(String.t() | atom()),
         "CpuThreshold" => float(),
         "IgnoreMetricsTime" => integer(),
         "InstanceCount" => integer(),
@@ -1397,19 +1397,19 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type auto_scaling_thresholds() :: %{String.t() => any()}
+  @type auto_scaling_thresholds() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_hostname_suggestion_result() :: %{
-        "Hostname" => String.t(),
-        "LayerId" => String.t()
+        "Hostname" => String.t() | atom(),
+        "LayerId" => String.t() | atom()
       }
       
   """
-  @type get_hostname_suggestion_result() :: %{String.t() => any()}
+  @type get_hostname_suggestion_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1420,7 +1420,7 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_apps_result() :: %{String.t() => any()}
+  @type describe_apps_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1431,75 +1431,75 @@ defmodule AWS.OpsWorks do
         optional("AutoAssignElasticIps") => boolean(),
         optional("AutoAssignPublicIps") => boolean(),
         optional("CloudWatchLogsConfiguration") => cloud_watch_logs_configuration(),
-        optional("CustomInstanceProfileArn") => String.t(),
-        optional("CustomJson") => String.t(),
+        optional("CustomInstanceProfileArn") => String.t() | atom(),
+        optional("CustomJson") => String.t() | atom(),
         optional("CustomRecipes") => recipes(),
-        optional("CustomSecurityGroupIds") => list(String.t()),
+        optional("CustomSecurityGroupIds") => list(String.t() | atom()),
         optional("EnableAutoHealing") => boolean(),
         optional("InstallUpdatesOnBoot") => boolean(),
         optional("LifecycleEventConfiguration") => lifecycle_event_configuration(),
-        optional("Name") => String.t(),
-        optional("Packages") => list(String.t()),
-        optional("Shortname") => String.t(),
+        optional("Name") => String.t() | atom(),
+        optional("Packages") => list(String.t() | atom()),
+        optional("Shortname") => String.t() | atom(),
         optional("UseEbsOptimizedInstances") => boolean(),
         optional("VolumeConfigurations") => list(volume_configuration()),
-        required("LayerId") => String.t()
+        required("LayerId") => String.t() | atom()
       }
       
   """
-  @type update_layer_request() :: %{String.t() => any()}
+  @type update_layer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_elastic_ip_request() :: %{
-        required("ElasticIp") => String.t()
+        required("ElasticIp") => String.t() | atom()
       }
       
   """
-  @type deregister_elastic_ip_request() :: %{String.t() => any()}
+  @type deregister_elastic_ip_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       source() :: %{
-        "Password" => String.t(),
-        "Revision" => String.t(),
-        "SshKey" => String.t(),
+        "Password" => String.t() | atom(),
+        "Revision" => String.t() | atom(),
+        "SshKey" => String.t() | atom(),
         "Type" => list(any()),
-        "Url" => String.t(),
-        "Username" => String.t()
+        "Url" => String.t() | atom(),
+        "Username" => String.t() | atom()
       }
       
   """
-  @type source() :: %{String.t() => any()}
+  @type source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       attach_elastic_load_balancer_request() :: %{
-        required("ElasticLoadBalancerName") => String.t(),
-        required("LayerId") => String.t()
+        required("ElasticLoadBalancerName") => String.t() | atom(),
+        required("LayerId") => String.t() | atom()
       }
       
   """
-  @type attach_elastic_load_balancer_request() :: %{String.t() => any()}
+  @type attach_elastic_load_balancer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_service_errors_request() :: %{
-        optional("InstanceId") => String.t(),
-        optional("ServiceErrorIds") => list(String.t()),
-        optional("StackId") => String.t()
+        optional("InstanceId") => String.t() | atom(),
+        optional("ServiceErrorIds") => list(String.t() | atom()),
+        optional("StackId") => String.t() | atom()
       }
       
   """
-  @type describe_service_errors_request() :: %{String.t() => any()}
+  @type describe_service_errors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1510,50 +1510,50 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_stacks_result() :: %{String.t() => any()}
+  @type describe_stacks_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       clone_stack_request() :: %{
-        optional("AgentVersion") => String.t(),
+        optional("AgentVersion") => String.t() | atom(),
         optional("Attributes") => map(),
         optional("ChefConfiguration") => chef_configuration(),
-        optional("CloneAppIds") => list(String.t()),
+        optional("CloneAppIds") => list(String.t() | atom()),
         optional("ClonePermissions") => boolean(),
         optional("ConfigurationManager") => stack_configuration_manager(),
         optional("CustomCookbooksSource") => source(),
-        optional("CustomJson") => String.t(),
-        optional("DefaultAvailabilityZone") => String.t(),
-        optional("DefaultInstanceProfileArn") => String.t(),
-        optional("DefaultOs") => String.t(),
+        optional("CustomJson") => String.t() | atom(),
+        optional("DefaultAvailabilityZone") => String.t() | atom(),
+        optional("DefaultInstanceProfileArn") => String.t() | atom(),
+        optional("DefaultOs") => String.t() | atom(),
         optional("DefaultRootDeviceType") => list(any()),
-        optional("DefaultSshKeyName") => String.t(),
-        optional("DefaultSubnetId") => String.t(),
-        optional("HostnameTheme") => String.t(),
-        optional("Name") => String.t(),
-        optional("Region") => String.t(),
+        optional("DefaultSshKeyName") => String.t() | atom(),
+        optional("DefaultSubnetId") => String.t() | atom(),
+        optional("HostnameTheme") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Region") => String.t() | atom(),
         optional("UseCustomCookbooks") => boolean(),
         optional("UseOpsworksSecurityGroups") => boolean(),
-        optional("VpcId") => String.t(),
-        required("ServiceRoleArn") => String.t(),
-        required("SourceStackId") => String.t()
+        optional("VpcId") => String.t() | atom(),
+        required("ServiceRoleArn") => String.t() | atom(),
+        required("SourceStackId") => String.t() | atom()
       }
       
   """
-  @type clone_stack_request() :: %{String.t() => any()}
+  @type clone_stack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_app_request() :: %{
-        required("AppId") => String.t()
+        required("AppId") => String.t() | atom()
       }
       
   """
-  @type delete_app_request() :: %{String.t() => any()}
+  @type delete_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1562,51 +1562,51 @@ defmodule AWS.OpsWorks do
       load_based_auto_scaling_configuration() :: %{
         "DownScaling" => auto_scaling_thresholds(),
         "Enable" => boolean(),
-        "LayerId" => String.t(),
+        "LayerId" => String.t() | atom(),
         "UpScaling" => auto_scaling_thresholds()
       }
       
   """
-  @type load_based_auto_scaling_configuration() :: %{String.t() => any()}
+  @type load_based_auto_scaling_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_my_user_profile_request() :: %{
-        optional("SshPublicKey") => String.t()
+        optional("SshPublicKey") => String.t() | atom()
       }
       
   """
-  @type update_my_user_profile_request() :: %{String.t() => any()}
+  @type update_my_user_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_instance_request() :: %{
-        optional("AgentVersion") => String.t(),
-        optional("AmiId") => String.t(),
+        optional("AgentVersion") => String.t() | atom(),
+        optional("AmiId") => String.t() | atom(),
         optional("Architecture") => list(any()),
         optional("AutoScalingType") => list(any()),
-        optional("AvailabilityZone") => String.t(),
+        optional("AvailabilityZone") => String.t() | atom(),
         optional("BlockDeviceMappings") => list(block_device_mapping()),
         optional("EbsOptimized") => boolean(),
-        optional("Hostname") => String.t(),
+        optional("Hostname") => String.t() | atom(),
         optional("InstallUpdatesOnBoot") => boolean(),
-        optional("Os") => String.t(),
+        optional("Os") => String.t() | atom(),
         optional("RootDeviceType") => list(any()),
-        optional("SshKeyName") => String.t(),
-        optional("SubnetId") => String.t(),
-        optional("Tenancy") => String.t(),
-        optional("VirtualizationType") => String.t(),
-        required("InstanceType") => String.t(),
-        required("LayerIds") => list(String.t()),
-        required("StackId") => String.t()
+        optional("SshKeyName") => String.t() | atom(),
+        optional("SubnetId") => String.t() | atom(),
+        optional("Tenancy") => String.t() | atom(),
+        optional("VirtualizationType") => String.t() | atom(),
+        required("InstanceType") => String.t() | atom(),
+        required("LayerIds") => list(String.t() | atom()),
+        required("StackId") => String.t() | atom()
       }
       
   """
-  @type create_instance_request() :: %{String.t() => any()}
+  @type create_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1617,116 +1617,116 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_agent_versions_result() :: %{String.t() => any()}
+  @type describe_agent_versions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_ecs_cluster_result() :: %{
-        "EcsClusterArn" => String.t()
+        "EcsClusterArn" => String.t() | atom()
       }
       
   """
-  @type register_ecs_cluster_result() :: %{String.t() => any()}
+  @type register_ecs_cluster_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance() :: %{
-        "Status" => String.t(),
+        "Status" => String.t() | atom(),
         "AutoScalingType" => list(any()),
-        "AmiId" => String.t(),
-        "Hostname" => String.t(),
+        "AmiId" => String.t() | atom(),
+        "Hostname" => String.t() | atom(),
         "ReportedOs" => reported_os(),
-        "LastServiceErrorId" => String.t(),
-        "SubnetId" => String.t(),
-        "InstanceProfileArn" => String.t(),
-        "AgentVersion" => String.t(),
+        "LastServiceErrorId" => String.t() | atom(),
+        "SubnetId" => String.t() | atom(),
+        "InstanceProfileArn" => String.t() | atom(),
+        "AgentVersion" => String.t() | atom(),
         "BlockDeviceMappings" => list(block_device_mapping()),
-        "SshKeyName" => String.t(),
-        "Os" => String.t(),
-        "StackId" => String.t(),
-        "RootDeviceVolumeId" => String.t(),
-        "CreatedAt" => String.t(),
-        "Ec2InstanceId" => String.t(),
-        "AvailabilityZone" => String.t(),
-        "RegisteredBy" => String.t(),
-        "SecurityGroupIds" => list(String.t()),
-        "InstanceType" => String.t(),
-        "InstanceId" => String.t(),
-        "Tenancy" => String.t(),
-        "PublicIp" => String.t(),
-        "ElasticIp" => String.t(),
-        "ReportedAgentVersion" => String.t(),
-        "EcsContainerInstanceArn" => String.t(),
+        "SshKeyName" => String.t() | atom(),
+        "Os" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
+        "RootDeviceVolumeId" => String.t() | atom(),
+        "CreatedAt" => String.t() | atom(),
+        "Ec2InstanceId" => String.t() | atom(),
+        "AvailabilityZone" => String.t() | atom(),
+        "RegisteredBy" => String.t() | atom(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "InstanceType" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "Tenancy" => String.t() | atom(),
+        "PublicIp" => String.t() | atom(),
+        "ElasticIp" => String.t() | atom(),
+        "ReportedAgentVersion" => String.t() | atom(),
+        "EcsContainerInstanceArn" => String.t() | atom(),
         "VirtualizationType" => list(any()),
-        "PrivateDns" => String.t(),
+        "PrivateDns" => String.t() | atom(),
         "RootDeviceType" => list(any()),
-        "PrivateIp" => String.t(),
+        "PrivateIp" => String.t() | atom(),
         "Architecture" => list(any()),
         "InstallUpdatesOnBoot" => boolean(),
-        "LayerIds" => list(String.t()),
-        "Arn" => String.t(),
-        "EcsClusterArn" => String.t(),
-        "SshHostDsaKeyFingerprint" => String.t(),
-        "SshHostRsaKeyFingerprint" => String.t(),
-        "PublicDns" => String.t(),
+        "LayerIds" => list(String.t() | atom()),
+        "Arn" => String.t() | atom(),
+        "EcsClusterArn" => String.t() | atom(),
+        "SshHostDsaKeyFingerprint" => String.t() | atom(),
+        "SshHostRsaKeyFingerprint" => String.t() | atom(),
+        "PublicDns" => String.t() | atom(),
         "EbsOptimized" => boolean(),
-        "InfrastructureClass" => String.t(),
-        "Platform" => String.t()
+        "InfrastructureClass" => String.t() | atom(),
+        "Platform" => String.t() | atom()
       }
       
   """
-  @type instance() :: %{String.t() => any()}
+  @type instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       volume() :: %{
-        "AvailabilityZone" => String.t(),
-        "Device" => String.t(),
-        "Ec2VolumeId" => String.t(),
+        "AvailabilityZone" => String.t() | atom(),
+        "Device" => String.t() | atom(),
+        "Ec2VolumeId" => String.t() | atom(),
         "Encrypted" => boolean(),
-        "InstanceId" => String.t(),
+        "InstanceId" => String.t() | atom(),
         "Iops" => integer(),
-        "MountPoint" => String.t(),
-        "Name" => String.t(),
-        "RaidArrayId" => String.t(),
-        "Region" => String.t(),
+        "MountPoint" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RaidArrayId" => String.t() | atom(),
+        "Region" => String.t() | atom(),
         "Size" => integer(),
-        "Status" => String.t(),
-        "VolumeId" => String.t(),
-        "VolumeType" => String.t()
+        "Status" => String.t() | atom(),
+        "VolumeId" => String.t() | atom(),
+        "VolumeType" => String.t() | atom()
       }
       
   """
-  @type volume() :: %{String.t() => any()}
+  @type volume() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_volume_request() :: %{
-        required("VolumeId") => String.t()
+        required("VolumeId") => String.t() | atom()
       }
       
   """
-  @type deregister_volume_request() :: %{String.t() => any()}
+  @type deregister_volume_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       chef_configuration() :: %{
-        "BerkshelfVersion" => String.t(),
+        "BerkshelfVersion" => String.t() | atom(),
         "ManageBerkshelf" => boolean()
       }
       
   """
-  @type chef_configuration() :: %{String.t() => any()}
+  @type chef_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1734,51 +1734,51 @@ defmodule AWS.OpsWorks do
       
       create_user_profile_request() :: %{
         optional("AllowSelfManagement") => boolean(),
-        optional("SshPublicKey") => String.t(),
-        optional("SshUsername") => String.t(),
-        required("IamUserArn") => String.t()
+        optional("SshPublicKey") => String.t() | atom(),
+        optional("SshUsername") => String.t() | atom(),
+        required("IamUserArn") => String.t() | atom()
       }
       
   """
-  @type create_user_profile_request() :: %{String.t() => any()}
+  @type create_user_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ecs_cluster() :: %{
-        "EcsClusterArn" => String.t(),
-        "EcsClusterName" => String.t(),
-        "RegisteredAt" => String.t(),
-        "StackId" => String.t()
+        "EcsClusterArn" => String.t() | atom(),
+        "EcsClusterName" => String.t() | atom(),
+        "RegisteredAt" => String.t() | atom(),
+        "StackId" => String.t() | atom()
       }
       
   """
-  @type ecs_cluster() :: %{String.t() => any()}
+  @type ecs_cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_user_profile_result() :: %{
-        "IamUserArn" => String.t()
+        "IamUserArn" => String.t() | atom()
       }
       
   """
-  @type create_user_profile_result() :: %{String.t() => any()}
+  @type create_user_profile_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_raid_arrays_request() :: %{
-        optional("InstanceId") => String.t(),
-        optional("RaidArrayIds") => list(String.t()),
-        optional("StackId") => String.t()
+        optional("InstanceId") => String.t() | atom(),
+        optional("RaidArrayIds") => list(String.t() | atom()),
+        optional("StackId") => String.t() | atom()
       }
       
   """
-  @type describe_raid_arrays_request() :: %{String.t() => any()}
+  @type describe_raid_arrays_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1789,24 +1789,24 @@ defmodule AWS.OpsWorks do
         optional("AutoAssignElasticIps") => boolean(),
         optional("AutoAssignPublicIps") => boolean(),
         optional("CloudWatchLogsConfiguration") => cloud_watch_logs_configuration(),
-        optional("CustomInstanceProfileArn") => String.t(),
-        optional("CustomJson") => String.t(),
+        optional("CustomInstanceProfileArn") => String.t() | atom(),
+        optional("CustomJson") => String.t() | atom(),
         optional("CustomRecipes") => recipes(),
-        optional("CustomSecurityGroupIds") => list(String.t()),
+        optional("CustomSecurityGroupIds") => list(String.t() | atom()),
         optional("EnableAutoHealing") => boolean(),
         optional("InstallUpdatesOnBoot") => boolean(),
         optional("LifecycleEventConfiguration") => lifecycle_event_configuration(),
-        optional("Packages") => list(String.t()),
+        optional("Packages") => list(String.t() | atom()),
         optional("UseEbsOptimizedInstances") => boolean(),
         optional("VolumeConfigurations") => list(volume_configuration()),
-        required("Name") => String.t(),
-        required("Shortname") => String.t(),
-        required("StackId") => String.t(),
+        required("Name") => String.t() | atom(),
+        required("Shortname") => String.t() | atom(),
+        required("StackId") => String.t() | atom(),
         required("Type") => list(any())
       }
       
   """
-  @type create_layer_request() :: %{String.t() => any()}
+  @type create_layer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1814,33 +1814,33 @@ defmodule AWS.OpsWorks do
       
       describe_ecs_clusters_result() :: %{
         "EcsClusters" => list(ecs_cluster()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_ecs_clusters_result() :: %{String.t() => any()}
+  @type describe_ecs_clusters_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_layer_request() :: %{
-        required("LayerId") => String.t()
+        required("LayerId") => String.t() | atom()
       }
       
   """
-  @type delete_layer_request() :: %{String.t() => any()}
+  @type delete_layer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_instance_result() :: %{
-        "InstanceId" => String.t()
+        "InstanceId" => String.t() | atom()
       }
       
   """
-  @type register_instance_result() :: %{String.t() => any()}
+  @type register_instance_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1851,43 +1851,43 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_time_based_auto_scaling_result() :: %{String.t() => any()}
+  @type describe_time_based_auto_scaling_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_rds_db_instance_request() :: %{
-        optional("DbPassword") => String.t(),
-        optional("DbUser") => String.t(),
-        required("RdsDbInstanceArn") => String.t()
+        optional("DbPassword") => String.t() | atom(),
+        optional("DbUser") => String.t() | atom(),
+        required("RdsDbInstanceArn") => String.t() | atom()
       }
       
   """
-  @type update_rds_db_instance_request() :: %{String.t() => any()}
+  @type update_rds_db_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_layers_request() :: %{
-        optional("LayerIds") => list(String.t()),
-        optional("StackId") => String.t()
+        optional("LayerIds") => list(String.t() | atom()),
+        optional("StackId") => String.t() | atom()
       }
       
   """
-  @type describe_layers_request() :: %{String.t() => any()}
+  @type describe_layers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1897,18 +1897,18 @@ defmodule AWS.OpsWorks do
         optional("AppSource") => source(),
         optional("Attributes") => map(),
         optional("DataSources") => list(data_source()),
-        optional("Description") => String.t(),
-        optional("Domains") => list(String.t()),
+        optional("Description") => String.t() | atom(),
+        optional("Domains") => list(String.t() | atom()),
         optional("EnableSsl") => boolean(),
         optional("Environment") => list(environment_variable()),
-        optional("Name") => String.t(),
+        optional("Name") => String.t() | atom(),
         optional("SslConfiguration") => ssl_configuration(),
         optional("Type") => list(any()),
-        required("AppId") => String.t()
+        required("AppId") => String.t() | atom()
       }
       
   """
-  @type update_app_request() :: %{String.t() => any()}
+  @type update_app_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1917,34 +1917,34 @@ defmodule AWS.OpsWorks do
       delete_instance_request() :: %{
         optional("DeleteElasticIp") => boolean(),
         optional("DeleteVolumes") => boolean(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | atom()
       }
       
   """
-  @type delete_instance_request() :: %{String.t() => any()}
+  @type delete_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_elastic_ip_request() :: %{
-        required("ElasticIp") => String.t(),
-        required("StackId") => String.t()
+        required("ElasticIp") => String.t() | atom(),
+        required("StackId") => String.t() | atom()
       }
       
   """
-  @type register_elastic_ip_request() :: %{String.t() => any()}
+  @type register_elastic_ip_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_volume_result() :: %{
-        "VolumeId" => String.t()
+        "VolumeId" => String.t() | atom()
       }
       
   """
-  @type register_volume_result() :: %{String.t() => any()}
+  @type register_volume_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1955,18 +1955,18 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type grant_access_result() :: %{String.t() => any()}
+  @type grant_access_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stack_summary_request() :: %{
-        required("StackId") => String.t()
+        required("StackId") => String.t() | atom()
       }
       
   """
-  @type describe_stack_summary_request() :: %{String.t() => any()}
+  @type describe_stack_summary_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1977,26 +1977,26 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_instances_result() :: %{String.t() => any()}
+  @type describe_instances_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rds_db_instance() :: %{
-        "Address" => String.t(),
-        "DbInstanceIdentifier" => String.t(),
-        "DbPassword" => String.t(),
-        "DbUser" => String.t(),
-        "Engine" => String.t(),
+        "Address" => String.t() | atom(),
+        "DbInstanceIdentifier" => String.t() | atom(),
+        "DbPassword" => String.t() | atom(),
+        "DbUser" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
         "MissingOnRds" => boolean(),
-        "RdsDbInstanceArn" => String.t(),
-        "Region" => String.t(),
-        "StackId" => String.t()
+        "RdsDbInstanceArn" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "StackId" => String.t() | atom()
       }
       
   """
-  @type rds_db_instance() :: %{String.t() => any()}
+  @type rds_db_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2007,38 +2007,38 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_load_based_auto_scaling_result() :: %{String.t() => any()}
+  @type describe_load_based_auto_scaling_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       clone_stack_result() :: %{
-        "StackId" => String.t()
+        "StackId" => String.t() | atom()
       }
       
   """
-  @type clone_stack_result() :: %{String.t() => any()}
+  @type clone_stack_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       command() :: %{
-        "AcknowledgedAt" => String.t(),
-        "CommandId" => String.t(),
-        "CompletedAt" => String.t(),
-        "CreatedAt" => String.t(),
-        "DeploymentId" => String.t(),
+        "AcknowledgedAt" => String.t() | atom(),
+        "CommandId" => String.t() | atom(),
+        "CompletedAt" => String.t() | atom(),
+        "CreatedAt" => String.t() | atom(),
+        "DeploymentId" => String.t() | atom(),
         "ExitCode" => integer(),
-        "InstanceId" => String.t(),
-        "LogUrl" => String.t(),
-        "Status" => String.t(),
-        "Type" => String.t()
+        "InstanceId" => String.t() | atom(),
+        "LogUrl" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type command() :: %{String.t() => any()}
+  @type command() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2047,15 +2047,15 @@ defmodule AWS.OpsWorks do
       volume_configuration() :: %{
         "Encrypted" => boolean(),
         "Iops" => integer(),
-        "MountPoint" => String.t(),
+        "MountPoint" => String.t() | atom(),
         "NumberOfDisks" => integer(),
         "RaidLevel" => integer(),
         "Size" => integer(),
-        "VolumeType" => String.t()
+        "VolumeType" => String.t() | atom()
       }
       
   """
-  @type volume_configuration() :: %{String.t() => any()}
+  @type volume_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2066,73 +2066,73 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_volumes_result() :: %{String.t() => any()}
+  @type describe_volumes_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       operating_system_configuration_manager() :: %{
-        "Name" => String.t(),
-        "Version" => String.t()
+        "Name" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
       
   """
-  @type operating_system_configuration_manager() :: %{String.t() => any()}
+  @type operating_system_configuration_manager() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_error() :: %{
-        "CreatedAt" => String.t(),
-        "InstanceId" => String.t(),
-        "Message" => String.t(),
-        "ServiceErrorId" => String.t(),
-        "StackId" => String.t(),
-        "Type" => String.t()
+        "CreatedAt" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "ServiceErrorId" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type service_error() :: %{String.t() => any()}
+  @type service_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       data_source() :: %{
-        "Arn" => String.t(),
-        "DatabaseName" => String.t(),
-        "Type" => String.t()
+        "Arn" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type data_source() :: %{String.t() => any()}
+  @type data_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_instance_request() :: %{
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | atom()
       }
       
   """
-  @type start_instance_request() :: %{String.t() => any()}
+  @type start_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       self_user_profile() :: %{
-        "IamUserArn" => String.t(),
-        "Name" => String.t(),
-        "SshPublicKey" => String.t(),
-        "SshUsername" => String.t()
+        "IamUserArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "SshPublicKey" => String.t() | atom(),
+        "SshUsername" => String.t() | atom()
       }
       
   """
-  @type self_user_profile() :: %{String.t() => any()}
+  @type self_user_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2140,11 +2140,11 @@ defmodule AWS.OpsWorks do
       
       set_time_based_auto_scaling_request() :: %{
         optional("AutoScalingSchedule") => weekly_auto_scaling_schedule(),
-        required("InstanceId") => String.t()
+        required("InstanceId") => String.t() | atom()
       }
       
   """
-  @type set_time_based_auto_scaling_request() :: %{String.t() => any()}
+  @type set_time_based_auto_scaling_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2152,12 +2152,12 @@ defmodule AWS.OpsWorks do
       
       list_tags_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ResourceArn") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_request() :: %{String.t() => any()}
+  @type list_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2167,65 +2167,65 @@ defmodule AWS.OpsWorks do
         "BatchCount" => integer(),
         "BatchSize" => integer(),
         "BufferDuration" => integer(),
-        "DatetimeFormat" => String.t(),
+        "DatetimeFormat" => String.t() | atom(),
         "Encoding" => list(any()),
-        "File" => String.t(),
-        "FileFingerprintLines" => String.t(),
+        "File" => String.t() | atom(),
+        "FileFingerprintLines" => String.t() | atom(),
         "InitialPosition" => list(any()),
-        "LogGroupName" => String.t(),
-        "MultiLineStartPattern" => String.t(),
+        "LogGroupName" => String.t() | atom(),
+        "MultiLineStartPattern" => String.t() | atom(),
         "TimeZone" => list(any())
       }
       
   """
-  @type cloud_watch_logs_log_stream() :: %{String.t() => any()}
+  @type cloud_watch_logs_log_stream() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_stack_provisioning_parameters_request() :: %{
-        required("StackId") => String.t()
+        required("StackId") => String.t() | atom()
       }
       
   """
-  @type describe_stack_provisioning_parameters_request() :: %{String.t() => any()}
+  @type describe_stack_provisioning_parameters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       instance_identity() :: %{
-        "Document" => String.t(),
-        "Signature" => String.t()
+        "Document" => String.t() | atom(),
+        "Signature" => String.t() | atom()
       }
       
   """
-  @type instance_identity() :: %{String.t() => any()}
+  @type instance_identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_deployments_request() :: %{
-        optional("AppId") => String.t(),
-        optional("DeploymentIds") => list(String.t()),
-        optional("StackId") => String.t()
+        optional("AppId") => String.t() | atom(),
+        optional("DeploymentIds") => list(String.t() | atom()),
+        optional("StackId") => String.t() | atom()
       }
       
   """
-  @type describe_deployments_request() :: %{String.t() => any()}
+  @type describe_deployments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_app_result() :: %{
-        "AppId" => String.t()
+        "AppId" => String.t() | atom()
       }
       
   """
-  @type create_app_result() :: %{String.t() => any()}
+  @type create_app_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2236,18 +2236,18 @@ defmodule AWS.OpsWorks do
       }
       
   """
-  @type describe_service_errors_result() :: %{String.t() => any()}
+  @type describe_service_errors_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_stack_request() :: %{
-        required("StackId") => String.t()
+        required("StackId") => String.t() | atom()
       }
       
   """
-  @type start_stack_request() :: %{String.t() => any()}
+  @type start_stack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2255,11 +2255,11 @@ defmodule AWS.OpsWorks do
       
       time_based_auto_scaling_configuration() :: %{
         "AutoScalingSchedule" => weekly_auto_scaling_schedule(),
-        "InstanceId" => String.t()
+        "InstanceId" => String.t() | atom()
       }
       
   """
-  @type time_based_auto_scaling_configuration() :: %{String.t() => any()}
+  @type time_based_auto_scaling_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2268,37 +2268,37 @@ defmodule AWS.OpsWorks do
       permission() :: %{
         "AllowSsh" => boolean(),
         "AllowSudo" => boolean(),
-        "IamUserArn" => String.t(),
-        "Level" => String.t(),
-        "StackId" => String.t()
+        "IamUserArn" => String.t() | atom(),
+        "Level" => String.t() | atom(),
+        "StackId" => String.t() | atom()
       }
       
   """
-  @type permission() :: %{String.t() => any()}
+  @type permission() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reported_os() :: %{
-        "Family" => String.t(),
-        "Name" => String.t(),
-        "Version" => String.t()
+        "Family" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
       
   """
-  @type reported_os() :: %{String.t() => any()}
+  @type reported_os() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_rds_db_instance_request() :: %{
-        required("RdsDbInstanceArn") => String.t()
+        required("RdsDbInstanceArn") => String.t() | atom()
       }
       
   """
-  @type deregister_rds_db_instance_request() :: %{String.t() => any()}
+  @type deregister_rds_db_instance_request() :: %{(String.t() | atom()) => any()}
 
   @type assign_instance_errors() :: validation_exception() | resource_not_found_exception()
 
@@ -2499,7 +2499,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, assign_instance_errors()}
   def assign_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssignInstance", input, options)
   end
@@ -2526,7 +2527,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, assign_volume_errors()}
   def assign_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssignVolume", input, options)
   end
@@ -2552,7 +2554,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, associate_elastic_ip_errors()}
   def associate_elastic_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateElasticIp", input, options)
   end
@@ -2581,7 +2584,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, attach_elastic_load_balancer_errors()}
   def attach_elastic_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachElasticLoadBalancer", input, options)
   end
@@ -2603,7 +2607,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, clone_stack_errors()}
   def clone_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CloneStack", input, options)
   end
@@ -2625,7 +2630,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, create_app_errors()}
   def create_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApp", input, options)
   end
@@ -2648,7 +2654,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDeployment", input, options)
   end
@@ -2671,7 +2678,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, create_instance_errors()}
   def create_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInstance", input, options)
   end
@@ -2704,7 +2712,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, create_layer_errors()}
   def create_layer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLayer", input, options)
   end
@@ -2725,7 +2734,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, create_stack_errors()}
   def create_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStack", input, options)
   end
@@ -2744,7 +2754,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, create_user_profile_errors()}
   def create_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserProfile", input, options)
   end
@@ -2764,7 +2775,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, delete_app_errors()}
   def delete_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApp", input, options)
   end
@@ -2790,7 +2802,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, delete_instance_errors()}
   def delete_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInstance", input, options)
   end
@@ -2814,7 +2827,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, delete_layer_errors()}
   def delete_layer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLayer", input, options)
   end
@@ -2837,7 +2851,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, delete_stack_errors()}
   def delete_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStack", input, options)
   end
@@ -2856,7 +2871,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, delete_user_profile_errors()}
   def delete_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserProfile", input, options)
   end
@@ -2882,7 +2898,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, deregister_ecs_cluster_errors()}
   def deregister_ecs_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterEcsCluster", input, options)
   end
@@ -2905,7 +2922,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, deregister_elastic_ip_errors()}
   def deregister_elastic_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterElasticIp", input, options)
   end
@@ -2929,7 +2947,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, deregister_instance_errors()}
   def deregister_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterInstance", input, options)
   end
@@ -2949,7 +2968,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, deregister_rds_db_instance_errors()}
   def deregister_rds_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterRdsDbInstance", input, options)
   end
@@ -2972,7 +2992,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, deregister_volume_errors()}
   def deregister_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterVolume", input, options)
   end
@@ -2990,7 +3011,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_agent_versions_errors()}
   def describe_agent_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAgentVersions", input, options)
   end
@@ -3013,7 +3035,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_apps_errors()}
   def describe_apps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApps", input, options)
   end
@@ -3035,7 +3058,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_commands_errors()}
   def describe_commands(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCommands", input, options)
   end
@@ -3057,7 +3081,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_deployments_errors()}
   def describe_deployments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDeployments", input, options)
   end
@@ -3085,7 +3110,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_ecs_clusters_errors()}
   def describe_ecs_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEcsClusters", input, options)
   end
@@ -3107,7 +3133,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_elastic_ips_errors()}
   def describe_elastic_ips(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeElasticIps", input, options)
   end
@@ -3129,7 +3156,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_elastic_load_balancers_errors()}
   def describe_elastic_load_balancers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeElasticLoadBalancers", input, options)
   end
@@ -3151,7 +3179,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_instances_errors()}
   def describe_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstances", input, options)
   end
@@ -3173,7 +3202,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_layers_errors()}
   def describe_layers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLayers", input, options)
   end
@@ -3199,7 +3229,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_load_based_auto_scaling_errors()}
   def describe_load_based_auto_scaling(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoadBasedAutoScaling", input, options)
   end
@@ -3218,7 +3249,8 @@ defmodule AWS.OpsWorks do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_my_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMyUserProfile", input, options)
   end
@@ -3231,7 +3263,8 @@ defmodule AWS.OpsWorks do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_operating_systems(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOperatingSystems", input, options)
   end
@@ -3251,7 +3284,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_permissions_errors()}
   def describe_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePermissions", input, options)
   end
@@ -3273,7 +3307,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_raid_arrays_errors()}
   def describe_raid_arrays(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRaidArrays", input, options)
   end
@@ -3295,7 +3330,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_rds_db_instances_errors()}
   def describe_rds_db_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRdsDbInstances", input, options)
   end
@@ -3317,7 +3353,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_service_errors_errors()}
   def describe_service_errors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceErrors", input, options)
   end
@@ -3341,7 +3378,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_stack_provisioning_parameters_errors()}
   def describe_stack_provisioning_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStackProvisioningParameters", input, options)
   end
@@ -3363,7 +3401,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_stack_summary_errors()}
   def describe_stack_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStackSummary", input, options)
   end
@@ -3383,7 +3422,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_stacks_errors()}
   def describe_stacks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStacks", input, options)
   end
@@ -3409,7 +3449,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_time_based_auto_scaling_errors()}
   def describe_time_based_auto_scaling(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTimeBasedAutoScaling", input, options)
   end
@@ -3428,7 +3469,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_user_profiles_errors()}
   def describe_user_profiles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserProfiles", input, options)
   end
@@ -3450,7 +3492,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_volumes_errors()}
   def describe_volumes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVolumes", input, options)
   end
@@ -3470,7 +3513,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, detach_elastic_load_balancer_errors()}
   def detach_elastic_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachElasticLoadBalancer", input, options)
   end
@@ -3493,7 +3537,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, disassociate_elastic_ip_errors()}
   def disassociate_elastic_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateElasticIp", input, options)
   end
@@ -3514,7 +3559,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, get_hostname_suggestion_errors()}
   def get_hostname_suggestion(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetHostnameSuggestion", input, options)
   end
@@ -3531,7 +3577,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, grant_access_errors()}
   def grant_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GrantAccess", input, options)
   end
@@ -3545,7 +3592,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
   end
@@ -3568,7 +3616,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, reboot_instance_errors()}
   def reboot_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootInstance", input, options)
   end
@@ -3598,7 +3647,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, register_ecs_cluster_errors()}
   def register_ecs_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterEcsCluster", input, options)
   end
@@ -3623,7 +3673,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, register_elastic_ip_errors()}
   def register_elastic_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterElasticIp", input, options)
   end
@@ -3666,7 +3717,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, register_instance_errors()}
   def register_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterInstance", input, options)
   end
@@ -3686,7 +3738,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, register_rds_db_instance_errors()}
   def register_rds_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterRdsDbInstance", input, options)
   end
@@ -3711,7 +3764,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, register_volume_errors()}
   def register_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterVolume", input, options)
   end
@@ -3741,7 +3795,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, set_load_based_auto_scaling_errors()}
   def set_load_based_auto_scaling(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetLoadBasedAutoScaling", input, options)
   end
@@ -3764,7 +3819,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, set_permission_errors()}
   def set_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetPermission", input, options)
   end
@@ -3788,7 +3844,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, set_time_based_auto_scaling_errors()}
   def set_time_based_auto_scaling(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetTimeBasedAutoScaling", input, options)
   end
@@ -3811,7 +3868,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, start_instance_errors()}
   def start_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartInstance", input, options)
   end
@@ -3831,7 +3889,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, start_stack_errors()}
   def start_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartStack", input, options)
   end
@@ -3857,7 +3916,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, stop_instance_errors()}
   def stop_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopInstance", input, options)
   end
@@ -3877,7 +3937,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, stop_stack_errors()}
   def stop_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopStack", input, options)
   end
@@ -3896,7 +3957,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3922,7 +3984,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, unassign_instance_errors()}
   def unassign_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnassignInstance", input, options)
   end
@@ -3945,7 +4008,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, unassign_volume_errors()}
   def unassign_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnassignVolume", input, options)
   end
@@ -3959,7 +4023,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3979,7 +4044,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_app_errors()}
   def update_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApp", input, options)
   end
@@ -4001,7 +4067,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_elastic_ip_errors()}
   def update_elastic_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateElasticIp", input, options)
   end
@@ -4021,7 +4088,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_instance_errors()}
   def update_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInstance", input, options)
   end
@@ -4041,7 +4109,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_layer_errors()}
   def update_layer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLayer", input, options)
   end
@@ -4061,7 +4130,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_my_user_profile_errors()}
   def update_my_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMyUserProfile", input, options)
   end
@@ -4081,7 +4151,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_rds_db_instance_errors()}
   def update_rds_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRdsDbInstance", input, options)
   end
@@ -4101,7 +4172,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_stack_errors()}
   def update_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateStack", input, options)
   end
@@ -4120,7 +4192,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_user_profile_errors()}
   def update_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserProfile", input, options)
   end
@@ -4143,7 +4216,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_volume_errors()}
   def update_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateVolume", input, options)
   end

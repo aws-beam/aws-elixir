@@ -54,7 +54,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_kubernetes_configuration() :: %{String.t() => any()}
+  @type organization_kubernetes_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -72,7 +72,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type resource_data() :: %{String.t() => any()}
+  @type resource_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -92,57 +92,57 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type cloud_trail_configuration_result() :: %{String.t() => any()}
+  @type cloud_trail_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       organization() :: %{
-        "Asn" => String.t(),
-        "AsnOrg" => String.t(),
-        "Isp" => String.t(),
-        "Org" => String.t()
+        "Asn" => String.t() | atom(),
+        "AsnOrg" => String.t() | atom(),
+        "Isp" => String.t() | atom(),
+        "Org" => String.t() | atom()
       }
 
   """
-  @type organization() :: %{String.t() => any()}
+  @type organization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       instance_details() :: %{
-        "AvailabilityZone" => String.t(),
+        "AvailabilityZone" => String.t() | atom(),
         "IamInstanceProfile" => iam_instance_profile(),
-        "ImageDescription" => String.t(),
-        "ImageId" => String.t(),
-        "InstanceId" => String.t(),
-        "InstanceState" => String.t(),
-        "InstanceType" => String.t(),
-        "LaunchTime" => String.t(),
+        "ImageDescription" => String.t() | atom(),
+        "ImageId" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "InstanceState" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
+        "LaunchTime" => String.t() | atom(),
         "NetworkInterfaces" => list(network_interface()),
-        "OutpostArn" => String.t(),
-        "Platform" => String.t(),
+        "OutpostArn" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
         "ProductCodes" => list(product_code()),
         "Tags" => list(tag())
       }
 
   """
-  @type instance_details() :: %{String.t() => any()}
+  @type instance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       member_data_source_configuration() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | atom(),
         "DataSources" => data_source_configurations_result(),
         "Features" => list(member_features_configuration_result())
       }
 
   """
-  @type member_data_source_configuration() :: %{String.t() => any()}
+  @type member_data_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -158,7 +158,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type data_sources_free_trial() :: %{String.t() => any()}
+  @type data_sources_free_trial() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -166,14 +166,14 @@ defmodule AWS.GuardDuty do
 
       get_usage_statistics_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("Unit") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Unit") => String.t() | atom(),
         required("UsageCriteria") => usage_criteria(),
         required("UsageStatisticType") => list(any())
       }
 
   """
-  @type get_usage_statistics_request() :: %{String.t() => any()}
+  @type get_usage_statistics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -185,7 +185,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type usage_data_source_result() :: %{String.t() => any()}
+  @type usage_data_source_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -196,7 +196,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -208,7 +208,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type scan_resource_criteria() :: %{String.t() => any()}
+  @type scan_resource_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -219,7 +219,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type decline_invitations_response() :: %{String.t() => any()}
+  @type decline_invitations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -230,24 +230,24 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type malware_protection_plan_tagging_action() :: %{String.t() => any()}
+  @type malware_protection_plan_tagging_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       container() :: %{
-        "ContainerRuntime" => String.t(),
-        "Id" => String.t(),
-        "Image" => String.t(),
-        "ImagePrefix" => String.t(),
-        "Name" => String.t(),
+        "ContainerRuntime" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Image" => String.t() | atom(),
+        "ImagePrefix" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "SecurityContext" => security_context(),
         "VolumeMounts" => list(volume_mount())
       }
 
   """
-  @type container() :: %{String.t() => any()}
+  @type container() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -257,13 +257,13 @@ defmodule AWS.GuardDuty do
         "City" => city(),
         "Country" => country(),
         "GeoLocation" => geo_location(),
-        "IpAddressV4" => String.t(),
-        "IpAddressV6" => String.t(),
+        "IpAddressV4" => String.t() | atom(),
+        "IpAddressV6" => String.t() | atom(),
         "Organization" => organization()
       }
 
   """
-  @type remote_ip_details() :: %{String.t() => any()}
+  @type remote_ip_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -283,7 +283,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type kubernetes_data_source_free_trial() :: %{String.t() => any()}
+  @type kubernetes_data_source_free_trial() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -294,21 +294,21 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_ebs_volumes_result() :: %{String.t() => any()}
+  @type organization_ebs_volumes_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       administrator() :: %{
-        "AccountId" => String.t(),
-        "InvitationId" => String.t(),
-        "InvitedAt" => String.t(),
-        "RelationshipStatus" => String.t()
+        "AccountId" => String.t() | atom(),
+        "InvitationId" => String.t() | atom(),
+        "InvitedAt" => String.t() | atom(),
+        "RelationshipStatus" => String.t() | atom()
       }
 
   """
-  @type administrator() :: %{String.t() => any()}
+  @type administrator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -324,20 +324,20 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type usage_statistics() :: %{String.t() => any()}
+  @type usage_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filter_condition() :: %{
-        "EqualsValue" => String.t(),
+        "EqualsValue" => String.t() | atom(),
         "GreaterThan" => float(),
         "LessThan" => float()
       }
 
   """
-  @type filter_condition() :: %{String.t() => any()}
+  @type filter_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -345,17 +345,17 @@ defmodule AWS.GuardDuty do
 
       get_malware_protection_plan_response() :: %{
         "Actions" => malware_protection_plan_actions(),
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
         "ProtectedResource" => create_protected_resource(),
-        "Role" => String.t(),
+        "Role" => String.t() | atom(),
         "Status" => list(any()),
         "StatusReasons" => list(malware_protection_plan_status_reason()),
         "Tags" => map()
       }
 
   """
-  @type get_malware_protection_plan_response() :: %{String.t() => any()}
+  @type get_malware_protection_plan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -363,30 +363,30 @@ defmodule AWS.GuardDuty do
 
       describe_organization_configuration_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_organization_configuration_request() :: %{String.t() => any()}
+  @type describe_organization_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_bucket_detail() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
         "DefaultServerSideEncryption" => default_server_side_encryption(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Owner" => owner(),
         "PublicAccess" => public_access(),
         "S3ObjectDetails" => list(s3_object_detail()),
         "Tags" => list(tag()),
-        "Type" => String.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type s3_bucket_detail() :: %{String.t() => any()}
+  @type s3_bucket_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -402,7 +402,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type data_source_configurations_result() :: %{String.t() => any()}
+  @type data_source_configurations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -410,11 +410,11 @@ defmodule AWS.GuardDuty do
 
       list_ip_sets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_ip_sets_request() :: %{String.t() => any()}
+  @type list_ip_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -429,7 +429,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type get_findings_statistics_request() :: %{String.t() => any()}
+  @type get_findings_statistics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -441,30 +441,30 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type get_members_response() :: %{String.t() => any()}
+  @type get_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_member_detectors_request() :: %{
-        required("AccountIds") => list(String.t())
+        required("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type get_member_detectors_request() :: %{String.t() => any()}
+  @type get_member_detectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       admin_account() :: %{
-        "AdminAccountId" => String.t(),
+        "AdminAccountId" => String.t() | atom(),
         "AdminStatus" => list(any())
       }
 
   """
-  @type admin_account() :: %{String.t() => any()}
+  @type admin_account() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -472,17 +472,17 @@ defmodule AWS.GuardDuty do
 
       sequence() :: %{
         "Actors" => list(actor()),
-        "AdditionalSequenceTypes" => list(String.t()),
-        "Description" => String.t(),
+        "AdditionalSequenceTypes" => list(String.t() | atom()),
+        "Description" => String.t() | atom(),
         "Endpoints" => list(network_endpoint()),
         "Resources" => list(resource_v2()),
         "SequenceIndicators" => list(indicator()),
         "Signals" => list(signal()),
-        "Uid" => String.t()
+        "Uid" => String.t() | atom()
       }
 
   """
-  @type sequence() :: %{String.t() => any()}
+  @type sequence() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -498,36 +498,36 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       accept_administrator_invitation_request() :: %{
-        required("AdministratorId") => String.t(),
-        required("InvitationId") => String.t()
+        required("AdministratorId") => String.t() | atom(),
+        required("InvitationId") => String.t() | atom()
       }
 
   """
-  @type accept_administrator_invitation_request() :: %{String.t() => any()}
+  @type accept_administrator_invitation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       scan_condition_pair() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type scan_condition_pair() :: %{String.t() => any()}
+  @type scan_condition_pair() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       destination_properties() :: %{
-        "DestinationArn" => String.t(),
-        "KmsKeyArn" => String.t()
+        "DestinationArn" => String.t() | atom(),
+        "KmsKeyArn" => String.t() | atom()
       }
 
   """
-  @type destination_properties() :: %{String.t() => any()}
+  @type destination_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -539,7 +539,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type ebs_volume_details() :: %{String.t() => any()}
+  @type ebs_volume_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -559,7 +559,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type kubernetes_audit_logs_configuration() :: %{String.t() => any()}
+  @type kubernetes_audit_logs_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -570,16 +570,16 @@ defmodule AWS.GuardDuty do
         "HostIPC" => boolean(),
         "HostNetwork" => boolean(),
         "HostPID" => boolean(),
-        "Name" => String.t(),
-        "Namespace" => String.t(),
-        "ServiceAccountName" => String.t(),
-        "Type" => String.t(),
-        "Uid" => String.t(),
+        "Name" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
+        "ServiceAccountName" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Uid" => String.t() | atom(),
         "Volumes" => list(volume())
       }
 
   """
-  @type kubernetes_workload_details() :: %{String.t() => any()}
+  @type kubernetes_workload_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -596,22 +596,22 @@ defmodule AWS.GuardDuty do
 
       process_details() :: %{
         "Euid" => integer(),
-        "ExecutablePath" => String.t(),
-        "ExecutableSha256" => String.t(),
+        "ExecutablePath" => String.t() | atom(),
+        "ExecutableSha256" => String.t() | atom(),
         "Lineage" => list(lineage_object()),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "NamespacePid" => integer(),
-        "ParentUuid" => String.t(),
+        "ParentUuid" => String.t() | atom(),
         "Pid" => integer(),
-        "Pwd" => String.t(),
+        "Pwd" => String.t() | atom(),
         "StartTime" => non_neg_integer(),
-        "User" => String.t(),
+        "User" => String.t() | atom(),
         "UserId" => integer(),
-        "Uuid" => String.t()
+        "Uuid" => String.t() | atom()
       }
 
   """
-  @type process_details() :: %{String.t() => any()}
+  @type process_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -628,11 +628,11 @@ defmodule AWS.GuardDuty do
 
       list_publishing_destinations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_publishing_destinations_request() :: %{String.t() => any()}
+  @type list_publishing_destinations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -643,7 +643,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type filter_criteria() :: %{String.t() => any()}
+  @type filter_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -655,7 +655,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type filter_criterion() :: %{String.t() => any()}
+  @type filter_criterion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -663,28 +663,28 @@ defmodule AWS.GuardDuty do
 
       network_connection_action() :: %{
         "Blocked" => boolean(),
-        "ConnectionDirection" => String.t(),
+        "ConnectionDirection" => String.t() | atom(),
         "LocalIpDetails" => local_ip_details(),
-        "LocalNetworkInterface" => String.t(),
+        "LocalNetworkInterface" => String.t() | atom(),
         "LocalPortDetails" => local_port_details(),
-        "Protocol" => String.t(),
+        "Protocol" => String.t() | atom(),
         "RemoteIpDetails" => remote_ip_details(),
         "RemotePortDetails" => remote_port_details()
       }
 
   """
-  @type network_connection_action() :: %{String.t() => any()}
+  @type network_connection_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_malware_protection_plan_response() :: %{
-        "MalwareProtectionPlanId" => String.t()
+        "MalwareProtectionPlanId" => String.t() | atom()
       }
 
   """
-  @type create_malware_protection_plan_response() :: %{String.t() => any()}
+  @type create_malware_protection_plan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -695,19 +695,19 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type account_level_permissions() :: %{String.t() => any()}
+  @type account_level_permissions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       coverage_filter_condition() :: %{
-        "Equals" => list(String.t()),
-        "NotEquals" => list(String.t())
+        "Equals" => list(String.t() | atom()),
+        "NotEquals" => list(String.t() | atom())
       }
 
   """
-  @type coverage_filter_condition() :: %{String.t() => any()}
+  @type coverage_filter_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -718,7 +718,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type malware_protection_configuration() :: %{String.t() => any()}
+  @type malware_protection_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -726,11 +726,11 @@ defmodule AWS.GuardDuty do
 
       local_port_details() :: %{
         "Port" => integer(),
-        "PortName" => String.t()
+        "PortName" => String.t() | atom()
       }
 
   """
-  @type local_port_details() :: %{String.t() => any()}
+  @type local_port_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -741,7 +741,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type start_monitoring_members_response() :: %{String.t() => any()}
+  @type start_monitoring_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -749,32 +749,32 @@ defmodule AWS.GuardDuty do
 
       malware_protection_configuration_result() :: %{
         "ScanEc2InstanceWithFindings" => scan_ec2_instance_with_findings_result(),
-        "ServiceRole" => String.t()
+        "ServiceRole" => String.t() | atom()
       }
 
   """
-  @type malware_protection_configuration_result() :: %{String.t() => any()}
+  @type malware_protection_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kubernetes_api_call_action() :: %{
-        "Namespace" => String.t(),
-        "Parameters" => String.t(),
+        "Namespace" => String.t() | atom(),
+        "Parameters" => String.t() | atom(),
         "RemoteIpDetails" => remote_ip_details(),
-        "RequestUri" => String.t(),
-        "Resource" => String.t(),
-        "ResourceName" => String.t(),
-        "SourceIps" => list(String.t()),
+        "RequestUri" => String.t() | atom(),
+        "Resource" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "SourceIps" => list(String.t() | atom()),
         "StatusCode" => integer(),
-        "Subresource" => String.t(),
-        "UserAgent" => String.t(),
-        "Verb" => String.t()
+        "Subresource" => String.t() | atom(),
+        "UserAgent" => String.t() | atom(),
+        "Verb" => String.t() | atom()
       }
 
   """
-  @type kubernetes_api_call_action() :: %{String.t() => any()}
+  @type kubernetes_api_call_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -788,7 +788,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type detector_feature_configuration_result() :: %{String.t() => any()}
+  @type detector_feature_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -796,12 +796,12 @@ defmodule AWS.GuardDuty do
 
       highest_severity_threat_details() :: %{
         "Count" => integer(),
-        "Severity" => String.t(),
-        "ThreatName" => String.t()
+        "Severity" => String.t() | atom(),
+        "ThreatName" => String.t() | atom()
       }
 
   """
-  @type highest_severity_threat_details() :: %{String.t() => any()}
+  @type highest_severity_threat_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -813,7 +813,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type coverage_filter_criterion() :: %{String.t() => any()}
+  @type coverage_filter_criterion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -824,7 +824,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_malware_protection_configuration() :: %{String.t() => any()}
+  @type organization_malware_protection_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -838,22 +838,22 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type public_access_configuration() :: %{String.t() => any()}
+  @type public_access_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rds_db_user_details() :: %{
-        "Application" => String.t(),
-        "AuthMethod" => String.t(),
-        "Database" => String.t(),
-        "Ssl" => String.t(),
-        "User" => String.t()
+        "Application" => String.t() | atom(),
+        "AuthMethod" => String.t() | atom(),
+        "Database" => String.t() | atom(),
+        "Ssl" => String.t() | atom(),
+        "User" => String.t() | atom()
       }
 
   """
-  @type rds_db_user_details() :: %{String.t() => any()}
+  @type rds_db_user_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -864,7 +864,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type scan_ec2_instance_with_findings() :: %{String.t() => any()}
+  @type scan_ec2_instance_with_findings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -875,21 +875,21 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type update_protected_resource() :: %{String.t() => any()}
+  @type update_protected_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invitation() :: %{
-        "AccountId" => String.t(),
-        "InvitationId" => String.t(),
-        "InvitedAt" => String.t(),
-        "RelationshipStatus" => String.t()
+        "AccountId" => String.t() | atom(),
+        "InvitationId" => String.t() | atom(),
+        "InvitedAt" => String.t() | atom(),
+        "RelationshipStatus" => String.t() | atom()
       }
 
   """
-  @type invitation() :: %{String.t() => any()}
+  @type invitation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -905,43 +905,43 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       lambda_details() :: %{
-        "Description" => String.t(),
-        "FunctionArn" => String.t(),
-        "FunctionName" => String.t(),
-        "FunctionVersion" => String.t(),
+        "Description" => String.t() | atom(),
+        "FunctionArn" => String.t() | atom(),
+        "FunctionName" => String.t() | atom(),
+        "FunctionVersion" => String.t() | atom(),
         "LastModifiedAt" => non_neg_integer(),
-        "RevisionId" => String.t(),
-        "Role" => String.t(),
+        "RevisionId" => String.t() | atom(),
+        "Role" => String.t() | atom(),
         "Tags" => list(tag()),
         "VpcConfig" => vpc_config()
       }
 
   """
-  @type lambda_details() :: %{String.t() => any()}
+  @type lambda_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rds_limitless_db_details() :: %{
-        "DbClusterIdentifier" => String.t(),
-        "DbShardGroupArn" => String.t(),
-        "DbShardGroupIdentifier" => String.t(),
-        "DbShardGroupResourceId" => String.t(),
-        "Engine" => String.t(),
-        "EngineVersion" => String.t(),
+        "DbClusterIdentifier" => String.t() | atom(),
+        "DbShardGroupArn" => String.t() | atom(),
+        "DbShardGroupIdentifier" => String.t() | atom(),
+        "DbShardGroupResourceId" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "Tags" => list(tag())
       }
 
   """
-  @type rds_limitless_db_details() :: %{String.t() => any()}
+  @type rds_limitless_db_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_publishing_destination_response() :: %{
-        "DestinationId" => String.t(),
+        "DestinationId" => String.t() | atom(),
         "DestinationProperties" => destination_properties(),
         "DestinationType" => list(any()),
         "PublishingFailureStartTimestamp" => float(),
@@ -949,7 +949,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type describe_publishing_destination_response() :: %{String.t() => any()}
+  @type describe_publishing_destination_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -958,12 +958,12 @@ defmodule AWS.GuardDuty do
       describe_malware_scans_request() :: %{
         optional("FilterCriteria") => filter_criteria(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortCriteria") => sort_criteria()
       }
 
   """
-  @type describe_malware_scans_request() :: %{String.t() => any()}
+  @type describe_malware_scans_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -983,27 +983,27 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type get_coverage_statistics_response() :: %{String.t() => any()}
+  @type get_coverage_statistics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network_interface() :: %{
-        "Ipv6Addresses" => list(String.t()),
-        "NetworkInterfaceId" => String.t(),
-        "PrivateDnsName" => String.t(),
-        "PrivateIpAddress" => String.t(),
+        "Ipv6Addresses" => list(String.t() | atom()),
+        "NetworkInterfaceId" => String.t() | atom(),
+        "PrivateDnsName" => String.t() | atom(),
+        "PrivateIpAddress" => String.t() | atom(),
         "PrivateIpAddresses" => list(private_ip_address_details()),
-        "PublicDnsName" => String.t(),
-        "PublicIp" => String.t(),
+        "PublicDnsName" => String.t() | atom(),
+        "PublicIp" => String.t() | atom(),
         "SecurityGroups" => list(security_group()),
-        "SubnetId" => String.t(),
-        "VpcId" => String.t()
+        "SubnetId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type network_interface() :: %{String.t() => any()}
+  @type network_interface() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1015,7 +1015,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_additional_configuration() :: %{String.t() => any()}
+  @type organization_additional_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1023,15 +1023,15 @@ defmodule AWS.GuardDuty do
 
       get_filter_response() :: %{
         "Action" => list(any()),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "FindingCriteria" => finding_criteria(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Rank" => integer(),
         "Tags" => map()
       }
 
   """
-  @type get_filter_response() :: %{String.t() => any()}
+  @type get_filter_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1042,7 +1042,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_s3_logs_configuration() :: %{String.t() => any()}
+  @type organization_s3_logs_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1050,11 +1050,11 @@ defmodule AWS.GuardDuty do
 
       get_findings_statistics_response() :: %{
         "FindingStatistics" => finding_statistics(),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_findings_statistics_response() :: %{String.t() => any()}
+  @type get_findings_statistics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1062,11 +1062,11 @@ defmodule AWS.GuardDuty do
 
       remote_port_details() :: %{
         "Port" => integer(),
-        "PortName" => String.t()
+        "PortName" => String.t() | atom()
       }
 
   """
-  @type remote_port_details() :: %{String.t() => any()}
+  @type remote_port_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1082,39 +1082,39 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       network_geo_location() :: %{
-        "City" => String.t(),
-        "Country" => String.t(),
+        "City" => String.t() | atom(),
+        "Country" => String.t() | atom(),
         "Latitude" => float(),
         "Longitude" => float()
       }
 
   """
-  @type network_geo_location() :: %{String.t() => any()}
+  @type network_geo_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_object() :: %{
-        "ETag" => String.t(),
-        "Key" => String.t(),
-        "VersionId" => String.t()
+        "ETag" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
       }
 
   """
-  @type s3_object() :: %{String.t() => any()}
+  @type s3_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_findings_response() :: %{
-        "FindingIds" => list(String.t()),
-        "NextToken" => String.t()
+        "FindingIds" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_findings_response() :: %{String.t() => any()}
+  @type list_findings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1126,18 +1126,18 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type coverage_sort_criteria() :: %{String.t() => any()}
+  @type coverage_sort_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_filter_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type create_filter_response() :: %{String.t() => any()}
+  @type create_filter_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1158,7 +1158,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type update_malware_scan_settings_request() :: %{String.t() => any()}
+  @type update_malware_scan_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1175,11 +1175,11 @@ defmodule AWS.GuardDuty do
 
       list_detectors_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_detectors_request() :: %{String.t() => any()}
+  @type list_detectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1190,7 +1190,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type s3_logs_configuration_result() :: %{String.t() => any()}
+  @type s3_logs_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1202,21 +1202,21 @@ defmodule AWS.GuardDuty do
         "Archived" => boolean(),
         "Count" => integer(),
         "Detection" => detection(),
-        "DetectorId" => String.t(),
+        "DetectorId" => String.t() | atom(),
         "EbsVolumeScanDetails" => ebs_volume_scan_details(),
-        "EventFirstSeen" => String.t(),
-        "EventLastSeen" => String.t(),
+        "EventFirstSeen" => String.t() | atom(),
+        "EventLastSeen" => String.t() | atom(),
         "Evidence" => evidence(),
-        "FeatureName" => String.t(),
+        "FeatureName" => String.t() | atom(),
         "MalwareScanDetails" => malware_scan_details(),
-        "ResourceRole" => String.t(),
+        "ResourceRole" => String.t() | atom(),
         "RuntimeDetails" => runtime_details(),
-        "ServiceName" => String.t(),
-        "UserFeedback" => String.t()
+        "ServiceName" => String.t() | atom(),
+        "UserFeedback" => String.t() | atom()
       }
 
   """
-  @type service() :: %{String.t() => any()}
+  @type service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1224,122 +1224,122 @@ defmodule AWS.GuardDuty do
 
       get_findings_request() :: %{
         optional("SortCriteria") => sort_criteria(),
-        required("FindingIds") => list(String.t())
+        required("FindingIds") => list(String.t() | atom())
       }
 
   """
-  @type get_findings_request() :: %{String.t() => any()}
+  @type get_findings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       agent_details() :: %{
-        "Version" => String.t()
+        "Version" => String.t() | atom()
       }
 
   """
-  @type agent_details() :: %{String.t() => any()}
+  @type agent_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_publishing_destination_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         required("DestinationProperties") => destination_properties(),
         required("DestinationType") => list(any())
       }
 
   """
-  @type create_publishing_destination_request() :: %{String.t() => any()}
+  @type create_publishing_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account_detail() :: %{
-        "AccountId" => String.t(),
-        "Email" => String.t()
+        "AccountId" => String.t() | atom(),
+        "Email" => String.t() | atom()
       }
 
   """
-  @type account_detail() :: %{String.t() => any()}
+  @type account_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       host_path() :: %{
-        "Path" => String.t()
+        "Path" => String.t() | atom()
       }
 
   """
-  @type host_path() :: %{String.t() => any()}
+  @type host_path() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       volume_detail() :: %{
-        "DeviceName" => String.t(),
-        "EncryptionType" => String.t(),
-        "KmsKeyArn" => String.t(),
-        "SnapshotArn" => String.t(),
-        "VolumeArn" => String.t(),
+        "DeviceName" => String.t() | atom(),
+        "EncryptionType" => String.t() | atom(),
+        "KmsKeyArn" => String.t() | atom(),
+        "SnapshotArn" => String.t() | atom(),
+        "VolumeArn" => String.t() | atom(),
         "VolumeSizeInGB" => integer(),
-        "VolumeType" => String.t()
+        "VolumeType" => String.t() | atom()
       }
 
   """
-  @type volume_detail() :: %{String.t() => any()}
+  @type volume_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       public_access() :: %{
-        "EffectivePermission" => String.t(),
+        "EffectivePermission" => String.t() | atom(),
         "PermissionConfiguration" => permission_configuration()
       }
 
   """
-  @type public_access() :: %{String.t() => any()}
+  @type public_access() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       country() :: %{
-        "CountryCode" => String.t(),
-        "CountryName" => String.t()
+        "CountryCode" => String.t() | atom(),
+        "CountryName" => String.t() | atom()
       }
 
   """
-  @type country() :: %{String.t() => any()}
+  @type country() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       total() :: %{
-        "Amount" => String.t(),
-        "Unit" => String.t()
+        "Amount" => String.t() | atom(),
+        "Unit" => String.t() | atom()
       }
 
   """
-  @type total() :: %{String.t() => any()}
+  @type total() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1352,31 +1352,31 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type detector_feature_configuration() :: %{String.t() => any()}
+  @type detector_feature_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account_statistics() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | atom(),
         "LastGeneratedAt" => non_neg_integer(),
         "TotalFindings" => integer()
       }
 
   """
-  @type account_statistics() :: %{String.t() => any()}
+  @type account_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disable_organization_admin_account_request() :: %{
-        required("AdminAccountId") => String.t()
+        required("AdminAccountId") => String.t() | atom()
       }
 
   """
-  @type disable_organization_admin_account_request() :: %{String.t() => any()}
+  @type disable_organization_admin_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1384,25 +1384,25 @@ defmodule AWS.GuardDuty do
 
       update_ip_set_request() :: %{
         optional("Activate") => boolean(),
-        optional("ExpectedBucketOwner") => String.t(),
-        optional("Location") => String.t(),
-        optional("Name") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("Location") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_ip_set_request() :: %{String.t() => any()}
+  @type update_ip_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       impersonated_user() :: %{
-        "Groups" => list(String.t()),
-        "Username" => String.t()
+        "Groups" => list(String.t() | atom()),
+        "Username" => String.t() | atom()
       }
 
   """
-  @type impersonated_user() :: %{String.t() => any()}
+  @type impersonated_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1422,7 +1422,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type delete_members_response() :: %{String.t() => any()}
+  @type delete_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1430,12 +1430,12 @@ defmodule AWS.GuardDuty do
 
       invite_members_request() :: %{
         optional("DisableEmailNotification") => boolean(),
-        optional("Message") => String.t(),
-        required("AccountIds") => list(String.t())
+        optional("Message") => String.t() | atom(),
+        required("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type invite_members_request() :: %{String.t() => any()}
+  @type invite_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1447,7 +1447,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type permission_configuration() :: %{String.t() => any()}
+  @type permission_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1467,7 +1467,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type network_connection() :: %{String.t() => any()}
+  @type network_connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1478,7 +1478,9 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_kubernetes_audit_logs_configuration_result() :: %{String.t() => any()}
+  @type organization_kubernetes_audit_logs_configuration_result() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1492,19 +1494,19 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type member_features_configuration_result() :: %{String.t() => any()}
+  @type member_features_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       autonomous_system() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Number" => integer()
       }
 
   """
-  @type autonomous_system() :: %{String.t() => any()}
+  @type autonomous_system() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1515,30 +1517,30 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type kubernetes_audit_logs_configuration_result() :: %{String.t() => any()}
+  @type kubernetes_audit_logs_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_threat_intel_sets_response() :: %{
-        "NextToken" => String.t(),
-        "ThreatIntelSetIds" => list(String.t())
+        "NextToken" => String.t() | atom(),
+        "ThreatIntelSetIds" => list(String.t() | atom())
       }
 
   """
-  @type list_threat_intel_sets_response() :: %{String.t() => any()}
+  @type list_threat_intel_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       observations() :: %{
-        "Text" => list(String.t())
+        "Text" => list(String.t() | atom())
       }
 
   """
-  @type observations() :: %{String.t() => any()}
+  @type observations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1551,18 +1553,18 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_data_source_configurations_result() :: %{String.t() => any()}
+  @type organization_data_source_configurations_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       archive_findings_request() :: %{
-        required("FindingIds") => list(String.t())
+        required("FindingIds") => list(String.t() | atom())
       }
 
   """
-  @type archive_findings_request() :: %{String.t() => any()}
+  @type archive_findings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1573,7 +1575,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type scan_ec2_instance_with_findings_result() :: %{String.t() => any()}
+  @type scan_ec2_instance_with_findings_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1589,43 +1591,43 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       coverage_resource() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | atom(),
         "CoverageStatus" => list(any()),
-        "DetectorId" => String.t(),
-        "Issue" => String.t(),
+        "DetectorId" => String.t() | atom(),
+        "Issue" => String.t() | atom(),
         "ResourceDetails" => coverage_resource_details(),
-        "ResourceId" => String.t(),
+        "ResourceId" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type coverage_resource() :: %{String.t() => any()}
+  @type coverage_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_filter_response() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type update_filter_response() :: %{String.t() => any()}
+  @type update_filter_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kubernetes_user_details() :: %{
-        "Groups" => list(String.t()),
+        "Groups" => list(String.t() | atom()),
         "ImpersonatedUser" => impersonated_user(),
-        "SessionName" => list(String.t()),
-        "Uid" => String.t(),
-        "Username" => String.t()
+        "SessionName" => list(String.t() | atom()),
+        "Uid" => String.t() | atom(),
+        "Username" => String.t() | atom()
       }
 
   """
-  @type kubernetes_user_details() :: %{String.t() => any()}
+  @type kubernetes_user_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1636,7 +1638,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type threats_detected_item_count() :: %{String.t() => any()}
+  @type threats_detected_item_count() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1647,26 +1649,26 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type scan_result_details() :: %{String.t() => any()}
+  @type scan_result_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_v2() :: %{
-        "AccountId" => String.t(),
-        "CloudPartition" => String.t(),
+        "AccountId" => String.t() | atom(),
+        "CloudPartition" => String.t() | atom(),
         "Data" => resource_data(),
-        "Name" => String.t(),
-        "Region" => String.t(),
+        "Name" => String.t() | atom(),
+        "Region" => String.t() | atom(),
         "ResourceType" => list(any()),
-        "Service" => String.t(),
+        "Service" => String.t() | atom(),
         "Tags" => list(tag()),
-        "Uid" => String.t()
+        "Uid" => String.t() | atom()
       }
 
   """
-  @type resource_v2() :: %{String.t() => any()}
+  @type resource_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1678,22 +1680,22 @@ defmodule AWS.GuardDuty do
         "DataSources" => organization_data_source_configurations_result(),
         "Features" => list(organization_feature_configuration_result()),
         "MemberAccountLimitReached" => boolean(),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type describe_organization_configuration_response() :: %{String.t() => any()}
+  @type describe_organization_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_malware_scan_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
 
   """
-  @type start_malware_scan_request() :: %{String.t() => any()}
+  @type start_malware_scan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1706,7 +1708,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_feature_configuration() :: %{String.t() => any()}
+  @type organization_feature_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1722,12 +1724,12 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       create_detector_response() :: %{
-        "DetectorId" => String.t(),
+        "DetectorId" => String.t() | atom(),
         "UnprocessedDataSources" => unprocessed_data_sources_result()
       }
 
   """
-  @type create_detector_response() :: %{String.t() => any()}
+  @type create_detector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1740,42 +1742,42 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type detector_additional_configuration_result() :: %{String.t() => any()}
+  @type detector_additional_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unarchive_findings_request() :: %{
-        required("FindingIds") => list(String.t())
+        required("FindingIds") => list(String.t() | atom())
       }
 
   """
-  @type unarchive_findings_request() :: %{String.t() => any()}
+  @type unarchive_findings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1783,13 +1785,13 @@ defmodule AWS.GuardDuty do
 
       dns_request_action() :: %{
         "Blocked" => boolean(),
-        "Domain" => String.t(),
-        "DomainWithSuffix" => String.t(),
-        "Protocol" => String.t()
+        "Domain" => String.t() | atom(),
+        "DomainWithSuffix" => String.t() | atom(),
+        "Protocol" => String.t() | atom()
       }
 
   """
-  @type dns_request_action() :: %{String.t() => any()}
+  @type dns_request_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1797,39 +1799,39 @@ defmodule AWS.GuardDuty do
 
       create_filter_request() :: %{
         optional("Action") => list(any()),
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Rank") => integer(),
         optional("Tags") => map(),
         required("FindingCriteria") => finding_criteria(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_filter_request() :: %{String.t() => any()}
+  @type create_filter_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_members_request() :: %{
-        required("AccountIds") => list(String.t())
+        required("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type get_members_request() :: %{String.t() => any()}
+  @type get_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_additional_info() :: %{
-        "Type" => String.t(),
-        "Value" => String.t()
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type service_additional_info() :: %{String.t() => any()}
+  @type service_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1849,7 +1851,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type create_members_request() :: %{String.t() => any()}
+  @type create_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1865,24 +1867,24 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       list_ip_sets_response() :: %{
-        "IpSetIds" => list(String.t()),
-        "NextToken" => String.t()
+        "IpSetIds" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_ip_sets_response() :: %{String.t() => any()}
+  @type list_ip_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       usage_account_result() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | atom(),
         "Total" => total()
       }
 
   """
-  @type usage_account_result() :: %{String.t() => any()}
+  @type usage_account_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1893,7 +1895,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type get_organization_statistics_response() :: %{String.t() => any()}
+  @type get_organization_statistics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1905,19 +1907,19 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type container_instance_details() :: %{String.t() => any()}
+  @type container_instance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1928,7 +1930,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_scan_ec2_instance_with_findings() :: %{String.t() => any()}
+  @type organization_scan_ec2_instance_with_findings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1938,38 +1940,38 @@ defmodule AWS.GuardDuty do
         "AccountPublicAccess" => public_access_configuration(),
         "BucketPublicAccess" => public_access_configuration(),
         "CreatedAt" => non_neg_integer(),
-        "EffectivePermission" => String.t(),
-        "EncryptionKeyArn" => String.t(),
-        "EncryptionType" => String.t(),
-        "OwnerId" => String.t(),
+        "EffectivePermission" => String.t() | atom(),
+        "EncryptionKeyArn" => String.t() | atom(),
+        "EncryptionType" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
         "PublicReadAccess" => list(any()),
         "PublicWriteAccess" => list(any()),
-        "S3ObjectUids" => list(String.t())
+        "S3ObjectUids" => list(String.t() | atom())
       }
 
   """
-  @type s3_bucket() :: %{String.t() => any()}
+  @type s3_bucket() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       master() :: %{
-        "AccountId" => String.t(),
-        "InvitationId" => String.t(),
-        "InvitedAt" => String.t(),
-        "RelationshipStatus" => String.t()
+        "AccountId" => String.t() | atom(),
+        "InvitationId" => String.t() | atom(),
+        "InvitedAt" => String.t() | atom(),
+        "RelationshipStatus" => String.t() | atom()
       }
 
   """
-  @type master() :: %{String.t() => any()}
+  @type master() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_detector_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("DataSources") => data_source_configurations(),
         optional("Features") => list(detector_feature_configuration()),
         optional("FindingPublishingFrequency") => list(any()),
@@ -1978,30 +1980,30 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type create_detector_request() :: %{String.t() => any()}
+  @type create_detector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       remote_account_details() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | atom(),
         "Affiliated" => boolean()
       }
 
   """
-  @type remote_account_details() :: %{String.t() => any()}
+  @type remote_account_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_members_request() :: %{
-        required("AccountIds") => list(String.t())
+        required("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type disassociate_members_request() :: %{String.t() => any()}
+  @type disassociate_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2012,23 +2014,23 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type get_findings_response() :: %{String.t() => any()}
+  @type get_findings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_threat_intel_set_response() :: %{
-        "ExpectedBucketOwner" => String.t(),
+        "ExpectedBucketOwner" => String.t() | atom(),
         "Format" => list(any()),
-        "Location" => String.t(),
-        "Name" => String.t(),
+        "Location" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type get_threat_intel_set_response() :: %{String.t() => any()}
+  @type get_threat_intel_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2039,7 +2041,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_kubernetes_audit_logs_configuration() :: %{String.t() => any()}
+  @type organization_kubernetes_audit_logs_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2047,14 +2049,14 @@ defmodule AWS.GuardDuty do
 
       coverage_ec2_instance_details() :: %{
         "AgentDetails" => agent_details(),
-        "ClusterArn" => String.t(),
-        "InstanceId" => String.t(),
-        "InstanceType" => String.t(),
+        "ClusterArn" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
         "ManagementType" => list(any())
       }
 
   """
-  @type coverage_ec2_instance_details() :: %{String.t() => any()}
+  @type coverage_ec2_instance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2062,13 +2064,13 @@ defmodule AWS.GuardDuty do
 
       update_threat_intel_set_request() :: %{
         optional("Activate") => boolean(),
-        optional("ExpectedBucketOwner") => String.t(),
-        optional("Location") => String.t(),
-        optional("Name") => String.t()
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("Location") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type update_threat_intel_set_request() :: %{String.t() => any()}
+  @type update_threat_intel_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2080,20 +2082,20 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type bucket_policy() :: %{String.t() => any()}
+  @type bucket_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_key() :: %{
-        "PrincipalId" => String.t(),
-        "UserName" => String.t(),
-        "UserType" => String.t()
+        "PrincipalId" => String.t() | atom(),
+        "UserName" => String.t() | atom(),
+        "UserType" => String.t() | atom()
       }
 
   """
-  @type access_key() :: %{String.t() => any()}
+  @type access_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2113,18 +2115,18 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type flow_logs_configuration_result() :: %{String.t() => any()}
+  @type flow_logs_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_members_request() :: %{
-        required("AccountIds") => list(String.t())
+        required("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type delete_members_request() :: %{String.t() => any()}
+  @type delete_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2135,7 +2137,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type invite_members_response() :: %{String.t() => any()}
+  @type invite_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2147,7 +2149,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type get_malware_scan_settings_response() :: %{String.t() => any()}
+  @type get_malware_scan_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2160,80 +2162,80 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type member_features_configuration() :: %{String.t() => any()}
+  @type member_features_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_malware_scans_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Scans" => list(scan())
       }
 
   """
-  @type describe_malware_scans_response() :: %{String.t() => any()}
+  @type describe_malware_scans_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ec2_network_interface() :: %{
-        "Ipv6Addresses" => list(String.t()),
+        "Ipv6Addresses" => list(String.t() | atom()),
         "PrivateIpAddresses" => list(private_ip_address_details()),
-        "PublicIp" => String.t(),
+        "PublicIp" => String.t() | atom(),
         "SecurityGroups" => list(security_group()),
-        "SubNetId" => String.t(),
-        "VpcId" => String.t()
+        "SubNetId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type ec2_network_interface() :: %{String.t() => any()}
+  @type ec2_network_interface() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ecs_task_details() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "Containers" => list(container()),
-        "DefinitionArn" => String.t(),
-        "Group" => String.t(),
-        "LaunchType" => String.t(),
+        "DefinitionArn" => String.t() | atom(),
+        "Group" => String.t() | atom(),
+        "LaunchType" => String.t() | atom(),
         "StartedAt" => non_neg_integer(),
-        "StartedBy" => String.t(),
+        "StartedBy" => String.t() | atom(),
         "Tags" => list(tag()),
         "TaskCreatedAt" => non_neg_integer(),
-        "Version" => String.t(),
+        "Version" => String.t() | atom(),
         "Volumes" => list(volume())
       }
 
   """
-  @type ecs_task_details() :: %{String.t() => any()}
+  @type ecs_task_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       signal() :: %{
-        "ActorIds" => list(String.t()),
+        "ActorIds" => list(String.t() | atom()),
         "Count" => integer(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "EndpointIds" => list(String.t()),
+        "Description" => String.t() | atom(),
+        "EndpointIds" => list(String.t() | atom()),
         "FirstSeenAt" => non_neg_integer(),
         "LastSeenAt" => non_neg_integer(),
-        "Name" => String.t(),
-        "ResourceUids" => list(String.t()),
+        "Name" => String.t() | atom(),
+        "ResourceUids" => list(String.t() | atom()),
         "Severity" => float(),
         "SignalIndicators" => list(indicator()),
         "Type" => list(any()),
-        "Uid" => String.t(),
+        "Uid" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type signal() :: %{String.t() => any()}
+  @type signal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2241,26 +2243,26 @@ defmodule AWS.GuardDuty do
 
       create_malware_protection_plan_request() :: %{
         optional("Actions") => malware_protection_plan_actions(),
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => map(),
         required("ProtectedResource") => create_protected_resource(),
-        required("Role") => String.t()
+        required("Role") => String.t() | atom()
       }
 
   """
-  @type create_malware_protection_plan_request() :: %{String.t() => any()}
+  @type create_malware_protection_plan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account() :: %{
-        "Name" => String.t(),
-        "Uid" => String.t()
+        "Name" => String.t() | atom(),
+        "Uid" => String.t() | atom()
       }
 
   """
-  @type account() :: %{String.t() => any()}
+  @type account() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2271,18 +2273,18 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type s3_logs_configuration() :: %{String.t() => any()}
+  @type s3_logs_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_publishing_destination_response() :: %{
-        "DestinationId" => String.t()
+        "DestinationId" => String.t() | atom()
       }
 
   """
-  @type create_publishing_destination_response() :: %{String.t() => any()}
+  @type create_publishing_destination_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2298,15 +2300,15 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       eks_cluster() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Ec2InstanceUids" => list(String.t()),
+        "Ec2InstanceUids" => list(String.t() | atom()),
         "Status" => list(any()),
-        "VpcId" => String.t()
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type eks_cluster() :: %{String.t() => any()}
+  @type eks_cluster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2323,12 +2325,12 @@ defmodule AWS.GuardDuty do
 
       vpc_config() :: %{
         "SecurityGroups" => list(security_group()),
-        "SubnetIds" => list(String.t()),
-        "VpcId" => String.t()
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type vpc_config() :: %{String.t() => any()}
+  @type vpc_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2340,33 +2342,33 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type coverage_statistics() :: %{String.t() => any()}
+  @type coverage_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       finding() :: %{
-        "AccountId" => String.t(),
-        "Arn" => String.t(),
-        "AssociatedAttackSequenceArn" => String.t(),
+        "AccountId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "AssociatedAttackSequenceArn" => String.t() | atom(),
         "Confidence" => float(),
-        "CreatedAt" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "Partition" => String.t(),
-        "Region" => String.t(),
+        "CreatedAt" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Partition" => String.t() | atom(),
+        "Region" => String.t() | atom(),
         "Resource" => resource(),
-        "SchemaVersion" => String.t(),
+        "SchemaVersion" => String.t() | atom(),
         "Service" => service(),
         "Severity" => float(),
-        "Title" => String.t(),
-        "Type" => String.t(),
-        "UpdatedAt" => String.t()
+        "Title" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "UpdatedAt" => String.t() | atom()
       }
 
   """
-  @type finding() :: %{String.t() => any()}
+  @type finding() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2374,14 +2376,14 @@ defmodule AWS.GuardDuty do
 
       coverage_eks_cluster_details() :: %{
         "AddonDetails" => addon_details(),
-        "ClusterName" => String.t(),
+        "ClusterName" => String.t() | atom(),
         "CompatibleNodes" => float(),
         "CoveredNodes" => float(),
         "ManagementType" => list(any())
       }
 
   """
-  @type coverage_eks_cluster_details() :: %{String.t() => any()}
+  @type coverage_eks_cluster_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2395,30 +2397,30 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type coverage_resource_details() :: %{String.t() => any()}
+  @type coverage_resource_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       volume_mount() :: %{
-        "MountPath" => String.t(),
-        "Name" => String.t()
+        "MountPath" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type volume_mount() :: %{String.t() => any()}
+  @type volume_mount() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_malware_protection_plans_request() :: %{
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_malware_protection_plans_request() :: %{String.t() => any()}
+  @type list_malware_protection_plans_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2429,7 +2431,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2438,12 +2440,12 @@ defmodule AWS.GuardDuty do
       list_findings_request() :: %{
         optional("FindingCriteria") => finding_criteria(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortCriteria") => sort_criteria()
       }
 
   """
-  @type list_findings_request() :: %{String.t() => any()}
+  @type list_findings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2454,7 +2456,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type kubernetes_configuration() :: %{String.t() => any()}
+  @type kubernetes_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2462,11 +2464,11 @@ defmodule AWS.GuardDuty do
 
       list_publishing_destinations_response() :: %{
         "Destinations" => list(destination()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_publishing_destinations_response() :: %{String.t() => any()}
+  @type list_publishing_destinations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2475,15 +2477,15 @@ defmodule AWS.GuardDuty do
       network_endpoint() :: %{
         "AutonomousSystem" => autonomous_system(),
         "Connection" => network_connection(),
-        "Domain" => String.t(),
-        "Id" => String.t(),
-        "Ip" => String.t(),
+        "Domain" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Ip" => String.t() | atom(),
         "Location" => network_geo_location(),
         "Port" => integer()
       }
 
   """
-  @type network_endpoint() :: %{String.t() => any()}
+  @type network_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2495,7 +2497,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type member_additional_configuration() :: %{String.t() => any()}
+  @type member_additional_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2520,12 +2522,12 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       trigger_details() :: %{
-        "Description" => String.t(),
-        "GuardDutyFindingId" => String.t()
+        "Description" => String.t() | atom(),
+        "GuardDutyFindingId" => String.t() | atom()
       }
 
   """
-  @type trigger_details() :: %{String.t() => any()}
+  @type trigger_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2534,11 +2536,11 @@ defmodule AWS.GuardDuty do
       update_malware_protection_plan_request() :: %{
         optional("Actions") => malware_protection_plan_actions(),
         optional("ProtectedResource") => update_protected_resource(),
-        optional("Role") => String.t()
+        optional("Role") => String.t() | atom()
       }
 
   """
-  @type update_malware_protection_plan_request() :: %{String.t() => any()}
+  @type update_malware_protection_plan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2558,39 +2560,39 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type disassociate_members_response() :: %{String.t() => any()}
+  @type disassociate_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       security_group() :: %{
-        "GroupId" => String.t(),
-        "GroupName" => String.t()
+        "GroupId" => String.t() | atom(),
+        "GroupName" => String.t() | atom()
       }
 
   """
-  @type security_group() :: %{String.t() => any()}
+  @type security_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_coverage_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Resources" => list(coverage_resource())
       }
 
   """
-  @type list_coverage_response() :: %{String.t() => any()}
+  @type list_coverage_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       condition() :: %{
-        "Eq" => list(String.t()),
-        "Equals" => list(String.t()),
+        "Eq" => list(String.t() | atom()),
+        "Equals" => list(String.t() | atom()),
         "GreaterThan" => float(),
         "GreaterThanOrEqual" => float(),
         "Gt" => integer(),
@@ -2599,12 +2601,12 @@ defmodule AWS.GuardDuty do
         "LessThanOrEqual" => float(),
         "Lt" => integer(),
         "Lte" => integer(),
-        "Neq" => list(String.t()),
-        "NotEquals" => list(String.t())
+        "Neq" => list(String.t() | atom()),
+        "NotEquals" => list(String.t() | atom())
       }
 
   """
-  @type condition() :: %{String.t() => any()}
+  @type condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2612,11 +2614,11 @@ defmodule AWS.GuardDuty do
 
       list_threat_intel_sets_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_threat_intel_sets_request() :: %{String.t() => any()}
+  @type list_threat_intel_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2641,12 +2643,12 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       container_finding_resource() :: %{
-        "Image" => String.t(),
-        "ImageUid" => String.t()
+        "Image" => String.t() | atom(),
+        "ImageUid" => String.t() | atom()
       }
 
   """
-  @type container_finding_resource() :: %{String.t() => any()}
+  @type container_finding_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2654,37 +2656,37 @@ defmodule AWS.GuardDuty do
 
       lineage_object() :: %{
         "Euid" => integer(),
-        "ExecutablePath" => String.t(),
-        "Name" => String.t(),
+        "ExecutablePath" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "NamespacePid" => integer(),
-        "ParentUuid" => String.t(),
+        "ParentUuid" => String.t() | atom(),
         "Pid" => integer(),
         "StartTime" => non_neg_integer(),
         "UserId" => integer(),
-        "Uuid" => String.t()
+        "Uuid" => String.t() | atom()
       }
 
   """
-  @type lineage_object() :: %{String.t() => any()}
+  @type lineage_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ec2_instance() :: %{
-        "AvailabilityZone" => String.t(),
-        "Ec2NetworkInterfaceUids" => list(String.t()),
+        "AvailabilityZone" => String.t() | atom(),
+        "Ec2NetworkInterfaceUids" => list(String.t() | atom()),
         "IamInstanceProfile" => iam_instance_profile(),
-        "ImageDescription" => String.t(),
-        "InstanceState" => String.t(),
-        "InstanceType" => String.t(),
-        "OutpostArn" => String.t(),
-        "Platform" => String.t(),
+        "ImageDescription" => String.t() | atom(),
+        "InstanceState" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
+        "OutpostArn" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
         "ProductCodes" => list(product_code())
       }
 
   """
-  @type ec2_instance() :: %{String.t() => any()}
+  @type ec2_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2696,7 +2698,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type detection() :: %{String.t() => any()}
+  @type detection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2713,37 +2715,37 @@ defmodule AWS.GuardDuty do
 
       session() :: %{
         "CreatedTime" => non_neg_integer(),
-        "Issuer" => String.t(),
+        "Issuer" => String.t() | atom(),
         "MfaStatus" => list(any()),
-        "Uid" => String.t()
+        "Uid" => String.t() | atom()
       }
 
   """
-  @type session() :: %{String.t() => any()}
+  @type session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ebs_volumes_result() :: %{
-        "Reason" => String.t(),
+        "Reason" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type ebs_volumes_result() :: %{String.t() => any()}
+  @type ebs_volumes_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       product_code() :: %{
-        "Code" => String.t(),
-        "ProductType" => String.t()
+        "Code" => String.t() | atom(),
+        "ProductType" => String.t() | atom()
       }
 
   """
-  @type product_code() :: %{String.t() => any()}
+  @type product_code() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2754,7 +2756,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type malware_scan_details() :: %{String.t() => any()}
+  @type malware_scan_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2770,37 +2772,37 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       resource_statistics() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | atom(),
         "LastGeneratedAt" => non_neg_integer(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
         "TotalFindings" => integer()
       }
 
   """
-  @type resource_statistics() :: %{String.t() => any()}
+  @type resource_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_sample_findings_request() :: %{
-        optional("FindingTypes") => list(String.t())
+        optional("FindingTypes") => list(String.t() | atom())
       }
 
   """
-  @type create_sample_findings_request() :: %{String.t() => any()}
+  @type create_sample_findings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       decline_invitations_request() :: %{
-        required("AccountIds") => list(String.t())
+        required("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type decline_invitations_request() :: %{String.t() => any()}
+  @type decline_invitations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2811,20 +2813,20 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_s3_logs_configuration_result() :: %{String.t() => any()}
+  @type organization_s3_logs_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       account_free_trial_info() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | atom(),
         "DataSources" => data_sources_free_trial(),
         "Features" => list(free_trial_feature_configuration_result())
       }
 
   """
-  @type account_free_trial_info() :: %{String.t() => any()}
+  @type account_free_trial_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2835,7 +2837,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type get_master_account_response() :: %{String.t() => any()}
+  @type get_master_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2846,7 +2848,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type unprocessed_data_sources_result() :: %{String.t() => any()}
+  @type unprocessed_data_sources_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2858,20 +2860,20 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type get_member_detectors_response() :: %{String.t() => any()}
+  @type get_member_detectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       finding_type_statistics() :: %{
-        "FindingType" => String.t(),
+        "FindingType" => String.t() | atom(),
         "LastGeneratedAt" => non_neg_integer(),
         "TotalFindings" => integer()
       }
 
   """
-  @type finding_type_statistics() :: %{String.t() => any()}
+  @type finding_type_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2879,60 +2881,60 @@ defmodule AWS.GuardDuty do
 
       aws_api_call_action() :: %{
         "AffectedResources" => map(),
-        "Api" => String.t(),
-        "CallerType" => String.t(),
+        "Api" => String.t() | atom(),
+        "CallerType" => String.t() | atom(),
         "DomainDetails" => domain_details(),
-        "ErrorCode" => String.t(),
+        "ErrorCode" => String.t() | atom(),
         "RemoteAccountDetails" => remote_account_details(),
         "RemoteIpDetails" => remote_ip_details(),
-        "ServiceName" => String.t(),
-        "UserAgent" => String.t()
+        "ServiceName" => String.t() | atom(),
+        "UserAgent" => String.t() | atom()
       }
 
   """
-  @type aws_api_call_action() :: %{String.t() => any()}
+  @type aws_api_call_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kubernetes_role_details() :: %{
-        "Kind" => String.t(),
-        "Name" => String.t(),
-        "Uid" => String.t()
+        "Kind" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Uid" => String.t() | atom()
       }
 
   """
-  @type kubernetes_role_details() :: %{String.t() => any()}
+  @type kubernetes_role_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       eks_cluster_details() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Name" => String.t(),
-        "Status" => String.t(),
+        "Name" => String.t() | atom(),
+        "Status" => String.t() | atom(),
         "Tags" => list(tag()),
-        "VpcId" => String.t()
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type eks_cluster_details() :: %{String.t() => any()}
+  @type eks_cluster_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kubernetes_workload() :: %{
-        "ContainerUids" => list(String.t()),
+        "ContainerUids" => list(String.t() | atom()),
         "KubernetesResourcesTypes" => list(any()),
-        "Namespace" => String.t()
+        "Namespace" => String.t() | atom()
       }
 
   """
-  @type kubernetes_workload() :: %{String.t() => any()}
+  @type kubernetes_workload() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2943,18 +2945,20 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_malware_protection_configuration_result() :: %{String.t() => any()}
+  @type organization_malware_protection_configuration_result() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       delete_invitations_request() :: %{
-        required("AccountIds") => list(String.t())
+        required("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type delete_invitations_request() :: %{String.t() => any()}
+  @type delete_invitations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2965,25 +2969,25 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_ebs_volumes() :: %{String.t() => any()}
+  @type organization_ebs_volumes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_detector_response() :: %{
-        "CreatedAt" => String.t(),
+        "CreatedAt" => String.t() | atom(),
         "DataSources" => data_source_configurations_result(),
         "Features" => list(detector_feature_configuration_result()),
         "FindingPublishingFrequency" => list(any()),
-        "ServiceRole" => String.t(),
+        "ServiceRole" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => map(),
-        "UpdatedAt" => String.t()
+        "UpdatedAt" => String.t() | atom()
       }
 
   """
-  @type get_detector_response() :: %{String.t() => any()}
+  @type get_detector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2991,13 +2995,13 @@ defmodule AWS.GuardDuty do
 
       update_filter_request() :: %{
         optional("Action") => list(any()),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("FindingCriteria") => finding_criteria(),
         optional("Rank") => integer()
       }
 
   """
-  @type update_filter_request() :: %{String.t() => any()}
+  @type update_filter_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3009,7 +3013,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type kubernetes_details() :: %{String.t() => any()}
+  @type kubernetes_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3022,21 +3026,21 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type anomaly_object() :: %{String.t() => any()}
+  @type anomaly_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       scan_file_path() :: %{
-        "FileName" => String.t(),
-        "FilePath" => String.t(),
-        "Hash" => String.t(),
-        "VolumeArn" => String.t()
+        "FileName" => String.t() | atom(),
+        "FilePath" => String.t() | atom(),
+        "Hash" => String.t() | atom(),
+        "VolumeArn" => String.t() | atom()
       }
 
   """
-  @type scan_file_path() :: %{String.t() => any()}
+  @type scan_file_path() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3047,7 +3051,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_kubernetes_configuration_result() :: %{String.t() => any()}
+  @type organization_kubernetes_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3067,7 +3071,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type malware_protection_plan_actions() :: %{String.t() => any()}
+  @type malware_protection_plan_actions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3079,7 +3083,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type anomaly() :: %{String.t() => any()}
+  @type anomaly() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3091,7 +3095,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_additional_configuration_result() :: %{String.t() => any()}
+  @type organization_additional_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3105,30 +3109,30 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type update_organization_configuration_request() :: %{String.t() => any()}
+  @type update_organization_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enable_organization_admin_account_request() :: %{
-        required("AdminAccountId") => String.t()
+        required("AdminAccountId") => String.t() | atom()
       }
 
   """
-  @type enable_organization_admin_account_request() :: %{String.t() => any()}
+  @type enable_organization_admin_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       addon_details() :: %{
-        "AddonStatus" => String.t(),
-        "AddonVersion" => String.t()
+        "AddonStatus" => String.t() | atom(),
+        "AddonVersion" => String.t() | atom()
       }
 
   """
-  @type addon_details() :: %{String.t() => any()}
+  @type addon_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3139,7 +3143,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type kubernetes_configuration_result() :: %{String.t() => any()}
+  @type kubernetes_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3151,14 +3155,14 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type geo_location() :: %{String.t() => any()}
+  @type geo_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       action() :: %{
-        "ActionType" => String.t(),
+        "ActionType" => String.t() | atom(),
         "AwsApiCallAction" => aws_api_call_action(),
         "DnsRequestAction" => dns_request_action(),
         "KubernetesApiCallAction" => kubernetes_api_call_action(),
@@ -3171,62 +3175,62 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type action() :: %{String.t() => any()}
+  @type action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       threat_intelligence_detail() :: %{
-        "ThreatFileSha256" => String.t(),
-        "ThreatListName" => String.t(),
-        "ThreatNames" => list(String.t())
+        "ThreatFileSha256" => String.t() | atom(),
+        "ThreatListName" => String.t() | atom(),
+        "ThreatNames" => list(String.t() | atom())
       }
 
   """
-  @type threat_intelligence_detail() :: %{String.t() => any()}
+  @type threat_intelligence_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_threat_intel_set_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
         optional("Tags") => map(),
         required("Activate") => boolean(),
         required("Format") => list(any()),
-        required("Location") => String.t(),
-        required("Name") => String.t()
+        required("Location") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_threat_intel_set_request() :: %{String.t() => any()}
+  @type create_threat_intel_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       login_attribute() :: %{
-        "Application" => String.t(),
+        "Application" => String.t() | atom(),
         "FailedLoginAttempts" => integer(),
         "SuccessfulLoginAttempts" => integer(),
-        "User" => String.t()
+        "User" => String.t() | atom()
       }
 
   """
-  @type login_attribute() :: %{String.t() => any()}
+  @type login_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       malware_protection_plan_summary() :: %{
-        "MalwareProtectionPlanId" => String.t()
+        "MalwareProtectionPlanId" => String.t() | atom()
       }
 
   """
-  @type malware_protection_plan_summary() :: %{String.t() => any()}
+  @type malware_protection_plan_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3235,11 +3239,11 @@ defmodule AWS.GuardDuty do
       update_member_detectors_request() :: %{
         optional("DataSources") => data_source_configurations(),
         optional("Features") => list(member_features_configuration()),
-        required("AccountIds") => list(String.t())
+        required("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type update_member_detectors_request() :: %{String.t() => any()}
+  @type update_member_detectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3252,7 +3256,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type member_additional_configuration_result() :: %{String.t() => any()}
+  @type member_additional_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3263,20 +3267,20 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type delete_invitations_response() :: %{String.t() => any()}
+  @type delete_invitations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       actor_process() :: %{
-        "Name" => String.t(),
-        "Path" => String.t(),
-        "Sha256" => String.t()
+        "Name" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "Sha256" => String.t() | atom()
       }
 
   """
-  @type actor_process() :: %{String.t() => any()}
+  @type actor_process() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3288,7 +3292,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type port_probe_action() :: %{String.t() => any()}
+  @type port_probe_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3296,23 +3300,23 @@ defmodule AWS.GuardDuty do
 
       list_organization_admin_accounts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_organization_admin_accounts_request() :: %{String.t() => any()}
+  @type list_organization_admin_accounts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sort_criteria() :: %{
-        "AttributeName" => String.t(),
+        "AttributeName" => String.t() | atom(),
         "OrderBy" => list(any())
       }
 
   """
-  @type sort_criteria() :: %{String.t() => any()}
+  @type sort_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3320,29 +3324,29 @@ defmodule AWS.GuardDuty do
 
       threat() :: %{
         "ItemPaths" => list(item_path()),
-        "Name" => String.t(),
-        "Source" => String.t()
+        "Name" => String.t() | atom(),
+        "Source" => String.t() | atom()
       }
 
   """
-  @type threat() :: %{String.t() => any()}
+  @type threat() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_ip_set_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("ExpectedBucketOwner") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
         optional("Tags") => map(),
         required("Activate") => boolean(),
         required("Format") => list(any()),
-        required("Location") => String.t(),
-        required("Name") => String.t()
+        required("Location") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_ip_set_request() :: %{String.t() => any()}
+  @type create_ip_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3350,11 +3354,11 @@ defmodule AWS.GuardDuty do
 
       volume() :: %{
         "HostPath" => host_path(),
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type volume() :: %{String.t() => any()}
+  @type volume() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3365,31 +3369,31 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type create_protected_resource() :: %{String.t() => any()}
+  @type create_protected_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       usage_top_account_result() :: %{
-        "AccountId" => String.t(),
+        "AccountId" => String.t() | atom(),
         "Total" => total()
       }
 
   """
-  @type usage_top_account_result() :: %{String.t() => any()}
+  @type usage_top_account_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3406,62 +3410,62 @@ defmodule AWS.GuardDuty do
 
       list_malware_protection_plans_response() :: %{
         "MalwareProtectionPlans" => list(malware_protection_plan_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_malware_protection_plans_response() :: %{String.t() => any()}
+  @type list_malware_protection_plans_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_ip_set_response() :: %{
-        "ExpectedBucketOwner" => String.t(),
+        "ExpectedBucketOwner" => String.t() | atom(),
         "Format" => list(any()),
-        "Location" => String.t(),
-        "Name" => String.t(),
+        "Location" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type get_ip_set_response() :: %{String.t() => any()}
+  @type get_ip_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       city() :: %{
-        "CityName" => String.t()
+        "CityName" => String.t() | atom()
       }
 
   """
-  @type city() :: %{String.t() => any()}
+  @type city() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       item_path() :: %{
-        "Hash" => String.t(),
-        "NestedItemPath" => String.t()
+        "Hash" => String.t() | atom(),
+        "NestedItemPath" => String.t() | atom()
       }
 
   """
-  @type item_path() :: %{String.t() => any()}
+  @type item_path() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       accept_invitation_request() :: %{
-        required("InvitationId") => String.t(),
-        required("MasterId") => String.t()
+        required("InvitationId") => String.t() | atom(),
+        required("MasterId") => String.t() | atom()
       }
 
   """
-  @type accept_invitation_request() :: %{String.t() => any()}
+  @type accept_invitation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3483,7 +3487,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type severity_statistics() :: %{String.t() => any()}
+  @type severity_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3494,7 +3498,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type anomaly_unusual() :: %{String.t() => any()}
+  @type anomaly_unusual() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3502,36 +3506,36 @@ defmodule AWS.GuardDuty do
 
       list_members_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("OnlyAssociated") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("OnlyAssociated") => String.t() | atom()
       }
 
   """
-  @type list_members_request() :: %{String.t() => any()}
+  @type list_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       fargate_details() :: %{
-        "Issues" => list(String.t()),
+        "Issues" => list(String.t() | atom()),
         "ManagementType" => list(any())
       }
 
   """
-  @type fargate_details() :: %{String.t() => any()}
+  @type fargate_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       malware_protection_plan_status_reason() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type malware_protection_plan_status_reason() :: %{String.t() => any()}
+  @type malware_protection_plan_status_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3539,11 +3543,11 @@ defmodule AWS.GuardDuty do
 
       list_members_response() :: %{
         "Members" => list(member()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_members_response() :: %{String.t() => any()}
+  @type list_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3557,19 +3561,19 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type block_public_access() :: %{String.t() => any()}
+  @type block_public_access() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_detectors_response() :: %{
-        "DetectorIds" => list(String.t()),
-        "NextToken" => String.t()
+        "DetectorIds" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_detectors_response() :: %{String.t() => any()}
+  @type list_detectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3581,7 +3585,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type free_trial_feature_configuration_result() :: %{String.t() => any()}
+  @type free_trial_feature_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3594,30 +3598,30 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_feature_statistics() :: %{String.t() => any()}
+  @type organization_feature_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       local_ip_details() :: %{
-        "IpAddressV4" => String.t(),
-        "IpAddressV6" => String.t()
+        "IpAddressV4" => String.t() | atom(),
+        "IpAddressV6" => String.t() | atom()
       }
 
   """
-  @type local_ip_details() :: %{String.t() => any()}
+  @type local_ip_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_remaining_free_trial_days_request() :: %{
-        optional("AccountIds") => list(String.t())
+        optional("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type get_remaining_free_trial_days_request() :: %{String.t() => any()}
+  @type get_remaining_free_trial_days_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3630,7 +3634,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type scanned_item_count() :: %{String.t() => any()}
+  @type scanned_item_count() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3661,7 +3665,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_feature_configuration_result() :: %{String.t() => any()}
+  @type organization_feature_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3670,12 +3674,12 @@ defmodule AWS.GuardDuty do
       list_coverage_request() :: %{
         optional("FilterCriteria") => coverage_filter_criteria(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SortCriteria") => coverage_sort_criteria()
       }
 
   """
-  @type list_coverage_request() :: %{String.t() => any()}
+  @type list_coverage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3687,44 +3691,44 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type get_remaining_free_trial_days_response() :: %{String.t() => any()}
+  @type get_remaining_free_trial_days_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       destination() :: %{
-        "DestinationId" => String.t(),
+        "DestinationId" => String.t() | atom(),
         "DestinationType" => list(any()),
         "Status" => list(any())
       }
 
   """
-  @type destination() :: %{String.t() => any()}
+  @type destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_error_exception() :: %{
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type internal_server_error_exception() :: %{String.t() => any()}
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       private_ip_address_details() :: %{
-        "PrivateDnsName" => String.t(),
-        "PrivateIpAddress" => String.t()
+        "PrivateDnsName" => String.t() | atom(),
+        "PrivateIpAddress" => String.t() | atom()
       }
 
   """
-  @type private_ip_address_details() :: %{String.t() => any()}
+  @type private_ip_address_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3735,42 +3739,42 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type get_invitations_count_response() :: %{String.t() => any()}
+  @type get_invitations_count_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       runtime_context() :: %{
-        "AddressFamily" => String.t(),
-        "CommandLineExample" => String.t(),
-        "FileSystemType" => String.t(),
-        "Flags" => list(String.t()),
+        "AddressFamily" => String.t() | atom(),
+        "CommandLineExample" => String.t() | atom(),
+        "FileSystemType" => String.t() | atom(),
+        "Flags" => list(String.t() | atom()),
         "IanaProtocolNumber" => integer(),
-        "LdPreloadValue" => String.t(),
-        "LibraryPath" => String.t(),
-        "MemoryRegions" => list(String.t()),
+        "LdPreloadValue" => String.t() | atom(),
+        "LibraryPath" => String.t() | atom(),
+        "MemoryRegions" => list(String.t() | atom()),
         "ModifiedAt" => non_neg_integer(),
         "ModifyingProcess" => process_details(),
-        "ModuleFilePath" => String.t(),
-        "ModuleName" => String.t(),
-        "ModuleSha256" => String.t(),
-        "MountSource" => String.t(),
-        "MountTarget" => String.t(),
-        "ReleaseAgentPath" => String.t(),
-        "RuncBinaryPath" => String.t(),
-        "ScriptPath" => String.t(),
-        "ServiceName" => String.t(),
-        "ShellHistoryFilePath" => String.t(),
-        "SocketPath" => String.t(),
+        "ModuleFilePath" => String.t() | atom(),
+        "ModuleName" => String.t() | atom(),
+        "ModuleSha256" => String.t() | atom(),
+        "MountSource" => String.t() | atom(),
+        "MountTarget" => String.t() | atom(),
+        "ReleaseAgentPath" => String.t() | atom(),
+        "RuncBinaryPath" => String.t() | atom(),
+        "ScriptPath" => String.t() | atom(),
+        "ServiceName" => String.t() | atom(),
+        "ShellHistoryFilePath" => String.t() | atom(),
+        "SocketPath" => String.t() | atom(),
         "TargetProcess" => process_details(),
-        "ThreatFilePath" => String.t(),
-        "ToolCategory" => String.t(),
-        "ToolName" => String.t()
+        "ThreatFilePath" => String.t() | atom(),
+        "ToolCategory" => String.t() | atom(),
+        "ToolName" => String.t() | atom()
       }
 
   """
-  @type runtime_context() :: %{String.t() => any()}
+  @type runtime_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3781,7 +3785,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type evidence() :: %{String.t() => any()}
+  @type evidence() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3790,24 +3794,24 @@ defmodule AWS.GuardDuty do
       scan_threat_name() :: %{
         "FilePaths" => list(scan_file_path()),
         "ItemCount" => integer(),
-        "Name" => String.t(),
-        "Severity" => String.t()
+        "Name" => String.t() | atom(),
+        "Severity" => String.t() | atom()
       }
 
   """
-  @type scan_threat_name() :: %{String.t() => any()}
+  @type scan_threat_name() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       usage_resource_result() :: %{
-        "Resource" => String.t(),
+        "Resource" => String.t() | atom(),
         "Total" => total()
       }
 
   """
-  @type usage_resource_result() :: %{String.t() => any()}
+  @type usage_resource_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3818,18 +3822,18 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type coverage_filter_criteria() :: %{String.t() => any()}
+  @type coverage_filter_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_threat_intel_set_response() :: %{
-        "ThreatIntelSetId" => String.t()
+        "ThreatIntelSetId" => String.t() | atom()
       }
 
   """
-  @type create_threat_intel_set_response() :: %{String.t() => any()}
+  @type create_threat_intel_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3837,27 +3841,27 @@ defmodule AWS.GuardDuty do
 
       user() :: %{
         "Account" => account(),
-        "CredentialUid" => String.t(),
-        "Name" => String.t(),
-        "Type" => String.t(),
-        "Uid" => String.t()
+        "CredentialUid" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Uid" => String.t() | atom()
       }
 
   """
-  @type user() :: %{String.t() => any()}
+  @type user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       coverage_ecs_cluster_details() :: %{
-        "ClusterName" => String.t(),
+        "ClusterName" => String.t() | atom(),
         "ContainerInstanceDetails" => container_instance_details(),
         "FargateDetails" => fargate_details()
       }
 
   """
-  @type coverage_ecs_cluster_details() :: %{String.t() => any()}
+  @type coverage_ecs_cluster_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3865,11 +3869,11 @@ defmodule AWS.GuardDuty do
 
       list_invitations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_invitations_request() :: %{String.t() => any()}
+  @type list_invitations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3880,7 +3884,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type finding_criteria() :: %{String.t() => any()}
+  @type finding_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3894,7 +3898,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type scan_detections() :: %{String.t() => any()}
+  @type scan_detections() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3902,24 +3906,24 @@ defmodule AWS.GuardDuty do
 
       kubernetes_permission_checked_details() :: %{
         "Allowed" => boolean(),
-        "Namespace" => String.t(),
-        "Resource" => String.t(),
-        "Verb" => String.t()
+        "Namespace" => String.t() | atom(),
+        "Resource" => String.t() | atom(),
+        "Verb" => String.t() | atom()
       }
 
   """
-  @type kubernetes_permission_checked_details() :: %{String.t() => any()}
+  @type kubernetes_permission_checked_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_monitoring_members_request() :: %{
-        required("AccountIds") => list(String.t())
+        required("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type start_monitoring_members_request() :: %{String.t() => any()}
+  @type start_monitoring_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3935,25 +3939,25 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       update_findings_feedback_request() :: %{
-        optional("Comments") => String.t(),
+        optional("Comments") => String.t() | atom(),
         required("Feedback") => list(any()),
-        required("FindingIds") => list(String.t())
+        required("FindingIds") => list(String.t() | atom())
       }
 
   """
-  @type update_findings_feedback_request() :: %{String.t() => any()}
+  @type update_findings_feedback_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_s3_bucket_resource() :: %{
-        "BucketName" => String.t(),
-        "ObjectPrefixes" => list(String.t())
+        "BucketName" => String.t() | atom(),
+        "ObjectPrefixes" => list(String.t() | atom())
       }
 
   """
-  @type create_s3_bucket_resource() :: %{String.t() => any()}
+  @type create_s3_bucket_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3965,39 +3969,39 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type rds_login_attempt_action() :: %{String.t() => any()}
+  @type rds_login_attempt_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       actor() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "Process" => actor_process(),
         "Session" => session(),
         "User" => user()
       }
 
   """
-  @type actor() :: %{String.t() => any()}
+  @type actor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       member() :: %{
-        "AccountId" => String.t(),
-        "AdministratorId" => String.t(),
-        "DetectorId" => String.t(),
-        "Email" => String.t(),
-        "InvitedAt" => String.t(),
-        "MasterId" => String.t(),
-        "RelationshipStatus" => String.t(),
-        "UpdatedAt" => String.t()
+        "AccountId" => String.t() | atom(),
+        "AdministratorId" => String.t() | atom(),
+        "DetectorId" => String.t() | atom(),
+        "Email" => String.t() | atom(),
+        "InvitedAt" => String.t() | atom(),
+        "MasterId" => String.t() | atom(),
+        "RelationshipStatus" => String.t() | atom(),
+        "UpdatedAt" => String.t() | atom()
       }
 
   """
-  @type member() :: %{String.t() => any()}
+  @type member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4018,7 +4022,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type usage_feature_result() :: %{String.t() => any()}
+  @type usage_feature_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4043,7 +4047,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type finding_statistics() :: %{String.t() => any()}
+  @type finding_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4054,7 +4058,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_scan_ec2_instance_with_findings_result() :: %{String.t() => any()}
+  @type organization_scan_ec2_instance_with_findings_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4062,32 +4066,32 @@ defmodule AWS.GuardDuty do
 
       ecs_cluster_details() :: %{
         "ActiveServicesCount" => integer(),
-        "Arn" => String.t(),
-        "Name" => String.t(),
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "RegisteredContainerInstancesCount" => integer(),
         "RunningTasksCount" => integer(),
-        "Status" => String.t(),
+        "Status" => String.t() | atom(),
         "Tags" => list(tag()),
         "TaskDetails" => ecs_task_details()
       }
 
   """
-  @type ecs_cluster_details() :: %{String.t() => any()}
+  @type ecs_cluster_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       scan() :: %{
-        "AccountId" => String.t(),
-        "AdminDetectorId" => String.t(),
+        "AccountId" => String.t() | atom(),
+        "AdminDetectorId" => String.t() | atom(),
         "AttachedVolumes" => list(volume_detail()),
-        "DetectorId" => String.t(),
-        "FailureReason" => String.t(),
+        "DetectorId" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
         "FileCount" => float(),
         "ResourceDetails" => resource_details(),
         "ScanEndTime" => non_neg_integer(),
-        "ScanId" => String.t(),
+        "ScanId" => String.t() | atom(),
         "ScanResultDetails" => scan_result_details(),
         "ScanStartTime" => non_neg_integer(),
         "ScanStatus" => list(any()),
@@ -4097,19 +4101,19 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type scan() :: %{String.t() => any()}
+  @type scan() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "Message" => String.t(),
-        "Type" => String.t()
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4133,33 +4137,33 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_statistics() :: %{String.t() => any()}
+  @type organization_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_details() :: %{
-        "Domain" => String.t()
+        "Domain" => String.t() | atom()
       }
 
   """
-  @type domain_details() :: %{String.t() => any()}
+  @type domain_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       kubernetes_role_binding_details() :: %{
-        "Kind" => String.t(),
-        "Name" => String.t(),
-        "RoleRefKind" => String.t(),
-        "RoleRefName" => String.t(),
-        "Uid" => String.t()
+        "Kind" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RoleRefKind" => String.t() | atom(),
+        "RoleRefName" => String.t() | atom(),
+        "Uid" => String.t() | atom()
       }
 
   """
-  @type kubernetes_role_binding_details() :: %{String.t() => any()}
+  @type kubernetes_role_binding_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4170,7 +4174,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type malware_protection_data_source_free_trial() :: %{String.t() => any()}
+  @type malware_protection_data_source_free_trial() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4179,15 +4183,15 @@ defmodule AWS.GuardDuty do
       ebs_volume_scan_details() :: %{
         "ScanCompletedAt" => non_neg_integer(),
         "ScanDetections" => scan_detections(),
-        "ScanId" => String.t(),
+        "ScanId" => String.t() | atom(),
         "ScanStartedAt" => non_neg_integer(),
         "ScanType" => list(any()),
-        "Sources" => list(String.t()),
-        "TriggerFindingId" => String.t()
+        "Sources" => list(String.t() | atom()),
+        "TriggerFindingId" => String.t() | atom()
       }
 
   """
-  @type ebs_volume_scan_details() :: %{String.t() => any()}
+  @type ebs_volume_scan_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4200,19 +4204,19 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_data_source_configurations() :: %{String.t() => any()}
+  @type organization_data_source_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unprocessed_account() :: %{
-        "AccountId" => String.t(),
-        "Result" => String.t()
+        "AccountId" => String.t() | atom(),
+        "Result" => String.t() | atom()
       }
 
   """
-  @type unprocessed_account() :: %{String.t() => any()}
+  @type unprocessed_account() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4223,18 +4227,18 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type update_member_detectors_response() :: %{String.t() => any()}
+  @type update_member_detectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_details() :: %{
-        "InstanceArn" => String.t()
+        "InstanceArn" => String.t() | atom()
       }
 
   """
-  @type resource_details() :: %{String.t() => any()}
+  @type resource_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4245,7 +4249,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type dns_logs_configuration_result() :: %{String.t() => any()}
+  @type dns_logs_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4256,7 +4260,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type update_publishing_destination_request() :: %{String.t() => any()}
+  @type update_publishing_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4272,22 +4276,22 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       create_ip_set_response() :: %{
-        "IpSetId" => String.t()
+        "IpSetId" => String.t() | atom()
       }
 
   """
-  @type create_ip_set_response() :: %{String.t() => any()}
+  @type create_ip_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_monitoring_members_request() :: %{
-        required("AccountIds") => list(String.t())
+        required("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type stop_monitoring_members_request() :: %{String.t() => any()}
+  @type stop_monitoring_members_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4299,23 +4303,25 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_feature_statistics_additional_configuration() :: %{String.t() => any()}
+  @type organization_feature_statistics_additional_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       rds_db_instance_details() :: %{
-        "DbClusterIdentifier" => String.t(),
-        "DbInstanceArn" => String.t(),
-        "DbInstanceIdentifier" => String.t(),
-        "Engine" => String.t(),
-        "EngineVersion" => String.t(),
+        "DbClusterIdentifier" => String.t() | atom(),
+        "DbInstanceArn" => String.t() | atom(),
+        "DbInstanceIdentifier" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
         "Tags" => list(tag())
       }
 
   """
-  @type rds_db_instance_details() :: %{String.t() => any()}
+  @type rds_db_instance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4326,7 +4332,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type scan_condition() :: %{String.t() => any()}
+  @type scan_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4340,7 +4346,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type threat_detected_by_name() :: %{String.t() => any()}
+  @type threat_detected_by_name() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4353,7 +4359,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type bucket_level_permissions() :: %{String.t() => any()}
+  @type bucket_level_permissions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4361,11 +4367,11 @@ defmodule AWS.GuardDuty do
 
       list_organization_admin_accounts_response() :: %{
         "AdminAccounts" => list(admin_account()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_organization_admin_accounts_response() :: %{String.t() => any()}
+  @type list_organization_admin_accounts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4377,7 +4383,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type usage_top_accounts_result() :: %{String.t() => any()}
+  @type usage_top_accounts_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4390,19 +4396,19 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type port_probe_detail() :: %{String.t() => any()}
+  @type port_probe_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       iam_instance_profile() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t()
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom()
       }
 
   """
-  @type iam_instance_profile() :: %{String.t() => any()}
+  @type iam_instance_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4413,7 +4419,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type stop_monitoring_members_response() :: %{String.t() => any()}
+  @type stop_monitoring_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4436,7 +4442,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type update_detector_request() :: %{String.t() => any()}
+  @type update_detector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4448,19 +4454,19 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type security_context() :: %{String.t() => any()}
+  @type security_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       default_server_side_encryption() :: %{
-        "EncryptionType" => String.t(),
-        "KmsMasterKeyArn" => String.t()
+        "EncryptionType" => String.t() | atom(),
+        "KmsMasterKeyArn" => String.t() | atom()
       }
 
   """
-  @type default_server_side_encryption() :: %{String.t() => any()}
+  @type default_server_side_encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4474,7 +4480,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type date_statistics() :: %{String.t() => any()}
+  @type date_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4486,7 +4492,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type access_control_list() :: %{String.t() => any()}
+  @type access_control_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4499,7 +4505,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type data_source_configurations() :: %{String.t() => any()}
+  @type data_source_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4510,7 +4516,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type get_administrator_account_response() :: %{String.t() => any()}
+  @type get_administrator_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4521,7 +4527,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type data_source_free_trial() :: %{String.t() => any()}
+  @type data_source_free_trial() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4533,30 +4539,30 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type detector_additional_configuration() :: %{String.t() => any()}
+  @type detector_additional_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_filters_response() :: %{
-        "FilterNames" => list(String.t()),
-        "NextToken" => String.t()
+        "FilterNames" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_filters_response() :: %{String.t() => any()}
+  @type list_filters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_malware_scan_response() :: %{
-        "ScanId" => String.t()
+        "ScanId" => String.t() | atom()
       }
 
   """
-  @type start_malware_scan_response() :: %{String.t() => any()}
+  @type start_malware_scan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4576,36 +4582,36 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type create_members_response() :: %{String.t() => any()}
+  @type create_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_object_detail() :: %{
-        "ETag" => String.t(),
-        "Hash" => String.t(),
-        "Key" => String.t(),
-        "ObjectArn" => String.t(),
-        "VersionId" => String.t()
+        "ETag" => String.t() | atom(),
+        "Hash" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "ObjectArn" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
       }
 
   """
-  @type s3_object_detail() :: %{String.t() => any()}
+  @type s3_object_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_key_details() :: %{
-        "AccessKeyId" => String.t(),
-        "PrincipalId" => String.t(),
-        "UserName" => String.t(),
-        "UserType" => String.t()
+        "AccessKeyId" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
+        "UserName" => String.t() | atom(),
+        "UserType" => String.t() | atom()
       }
 
   """
-  @type access_key_details() :: %{String.t() => any()}
+  @type access_key_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4621,11 +4627,11 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       owner() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | atom()
       }
 
   """
-  @type owner() :: %{String.t() => any()}
+  @type owner() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4637,7 +4643,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type get_coverage_statistics_request() :: %{String.t() => any()}
+  @type get_coverage_statistics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4658,33 +4664,33 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type runtime_details() :: %{String.t() => any()}
+  @type runtime_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       usage_criteria() :: %{
-        "AccountIds" => list(String.t()),
+        "AccountIds" => list(String.t() | atom()),
         "DataSources" => list(list(any())()),
         "Features" => list(list(any())()),
-        "Resources" => list(String.t())
+        "Resources" => list(String.t() | atom())
       }
 
   """
-  @type usage_criteria() :: %{String.t() => any()}
+  @type usage_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_usage_statistics_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "UsageStatistics" => usage_statistics()
       }
 
   """
-  @type get_usage_statistics_response() :: %{String.t() => any()}
+  @type get_usage_statistics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4692,22 +4698,22 @@ defmodule AWS.GuardDuty do
 
       list_filters_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_filters_request() :: %{String.t() => any()}
+  @type list_filters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_s3_bucket_resource() :: %{
-        "ObjectPrefixes" => list(String.t())
+        "ObjectPrefixes" => list(String.t() | atom())
       }
 
   """
-  @type update_s3_bucket_resource() :: %{String.t() => any()}
+  @type update_s3_bucket_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4724,11 +4730,11 @@ defmodule AWS.GuardDuty do
 
       list_invitations_response() :: %{
         "Invitations" => list(invitation()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_invitations_response() :: %{String.t() => any()}
+  @type list_invitations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4746,12 +4752,12 @@ defmodule AWS.GuardDuty do
         "RdsDbInstanceDetails" => rds_db_instance_details(),
         "RdsDbUserDetails" => rds_db_user_details(),
         "RdsLimitlessDbDetails" => rds_limitless_db_details(),
-        "ResourceType" => String.t(),
+        "ResourceType" => String.t() | atom(),
         "S3BucketDetails" => list(s3_bucket_detail())
       }
 
   """
-  @type resource() :: %{String.t() => any()}
+  @type resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4759,12 +4765,12 @@ defmodule AWS.GuardDuty do
 
       indicator() :: %{
         "Key" => list(any()),
-        "Title" => String.t(),
-        "Values" => list(String.t())
+        "Title" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type indicator() :: %{String.t() => any()}
+  @type indicator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4776,7 +4782,7 @@ defmodule AWS.GuardDuty do
       }
 
   """
-  @type organization_details() :: %{String.t() => any()}
+  @type organization_details() :: %{(String.t() | atom()) => any()}
 
   @type accept_administrator_invitation_errors() ::
           bad_request_exception() | internal_server_error_exception()
@@ -5007,7 +5013,7 @@ defmodule AWS.GuardDuty do
   """
   @spec accept_administrator_invitation(
           map(),
-          String.t(),
+          String.t() | atom(),
           accept_administrator_invitation_request(),
           list()
         ) ::
@@ -5039,7 +5045,7 @@ defmodule AWS.GuardDuty do
   @doc """
   Accepts the invitation to be monitored by a GuardDuty administrator account.
   """
-  @spec accept_invitation(map(), String.t(), accept_invitation_request(), list()) ::
+  @spec accept_invitation(map(), String.t() | atom(), accept_invitation_request(), list()) ::
           {:ok, accept_invitation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5071,7 +5077,7 @@ defmodule AWS.GuardDuty do
   Only the administrator account can archive findings. Member accounts don't have
   permission to archive findings from their accounts.
   """
-  @spec archive_findings(map(), String.t(), archive_findings_request(), list()) ::
+  @spec archive_findings(map(), String.t() | atom(), archive_findings_request(), list()) ::
           {:ok, archive_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5162,7 +5168,7 @@ defmodule AWS.GuardDuty do
   per Amazon Web Services account per Region is 100. For more information, see
   [Quotas for GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_limits.html).
   """
-  @spec create_filter(map(), String.t(), create_filter_request(), list()) ::
+  @spec create_filter(map(), String.t() | atom(), create_filter_request(), list()) ::
           {:ok, create_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5200,7 +5206,7 @@ defmodule AWS.GuardDuty do
   included in IPSets. Only users from the administrator account can use this
   operation.
   """
-  @spec create_ip_set(map(), String.t(), create_ip_set_request(), list()) ::
+  @spec create_ip_set(map(), String.t() | atom(), create_ip_set_request(), list()) ::
           {:ok, create_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5301,7 +5307,7 @@ defmodule AWS.GuardDuty do
   association with these
   member accounts again only by calling the CreateMembers API.
   """
-  @spec create_members(map(), String.t(), create_members_request(), list()) ::
+  @spec create_members(map(), String.t() | atom(), create_members_request(), list()) ::
           {:ok, create_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5335,7 +5341,7 @@ defmodule AWS.GuardDuty do
   """
   @spec create_publishing_destination(
           map(),
-          String.t(),
+          String.t() | atom(),
           create_publishing_destination_request(),
           list()
         ) ::
@@ -5371,7 +5377,12 @@ defmodule AWS.GuardDuty do
   specified for `findingTypes`, the API generates sample findings of all supported
   finding types.
   """
-  @spec create_sample_findings(map(), String.t(), create_sample_findings_request(), list()) ::
+  @spec create_sample_findings(
+          map(),
+          String.t() | atom(),
+          create_sample_findings_request(),
+          list()
+        ) ::
           {:ok, create_sample_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5405,7 +5416,12 @@ defmodule AWS.GuardDuty do
   administrator
   account can use this operation.
   """
-  @spec create_threat_intel_set(map(), String.t(), create_threat_intel_set_request(), list()) ::
+  @spec create_threat_intel_set(
+          map(),
+          String.t() | atom(),
+          create_threat_intel_set_request(),
+          list()
+        ) ::
           {:ok, create_threat_intel_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5465,7 +5481,7 @@ defmodule AWS.GuardDuty do
   @doc """
   Deletes an Amazon GuardDuty detector that is specified by the detector ID.
   """
-  @spec delete_detector(map(), String.t(), delete_detector_request(), list()) ::
+  @spec delete_detector(map(), String.t() | atom(), delete_detector_request(), list()) ::
           {:ok, delete_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5494,7 +5510,13 @@ defmodule AWS.GuardDuty do
   @doc """
   Deletes the filter specified by the filter name.
   """
-  @spec delete_filter(map(), String.t(), String.t(), delete_filter_request(), list()) ::
+  @spec delete_filter(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_filter_request(),
+          list()
+        ) ::
           {:ok, delete_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5559,7 +5581,13 @@ defmodule AWS.GuardDuty do
   IPSets are called trusted IP
   lists in the console user interface.
   """
-  @spec delete_ip_set(map(), String.t(), String.t(), delete_ip_set_request(), list()) ::
+  @spec delete_ip_set(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_ip_set_request(),
+          list()
+        ) ::
           {:ok, delete_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5597,7 +5625,7 @@ defmodule AWS.GuardDuty do
   """
   @spec delete_malware_protection_plan(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_malware_protection_plan_request(),
           list()
         ) ::
@@ -5640,7 +5668,7 @@ defmodule AWS.GuardDuty do
   `ALL`, you'll receive an error if you attempt to disable GuardDuty for a member
   account in your organization.
   """
-  @spec delete_members(map(), String.t(), delete_members_request(), list()) ::
+  @spec delete_members(map(), String.t() | atom(), delete_members_request(), list()) ::
           {:ok, delete_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5671,8 +5699,8 @@ defmodule AWS.GuardDuty do
   """
   @spec delete_publishing_destination(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_publishing_destination_request(),
           list()
         ) ::
@@ -5714,8 +5742,8 @@ defmodule AWS.GuardDuty do
   """
   @spec delete_threat_intel_set(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_threat_intel_set_request(),
           list()
         ) ::
@@ -5764,7 +5792,12 @@ defmodule AWS.GuardDuty do
   supported. For more
   information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
-  @spec describe_malware_scans(map(), String.t(), describe_malware_scans_request(), list()) ::
+  @spec describe_malware_scans(
+          map(),
+          String.t() | atom(),
+          describe_malware_scans_request(),
+          list()
+        ) ::
           {:ok, describe_malware_scans_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5802,9 +5835,9 @@ defmodule AWS.GuardDuty do
   """
   @spec describe_organization_configuration(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_organization_configuration_response(), any()}
@@ -5845,7 +5878,7 @@ defmodule AWS.GuardDuty do
   Returns information about the publishing destination specified by the provided
   `destinationId`.
   """
-  @spec describe_publishing_destination(map(), String.t(), String.t(), list()) ::
+  @spec describe_publishing_destination(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, describe_publishing_destination_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5927,7 +5960,7 @@ defmodule AWS.GuardDuty do
   """
   @spec disassociate_from_administrator_account(
           map(),
-          String.t(),
+          String.t() | atom(),
           disassociate_from_administrator_account_request(),
           list()
         ) ::
@@ -5980,7 +6013,7 @@ defmodule AWS.GuardDuty do
   """
   @spec disassociate_from_master_account(
           map(),
-          String.t(),
+          String.t() | atom(),
           disassociate_from_master_account_request(),
           list()
         ) ::
@@ -6048,7 +6081,7 @@ defmodule AWS.GuardDuty do
   association with these
   member accounts again only by calling the CreateMembers API.
   """
-  @spec disassociate_members(map(), String.t(), disassociate_members_request(), list()) ::
+  @spec disassociate_members(map(), String.t() | atom(), disassociate_members_request(), list()) ::
           {:ok, disassociate_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6134,7 +6167,7 @@ defmodule AWS.GuardDuty do
   it will return success (`HTTP 200`)
   but no content.
   """
-  @spec get_administrator_account(map(), String.t(), list()) ::
+  @spec get_administrator_account(map(), String.t() | atom(), list()) ::
           {:ok, get_administrator_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6159,7 +6192,12 @@ defmodule AWS.GuardDuty do
   security agent running
   on their resources.
   """
-  @spec get_coverage_statistics(map(), String.t(), get_coverage_statistics_request(), list()) ::
+  @spec get_coverage_statistics(
+          map(),
+          String.t() | atom(),
+          get_coverage_statistics_request(),
+          list()
+        ) ::
           {:ok, get_coverage_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6193,7 +6231,7 @@ defmodule AWS.GuardDuty do
   supported. For more
   information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
-  @spec get_detector(map(), String.t(), list()) ::
+  @spec get_detector(map(), String.t() | atom(), list()) ::
           {:ok, get_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6211,7 +6249,7 @@ defmodule AWS.GuardDuty do
   @doc """
   Returns the details of the filter specified by the filter name.
   """
-  @spec get_filter(map(), String.t(), String.t(), list()) ::
+  @spec get_filter(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6231,7 +6269,7 @@ defmodule AWS.GuardDuty do
   @doc """
   Describes Amazon GuardDuty findings specified by finding IDs.
   """
-  @spec get_findings(map(), String.t(), get_findings_request(), list()) ::
+  @spec get_findings(map(), String.t() | atom(), get_findings_request(), list()) ::
           {:ok, get_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6268,7 +6306,12 @@ defmodule AWS.GuardDuty do
   all the Regions where GuardDuty
   is currently supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
-  @spec get_findings_statistics(map(), String.t(), get_findings_statistics_request(), list()) ::
+  @spec get_findings_statistics(
+          map(),
+          String.t() | atom(),
+          get_findings_statistics_request(),
+          list()
+        ) ::
           {:ok, get_findings_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6317,7 +6360,7 @@ defmodule AWS.GuardDuty do
   @doc """
   Retrieves the IPSet specified by the `ipSetId`.
   """
-  @spec get_ip_set(map(), String.t(), String.t(), list()) ::
+  @spec get_ip_set(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6339,7 +6382,7 @@ defmodule AWS.GuardDuty do
   Protection
   plan ID.
   """
-  @spec get_malware_protection_plan(map(), String.t(), list()) ::
+  @spec get_malware_protection_plan(map(), String.t() | atom(), list()) ::
           {:ok, get_malware_protection_plan_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6362,7 +6405,7 @@ defmodule AWS.GuardDuty do
   supported. For more
   information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
-  @spec get_malware_scan_settings(map(), String.t(), list()) ::
+  @spec get_malware_scan_settings(map(), String.t() | atom(), list()) ::
           {:ok, get_malware_scan_settings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6382,7 +6425,7 @@ defmodule AWS.GuardDuty do
   current
   GuardDuty member account.
   """
-  @spec get_master_account(map(), String.t(), list()) ::
+  @spec get_master_account(map(), String.t() | atom(), list()) ::
           {:ok, get_master_account_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6405,7 +6448,7 @@ defmodule AWS.GuardDuty do
   supported. For more
   information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
-  @spec get_member_detectors(map(), String.t(), get_member_detectors_request(), list()) ::
+  @spec get_member_detectors(map(), String.t() | atom(), get_member_detectors_request(), list()) ::
           {:ok, get_member_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6436,7 +6479,7 @@ defmodule AWS.GuardDuty do
   account)
   specified by the account IDs.
   """
-  @spec get_members(map(), String.t(), get_members_request(), list()) ::
+  @spec get_members(map(), String.t() | atom(), get_members_request(), list()) ::
           {:ok, get_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6492,7 +6535,7 @@ defmodule AWS.GuardDuty do
   """
   @spec get_remaining_free_trial_days(
           map(),
-          String.t(),
+          String.t() | atom(),
           get_remaining_free_trial_days_request(),
           list()
         ) ::
@@ -6524,7 +6567,7 @@ defmodule AWS.GuardDuty do
   @doc """
   Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.
   """
-  @spec get_threat_intel_set(map(), String.t(), String.t(), list()) ::
+  @spec get_threat_intel_set(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_threat_intel_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6553,7 +6596,7 @@ defmodule AWS.GuardDuty do
   usage over 30 days to provide a monthly cost estimate. For more information, see
   [Understanding How Usage Costs are Calculated](https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations).
   """
-  @spec get_usage_statistics(map(), String.t(), get_usage_statistics_request(), list()) ::
+  @spec get_usage_statistics(map(), String.t() | atom(), get_usage_statistics_request(), list()) ::
           {:ok, get_usage_statistics_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6629,7 +6672,7 @@ defmodule AWS.GuardDuty do
   association with these
   member accounts again only by calling the CreateMembers API.
   """
-  @spec invite_members(map(), String.t(), invite_members_request(), list()) ::
+  @spec invite_members(map(), String.t() | atom(), invite_members_request(), list()) ::
           {:ok, invite_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6666,7 +6709,7 @@ defmodule AWS.GuardDuty do
   running on
   their resources.
   """
-  @spec list_coverage(map(), String.t(), list_coverage_request(), list()) ::
+  @spec list_coverage(map(), String.t() | atom(), list_coverage_request(), list()) ::
           {:ok, list_coverage_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6695,7 +6738,7 @@ defmodule AWS.GuardDuty do
   @doc """
   Lists detectorIds of all the existing Amazon GuardDuty detector resources.
   """
-  @spec list_detectors(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_detectors(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6727,7 +6770,13 @@ defmodule AWS.GuardDuty do
   @doc """
   Returns a paginated list of the current filters.
   """
-  @spec list_filters(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_filters(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_filters_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6769,7 +6818,7 @@ defmodule AWS.GuardDuty do
   all the Regions where GuardDuty
   is currently supported. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
-  @spec list_findings(map(), String.t(), list_findings_request(), list()) ::
+  @spec list_findings(map(), String.t() | atom(), list_findings_request(), list()) ::
           {:ok, list_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6800,7 +6849,7 @@ defmodule AWS.GuardDuty do
   Web Services
   account.
   """
-  @spec list_invitations(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_invitations(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_invitations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6837,7 +6886,13 @@ defmodule AWS.GuardDuty do
   associated
   administrator account.
   """
-  @spec list_ip_sets(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_ip_sets(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_ip_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6876,7 +6931,7 @@ defmodule AWS.GuardDuty do
   Lists the Malware Protection plan IDs associated with the protected
   resources in your Amazon Web Services account.
   """
-  @spec list_malware_protection_plans(map(), String.t() | nil, list()) ::
+  @spec list_malware_protection_plans(map(), String.t() | atom() | nil, list()) ::
           {:ok, list_malware_protection_plans_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6904,10 +6959,10 @@ defmodule AWS.GuardDuty do
   """
   @spec list_members(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_members_response(), any()}
@@ -6958,7 +7013,12 @@ defmodule AWS.GuardDuty do
   Only the organization's management account can run this
   API operation.
   """
-  @spec list_organization_admin_accounts(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_organization_admin_accounts(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_organization_admin_accounts_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6998,9 +7058,9 @@ defmodule AWS.GuardDuty do
   """
   @spec list_publishing_destinations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_publishing_destinations_response(), any()}
@@ -7046,7 +7106,7 @@ defmodule AWS.GuardDuty do
   When invoked, this
   operation returns all assigned tags for a given resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7069,7 +7129,13 @@ defmodule AWS.GuardDuty do
   the
   administrator account are returned.
   """
-  @spec list_threat_intel_sets(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_threat_intel_sets(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_threat_intel_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7150,7 +7216,12 @@ defmodule AWS.GuardDuty do
   [StopMonitoringMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html)
   operation.
   """
-  @spec start_monitoring_members(map(), String.t(), start_monitoring_members_request(), list()) ::
+  @spec start_monitoring_members(
+          map(),
+          String.t() | atom(),
+          start_monitoring_members_request(),
+          list()
+        ) ::
           {:ok, start_monitoring_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7187,7 +7258,12 @@ defmodule AWS.GuardDuty do
   `ALL`, you'll receive an error if you attempt to stop monitoring the member
   accounts in your organization.
   """
-  @spec stop_monitoring_members(map(), String.t(), stop_monitoring_members_request(), list()) ::
+  @spec stop_monitoring_members(
+          map(),
+          String.t() | atom(),
+          stop_monitoring_members_request(),
+          list()
+        ) ::
           {:ok, stop_monitoring_members_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7216,7 +7292,7 @@ defmodule AWS.GuardDuty do
   @doc """
   Adds tags to a resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7245,7 +7321,7 @@ defmodule AWS.GuardDuty do
   @doc """
   Unarchives GuardDuty findings specified by the `findingIds`.
   """
-  @spec unarchive_findings(map(), String.t(), unarchive_findings_request(), list()) ::
+  @spec unarchive_findings(map(), String.t() | atom(), unarchive_findings_request(), list()) ::
           {:ok, unarchive_findings_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7274,7 +7350,7 @@ defmodule AWS.GuardDuty do
   @doc """
   Removes tags from a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7320,7 +7396,7 @@ defmodule AWS.GuardDuty do
   supported. For more
   information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
-  @spec update_detector(map(), String.t(), update_detector_request(), list()) ::
+  @spec update_detector(map(), String.t() | atom(), update_detector_request(), list()) ::
           {:ok, update_detector_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7349,7 +7425,13 @@ defmodule AWS.GuardDuty do
   @doc """
   Updates the filter specified by the filter name.
   """
-  @spec update_filter(map(), String.t(), String.t(), update_filter_request(), list()) ::
+  @spec update_filter(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_filter_request(),
+          list()
+        ) ::
           {:ok, update_filter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7380,7 +7462,12 @@ defmodule AWS.GuardDuty do
   @doc """
   Marks the specified GuardDuty findings as useful or not useful.
   """
-  @spec update_findings_feedback(map(), String.t(), update_findings_feedback_request(), list()) ::
+  @spec update_findings_feedback(
+          map(),
+          String.t() | atom(),
+          update_findings_feedback_request(),
+          list()
+        ) ::
           {:ok, update_findings_feedback_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7409,7 +7496,13 @@ defmodule AWS.GuardDuty do
   @doc """
   Updates the IPSet specified by the IPSet ID.
   """
-  @spec update_ip_set(map(), String.t(), String.t(), update_ip_set_request(), list()) ::
+  @spec update_ip_set(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_ip_set_request(),
+          list()
+        ) ::
           {:ok, update_ip_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7442,7 +7535,7 @@ defmodule AWS.GuardDuty do
   """
   @spec update_malware_protection_plan(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_malware_protection_plan_request(),
           list()
         ) ::
@@ -7486,7 +7579,7 @@ defmodule AWS.GuardDuty do
   """
   @spec update_malware_scan_settings(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_malware_scan_settings_request(),
           list()
         ) ::
@@ -7530,7 +7623,12 @@ defmodule AWS.GuardDuty do
   supported. For more
   information, see [Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html).
   """
-  @spec update_member_detectors(map(), String.t(), update_member_detectors_request(), list()) ::
+  @spec update_member_detectors(
+          map(),
+          String.t() | atom(),
+          update_member_detectors_request(),
+          list()
+        ) ::
           {:ok, update_member_detectors_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7577,7 +7675,7 @@ defmodule AWS.GuardDuty do
   """
   @spec update_organization_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_organization_configuration_request(),
           list()
         ) ::
@@ -7612,8 +7710,8 @@ defmodule AWS.GuardDuty do
   """
   @spec update_publishing_destination(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_publishing_destination_request(),
           list()
         ) ::
@@ -7655,8 +7753,8 @@ defmodule AWS.GuardDuty do
   """
   @spec update_threat_intel_set(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_threat_intel_set_request(),
           list()
         ) ::

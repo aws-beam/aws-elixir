@@ -22,13 +22,13 @@ defmodule AWS.Neptunedata do
   ## Example:
 
       parsing_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type parsing_exception() :: %{String.t() => any()}
+  @type parsing_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -39,18 +39,18 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type manage_sparql_statistics_input() :: %{String.t() => any()}
+  @type manage_sparql_statistics_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_ml_model_training_job_input() :: %{
-        optional("neptuneIamRoleArn") => [String.t()]
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type get_ml_model_training_job_input() :: %{String.t() => any()}
+  @type get_ml_model_training_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -58,63 +58,63 @@ defmodule AWS.Neptunedata do
 
       cancel_ml_data_processing_job_input() :: %{
         optional("clean") => [boolean()],
-        optional("neptuneIamRoleArn") => [String.t()]
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type cancel_ml_data_processing_job_input() :: %{String.t() => any()}
+  @type cancel_ml_data_processing_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       read_only_violation_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type read_only_violation_exception() :: %{String.t() => any()}
+  @type read_only_violation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_model_training_parameters() :: %{
-        "sourceS3DirectoryPath" => [String.t()],
-        "trainingEntryPointScript" => [String.t()],
-        "transformEntryPointScript" => [String.t()]
+        "sourceS3DirectoryPath" => [String.t() | atom()],
+        "trainingEntryPointScript" => [String.t() | atom()],
+        "transformEntryPointScript" => [String.t() | atom()]
       }
 
   """
-  @type custom_model_training_parameters() :: %{String.t() => any()}
+  @type custom_model_training_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_failure_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type internal_failure_exception() :: %{String.t() => any()}
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type s3_exception() :: %{String.t() => any()}
+  @type s3_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -125,14 +125,14 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type get_r_d_f_graph_summary_input() :: %{String.t() => any()}
+  @type get_r_d_f_graph_summary_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_propertygraph_stream_output() :: %{
-        "format" => [String.t()],
+        "format" => [String.t() | atom()],
         "lastEventId" => map(),
         "lastTrxTimestampInMillis" => [float()],
         "records" => list(propertygraph_record()),
@@ -140,44 +140,44 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type get_propertygraph_stream_output() :: %{String.t() => any()}
+  @type get_propertygraph_stream_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       statistics_not_available_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type statistics_not_available_exception() :: %{String.t() => any()}
+  @type statistics_not_available_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       query_language_version() :: %{
-        "version" => [String.t()]
+        "version" => [String.t() | atom()]
       }
 
   """
-  @type query_language_version() :: %{String.t() => any()}
+  @type query_language_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unsupported_operation_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type unsupported_operation_exception() :: %{String.t() => any()}
+  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -185,12 +185,12 @@ defmodule AWS.Neptunedata do
 
       delete_propertygraph_statistics_output() :: %{
         "payload" => delete_statistics_value_map(),
-        "status" => [String.t()],
+        "status" => [String.t() | atom()],
         "statusCode" => [integer()]
       }
 
   """
-  @type delete_propertygraph_statistics_output() :: %{String.t() => any()}
+  @type delete_propertygraph_statistics_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -198,11 +198,11 @@ defmodule AWS.Neptunedata do
 
       get_propertygraph_statistics_output() :: %{
         "payload" => statistics(),
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type get_propertygraph_statistics_output() :: %{String.t() => any()}
+  @type get_propertygraph_statistics_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -212,12 +212,12 @@ defmodule AWS.Neptunedata do
         optional("chop") => [integer()],
         optional("indexOps") => [boolean()],
         optional("results") => [boolean()],
-        optional("serializer") => [String.t()],
-        required("gremlinQuery") => [String.t()]
+        optional("serializer") => [String.t() | atom()],
+        required("gremlinQuery") => [String.t() | atom()]
       }
 
   """
-  @type execute_gremlin_profile_query_input() :: %{String.t() => any()}
+  @type execute_gremlin_profile_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -225,35 +225,35 @@ defmodule AWS.Neptunedata do
 
       list_ml_model_transform_jobs_input() :: %{
         optional("maxItems") => integer(),
-        optional("neptuneIamRoleArn") => [String.t()]
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type list_ml_model_transform_jobs_input() :: %{String.t() => any()}
+  @type list_ml_model_transform_jobs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_ml_data_processing_job_output() :: %{
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type cancel_ml_data_processing_job_output() :: %{String.t() => any()}
+  @type cancel_ml_data_processing_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bulk_load_id_not_found_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type bulk_load_id_not_found_exception() :: %{String.t() => any()}
+  @type bulk_load_id_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -267,7 +267,7 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type query_eval_stats() :: %{String.t() => any()}
+  @type query_eval_stats() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -275,11 +275,11 @@ defmodule AWS.Neptunedata do
 
       manage_propertygraph_statistics_output() :: %{
         "payload" => refresh_statistics_id_map(),
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type manage_propertygraph_statistics_output() :: %{String.t() => any()}
+  @type manage_propertygraph_statistics_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -287,11 +287,11 @@ defmodule AWS.Neptunedata do
 
       cancel_open_cypher_query_output() :: %{
         "payload" => [boolean()],
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type cancel_open_cypher_query_output() :: %{String.t() => any()}
+  @type cancel_open_cypher_query_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -302,7 +302,7 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type execute_open_cypher_query_output() :: %{String.t() => any()}
+  @type execute_open_cypher_query_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -310,49 +310,49 @@ defmodule AWS.Neptunedata do
 
       get_ml_model_transform_job_output() :: %{
         "baseProcessingJob" => ml_resource_definition(),
-        "id" => [String.t()],
+        "id" => [String.t() | atom()],
         "models" => list(ml_config_definition()),
         "remoteModelTransformJob" => ml_resource_definition(),
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type get_ml_model_transform_job_output() :: %{String.t() => any()}
+  @type get_ml_model_transform_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_ml_model_transform_job_output() :: %{
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type cancel_ml_model_transform_job_output() :: %{String.t() => any()}
+  @type cancel_ml_model_transform_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       execute_gremlin_explain_query_input() :: %{
-        required("gremlinQuery") => [String.t()]
+        required("gremlinQuery") => [String.t() | atom()]
       }
 
   """
-  @type execute_gremlin_explain_query_input() :: %{String.t() => any()}
+  @type execute_gremlin_explain_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       method_not_allowed_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type method_not_allowed_exception() :: %{String.t() => any()}
+  @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -363,19 +363,19 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type get_propertygraph_summary_input() :: %{String.t() => any()}
+  @type get_propertygraph_summary_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ml_config_definition() :: %{
-        "arn" => [String.t()],
-        "name" => [String.t()]
+        "arn" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type ml_config_definition() :: %{String.t() => any()}
+  @type ml_config_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -386,7 +386,7 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type execute_gremlin_profile_query_output() :: %{String.t() => any()}
+  @type execute_gremlin_profile_query_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -394,38 +394,38 @@ defmodule AWS.Neptunedata do
 
       list_ml_model_training_jobs_input() :: %{
         optional("maxItems") => integer(),
-        optional("neptuneIamRoleArn") => [String.t()]
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type list_ml_model_training_jobs_input() :: %{String.t() => any()}
+  @type list_ml_model_training_jobs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_gremlin_query_output() :: %{
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type cancel_gremlin_query_output() :: %{String.t() => any()}
+  @type cancel_gremlin_query_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       propertygraph_data() :: %{
-        "from" => [String.t()],
-        "id" => [String.t()],
-        "key" => [String.t()],
-        "to" => [String.t()],
-        "type" => [String.t()],
+        "from" => [String.t() | atom()],
+        "id" => [String.t() | atom()],
+        "key" => [String.t() | atom()],
+        "to" => [String.t() | atom()],
+        "type" => [String.t() | atom()],
         "value" => [any()]
       }
 
   """
-  @type propertygraph_data() :: %{String.t() => any()}
+  @type propertygraph_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -441,33 +441,33 @@ defmodule AWS.Neptunedata do
   ## Example:
 
       execute_open_cypher_explain_query_input() :: %{
-        optional("parameters") => [String.t()],
+        optional("parameters") => [String.t() | atom()],
         required("explainMode") => list(any()),
-        required("openCypherQuery") => [String.t()]
+        required("openCypherQuery") => [String.t() | atom()]
       }
 
   """
-  @type execute_open_cypher_explain_query_input() :: %{String.t() => any()}
+  @type execute_open_cypher_explain_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       failure_by_query_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type failure_by_query_exception() :: %{String.t() => any()}
+  @type failure_by_query_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sparql_stream_output() :: %{
-        "format" => [String.t()],
+        "format" => [String.t() | atom()],
         "lastEventId" => map(),
         "lastTrxTimestampInMillis" => [float()],
         "records" => list(sparql_record()),
@@ -475,53 +475,53 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type get_sparql_stream_output() :: %{String.t() => any()}
+  @type get_sparql_stream_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       illegal_argument_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type illegal_argument_exception() :: %{String.t() => any()}
+  @type illegal_argument_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_ml_model_training_job_output() :: %{
-        "arn" => [String.t()],
+        "arn" => [String.t() | atom()],
         "creationTimeInMillis" => [float()],
-        "id" => [String.t()]
+        "id" => [String.t() | atom()]
       }
 
   """
-  @type start_ml_model_training_job_output() :: %{String.t() => any()}
+  @type start_ml_model_training_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_loader_job_input() :: %{
-        optional("dependencies") => list([String.t()]()),
+        optional("dependencies") => list([String.t() | atom()]()),
         optional("failOnError") => [boolean()],
         optional("mode") => list(any()),
         optional("parallelism") => list(any()),
@@ -530,13 +530,13 @@ defmodule AWS.Neptunedata do
         optional("updateSingleCardinalityProperties") => [boolean()],
         optional("userProvidedEdgeIds") => [boolean()],
         required("format") => list(any()),
-        required("iamRoleArn") => [String.t()],
+        required("iamRoleArn") => [String.t() | atom()],
         required("s3BucketRegion") => list(any()),
-        required("source") => [String.t()]
+        required("source") => [String.t() | atom()]
       }
 
   """
-  @type start_loader_job_input() :: %{String.t() => any()}
+  @type start_loader_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -552,35 +552,35 @@ defmodule AWS.Neptunedata do
   ## Example:
 
       start_ml_data_processing_job_output() :: %{
-        "arn" => [String.t()],
+        "arn" => [String.t() | atom()],
         "creationTimeInMillis" => [float()],
-        "id" => [String.t()]
+        "id" => [String.t() | atom()]
       }
 
   """
-  @type start_ml_data_processing_job_output() :: %{String.t() => any()}
+  @type start_ml_data_processing_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_ml_model_transform_jobs_output() :: %{
-        "ids" => list([String.t()]())
+        "ids" => list([String.t() | atom()]())
       }
 
   """
-  @type list_ml_model_transform_jobs_output() :: %{String.t() => any()}
+  @type list_ml_model_transform_jobs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_ml_data_processing_job_input() :: %{
-        optional("neptuneIamRoleArn") => [String.t()]
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type get_ml_data_processing_job_input() :: %{String.t() => any()}
+  @type get_ml_data_processing_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -588,64 +588,64 @@ defmodule AWS.Neptunedata do
 
       subject_structure() :: %{
         "count" => [float()],
-        "predicates" => list([String.t()]())
+        "predicates" => list([String.t() | atom()]())
       }
 
   """
-  @type subject_structure() :: %{String.t() => any()}
+  @type subject_structure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ml_resource_not_found_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type ml_resource_not_found_exception() :: %{String.t() => any()}
+  @type ml_resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ml_resource_definition() :: %{
-        "arn" => [String.t()],
-        "cloudwatchLogUrl" => [String.t()],
-        "failureReason" => [String.t()],
-        "name" => [String.t()],
-        "outputLocation" => [String.t()],
-        "status" => [String.t()]
+        "arn" => [String.t() | atom()],
+        "cloudwatchLogUrl" => [String.t() | atom()],
+        "failureReason" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "outputLocation" => [String.t() | atom()],
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type ml_resource_definition() :: %{String.t() => any()}
+  @type ml_resource_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       query_limit_exceeded_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type query_limit_exceeded_exception() :: %{String.t() => any()}
+  @type query_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_ml_data_processing_jobs_output() :: %{
-        "ids" => list([String.t()]())
+        "ids" => list([String.t() | atom()]())
       }
 
   """
-  @type list_ml_data_processing_jobs_output() :: %{String.t() => any()}
+  @type list_ml_data_processing_jobs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -653,11 +653,11 @@ defmodule AWS.Neptunedata do
 
       edge_structure() :: %{
         "count" => [float()],
-        "edgeProperties" => list([String.t()]())
+        "edgeProperties" => list([String.t() | atom()]())
       }
 
   """
-  @type edge_structure() :: %{String.t() => any()}
+  @type edge_structure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -672,31 +672,31 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type get_sparql_stream_input() :: %{String.t() => any()}
+  @type get_sparql_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_ml_model_training_job_output() :: %{
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type cancel_ml_model_training_job_output() :: %{String.t() => any()}
+  @type cancel_ml_model_training_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       time_limit_exceeded_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type time_limit_exceeded_exception() :: %{String.t() => any()}
+  @type time_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -704,103 +704,103 @@ defmodule AWS.Neptunedata do
 
       get_loader_job_status_output() :: %{
         "payload" => [any()],
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type get_loader_job_status_output() :: %{String.t() => any()}
+  @type get_loader_job_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_ml_model_training_job_input() :: %{
-        optional("baseProcessingInstanceType") => [String.t()],
+        optional("baseProcessingInstanceType") => [String.t() | atom()],
         optional("customModelTrainingParameters") => custom_model_training_parameters(),
         optional("enableManagedSpotTraining") => [boolean()],
-        optional("id") => [String.t()],
+        optional("id") => [String.t() | atom()],
         optional("maxHPONumberOfTrainingJobs") => [integer()],
         optional("maxHPOParallelTrainingJobs") => [integer()],
-        optional("neptuneIamRoleArn") => [String.t()],
-        optional("previousModelTrainingJobId") => [String.t()],
-        optional("s3OutputEncryptionKMSKey") => [String.t()],
-        optional("sagemakerIamRoleArn") => [String.t()],
-        optional("securityGroupIds") => list([String.t()]()),
-        optional("subnets") => list([String.t()]()),
-        optional("trainingInstanceType") => [String.t()],
+        optional("neptuneIamRoleArn") => [String.t() | atom()],
+        optional("previousModelTrainingJobId") => [String.t() | atom()],
+        optional("s3OutputEncryptionKMSKey") => [String.t() | atom()],
+        optional("sagemakerIamRoleArn") => [String.t() | atom()],
+        optional("securityGroupIds") => list([String.t() | atom()]()),
+        optional("subnets") => list([String.t() | atom()]()),
+        optional("trainingInstanceType") => [String.t() | atom()],
         optional("trainingInstanceVolumeSizeInGB") => [integer()],
         optional("trainingTimeOutInSeconds") => [integer()],
-        optional("volumeEncryptionKMSKey") => [String.t()],
-        required("dataProcessingJobId") => [String.t()],
-        required("trainModelS3Location") => [String.t()]
+        optional("volumeEncryptionKMSKey") => [String.t() | atom()],
+        required("dataProcessingJobId") => [String.t() | atom()],
+        required("trainModelS3Location") => [String.t() | atom()]
       }
 
   """
-  @type start_ml_model_training_job_input() :: %{String.t() => any()}
+  @type start_ml_model_training_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       memory_limit_exceeded_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type memory_limit_exceeded_exception() :: %{String.t() => any()}
+  @type memory_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_ml_data_processing_job_input() :: %{
-        optional("configFileName") => [String.t()],
-        optional("id") => [String.t()],
-        optional("modelType") => [String.t()],
-        optional("neptuneIamRoleArn") => [String.t()],
-        optional("previousDataProcessingJobId") => [String.t()],
-        optional("processingInstanceType") => [String.t()],
+        optional("configFileName") => [String.t() | atom()],
+        optional("id") => [String.t() | atom()],
+        optional("modelType") => [String.t() | atom()],
+        optional("neptuneIamRoleArn") => [String.t() | atom()],
+        optional("previousDataProcessingJobId") => [String.t() | atom()],
+        optional("processingInstanceType") => [String.t() | atom()],
         optional("processingInstanceVolumeSizeInGB") => [integer()],
         optional("processingTimeOutInSeconds") => [integer()],
-        optional("s3OutputEncryptionKMSKey") => [String.t()],
-        optional("sagemakerIamRoleArn") => [String.t()],
-        optional("securityGroupIds") => list([String.t()]()),
-        optional("subnets") => list([String.t()]()),
-        optional("volumeEncryptionKMSKey") => [String.t()],
-        required("inputDataS3Location") => [String.t()],
-        required("processedDataS3Location") => [String.t()]
+        optional("s3OutputEncryptionKMSKey") => [String.t() | atom()],
+        optional("sagemakerIamRoleArn") => [String.t() | atom()],
+        optional("securityGroupIds") => list([String.t() | atom()]()),
+        optional("subnets") => list([String.t() | atom()]()),
+        optional("volumeEncryptionKMSKey") => [String.t() | atom()],
+        required("inputDataS3Location") => [String.t() | atom()],
+        required("processedDataS3Location") => [String.t() | atom()]
       }
 
   """
-  @type start_ml_data_processing_job_input() :: %{String.t() => any()}
+  @type start_ml_data_processing_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       malformed_query_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type malformed_query_exception() :: %{String.t() => any()}
+  @type malformed_query_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       query_limit_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type query_limit_exception() :: %{String.t() => any()}
+  @type query_limit_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -811,11 +811,11 @@ defmodule AWS.Neptunedata do
         "data" => sparql_data(),
         "eventId" => map(),
         "isLastOp" => [boolean()],
-        "op" => [String.t()]
+        "op" => [String.t() | atom()]
       }
 
   """
-  @type sparql_record() :: %{String.t() => any()}
+  @type sparql_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -823,12 +823,12 @@ defmodule AWS.Neptunedata do
 
       gremlin_query_status() :: %{
         "queryEvalStats" => query_eval_stats(),
-        "queryId" => [String.t()],
-        "queryString" => [String.t()]
+        "queryId" => [String.t() | atom()],
+        "queryString" => [String.t() | atom()]
       }
 
   """
-  @type gremlin_query_status() :: %{String.t() => any()}
+  @type gremlin_query_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -840,18 +840,18 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type get_propertygraph_summary_output() :: %{String.t() => any()}
+  @type get_propertygraph_summary_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_ml_endpoints_output() :: %{
-        "ids" => list([String.t()]())
+        "ids" => list([String.t() | atom()]())
       }
 
   """
-  @type list_ml_endpoints_output() :: %{String.t() => any()}
+  @type list_ml_endpoints_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -860,23 +860,23 @@ defmodule AWS.Neptunedata do
       r_d_f_graph_summary_value_map() :: %{
         "graphSummary" => r_d_f_graph_summary(),
         "lastStatisticsComputationTime" => [non_neg_integer()],
-        "version" => [String.t()]
+        "version" => [String.t() | atom()]
       }
 
   """
-  @type r_d_f_graph_summary_value_map() :: %{String.t() => any()}
+  @type r_d_f_graph_summary_value_map() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       execute_open_cypher_query_input() :: %{
-        optional("parameters") => [String.t()],
-        required("openCypherQuery") => [String.t()]
+        optional("parameters") => [String.t() | atom()],
+        required("openCypherQuery") => [String.t() | atom()]
       }
 
   """
-  @type execute_open_cypher_query_input() :: %{String.t() => any()}
+  @type execute_open_cypher_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -884,11 +884,11 @@ defmodule AWS.Neptunedata do
 
       cancel_ml_model_transform_job_input() :: %{
         optional("clean") => [boolean()],
-        optional("neptuneIamRoleArn") => [String.t()]
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type cancel_ml_model_transform_job_input() :: %{String.t() => any()}
+  @type cancel_ml_model_transform_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -899,18 +899,18 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type cancel_open_cypher_query_input() :: %{String.t() => any()}
+  @type cancel_open_cypher_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_ml_model_training_jobs_output() :: %{
-        "ids" => list([String.t()]())
+        "ids" => list([String.t() | atom()]())
       }
 
   """
-  @type list_ml_model_training_jobs_output() :: %{String.t() => any()}
+  @type list_ml_model_training_jobs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -924,7 +924,7 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type get_loader_job_status_input() :: %{String.t() => any()}
+  @type get_loader_job_status_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -932,35 +932,35 @@ defmodule AWS.Neptunedata do
 
       get_open_cypher_query_status_output() :: %{
         "queryEvalStats" => query_eval_stats(),
-        "queryId" => [String.t()],
-        "queryString" => [String.t()]
+        "queryId" => [String.t() | atom()],
+        "queryString" => [String.t() | atom()]
       }
 
   """
-  @type get_open_cypher_query_status_output() :: %{String.t() => any()}
+  @type get_open_cypher_query_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_ml_model_transform_job_output() :: %{
-        "arn" => [String.t()],
+        "arn" => [String.t() | atom()],
         "creationTimeInMillis" => [float()],
-        "id" => [String.t()]
+        "id" => [String.t() | atom()]
       }
 
   """
-  @type start_ml_model_transform_job_output() :: %{String.t() => any()}
+  @type start_ml_model_transform_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       propertygraph_summary() :: %{
-        "edgeLabels" => list([String.t()]()),
+        "edgeLabels" => list([String.t() | atom()]()),
         "edgeProperties" => list(map()),
         "edgeStructures" => list(edge_structure()),
-        "nodeLabels" => list([String.t()]()),
+        "nodeLabels" => list([String.t() | atom()]()),
         "nodeProperties" => list(map()),
         "nodeStructures" => list(node_structure()),
         "numEdgeLabels" => [float()],
@@ -974,48 +974,48 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type propertygraph_summary() :: %{String.t() => any()}
+  @type propertygraph_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       fast_reset_token() :: %{
-        "token" => [String.t()]
+        "token" => [String.t() | atom()]
       }
 
   """
-  @type fast_reset_token() :: %{String.t() => any()}
+  @type fast_reset_token() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_ml_endpoint_input() :: %{
-        optional("id") => [String.t()],
+        optional("id") => [String.t() | atom()],
         optional("instanceCount") => [integer()],
-        optional("instanceType") => [String.t()],
-        optional("mlModelTrainingJobId") => [String.t()],
-        optional("mlModelTransformJobId") => [String.t()],
-        optional("modelName") => [String.t()],
-        optional("neptuneIamRoleArn") => [String.t()],
+        optional("instanceType") => [String.t() | atom()],
+        optional("mlModelTrainingJobId") => [String.t() | atom()],
+        optional("mlModelTransformJobId") => [String.t() | atom()],
+        optional("modelName") => [String.t() | atom()],
+        optional("neptuneIamRoleArn") => [String.t() | atom()],
         optional("update") => [boolean()],
-        optional("volumeEncryptionKMSKey") => [String.t()]
+        optional("volumeEncryptionKMSKey") => [String.t() | atom()]
       }
 
   """
-  @type create_ml_endpoint_input() :: %{String.t() => any()}
+  @type create_ml_endpoint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_ml_model_transform_job_input() :: %{
-        optional("neptuneIamRoleArn") => [String.t()]
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type get_ml_model_transform_job_input() :: %{String.t() => any()}
+  @type get_ml_model_transform_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1024,19 +1024,19 @@ defmodule AWS.Neptunedata do
       get_ml_endpoint_output() :: %{
         "endpoint" => ml_resource_definition(),
         "endpointConfig" => ml_config_definition(),
-        "id" => [String.t()],
-        "status" => [String.t()]
+        "id" => [String.t() | atom()],
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type get_ml_endpoint_output() :: %{String.t() => any()}
+  @type get_ml_endpoint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       r_d_f_graph_summary() :: %{
-        "classes" => list([String.t()]()),
+        "classes" => list([String.t() | atom()]()),
         "numClasses" => [float()],
         "numDistinctPredicates" => [float()],
         "numDistinctSubjects" => [float()],
@@ -1046,7 +1046,7 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type r_d_f_graph_summary() :: %{String.t() => any()}
+  @type r_d_f_graph_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1059,33 +1059,33 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type statistics_summary() :: %{String.t() => any()}
+  @type statistics_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       missing_parameter_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type missing_parameter_exception() :: %{String.t() => any()}
+  @type missing_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       server_shutdown_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type server_shutdown_exception() :: %{String.t() => any()}
+  @type server_shutdown_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1102,11 +1102,11 @@ defmodule AWS.Neptunedata do
 
       list_ml_data_processing_jobs_input() :: %{
         optional("maxItems") => integer(),
-        optional("neptuneIamRoleArn") => [String.t()]
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type list_ml_data_processing_jobs_input() :: %{String.t() => any()}
+  @type list_ml_data_processing_jobs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1114,12 +1114,12 @@ defmodule AWS.Neptunedata do
 
       get_gremlin_query_status_output() :: %{
         "queryEvalStats" => query_eval_stats(),
-        "queryId" => [String.t()],
-        "queryString" => [String.t()]
+        "queryId" => [String.t() | atom()],
+        "queryString" => [String.t() | atom()]
       }
 
   """
-  @type get_gremlin_query_status_output() :: %{String.t() => any()}
+  @type get_gremlin_query_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1127,11 +1127,11 @@ defmodule AWS.Neptunedata do
 
       list_ml_endpoints_input() :: %{
         optional("maxItems") => integer(),
-        optional("neptuneIamRoleArn") => [String.t()]
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type list_ml_endpoints_input() :: %{String.t() => any()}
+  @type list_ml_endpoints_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1144,7 +1144,7 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type list_gremlin_queries_output() :: %{String.t() => any()}
+  @type list_gremlin_queries_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1152,37 +1152,37 @@ defmodule AWS.Neptunedata do
 
       cancel_ml_model_training_job_input() :: %{
         optional("clean") => [boolean()],
-        optional("neptuneIamRoleArn") => [String.t()]
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type cancel_ml_model_training_job_input() :: %{String.t() => any()}
+  @type cancel_ml_model_training_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancelled_by_user_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type cancelled_by_user_exception() :: %{String.t() => any()}
+  @type cancelled_by_user_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_ml_data_processing_job_output() :: %{
-        "id" => [String.t()],
+        "id" => [String.t() | atom()],
         "processingJob" => ml_resource_definition(),
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type get_ml_data_processing_job_output() :: %{String.t() => any()}
+  @type get_ml_data_processing_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1190,12 +1190,12 @@ defmodule AWS.Neptunedata do
 
       delete_sparql_statistics_output() :: %{
         "payload" => delete_statistics_value_map(),
-        "status" => [String.t()],
+        "status" => [String.t() | atom()],
         "statusCode" => [integer()]
       }
 
   """
-  @type delete_sparql_statistics_output() :: %{String.t() => any()}
+  @type delete_sparql_statistics_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1210,55 +1210,55 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type get_propertygraph_stream_input() :: %{String.t() => any()}
+  @type get_propertygraph_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       execute_gremlin_query_input() :: %{
-        optional("serializer") => [String.t()],
-        required("gremlinQuery") => [String.t()]
+        optional("serializer") => [String.t() | atom()],
+        required("gremlinQuery") => [String.t() | atom()]
       }
 
   """
-  @type execute_gremlin_query_input() :: %{String.t() => any()}
+  @type execute_gremlin_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_engine_status_output() :: %{
-        "dbEngineVersion" => [String.t()],
-        "dfeQueryEngine" => [String.t()],
+        "dbEngineVersion" => [String.t() | atom()],
+        "dfeQueryEngine" => [String.t() | atom()],
         "features" => map(),
         "gremlin" => query_language_version(),
         "labMode" => map(),
         "opencypher" => query_language_version(),
-        "role" => [String.t()],
+        "role" => [String.t() | atom()],
         "rollingBackTrxCount" => [integer()],
-        "rollingBackTrxEarliestStartTime" => [String.t()],
+        "rollingBackTrxEarliestStartTime" => [String.t() | atom()],
         "settings" => map(),
         "sparql" => query_language_version(),
-        "startTime" => [String.t()],
-        "status" => [String.t()]
+        "startTime" => [String.t() | atom()],
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type get_engine_status_output() :: %{String.t() => any()}
+  @type get_engine_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_ml_endpoint_output() :: %{
-        "arn" => [String.t()],
+        "arn" => [String.t() | atom()],
         "creationTimeInMillis" => [float()],
-        "id" => [String.t()]
+        "id" => [String.t() | atom()]
       }
 
   """
-  @type create_ml_endpoint_output() :: %{String.t() => any()}
+  @type create_ml_endpoint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1269,11 +1269,11 @@ defmodule AWS.Neptunedata do
         "data" => propertygraph_data(),
         "eventId" => map(),
         "isLastOp" => [boolean()],
-        "op" => [String.t()]
+        "op" => [String.t() | atom()]
       }
 
   """
-  @type propertygraph_record() :: %{String.t() => any()}
+  @type propertygraph_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1285,44 +1285,44 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type list_loader_jobs_input() :: %{String.t() => any()}
+  @type list_loader_jobs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       refresh_statistics_id_map() :: %{
-        "statisticsId" => [String.t()]
+        "statisticsId" => [String.t() | atom()]
       }
 
   """
-  @type refresh_statistics_id_map() :: %{String.t() => any()}
+  @type refresh_statistics_id_map() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_parameter_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1330,11 +1330,11 @@ defmodule AWS.Neptunedata do
 
       execute_fast_reset_output() :: %{
         "payload" => fast_reset_token(),
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type execute_fast_reset_output() :: %{String.t() => any()}
+  @type execute_fast_reset_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1343,24 +1343,24 @@ defmodule AWS.Neptunedata do
       propertygraph_summary_value_map() :: %{
         "graphSummary" => propertygraph_summary(),
         "lastStatisticsComputationTime" => [non_neg_integer()],
-        "version" => [String.t()]
+        "version" => [String.t() | atom()]
       }
 
   """
-  @type propertygraph_summary_value_map() :: %{String.t() => any()}
+  @type propertygraph_summary_value_map() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_argument_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type invalid_argument_exception() :: %{String.t() => any()}
+  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1371,7 +1371,7 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type list_open_cypher_queries_input() :: %{String.t() => any()}
+  @type list_open_cypher_queries_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1381,26 +1381,26 @@ defmodule AWS.Neptunedata do
         "active" => [boolean()],
         "autoCompute" => [boolean()],
         "date" => [non_neg_integer()],
-        "note" => [String.t()],
+        "note" => [String.t() | atom()],
         "signatureInfo" => statistics_summary(),
-        "statisticsId" => [String.t()]
+        "statisticsId" => [String.t() | atom()]
       }
 
   """
-  @type statistics() :: %{String.t() => any()}
+  @type statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       concurrent_modification_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type concurrent_modification_exception() :: %{String.t() => any()}
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1408,11 +1408,11 @@ defmodule AWS.Neptunedata do
 
       manage_sparql_statistics_output() :: %{
         "payload" => refresh_statistics_id_map(),
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type manage_sparql_statistics_output() :: %{String.t() => any()}
+  @type manage_sparql_statistics_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1420,49 +1420,49 @@ defmodule AWS.Neptunedata do
 
       node_structure() :: %{
         "count" => [float()],
-        "distinctOutgoingEdgeLabels" => list([String.t()]()),
-        "nodeProperties" => list([String.t()]())
+        "distinctOutgoingEdgeLabels" => list([String.t() | atom()]()),
+        "nodeProperties" => list([String.t() | atom()]())
       }
 
   """
-  @type node_structure() :: %{String.t() => any()}
+  @type node_structure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       constraint_violation_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type constraint_violation_exception() :: %{String.t() => any()}
+  @type constraint_violation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       query_too_large_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type query_too_large_exception() :: %{String.t() => any()}
+  @type query_too_large_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_loader_job_output() :: %{
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type cancel_loader_job_output() :: %{String.t() => any()}
+  @type cancel_loader_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1473,20 +1473,20 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type list_gremlin_queries_input() :: %{String.t() => any()}
+  @type list_gremlin_queries_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1494,26 +1494,26 @@ defmodule AWS.Neptunedata do
 
       execute_gremlin_query_output() :: %{
         "meta" => [any()],
-        "requestId" => [String.t()],
+        "requestId" => [String.t() | atom()],
         "result" => [any()],
         "status" => gremlin_query_status_attributes()
       }
 
   """
-  @type execute_gremlin_query_output() :: %{String.t() => any()}
+  @type execute_gremlin_query_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stream_records_not_found_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type stream_records_not_found_exception() :: %{String.t() => any()}
+  @type stream_records_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1525,7 +1525,7 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type get_r_d_f_graph_summary_output() :: %{String.t() => any()}
+  @type get_r_d_f_graph_summary_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1536,20 +1536,20 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type manage_propertygraph_statistics_input() :: %{String.t() => any()}
+  @type manage_propertygraph_statistics_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_numeric_data_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type invalid_numeric_data_exception() :: %{String.t() => any()}
+  @type invalid_numeric_data_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1560,31 +1560,31 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type execute_gremlin_explain_query_output() :: %{String.t() => any()}
+  @type execute_gremlin_explain_query_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_ml_endpoint_output() :: %{
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type delete_ml_endpoint_output() :: %{String.t() => any()}
+  @type delete_ml_endpoint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       load_url_access_denied_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type load_url_access_denied_exception() :: %{String.t() => any()}
+  @type load_url_access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1592,37 +1592,37 @@ defmodule AWS.Neptunedata do
 
       delete_ml_endpoint_input() :: %{
         optional("clean") => [boolean()],
-        optional("neptuneIamRoleArn") => [String.t()]
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type delete_ml_endpoint_input() :: %{String.t() => any()}
+  @type delete_ml_endpoint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       expired_stream_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type expired_stream_exception() :: %{String.t() => any()}
+  @type expired_stream_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type bad_request_exception() :: %{String.t() => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1631,11 +1631,11 @@ defmodule AWS.Neptunedata do
       gremlin_query_status_attributes() :: %{
         "attributes" => [any()],
         "code" => [integer()],
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type gremlin_query_status_attributes() :: %{String.t() => any()}
+  @type gremlin_query_status_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1643,11 +1643,11 @@ defmodule AWS.Neptunedata do
 
       start_loader_job_output() :: %{
         "payload" => map(),
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type start_loader_job_output() :: %{String.t() => any()}
+  @type start_loader_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1655,11 +1655,11 @@ defmodule AWS.Neptunedata do
 
       delete_statistics_value_map() :: %{
         "active" => [boolean()],
-        "statisticsId" => [String.t()]
+        "statisticsId" => [String.t() | atom()]
       }
 
   """
-  @type delete_statistics_value_map() :: %{String.t() => any()}
+  @type delete_statistics_value_map() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1670,7 +1670,7 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type execute_open_cypher_explain_query_output() :: %{String.t() => any()}
+  @type execute_open_cypher_explain_query_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1683,54 +1683,54 @@ defmodule AWS.Neptunedata do
       }
 
   """
-  @type list_open_cypher_queries_output() :: %{String.t() => any()}
+  @type list_open_cypher_queries_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_ml_model_transform_job_input() :: %{
-        optional("baseProcessingInstanceType") => [String.t()],
+        optional("baseProcessingInstanceType") => [String.t() | atom()],
         optional("baseProcessingInstanceVolumeSizeInGB") => [integer()],
         optional("customModelTransformParameters") => custom_model_transform_parameters(),
-        optional("dataProcessingJobId") => [String.t()],
-        optional("id") => [String.t()],
-        optional("mlModelTrainingJobId") => [String.t()],
-        optional("neptuneIamRoleArn") => [String.t()],
-        optional("s3OutputEncryptionKMSKey") => [String.t()],
-        optional("sagemakerIamRoleArn") => [String.t()],
-        optional("securityGroupIds") => list([String.t()]()),
-        optional("subnets") => list([String.t()]()),
-        optional("trainingJobName") => [String.t()],
-        optional("volumeEncryptionKMSKey") => [String.t()],
-        required("modelTransformOutputS3Location") => [String.t()]
+        optional("dataProcessingJobId") => [String.t() | atom()],
+        optional("id") => [String.t() | atom()],
+        optional("mlModelTrainingJobId") => [String.t() | atom()],
+        optional("neptuneIamRoleArn") => [String.t() | atom()],
+        optional("s3OutputEncryptionKMSKey") => [String.t() | atom()],
+        optional("sagemakerIamRoleArn") => [String.t() | atom()],
+        optional("securityGroupIds") => list([String.t() | atom()]()),
+        optional("subnets") => list([String.t() | atom()]()),
+        optional("trainingJobName") => [String.t() | atom()],
+        optional("volumeEncryptionKMSKey") => [String.t() | atom()],
+        required("modelTransformOutputS3Location") => [String.t() | atom()]
       }
 
   """
-  @type start_ml_model_transform_job_input() :: %{String.t() => any()}
+  @type start_ml_model_transform_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       custom_model_transform_parameters() :: %{
-        "sourceS3DirectoryPath" => [String.t()],
-        "transformEntryPointScript" => [String.t()]
+        "sourceS3DirectoryPath" => [String.t() | atom()],
+        "transformEntryPointScript" => [String.t() | atom()]
       }
 
   """
-  @type custom_model_transform_parameters() :: %{String.t() => any()}
+  @type custom_model_transform_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       loader_id_result() :: %{
-        "loadIds" => list([String.t()]())
+        "loadIds" => list([String.t() | atom()]())
       }
 
   """
-  @type loader_id_result() :: %{String.t() => any()}
+  @type loader_id_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1738,52 +1738,52 @@ defmodule AWS.Neptunedata do
 
       get_ml_model_training_job_output() :: %{
         "hpoJob" => ml_resource_definition(),
-        "id" => [String.t()],
+        "id" => [String.t() | atom()],
         "mlModels" => list(ml_config_definition()),
         "modelTransformJob" => ml_resource_definition(),
         "processingJob" => ml_resource_definition(),
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type get_ml_model_training_job_output() :: %{String.t() => any()}
+  @type get_ml_model_training_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       preconditions_failed_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type preconditions_failed_exception() :: %{String.t() => any()}
+  @type preconditions_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       client_timeout_exception() :: %{
-        "code" => [String.t()],
-        "detailedMessage" => [String.t()],
-        "requestId" => [String.t()]
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
       }
 
   """
-  @type client_timeout_exception() :: %{String.t() => any()}
+  @type client_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sparql_data() :: %{
-        "stmt" => [String.t()]
+        "stmt" => [String.t() | atom()]
       }
 
   """
-  @type sparql_data() :: %{String.t() => any()}
+  @type sparql_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1791,11 +1791,11 @@ defmodule AWS.Neptunedata do
 
       list_loader_jobs_output() :: %{
         "payload" => loader_id_result(),
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type list_loader_jobs_output() :: %{String.t() => any()}
+  @type list_loader_jobs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1811,11 +1811,11 @@ defmodule AWS.Neptunedata do
   ## Example:
 
       get_ml_endpoint_input() :: %{
-        optional("neptuneIamRoleArn") => [String.t()]
+        optional("neptuneIamRoleArn") => [String.t() | atom()]
       }
 
   """
-  @type get_ml_endpoint_input() :: %{String.t() => any()}
+  @type get_ml_endpoint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1823,23 +1823,23 @@ defmodule AWS.Neptunedata do
 
       get_sparql_statistics_output() :: %{
         "payload" => statistics(),
-        "status" => [String.t()]
+        "status" => [String.t() | atom()]
       }
 
   """
-  @type get_sparql_statistics_output() :: %{String.t() => any()}
+  @type get_sparql_statistics_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       execute_fast_reset_input() :: %{
-        optional("token") => [String.t()],
+        optional("token") => [String.t() | atom()],
         required("action") => list(any())
       }
 
   """
-  @type execute_fast_reset_input() :: %{String.t() => any()}
+  @type execute_fast_reset_input() :: %{(String.t() | atom()) => any()}
 
   @type cancel_gremlin_query_errors() ::
           client_timeout_exception()
@@ -2529,7 +2529,7 @@ defmodule AWS.Neptunedata do
   [neptune-db:CancelQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelquery)
   IAM action in that cluster.
   """
-  @spec cancel_gremlin_query(map(), String.t(), cancel_gremlin_query_input(), list()) ::
+  @spec cancel_gremlin_query(map(), String.t() | atom(), cancel_gremlin_query_input(), list()) ::
           {:ok, cancel_gremlin_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2567,7 +2567,7 @@ defmodule AWS.Neptunedata do
   [neptune-db:CancelLoaderJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelloaderjob)
   IAM action in that cluster..
   """
-  @spec cancel_loader_job(map(), String.t(), cancel_loader_job_input(), list()) ::
+  @spec cancel_loader_job(map(), String.t() | atom(), cancel_loader_job_input(), list()) ::
           {:ok, cancel_loader_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2606,7 +2606,7 @@ defmodule AWS.Neptunedata do
   """
   @spec cancel_ml_data_processing_job(
           map(),
-          String.t(),
+          String.t() | atom(),
           cancel_ml_data_processing_job_input(),
           list()
         ) ::
@@ -2654,7 +2654,7 @@ defmodule AWS.Neptunedata do
   """
   @spec cancel_ml_model_training_job(
           map(),
-          String.t(),
+          String.t() | atom(),
           cancel_ml_model_training_job_input(),
           list()
         ) ::
@@ -2702,7 +2702,7 @@ defmodule AWS.Neptunedata do
   """
   @spec cancel_ml_model_transform_job(
           map(),
-          String.t(),
+          String.t() | atom(),
           cancel_ml_model_transform_job_input(),
           list()
         ) ::
@@ -2749,7 +2749,12 @@ defmodule AWS.Neptunedata do
   [neptune-db:CancelQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelquery)
   IAM action in that cluster.
   """
-  @spec cancel_open_cypher_query(map(), String.t(), cancel_open_cypher_query_input(), list()) ::
+  @spec cancel_open_cypher_query(
+          map(),
+          String.t() | atom(),
+          cancel_open_cypher_query_input(),
+          list()
+        ) ::
           {:ok, cancel_open_cypher_query_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2829,7 +2834,7 @@ defmodule AWS.Neptunedata do
   [neptune-db:DeleteMLEndpoint](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletemlendpoint)
   IAM action in that cluster.
   """
-  @spec delete_ml_endpoint(map(), String.t(), delete_ml_endpoint_input(), list()) ::
+  @spec delete_ml_endpoint(map(), String.t() | atom(), delete_ml_endpoint_input(), list()) ::
           {:ok, delete_ml_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3273,7 +3278,7 @@ defmodule AWS.Neptunedata do
   IAM condition key can be used in the policy document to restrict the use of
   Gremlin queries (see [Condition keys available in Neptune IAM data-access policy statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
   """
-  @spec get_gremlin_query_status(map(), String.t(), list()) ::
+  @spec get_gremlin_query_status(map(), String.t() | atom(), list()) ::
           {:ok, get_gremlin_query_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3305,11 +3310,11 @@ defmodule AWS.Neptunedata do
   """
   @spec get_loader_job_status(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_loader_job_status_output(), any()}
@@ -3373,7 +3378,7 @@ defmodule AWS.Neptunedata do
   [neptune-db:neptune-db:GetMLDataProcessingJobStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmldataprocessingjobstatus)
   IAM action in that cluster.
   """
-  @spec get_ml_data_processing_job(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_ml_data_processing_job(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_ml_data_processing_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3411,7 +3416,7 @@ defmodule AWS.Neptunedata do
   [neptune-db:GetMLEndpointStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmlendpointstatus)
   IAM action in that cluster.
   """
-  @spec get_ml_endpoint(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_ml_endpoint(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_ml_endpoint_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3444,7 +3449,7 @@ defmodule AWS.Neptunedata do
   [neptune-db:GetMLModelTrainingJobStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmlmodeltrainingjobstatus)
   IAM action in that cluster.
   """
-  @spec get_ml_model_training_job(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_ml_model_training_job(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_ml_model_training_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3482,7 +3487,7 @@ defmodule AWS.Neptunedata do
   [neptune-db:GetMLModelTransformJobStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmlmodeltransformjobstatus)
   IAM action in that cluster.
   """
-  @spec get_ml_model_transform_job(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_ml_model_transform_job(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_ml_model_transform_job_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3523,7 +3528,7 @@ defmodule AWS.Neptunedata do
   openCypher queries (see [Condition keys available in Neptune IAM data-access policy
   statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
   """
-  @spec get_open_cypher_query_status(map(), String.t(), list()) ::
+  @spec get_open_cypher_query_status(map(), String.t() | atom(), list()) ::
           {:ok, get_open_cypher_query_status_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3600,11 +3605,11 @@ defmodule AWS.Neptunedata do
   """
   @spec get_propertygraph_stream(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_propertygraph_stream_output(), any()}
@@ -3674,7 +3679,7 @@ defmodule AWS.Neptunedata do
   [neptune-db:GetGraphSummary](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getgraphsummary)
   IAM action in that cluster.
   """
-  @spec get_propertygraph_summary(map(), String.t() | nil, list()) ::
+  @spec get_propertygraph_summary(map(), String.t() | atom() | nil, list()) ::
           {:ok, get_propertygraph_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3705,7 +3710,7 @@ defmodule AWS.Neptunedata do
   [neptune-db:GetGraphSummary](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getgraphsummary)
   IAM action in that cluster.
   """
-  @spec get_r_d_f_graph_summary(map(), String.t() | nil, list()) ::
+  @spec get_r_d_f_graph_summary(map(), String.t() | atom() | nil, list()) ::
           {:ok, get_r_d_f_graph_summary_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3772,11 +3777,11 @@ defmodule AWS.Neptunedata do
   """
   @spec get_sparql_stream(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_sparql_stream_output(), any()}
@@ -3853,7 +3858,7 @@ defmodule AWS.Neptunedata do
   IAM condition key can be used in the policy document to restrict the use of
   Gremlin queries (see [Condition keys available in Neptune IAM data-access policy statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
   """
-  @spec list_gremlin_queries(map(), String.t() | nil, list()) ::
+  @spec list_gremlin_queries(map(), String.t() | atom() | nil, list()) ::
           {:ok, list_gremlin_queries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3884,7 +3889,7 @@ defmodule AWS.Neptunedata do
   [neptune-db:ListLoaderJobs](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listloaderjobs)
   IAM action in that cluster..
   """
-  @spec list_loader_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_loader_jobs(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_loader_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3929,7 +3934,12 @@ defmodule AWS.Neptunedata do
   [neptune-db:ListMLDataProcessingJobs](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listmldataprocessingjobs)
   IAM action in that cluster.
   """
-  @spec list_ml_data_processing_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_ml_data_processing_jobs(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_ml_data_processing_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3974,7 +3984,7 @@ defmodule AWS.Neptunedata do
   [neptune-db:ListMLEndpoints](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listmlendpoints)
   IAM action in that cluster.
   """
-  @spec list_ml_endpoints(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_ml_endpoints(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_ml_endpoints_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4019,7 +4029,12 @@ defmodule AWS.Neptunedata do
   [neptune-db:neptune-db:ListMLModelTrainingJobs](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#neptune-db:listmlmodeltrainingjobs)
   IAM action in that cluster.
   """
-  @spec list_ml_model_training_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_ml_model_training_jobs(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_ml_model_training_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4064,7 +4079,12 @@ defmodule AWS.Neptunedata do
   [neptune-db:ListMLModelTransformJobs](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listmlmodeltransformjobs)
   IAM action in that cluster.
   """
-  @spec list_ml_model_transform_jobs(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_ml_model_transform_jobs(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_ml_model_transform_jobs_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4115,7 +4135,7 @@ defmodule AWS.Neptunedata do
   openCypher queries (see [Condition keys available in Neptune IAM data-access policy
   statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
   """
-  @spec list_open_cypher_queries(map(), String.t() | nil, list()) ::
+  @spec list_open_cypher_queries(map(), String.t() | atom() | nil, list()) ::
           {:ok, list_open_cypher_queries_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

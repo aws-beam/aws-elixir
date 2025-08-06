@@ -36,7 +36,7 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type create_vpc_association_authorization_request() :: %{String.t() => any()}
+  @type create_vpc_association_authorization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -47,7 +47,7 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type update_hosted_zone_comment_response() :: %{String.t() => any()}
+  @type update_hosted_zone_comment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -55,11 +55,11 @@ defmodule AWS.Route53 do
 
       list_traffic_policies_request() :: %{
         optional("MaxItems") => [integer()],
-        optional("TrafficPolicyIdMarker") => String.t()
+        optional("TrafficPolicyIdMarker") => String.t() | atom()
       }
 
   """
-  @type list_traffic_policies_request() :: %{String.t() => any()}
+  @type list_traffic_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -70,23 +70,23 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type get_change_response() :: %{String.t() => any()}
+  @type get_change_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       geo_location_details() :: %{
-        "ContinentCode" => String.t(),
-        "ContinentName" => String.t(),
-        "CountryCode" => String.t(),
-        "CountryName" => String.t(),
-        "SubdivisionCode" => String.t(),
-        "SubdivisionName" => String.t()
+        "ContinentCode" => String.t() | atom(),
+        "ContinentName" => String.t() | atom(),
+        "CountryCode" => String.t() | atom(),
+        "CountryName" => String.t() | atom(),
+        "SubdivisionCode" => String.t() | atom(),
+        "SubdivisionName" => String.t() | atom()
       }
 
   """
-  @type geo_location_details() :: %{String.t() => any()}
+  @type geo_location_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -102,72 +102,72 @@ defmodule AWS.Route53 do
   ## Example:
 
       delegation_set_not_reusable() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type delegation_set_not_reusable() :: %{String.t() => any()}
+  @type delegation_set_not_reusable() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delegation_set() :: %{
-        "CallerReference" => String.t(),
-        "Id" => String.t(),
-        "NameServers" => list(String.t())
+        "CallerReference" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "NameServers" => list(String.t() | atom())
       }
 
   """
-  @type delegation_set() :: %{String.t() => any()}
+  @type delegation_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       health_check_version_mismatch() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type health_check_version_mismatch() :: %{String.t() => any()}
+  @type health_check_version_mismatch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_traffic_policy_version_response() :: %{
-        "Location" => String.t(),
+        "Location" => String.t() | atom(),
         "TrafficPolicy" => traffic_policy()
       }
 
   """
-  @type create_traffic_policy_version_response() :: %{String.t() => any()}
+  @type create_traffic_policy_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_query_logging_config_response() :: %{
-        "Location" => String.t(),
+        "Location" => String.t() | atom(),
         "QueryLoggingConfig" => query_logging_config()
       }
 
   """
-  @type create_query_logging_config_response() :: %{String.t() => any()}
+  @type create_query_logging_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       query_logging_config() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t(),
-        "HostedZoneId" => String.t(),
-        "Id" => String.t()
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
+        "HostedZoneId" => String.t() | atom(),
+        "Id" => String.t() | atom()
       }
 
   """
-  @type query_logging_config() :: %{String.t() => any()}
+  @type query_logging_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -175,36 +175,36 @@ defmodule AWS.Route53 do
 
       key_signing_key() :: %{
         "CreatedDate" => non_neg_integer(),
-        "DNSKEYRecord" => String.t(),
-        "DSRecord" => String.t(),
-        "DigestAlgorithmMnemonic" => String.t(),
+        "DNSKEYRecord" => String.t() | atom(),
+        "DSRecord" => String.t() | atom(),
+        "DigestAlgorithmMnemonic" => String.t() | atom(),
         "DigestAlgorithmType" => integer(),
-        "DigestValue" => String.t(),
+        "DigestValue" => String.t() | atom(),
         "Flag" => integer(),
         "KeyTag" => integer(),
-        "KmsArn" => String.t(),
+        "KmsArn" => String.t() | atom(),
         "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t(),
-        "PublicKey" => String.t(),
-        "SigningAlgorithmMnemonic" => String.t(),
+        "Name" => String.t() | atom(),
+        "PublicKey" => String.t() | atom(),
+        "SigningAlgorithmMnemonic" => String.t() | atom(),
         "SigningAlgorithmType" => integer(),
-        "Status" => String.t(),
-        "StatusMessage" => String.t()
+        "Status" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type key_signing_key() :: %{String.t() => any()}
+  @type key_signing_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       incompatible_version() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type incompatible_version() :: %{String.t() => any()}
+  @type incompatible_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -213,11 +213,11 @@ defmodule AWS.Route53 do
       list_hosted_zones_by_vpc_response() :: %{
         "HostedZoneSummaries" => list(hosted_zone_summary()),
         "MaxItems" => [integer()],
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_hosted_zones_by_vpc_response() :: %{String.t() => any()}
+  @type list_hosted_zones_by_vpc_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -229,18 +229,18 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type change() :: %{String.t() => any()}
+  @type change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       traffic_policy_in_use() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type traffic_policy_in_use() :: %{String.t() => any()}
+  @type traffic_policy_in_use() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -256,12 +256,12 @@ defmodule AWS.Route53 do
   ## Example:
 
       dns_sec_status() :: %{
-        "ServeSignature" => String.t(),
-        "StatusMessage" => String.t()
+        "ServeSignature" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type dns_sec_status() :: %{String.t() => any()}
+  @type dns_sec_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -271,41 +271,41 @@ defmodule AWS.Route53 do
         "ComparisonOperator" => list(any()),
         "Dimensions" => list(dimension()),
         "EvaluationPeriods" => integer(),
-        "MetricName" => String.t(),
-        "Namespace" => String.t(),
+        "MetricName" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
         "Period" => integer(),
         "Statistic" => list(any()),
         "Threshold" => float()
       }
 
   """
-  @type cloud_watch_alarm_configuration() :: %{String.t() => any()}
+  @type cloud_watch_alarm_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_hosted_zone_request() :: %{
-        optional("DelegationSetId") => String.t(),
+        optional("DelegationSetId") => String.t() | atom(),
         optional("HostedZoneConfig") => hosted_zone_config(),
         optional("VPC") => vpc(),
-        required("CallerReference") => String.t(),
-        required("Name") => String.t()
+        required("CallerReference") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_hosted_zone_request() :: %{String.t() => any()}
+  @type create_hosted_zone_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_input() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_input() :: %{String.t() => any()}
+  @type invalid_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -321,23 +321,23 @@ defmodule AWS.Route53 do
   ## Example:
 
       hosted_zone_not_private() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type hosted_zone_not_private() :: %{String.t() => any()}
+  @type hosted_zone_not_private() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_change_batch() :: %{
-        "message" => String.t(),
-        "messages" => list(String.t())
+        "message" => String.t() | atom(),
+        "messages" => list(String.t() | atom())
       }
 
   """
-  @type invalid_change_batch() :: %{String.t() => any()}
+  @type invalid_change_batch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -353,11 +353,11 @@ defmodule AWS.Route53 do
   ## Example:
 
       too_many_traffic_policies() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type too_many_traffic_policies() :: %{String.t() => any()}
+  @type too_many_traffic_policies() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -373,13 +373,13 @@ defmodule AWS.Route53 do
   ## Example:
 
       create_traffic_policy_request() :: %{
-        optional("Comment") => String.t(),
-        required("Document") => String.t(),
-        required("Name") => String.t()
+        optional("Comment") => String.t() | atom(),
+        required("Document") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_traffic_policy_request() :: %{String.t() => any()}
+  @type create_traffic_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -391,72 +391,72 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type get_reusable_delegation_set_limit_response() :: %{String.t() => any()}
+  @type get_reusable_delegation_set_limit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_pagination_token() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_pagination_token() :: %{String.t() => any()}
+  @type invalid_pagination_token() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_traffic_policy_instances_by_policy_response() :: %{
-        "HostedZoneIdMarker" => String.t(),
+        "HostedZoneIdMarker" => String.t() | atom(),
         "IsTruncated" => boolean(),
         "MaxItems" => [integer()],
-        "TrafficPolicyInstanceNameMarker" => String.t(),
+        "TrafficPolicyInstanceNameMarker" => String.t() | atom(),
         "TrafficPolicyInstanceTypeMarker" => list(any()),
         "TrafficPolicyInstances" => list(traffic_policy_instance())
       }
 
   """
-  @type list_traffic_policy_instances_by_policy_response() :: %{String.t() => any()}
+  @type list_traffic_policy_instances_by_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_health_check() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type no_such_health_check() :: %{String.t() => any()}
+  @type no_such_health_check() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_traffic_policy_versions_for_current_policy() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type too_many_traffic_policy_versions_for_current_policy() :: %{String.t() => any()}
+  @type too_many_traffic_policy_versions_for_current_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_traffic_policy_instances_by_policy_request() :: %{
-        optional("HostedZoneIdMarker") => String.t(),
+        optional("HostedZoneIdMarker") => String.t() | atom(),
         optional("MaxItems") => [integer()],
-        optional("TrafficPolicyInstanceNameMarker") => String.t(),
+        optional("TrafficPolicyInstanceNameMarker") => String.t() | atom(),
         optional("TrafficPolicyInstanceTypeMarker") => list(any()),
-        required("TrafficPolicyId") => String.t(),
+        required("TrafficPolicyId") => String.t() | atom(),
         required("TrafficPolicyVersion") => integer()
       }
 
   """
-  @type list_traffic_policy_instances_by_policy_request() :: %{String.t() => any()}
+  @type list_traffic_policy_instances_by_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -468,30 +468,30 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type hosted_zone_limit() :: %{String.t() => any()}
+  @type hosted_zone_limit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc() :: %{
-        "VPCId" => String.t(),
+        "VPCId" => String.t() | atom(),
         "VPCRegion" => list(any())
       }
 
   """
-  @type vpc() :: %{String.t() => any()}
+  @type vpc() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_traffic_policy_instance() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type no_such_traffic_policy_instance() :: %{String.t() => any()}
+  @type no_such_traffic_policy_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -503,20 +503,20 @@ defmodule AWS.Route53 do
         "Failover" => list(any()),
         "GeoLocation" => geo_location(),
         "GeoProximityLocation" => geo_proximity_location(),
-        "HealthCheckId" => String.t(),
+        "HealthCheckId" => String.t() | atom(),
         "MultiValueAnswer" => boolean(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Region" => list(any()),
         "ResourceRecords" => list(resource_record()),
-        "SetIdentifier" => String.t(),
+        "SetIdentifier" => String.t() | atom(),
         "TTL" => float(),
-        "TrafficPolicyInstanceId" => String.t(),
+        "TrafficPolicyInstanceId" => String.t() | atom(),
         "Type" => list(any()),
         "Weight" => float()
       }
 
   """
-  @type resource_record_set() :: %{String.t() => any()}
+  @type resource_record_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -527,21 +527,21 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type get_traffic_policy_instance_response() :: %{String.t() => any()}
+  @type get_traffic_policy_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       collection_summary() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Version" => float()
       }
 
   """
-  @type collection_summary() :: %{String.t() => any()}
+  @type collection_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -553,7 +553,7 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type get_hosted_zone_limit_response() :: %{String.t() => any()}
+  @type get_hosted_zone_limit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -564,7 +564,7 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type get_hosted_zone_count_response() :: %{String.t() => any()}
+  @type get_hosted_zone_count_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -575,7 +575,7 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type update_traffic_policy_comment_response() :: %{String.t() => any()}
+  @type update_traffic_policy_comment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -591,33 +591,33 @@ defmodule AWS.Route53 do
   ## Example:
 
       vpc_association_not_found() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type vpc_association_not_found() :: %{String.t() => any()}
+  @type vpc_association_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delegation_set_not_available() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type delegation_set_not_available() :: %{String.t() => any()}
+  @type delegation_set_not_available() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       vpc_association_authorization_not_found() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type vpc_association_authorization_not_found() :: %{String.t() => any()}
+  @type vpc_association_authorization_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -646,29 +646,29 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type associate_vpc_with_hosted_zone_response() :: %{String.t() => any()}
+  @type associate_vpc_with_hosted_zone_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       insufficient_cloud_watch_logs_resource_policy() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type insufficient_cloud_watch_logs_resource_policy() :: %{String.t() => any()}
+  @type insufficient_cloud_watch_logs_resource_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_hosted_zone() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type no_such_hosted_zone() :: %{String.t() => any()}
+  @type no_such_hosted_zone() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -677,12 +677,12 @@ defmodule AWS.Route53 do
       list_traffic_policies_response() :: %{
         "IsTruncated" => boolean(),
         "MaxItems" => [integer()],
-        "TrafficPolicyIdMarker" => String.t(),
+        "TrafficPolicyIdMarker" => String.t() | atom(),
         "TrafficPolicySummaries" => list(traffic_policy_summary())
       }
 
   """
-  @type list_traffic_policies_response() :: %{String.t() => any()}
+  @type list_traffic_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -691,35 +691,35 @@ defmodule AWS.Route53 do
       list_reusable_delegation_sets_response() :: %{
         "DelegationSets" => list(delegation_set()),
         "IsTruncated" => boolean(),
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "MaxItems" => [integer()],
-        "NextMarker" => String.t()
+        "NextMarker" => String.t() | atom()
       }
 
   """
-  @type list_reusable_delegation_sets_response() :: %{String.t() => any()}
+  @type list_reusable_delegation_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_key_signing_key_name() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_key_signing_key_name() :: %{String.t() => any()}
+  @type invalid_key_signing_key_name() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       public_zone_vpc_association() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type public_zone_vpc_association() :: %{String.t() => any()}
+  @type public_zone_vpc_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -727,11 +727,11 @@ defmodule AWS.Route53 do
 
       create_health_check_response() :: %{
         "HealthCheck" => health_check(),
-        "Location" => String.t()
+        "Location" => String.t() | atom()
       }
 
   """
-  @type create_health_check_response() :: %{String.t() => any()}
+  @type create_health_check_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -742,18 +742,18 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type update_health_check_response() :: %{String.t() => any()}
+  @type update_health_check_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dns_sec_not_found() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type dns_sec_not_found() :: %{String.t() => any()}
+  @type dns_sec_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -761,26 +761,26 @@ defmodule AWS.Route53 do
 
       status_report() :: %{
         "CheckedTime" => non_neg_integer(),
-        "Status" => String.t()
+        "Status" => String.t() | atom()
       }
 
   """
-  @type status_report() :: %{String.t() => any()}
+  @type status_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_traffic_policy_instance_request() :: %{
-        required("HostedZoneId") => String.t(),
-        required("Name") => String.t(),
+        required("HostedZoneId") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("TTL") => float(),
-        required("TrafficPolicyId") => String.t(),
+        required("TrafficPolicyId") => String.t() | atom(),
         required("TrafficPolicyVersion") => integer()
       }
 
   """
-  @type create_traffic_policy_instance_request() :: %{String.t() => any()}
+  @type create_traffic_policy_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -788,11 +788,11 @@ defmodule AWS.Route53 do
 
       change_batch() :: %{
         "Changes" => list(change()),
-        "Comment" => String.t()
+        "Comment" => String.t() | atom()
       }
 
   """
-  @type change_batch() :: %{String.t() => any()}
+  @type change_batch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -804,45 +804,45 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type reusable_delegation_set_limit() :: %{String.t() => any()}
+  @type reusable_delegation_set_limit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       health_check_already_exists() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type health_check_already_exists() :: %{String.t() => any()}
+  @type health_check_already_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_delegation_set() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type no_such_delegation_set() :: %{String.t() => any()}
+  @type no_such_delegation_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       traffic_policy() :: %{
-        "Comment" => String.t(),
-        "Document" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Comment" => String.t() | atom(),
+        "Document" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Type" => list(any()),
         "Version" => integer()
       }
 
   """
-  @type traffic_policy() :: %{String.t() => any()}
+  @type traffic_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -858,25 +858,25 @@ defmodule AWS.Route53 do
   ## Example:
 
       list_traffic_policy_instances_request() :: %{
-        optional("HostedZoneIdMarker") => String.t(),
+        optional("HostedZoneIdMarker") => String.t() | atom(),
         optional("MaxItems") => [integer()],
-        optional("TrafficPolicyInstanceNameMarker") => String.t(),
+        optional("TrafficPolicyInstanceNameMarker") => String.t() | atom(),
         optional("TrafficPolicyInstanceTypeMarker") => list(any())
       }
 
   """
-  @type list_traffic_policy_instances_request() :: %{String.t() => any()}
+  @type list_traffic_policy_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_argument() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_argument() :: %{String.t() => any()}
+  @type invalid_argument() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -884,11 +884,11 @@ defmodule AWS.Route53 do
 
       change_tags_for_resource_request() :: %{
         optional("AddTags") => list(tag()),
-        optional("RemoveTagKeys") => list(String.t())
+        optional("RemoveTagKeys") => list(String.t() | atom())
       }
 
   """
-  @type change_tags_for_resource_request() :: %{String.t() => any()}
+  @type change_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -899,75 +899,75 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type get_health_check_response() :: %{String.t() => any()}
+  @type get_health_check_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_query_logging_configs_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "QueryLoggingConfigs" => list(query_logging_config())
       }
 
   """
-  @type list_query_logging_configs_response() :: %{String.t() => any()}
+  @type list_query_logging_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       change_cidr_collection_response() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | atom()
       }
 
   """
-  @type change_cidr_collection_response() :: %{String.t() => any()}
+  @type change_cidr_collection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_traffic_policy_instances() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type too_many_traffic_policy_instances() :: %{String.t() => any()}
+  @type too_many_traffic_policy_instances() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cidr_collection_in_use_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type cidr_collection_in_use_exception() :: %{String.t() => any()}
+  @type cidr_collection_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       linked_service() :: %{
-        "Description" => String.t(),
-        "ServicePrincipal" => String.t()
+        "Description" => String.t() | atom(),
+        "ServicePrincipal" => String.t() | atom()
       }
 
   """
-  @type linked_service() :: %{String.t() => any()}
+  @type linked_service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_traffic_policy_document() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_traffic_policy_document() :: %{String.t() => any()}
+  @type invalid_traffic_policy_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -978,18 +978,18 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type delete_key_signing_key_response() :: %{String.t() => any()}
+  @type delete_key_signing_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       concurrent_modification() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type concurrent_modification() :: %{String.t() => any()}
+  @type concurrent_modification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1000,7 +1000,7 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type list_tags_for_resources_response() :: %{String.t() => any()}
+  @type list_tags_for_resources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1019,13 +1019,13 @@ defmodule AWS.Route53 do
         "GeoLocationDetailsList" => list(geo_location_details()),
         "IsTruncated" => boolean(),
         "MaxItems" => [integer()],
-        "NextContinentCode" => String.t(),
-        "NextCountryCode" => String.t(),
-        "NextSubdivisionCode" => String.t()
+        "NextContinentCode" => String.t() | atom(),
+        "NextCountryCode" => String.t() | atom(),
+        "NextSubdivisionCode" => String.t() | atom()
       }
 
   """
-  @type list_geo_locations_response() :: %{String.t() => any()}
+  @type list_geo_locations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1033,11 +1033,11 @@ defmodule AWS.Route53 do
 
       list_cidr_collections_request() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_cidr_collections_request() :: %{String.t() => any()}
+  @type list_cidr_collections_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1053,11 +1053,11 @@ defmodule AWS.Route53 do
   ## Example:
 
       too_many_vpc_association_authorizations() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type too_many_vpc_association_authorizations() :: %{String.t() => any()}
+  @type too_many_vpc_association_authorizations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1073,37 +1073,37 @@ defmodule AWS.Route53 do
   ## Example:
 
       key_signing_key_with_active_status_not_found() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type key_signing_key_with_active_status_not_found() :: %{String.t() => any()}
+  @type key_signing_key_with_active_status_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_cidr_blocks_request() :: %{
-        optional("LocationName") => String.t(),
+        optional("LocationName") => String.t() | atom(),
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_cidr_blocks_request() :: %{String.t() => any()}
+  @type list_cidr_blocks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       alias_target() :: %{
-        "DNSName" => String.t(),
+        "DNSName" => String.t() | atom(),
         "EvaluateTargetHealth" => boolean(),
-        "HostedZoneId" => String.t()
+        "HostedZoneId" => String.t() | atom()
       }
 
   """
-  @type alias_target() :: %{String.t() => any()}
+  @type alias_target() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1111,12 +1111,12 @@ defmodule AWS.Route53 do
 
       cidr_collection_change() :: %{
         "Action" => list(any()),
-        "CidrList" => list(String.t()),
-        "LocationName" => String.t()
+        "CidrList" => list(String.t() | atom()),
+        "LocationName" => String.t() | atom()
       }
 
   """
-  @type cidr_collection_change() :: %{String.t() => any()}
+  @type cidr_collection_change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1127,86 +1127,86 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type get_health_check_last_failure_reason_response() :: %{String.t() => any()}
+  @type get_health_check_last_failure_reason_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_checker_ip_ranges_response() :: %{
-        "CheckerIpRanges" => list(String.t())
+        "CheckerIpRanges" => list(String.t() | atom())
       }
 
   """
-  @type get_checker_ip_ranges_response() :: %{String.t() => any()}
+  @type get_checker_ip_ranges_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_traffic_policy_instances_response() :: %{
-        "HostedZoneIdMarker" => String.t(),
+        "HostedZoneIdMarker" => String.t() | atom(),
         "IsTruncated" => boolean(),
         "MaxItems" => [integer()],
-        "TrafficPolicyInstanceNameMarker" => String.t(),
+        "TrafficPolicyInstanceNameMarker" => String.t() | atom(),
         "TrafficPolicyInstanceTypeMarker" => list(any()),
         "TrafficPolicyInstances" => list(traffic_policy_instance())
       }
 
   """
-  @type list_traffic_policy_instances_response() :: %{String.t() => any()}
+  @type list_traffic_policy_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_cidr_collection_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type no_such_cidr_collection_exception() :: %{String.t() => any()}
+  @type no_such_cidr_collection_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_signing_status() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_signing_status() :: %{String.t() => any()}
+  @type invalid_signing_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       geo_proximity_location() :: %{
-        "AWSRegion" => String.t(),
+        "AWSRegion" => String.t() | atom(),
         "Bias" => integer(),
         "Coordinates" => coordinates(),
-        "LocalZoneGroup" => String.t()
+        "LocalZoneGroup" => String.t() | atom()
       }
 
   """
-  @type geo_proximity_location() :: %{String.t() => any()}
+  @type geo_proximity_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       test_dns_answer_request() :: %{
-        optional("EDNS0ClientSubnetIP") => String.t(),
-        optional("EDNS0ClientSubnetMask") => String.t(),
-        optional("ResolverIP") => String.t(),
-        required("HostedZoneId") => String.t(),
-        required("RecordName") => String.t(),
+        optional("EDNS0ClientSubnetIP") => String.t() | atom(),
+        optional("EDNS0ClientSubnetMask") => String.t() | atom(),
+        optional("ResolverIP") => String.t() | atom(),
+        required("HostedZoneId") => String.t() | atom(),
+        required("RecordName") => String.t() | atom(),
         required("RecordType") => list(any())
       }
 
   """
-  @type test_dns_answer_request() :: %{String.t() => any()}
+  @type test_dns_answer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1222,47 +1222,47 @@ defmodule AWS.Route53 do
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delegation_set_in_use() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type delegation_set_in_use() :: %{String.t() => any()}
+  @type delegation_set_in_use() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_change() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type no_such_change() :: %{String.t() => any()}
+  @type no_such_change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_geo_location_request() :: %{
-        optional("ContinentCode") => String.t(),
-        optional("CountryCode") => String.t(),
-        optional("SubdivisionCode") => String.t()
+        optional("ContinentCode") => String.t() | atom(),
+        optional("CountryCode") => String.t() | atom(),
+        optional("SubdivisionCode") => String.t() | atom()
       }
 
   """
-  @type get_geo_location_request() :: %{String.t() => any()}
+  @type get_geo_location_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1270,44 +1270,44 @@ defmodule AWS.Route53 do
 
       list_cidr_blocks_response() :: %{
         "CidrBlocks" => list(cidr_block_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_cidr_blocks_response() :: %{String.t() => any()}
+  @type list_cidr_blocks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cidr_block_in_use_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type cidr_block_in_use_exception() :: %{String.t() => any()}
+  @type cidr_block_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       key_signing_key_in_use() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type key_signing_key_in_use() :: %{String.t() => any()}
+  @type key_signing_key_in_use() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limits_exceeded() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type limits_exceeded() :: %{String.t() => any()}
+  @type limits_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1315,46 +1315,48 @@ defmodule AWS.Route53 do
 
       list_traffic_policy_instances_by_hosted_zone_request() :: %{
         optional("MaxItems") => [integer()],
-        optional("TrafficPolicyInstanceNameMarker") => String.t(),
+        optional("TrafficPolicyInstanceNameMarker") => String.t() | atom(),
         optional("TrafficPolicyInstanceTypeMarker") => list(any()),
-        required("HostedZoneId") => String.t()
+        required("HostedZoneId") => String.t() | atom()
       }
 
   """
-  @type list_traffic_policy_instances_by_hosted_zone_request() :: %{String.t() => any()}
+  @type list_traffic_policy_instances_by_hosted_zone_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       no_such_query_logging_config() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type no_such_query_logging_config() :: %{String.t() => any()}
+  @type no_such_query_logging_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       traffic_policy_instance_already_exists() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type traffic_policy_instance_already_exists() :: %{String.t() => any()}
+  @type traffic_policy_instance_already_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       traffic_policy_already_exists() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type traffic_policy_already_exists() :: %{String.t() => any()}
+  @type traffic_policy_already_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1371,11 +1373,11 @@ defmodule AWS.Route53 do
 
       list_cidr_collections_response() :: %{
         "CidrCollections" => list(collection_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_cidr_collections_response() :: %{String.t() => any()}
+  @type list_cidr_collections_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1393,25 +1395,25 @@ defmodule AWS.Route53 do
       list_health_checks_response() :: %{
         "HealthChecks" => list(health_check()),
         "IsTruncated" => boolean(),
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "MaxItems" => [integer()],
-        "NextMarker" => String.t()
+        "NextMarker" => String.t() | atom()
       }
 
   """
-  @type list_health_checks_response() :: %{String.t() => any()}
+  @type list_health_checks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_traffic_policy_response() :: %{
-        "Location" => String.t(),
+        "Location" => String.t() | atom(),
         "TrafficPolicy" => traffic_policy()
       }
 
   """
-  @type create_traffic_policy_response() :: %{String.t() => any()}
+  @type create_traffic_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1424,7 +1426,7 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type get_hosted_zone_response() :: %{String.t() => any()}
+  @type get_hosted_zone_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1435,18 +1437,18 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type delete_hosted_zone_response() :: %{String.t() => any()}
+  @type delete_hosted_zone_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delegation_set_already_reusable() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type delegation_set_already_reusable() :: %{String.t() => any()}
+  @type delegation_set_already_reusable() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1457,53 +1459,53 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type change_resource_record_sets_request() :: %{String.t() => any()}
+  @type change_resource_record_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       hosted_zone_owner() :: %{
-        "OwningAccount" => String.t(),
-        "OwningService" => String.t()
+        "OwningAccount" => String.t() | atom(),
+        "OwningService" => String.t() | atom()
       }
 
   """
-  @type hosted_zone_owner() :: %{String.t() => any()}
+  @type hosted_zone_owner() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_query_logging_config_request() :: %{
-        required("CloudWatchLogsLogGroupArn") => String.t(),
-        required("HostedZoneId") => String.t()
+        required("CloudWatchLogsLogGroupArn") => String.t() | atom(),
+        required("HostedZoneId") => String.t() | atom()
       }
 
   """
-  @type create_query_logging_config_request() :: %{String.t() => any()}
+  @type create_query_logging_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflicting_domain_exists() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflicting_domain_exists() :: %{String.t() => any()}
+  @type conflicting_domain_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       hosted_zone_already_exists() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type hosted_zone_already_exists() :: %{String.t() => any()}
+  @type hosted_zone_already_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1514,31 +1516,31 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type enable_hosted_zone_dns_sec_response() :: %{String.t() => any()}
+  @type enable_hosted_zone_dns_sec_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       hosted_zone_not_found() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type hosted_zone_not_found() :: %{String.t() => any()}
+  @type hosted_zone_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_tag_set() :: %{
-        "ResourceId" => String.t(),
+        "ResourceId" => String.t() | atom(),
         "ResourceType" => list(any()),
         "Tags" => list(tag())
       }
 
   """
-  @type resource_tag_set() :: %{String.t() => any()}
+  @type resource_tag_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1554,59 +1556,59 @@ defmodule AWS.Route53 do
   ## Example:
 
       update_traffic_policy_comment_request() :: %{
-        required("Comment") => String.t()
+        required("Comment") => String.t() | atom()
       }
 
   """
-  @type update_traffic_policy_comment_request() :: %{String.t() => any()}
+  @type update_traffic_policy_comment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       health_check_observation() :: %{
-        "IPAddress" => String.t(),
+        "IPAddress" => String.t() | atom(),
         "Region" => list(any()),
         "StatusReport" => status_report()
       }
 
   """
-  @type health_check_observation() :: %{String.t() => any()}
+  @type health_check_observation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       alarm_identifier() :: %{
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Region" => list(any())
       }
 
   """
-  @type alarm_identifier() :: %{String.t() => any()}
+  @type alarm_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_health_check_request() :: %{
-        required("CallerReference") => String.t(),
+        required("CallerReference") => String.t() | atom(),
         required("HealthCheckConfig") => health_check_config()
       }
 
   """
-  @type create_health_check_request() :: %{String.t() => any()}
+  @type create_health_check_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_cloud_watch_logs_log_group() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type no_such_cloud_watch_logs_log_group() :: %{String.t() => any()}
+  @type no_such_cloud_watch_logs_log_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1617,7 +1619,7 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type change_resource_record_sets_response() :: %{String.t() => any()}
+  @type change_resource_record_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1628,7 +1630,7 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type delete_vpc_association_authorization_request() :: %{String.t() => any()}
+  @type delete_vpc_association_authorization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1640,7 +1642,7 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type account_limit() :: %{String.t() => any()}
+  @type account_limit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1651,21 +1653,21 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       change_info() :: %{
-        "Comment" => String.t(),
-        "Id" => String.t(),
+        "Comment" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "Status" => list(any()),
         "SubmittedAt" => non_neg_integer()
       }
 
   """
-  @type change_info() :: %{String.t() => any()}
+  @type change_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1681,33 +1683,33 @@ defmodule AWS.Route53 do
   ## Example:
 
       list_hosted_zones_by_name_response() :: %{
-        "DNSName" => String.t(),
-        "HostedZoneId" => String.t(),
+        "DNSName" => String.t() | atom(),
+        "HostedZoneId" => String.t() | atom(),
         "HostedZones" => list(hosted_zone()),
         "IsTruncated" => boolean(),
         "MaxItems" => [integer()],
-        "NextDNSName" => String.t(),
-        "NextHostedZoneId" => String.t()
+        "NextDNSName" => String.t() | atom(),
+        "NextHostedZoneId" => String.t() | atom()
       }
 
   """
-  @type list_hosted_zones_by_name_response() :: %{String.t() => any()}
+  @type list_hosted_zones_by_name_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       health_check() :: %{
-        "CallerReference" => String.t(),
+        "CallerReference" => String.t() | atom(),
         "CloudWatchAlarmConfiguration" => cloud_watch_alarm_configuration(),
         "HealthCheckConfig" => health_check_config(),
         "HealthCheckVersion" => float(),
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "LinkedService" => linked_service()
       }
 
   """
-  @type health_check() :: %{String.t() => any()}
+  @type health_check() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1716,13 +1718,13 @@ defmodule AWS.Route53 do
       list_hosted_zones_response() :: %{
         "HostedZones" => list(hosted_zone()),
         "IsTruncated" => boolean(),
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "MaxItems" => [integer()],
-        "NextMarker" => String.t()
+        "NextMarker" => String.t() | atom()
       }
 
   """
-  @type list_hosted_zones_response() :: %{String.t() => any()}
+  @type list_hosted_zones_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1738,23 +1740,23 @@ defmodule AWS.Route53 do
   ## Example:
 
       invalid_vpc_id() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_vpc_id() :: %{String.t() => any()}
+  @type invalid_vpc_id() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_vpc_association_authorization_response() :: %{
-        "HostedZoneId" => String.t(),
+        "HostedZoneId" => String.t() | atom(),
         "VPC" => vpc()
       }
 
   """
-  @type create_vpc_association_authorization_response() :: %{String.t() => any()}
+  @type create_vpc_association_authorization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1771,11 +1773,11 @@ defmodule AWS.Route53 do
 
       list_cidr_locations_request() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_cidr_locations_request() :: %{String.t() => any()}
+  @type list_cidr_locations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1795,19 +1797,19 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type update_traffic_policy_instance_response() :: %{String.t() => any()}
+  @type update_traffic_policy_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_traffic_policy_instance_response() :: %{
-        "Location" => String.t(),
+        "Location" => String.t() | atom(),
         "TrafficPolicyInstance" => traffic_policy_instance()
       }
 
   """
-  @type create_traffic_policy_instance_response() :: %{String.t() => any()}
+  @type create_traffic_policy_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1815,11 +1817,11 @@ defmodule AWS.Route53 do
 
       create_reusable_delegation_set_response() :: %{
         "DelegationSet" => delegation_set(),
-        "Location" => String.t()
+        "Location" => String.t() | atom()
       }
 
   """
-  @type create_reusable_delegation_set_response() :: %{String.t() => any()}
+  @type create_reusable_delegation_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1830,7 +1832,7 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type get_health_check_count_response() :: %{String.t() => any()}
+  @type get_health_check_count_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1838,11 +1840,11 @@ defmodule AWS.Route53 do
 
       list_vpc_association_authorizations_request() :: %{
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_vpc_association_authorizations_request() :: %{String.t() => any()}
+  @type list_vpc_association_authorizations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1850,13 +1852,13 @@ defmodule AWS.Route53 do
 
       list_geo_locations_request() :: %{
         optional("MaxItems") => [integer()],
-        optional("StartContinentCode") => String.t(),
-        optional("StartCountryCode") => String.t(),
-        optional("StartSubdivisionCode") => String.t()
+        optional("StartContinentCode") => String.t() | atom(),
+        optional("StartCountryCode") => String.t() | atom(),
+        optional("StartSubdivisionCode") => String.t() | atom()
       }
 
   """
-  @type list_geo_locations_request() :: %{String.t() => any()}
+  @type list_geo_locations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1882,25 +1884,25 @@ defmodule AWS.Route53 do
 
       update_health_check_request() :: %{
         optional("AlarmIdentifier") => alarm_identifier(),
-        optional("ChildHealthChecks") => list(String.t()),
+        optional("ChildHealthChecks") => list(String.t() | atom()),
         optional("Disabled") => boolean(),
         optional("EnableSNI") => boolean(),
         optional("FailureThreshold") => integer(),
-        optional("FullyQualifiedDomainName") => String.t(),
+        optional("FullyQualifiedDomainName") => String.t() | atom(),
         optional("HealthCheckVersion") => float(),
         optional("HealthThreshold") => integer(),
-        optional("IPAddress") => String.t(),
+        optional("IPAddress") => String.t() | atom(),
         optional("InsufficientDataHealthStatus") => list(any()),
         optional("Inverted") => boolean(),
         optional("Port") => integer(),
         optional("Regions") => list(list(any())()),
         optional("ResetElements") => list(list(any())()),
-        optional("ResourcePath") => String.t(),
-        optional("SearchString") => String.t()
+        optional("ResourcePath") => String.t() | atom(),
+        optional("SearchString") => String.t() | atom()
       }
 
   """
-  @type update_health_check_request() :: %{String.t() => any()}
+  @type update_health_check_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1909,22 +1911,22 @@ defmodule AWS.Route53 do
       create_key_signing_key_response() :: %{
         "ChangeInfo" => change_info(),
         "KeySigningKey" => key_signing_key(),
-        "Location" => String.t()
+        "Location" => String.t() | atom()
       }
 
   """
-  @type create_key_signing_key_response() :: %{String.t() => any()}
+  @type create_key_signing_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       not_authorized_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type not_authorized_exception() :: %{String.t() => any()}
+  @type not_authorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1940,13 +1942,13 @@ defmodule AWS.Route53 do
   ## Example:
 
       geo_location() :: %{
-        "ContinentCode" => String.t(),
-        "CountryCode" => String.t(),
-        "SubdivisionCode" => String.t()
+        "ContinentCode" => String.t() | atom(),
+        "CountryCode" => String.t() | atom(),
+        "SubdivisionCode" => String.t() | atom()
       }
 
   """
-  @type geo_location() :: %{String.t() => any()}
+  @type geo_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1957,20 +1959,20 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type get_traffic_policy_instance_count_response() :: %{String.t() => any()}
+  @type get_traffic_policy_instance_count_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       hosted_zone_summary() :: %{
-        "HostedZoneId" => String.t(),
-        "Name" => String.t(),
+        "HostedZoneId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Owner" => hosted_zone_owner()
       }
 
   """
-  @type hosted_zone_summary() :: %{String.t() => any()}
+  @type hosted_zone_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1981,7 +1983,7 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type get_traffic_policy_response() :: %{String.t() => any()}
+  @type get_traffic_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1989,24 +1991,24 @@ defmodule AWS.Route53 do
 
       list_traffic_policy_versions_request() :: %{
         optional("MaxItems") => [integer()],
-        optional("TrafficPolicyVersionMarker") => String.t()
+        optional("TrafficPolicyVersionMarker") => String.t() | atom()
       }
 
   """
-  @type list_traffic_policy_versions_request() :: %{String.t() => any()}
+  @type list_traffic_policy_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_vpc_association_authorizations_response() :: %{
-        "HostedZoneId" => String.t(),
-        "NextToken" => String.t(),
+        "HostedZoneId" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
         "VPCs" => list(vpc())
       }
 
   """
-  @type list_vpc_association_authorizations_response() :: %{String.t() => any()}
+  @type list_vpc_association_authorizations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2033,39 +2035,41 @@ defmodule AWS.Route53 do
       list_traffic_policy_instances_by_hosted_zone_response() :: %{
         "IsTruncated" => boolean(),
         "MaxItems" => [integer()],
-        "TrafficPolicyInstanceNameMarker" => String.t(),
+        "TrafficPolicyInstanceNameMarker" => String.t() | atom(),
         "TrafficPolicyInstanceTypeMarker" => list(any()),
         "TrafficPolicyInstances" => list(traffic_policy_instance())
       }
 
   """
-  @type list_traffic_policy_instances_by_hosted_zone_response() :: %{String.t() => any()}
+  @type list_traffic_policy_instances_by_hosted_zone_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       invalid_domain_name() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_domain_name() :: %{String.t() => any()}
+  @type invalid_domain_name() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       traffic_policy_summary() :: %{
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "LatestVersion" => integer(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "TrafficPolicyCount" => integer(),
         "Type" => list(any())
       }
 
   """
-  @type traffic_policy_summary() :: %{String.t() => any()}
+  @type traffic_policy_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2076,71 +2080,71 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type disable_hosted_zone_dns_sec_response() :: %{String.t() => any()}
+  @type disable_hosted_zone_dns_sec_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_geo_location() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type no_such_geo_location() :: %{String.t() => any()}
+  @type no_such_geo_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       traffic_policy_instance() :: %{
-        "HostedZoneId" => String.t(),
-        "Id" => String.t(),
-        "Message" => String.t(),
-        "Name" => String.t(),
-        "State" => String.t(),
+        "HostedZoneId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "State" => String.t() | atom(),
         "TTL" => float(),
-        "TrafficPolicyId" => String.t(),
+        "TrafficPolicyId" => String.t() | atom(),
         "TrafficPolicyType" => list(any()),
         "TrafficPolicyVersion" => integer()
       }
 
   """
-  @type traffic_policy_instance() :: %{String.t() => any()}
+  @type traffic_policy_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_cidr_collection_request() :: %{
-        required("CallerReference") => String.t(),
-        required("Name") => String.t()
+        required("CallerReference") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_cidr_collection_request() :: %{String.t() => any()}
+  @type create_cidr_collection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_cidr_location_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type no_such_cidr_location_exception() :: %{String.t() => any()}
+  @type no_such_cidr_location_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_kms_arn() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_kms_arn() :: %{String.t() => any()}
+  @type invalid_kms_arn() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2148,11 +2152,11 @@ defmodule AWS.Route53 do
 
       create_cidr_collection_response() :: %{
         "Collection" => cidr_collection(),
-        "Location" => String.t()
+        "Location" => String.t() | atom()
       }
 
   """
-  @type create_cidr_collection_response() :: %{String.t() => any()}
+  @type create_cidr_collection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2164,46 +2168,46 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type get_dns_sec_response() :: %{String.t() => any()}
+  @type get_dns_sec_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_query_logging_configs_request() :: %{
-        optional("HostedZoneId") => String.t(),
+        optional("HostedZoneId") => String.t() | atom(),
         optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_query_logging_configs_request() :: %{String.t() => any()}
+  @type list_query_logging_configs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_key_signing_key_request() :: %{
-        required("CallerReference") => String.t(),
-        required("HostedZoneId") => String.t(),
-        required("KeyManagementServiceArn") => String.t(),
-        required("Name") => String.t(),
-        required("Status") => String.t()
+        required("CallerReference") => String.t() | atom(),
+        required("HostedZoneId") => String.t() | atom(),
+        required("KeyManagementServiceArn") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Status") => String.t() | atom()
       }
 
   """
-  @type create_key_signing_key_request() :: %{String.t() => any()}
+  @type create_key_signing_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resources_request() :: %{
-        required("ResourceIds") => list(String.t())
+        required("ResourceIds") => list(String.t() | atom())
       }
 
   """
-  @type list_tags_for_resources_request() :: %{String.t() => any()}
+  @type list_tags_for_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2211,11 +2215,11 @@ defmodule AWS.Route53 do
 
       list_cidr_locations_response() :: %{
         "CidrLocations" => list(location_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_cidr_locations_response() :: %{String.t() => any()}
+  @type list_cidr_locations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2223,13 +2227,13 @@ defmodule AWS.Route53 do
 
       list_hosted_zones_by_vpc_request() :: %{
         optional("MaxItems") => [integer()],
-        optional("NextToken") => String.t(),
-        required("VPCId") => String.t(),
+        optional("NextToken") => String.t() | atom(),
+        required("VPCId") => String.t() | atom(),
         required("VPCRegion") => list(any())
       }
 
   """
-  @type list_hosted_zones_by_vpc_request() :: %{String.t() => any()}
+  @type list_hosted_zones_by_vpc_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2245,36 +2249,36 @@ defmodule AWS.Route53 do
   ## Example:
 
       update_hosted_zone_comment_request() :: %{
-        optional("Comment") => String.t()
+        optional("Comment") => String.t() | atom()
       }
 
   """
-  @type update_hosted_zone_comment_request() :: %{String.t() => any()}
+  @type update_hosted_zone_comment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_hosted_zones_request() :: %{
-        optional("DelegationSetId") => String.t(),
+        optional("DelegationSetId") => String.t() | atom(),
         optional("HostedZoneType") => list(any()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => [integer()]
       }
 
   """
-  @type list_hosted_zones_request() :: %{String.t() => any()}
+  @type list_hosted_zones_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_hosted_zones() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type too_many_hosted_zones() :: %{String.t() => any()}
+  @type too_many_hosted_zones() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2285,7 +2289,7 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type get_geo_location_response() :: %{String.t() => any()}
+  @type get_geo_location_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2296,19 +2300,19 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type get_reusable_delegation_set_response() :: %{String.t() => any()}
+  @type get_reusable_delegation_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cidr_routing_config() :: %{
-        "CollectionId" => String.t(),
-        "LocationName" => String.t()
+        "CollectionId" => String.t() | atom(),
+        "LocationName" => String.t() | atom()
       }
 
   """
-  @type cidr_routing_config() :: %{String.t() => any()}
+  @type cidr_routing_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2316,27 +2320,27 @@ defmodule AWS.Route53 do
 
       health_check_config() :: %{
         "AlarmIdentifier" => alarm_identifier(),
-        "ChildHealthChecks" => list(String.t()),
+        "ChildHealthChecks" => list(String.t() | atom()),
         "Disabled" => boolean(),
         "EnableSNI" => boolean(),
         "FailureThreshold" => integer(),
-        "FullyQualifiedDomainName" => String.t(),
+        "FullyQualifiedDomainName" => String.t() | atom(),
         "HealthThreshold" => integer(),
-        "IPAddress" => String.t(),
+        "IPAddress" => String.t() | atom(),
         "InsufficientDataHealthStatus" => list(any()),
         "Inverted" => boolean(),
         "MeasureLatency" => boolean(),
         "Port" => integer(),
         "Regions" => list(list(any())()),
         "RequestInterval" => integer(),
-        "ResourcePath" => String.t(),
-        "RoutingControlArn" => String.t(),
-        "SearchString" => String.t(),
+        "ResourcePath" => String.t() | atom(),
+        "RoutingControlArn" => String.t() | atom(),
+        "SearchString" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type health_check_config() :: %{String.t() => any()}
+  @type health_check_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2361,22 +2365,22 @@ defmodule AWS.Route53 do
   ## Example:
 
       key_signing_key_in_parent_d_s_record() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type key_signing_key_in_parent_d_s_record() :: %{String.t() => any()}
+  @type key_signing_key_in_parent_d_s_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2392,16 +2396,16 @@ defmodule AWS.Route53 do
   ## Example:
 
       hosted_zone() :: %{
-        "CallerReference" => String.t(),
+        "CallerReference" => String.t() | atom(),
         "Config" => hosted_zone_config(),
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "LinkedService" => linked_service(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "ResourceRecordSetCount" => float()
       }
 
   """
-  @type hosted_zone() :: %{String.t() => any()}
+  @type hosted_zone() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2411,11 +2415,11 @@ defmodule AWS.Route53 do
         "IsTruncated" => boolean(),
         "MaxItems" => [integer()],
         "TrafficPolicies" => list(traffic_policy()),
-        "TrafficPolicyVersionMarker" => String.t()
+        "TrafficPolicyVersionMarker" => String.t() | atom()
       }
 
   """
-  @type list_traffic_policy_versions_response() :: %{String.t() => any()}
+  @type list_traffic_policy_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2423,13 +2427,13 @@ defmodule AWS.Route53 do
 
       list_resource_record_sets_request() :: %{
         optional("MaxItems") => [integer()],
-        optional("StartRecordIdentifier") => String.t(),
-        optional("StartRecordName") => String.t(),
+        optional("StartRecordIdentifier") => String.t() | atom(),
+        optional("StartRecordName") => String.t() | atom(),
         optional("StartRecordType") => list(any())
       }
 
   """
-  @type list_resource_record_sets_request() :: %{String.t() => any()}
+  @type list_resource_record_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2445,33 +2449,33 @@ defmodule AWS.Route53 do
   ## Example:
 
       location_summary() :: %{
-        "LocationName" => String.t()
+        "LocationName" => String.t() | atom()
       }
 
   """
-  @type location_summary() :: %{String.t() => any()}
+  @type location_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       hosted_zone_partially_delegated() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type hosted_zone_partially_delegated() :: %{String.t() => any()}
+  @type hosted_zone_partially_delegated() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cidr_collection_version_mismatch_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type cidr_collection_version_mismatch_exception() :: %{String.t() => any()}
+  @type cidr_collection_version_mismatch_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2487,11 +2491,11 @@ defmodule AWS.Route53 do
   ## Example:
 
       last_vpc_association() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type last_vpc_association() :: %{String.t() => any()}
+  @type last_vpc_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2503,41 +2507,41 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type get_account_limit_response() :: %{String.t() => any()}
+  @type get_account_limit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_reusable_delegation_sets_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => [integer()]
       }
 
   """
-  @type list_reusable_delegation_sets_request() :: %{String.t() => any()}
+  @type list_reusable_delegation_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cidr_collection_already_exists_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type cidr_collection_already_exists_exception() :: %{String.t() => any()}
+  @type cidr_collection_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_traffic_policy() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type no_such_traffic_policy() :: %{String.t() => any()}
+  @type no_such_traffic_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2548,77 +2552,77 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type disassociate_vpc_from_hosted_zone_response() :: %{String.t() => any()}
+  @type disassociate_vpc_from_hosted_zone_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dimension() :: %{
-        "Name" => String.t(),
-        "Value" => String.t()
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type dimension() :: %{String.t() => any()}
+  @type dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       prior_request_not_complete() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type prior_request_not_complete() :: %{String.t() => any()}
+  @type prior_request_not_complete() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_key_signing_key_status() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_key_signing_key_status() :: %{String.t() => any()}
+  @type invalid_key_signing_key_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_vpc_from_hosted_zone_request() :: %{
-        optional("Comment") => String.t(),
+        optional("Comment") => String.t() | atom(),
         required("VPC") => vpc()
       }
 
   """
-  @type disassociate_vpc_from_hosted_zone_request() :: %{String.t() => any()}
+  @type disassociate_vpc_from_hosted_zone_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_hosted_zones_by_name_request() :: %{
-        optional("DNSName") => String.t(),
-        optional("HostedZoneId") => String.t(),
+        optional("DNSName") => String.t() | atom(),
+        optional("HostedZoneId") => String.t() | atom(),
         optional("MaxItems") => [integer()]
       }
 
   """
-  @type list_hosted_zones_by_name_request() :: %{String.t() => any()}
+  @type list_hosted_zones_by_name_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       no_such_key_signing_key() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type no_such_key_signing_key() :: %{String.t() => any()}
+  @type no_such_key_signing_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2626,12 +2630,12 @@ defmodule AWS.Route53 do
 
       update_traffic_policy_instance_request() :: %{
         required("TTL") => float(),
-        required("TrafficPolicyId") => String.t(),
+        required("TrafficPolicyId") => String.t() | atom(),
         required("TrafficPolicyVersion") => integer()
       }
 
   """
-  @type update_traffic_policy_instance_request() :: %{String.t() => any()}
+  @type update_traffic_policy_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2647,12 +2651,12 @@ defmodule AWS.Route53 do
   ## Example:
 
       coordinates() :: %{
-        "Latitude" => String.t(),
-        "Longitude" => String.t()
+        "Latitude" => String.t() | atom(),
+        "Longitude" => String.t() | atom()
       }
 
   """
-  @type coordinates() :: %{String.t() => any()}
+  @type coordinates() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2663,21 +2667,21 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type get_query_logging_config_response() :: %{String.t() => any()}
+  @type get_query_logging_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cidr_collection() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Version" => float()
       }
 
   """
-  @type cidr_collection() :: %{String.t() => any()}
+  @type cidr_collection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2697,18 +2701,18 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type activate_key_signing_key_response() :: %{String.t() => any()}
+  @type activate_key_signing_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       query_logging_config_already_exists() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type query_logging_config_already_exists() :: %{String.t() => any()}
+  @type query_logging_config_already_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2724,11 +2728,11 @@ defmodule AWS.Route53 do
   ## Example:
 
       resource_record() :: %{
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
 
   """
-  @type resource_record() :: %{String.t() => any()}
+  @type resource_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2744,22 +2748,22 @@ defmodule AWS.Route53 do
   ## Example:
 
       too_many_key_signing_keys() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type too_many_key_signing_keys() :: %{String.t() => any()}
+  @type too_many_key_signing_keys() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       key_signing_key_already_exists() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type key_signing_key_already_exists() :: %{String.t() => any()}
+  @type key_signing_key_already_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2770,7 +2774,7 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type get_health_check_status_response() :: %{String.t() => any()}
+  @type get_health_check_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2779,14 +2783,14 @@ defmodule AWS.Route53 do
       list_resource_record_sets_response() :: %{
         "IsTruncated" => boolean(),
         "MaxItems" => [integer()],
-        "NextRecordIdentifier" => String.t(),
-        "NextRecordName" => String.t(),
+        "NextRecordIdentifier" => String.t() | atom(),
+        "NextRecordName" => String.t() | atom(),
         "NextRecordType" => list(any()),
         "ResourceRecordSets" => list(resource_record_set())
       }
 
   """
-  @type list_resource_record_sets_response() :: %{String.t() => any()}
+  @type list_resource_record_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2811,70 +2815,70 @@ defmodule AWS.Route53 do
   ## Example:
 
       hosted_zone_config() :: %{
-        "Comment" => String.t(),
+        "Comment" => String.t() | atom(),
         "PrivateZone" => boolean()
       }
 
   """
-  @type hosted_zone_config() :: %{String.t() => any()}
+  @type hosted_zone_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_reusable_delegation_set_request() :: %{
-        optional("HostedZoneId") => String.t(),
-        required("CallerReference") => String.t()
+        optional("HostedZoneId") => String.t() | atom(),
+        required("CallerReference") => String.t() | atom()
       }
 
   """
-  @type create_reusable_delegation_set_request() :: %{String.t() => any()}
+  @type create_reusable_delegation_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_vpc_with_hosted_zone_request() :: %{
-        optional("Comment") => String.t(),
+        optional("Comment") => String.t() | atom(),
         required("VPC") => vpc()
       }
 
   """
-  @type associate_vpc_with_hosted_zone_request() :: %{String.t() => any()}
+  @type associate_vpc_with_hosted_zone_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_health_checks_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => [integer()]
       }
 
   """
-  @type list_health_checks_request() :: %{String.t() => any()}
+  @type list_health_checks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflicting_types() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflicting_types() :: %{String.t() => any()}
+  @type conflicting_types() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       health_check_in_use() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type health_check_in_use() :: %{String.t() => any()}
+  @type health_check_in_use() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2885,18 +2889,18 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type deactivate_key_signing_key_response() :: %{String.t() => any()}
+  @type deactivate_key_signing_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_health_checks() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type too_many_health_checks() :: %{String.t() => any()}
+  @type too_many_health_checks() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2906,74 +2910,74 @@ defmodule AWS.Route53 do
         "ChangeInfo" => change_info(),
         "DelegationSet" => delegation_set(),
         "HostedZone" => hosted_zone(),
-        "Location" => String.t(),
+        "Location" => String.t() | atom(),
         "VPC" => vpc()
       }
 
   """
-  @type create_hosted_zone_response() :: %{String.t() => any()}
+  @type create_hosted_zone_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       test_dns_answer_response() :: %{
-        "Nameserver" => String.t(),
-        "Protocol" => String.t(),
-        "RecordData" => list(String.t()),
-        "RecordName" => String.t(),
+        "Nameserver" => String.t() | atom(),
+        "Protocol" => String.t() | atom(),
+        "RecordData" => list(String.t() | atom()),
+        "RecordName" => String.t() | atom(),
         "RecordType" => list(any()),
-        "ResponseCode" => String.t()
+        "ResponseCode" => String.t() | atom()
       }
 
   """
-  @type test_dns_answer_response() :: %{String.t() => any()}
+  @type test_dns_answer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cidr_block_summary() :: %{
-        "CidrBlock" => String.t(),
-        "LocationName" => String.t()
+        "CidrBlock" => String.t() | atom(),
+        "LocationName" => String.t() | atom()
       }
 
   """
-  @type cidr_block_summary() :: %{String.t() => any()}
+  @type cidr_block_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delegation_set_already_created() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type delegation_set_already_created() :: %{String.t() => any()}
+  @type delegation_set_already_created() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_traffic_policy_version_request() :: %{
-        optional("Comment") => String.t(),
-        required("Document") => String.t()
+        optional("Comment") => String.t() | atom(),
+        required("Document") => String.t() | atom()
       }
 
   """
-  @type create_traffic_policy_version_request() :: %{String.t() => any()}
+  @type create_traffic_policy_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       hosted_zone_not_empty() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type hosted_zone_not_empty() :: %{String.t() => any()}
+  @type hosted_zone_not_empty() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2994,7 +2998,7 @@ defmodule AWS.Route53 do
       }
 
   """
-  @type change_cidr_collection_request() :: %{String.t() => any()}
+  @type change_cidr_collection_request() :: %{(String.t() | atom()) => any()}
 
   @type activate_key_signing_key_errors() ::
           no_such_key_signing_key()
@@ -3331,8 +3335,8 @@ defmodule AWS.Route53 do
   """
   @spec activate_key_signing_key(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           activate_key_signing_key_request(),
           list()
         ) ::
@@ -3400,7 +3404,7 @@ defmodule AWS.Route53 do
   """
   @spec associate_vpc_with_hosted_zone(
           map(),
-          String.t(),
+          String.t() | atom(),
           associate_vpc_with_hosted_zone_request(),
           list()
         ) ::
@@ -3460,7 +3464,12 @@ defmodule AWS.Route53 do
   ` DELETE_IF_EXISTS`: Delete an existing CIDR block from the
   collection.
   """
-  @spec change_cidr_collection(map(), String.t(), change_cidr_collection_request(), list()) ::
+  @spec change_cidr_collection(
+          map(),
+          String.t() | atom(),
+          change_cidr_collection_request(),
+          list()
+        ) ::
           {:ok, change_cidr_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3601,7 +3610,7 @@ defmodule AWS.Route53 do
   """
   @spec change_resource_record_sets(
           map(),
-          String.t(),
+          String.t() | atom(),
           change_resource_record_sets_request(),
           list()
         ) ::
@@ -3638,8 +3647,8 @@ defmodule AWS.Route53 do
   """
   @spec change_tags_for_resource(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           change_tags_for_resource_request(),
           list()
         ) ::
@@ -4354,7 +4363,7 @@ defmodule AWS.Route53 do
   """
   @spec create_traffic_policy_version(
           map(),
-          String.t(),
+          String.t() | atom(),
           create_traffic_policy_version_request(),
           list()
         ) ::
@@ -4409,7 +4418,7 @@ defmodule AWS.Route53 do
   """
   @spec create_vpc_association_authorization(
           map(),
-          String.t(),
+          String.t() | atom(),
           create_vpc_association_authorization_request(),
           list()
         ) ::
@@ -4453,8 +4462,8 @@ defmodule AWS.Route53 do
   """
   @spec deactivate_key_signing_key(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           deactivate_key_signing_key_request(),
           list()
         ) ::
@@ -4491,7 +4500,12 @@ defmodule AWS.Route53 do
   The collection
   must be empty before it can be deleted.
   """
-  @spec delete_cidr_collection(map(), String.t(), delete_cidr_collection_request(), list()) ::
+  @spec delete_cidr_collection(
+          map(),
+          String.t() | atom(),
+          delete_cidr_collection_request(),
+          list()
+        ) ::
           {:ok, delete_cidr_collection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4540,7 +4554,7 @@ defmodule AWS.Route53 do
   of
   several hours before the health check is deleted from Route 53.
   """
-  @spec delete_health_check(map(), String.t(), delete_health_check_request(), list()) ::
+  @spec delete_health_check(map(), String.t() | atom(), delete_health_check_request(), list()) ::
           {:ok, delete_health_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4631,7 +4645,7 @@ defmodule AWS.Route53 do
   Use the `ListHostedZones` action to get a list of the hosted zones
   associated with the current Amazon Web Services account.
   """
-  @spec delete_hosted_zone(map(), String.t(), delete_hosted_zone_request(), list()) ::
+  @spec delete_hosted_zone(map(), String.t() | atom(), delete_hosted_zone_request(), list()) ::
           {:ok, delete_hosted_zone_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4675,8 +4689,8 @@ defmodule AWS.Route53 do
   """
   @spec delete_key_signing_key(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_key_signing_key_request(),
           list()
         ) ::
@@ -4720,7 +4734,7 @@ defmodule AWS.Route53 do
   """
   @spec delete_query_logging_config(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_query_logging_config_request(),
           list()
         ) ::
@@ -4764,7 +4778,7 @@ defmodule AWS.Route53 do
   """
   @spec delete_reusable_delegation_set(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_reusable_delegation_set_request(),
           list()
         ) ::
@@ -4816,8 +4830,8 @@ defmodule AWS.Route53 do
   """
   @spec delete_traffic_policy(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_traffic_policy_request(),
           list()
         ) ::
@@ -4858,7 +4872,7 @@ defmodule AWS.Route53 do
   """
   @spec delete_traffic_policy_instance(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_traffic_policy_instance_request(),
           list()
         ) ::
@@ -4906,7 +4920,7 @@ defmodule AWS.Route53 do
   """
   @spec delete_vpc_association_authorization(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_vpc_association_authorization_request(),
           list()
         ) ::
@@ -4950,7 +4964,7 @@ defmodule AWS.Route53 do
   """
   @spec disable_hosted_zone_dns_sec(
           map(),
-          String.t(),
+          String.t() | atom(),
           disable_hosted_zone_dns_sec_request(),
           list()
         ) ::
@@ -5035,7 +5049,7 @@ defmodule AWS.Route53 do
   """
   @spec disassociate_vpc_from_hosted_zone(
           map(),
-          String.t(),
+          String.t() | atom(),
           disassociate_vpc_from_hosted_zone_request(),
           list()
         ) ::
@@ -5069,7 +5083,7 @@ defmodule AWS.Route53 do
   """
   @spec enable_hosted_zone_dns_sec(
           map(),
-          String.t(),
+          String.t() | atom(),
           enable_hosted_zone_dns_sec_request(),
           list()
         ) ::
@@ -5116,7 +5130,7 @@ defmodule AWS.Route53 do
   [https://console.aws.amazon.com/trustedadvisor/](https://console.aws.amazon.com/trustedadvisor).
   Then choose **Service limits** in the navigation pane.
   """
-  @spec get_account_limit(map(), String.t(), list()) ::
+  @spec get_account_limit(map(), String.t() | atom(), list()) ::
           {:ok, get_account_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5149,7 +5163,7 @@ defmodule AWS.Route53 do
   `INSYNC` indicates that the changes have propagated to all Route 53
   DNS servers managing the hosted zone.
   """
-  @spec get_change(map(), String.t(), list()) ::
+  @spec get_change(map(), String.t() | atom(), list()) ::
           {:ok, get_change_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5195,7 +5209,7 @@ defmodule AWS.Route53 do
   key-signing
   keys (KSKs) in the hosted zone.
   """
-  @spec get_dns_sec(map(), String.t(), list()) ::
+  @spec get_dns_sec(map(), String.t() | atom(), list()) ::
           {:ok, get_dns_sec_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5248,7 +5262,13 @@ defmodule AWS.Route53 do
 
   ```
   """
-  @spec get_geo_location(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec get_geo_location(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_geo_location_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5293,7 +5313,7 @@ defmodule AWS.Route53 do
   @doc """
   Gets information about a specified health check.
   """
-  @spec get_health_check(map(), String.t(), list()) ::
+  @spec get_health_check(map(), String.t() | atom(), list()) ::
           {:ok, get_health_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5329,7 +5349,7 @@ defmodule AWS.Route53 do
   @doc """
   Gets the reason that a specified health check failed most recently.
   """
-  @spec get_health_check_last_failure_reason(map(), String.t(), list()) ::
+  @spec get_health_check_last_failure_reason(map(), String.t() | atom(), list()) ::
           {:ok, get_health_check_last_failure_reason_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5351,7 +5371,7 @@ defmodule AWS.Route53 do
   support production use-cases with high query rates that require immediate and
   actionable responses.
   """
-  @spec get_health_check_status(map(), String.t(), list()) ::
+  @spec get_health_check_status(map(), String.t() | atom(), list()) ::
           {:ok, get_health_check_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5377,7 +5397,7 @@ defmodule AWS.Route53 do
   [ListProfileAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_ListProfileAssociations.html)
   API.
   """
-  @spec get_hosted_zone(map(), String.t(), list()) ::
+  @spec get_hosted_zone(map(), String.t() | atom(), list()) ::
           {:ok, get_hosted_zone_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5422,7 +5442,7 @@ defmodule AWS.Route53 do
   [open a
   case](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-route53).
   """
-  @spec get_hosted_zone_limit(map(), String.t(), String.t(), list()) ::
+  @spec get_hosted_zone_limit(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_hosted_zone_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5446,7 +5466,7 @@ defmodule AWS.Route53 do
   [CreateQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html) and [Logging DNS
   Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html).
   """
-  @spec get_query_logging_config(map(), String.t(), list()) ::
+  @spec get_query_logging_config(map(), String.t() | atom(), list()) ::
           {:ok, get_query_logging_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5466,7 +5486,7 @@ defmodule AWS.Route53 do
   four
   name servers that are assigned to the delegation set.
   """
-  @spec get_reusable_delegation_set(map(), String.t(), list()) ::
+  @spec get_reusable_delegation_set(map(), String.t() | atom(), list()) ::
           {:ok, get_reusable_delegation_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5492,7 +5512,7 @@ defmodule AWS.Route53 do
   [open a
   case](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-route53).
   """
-  @spec get_reusable_delegation_set_limit(map(), String.t(), String.t(), list()) ::
+  @spec get_reusable_delegation_set_limit(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_reusable_delegation_set_limit_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5521,7 +5541,7 @@ defmodule AWS.Route53 do
   `GetTrafficPolicy`, see
   [DeleteTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html).
   """
-  @spec get_traffic_policy(map(), String.t(), String.t(), list()) ::
+  @spec get_traffic_policy(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_traffic_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5551,7 +5571,7 @@ defmodule AWS.Route53 do
   In the Route 53 console, traffic policy instances are known as policy
   records.
   """
-  @spec get_traffic_policy_instance(map(), String.t(), list()) ::
+  @spec get_traffic_policy_instance(map(), String.t() | atom(), list()) ::
           {:ok, get_traffic_policy_instance_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5589,10 +5609,10 @@ defmodule AWS.Route53 do
   """
   @spec list_cidr_blocks(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_cidr_blocks_response(), any()}
@@ -5641,7 +5661,7 @@ defmodule AWS.Route53 do
   Returns a paginated list of CIDR collections in the Amazon Web Services account
   (metadata only).
   """
-  @spec list_cidr_collections(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_cidr_collections(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_cidr_collections_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5680,7 +5700,13 @@ defmodule AWS.Route53 do
   only,
   does not include CIDR blocks).
   """
-  @spec list_cidr_locations(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_cidr_locations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_cidr_locations_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5736,10 +5762,10 @@ defmodule AWS.Route53 do
   """
   @spec list_geo_locations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_geo_locations_response(), any()}
@@ -5795,7 +5821,7 @@ defmodule AWS.Route53 do
   Retrieve a list of the health checks that are associated with the current Amazon
   Web Services account.
   """
-  @spec list_health_checks(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_health_checks(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_health_checks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5839,10 +5865,10 @@ defmodule AWS.Route53 do
   """
   @spec list_hosted_zones(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_hosted_zones_response(), any()}
@@ -5962,9 +5988,9 @@ defmodule AWS.Route53 do
   """
   @spec list_hosted_zones_by_name(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_hosted_zones_by_name_response(), any()}
@@ -6062,10 +6088,10 @@ defmodule AWS.Route53 do
   """
   @spec list_hosted_zones_by_vpc(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_hosted_zones_by_vpc_response(), any()}
@@ -6133,9 +6159,9 @@ defmodule AWS.Route53 do
   """
   @spec list_query_logging_configs(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_query_logging_configs_response(), any()}
@@ -6260,11 +6286,11 @@ defmodule AWS.Route53 do
   """
   @spec list_resource_record_sets(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_resource_record_sets_response(), any()}
@@ -6322,7 +6348,12 @@ defmodule AWS.Route53 do
   current
   Amazon Web Services account.
   """
-  @spec list_reusable_delegation_sets(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_reusable_delegation_sets(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_reusable_delegation_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6362,7 +6393,7 @@ defmodule AWS.Route53 do
   For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
   in the *Billing and Cost Management User Guide*.
   """
-  @spec list_tags_for_resource(map(), String.t(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6385,7 +6416,12 @@ defmodule AWS.Route53 do
   For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
   in the *Billing and Cost Management User Guide*.
   """
-  @spec list_tags_for_resources(map(), String.t(), list_tags_for_resources_request(), list()) ::
+  @spec list_tags_for_resources(
+          map(),
+          String.t() | atom(),
+          list_tags_for_resources_request(),
+          list()
+        ) ::
           {:ok, list_tags_for_resources_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6423,7 +6459,7 @@ defmodule AWS.Route53 do
   `ListTrafficPolicies`, see
   [DeleteTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html).
   """
-  @spec list_traffic_policies(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_traffic_policies(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_traffic_policies_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6474,10 +6510,10 @@ defmodule AWS.Route53 do
   """
   @spec list_traffic_policy_instances(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_traffic_policy_instances_response(), any()}
@@ -6548,10 +6584,10 @@ defmodule AWS.Route53 do
   """
   @spec list_traffic_policy_instances_by_hosted_zone(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_traffic_policy_instances_by_hosted_zone_response(), any()}
@@ -6621,12 +6657,12 @@ defmodule AWS.Route53 do
   """
   @spec list_traffic_policy_instances_by_policy(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
           list()
         ) ::
           {:ok, list_traffic_policy_instances_by_policy_response(), any()}
@@ -6702,9 +6738,9 @@ defmodule AWS.Route53 do
   """
   @spec list_traffic_policy_versions(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_traffic_policy_versions_response(), any()}
@@ -6752,9 +6788,9 @@ defmodule AWS.Route53 do
   """
   @spec list_vpc_association_authorizations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_vpc_association_authorizations_response(), any()}
@@ -6810,12 +6846,12 @@ defmodule AWS.Route53 do
   """
   @spec test_dns_answer(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, test_dns_answer_response(), any()}
@@ -6893,7 +6929,7 @@ defmodule AWS.Route53 do
   in the *Amazon Route 53
   Developer Guide*.
   """
-  @spec update_health_check(map(), String.t(), update_health_check_request(), list()) ::
+  @spec update_health_check(map(), String.t() | atom(), update_health_check_request(), list()) ::
           {:ok, update_health_check_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6924,7 +6960,7 @@ defmodule AWS.Route53 do
   """
   @spec update_hosted_zone_comment(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_hosted_zone_comment_request(),
           list()
         ) ::
@@ -6958,8 +6994,8 @@ defmodule AWS.Route53 do
   """
   @spec update_traffic_policy_comment(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_traffic_policy_comment_request(),
           list()
         ) ::
@@ -7029,7 +7065,7 @@ defmodule AWS.Route53 do
   """
   @spec update_traffic_policy_instance(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_traffic_policy_instance_request(),
           list()
         ) ::

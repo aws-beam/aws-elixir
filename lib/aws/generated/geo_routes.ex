@@ -45,7 +45,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_toll_pass() :: %{String.t() => any()}
+  @type route_toll_pass() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -56,7 +56,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type waypoint_optimization_trailer_options() :: %{String.t() => any()}
+  @type waypoint_optimization_trailer_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,14 +71,14 @@ defmodule AWS.GeoRoutes do
         "SeasonalClosure" => [boolean()],
         "TollRoads" => [boolean()],
         "TollTransponders" => [boolean()],
-        "TruckRoadTypes" => list(String.t()),
+        "TruckRoadTypes" => list(String.t() | atom()),
         "Tunnels" => [boolean()],
         "UTurns" => [boolean()],
         "ZoneCategories" => list(route_avoidance_zone_category())
       }
 
   """
-  @type route_avoidance_options() :: %{String.t() => any()}
+  @type route_avoidance_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -86,24 +86,24 @@ defmodule AWS.GeoRoutes do
 
       waypoint_optimization_impeding_waypoint() :: %{
         "FailedConstraints" => list(waypoint_optimization_failed_constraint()),
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "Position" => list([float()]())
       }
 
   """
-  @type waypoint_optimization_impeding_waypoint() :: %{String.t() => any()}
+  @type waypoint_optimization_impeding_waypoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_ferry_notice() :: %{
-        "Code" => String.t(),
-        "Impact" => String.t()
+        "Code" => String.t() | atom(),
+        "Impact" => String.t() | atom()
       }
 
   """
-  @type route_ferry_notice() :: %{String.t() => any()}
+  @type route_ferry_notice() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -111,13 +111,13 @@ defmodule AWS.GeoRoutes do
 
       route_u_turn_step_details() :: %{
         "Intersection" => list(localized_string()),
-        "SteeringDirection" => String.t(),
+        "SteeringDirection" => String.t() | atom(),
         "TurnAngle" => float(),
-        "TurnIntensity" => String.t()
+        "TurnIntensity" => String.t() | atom()
       }
 
   """
-  @type route_u_turn_step_details() :: %{String.t() => any()}
+  @type route_u_turn_step_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -125,34 +125,34 @@ defmodule AWS.GeoRoutes do
 
       waypoint_optimization_truck_options() :: %{
         "GrossWeight" => float(),
-        "HazardousCargos" => list(String.t()),
+        "HazardousCargos" => list(String.t() | atom()),
         "Height" => float(),
         "Length" => float(),
         "Trailer" => waypoint_optimization_trailer_options(),
-        "TruckType" => String.t(),
-        "TunnelRestrictionCode" => String.t(),
+        "TruckType" => String.t() | atom(),
+        "TunnelRestrictionCode" => String.t() | atom(),
         "WeightPerAxle" => float(),
         "Width" => float()
       }
 
   """
-  @type waypoint_optimization_truck_options() :: %{String.t() => any()}
+  @type waypoint_optimization_truck_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       snap_to_roads_request() :: %{
-        optional("Key") => String.t(),
+        optional("Key") => String.t() | atom(),
         optional("SnapRadius") => float(),
-        optional("SnappedGeometryFormat") => String.t(),
-        optional("TravelMode") => String.t(),
+        optional("SnappedGeometryFormat") => String.t() | atom(),
+        optional("TravelMode") => String.t() | atom(),
         optional("TravelModeOptions") => road_snap_travel_mode_options(),
         required("TracePoints") => list(road_snap_trace_point())
       }
 
   """
-  @type snap_to_roads_request() :: %{String.t() => any()}
+  @type snap_to_roads_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -168,19 +168,19 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_destination_options() :: %{String.t() => any()}
+  @type route_destination_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_toll_payment_site() :: %{
-        "Name" => [String.t()],
+        "Name" => [String.t() | atom()],
         "Position" => list([float()]())
       }
 
   """
-  @type route_toll_payment_site() :: %{String.t() => any()}
+  @type route_toll_payment_site() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -192,25 +192,25 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type isoline_allow_options() :: %{String.t() => any()}
+  @type isoline_allow_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_toll_rate() :: %{
-        "ApplicableTimes" => [String.t()],
+        "ApplicableTimes" => [String.t() | atom()],
         "ConvertedPrice" => route_toll_price(),
-        "Id" => [String.t()],
+        "Id" => [String.t() | atom()],
         "LocalPrice" => route_toll_price(),
-        "Name" => [String.t()],
+        "Name" => [String.t() | atom()],
         "Pass" => route_toll_pass(),
-        "PaymentMethods" => list(String.t()),
+        "PaymentMethods" => list(String.t() | atom()),
         "Transponders" => list(route_transponder())
       }
 
   """
-  @type route_toll_rate() :: %{String.t() => any()}
+  @type route_toll_rate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -221,7 +221,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_matrix_avoidance_area() :: %{String.t() => any()}
+  @type route_matrix_avoidance_area() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -230,13 +230,13 @@ defmodule AWS.GeoRoutes do
       route_exit_step_details() :: %{
         "Intersection" => list(localized_string()),
         "RelativeExit" => [integer()],
-        "SteeringDirection" => String.t(),
+        "SteeringDirection" => String.t() | atom(),
         "TurnAngle" => float(),
-        "TurnIntensity" => String.t()
+        "TurnIntensity" => String.t() | atom()
       }
 
   """
-  @type route_exit_step_details() :: %{String.t() => any()}
+  @type route_exit_step_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -244,26 +244,26 @@ defmodule AWS.GeoRoutes do
 
       route_ferry_arrival() :: %{
         "Place" => route_ferry_place(),
-        "Time" => String.t()
+        "Time" => String.t() | atom()
       }
 
   """
-  @type route_ferry_arrival() :: %{String.t() => any()}
+  @type route_ferry_arrival() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_vehicle_place() :: %{
-        "Name" => [String.t()],
+        "Name" => [String.t() | atom()],
         "OriginalPosition" => list([float()]()),
         "Position" => list([float()]()),
-        "SideOfStreet" => String.t(),
+        "SideOfStreet" => String.t() | atom(),
         "WaypointIndex" => [integer()]
       }
 
   """
-  @type route_vehicle_place() :: %{String.t() => any()}
+  @type route_vehicle_place() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -275,18 +275,18 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_driver_schedule_interval() :: %{String.t() => any()}
+  @type route_driver_schedule_interval() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_matrix_avoidance_zone_category() :: %{
-        "Category" => String.t()
+        "Category" => String.t() | atom()
       }
 
   """
-  @type route_matrix_avoidance_zone_category() :: %{String.t() => any()}
+  @type route_matrix_avoidance_zone_category() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -297,18 +297,18 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_signpost() :: %{String.t() => any()}
+  @type route_signpost() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_vehicle_license_plate() :: %{
-        "LastCharacter" => [String.t()]
+        "LastCharacter" => [String.t() | atom()]
       }
 
   """
-  @type route_vehicle_license_plate() :: %{String.t() => any()}
+  @type route_vehicle_license_plate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -317,11 +317,11 @@ defmodule AWS.GeoRoutes do
       waypoint_optimization_driver_options() :: %{
         "RestCycles" => waypoint_optimization_rest_cycles(),
         "RestProfile" => waypoint_optimization_rest_profile(),
-        "TreatServiceTimeAs" => String.t()
+        "TreatServiceTimeAs" => String.t() | atom()
       }
 
   """
-  @type waypoint_optimization_driver_options() :: %{String.t() => any()}
+  @type waypoint_optimization_driver_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -334,7 +334,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_matrix_car_options() :: %{String.t() => any()}
+  @type route_matrix_car_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -345,11 +345,11 @@ defmodule AWS.GeoRoutes do
         "Corridor" => corridor(),
         "Polygon" => list(list(list([float()]())())()),
         "PolylineCorridor" => polyline_corridor(),
-        "PolylinePolygon" => list(String.t())
+        "PolylinePolygon" => list(String.t() | atom())
       }
 
   """
-  @type route_avoidance_area_geometry() :: %{String.t() => any()}
+  @type route_avoidance_area_geometry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -362,7 +362,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type isoline_travel_mode_options() :: %{String.t() => any()}
+  @type isoline_travel_mode_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -375,7 +375,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_summary() :: %{String.t() => any()}
+  @type route_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -387,33 +387,33 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_pass_through_waypoint() :: %{String.t() => any()}
+  @type route_pass_through_waypoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       waypoint_optimization_access_hours_entry() :: %{
-        "DayOfWeek" => String.t(),
-        "TimeOfDay" => String.t()
+        "DayOfWeek" => String.t() | atom(),
+        "TimeOfDay" => String.t() | atom()
       }
 
   """
-  @type waypoint_optimization_access_hours_entry() :: %{String.t() => any()}
+  @type waypoint_optimization_access_hours_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       isoline_car_options() :: %{
-        "EngineType" => String.t(),
+        "EngineType" => String.t() | atom(),
         "LicensePlate" => isoline_vehicle_license_plate(),
         "MaxSpeed" => float(),
         "Occupancy" => [integer()]
       }
 
   """
-  @type isoline_car_options() :: %{String.t() => any()}
+  @type isoline_car_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -421,15 +421,15 @@ defmodule AWS.GeoRoutes do
 
       waypoint_optimization_connection() :: %{
         "Distance" => float(),
-        "From" => String.t(),
+        "From" => String.t() | atom(),
         "RestDuration" => float(),
-        "To" => String.t(),
+        "To" => String.t() | atom(),
         "TravelDuration" => float(),
         "WaitDuration" => float()
       }
 
   """
-  @type waypoint_optimization_connection() :: %{String.t() => any()}
+  @type waypoint_optimization_connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -440,19 +440,19 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_toll_summary() :: %{String.t() => any()}
+  @type route_toll_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       waypoint_optimization_clustering_options() :: %{
-        "Algorithm" => String.t(),
+        "Algorithm" => String.t() | atom(),
         "DrivingDistanceOptions" => waypoint_optimization_driving_distance_options()
       }
 
   """
-  @type waypoint_optimization_clustering_options() :: %{String.t() => any()}
+  @type waypoint_optimization_clustering_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -462,11 +462,11 @@ defmodule AWS.GeoRoutes do
         "Intersection" => list(localized_string()),
         "RelativeExit" => [integer()],
         "RoundaboutAngle" => float(),
-        "SteeringDirection" => String.t()
+        "SteeringDirection" => String.t() | atom()
       }
 
   """
-  @type route_roundabout_exit_step_details() :: %{String.t() => any()}
+  @type route_roundabout_exit_step_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -474,24 +474,24 @@ defmodule AWS.GeoRoutes do
 
       route_enter_highway_step_details() :: %{
         "Intersection" => list(localized_string()),
-        "SteeringDirection" => String.t(),
+        "SteeringDirection" => String.t() | atom(),
         "TurnAngle" => float(),
-        "TurnIntensity" => String.t()
+        "TurnIntensity" => String.t() | atom()
       }
 
   """
-  @type route_enter_highway_step_details() :: %{String.t() => any()}
+  @type route_enter_highway_step_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_toll_system() :: %{
-        "Name" => [String.t()]
+        "Name" => [String.t() | atom()]
       }
 
   """
-  @type route_toll_system() :: %{String.t() => any()}
+  @type route_toll_system() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -503,31 +503,31 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type waypoint_optimization_access_hours() :: %{String.t() => any()}
+  @type waypoint_optimization_access_hours() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       waypoint_optimization_origin_options() :: %{
-        "Id" => String.t()
+        "Id" => String.t() | atom()
       }
 
   """
-  @type waypoint_optimization_origin_options() :: %{String.t() => any()}
+  @type waypoint_optimization_origin_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       road_snap_notice() :: %{
-        "Code" => String.t(),
-        "Title" => [String.t()],
+        "Code" => String.t() | atom(),
+        "Title" => [String.t() | atom()],
         "TracePointIndexes" => list([integer()]())
       }
 
   """
-  @type road_snap_notice() :: %{String.t() => any()}
+  @type road_snap_notice() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -539,7 +539,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_toll_price_value_range() :: %{String.t() => any()}
+  @type route_toll_price_value_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -547,14 +547,14 @@ defmodule AWS.GeoRoutes do
 
       snap_to_roads_response() :: %{
         "Notices" => list(road_snap_notice()),
-        "PricingBucket" => [String.t()],
+        "PricingBucket" => [String.t() | atom()],
         "SnappedGeometry" => road_snap_snapped_geometry(),
-        "SnappedGeometryFormat" => String.t(),
+        "SnappedGeometryFormat" => String.t() | atom(),
         "SnappedTracePoints" => list(road_snap_snapped_trace_point())
       }
 
   """
-  @type snap_to_roads_response() :: %{String.t() => any()}
+  @type snap_to_roads_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -566,7 +566,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_pedestrian_overview_summary() :: %{String.t() => any()}
+  @type route_pedestrian_overview_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -577,7 +577,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type waypoint_optimization_avoidance_area() :: %{String.t() => any()}
+  @type waypoint_optimization_avoidance_area() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -585,13 +585,13 @@ defmodule AWS.GeoRoutes do
 
       route_keep_step_details() :: %{
         "Intersection" => list(localized_string()),
-        "SteeringDirection" => String.t(),
+        "SteeringDirection" => String.t() | atom(),
         "TurnAngle" => float(),
-        "TurnIntensity" => String.t()
+        "TurnIntensity" => String.t() | atom()
       }
 
   """
-  @type route_keep_step_details() :: %{String.t() => any()}
+  @type route_keep_step_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -599,11 +599,11 @@ defmodule AWS.GeoRoutes do
 
       route_traffic_options() :: %{
         "FlowEventThresholdOverride" => float(),
-        "Usage" => String.t()
+        "Usage" => String.t() | atom()
       }
 
   """
-  @type route_traffic_options() :: %{String.t() => any()}
+  @type route_traffic_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -615,7 +615,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type waypoint_optimization_rest_cycles() :: %{String.t() => any()}
+  @type waypoint_optimization_rest_cycles() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -623,17 +623,17 @@ defmodule AWS.GeoRoutes do
 
       waypoint_optimization_waypoint() :: %{
         "AccessHours" => waypoint_optimization_access_hours(),
-        "AppointmentTime" => String.t(),
+        "AppointmentTime" => String.t() | atom(),
         "Before" => list(integer()),
         "Heading" => float(),
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "Position" => list([float()]()),
         "ServiceDuration" => float(),
         "SideOfStreet" => waypoint_optimization_side_of_street_options()
       }
 
   """
-  @type waypoint_optimization_waypoint() :: %{String.t() => any()}
+  @type waypoint_optimization_waypoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -645,27 +645,27 @@ defmodule AWS.GeoRoutes do
         "Duration" => float(),
         "ImpedingWaypoints" => list(waypoint_optimization_impeding_waypoint()),
         "OptimizedWaypoints" => list(waypoint_optimization_optimized_waypoint()),
-        "PricingBucket" => [String.t()],
+        "PricingBucket" => [String.t() | atom()],
         "TimeBreakdown" => waypoint_optimization_time_breakdown()
       }
 
   """
-  @type optimize_waypoints_response() :: %{String.t() => any()}
+  @type optimize_waypoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_pedestrian_place() :: %{
-        "Name" => [String.t()],
+        "Name" => [String.t() | atom()],
         "OriginalPosition" => list([float()]()),
         "Position" => list([float()]()),
-        "SideOfStreet" => String.t(),
+        "SideOfStreet" => String.t() | atom(),
         "WaypointIndex" => [integer()]
       }
 
   """
-  @type route_pedestrian_place() :: %{String.t() => any()}
+  @type route_pedestrian_place() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -677,7 +677,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_pedestrian_summary() :: %{String.t() => any()}
+  @type route_pedestrian_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -686,13 +686,13 @@ defmodule AWS.GeoRoutes do
       route_toll_options() :: %{
         "AllTransponders" => [boolean()],
         "AllVignettes" => [boolean()],
-        "Currency" => String.t(),
+        "Currency" => String.t() | atom(),
         "EmissionType" => route_emission_type(),
-        "VehicleCategory" => String.t()
+        "VehicleCategory" => String.t() | atom()
       }
 
   """
-  @type route_toll_options() :: %{String.t() => any()}
+  @type route_toll_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -701,34 +701,34 @@ defmodule AWS.GeoRoutes do
       optimize_waypoints_request() :: %{
         optional("Avoid") => waypoint_optimization_avoidance_options(),
         optional("Clustering") => waypoint_optimization_clustering_options(),
-        optional("DepartureTime") => String.t(),
+        optional("DepartureTime") => String.t() | atom(),
         optional("Destination") => list([float()]()),
         optional("DestinationOptions") => waypoint_optimization_destination_options(),
         optional("Driver") => waypoint_optimization_driver_options(),
         optional("Exclude") => waypoint_optimization_exclusion_options(),
-        optional("Key") => String.t(),
-        optional("OptimizeSequencingFor") => String.t(),
+        optional("Key") => String.t() | atom(),
+        optional("OptimizeSequencingFor") => String.t() | atom(),
         optional("OriginOptions") => waypoint_optimization_origin_options(),
         optional("Traffic") => waypoint_optimization_traffic_options(),
-        optional("TravelMode") => String.t(),
+        optional("TravelMode") => String.t() | atom(),
         optional("TravelModeOptions") => waypoint_optimization_travel_mode_options(),
         optional("Waypoints") => list(waypoint_optimization_waypoint()),
         required("Origin") => list([float()]())
       }
 
   """
-  @type optimize_waypoints_request() :: %{String.t() => any()}
+  @type optimize_waypoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       waypoint_optimization_rest_profile() :: %{
-        "Profile" => [String.t()]
+        "Profile" => [String.t() | atom()]
       }
 
   """
-  @type waypoint_optimization_rest_profile() :: %{String.t() => any()}
+  @type waypoint_optimization_rest_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -740,19 +740,19 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_major_road_label() :: %{String.t() => any()}
+  @type route_major_road_label() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       polyline_corridor() :: %{
-        "Polyline" => String.t(),
+        "Polyline" => String.t() | atom(),
         "Radius" => [integer()]
       }
 
   """
-  @type polyline_corridor() :: %{String.t() => any()}
+  @type polyline_corridor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -760,11 +760,11 @@ defmodule AWS.GeoRoutes do
 
       route_pedestrian_arrival() :: %{
         "Place" => route_pedestrian_place(),
-        "Time" => String.t()
+        "Time" => String.t() | atom()
       }
 
   """
-  @type route_pedestrian_arrival() :: %{String.t() => any()}
+  @type route_pedestrian_arrival() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -772,38 +772,38 @@ defmodule AWS.GeoRoutes do
 
       calculate_isolines_request() :: %{
         optional("Allow") => isoline_allow_options(),
-        optional("ArrivalTime") => String.t(),
+        optional("ArrivalTime") => String.t() | atom(),
         optional("Avoid") => isoline_avoidance_options(),
         optional("DepartNow") => [boolean()],
-        optional("DepartureTime") => String.t(),
+        optional("DepartureTime") => String.t() | atom(),
         optional("Destination") => list([float()]()),
         optional("DestinationOptions") => isoline_destination_options(),
-        optional("IsolineGeometryFormat") => String.t(),
+        optional("IsolineGeometryFormat") => String.t() | atom(),
         optional("IsolineGranularity") => isoline_granularity_options(),
-        optional("Key") => String.t(),
-        optional("OptimizeIsolineFor") => String.t(),
-        optional("OptimizeRoutingFor") => String.t(),
+        optional("Key") => String.t() | atom(),
+        optional("OptimizeIsolineFor") => String.t() | atom(),
+        optional("OptimizeRoutingFor") => String.t() | atom(),
         optional("Origin") => list([float()]()),
         optional("OriginOptions") => isoline_origin_options(),
         optional("Traffic") => isoline_traffic_options(),
-        optional("TravelMode") => String.t(),
+        optional("TravelMode") => String.t() | atom(),
         optional("TravelModeOptions") => isoline_travel_mode_options(),
         required("Thresholds") => isoline_thresholds()
       }
 
   """
-  @type calculate_isolines_request() :: %{String.t() => any()}
+  @type calculate_isolines_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_avoidance_zone_category() :: %{
-        "Category" => String.t()
+        "Category" => String.t() | atom()
       }
 
   """
-  @type route_avoidance_zone_category() :: %{String.t() => any()}
+  @type route_avoidance_zone_category() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -811,13 +811,13 @@ defmodule AWS.GeoRoutes do
 
       route_roundabout_pass_step_details() :: %{
         "Intersection" => list(localized_string()),
-        "SteeringDirection" => String.t(),
+        "SteeringDirection" => String.t() | atom(),
         "TurnAngle" => float(),
-        "TurnIntensity" => String.t()
+        "TurnIntensity" => String.t() | atom()
       }
 
   """
-  @type route_roundabout_pass_step_details() :: %{String.t() => any()}
+  @type route_roundabout_pass_step_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -829,7 +829,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_ferry_summary() :: %{String.t() => any()}
+  @type route_ferry_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -841,7 +841,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_matrix_origin() :: %{String.t() => any()}
+  @type route_matrix_origin() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -855,19 +855,19 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type isoline() :: %{String.t() => any()}
+  @type isoline() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_pedestrian_notice() :: %{
-        "Code" => String.t(),
-        "Impact" => String.t()
+        "Code" => String.t() | atom(),
+        "Impact" => String.t() | atom()
       }
 
   """
-  @type route_pedestrian_notice() :: %{String.t() => any()}
+  @type route_pedestrian_notice() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -875,11 +875,11 @@ defmodule AWS.GeoRoutes do
 
       isoline_connection_geometry() :: %{
         "LineString" => list(list([float()]())()),
-        "Polyline" => String.t()
+        "Polyline" => String.t() | atom()
       }
 
   """
-  @type isoline_connection_geometry() :: %{String.t() => any()}
+  @type isoline_connection_geometry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -887,32 +887,32 @@ defmodule AWS.GeoRoutes do
 
       route_vehicle_span() :: %{
         "BestCaseDuration" => float(),
-        "CarAccess" => list(String.t()),
-        "Country" => String.t(),
+        "CarAccess" => list(String.t() | atom()),
+        "Country" => String.t() | atom(),
         "Distance" => float(),
         "Duration" => float(),
         "DynamicSpeed" => route_span_dynamic_speed_details(),
         "FunctionalClassification" => [integer()],
-        "Gate" => String.t(),
+        "Gate" => String.t() | atom(),
         "GeometryOffset" => [integer()],
         "Incidents" => list([integer()]()),
         "Names" => list(localized_string()),
         "Notices" => list([integer()]()),
-        "RailwayCrossing" => String.t(),
-        "Region" => [String.t()],
-        "RoadAttributes" => list(String.t()),
+        "RailwayCrossing" => String.t() | atom(),
+        "Region" => [String.t() | atom()],
+        "RoadAttributes" => list(String.t() | atom()),
         "RouteNumbers" => list(route_number()),
-        "ScooterAccess" => list(String.t()),
+        "ScooterAccess" => list(String.t() | atom()),
         "SpeedLimit" => route_span_speed_limit_details(),
         "TollSystems" => list([integer()]()),
-        "TruckAccess" => list(String.t()),
+        "TruckAccess" => list(String.t() | atom()),
         "TruckRoadTypes" => list([integer()]()),
         "TypicalDuration" => float(),
         "Zones" => list([integer()]())
       }
 
   """
-  @type route_vehicle_span() :: %{String.t() => any()}
+  @type route_vehicle_span() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -926,18 +926,18 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type isoline_destination_options() :: %{String.t() => any()}
+  @type isoline_destination_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_transponder() :: %{
-        "SystemName" => [String.t()]
+        "SystemName" => [String.t() | atom()]
       }
 
   """
-  @type route_transponder() :: %{String.t() => any()}
+  @type route_transponder() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -950,50 +950,50 @@ defmodule AWS.GeoRoutes do
         "Departure" => route_ferry_departure(),
         "Notices" => list(route_ferry_notice()),
         "PassThroughWaypoints" => list(route_pass_through_waypoint()),
-        "RouteName" => [String.t()],
+        "RouteName" => [String.t() | atom()],
         "Spans" => list(route_ferry_span()),
         "Summary" => route_ferry_summary(),
         "TravelSteps" => list(route_ferry_travel_step())
       }
 
   """
-  @type route_ferry_leg_details() :: %{String.t() => any()}
+  @type route_ferry_leg_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_matching_options() :: %{
-        "NameHint" => String.t(),
+        "NameHint" => String.t() | atom(),
         "OnRoadThreshold" => float(),
         "Radius" => float(),
-        "Strategy" => String.t()
+        "Strategy" => String.t() | atom()
       }
 
   """
-  @type route_matching_options() :: %{String.t() => any()}
+  @type route_matching_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_matrix_exclusion_options() :: %{
-        "Countries" => list(String.t())
+        "Countries" => list(String.t() | atom())
       }
 
   """
-  @type route_matrix_exclusion_options() :: %{String.t() => any()}
+  @type route_matrix_exclusion_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       waypoint_optimization_exclusion_options() :: %{
-        "Countries" => list(String.t())
+        "Countries" => list(String.t() | atom())
       }
 
   """
-  @type waypoint_optimization_exclusion_options() :: %{String.t() => any()}
+  @type waypoint_optimization_exclusion_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1007,28 +1007,28 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_travel_mode_options() :: %{String.t() => any()}
+  @type route_travel_mode_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       isoline_scooter_options() :: %{
-        "EngineType" => String.t(),
+        "EngineType" => String.t() | atom(),
         "LicensePlate" => isoline_vehicle_license_plate(),
         "MaxSpeed" => float(),
         "Occupancy" => [integer()]
       }
 
   """
-  @type isoline_scooter_options() :: %{String.t() => any()}
+  @type isoline_scooter_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_toll_price_summary() :: %{
-        "Currency" => String.t(),
+        "Currency" => String.t() | atom(),
         "Estimate" => [boolean()],
         "Range" => [boolean()],
         "RangeValue" => route_toll_price_value_range(),
@@ -1036,7 +1036,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_toll_price_summary() :: %{String.t() => any()}
+  @type route_toll_price_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1049,7 +1049,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type isoline_connection() :: %{String.t() => any()}
+  @type isoline_connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1061,7 +1061,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type waypoint_optimization_travel_mode_options() :: %{String.t() => any()}
+  @type waypoint_optimization_travel_mode_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1073,7 +1073,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type isoline_avoidance_area() :: %{String.t() => any()}
+  @type isoline_avoidance_area() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1088,7 +1088,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_origin_options() :: %{String.t() => any()}
+  @type route_origin_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1096,12 +1096,12 @@ defmodule AWS.GeoRoutes do
 
       route_ferry_after_travel_step() :: %{
         "Duration" => float(),
-        "Instruction" => [String.t()],
-        "Type" => String.t()
+        "Instruction" => [String.t() | atom()],
+        "Type" => String.t() | atom()
       }
 
   """
-  @type route_ferry_after_travel_step() :: %{String.t() => any()}
+  @type route_ferry_after_travel_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1113,7 +1113,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type corridor() :: %{String.t() => any()}
+  @type corridor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1121,11 +1121,11 @@ defmodule AWS.GeoRoutes do
 
       route_matrix_traffic_options() :: %{
         "FlowEventThresholdOverride" => float(),
-        "Usage" => String.t()
+        "Usage" => String.t() | atom()
       }
 
   """
-  @type route_matrix_traffic_options() :: %{String.t() => any()}
+  @type route_matrix_traffic_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1137,7 +1137,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type isoline_granularity_options() :: %{String.t() => any()}
+  @type isoline_granularity_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1148,7 +1148,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_matrix_trailer_options() :: %{String.t() => any()}
+  @type route_matrix_trailer_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1159,7 +1159,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_pedestrian_travel_only_summary() :: %{String.t() => any()}
+  @type route_pedestrian_travel_only_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1170,7 +1170,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_ferry_travel_only_summary() :: %{String.t() => any()}
+  @type route_ferry_travel_only_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1178,23 +1178,23 @@ defmodule AWS.GeoRoutes do
 
       route_pedestrian_departure() :: %{
         "Place" => route_pedestrian_place(),
-        "Time" => String.t()
+        "Time" => String.t() | atom()
       }
 
   """
-  @type route_pedestrian_departure() :: %{String.t() => any()}
+  @type route_pedestrian_departure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_vehicle_notice_detail() :: %{
-        "Title" => [String.t()],
+        "Title" => [String.t() | atom()],
         "ViolatedConstraints" => route_violated_constraints()
       }
 
   """
-  @type route_vehicle_notice_detail() :: %{String.t() => any()}
+  @type route_vehicle_notice_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1202,9 +1202,9 @@ defmodule AWS.GeoRoutes do
 
       route_truck_options() :: %{
         "AxleCount" => [integer()],
-        "EngineType" => String.t(),
+        "EngineType" => String.t() | atom(),
         "GrossWeight" => float(),
-        "HazardousCargos" => list(String.t()),
+        "HazardousCargos" => list(String.t() | atom()),
         "Height" => float(),
         "HeightAboveFirstAxle" => float(),
         "KpraLength" => float(),
@@ -1215,30 +1215,30 @@ defmodule AWS.GeoRoutes do
         "PayloadCapacity" => float(),
         "TireCount" => [integer()],
         "Trailer" => route_trailer_options(),
-        "TruckType" => String.t(),
-        "TunnelRestrictionCode" => String.t(),
+        "TruckType" => String.t() | atom(),
+        "TunnelRestrictionCode" => String.t() | atom(),
         "WeightPerAxle" => float(),
         "WeightPerAxleGroup" => weight_per_axle_group(),
         "Width" => float()
       }
 
   """
-  @type route_truck_options() :: %{String.t() => any()}
+  @type route_truck_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_vehicle_incident() :: %{
-        "Description" => [String.t()],
-        "EndTime" => String.t(),
-        "Severity" => String.t(),
-        "StartTime" => String.t(),
-        "Type" => String.t()
+        "Description" => [String.t() | atom()],
+        "EndTime" => String.t() | atom(),
+        "Severity" => String.t() | atom(),
+        "StartTime" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type route_vehicle_incident() :: %{String.t() => any()}
+  @type route_vehicle_incident() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1255,38 +1255,38 @@ defmodule AWS.GeoRoutes do
         "TollSystems" => list(route_toll_system()),
         "Tolls" => list(route_toll()),
         "TravelSteps" => list(route_vehicle_travel_step()),
-        "TruckRoadTypes" => list(String.t()),
+        "TruckRoadTypes" => list(String.t() | atom()),
         "Zones" => list(route_zone())
       }
 
   """
-  @type route_vehicle_leg_details() :: %{String.t() => any()}
+  @type route_vehicle_leg_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_car_options() :: %{
-        "EngineType" => String.t(),
+        "EngineType" => String.t() | atom(),
         "LicensePlate" => route_vehicle_license_plate(),
         "MaxSpeed" => float(),
         "Occupancy" => [integer()]
       }
 
   """
-  @type route_car_options() :: %{String.t() => any()}
+  @type route_car_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       localized_string() :: %{
-        "Language" => String.t(),
-        "Value" => [String.t()]
+        "Language" => String.t() | atom(),
+        "Value" => [String.t() | atom()]
       }
 
   """
-  @type localized_string() :: %{String.t() => any()}
+  @type localized_string() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1299,7 +1299,7 @@ defmodule AWS.GeoRoutes do
         "Duration" => float(),
         "ExitNumber" => list(localized_string()),
         "GeometryOffset" => [integer()],
-        "Instruction" => [String.t()],
+        "Instruction" => [String.t() | atom()],
         "KeepStepDetails" => route_keep_step_details(),
         "NextRoad" => route_road(),
         "RoundaboutEnterStepDetails" => route_roundabout_enter_step_details(),
@@ -1307,11 +1307,11 @@ defmodule AWS.GeoRoutes do
         "RoundaboutPassStepDetails" => route_roundabout_pass_step_details(),
         "Signpost" => route_signpost(),
         "TurnStepDetails" => route_turn_step_details(),
-        "Type" => String.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type route_pedestrian_travel_step() :: %{String.t() => any()}
+  @type route_pedestrian_travel_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1319,11 +1319,11 @@ defmodule AWS.GeoRoutes do
 
       isoline_traffic_options() :: %{
         "FlowEventThresholdOverride" => float(),
-        "Usage" => String.t()
+        "Usage" => String.t() | atom()
       }
 
   """
-  @type isoline_traffic_options() :: %{String.t() => any()}
+  @type isoline_traffic_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1335,7 +1335,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_span_speed_limit_details() :: %{String.t() => any()}
+  @type route_span_speed_limit_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1349,7 +1349,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_matrix_destination_options() :: %{String.t() => any()}
+  @type route_matrix_destination_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1362,7 +1362,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route() :: %{String.t() => any()}
+  @type route() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1370,13 +1370,13 @@ defmodule AWS.GeoRoutes do
 
       route_ramp_step_details() :: %{
         "Intersection" => list(localized_string()),
-        "SteeringDirection" => String.t(),
+        "SteeringDirection" => String.t() | atom(),
         "TurnAngle" => float(),
-        "TurnIntensity" => String.t()
+        "TurnIntensity" => String.t() | atom()
       }
 
   """
-  @type route_ramp_step_details() :: %{String.t() => any()}
+  @type route_ramp_step_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1388,7 +1388,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_trailer_options() :: %{String.t() => any()}
+  @type route_trailer_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1399,11 +1399,11 @@ defmodule AWS.GeoRoutes do
         "Corridor" => corridor(),
         "Polygon" => list(list(list([float()]())())()),
         "PolylineCorridor" => polyline_corridor(),
-        "PolylinePolygon" => list(String.t())
+        "PolylinePolygon" => list(String.t() | atom())
       }
 
   """
-  @type isoline_avoidance_area_geometry() :: %{String.t() => any()}
+  @type isoline_avoidance_area_geometry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1415,7 +1415,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type circle() :: %{String.t() => any()}
+  @type circle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1424,11 +1424,11 @@ defmodule AWS.GeoRoutes do
       route_matrix_avoidance_area_geometry() :: %{
         "BoundingBox" => list([float()]()),
         "Polygon" => list(list(list([float()]())())()),
-        "PolylinePolygon" => list(String.t())
+        "PolylinePolygon" => list(String.t() | atom())
       }
 
   """
-  @type route_matrix_avoidance_area_geometry() :: %{String.t() => any()}
+  @type route_matrix_avoidance_area_geometry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1440,35 +1440,35 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_signpost_label() :: %{String.t() => any()}
+  @type route_signpost_label() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       isoline_matching_options() :: %{
-        "NameHint" => String.t(),
+        "NameHint" => String.t() | atom(),
         "OnRoadThreshold" => float(),
         "Radius" => float(),
-        "Strategy" => String.t()
+        "Strategy" => String.t() | atom()
       }
 
   """
-  @type isoline_matching_options() :: %{String.t() => any()}
+  @type isoline_matching_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_toll() :: %{
-        "Country" => String.t(),
+        "Country" => String.t() | atom(),
         "PaymentSites" => list(route_toll_payment_site()),
         "Rates" => list(route_toll_rate()),
         "Systems" => list([integer()]())
       }
 
   """
-  @type route_toll() :: %{String.t() => any()}
+  @type route_toll() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1480,7 +1480,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type isoline_trailer_options() :: %{String.t() => any()}
+  @type isoline_trailer_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1491,7 +1491,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type waypoint_optimization_avoidance_area_geometry() :: %{String.t() => any()}
+  @type waypoint_optimization_avoidance_area_geometry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1503,19 +1503,19 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type isoline_thresholds() :: %{String.t() => any()}
+  @type isoline_thresholds() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "Message" => [String.t()],
-        "Name" => [String.t()]
+        "Message" => [String.t() | atom()],
+        "Name" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1530,14 +1530,14 @@ defmodule AWS.GeoRoutes do
         "SeasonalClosure" => [boolean()],
         "TollRoads" => [boolean()],
         "TollTransponders" => [boolean()],
-        "TruckRoadTypes" => list(String.t()),
+        "TruckRoadTypes" => list(String.t() | atom()),
         "Tunnels" => [boolean()],
         "UTurns" => [boolean()],
         "ZoneCategories" => list(isoline_avoidance_zone_category())
       }
 
   """
-  @type isoline_avoidance_options() :: %{String.t() => any()}
+  @type isoline_avoidance_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1553,7 +1553,7 @@ defmodule AWS.GeoRoutes do
         "ExitNumber" => list(localized_string()),
         "ExitStepDetails" => route_exit_step_details(),
         "GeometryOffset" => [integer()],
-        "Instruction" => [String.t()],
+        "Instruction" => [String.t() | atom()],
         "KeepStepDetails" => route_keep_step_details(),
         "NextRoad" => route_road(),
         "RampStepDetails" => route_ramp_step_details(),
@@ -1562,24 +1562,24 @@ defmodule AWS.GeoRoutes do
         "RoundaboutPassStepDetails" => route_roundabout_pass_step_details(),
         "Signpost" => route_signpost(),
         "TurnStepDetails" => route_turn_step_details(),
-        "Type" => String.t(),
+        "Type" => String.t() | atom(),
         "UTurnStepDetails" => route_u_turn_step_details()
       }
 
   """
-  @type route_vehicle_travel_step() :: %{String.t() => any()}
+  @type route_vehicle_travel_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_toll_pass_validity_period() :: %{
-        "Period" => String.t(),
+        "Period" => String.t() | atom(),
         "PeriodCount" => [integer()]
       }
 
   """
-  @type route_toll_pass_validity_period() :: %{String.t() => any()}
+  @type route_toll_pass_validity_period() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1587,26 +1587,26 @@ defmodule AWS.GeoRoutes do
 
       waypoint_optimization_destination_options() :: %{
         "AccessHours" => waypoint_optimization_access_hours(),
-        "AppointmentTime" => String.t(),
+        "AppointmentTime" => String.t() | atom(),
         "Heading" => float(),
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "ServiceDuration" => float(),
         "SideOfStreet" => waypoint_optimization_side_of_street_options()
       }
 
   """
-  @type waypoint_optimization_destination_options() :: %{String.t() => any()}
+  @type waypoint_optimization_destination_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       waypoint_optimization_traffic_options() :: %{
-        "Usage" => String.t()
+        "Usage" => String.t() | atom()
       }
 
   """
-  @type waypoint_optimization_traffic_options() :: %{String.t() => any()}
+  @type waypoint_optimization_traffic_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1623,7 +1623,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_pedestrian_leg_details() :: %{String.t() => any()}
+  @type route_pedestrian_leg_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1634,7 +1634,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_driver_options() :: %{String.t() => any()}
+  @type route_driver_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1643,7 +1643,7 @@ defmodule AWS.GeoRoutes do
       route_matrix_truck_options() :: %{
         "AxleCount" => [integer()],
         "GrossWeight" => float(),
-        "HazardousCargos" => list(String.t()),
+        "HazardousCargos" => list(String.t() | atom()),
         "Height" => float(),
         "KpraLength" => float(),
         "Length" => float(),
@@ -1652,15 +1652,15 @@ defmodule AWS.GeoRoutes do
         "Occupancy" => [integer()],
         "PayloadCapacity" => float(),
         "Trailer" => route_matrix_trailer_options(),
-        "TruckType" => String.t(),
-        "TunnelRestrictionCode" => String.t(),
+        "TruckType" => String.t() | atom(),
+        "TunnelRestrictionCode" => String.t() | atom(),
         "WeightPerAxle" => float(),
         "WeightPerAxleGroup" => weight_per_axle_group(),
         "Width" => float()
       }
 
   """
-  @type route_matrix_truck_options() :: %{String.t() => any()}
+  @type route_matrix_truck_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1670,11 +1670,11 @@ defmodule AWS.GeoRoutes do
         "RoadName" => list(localized_string()),
         "RouteNumber" => list(route_number()),
         "Towards" => list(localized_string()),
-        "Type" => String.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type route_road() :: %{String.t() => any()}
+  @type route_road() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1682,11 +1682,11 @@ defmodule AWS.GeoRoutes do
 
       isoline_side_of_street_options() :: %{
         "Position" => list([float()]()),
-        "UseWith" => String.t()
+        "UseWith" => String.t() | atom()
       }
 
   """
-  @type isoline_side_of_street_options() :: %{String.t() => any()}
+  @type isoline_side_of_street_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1698,7 +1698,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_matrix_destination() :: %{String.t() => any()}
+  @type route_matrix_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1706,27 +1706,27 @@ defmodule AWS.GeoRoutes do
 
       route_roundabout_enter_step_details() :: %{
         "Intersection" => list(localized_string()),
-        "SteeringDirection" => String.t(),
+        "SteeringDirection" => String.t() | atom(),
         "TurnAngle" => float(),
-        "TurnIntensity" => String.t()
+        "TurnIntensity" => String.t() | atom()
       }
 
   """
-  @type route_roundabout_enter_step_details() :: %{String.t() => any()}
+  @type route_roundabout_enter_step_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_matrix_matching_options() :: %{
-        "NameHint" => String.t(),
+        "NameHint" => String.t() | atom(),
         "OnRoadThreshold" => float(),
         "Radius" => float(),
-        "Strategy" => String.t()
+        "Strategy" => String.t() | atom()
       }
 
   """
-  @type route_matrix_matching_options() :: %{String.t() => any()}
+  @type route_matrix_matching_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1738,7 +1738,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_matrix_boundary() :: %{String.t() => any()}
+  @type route_matrix_boundary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1751,18 +1751,18 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_matrix_travel_mode_options() :: %{String.t() => any()}
+  @type route_matrix_travel_mode_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1770,12 +1770,12 @@ defmodule AWS.GeoRoutes do
 
       route_ferry_before_travel_step() :: %{
         "Duration" => float(),
-        "Instruction" => [String.t()],
-        "Type" => String.t()
+        "Instruction" => [String.t() | atom()],
+        "Type" => String.t() | atom()
       }
 
   """
-  @type route_ferry_before_travel_step() :: %{String.t() => any()}
+  @type route_ferry_before_travel_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1788,19 +1788,19 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_vehicle_travel_only_summary() :: %{String.t() => any()}
+  @type route_vehicle_travel_only_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_zone() :: %{
-        "Category" => String.t(),
-        "Name" => [String.t()]
+        "Category" => String.t() | atom(),
+        "Name" => [String.t() | atom()]
       }
 
   """
-  @type route_zone() :: %{String.t() => any()}
+  @type route_zone() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1808,11 +1808,11 @@ defmodule AWS.GeoRoutes do
 
       route_leg_geometry() :: %{
         "LineString" => list(list([float()]())()),
-        "Polyline" => String.t()
+        "Polyline" => String.t() | atom()
       }
 
   """
-  @type route_leg_geometry() :: %{String.t() => any()}
+  @type route_leg_geometry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1820,47 +1820,47 @@ defmodule AWS.GeoRoutes do
 
       calculate_routes_request() :: %{
         optional("Allow") => route_allow_options(),
-        optional("ArrivalTime") => String.t(),
+        optional("ArrivalTime") => String.t() | atom(),
         optional("Avoid") => route_avoidance_options(),
         optional("DepartNow") => [boolean()],
-        optional("DepartureTime") => String.t(),
+        optional("DepartureTime") => String.t() | atom(),
         optional("DestinationOptions") => route_destination_options(),
         optional("Driver") => route_driver_options(),
         optional("Exclude") => route_exclusion_options(),
-        optional("InstructionsMeasurementSystem") => String.t(),
-        optional("Key") => String.t(),
-        optional("Languages") => list(String.t()),
-        optional("LegAdditionalFeatures") => list(String.t()),
-        optional("LegGeometryFormat") => String.t(),
+        optional("InstructionsMeasurementSystem") => String.t() | atom(),
+        optional("Key") => String.t() | atom(),
+        optional("Languages") => list(String.t() | atom()),
+        optional("LegAdditionalFeatures") => list(String.t() | atom()),
+        optional("LegGeometryFormat") => String.t() | atom(),
         optional("MaxAlternatives") => [integer()],
-        optional("OptimizeRoutingFor") => String.t(),
+        optional("OptimizeRoutingFor") => String.t() | atom(),
         optional("OriginOptions") => route_origin_options(),
-        optional("SpanAdditionalFeatures") => list(String.t()),
+        optional("SpanAdditionalFeatures") => list(String.t() | atom()),
         optional("Tolls") => route_toll_options(),
         optional("Traffic") => route_traffic_options(),
-        optional("TravelMode") => String.t(),
+        optional("TravelMode") => String.t() | atom(),
         optional("TravelModeOptions") => route_travel_mode_options(),
-        optional("TravelStepType") => String.t(),
+        optional("TravelStepType") => String.t() | atom(),
         optional("Waypoints") => list(route_waypoint()),
         required("Destination") => list([float()]()),
         required("Origin") => list([float()]())
       }
 
   """
-  @type calculate_routes_request() :: %{String.t() => any()}
+  @type calculate_routes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_number() :: %{
-        "Direction" => String.t(),
-        "Language" => String.t(),
-        "Value" => [String.t()]
+        "Direction" => String.t() | atom(),
+        "Language" => String.t() | atom(),
+        "Value" => [String.t() | atom()]
       }
 
   """
-  @type route_number() :: %{String.t() => any()}
+  @type route_number() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1873,7 +1873,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_span_dynamic_speed_details() :: %{String.t() => any()}
+  @type route_span_dynamic_speed_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1881,25 +1881,25 @@ defmodule AWS.GeoRoutes do
 
       route_ferry_departure() :: %{
         "Place" => route_ferry_place(),
-        "Time" => String.t()
+        "Time" => String.t() | atom()
       }
 
   """
-  @type route_ferry_departure() :: %{String.t() => any()}
+  @type route_ferry_departure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_scooter_options() :: %{
-        "EngineType" => String.t(),
+        "EngineType" => String.t() | atom(),
         "LicensePlate" => route_vehicle_license_plate(),
         "MaxSpeed" => float(),
         "Occupancy" => [integer()]
       }
 
   """
-  @type route_scooter_options() :: %{String.t() => any()}
+  @type route_scooter_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1907,13 +1907,13 @@ defmodule AWS.GeoRoutes do
 
       route_continue_highway_step_details() :: %{
         "Intersection" => list(localized_string()),
-        "SteeringDirection" => String.t(),
+        "SteeringDirection" => String.t() | atom(),
         "TurnAngle" => float(),
-        "TurnIntensity" => String.t()
+        "TurnIntensity" => String.t() | atom()
       }
 
   """
-  @type route_continue_highway_step_details() :: %{String.t() => any()}
+  @type route_continue_highway_step_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1922,15 +1922,15 @@ defmodule AWS.GeoRoutes do
       route_leg() :: %{
         "FerryLegDetails" => route_ferry_leg_details(),
         "Geometry" => route_leg_geometry(),
-        "Language" => String.t(),
+        "Language" => String.t() | atom(),
         "PedestrianLegDetails" => route_pedestrian_leg_details(),
-        "TravelMode" => String.t(),
-        "Type" => String.t(),
+        "TravelMode" => String.t() | atom(),
+        "Type" => String.t() | atom(),
         "VehicleLegDetails" => route_vehicle_leg_details()
       }
 
   """
-  @type route_leg() :: %{String.t() => any()}
+  @type route_leg() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1940,22 +1940,22 @@ defmodule AWS.GeoRoutes do
         "Heading" => float(),
         "Position" => list([float()]()),
         "Speed" => float(),
-        "Timestamp" => String.t()
+        "Timestamp" => String.t() | atom()
       }
 
   """
-  @type road_snap_trace_point() :: %{String.t() => any()}
+  @type road_snap_trace_point() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1965,12 +1965,12 @@ defmodule AWS.GeoRoutes do
         "Distance" => float(),
         "Duration" => float(),
         "GeometryOffset" => [integer()],
-        "Instruction" => [String.t()],
-        "Type" => String.t()
+        "Instruction" => [String.t() | atom()],
+        "Type" => String.t() | atom()
       }
 
   """
-  @type route_ferry_travel_step() :: %{String.t() => any()}
+  @type route_ferry_travel_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1981,7 +1981,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type road_snap_travel_mode_options() :: %{String.t() => any()}
+  @type road_snap_travel_mode_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1989,13 +1989,13 @@ defmodule AWS.GeoRoutes do
 
       calculate_route_matrix_response() :: %{
         "ErrorCount" => [integer()],
-        "PricingBucket" => [String.t()],
+        "PricingBucket" => [String.t() | atom()],
         "RouteMatrix" => list(list(route_matrix_entry())()),
         "RoutingBoundary" => route_matrix_boundary()
       }
 
   """
-  @type calculate_route_matrix_response() :: %{String.t() => any()}
+  @type calculate_route_matrix_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2003,7 +2003,7 @@ defmodule AWS.GeoRoutes do
 
       route_pedestrian_span() :: %{
         "BestCaseDuration" => float(),
-        "Country" => String.t(),
+        "Country" => String.t() | atom(),
         "Distance" => float(),
         "Duration" => float(),
         "DynamicSpeed" => route_span_dynamic_speed_details(),
@@ -2011,31 +2011,31 @@ defmodule AWS.GeoRoutes do
         "GeometryOffset" => [integer()],
         "Incidents" => list([integer()]()),
         "Names" => list(localized_string()),
-        "PedestrianAccess" => list(String.t()),
-        "Region" => [String.t()],
-        "RoadAttributes" => list(String.t()),
+        "PedestrianAccess" => list(String.t() | atom()),
+        "Region" => [String.t() | atom()],
+        "RoadAttributes" => list(String.t() | atom()),
         "RouteNumbers" => list(route_number()),
         "SpeedLimit" => route_span_speed_limit_details(),
         "TypicalDuration" => float()
       }
 
   """
-  @type route_pedestrian_span() :: %{String.t() => any()}
+  @type route_pedestrian_span() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       waypoint_optimization_optimized_waypoint() :: %{
-        "ArrivalTime" => String.t(),
+        "ArrivalTime" => String.t() | atom(),
         "ClusterIndex" => integer(),
-        "DepartureTime" => String.t(),
-        "Id" => String.t(),
+        "DepartureTime" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "Position" => list([float()]())
       }
 
   """
-  @type waypoint_optimization_optimized_waypoint() :: %{String.t() => any()}
+  @type waypoint_optimization_optimized_waypoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2049,14 +2049,14 @@ defmodule AWS.GeoRoutes do
         "Ferries" => [boolean()],
         "TollRoads" => [boolean()],
         "TollTransponders" => [boolean()],
-        "TruckRoadTypes" => list(String.t()),
+        "TruckRoadTypes" => list(String.t() | atom()),
         "Tunnels" => [boolean()],
         "UTurns" => [boolean()],
         "ZoneCategories" => list(route_matrix_avoidance_zone_category())
       }
 
   """
-  @type route_matrix_avoidance_options() :: %{String.t() => any()}
+  @type route_matrix_avoidance_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2071,7 +2071,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type weight_per_axle_group() :: %{String.t() => any()}
+  @type weight_per_axle_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2085,7 +2085,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_matrix_origin_options() :: %{String.t() => any()}
+  @type route_matrix_origin_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2093,11 +2093,11 @@ defmodule AWS.GeoRoutes do
 
       waypoint_optimization_side_of_street_options() :: %{
         "Position" => list([float()]()),
-        "UseWith" => String.t()
+        "UseWith" => String.t() | atom()
       }
 
   """
-  @type waypoint_optimization_side_of_street_options() :: %{String.t() => any()}
+  @type waypoint_optimization_side_of_street_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2105,23 +2105,23 @@ defmodule AWS.GeoRoutes do
 
       validation_exception() :: %{
         "FieldList" => list(validation_exception_field()),
-        "Message" => [String.t()],
-        "Reason" => String.t()
+        "Message" => [String.t() | atom()],
+        "Reason" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       isoline_vehicle_license_plate() :: %{
-        "LastCharacter" => [String.t()]
+        "LastCharacter" => [String.t() | atom()]
       }
 
   """
-  @type isoline_vehicle_license_plate() :: %{String.t() => any()}
+  @type isoline_vehicle_license_plate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2134,19 +2134,19 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type road_snap_snapped_trace_point() :: %{String.t() => any()}
+  @type road_snap_snapped_trace_point() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_response_notice() :: %{
-        "Code" => String.t(),
-        "Impact" => String.t()
+        "Code" => String.t() | atom(),
+        "Impact" => String.t() | atom()
       }
 
   """
-  @type route_response_notice() :: %{String.t() => any()}
+  @type route_response_notice() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2158,7 +2158,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_avoidance_area() :: %{String.t() => any()}
+  @type route_avoidance_area() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2169,18 +2169,18 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_pedestrian_options() :: %{String.t() => any()}
+  @type route_pedestrian_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2192,20 +2192,20 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type waypoint_optimization_rest_cycle_durations() :: %{String.t() => any()}
+  @type waypoint_optimization_rest_cycle_durations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_vehicle_notice() :: %{
-        "Code" => String.t(),
+        "Code" => String.t() | atom(),
         "Details" => list(route_vehicle_notice_detail()),
-        "Impact" => String.t()
+        "Impact" => String.t() | atom()
       }
 
   """
-  @type route_vehicle_notice() :: %{String.t() => any()}
+  @type route_vehicle_notice() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2223,7 +2223,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_waypoint() :: %{String.t() => any()}
+  @type route_waypoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2231,11 +2231,11 @@ defmodule AWS.GeoRoutes do
 
       route_vehicle_arrival() :: %{
         "Place" => route_vehicle_place(),
-        "Time" => String.t()
+        "Time" => String.t() | atom()
       }
 
   """
-  @type route_vehicle_arrival() :: %{String.t() => any()}
+  @type route_vehicle_arrival() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2243,30 +2243,30 @@ defmodule AWS.GeoRoutes do
 
       road_snap_truck_options() :: %{
         "GrossWeight" => float(),
-        "HazardousCargos" => list(String.t()),
+        "HazardousCargos" => list(String.t() | atom()),
         "Height" => float(),
         "Length" => float(),
         "Trailer" => road_snap_trailer_options(),
-        "TunnelRestrictionCode" => String.t(),
+        "TunnelRestrictionCode" => String.t() | atom(),
         "Width" => float()
       }
 
   """
-  @type road_snap_truck_options() :: %{String.t() => any()}
+  @type road_snap_truck_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_ferry_place() :: %{
-        "Name" => [String.t()],
+        "Name" => [String.t() | atom()],
         "OriginalPosition" => list([float()]()),
         "Position" => list([float()]()),
         "WaypointIndex" => [integer()]
       }
 
   """
-  @type route_ferry_place() :: %{String.t() => any()}
+  @type route_ferry_place() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2278,7 +2278,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_ferry_overview_summary() :: %{String.t() => any()}
+  @type route_ferry_overview_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2286,11 +2286,11 @@ defmodule AWS.GeoRoutes do
 
       route_vehicle_departure() :: %{
         "Place" => route_vehicle_place(),
-        "Time" => String.t()
+        "Time" => String.t() | atom()
       }
 
   """
-  @type route_vehicle_departure() :: %{String.t() => any()}
+  @type route_vehicle_departure() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2303,7 +2303,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_pass_through_place() :: %{String.t() => any()}
+  @type route_pass_through_place() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2317,7 +2317,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type isoline_origin_options() :: %{String.t() => any()}
+  @type isoline_origin_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2331,7 +2331,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_vehicle_overview_summary() :: %{String.t() => any()}
+  @type route_vehicle_overview_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2339,11 +2339,11 @@ defmodule AWS.GeoRoutes do
 
       road_snap_snapped_geometry() :: %{
         "LineString" => list(list([float()]())()),
-        "Polyline" => String.t()
+        "Polyline" => String.t() | atom()
       }
 
   """
-  @type road_snap_snapped_geometry() :: %{String.t() => any()}
+  @type road_snap_snapped_geometry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2361,7 +2361,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type waypoint_optimization_avoidance_options() :: %{String.t() => any()}
+  @type waypoint_optimization_avoidance_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2375,40 +2375,40 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_matrix_boundary_geometry() :: %{String.t() => any()}
+  @type route_matrix_boundary_geometry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_matrix_vehicle_license_plate() :: %{
-        "LastCharacter" => [String.t()]
+        "LastCharacter" => [String.t() | atom()]
       }
 
   """
-  @type route_matrix_vehicle_license_plate() :: %{String.t() => any()}
+  @type route_matrix_vehicle_license_plate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_exclusion_options() :: %{
-        "Countries" => list(String.t())
+        "Countries" => list(String.t() | atom())
       }
 
   """
-  @type route_exclusion_options() :: %{String.t() => any()}
+  @type route_exclusion_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       isoline_avoidance_zone_category() :: %{
-        "Category" => String.t()
+        "Category" => String.t() | atom()
       }
 
   """
-  @type isoline_avoidance_zone_category() :: %{String.t() => any()}
+  @type isoline_avoidance_zone_category() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2419,19 +2419,19 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_continue_step_details() :: %{String.t() => any()}
+  @type route_continue_step_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       waypoint_optimization_failed_constraint() :: %{
-        "Constraint" => String.t(),
-        "Reason" => [String.t()]
+        "Constraint" => String.t() | atom(),
+        "Reason" => [String.t() | atom()]
       }
 
   """
-  @type waypoint_optimization_failed_constraint() :: %{String.t() => any()}
+  @type waypoint_optimization_failed_constraint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2439,13 +2439,13 @@ defmodule AWS.GeoRoutes do
 
       route_turn_step_details() :: %{
         "Intersection" => list(localized_string()),
-        "SteeringDirection" => String.t(),
+        "SteeringDirection" => String.t() | atom(),
         "TurnAngle" => float(),
-        "TurnIntensity" => String.t()
+        "TurnIntensity" => String.t() | atom()
       }
 
   """
-  @type route_turn_step_details() :: %{String.t() => any()}
+  @type route_turn_step_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2457,7 +2457,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_matrix_allow_options() :: %{String.t() => any()}
+  @type route_matrix_allow_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2468,7 +2468,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type waypoint_optimization_pedestrian_options() :: %{String.t() => any()}
+  @type waypoint_optimization_pedestrian_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2476,11 +2476,11 @@ defmodule AWS.GeoRoutes do
 
       isoline_shape_geometry() :: %{
         "Polygon" => list(list(list([float()]())())()),
-        "PolylinePolygon" => list(String.t())
+        "PolylinePolygon" => list(String.t() | atom())
       }
 
   """
-  @type isoline_shape_geometry() :: %{String.t() => any()}
+  @type isoline_shape_geometry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2488,11 +2488,11 @@ defmodule AWS.GeoRoutes do
 
       route_side_of_street_options() :: %{
         "Position" => list([float()]()),
-        "UseWith" => String.t()
+        "UseWith" => String.t() | atom()
       }
 
   """
-  @type route_side_of_street_options() :: %{String.t() => any()}
+  @type route_side_of_street_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2501,11 +2501,11 @@ defmodule AWS.GeoRoutes do
       route_matrix_entry() :: %{
         "Distance" => float(),
         "Duration" => float(),
-        "Error" => String.t()
+        "Error" => String.t() | atom()
       }
 
   """
-  @type route_matrix_entry() :: %{String.t() => any()}
+  @type route_matrix_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2517,7 +2517,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_allow_options() :: %{String.t() => any()}
+  @type route_allow_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2531,23 +2531,23 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type waypoint_optimization_time_breakdown() :: %{String.t() => any()}
+  @type waypoint_optimization_time_breakdown() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_ferry_span() :: %{
-        "Country" => String.t(),
+        "Country" => String.t() | atom(),
         "Distance" => float(),
         "Duration" => float(),
         "GeometryOffset" => [integer()],
         "Names" => list(localized_string()),
-        "Region" => [String.t()]
+        "Region" => [String.t() | atom()]
       }
 
   """
-  @type route_ferry_span() :: %{String.t() => any()}
+  @type route_ferry_span() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2559,36 +2559,36 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_matrix_auto_circle() :: %{String.t() => any()}
+  @type route_matrix_auto_circle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_weight_constraint() :: %{
-        "Type" => String.t(),
+        "Type" => String.t() | atom(),
         "Value" => float()
       }
 
   """
-  @type route_weight_constraint() :: %{String.t() => any()}
+  @type route_weight_constraint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       calculate_isolines_response() :: %{
-        "ArrivalTime" => String.t(),
-        "DepartureTime" => String.t(),
-        "IsolineGeometryFormat" => String.t(),
+        "ArrivalTime" => String.t() | atom(),
+        "DepartureTime" => String.t() | atom(),
+        "IsolineGeometryFormat" => String.t() | atom(),
         "Isolines" => list(isoline()),
-        "PricingBucket" => [String.t()],
+        "PricingBucket" => [String.t() | atom()],
         "SnappedDestination" => list([float()]()),
         "SnappedOrigin" => list([float()]())
       }
 
   """
-  @type calculate_isolines_response() :: %{String.t() => any()}
+  @type calculate_isolines_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2597,7 +2597,7 @@ defmodule AWS.GeoRoutes do
       route_violated_constraints() :: %{
         "AllHazardsRestricted" => [boolean()],
         "AxleCount" => route_notice_detail_range(),
-        "HazardousCargos" => list(String.t()),
+        "HazardousCargos" => list(String.t() | atom()),
         "MaxHeight" => float(),
         "MaxKpraLength" => float(),
         "MaxLength" => float(),
@@ -2607,31 +2607,31 @@ defmodule AWS.GeoRoutes do
         "MaxWeightPerAxleGroup" => weight_per_axle_group(),
         "MaxWidth" => float(),
         "Occupancy" => route_notice_detail_range(),
-        "RestrictedTimes" => [String.t()],
+        "RestrictedTimes" => [String.t() | atom()],
         "TimeDependent" => [boolean()],
         "TrailerCount" => route_notice_detail_range(),
         "TravelMode" => [boolean()],
-        "TruckRoadType" => [String.t()],
-        "TruckType" => String.t(),
-        "TunnelRestrictionCode" => String.t()
+        "TruckRoadType" => [String.t() | atom()],
+        "TruckType" => String.t() | atom(),
+        "TunnelRestrictionCode" => String.t() | atom()
       }
 
   """
-  @type route_violated_constraints() :: %{String.t() => any()}
+  @type route_violated_constraints() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       calculate_routes_response() :: %{
-        "LegGeometryFormat" => String.t(),
+        "LegGeometryFormat" => String.t() | atom(),
         "Notices" => list(route_response_notice()),
-        "PricingBucket" => [String.t()],
+        "PricingBucket" => [String.t() | atom()],
         "Routes" => list(route())
       }
 
   """
-  @type calculate_routes_response() :: %{String.t() => any()}
+  @type calculate_routes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2642,7 +2642,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type waypoint_optimization_driving_distance_options() :: %{String.t() => any()}
+  @type waypoint_optimization_driving_distance_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2650,9 +2650,9 @@ defmodule AWS.GeoRoutes do
 
       isoline_truck_options() :: %{
         "AxleCount" => [integer()],
-        "EngineType" => String.t(),
+        "EngineType" => String.t() | atom(),
         "GrossWeight" => float(),
-        "HazardousCargos" => list(String.t()),
+        "HazardousCargos" => list(String.t() | atom()),
         "Height" => float(),
         "HeightAboveFirstAxle" => float(),
         "KpraLength" => float(),
@@ -2663,15 +2663,15 @@ defmodule AWS.GeoRoutes do
         "PayloadCapacity" => float(),
         "TireCount" => [integer()],
         "Trailer" => isoline_trailer_options(),
-        "TruckType" => String.t(),
-        "TunnelRestrictionCode" => String.t(),
+        "TruckType" => String.t() | atom(),
+        "TunnelRestrictionCode" => String.t() | atom(),
         "WeightPerAxle" => float(),
         "WeightPerAxleGroup" => weight_per_axle_group(),
         "Width" => float()
       }
 
   """
-  @type isoline_truck_options() :: %{String.t() => any()}
+  @type isoline_truck_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2679,11 +2679,11 @@ defmodule AWS.GeoRoutes do
 
       route_matrix_side_of_street_options() :: %{
         "Position" => list([float()]()),
-        "UseWith" => String.t()
+        "UseWith" => String.t() | atom()
       }
 
   """
-  @type route_matrix_side_of_street_options() :: %{String.t() => any()}
+  @type route_matrix_side_of_street_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2694,19 +2694,19 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type road_snap_trailer_options() :: %{String.t() => any()}
+  @type road_snap_trailer_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_emission_type() :: %{
-        "Co2EmissionClass" => [String.t()],
-        "Type" => [String.t()]
+        "Co2EmissionClass" => [String.t() | atom()],
+        "Type" => [String.t() | atom()]
       }
 
   """
-  @type route_emission_type() :: %{String.t() => any()}
+  @type route_emission_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2718,7 +2718,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_vehicle_summary() :: %{String.t() => any()}
+  @type route_vehicle_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2728,12 +2728,12 @@ defmodule AWS.GeoRoutes do
         optional("Allow") => route_matrix_allow_options(),
         optional("Avoid") => route_matrix_avoidance_options(),
         optional("DepartNow") => [boolean()],
-        optional("DepartureTime") => String.t(),
+        optional("DepartureTime") => String.t() | atom(),
         optional("Exclude") => route_matrix_exclusion_options(),
-        optional("Key") => String.t(),
-        optional("OptimizeRoutingFor") => String.t(),
+        optional("Key") => String.t() | atom(),
+        optional("OptimizeRoutingFor") => String.t() | atom(),
         optional("Traffic") => route_matrix_traffic_options(),
-        optional("TravelMode") => String.t(),
+        optional("TravelMode") => String.t() | atom(),
         optional("TravelModeOptions") => route_matrix_travel_mode_options(),
         required("Destinations") => list(route_matrix_destination()),
         required("Origins") => list(route_matrix_origin()),
@@ -2741,7 +2741,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type calculate_route_matrix_request() :: %{String.t() => any()}
+  @type calculate_route_matrix_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2754,7 +2754,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_matrix_scooter_options() :: %{String.t() => any()}
+  @type route_matrix_scooter_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2766,14 +2766,14 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_notice_detail_range() :: %{String.t() => any()}
+  @type route_notice_detail_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_toll_price() :: %{
-        "Currency" => String.t(),
+        "Currency" => String.t() | atom(),
         "Estimate" => [boolean()],
         "PerDuration" => float(),
         "Range" => [boolean()],
@@ -2782,7 +2782,7 @@ defmodule AWS.GeoRoutes do
       }
 
   """
-  @type route_toll_price() :: %{String.t() => any()}
+  @type route_toll_price() :: %{(String.t() | atom()) => any()}
 
   @type calculate_isolines_errors() ::
           throttling_exception()

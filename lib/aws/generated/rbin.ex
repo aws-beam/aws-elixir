@@ -39,19 +39,19 @@ defmodule AWS.Rbin do
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "Reason" => list(any())
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_rule_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("ExcludeResourceTags") => list(resource_tag()),
         optional("LockConfiguration") => lock_configuration(),
         optional("ResourceTags") => list(resource_tag()),
@@ -61,28 +61,28 @@ defmodule AWS.Rbin do
       }
 
   """
-  @type create_rule_request() :: %{String.t() => any()}
+  @type create_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_rule_response() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "ExcludeResourceTags" => list(resource_tag()),
-        "Identifier" => String.t(),
+        "Identifier" => String.t() | atom(),
         "LockConfiguration" => lock_configuration(),
         "LockState" => list(any()),
         "ResourceTags" => list(resource_tag()),
         "ResourceType" => list(any()),
         "RetentionPeriod" => retention_period(),
-        "RuleArn" => String.t(),
+        "RuleArn" => String.t() | atom(),
         "Status" => list(any()),
         "Tags" => list(tag())
       }
 
   """
-  @type create_rule_response() :: %{String.t() => any()}
+  @type create_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -116,32 +116,32 @@ defmodule AWS.Rbin do
   ## Example:
 
       get_rule_response() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "ExcludeResourceTags" => list(resource_tag()),
-        "Identifier" => String.t(),
+        "Identifier" => String.t() | atom(),
         "LockConfiguration" => lock_configuration(),
         "LockEndTime" => non_neg_integer(),
         "LockState" => list(any()),
         "ResourceTags" => list(resource_tag()),
         "ResourceType" => list(any()),
         "RetentionPeriod" => retention_period(),
-        "RuleArn" => String.t(),
+        "RuleArn" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type get_rule_response() :: %{String.t() => any()}
+  @type get_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -151,25 +151,25 @@ defmodule AWS.Rbin do
         optional("ExcludeResourceTags") => list(resource_tag()),
         optional("LockState") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ResourceTags") => list(resource_tag()),
         required("ResourceType") => list(any())
       }
 
   """
-  @type list_rules_request() :: %{String.t() => any()}
+  @type list_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_rules_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Rules" => list(rule_summary())
       }
 
   """
-  @type list_rules_response() :: %{String.t() => any()}
+  @type list_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -189,7 +189,7 @@ defmodule AWS.Rbin do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -200,7 +200,7 @@ defmodule AWS.Rbin do
       }
 
   """
-  @type lock_configuration() :: %{String.t() => any()}
+  @type lock_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -211,51 +211,51 @@ defmodule AWS.Rbin do
       }
 
   """
-  @type lock_rule_request() :: %{String.t() => any()}
+  @type lock_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       lock_rule_response() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "ExcludeResourceTags" => list(resource_tag()),
-        "Identifier" => String.t(),
+        "Identifier" => String.t() | atom(),
         "LockConfiguration" => lock_configuration(),
         "LockState" => list(any()),
         "ResourceTags" => list(resource_tag()),
         "ResourceType" => list(any()),
         "RetentionPeriod" => retention_period(),
-        "RuleArn" => String.t(),
+        "RuleArn" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type lock_rule_response() :: %{String.t() => any()}
+  @type lock_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "Reason" => list(any())
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_tag() :: %{
-        "ResourceTagKey" => String.t(),
-        "ResourceTagValue" => String.t()
+        "ResourceTagKey" => String.t() | atom(),
+        "ResourceTagValue" => String.t() | atom()
       }
 
   """
-  @type resource_tag() :: %{String.t() => any()}
+  @type resource_tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -267,46 +267,46 @@ defmodule AWS.Rbin do
       }
 
   """
-  @type retention_period() :: %{String.t() => any()}
+  @type retention_period() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       rule_summary() :: %{
-        "Description" => String.t(),
-        "Identifier" => String.t(),
+        "Description" => String.t() | atom(),
+        "Identifier" => String.t() | atom(),
         "LockState" => list(any()),
         "RetentionPeriod" => retention_period(),
-        "RuleArn" => String.t()
+        "RuleArn" => String.t() | atom()
       }
 
   """
-  @type rule_summary() :: %{String.t() => any()}
+  @type rule_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "Reason" => list(any())
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -317,7 +317,7 @@ defmodule AWS.Rbin do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -338,7 +338,7 @@ defmodule AWS.Rbin do
       }
 
   """
-  @type unlock_delay() :: %{String.t() => any()}
+  @type unlock_delay() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -354,32 +354,32 @@ defmodule AWS.Rbin do
   ## Example:
 
       unlock_rule_response() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "ExcludeResourceTags" => list(resource_tag()),
-        "Identifier" => String.t(),
+        "Identifier" => String.t() | atom(),
         "LockConfiguration" => lock_configuration(),
         "LockEndTime" => non_neg_integer(),
         "LockState" => list(any()),
         "ResourceTags" => list(resource_tag()),
         "ResourceType" => list(any()),
         "RetentionPeriod" => retention_period(),
-        "RuleArn" => String.t(),
+        "RuleArn" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type unlock_rule_response() :: %{String.t() => any()}
+  @type unlock_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -395,7 +395,7 @@ defmodule AWS.Rbin do
   ## Example:
 
       update_rule_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("ExcludeResourceTags") => list(resource_tag()),
         optional("ResourceTags") => list(resource_tag()),
         optional("ResourceType") => list(any()),
@@ -403,39 +403,39 @@ defmodule AWS.Rbin do
       }
 
   """
-  @type update_rule_request() :: %{String.t() => any()}
+  @type update_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_rule_response() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "ExcludeResourceTags" => list(resource_tag()),
-        "Identifier" => String.t(),
+        "Identifier" => String.t() | atom(),
         "LockEndTime" => non_neg_integer(),
         "LockState" => list(any()),
         "ResourceTags" => list(resource_tag()),
         "ResourceType" => list(any()),
         "RetentionPeriod" => retention_period(),
-        "RuleArn" => String.t(),
+        "RuleArn" => String.t() | atom(),
         "Status" => list(any())
       }
 
   """
-  @type update_rule_response() :: %{String.t() => any()}
+  @type update_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "Reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type create_rule_errors() ::
           validation_exception()
@@ -567,7 +567,7 @@ defmodule AWS.Rbin do
   rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-delete-rule)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
-  @spec delete_rule(map(), String.t(), delete_rule_request(), list()) ::
+  @spec delete_rule(map(), String.t() | atom(), delete_rule_request(), list()) ::
           {:ok, delete_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -596,7 +596,7 @@ defmodule AWS.Rbin do
   @doc """
   Gets information about a Recycle Bin retention rule.
   """
-  @spec get_rule(map(), String.t(), list()) ::
+  @spec get_rule(map(), String.t() | atom(), list()) ::
           {:ok, get_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -643,7 +643,7 @@ defmodule AWS.Rbin do
   @doc """
   Lists the tags assigned to a retention rule.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -667,7 +667,7 @@ defmodule AWS.Rbin do
   You can't lock tag-level retention rules, or Region-level retention rules that
   have exclusion tags.
   """
-  @spec lock_rule(map(), String.t(), lock_rule_request(), list()) ::
+  @spec lock_rule(map(), String.t() | atom(), lock_rule_request(), list()) ::
           {:ok, lock_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -696,7 +696,7 @@ defmodule AWS.Rbin do
   @doc """
   Assigns tags to the specified retention rule.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -728,7 +728,7 @@ defmodule AWS.Rbin do
   After a retention rule is unlocked, it can be modified or deleted
   only after the unlock delay period expires.
   """
-  @spec unlock_rule(map(), String.t(), unlock_rule_request(), list()) ::
+  @spec unlock_rule(map(), String.t() | atom(), unlock_rule_request(), list()) ::
           {:ok, unlock_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -757,7 +757,7 @@ defmodule AWS.Rbin do
   @doc """
   Unassigns a tag from a retention rule.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -799,7 +799,7 @@ defmodule AWS.Rbin do
   rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule)
   in the *Amazon Elastic Compute Cloud User Guide*.
   """
-  @spec update_rule(map(), String.t(), update_rule_request(), list()) ::
+  @spec update_rule(map(), String.t() | atom(), update_rule_request(), list()) ::
           {:ok, update_rule_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

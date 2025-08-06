@@ -19,7 +19,7 @@ defmodule AWS.ConnectCampaigns do
       }
 
   """
-  @type answer_machine_detection_config() :: %{String.t() => any()}
+  @type answer_machine_detection_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -30,7 +30,7 @@ defmodule AWS.ConnectCampaigns do
       }
 
   """
-  @type describe_campaign_response() :: %{String.t() => any()}
+  @type describe_campaign_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -41,7 +41,7 @@ defmodule AWS.ConnectCampaigns do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -49,41 +49,41 @@ defmodule AWS.ConnectCampaigns do
 
       encryption_config() :: %{
         "enabled" => boolean(),
-        "encryptionType" => String.t(),
-        "keyArn" => String.t()
+        "encryptionType" => String.t() | atom(),
+        "keyArn" => String.t() | atom()
       }
 
   """
-  @type encryption_config() :: %{String.t() => any()}
+  @type encryption_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       campaign() :: %{
-        "arn" => String.t(),
-        "connectInstanceId" => String.t(),
+        "arn" => String.t() | atom(),
+        "connectInstanceId" => String.t() | atom(),
         "dialerConfig" => list(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "outboundCallConfig" => outbound_call_config(),
         "tags" => map()
       }
 
   """
-  @type campaign() :: %{String.t() => any()}
+  @type campaign() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       successful_request() :: %{
-        "clientToken" => String.t(),
-        "id" => String.t()
+        "clientToken" => String.t() | atom(),
+        "id" => String.t() | atom()
       }
 
   """
-  @type successful_request() :: %{String.t() => any()}
+  @type successful_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -113,20 +113,20 @@ defmodule AWS.ConnectCampaigns do
       }
 
   """
-  @type get_campaign_state_batch_response() :: %{String.t() => any()}
+  @type get_campaign_state_batch_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       instance_onboarding_job_status() :: %{
-        "connectInstanceId" => String.t(),
-        "failureCode" => String.t(),
-        "status" => String.t()
+        "connectInstanceId" => String.t() | atom(),
+        "failureCode" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type instance_onboarding_job_status() :: %{String.t() => any()}
+  @type instance_onboarding_job_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -134,22 +134,22 @@ defmodule AWS.ConnectCampaigns do
 
       list_campaigns_response() :: %{
         "campaignSummaryList" => list(campaign_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_campaigns_response() :: %{String.t() => any()}
+  @type list_campaigns_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_campaign_state_response() :: %{
-        "state" => String.t()
+        "state" => String.t() | atom()
       }
 
   """
-  @type get_campaign_state_response() :: %{String.t() => any()}
+  @type get_campaign_state_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -174,48 +174,48 @@ defmodule AWS.ConnectCampaigns do
   ## Example:
 
       untag_resource_request() :: %{
-        "tagKeys" => list(String.t())
+        "tagKeys" => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_state_exception() :: %{
-        "message" => [String.t()],
-        "xAmzErrorType" => String.t()
+        "message" => [String.t() | atom()],
+        "xAmzErrorType" => String.t() | atom()
       }
 
   """
-  @type invalid_state_exception() :: %{String.t() => any()}
+  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       instance_id_filter() :: %{
-        "operator" => String.t(),
-        "value" => String.t()
+        "operator" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type instance_id_filter() :: %{String.t() => any()}
+  @type instance_id_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_campaign_state_exception() :: %{
-        "message" => [String.t()],
-        "state" => String.t(),
-        "xAmzErrorType" => String.t()
+        "message" => [String.t() | atom()],
+        "state" => String.t() | atom(),
+        "xAmzErrorType" => String.t() | atom()
       }
 
   """
-  @type invalid_campaign_state_exception() :: %{String.t() => any()}
+  @type invalid_campaign_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -224,11 +224,11 @@ defmodule AWS.ConnectCampaigns do
       list_campaigns_request() :: %{
         "filters" => campaign_filters(),
         "maxResults" => integer(),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_campaigns_request() :: %{String.t() => any()}
+  @type list_campaigns_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -236,24 +236,24 @@ defmodule AWS.ConnectCampaigns do
 
       dial_request() :: %{
         "attributes" => map(),
-        "clientToken" => String.t(),
+        "clientToken" => String.t() | atom(),
         "expirationTime" => non_neg_integer(),
-        "phoneNumber" => String.t()
+        "phoneNumber" => String.t() | atom()
       }
 
   """
-  @type dial_request() :: %{String.t() => any()}
+  @type dial_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_campaign_name_request() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type update_campaign_name_request() :: %{String.t() => any()}
+  @type update_campaign_name_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -264,31 +264,31 @@ defmodule AWS.ConnectCampaigns do
       }
 
   """
-  @type start_instance_onboarding_job_response() :: %{String.t() => any()}
+  @type start_instance_onboarding_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()],
-        "xAmzErrorType" => String.t()
+        "message" => [String.t() | atom()],
+        "xAmzErrorType" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "xAmzErrorType" => String.t()
+        "message" => [String.t() | atom()],
+        "xAmzErrorType" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -308,7 +308,7 @@ defmodule AWS.ConnectCampaigns do
       }
 
   """
-  @type agentless_dialer_config() :: %{String.t() => any()}
+  @type agentless_dialer_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -320,19 +320,19 @@ defmodule AWS.ConnectCampaigns do
       }
 
   """
-  @type put_dial_request_batch_response() :: %{String.t() => any()}
+  @type put_dial_request_batch_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()],
-        "xAmzErrorType" => String.t()
+        "message" => [String.t() | atom()],
+        "xAmzErrorType" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -357,11 +357,11 @@ defmodule AWS.ConnectCampaigns do
   ## Example:
 
       get_campaign_state_batch_request() :: %{
-        "campaignIds" => list(String.t())
+        "campaignIds" => list(String.t() | atom())
       }
 
   """
-  @type get_campaign_state_batch_request() :: %{String.t() => any()}
+  @type get_campaign_state_batch_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -372,7 +372,7 @@ defmodule AWS.ConnectCampaigns do
       }
 
   """
-  @type update_campaign_dialer_config_request() :: %{String.t() => any()}
+  @type update_campaign_dialer_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -383,7 +383,7 @@ defmodule AWS.ConnectCampaigns do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -394,19 +394,19 @@ defmodule AWS.ConnectCampaigns do
       }
 
   """
-  @type put_dial_request_batch_request() :: %{String.t() => any()}
+  @type put_dial_request_batch_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()],
-        "xAmzErrorType" => String.t()
+        "message" => [String.t() | atom()],
+        "xAmzErrorType" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -418,7 +418,7 @@ defmodule AWS.ConnectCampaigns do
       }
 
   """
-  @type progressive_dialer_config() :: %{String.t() => any()}
+  @type progressive_dialer_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -443,12 +443,12 @@ defmodule AWS.ConnectCampaigns do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()],
-        "xAmzErrorType" => String.t()
+        "message" => [String.t() | atom()],
+        "xAmzErrorType" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -464,15 +464,15 @@ defmodule AWS.ConnectCampaigns do
   ## Example:
 
       create_campaign_request() :: %{
-        "connectInstanceId" => String.t(),
+        "connectInstanceId" => String.t() | atom(),
         "dialerConfig" => list(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "outboundCallConfig" => outbound_call_config(),
         "tags" => map()
       }
 
   """
-  @type create_campaign_request() :: %{String.t() => any()}
+  @type create_campaign_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -483,19 +483,19 @@ defmodule AWS.ConnectCampaigns do
       }
 
   """
-  @type get_instance_onboarding_job_status_response() :: %{String.t() => any()}
+  @type get_instance_onboarding_job_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()],
-        "xAmzErrorType" => String.t()
+        "message" => [String.t() | atom()],
+        "xAmzErrorType" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -515,32 +515,32 @@ defmodule AWS.ConnectCampaigns do
       }
 
   """
-  @type get_connect_instance_config_response() :: %{String.t() => any()}
+  @type get_connect_instance_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       instance_config() :: %{
-        "connectInstanceId" => String.t(),
+        "connectInstanceId" => String.t() | atom(),
         "encryptionConfig" => encryption_config(),
-        "serviceLinkedRoleArn" => String.t()
+        "serviceLinkedRoleArn" => String.t() | atom()
       }
 
   """
-  @type instance_config() :: %{String.t() => any()}
+  @type instance_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()],
-        "xAmzErrorType" => String.t()
+        "message" => [String.t() | atom()],
+        "xAmzErrorType" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -548,13 +548,13 @@ defmodule AWS.ConnectCampaigns do
 
       outbound_call_config() :: %{
         "answerMachineDetectionConfig" => answer_machine_detection_config(),
-        "connectContactFlowId" => String.t(),
-        "connectQueueId" => String.t(),
-        "connectSourcePhoneNumber" => String.t()
+        "connectContactFlowId" => String.t() | atom(),
+        "connectQueueId" => String.t() | atom(),
+        "connectSourcePhoneNumber" => String.t() | atom()
       }
 
   """
-  @type outbound_call_config() :: %{String.t() => any()}
+  @type outbound_call_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -562,25 +562,25 @@ defmodule AWS.ConnectCampaigns do
 
       update_campaign_outbound_call_config_request() :: %{
         "answerMachineDetectionConfig" => answer_machine_detection_config(),
-        "connectContactFlowId" => String.t(),
-        "connectSourcePhoneNumber" => String.t()
+        "connectContactFlowId" => String.t() | atom(),
+        "connectSourcePhoneNumber" => String.t() | atom()
       }
 
   """
-  @type update_campaign_outbound_call_config_request() :: %{String.t() => any()}
+  @type update_campaign_outbound_call_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       failed_request() :: %{
-        "clientToken" => String.t(),
-        "failureCode" => String.t(),
-        "id" => String.t()
+        "clientToken" => String.t() | atom(),
+        "failureCode" => String.t() | atom(),
+        "id" => String.t() | atom()
       }
 
   """
-  @type failed_request() :: %{String.t() => any()}
+  @type failed_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -592,46 +592,46 @@ defmodule AWS.ConnectCampaigns do
       }
 
   """
-  @type predictive_dialer_config() :: %{String.t() => any()}
+  @type predictive_dialer_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_campaign_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type create_campaign_response() :: %{String.t() => any()}
+  @type create_campaign_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       successful_campaign_state_response() :: %{
-        "campaignId" => String.t(),
-        "state" => String.t()
+        "campaignId" => String.t() | atom(),
+        "state" => String.t() | atom()
       }
 
   """
-  @type successful_campaign_state_response() :: %{String.t() => any()}
+  @type successful_campaign_state_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       campaign_summary() :: %{
-        "arn" => String.t(),
-        "connectInstanceId" => String.t(),
-        "id" => String.t(),
-        "name" => String.t()
+        "arn" => String.t() | atom(),
+        "connectInstanceId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type campaign_summary() :: %{String.t() => any()}
+  @type campaign_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -647,12 +647,12 @@ defmodule AWS.ConnectCampaigns do
   ## Example:
 
       failed_campaign_state_response() :: %{
-        "campaignId" => String.t(),
-        "failureCode" => String.t()
+        "campaignId" => String.t() | atom(),
+        "failureCode" => String.t() | atom()
       }
 
   """
-  @type failed_campaign_state_response() :: %{String.t() => any()}
+  @type failed_campaign_state_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -663,7 +663,7 @@ defmodule AWS.ConnectCampaigns do
       }
 
   """
-  @type start_instance_onboarding_job_request() :: %{String.t() => any()}
+  @type start_instance_onboarding_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -674,7 +674,7 @@ defmodule AWS.ConnectCampaigns do
       }
 
   """
-  @type campaign_filters() :: %{String.t() => any()}
+  @type campaign_filters() :: %{(String.t() | atom()) => any()}
 
   @type create_campaign_errors() ::
           throttling_exception()
@@ -886,7 +886,7 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Deletes a campaign from the specified Amazon Connect account.
   """
-  @spec delete_campaign(map(), String.t(), delete_campaign_request(), list()) ::
+  @spec delete_campaign(map(), String.t() | atom(), delete_campaign_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -917,7 +917,7 @@ defmodule AWS.ConnectCampaigns do
   """
   @spec delete_connect_instance_config(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_connect_instance_config_request(),
           list()
         ) ::
@@ -957,7 +957,7 @@ defmodule AWS.ConnectCampaigns do
   """
   @spec delete_instance_onboarding_job(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_instance_onboarding_job_request(),
           list()
         ) ::
@@ -994,7 +994,7 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Describes the specific campaign.
   """
-  @spec describe_campaign(map(), String.t(), list()) ::
+  @spec describe_campaign(map(), String.t() | atom(), list()) ::
           {:ok, describe_campaign_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1012,7 +1012,7 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Get state of a campaign for the specified Amazon Connect account.
   """
-  @spec get_campaign_state(map(), String.t(), list()) ::
+  @spec get_campaign_state(map(), String.t() | atom(), list()) ::
           {:ok, get_campaign_state_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1059,7 +1059,7 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Get the specific Connect instance config.
   """
-  @spec get_connect_instance_config(map(), String.t(), list()) ::
+  @spec get_connect_instance_config(map(), String.t() | atom(), list()) ::
           {:ok, get_connect_instance_config_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1077,7 +1077,7 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Get the specific instance onboarding job status.
   """
-  @spec get_instance_onboarding_job_status(map(), String.t(), list()) ::
+  @spec get_instance_onboarding_job_status(map(), String.t() | atom(), list()) ::
           {:ok, get_instance_onboarding_job_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1125,7 +1125,7 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   List tags for a resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1143,7 +1143,7 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Pauses a campaign for the specified Amazon Connect account.
   """
-  @spec pause_campaign(map(), String.t(), pause_campaign_request(), list()) ::
+  @spec pause_campaign(map(), String.t() | atom(), pause_campaign_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1174,7 +1174,12 @@ defmodule AWS.ConnectCampaigns do
 
   This API is idempotent.
   """
-  @spec put_dial_request_batch(map(), String.t(), put_dial_request_batch_request(), list()) ::
+  @spec put_dial_request_batch(
+          map(),
+          String.t() | atom(),
+          put_dial_request_batch_request(),
+          list()
+        ) ::
           {:ok, put_dial_request_batch_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1203,7 +1208,7 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Stops a campaign for the specified Amazon Connect account.
   """
-  @spec resume_campaign(map(), String.t(), resume_campaign_request(), list()) ::
+  @spec resume_campaign(map(), String.t() | atom(), resume_campaign_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1232,7 +1237,7 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Starts a campaign for the specified Amazon Connect account.
   """
-  @spec start_campaign(map(), String.t(), start_campaign_request(), list()) ::
+  @spec start_campaign(map(), String.t() | atom(), start_campaign_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1263,7 +1268,7 @@ defmodule AWS.ConnectCampaigns do
   """
   @spec start_instance_onboarding_job(
           map(),
-          String.t(),
+          String.t() | atom(),
           start_instance_onboarding_job_request(),
           list()
         ) ::
@@ -1295,7 +1300,7 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Stops a campaign for the specified Amazon Connect account.
   """
-  @spec stop_campaign(map(), String.t(), stop_campaign_request(), list()) ::
+  @spec stop_campaign(map(), String.t() | atom(), stop_campaign_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1324,7 +1329,7 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Tag a resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1353,7 +1358,7 @@ defmodule AWS.ConnectCampaigns do
   @doc """
   Untag a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1391,7 +1396,7 @@ defmodule AWS.ConnectCampaigns do
   """
   @spec update_campaign_dialer_config(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_campaign_dialer_config_request(),
           list()
         ) ::
@@ -1425,7 +1430,7 @@ defmodule AWS.ConnectCampaigns do
 
   This API is idempotent.
   """
-  @spec update_campaign_name(map(), String.t(), update_campaign_name_request(), list()) ::
+  @spec update_campaign_name(map(), String.t() | atom(), update_campaign_name_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1458,7 +1463,7 @@ defmodule AWS.ConnectCampaigns do
   """
   @spec update_campaign_outbound_call_config(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_campaign_outbound_call_config_request(),
           list()
         ) ::

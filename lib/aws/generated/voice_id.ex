@@ -16,39 +16,39 @@ defmodule AWS.VoiceID do
   ## Example:
       
       update_domain_request() :: %{
-        optional("Description") => String.t(),
-        required("DomainId") => String.t(),
-        required("Name") => String.t(),
+        optional("Description") => String.t() | atom(),
+        required("DomainId") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("ServerSideEncryptionConfiguration") => server_side_encryption_configuration()
       }
       
   """
-  @type update_domain_request() :: %{String.t() => any()}
+  @type update_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       registration_config() :: %{
-        "DuplicateRegistrationAction" => String.t(),
+        "DuplicateRegistrationAction" => String.t() | atom(),
         "FraudsterSimilarityThreshold" => integer(),
-        "WatchlistIds" => list(String.t())
+        "WatchlistIds" => list(String.t() | atom())
       }
       
   """
-  @type registration_config() :: %{String.t() => any()}
+  @type registration_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -59,30 +59,30 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type describe_fraudster_registration_job_response() :: %{String.t() => any()}
+  @type describe_fraudster_registration_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_speakers_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("SpeakerSummaries") => list(speaker_summary())
       }
       
   """
-  @type list_speakers_response() :: %{String.t() => any()}
+  @type list_speakers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       input_data_config() :: %{
-        "S3Uri" => String.t()
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type input_data_config() :: %{String.t() => any()}
+  @type input_data_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -98,14 +98,14 @@ defmodule AWS.VoiceID do
   ## Example:
       
       list_speaker_enrollment_jobs_request() :: %{
-        optional("JobStatus") => String.t(),
+        optional("JobStatus") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("DomainId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("DomainId") => String.t() | atom()
       }
       
   """
-  @type list_speaker_enrollment_jobs_request() :: %{String.t() => any()}
+  @type list_speaker_enrollment_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -116,19 +116,19 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type describe_fraudster_response() :: %{String.t() => any()}
+  @type describe_fraudster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       domain_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "DomainId" => String.t(),
-        "DomainStatus" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | atom(),
+        "DomainId" => String.t() | atom(),
+        "DomainStatus" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ServerSideEncryptionConfiguration" => server_side_encryption_configuration(),
         "ServerSideEncryptionUpdateDetails" => server_side_encryption_update_details(),
         "UpdatedAt" => non_neg_integer(),
@@ -136,7 +136,7 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type domain_summary() :: %{String.t() => any()}
+  @type domain_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -147,7 +147,7 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type update_domain_response() :: %{String.t() => any()}
+  @type update_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -158,31 +158,31 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type describe_speaker_response() :: %{String.t() => any()}
+  @type describe_speaker_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       evaluate_session_request() :: %{
-        required("DomainId") => String.t(),
-        required("SessionNameOrId") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("SessionNameOrId") => String.t() | atom()
       }
       
   """
-  @type evaluate_session_request() :: %{String.t() => any()}
+  @type evaluate_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       domain() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "DomainId" => String.t(),
-        "DomainStatus" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | atom(),
+        "DomainId" => String.t() | atom(),
+        "DomainStatus" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ServerSideEncryptionConfiguration" => server_side_encryption_configuration(),
         "ServerSideEncryptionUpdateDetails" => server_side_encryption_update_details(),
         "UpdatedAt" => non_neg_integer(),
@@ -190,7 +190,7 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type domain() :: %{String.t() => any()}
+  @type domain() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -198,16 +198,16 @@ defmodule AWS.VoiceID do
       
       speaker() :: %{
         "CreatedAt" => non_neg_integer(),
-        "CustomerSpeakerId" => String.t(),
-        "DomainId" => String.t(),
-        "GeneratedSpeakerId" => String.t(),
+        "CustomerSpeakerId" => String.t() | atom(),
+        "DomainId" => String.t() | atom(),
+        "GeneratedSpeakerId" => String.t() | atom(),
         "LastAccessedAt" => non_neg_integer(),
-        "Status" => String.t(),
+        "Status" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type speaker() :: %{String.t() => any()}
+  @type speaker() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -218,18 +218,18 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type job_progress() :: %{String.t() => any()}
+  @type job_progress() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       watchlist_details() :: %{
-        "DefaultWatchlistId" => String.t()
+        "DefaultWatchlistId" => String.t() | atom()
       }
       
   """
-  @type watchlist_details() :: %{String.t() => any()}
+  @type watchlist_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -237,38 +237,38 @@ defmodule AWS.VoiceID do
       
       list_fraudsters_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("WatchlistId") => String.t(),
-        required("DomainId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("WatchlistId") => String.t() | atom(),
+        required("DomainId") => String.t() | atom()
       }
       
   """
-  @type list_fraudsters_request() :: %{String.t() => any()}
+  @type list_fraudsters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       server_side_encryption_update_details() :: %{
-        "Message" => String.t(),
-        "OldKmsKeyId" => String.t(),
-        "UpdateStatus" => String.t()
+        "Message" => String.t() | atom(),
+        "OldKmsKeyId" => String.t() | atom(),
+        "UpdateStatus" => String.t() | atom()
       }
       
   """
-  @type server_side_encryption_update_details() :: %{String.t() => any()}
+  @type server_side_encryption_update_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -278,26 +278,26 @@ defmodule AWS.VoiceID do
         "AudioAggregationEndedAt" => non_neg_integer(),
         "AudioAggregationStartedAt" => non_neg_integer(),
         "Configuration" => fraud_detection_configuration(),
-        "Decision" => String.t(),
-        "FraudDetectionResultId" => String.t(),
-        "Reasons" => list(String.t()),
+        "Decision" => String.t() | atom(),
+        "FraudDetectionResultId" => String.t() | atom(),
+        "Reasons" => list(String.t() | atom()),
         "RiskDetails" => fraud_risk_details()
       }
       
   """
-  @type fraud_detection_result() :: %{String.t() => any()}
+  @type fraud_detection_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_watchlist_request() :: %{
-        required("DomainId") => String.t(),
-        required("WatchlistId") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("WatchlistId") => String.t() | atom()
       }
       
   """
-  @type describe_watchlist_request() :: %{String.t() => any()}
+  @type describe_watchlist_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -309,60 +309,60 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type fraud_risk_details() :: %{String.t() => any()}
+  @type fraud_risk_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       failure_details() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "StatusCode" => integer()
       }
       
   """
-  @type failure_details() :: %{String.t() => any()}
+  @type failure_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       known_fraudster_risk() :: %{
-        "GeneratedFraudsterId" => String.t(),
+        "GeneratedFraudsterId" => String.t() | atom(),
         "RiskScore" => integer()
       }
       
   """
-  @type known_fraudster_risk() :: %{String.t() => any()}
+  @type known_fraudster_risk() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_fraudster_registration_job_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("JobName") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("JobName") => String.t() | atom(),
         optional("RegistrationConfig") => registration_config(),
-        required("DataAccessRoleArn") => String.t(),
-        required("DomainId") => String.t(),
+        required("DataAccessRoleArn") => String.t() | atom(),
+        required("DomainId") => String.t() | atom(),
         required("InputDataConfig") => input_data_config(),
         required("OutputDataConfig") => output_data_config()
       }
       
   """
-  @type start_fraudster_registration_job_request() :: %{String.t() => any()}
+  @type start_fraudster_registration_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_speaker_request() :: %{
-        required("DomainId") => String.t(),
-        required("SpeakerId") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("SpeakerId") => String.t() | atom()
       }
       
   """
-  @type describe_speaker_request() :: %{String.t() => any()}
+  @type describe_speaker_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -370,13 +370,13 @@ defmodule AWS.VoiceID do
       
       fraudster_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DomainId" => String.t(),
-        "GeneratedFraudsterId" => String.t(),
-        "WatchlistIds" => list(String.t())
+        "DomainId" => String.t() | atom(),
+        "GeneratedFraudsterId" => String.t() | atom(),
+        "WatchlistIds" => list(String.t() | atom())
       }
       
   """
-  @type fraudster_summary() :: %{String.t() => any()}
+  @type fraudster_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -384,22 +384,22 @@ defmodule AWS.VoiceID do
       
       list_speaker_enrollment_jobs_response() :: %{
         optional("JobSummaries") => list(speaker_enrollment_job_summary()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_speaker_enrollment_jobs_response() :: %{String.t() => any()}
+  @type list_speaker_enrollment_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_domain_request() :: %{
-        required("DomainId") => String.t()
+        required("DomainId") => String.t() | atom()
       }
       
   """
-  @type delete_domain_request() :: %{String.t() => any()}
+  @type delete_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -408,66 +408,66 @@ defmodule AWS.VoiceID do
       authentication_result() :: %{
         "AudioAggregationEndedAt" => non_neg_integer(),
         "AudioAggregationStartedAt" => non_neg_integer(),
-        "AuthenticationResultId" => String.t(),
+        "AuthenticationResultId" => String.t() | atom(),
         "Configuration" => authentication_configuration(),
-        "CustomerSpeakerId" => String.t(),
-        "Decision" => String.t(),
-        "GeneratedSpeakerId" => String.t(),
+        "CustomerSpeakerId" => String.t() | atom(),
+        "Decision" => String.t() | atom(),
+        "GeneratedSpeakerId" => String.t() | atom(),
         "Score" => integer()
       }
       
   """
-  @type authentication_result() :: %{String.t() => any()}
+  @type authentication_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_fraudster_request() :: %{
-        required("DomainId") => String.t(),
-        required("FraudsterId") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("FraudsterId") => String.t() | atom()
       }
       
   """
-  @type delete_fraudster_request() :: %{String.t() => any()}
+  @type delete_fraudster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "ConflictType" => String.t(),
-        "Message" => String.t()
+        "ConflictType" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_fraudster_registration_jobs_request() :: %{
-        optional("JobStatus") => String.t(),
+        optional("JobStatus") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("DomainId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("DomainId") => String.t() | atom()
       }
       
   """
-  @type list_fraudster_registration_jobs_request() :: %{String.t() => any()}
+  @type list_fraudster_registration_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -478,34 +478,34 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type create_watchlist_response() :: %{String.t() => any()}
+  @type create_watchlist_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_domain_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("Name") => String.t(),
+        required("Name") => String.t() | atom(),
         required("ServerSideEncryptionConfiguration") => server_side_encryption_configuration()
       }
       
   """
-  @type create_domain_request() :: %{String.t() => any()}
+  @type create_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -513,15 +513,15 @@ defmodule AWS.VoiceID do
       
       evaluate_session_response() :: %{
         optional("AuthenticationResult") => authentication_result(),
-        optional("DomainId") => String.t(),
+        optional("DomainId") => String.t() | atom(),
         optional("FraudDetectionResult") => fraud_detection_result(),
-        optional("SessionId") => String.t(),
-        optional("SessionName") => String.t(),
-        optional("StreamingStatus") => String.t()
+        optional("SessionId") => String.t() | atom(),
+        optional("SessionName") => String.t() | atom(),
+        optional("StreamingStatus") => String.t() | atom()
       }
       
   """
-  @type evaluate_session_response() :: %{String.t() => any()}
+  @type evaluate_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -532,7 +532,7 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type update_watchlist_response() :: %{String.t() => any()}
+  @type update_watchlist_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -540,23 +540,23 @@ defmodule AWS.VoiceID do
       
       list_speakers_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("DomainId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("DomainId") => String.t() | atom()
       }
       
   """
-  @type list_speakers_request() :: %{String.t() => any()}
+  @type list_speakers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -564,11 +564,11 @@ defmodule AWS.VoiceID do
       
       list_domains_response() :: %{
         optional("DomainSummaries") => list(domain_summary()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_domains_response() :: %{String.t() => any()}
+  @type list_domains_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -576,21 +576,21 @@ defmodule AWS.VoiceID do
       
       fraudster_registration_job() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DataAccessRoleArn" => String.t(),
-        "DomainId" => String.t(),
+        "DataAccessRoleArn" => String.t() | atom(),
+        "DomainId" => String.t() | atom(),
         "EndedAt" => non_neg_integer(),
         "FailureDetails" => failure_details(),
         "InputDataConfig" => input_data_config(),
-        "JobId" => String.t(),
-        "JobName" => String.t(),
+        "JobId" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
         "JobProgress" => job_progress(),
-        "JobStatus" => String.t(),
+        "JobStatus" => String.t() | atom(),
         "OutputDataConfig" => output_data_config(),
         "RegistrationConfig" => registration_config()
       }
       
   """
-  @type fraudster_registration_job() :: %{String.t() => any()}
+  @type fraudster_registration_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -601,7 +601,7 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type start_speaker_enrollment_job_response() :: %{String.t() => any()}
+  @type start_speaker_enrollment_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -612,7 +612,7 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -623,19 +623,19 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type describe_domain_response() :: %{String.t() => any()}
+  @type describe_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       opt_out_speaker_request() :: %{
-        required("DomainId") => String.t(),
-        required("SpeakerId") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("SpeakerId") => String.t() | atom()
       }
       
   """
-  @type opt_out_speaker_request() :: %{String.t() => any()}
+  @type opt_out_speaker_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -644,15 +644,15 @@ defmodule AWS.VoiceID do
       watchlist() :: %{
         "CreatedAt" => non_neg_integer(),
         "DefaultWatchlist" => boolean(),
-        "Description" => String.t(),
-        "DomainId" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | atom(),
+        "DomainId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer(),
-        "WatchlistId" => String.t()
+        "WatchlistId" => String.t() | atom()
       }
       
   """
-  @type watchlist() :: %{String.t() => any()}
+  @type watchlist() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -663,7 +663,7 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type voice_spoofing_risk() :: %{String.t() => any()}
+  @type voice_spoofing_risk() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -671,51 +671,51 @@ defmodule AWS.VoiceID do
       
       speaker_enrollment_job() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DataAccessRoleArn" => String.t(),
-        "DomainId" => String.t(),
+        "DataAccessRoleArn" => String.t() | atom(),
+        "DomainId" => String.t() | atom(),
         "EndedAt" => non_neg_integer(),
         "EnrollmentConfig" => enrollment_config(),
         "FailureDetails" => failure_details(),
         "InputDataConfig" => input_data_config(),
-        "JobId" => String.t(),
-        "JobName" => String.t(),
+        "JobId" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
         "JobProgress" => job_progress(),
-        "JobStatus" => String.t(),
+        "JobStatus" => String.t() | atom(),
         "OutputDataConfig" => output_data_config()
       }
       
   """
-  @type speaker_enrollment_job() :: %{String.t() => any()}
+  @type speaker_enrollment_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_fraudster_request() :: %{
-        required("DomainId") => String.t(),
-        required("FraudsterId") => String.t(),
-        required("WatchlistId") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("FraudsterId") => String.t() | atom(),
+        required("WatchlistId") => String.t() | atom()
       }
       
   """
-  @type associate_fraudster_request() :: %{String.t() => any()}
+  @type associate_fraudster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_speaker_enrollment_job_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("EnrollmentConfig") => enrollment_config(),
-        optional("JobName") => String.t(),
-        required("DataAccessRoleArn") => String.t(),
-        required("DomainId") => String.t(),
+        optional("JobName") => String.t() | atom(),
+        required("DataAccessRoleArn") => String.t() | atom(),
+        required("DomainId") => String.t() | atom(),
         required("InputDataConfig") => input_data_config(),
         required("OutputDataConfig") => output_data_config()
       }
       
   """
-  @type start_speaker_enrollment_job_request() :: %{String.t() => any()}
+  @type start_speaker_enrollment_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -723,24 +723,24 @@ defmodule AWS.VoiceID do
       
       fraudster() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DomainId" => String.t(),
-        "GeneratedFraudsterId" => String.t(),
-        "WatchlistIds" => list(String.t())
+        "DomainId" => String.t() | atom(),
+        "GeneratedFraudsterId" => String.t() | atom(),
+        "WatchlistIds" => list(String.t() | atom())
       }
       
   """
-  @type fraudster() :: %{String.t() => any()}
+  @type fraudster() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       server_side_encryption_configuration() :: %{
-        "KmsKeyId" => String.t()
+        "KmsKeyId" => String.t() | atom()
       }
       
   """
-  @type server_side_encryption_configuration() :: %{String.t() => any()}
+  @type server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -748,16 +748,16 @@ defmodule AWS.VoiceID do
       
       speaker_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "CustomerSpeakerId" => String.t(),
-        "DomainId" => String.t(),
-        "GeneratedSpeakerId" => String.t(),
+        "CustomerSpeakerId" => String.t() | atom(),
+        "DomainId" => String.t() | atom(),
+        "GeneratedSpeakerId" => String.t() | atom(),
         "LastAccessedAt" => non_neg_integer(),
-        "Status" => String.t(),
+        "Status" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type speaker_summary() :: %{String.t() => any()}
+  @type speaker_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -768,19 +768,19 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type opt_out_speaker_response() :: %{String.t() => any()}
+  @type opt_out_speaker_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_fraudster_registration_job_request() :: %{
-        required("DomainId") => String.t(),
-        required("JobId") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type describe_fraudster_registration_job_request() :: %{String.t() => any()}
+  @type describe_fraudster_registration_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -788,22 +788,22 @@ defmodule AWS.VoiceID do
       
       list_domains_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_domains_request() :: %{String.t() => any()}
+  @type list_domains_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -814,41 +814,41 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type associate_fraudster_response() :: %{String.t() => any()}
+  @type associate_fraudster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_fraudster_request() :: %{
-        required("DomainId") => String.t(),
-        required("FraudsterId") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("FraudsterId") => String.t() | atom()
       }
       
   """
-  @type describe_fraudster_request() :: %{String.t() => any()}
+  @type describe_fraudster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_domain_request() :: %{
-        required("DomainId") => String.t()
+        required("DomainId") => String.t() | atom()
       }
       
   """
-  @type describe_domain_request() :: %{String.t() => any()}
+  @type describe_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -864,12 +864,12 @@ defmodule AWS.VoiceID do
   ## Example:
       
       delete_watchlist_request() :: %{
-        required("DomainId") => String.t(),
-        required("WatchlistId") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("WatchlistId") => String.t() | atom()
       }
       
   """
-  @type delete_watchlist_request() :: %{String.t() => any()}
+  @type delete_watchlist_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -880,33 +880,33 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type describe_speaker_enrollment_job_response() :: %{String.t() => any()}
+  @type describe_speaker_enrollment_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_watchlists_response() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("WatchlistSummaries") => list(watchlist_summary())
       }
       
   """
-  @type list_watchlists_response() :: %{String.t() => any()}
+  @type list_watchlists_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_watchlist_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
-        required("DomainId") => String.t(),
-        required("Name") => String.t()
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("DomainId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_watchlist_request() :: %{String.t() => any()}
+  @type create_watchlist_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -917,29 +917,29 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type start_fraudster_registration_job_response() :: %{String.t() => any()}
+  @type start_fraudster_registration_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -947,17 +947,17 @@ defmodule AWS.VoiceID do
       
       fraudster_registration_job_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DomainId" => String.t(),
+        "DomainId" => String.t() | atom(),
         "EndedAt" => non_neg_integer(),
         "FailureDetails" => failure_details(),
-        "JobId" => String.t(),
-        "JobName" => String.t(),
+        "JobId" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
         "JobProgress" => job_progress(),
-        "JobStatus" => String.t()
+        "JobStatus" => String.t() | atom()
       }
       
   """
-  @type fraudster_registration_job_summary() :: %{String.t() => any()}
+  @type fraudster_registration_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -965,22 +965,22 @@ defmodule AWS.VoiceID do
       
       list_fraudsters_response() :: %{
         optional("FraudsterSummaries") => list(fraudster_summary()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_fraudsters_response() :: %{String.t() => any()}
+  @type list_fraudsters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -991,7 +991,7 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type create_domain_response() :: %{String.t() => any()}
+  @type create_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -999,61 +999,61 @@ defmodule AWS.VoiceID do
       
       list_fraudster_registration_jobs_response() :: %{
         optional("JobSummaries") => list(fraudster_registration_job_summary()),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_fraudster_registration_jobs_response() :: %{String.t() => any()}
+  @type list_fraudster_registration_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_speaker_request() :: %{
-        required("DomainId") => String.t(),
-        required("SpeakerId") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("SpeakerId") => String.t() | atom()
       }
       
   """
-  @type delete_speaker_request() :: %{String.t() => any()}
+  @type delete_speaker_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       output_data_config() :: %{
-        "KmsKeyId" => String.t(),
-        "S3Uri" => String.t()
+        "KmsKeyId" => String.t() | atom(),
+        "S3Uri" => String.t() | atom()
       }
       
   """
-  @type output_data_config() :: %{String.t() => any()}
+  @type output_data_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       enrollment_config() :: %{
-        "ExistingEnrollmentAction" => String.t(),
+        "ExistingEnrollmentAction" => String.t() | atom(),
         "FraudDetectionConfig" => enrollment_job_fraud_detection_config()
       }
       
   """
-  @type enrollment_config() :: %{String.t() => any()}
+  @type enrollment_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_watchlist_request() :: %{
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
-        required("DomainId") => String.t(),
-        required("WatchlistId") => String.t()
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        required("DomainId") => String.t() | atom(),
+        required("WatchlistId") => String.t() | atom()
       }
       
   """
-  @type update_watchlist_request() :: %{String.t() => any()}
+  @type update_watchlist_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1064,7 +1064,7 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type authentication_configuration() :: %{String.t() => any()}
+  @type authentication_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1072,12 +1072,12 @@ defmodule AWS.VoiceID do
       
       list_watchlists_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("DomainId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("DomainId") => String.t() | atom()
       }
       
   """
-  @type list_watchlists_request() :: %{String.t() => any()}
+  @type list_watchlists_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1088,19 +1088,19 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type describe_watchlist_response() :: %{String.t() => any()}
+  @type describe_watchlist_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_speaker_enrollment_job_request() :: %{
-        required("DomainId") => String.t(),
-        required("JobId") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type describe_speaker_enrollment_job_request() :: %{String.t() => any()}
+  @type describe_speaker_enrollment_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1108,24 +1108,24 @@ defmodule AWS.VoiceID do
       
       fraud_detection_configuration() :: %{
         "RiskThreshold" => integer(),
-        "WatchlistId" => String.t()
+        "WatchlistId" => String.t() | atom()
       }
       
   """
-  @type fraud_detection_configuration() :: %{String.t() => any()}
+  @type fraud_detection_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_fraudster_request() :: %{
-        required("DomainId") => String.t(),
-        required("FraudsterId") => String.t(),
-        required("WatchlistId") => String.t()
+        required("DomainId") => String.t() | atom(),
+        required("FraudsterId") => String.t() | atom(),
+        required("WatchlistId") => String.t() | atom()
       }
       
   """
-  @type disassociate_fraudster_request() :: %{String.t() => any()}
+  @type disassociate_fraudster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1134,28 +1134,28 @@ defmodule AWS.VoiceID do
       watchlist_summary() :: %{
         "CreatedAt" => non_neg_integer(),
         "DefaultWatchlist" => boolean(),
-        "Description" => String.t(),
-        "DomainId" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | atom(),
+        "DomainId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer(),
-        "WatchlistId" => String.t()
+        "WatchlistId" => String.t() | atom()
       }
       
   """
-  @type watchlist_summary() :: %{String.t() => any()}
+  @type watchlist_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       enrollment_job_fraud_detection_config() :: %{
-        "FraudDetectionAction" => String.t(),
+        "FraudDetectionAction" => String.t() | atom(),
         "RiskThreshold" => integer(),
-        "WatchlistIds" => list(String.t())
+        "WatchlistIds" => list(String.t() | atom())
       }
       
   """
-  @type enrollment_job_fraud_detection_config() :: %{String.t() => any()}
+  @type enrollment_job_fraud_detection_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1166,7 +1166,7 @@ defmodule AWS.VoiceID do
       }
       
   """
-  @type disassociate_fraudster_response() :: %{String.t() => any()}
+  @type disassociate_fraudster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1174,17 +1174,17 @@ defmodule AWS.VoiceID do
       
       speaker_enrollment_job_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "DomainId" => String.t(),
+        "DomainId" => String.t() | atom(),
         "EndedAt" => non_neg_integer(),
         "FailureDetails" => failure_details(),
-        "JobId" => String.t(),
-        "JobName" => String.t(),
+        "JobId" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
         "JobProgress" => job_progress(),
-        "JobStatus" => String.t()
+        "JobStatus" => String.t() | atom()
       }
       
   """
-  @type speaker_enrollment_job_summary() :: %{String.t() => any()}
+  @type speaker_enrollment_job_summary() :: %{(String.t() | atom()) => any()}
 
   @type associate_fraudster_errors() ::
           throttling_exception()
@@ -1435,7 +1435,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, associate_fraudster_errors()}
   def associate_fraudster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateFraudster", input, options)
   end
@@ -1454,7 +1455,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDomain", input, options)
   end
@@ -1468,7 +1470,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, create_watchlist_errors()}
   def create_watchlist(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWatchlist", input, options)
   end
@@ -1482,7 +1485,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDomain", input, options)
   end
@@ -1498,7 +1502,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, delete_fraudster_errors()}
   def delete_fraudster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFraudster", input, options)
   end
@@ -1512,7 +1517,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, delete_speaker_errors()}
   def delete_speaker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSpeaker", input, options)
   end
@@ -1532,7 +1538,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, delete_watchlist_errors()}
   def delete_watchlist(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWatchlist", input, options)
   end
@@ -1546,7 +1553,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, describe_domain_errors()}
   def describe_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDomain", input, options)
   end
@@ -1560,7 +1568,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, describe_fraudster_errors()}
   def describe_fraudster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFraudster", input, options)
   end
@@ -1578,7 +1587,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, describe_fraudster_registration_job_errors()}
   def describe_fraudster_registration_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFraudsterRegistrationJob", input, options)
   end
@@ -1592,7 +1602,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, describe_speaker_errors()}
   def describe_speaker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSpeaker", input, options)
   end
@@ -1606,7 +1617,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, describe_speaker_enrollment_job_errors()}
   def describe_speaker_enrollment_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSpeakerEnrollmentJob", input, options)
   end
@@ -1620,7 +1632,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, describe_watchlist_errors()}
   def describe_watchlist(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWatchlist", input, options)
   end
@@ -1639,7 +1652,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, disassociate_fraudster_errors()}
   def disassociate_fraudster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateFraudster", input, options)
   end
@@ -1654,7 +1668,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, evaluate_session_errors()}
   def evaluate_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EvaluateSession", input, options)
   end
@@ -1668,7 +1683,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, list_domains_errors()}
   def list_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDomains", input, options)
   end
@@ -1690,7 +1706,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, list_fraudster_registration_jobs_errors()}
   def list_fraudster_registration_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFraudsterRegistrationJobs", input, options)
   end
@@ -1704,7 +1721,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, list_fraudsters_errors()}
   def list_fraudsters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFraudsters", input, options)
   end
@@ -1722,7 +1740,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, list_speaker_enrollment_jobs_errors()}
   def list_speaker_enrollment_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSpeakerEnrollmentJobs", input, options)
   end
@@ -1736,7 +1755,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, list_speakers_errors()}
   def list_speakers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSpeakers", input, options)
   end
@@ -1750,7 +1770,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1764,7 +1785,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, list_watchlists_errors()}
   def list_watchlists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWatchlists", input, options)
   end
@@ -1788,7 +1810,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, opt_out_speaker_errors()}
   def opt_out_speaker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "OptOutSpeaker", input, options)
   end
@@ -1806,7 +1829,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, start_fraudster_registration_job_errors()}
   def start_fraudster_registration_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartFraudsterRegistrationJob", input, options)
   end
@@ -1820,7 +1844,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, start_speaker_enrollment_job_errors()}
   def start_speaker_enrollment_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSpeakerEnrollmentJob", input, options)
   end
@@ -1834,7 +1859,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1848,7 +1874,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1867,7 +1894,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, update_domain_errors()}
   def update_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDomain", input, options)
   end
@@ -1883,7 +1911,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, update_watchlist_errors()}
   def update_watchlist(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWatchlist", input, options)
   end

@@ -110,7 +110,7 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type video() :: %{String.t() => any()}
+  @type video() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -118,44 +118,44 @@ defmodule AWS.IVSRealTime do
 
       update_stage_request() :: %{
         optional("autoParticipantRecordingConfiguration") => auto_participant_recording_configuration(),
-        optional("name") => String.t(),
-        required("arn") => String.t()
+        optional("name") => String.t() | atom(),
+        required("arn") => String.t() | atom()
       }
 
   """
-  @type update_stage_request() :: %{String.t() => any()}
+  @type update_stage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_participant_replicas_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "replicas" => list(participant_replica())
       }
 
   """
-  @type list_participant_replicas_response() :: %{String.t() => any()}
+  @type list_participant_replicas_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ingest_configuration() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "attributes" => map(),
         "ingestProtocol" => list(any()),
-        "name" => String.t(),
-        "participantId" => String.t(),
-        "stageArn" => String.t(),
-        "state" => String.t(),
-        "streamKey" => String.t(),
+        "name" => String.t() | atom(),
+        "participantId" => String.t() | atom(),
+        "stageArn" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "streamKey" => String.t() | atom(),
         "tags" => map(),
-        "userId" => String.t()
+        "userId" => String.t() | atom()
       }
 
   """
-  @type ingest_configuration() :: %{String.t() => any()}
+  @type ingest_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -166,23 +166,23 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type get_composition_response() :: %{String.t() => any()}
+  @type get_composition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stage() :: %{
-        "activeSessionId" => String.t(),
-        "arn" => String.t(),
+        "activeSessionId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
         "autoParticipantRecordingConfiguration" => auto_participant_recording_configuration(),
         "endpoints" => stage_endpoints(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type stage() :: %{String.t() => any()}
+  @type stage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -193,7 +193,7 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -201,29 +201,29 @@ defmodule AWS.IVSRealTime do
 
       list_stages_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_stages_request() :: %{String.t() => any()}
+  @type list_stages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       composition() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "destinations" => list(destination()),
         "endTime" => non_neg_integer(),
         "layout" => layout_configuration(),
-        "stageArn" => String.t(),
+        "stageArn" => String.t() | atom(),
         "startTime" => non_neg_integer(),
-        "state" => String.t(),
+        "state" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type composition() :: %{String.t() => any()}
+  @type composition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -234,7 +234,7 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type get_storage_configuration_response() :: %{String.t() => any()}
+  @type get_storage_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -246,19 +246,19 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type create_stage_response() :: %{String.t() => any()}
+  @type create_stage_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       recording_configuration() :: %{
-        "format" => String.t(),
+        "format" => String.t() | atom(),
         "hlsConfiguration" => composition_recording_hls_configuration()
       }
 
   """
-  @type recording_configuration() :: %{String.t() => any()}
+  @type recording_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -266,29 +266,29 @@ defmodule AWS.IVSRealTime do
 
       participant() :: %{
         "attributes" => map(),
-        "browserName" => String.t(),
-        "browserVersion" => String.t(),
+        "browserName" => String.t() | atom(),
+        "browserVersion" => String.t() | atom(),
         "firstJoinTime" => non_neg_integer(),
-        "ispName" => String.t(),
-        "osName" => String.t(),
-        "osVersion" => String.t(),
-        "participantId" => String.t(),
+        "ispName" => String.t() | atom(),
+        "osName" => String.t() | atom(),
+        "osVersion" => String.t() | atom(),
+        "participantId" => String.t() | atom(),
         "protocol" => list(any()),
         "published" => boolean(),
-        "recordingS3BucketName" => String.t(),
-        "recordingS3Prefix" => String.t(),
-        "recordingState" => String.t(),
-        "replicationState" => String.t(),
-        "replicationType" => String.t(),
-        "sdkVersion" => String.t(),
-        "sourceSessionId" => String.t(),
-        "sourceStageArn" => String.t(),
-        "state" => String.t(),
-        "userId" => String.t()
+        "recordingS3BucketName" => String.t() | atom(),
+        "recordingS3Prefix" => String.t() | atom(),
+        "recordingState" => String.t() | atom(),
+        "replicationState" => String.t() | atom(),
+        "replicationType" => String.t() | atom(),
+        "sdkVersion" => String.t() | atom(),
+        "sourceSessionId" => String.t() | atom(),
+        "sourceStageArn" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "userId" => String.t() | atom()
       }
 
   """
-  @type participant() :: %{String.t() => any()}
+  @type participant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -299,23 +299,23 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type create_ingest_configuration_response() :: %{String.t() => any()}
+  @type create_ingest_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       participant_replica() :: %{
-        "destinationSessionId" => String.t(),
-        "destinationStageArn" => String.t(),
-        "participantId" => String.t(),
-        "replicationState" => String.t(),
-        "sourceSessionId" => String.t(),
-        "sourceStageArn" => String.t()
+        "destinationSessionId" => String.t() | atom(),
+        "destinationStageArn" => String.t() | atom(),
+        "participantId" => String.t() | atom(),
+        "replicationState" => String.t() | atom(),
+        "sourceSessionId" => String.t() | atom(),
+        "sourceStageArn" => String.t() | atom()
       }
 
   """
-  @type participant_replica() :: %{String.t() => any()}
+  @type participant_replica() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -326,18 +326,18 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type get_stage_response() :: %{String.t() => any()}
+  @type get_stage_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_composition_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | atom()
       }
 
   """
-  @type stop_composition_request() :: %{String.t() => any()}
+  @type stop_composition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -346,15 +346,15 @@ defmodule AWS.IVSRealTime do
       create_ingest_configuration_request() :: %{
         optional("attributes") => map(),
         optional("insecureIngest") => boolean(),
-        optional("name") => String.t(),
-        optional("stageArn") => String.t(),
+        optional("name") => String.t() | atom(),
+        optional("stageArn") => String.t() | atom(),
         optional("tags") => map(),
-        optional("userId") => String.t(),
+        optional("userId") => String.t() | atom(),
         required("ingestProtocol") => list(any())
       }
 
   """
-  @type create_ingest_configuration_request() :: %{String.t() => any()}
+  @type create_ingest_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -370,20 +370,20 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       pip_configuration() :: %{
-        "featuredParticipantAttribute" => String.t(),
+        "featuredParticipantAttribute" => String.t() | atom(),
         "gridGap" => integer(),
         "omitStoppedVideo" => boolean(),
         "pipBehavior" => list(any()),
         "pipHeight" => integer(),
         "pipOffset" => integer(),
-        "pipParticipantAttribute" => String.t(),
+        "pipParticipantAttribute" => String.t() | atom(),
         "pipPosition" => list(any()),
         "pipWidth" => integer(),
         "videoFillMode" => list(any())
       }
 
   """
-  @type pip_configuration() :: %{String.t() => any()}
+  @type pip_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -391,45 +391,45 @@ defmodule AWS.IVSRealTime do
 
       list_compositions_response() :: %{
         "compositions" => list(composition_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_compositions_response() :: %{String.t() => any()}
+  @type list_compositions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_public_keys_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "publicKeys" => list(public_key_summary())
       }
 
   """
-  @type list_public_keys_response() :: %{String.t() => any()}
+  @type list_public_keys_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_encoder_configuration_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | atom()
       }
 
   """
-  @type delete_encoder_configuration_request() :: %{String.t() => any()}
+  @type delete_encoder_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_storage_configuration_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | atom()
       }
 
   """
-  @type get_storage_configuration_request() :: %{String.t() => any()}
+  @type get_storage_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -440,21 +440,21 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type get_ingest_configuration_response() :: %{String.t() => any()}
+  @type get_ingest_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_compositions_request() :: %{
-        optional("filterByEncoderConfigurationArn") => String.t(),
-        optional("filterByStageArn") => String.t(),
+        optional("filterByEncoderConfigurationArn") => String.t() | atom(),
+        optional("filterByStageArn") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_compositions_request() :: %{String.t() => any()}
+  @type list_compositions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -462,19 +462,19 @@ defmodule AWS.IVSRealTime do
 
       participant_summary() :: %{
         "firstJoinTime" => non_neg_integer(),
-        "participantId" => String.t(),
+        "participantId" => String.t() | atom(),
         "published" => boolean(),
-        "recordingState" => String.t(),
-        "replicationState" => String.t(),
-        "replicationType" => String.t(),
-        "sourceSessionId" => String.t(),
-        "sourceStageArn" => String.t(),
-        "state" => String.t(),
-        "userId" => String.t()
+        "recordingState" => String.t() | atom(),
+        "replicationState" => String.t() | atom(),
+        "replicationType" => String.t() | atom(),
+        "sourceSessionId" => String.t() | atom(),
+        "sourceStageArn" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "userId" => String.t() | atom()
       }
 
   """
-  @type participant_summary() :: %{String.t() => any()}
+  @type participant_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -482,11 +482,11 @@ defmodule AWS.IVSRealTime do
 
       list_ingest_configurations_response() :: %{
         "ingestConfigurations" => list(ingest_configuration_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_ingest_configurations_response() :: %{String.t() => any()}
+  @type list_ingest_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -502,26 +502,26 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       stage_endpoints() :: %{
-        "events" => String.t(),
-        "rtmp" => String.t(),
-        "rtmps" => String.t(),
-        "whip" => String.t()
+        "events" => String.t() | atom(),
+        "rtmp" => String.t() | atom(),
+        "rtmps" => String.t() | atom(),
+        "whip" => String.t() | atom()
       }
 
   """
-  @type stage_endpoints() :: %{String.t() => any()}
+  @type stage_endpoints() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_stage_session_request() :: %{
-        required("sessionId") => String.t(),
-        required("stageArn") => String.t()
+        required("sessionId") => String.t() | atom(),
+        required("stageArn") => String.t() | atom()
       }
 
   """
-  @type get_stage_session_request() :: %{String.t() => any()}
+  @type get_stage_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -532,7 +532,7 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type get_stage_session_response() :: %{String.t() => any()}
+  @type get_stage_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -540,13 +540,13 @@ defmodule AWS.IVSRealTime do
 
       list_participant_replicas_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("participantId") => String.t(),
-        required("sourceStageArn") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("participantId") => String.t() | atom(),
+        required("sourceStageArn") => String.t() | atom()
       }
 
   """
-  @type list_participant_replicas_request() :: %{String.t() => any()}
+  @type list_participant_replicas_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -557,7 +557,7 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type update_stage_response() :: %{String.t() => any()}
+  @type update_stage_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -565,50 +565,50 @@ defmodule AWS.IVSRealTime do
 
       participant_token_configuration() :: %{
         "attributes" => map(),
-        "capabilities" => list(String.t()),
+        "capabilities" => list(String.t() | atom()),
         "duration" => integer(),
-        "userId" => String.t()
+        "userId" => String.t() | atom()
       }
 
   """
-  @type participant_token_configuration() :: %{String.t() => any()}
+  @type participant_token_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_ingest_configuration_request() :: %{
-        optional("stageArn") => String.t(),
-        required("arn") => String.t()
+        optional("stageArn") => String.t() | atom(),
+        required("arn") => String.t() | atom()
       }
 
   """
-  @type update_ingest_configuration_request() :: %{String.t() => any()}
+  @type update_ingest_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       storage_configuration_summary() :: %{
-        "arn" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "s3" => s3_storage_configuration(),
         "tags" => map()
       }
 
   """
-  @type storage_configuration_summary() :: %{String.t() => any()}
+  @type storage_configuration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -619,7 +619,7 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type import_public_key_response() :: %{String.t() => any()}
+  @type import_public_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -627,22 +627,22 @@ defmodule AWS.IVSRealTime do
 
       list_encoder_configurations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_encoder_configurations_request() :: %{String.t() => any()}
+  @type list_encoder_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_stage_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | atom()
       }
 
   """
-  @type get_stage_request() :: %{String.t() => any()}
+  @type get_stage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -650,11 +650,11 @@ defmodule AWS.IVSRealTime do
 
       list_public_keys_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_public_keys_request() :: %{String.t() => any()}
+  @type list_public_keys_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -665,44 +665,44 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type start_composition_response() :: %{String.t() => any()}
+  @type start_composition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_composition_request() :: %{
-        optional("idempotencyToken") => String.t(),
+        optional("idempotencyToken") => String.t() | atom(),
         optional("layout") => layout_configuration(),
         optional("tags") => map(),
         required("destinations") => list(destination_configuration()),
-        required("stageArn") => String.t()
+        required("stageArn") => String.t() | atom()
       }
 
   """
-  @type start_composition_request() :: %{String.t() => any()}
+  @type start_composition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_stage_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | atom()
       }
 
   """
-  @type delete_stage_request() :: %{String.t() => any()}
+  @type delete_stage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_composition_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | atom()
       }
 
   """
-  @type get_composition_request() :: %{String.t() => any()}
+  @type get_composition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -713,7 +713,7 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type get_encoder_configuration_response() :: %{String.t() => any()}
+  @type get_encoder_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -721,102 +721,102 @@ defmodule AWS.IVSRealTime do
 
       list_storage_configurations_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_storage_configurations_request() :: %{String.t() => any()}
+  @type list_storage_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disconnect_participant_request() :: %{
-        optional("reason") => String.t(),
-        required("participantId") => String.t(),
-        required("stageArn") => String.t()
+        optional("reason") => String.t() | atom(),
+        required("participantId") => String.t() | atom(),
+        required("stageArn") => String.t() | atom()
       }
 
   """
-  @type disconnect_participant_request() :: %{String.t() => any()}
+  @type disconnect_participant_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_participant_replication_response() :: %{
-        "accessControlAllowOrigin" => String.t(),
-        "accessControlExposeHeaders" => String.t(),
-        "cacheControl" => String.t(),
-        "contentSecurityPolicy" => String.t(),
-        "strictTransportSecurity" => String.t(),
-        "xContentTypeOptions" => String.t(),
-        "xFrameOptions" => String.t()
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
       }
 
   """
-  @type start_participant_replication_response() :: %{String.t() => any()}
+  @type start_participant_replication_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_storage_configurations_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "storageConfigurations" => list(storage_configuration_summary())
       }
 
   """
-  @type list_storage_configurations_response() :: %{String.t() => any()}
+  @type list_storage_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_public_key_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | atom()
       }
 
   """
-  @type delete_public_key_request() :: %{String.t() => any()}
+  @type delete_public_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "accessControlAllowOrigin" => String.t(),
-        "accessControlExposeHeaders" => String.t(),
-        "cacheControl" => String.t(),
-        "contentSecurityPolicy" => String.t(),
-        "exceptionMessage" => String.t(),
-        "strictTransportSecurity" => String.t(),
-        "xAmznErrorType" => String.t(),
-        "xContentTypeOptions" => String.t(),
-        "xFrameOptions" => String.t()
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "exceptionMessage" => String.t() | atom(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xAmznErrorType" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "accessControlAllowOrigin" => String.t(),
-        "accessControlExposeHeaders" => String.t(),
-        "cacheControl" => String.t(),
-        "contentSecurityPolicy" => String.t(),
-        "exceptionMessage" => String.t(),
-        "strictTransportSecurity" => String.t(),
-        "xAmznErrorType" => String.t(),
-        "xContentTypeOptions" => String.t(),
-        "xFrameOptions" => String.t()
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "exceptionMessage" => String.t() | atom(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xAmznErrorType" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -824,49 +824,49 @@ defmodule AWS.IVSRealTime do
 
       delete_ingest_configuration_request() :: %{
         optional("force") => boolean(),
-        required("arn") => String.t()
+        required("arn") => String.t() | atom()
       }
 
   """
-  @type delete_ingest_configuration_request() :: %{String.t() => any()}
+  @type delete_ingest_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_participants_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "participants" => list(participant_summary())
       }
 
   """
-  @type list_participants_response() :: %{String.t() => any()}
+  @type list_participants_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_ingest_configurations_request() :: %{
-        optional("filterByStageArn") => String.t(),
-        optional("filterByState") => String.t(),
+        optional("filterByStageArn") => String.t() | atom(),
+        optional("filterByState") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_ingest_configurations_request() :: %{String.t() => any()}
+  @type list_ingest_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       channel_destination_configuration() :: %{
-        "channelArn" => String.t(),
-        "encoderConfigurationArn" => String.t()
+        "channelArn" => String.t() | atom(),
+        "encoderConfigurationArn" => String.t() | atom()
       }
 
   """
-  @type channel_destination_configuration() :: %{String.t() => any()}
+  @type channel_destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -877,7 +877,7 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type get_participant_response() :: %{String.t() => any()}
+  @type get_participant_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -885,17 +885,17 @@ defmodule AWS.IVSRealTime do
 
       list_participants_request() :: %{
         optional("filterByPublished") => boolean(),
-        optional("filterByRecordingState") => String.t(),
-        optional("filterByState") => String.t(),
-        optional("filterByUserId") => String.t(),
+        optional("filterByRecordingState") => String.t() | atom(),
+        optional("filterByState") => String.t() | atom(),
+        optional("filterByUserId") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("sessionId") => String.t(),
-        required("stageArn") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("sessionId") => String.t() | atom(),
+        required("stageArn") => String.t() | atom()
       }
 
   """
-  @type list_participants_request() :: %{String.t() => any()}
+  @type list_participants_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -906,26 +906,26 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type participant_recording_hls_configuration() :: %{String.t() => any()}
+  @type participant_recording_hls_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "accessControlAllowOrigin" => String.t(),
-        "accessControlExposeHeaders" => String.t(),
-        "cacheControl" => String.t(),
-        "contentSecurityPolicy" => String.t(),
-        "exceptionMessage" => String.t(),
-        "strictTransportSecurity" => String.t(),
-        "xAmznErrorType" => String.t(),
-        "xContentTypeOptions" => String.t(),
-        "xFrameOptions" => String.t()
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "exceptionMessage" => String.t() | atom(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xAmznErrorType" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -933,12 +933,12 @@ defmodule AWS.IVSRealTime do
 
       list_stage_sessions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("stageArn") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("stageArn") => String.t() | atom()
       }
 
   """
-  @type list_stage_sessions_request() :: %{String.t() => any()}
+  @type list_stage_sessions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -949,7 +949,7 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type create_storage_configuration_response() :: %{String.t() => any()}
+  @type create_storage_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -960,12 +960,12 @@ defmodule AWS.IVSRealTime do
         "mediaTypes" => list(list(any())()),
         "recordParticipantReplicas" => boolean(),
         "recordingReconnectWindowSeconds" => integer(),
-        "storageConfigurationArn" => String.t(),
+        "storageConfigurationArn" => String.t() | atom(),
         "thumbnailConfiguration" => participant_thumbnail_configuration()
       }
 
   """
-  @type auto_participant_recording_configuration() :: %{String.t() => any()}
+  @type auto_participant_recording_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -976,21 +976,21 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type create_participant_token_response() :: %{String.t() => any()}
+  @type create_participant_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_destination_configuration() :: %{
-        "encoderConfigurationArns" => list(String.t()),
+        "encoderConfigurationArns" => list(String.t() | atom()),
         "recordingConfiguration" => recording_configuration(),
-        "storageConfigurationArn" => String.t(),
+        "storageConfigurationArn" => String.t() | atom(),
         "thumbnailConfigurations" => list(composition_thumbnail_configuration())
       }
 
   """
-  @type s3_destination_configuration() :: %{String.t() => any()}
+  @type s3_destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -998,39 +998,39 @@ defmodule AWS.IVSRealTime do
 
       destination_summary() :: %{
         "endTime" => non_neg_integer(),
-        "id" => String.t(),
+        "id" => String.t() | atom(),
         "startTime" => non_neg_integer(),
-        "state" => String.t()
+        "state" => String.t() | atom()
       }
 
   """
-  @type destination_summary() :: %{String.t() => any()}
+  @type destination_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       storage_configuration() :: %{
-        "arn" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "s3" => s3_storage_configuration(),
         "tags" => map()
       }
 
   """
-  @type storage_configuration() :: %{String.t() => any()}
+  @type storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_stage_sessions_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "stageSessions" => list(stage_session_summary())
       }
 
   """
-  @type list_stage_sessions_response() :: %{String.t() => any()}
+  @type list_stage_sessions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1043,7 +1043,7 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type participant_thumbnail_configuration() :: %{String.t() => any()}
+  @type participant_thumbnail_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1054,49 +1054,49 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       encoder_configuration() :: %{
-        "arn" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "tags" => map(),
         "video" => video()
       }
 
   """
-  @type encoder_configuration() :: %{String.t() => any()}
+  @type encoder_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       public_key() :: %{
-        "arn" => String.t(),
-        "fingerprint" => String.t(),
-        "name" => String.t(),
-        "publicKeyMaterial" => String.t(),
+        "arn" => String.t() | atom(),
+        "fingerprint" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "publicKeyMaterial" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type public_key() :: %{String.t() => any()}
+  @type public_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       encoder_configuration_summary() :: %{
-        "arn" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type encoder_configuration_summary() :: %{String.t() => any()}
+  @type encoder_configuration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1107,7 +1107,7 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type update_ingest_configuration_response() :: %{String.t() => any()}
+  @type update_ingest_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1115,12 +1115,12 @@ defmodule AWS.IVSRealTime do
 
       stage_session_summary() :: %{
         "endTime" => non_neg_integer(),
-        "sessionId" => String.t(),
+        "sessionId" => String.t() | atom(),
         "startTime" => non_neg_integer()
       }
 
   """
-  @type stage_session_summary() :: %{String.t() => any()}
+  @type stage_session_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1137,43 +1137,43 @@ defmodule AWS.IVSRealTime do
 
       create_stage_request() :: %{
         optional("autoParticipantRecordingConfiguration") => auto_participant_recording_configuration(),
-        optional("name") => String.t(),
+        optional("name") => String.t() | atom(),
         optional("participantTokenConfigurations") => list(participant_token_configuration()),
         optional("tags") => map()
       }
 
   """
-  @type create_stage_request() :: %{String.t() => any()}
+  @type create_stage_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_detail() :: %{
-        "recordingPrefix" => String.t()
+        "recordingPrefix" => String.t() | atom()
       }
 
   """
-  @type s3_detail() :: %{String.t() => any()}
+  @type s3_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "accessControlAllowOrigin" => String.t(),
-        "accessControlExposeHeaders" => String.t(),
-        "cacheControl" => String.t(),
-        "contentSecurityPolicy" => String.t(),
-        "exceptionMessage" => String.t(),
-        "strictTransportSecurity" => String.t(),
-        "xAmznErrorType" => String.t(),
-        "xContentTypeOptions" => String.t(),
-        "xFrameOptions" => String.t()
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "exceptionMessage" => String.t() | atom(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xAmznErrorType" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1181,44 +1181,44 @@ defmodule AWS.IVSRealTime do
 
       create_participant_token_request() :: %{
         optional("attributes") => map(),
-        optional("capabilities") => list(String.t()),
+        optional("capabilities") => list(String.t() | atom()),
         optional("duration") => integer(),
-        optional("userId") => String.t(),
-        required("stageArn") => String.t()
+        optional("userId") => String.t() | atom(),
+        required("stageArn") => String.t() | atom()
       }
 
   """
-  @type create_participant_token_request() :: %{String.t() => any()}
+  @type create_participant_token_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       import_public_key_request() :: %{
-        optional("name") => String.t(),
+        optional("name") => String.t() | atom(),
         optional("tags") => map(),
-        required("publicKeyMaterial") => String.t()
+        required("publicKeyMaterial") => String.t() | atom()
       }
 
   """
-  @type import_public_key_request() :: %{String.t() => any()}
+  @type import_public_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ingest_configuration_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "ingestProtocol" => list(any()),
-        "name" => String.t(),
-        "participantId" => String.t(),
-        "stageArn" => String.t(),
-        "state" => String.t(),
-        "userId" => String.t()
+        "name" => String.t() | atom(),
+        "participantId" => String.t() | atom(),
+        "stageArn" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "userId" => String.t() | atom()
       }
 
   """
-  @type ingest_configuration_summary() :: %{String.t() => any()}
+  @type ingest_configuration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1234,30 +1234,30 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       list_stages_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("stages") => list(stage_summary())
       }
 
   """
-  @type list_stages_response() :: %{String.t() => any()}
+  @type list_stages_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       event() :: %{
-        "destinationSessionId" => String.t(),
-        "destinationStageArn" => String.t(),
+        "destinationSessionId" => String.t() | atom(),
+        "destinationStageArn" => String.t() | atom(),
         "errorCode" => list(any()),
         "eventTime" => non_neg_integer(),
-        "name" => String.t(),
-        "participantId" => String.t(),
-        "remoteParticipantId" => String.t(),
+        "name" => String.t() | atom(),
+        "participantId" => String.t() | atom(),
+        "remoteParticipantId" => String.t() | atom(),
         "replica" => boolean()
       }
 
   """
-  @type event() :: %{String.t() => any()}
+  @type event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1265,35 +1265,35 @@ defmodule AWS.IVSRealTime do
 
       list_encoder_configurations_response() :: %{
         "encoderConfigurations" => list(encoder_configuration_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_encoder_configurations_response() :: %{String.t() => any()}
+  @type list_encoder_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_public_key_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | atom()
       }
 
   """
-  @type get_public_key_request() :: %{String.t() => any()}
+  @type get_public_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_participant_request() :: %{
-        required("participantId") => String.t(),
-        required("sessionId") => String.t(),
-        required("stageArn") => String.t()
+        required("participantId") => String.t() | atom(),
+        required("sessionId") => String.t() | atom(),
+        required("stageArn") => String.t() | atom()
       }
 
   """
-  @type get_participant_request() :: %{String.t() => any()}
+  @type get_participant_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1304,26 +1304,26 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type get_public_key_response() :: %{String.t() => any()}
+  @type get_public_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "accessControlAllowOrigin" => String.t(),
-        "accessControlExposeHeaders" => String.t(),
-        "cacheControl" => String.t(),
-        "contentSecurityPolicy" => String.t(),
-        "exceptionMessage" => String.t(),
-        "strictTransportSecurity" => String.t(),
-        "xAmznErrorType" => String.t(),
-        "xContentTypeOptions" => String.t(),
-        "xFrameOptions" => String.t()
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "exceptionMessage" => String.t() | atom(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xAmznErrorType" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1339,13 +1339,13 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       stop_participant_replication_request() :: %{
-        required("destinationStageArn") => String.t(),
-        required("participantId") => String.t(),
-        required("sourceStageArn") => String.t()
+        required("destinationStageArn") => String.t() | atom(),
+        required("participantId") => String.t() | atom(),
+        required("sourceStageArn") => String.t() | atom()
       }
 
   """
-  @type stop_participant_replication_request() :: %{String.t() => any()}
+  @type stop_participant_replication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1362,31 +1362,31 @@ defmodule AWS.IVSRealTime do
 
       list_participant_events_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("participantId") => String.t(),
-        required("sessionId") => String.t(),
-        required("stageArn") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("participantId") => String.t() | atom(),
+        required("sessionId") => String.t() | atom(),
+        required("stageArn") => String.t() | atom()
       }
 
   """
-  @type list_participant_events_request() :: %{String.t() => any()}
+  @type list_participant_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_participant_replication_response() :: %{
-        "accessControlAllowOrigin" => String.t(),
-        "accessControlExposeHeaders" => String.t(),
-        "cacheControl" => String.t(),
-        "contentSecurityPolicy" => String.t(),
-        "strictTransportSecurity" => String.t(),
-        "xContentTypeOptions" => String.t(),
-        "xFrameOptions" => String.t()
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
       }
 
   """
-  @type stop_participant_replication_response() :: %{String.t() => any()}
+  @type stop_participant_replication_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1397,14 +1397,14 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type composition_recording_hls_configuration() :: %{String.t() => any()}
+  @type composition_recording_hls_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       grid_configuration() :: %{
-        "featuredParticipantAttribute" => String.t(),
+        "featuredParticipantAttribute" => String.t() | atom(),
         "gridGap" => integer(),
         "omitStoppedVideo" => boolean(),
         "videoAspectRatio" => list(any()),
@@ -1412,18 +1412,18 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type grid_configuration() :: %{String.t() => any()}
+  @type grid_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_ingest_configuration_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | atom()
       }
 
   """
-  @type get_ingest_configuration_request() :: %{String.t() => any()}
+  @type get_ingest_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1435,26 +1435,26 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type composition_thumbnail_configuration() :: %{String.t() => any()}
+  @type composition_thumbnail_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "accessControlAllowOrigin" => String.t(),
-        "accessControlExposeHeaders" => String.t(),
-        "cacheControl" => String.t(),
-        "contentSecurityPolicy" => String.t(),
-        "exceptionMessage" => String.t(),
-        "strictTransportSecurity" => String.t(),
-        "xAmznErrorType" => String.t(),
-        "xContentTypeOptions" => String.t(),
-        "xFrameOptions" => String.t()
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "exceptionMessage" => String.t() | atom(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xAmznErrorType" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1473,13 +1473,13 @@ defmodule AWS.IVSRealTime do
         "configuration" => destination_configuration(),
         "detail" => destination_detail(),
         "endTime" => non_neg_integer(),
-        "id" => String.t(),
+        "id" => String.t() | atom(),
         "startTime" => non_neg_integer(),
-        "state" => String.t()
+        "state" => String.t() | atom()
       }
 
   """
-  @type destination() :: %{String.t() => any()}
+  @type destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1487,16 +1487,16 @@ defmodule AWS.IVSRealTime do
 
       participant_token() :: %{
         "attributes" => map(),
-        "capabilities" => list(String.t()),
+        "capabilities" => list(String.t() | atom()),
         "duration" => integer(),
         "expirationTime" => non_neg_integer(),
-        "participantId" => String.t(),
-        "token" => String.t(),
-        "userId" => String.t()
+        "participantId" => String.t() | atom(),
+        "token" => String.t() | atom(),
+        "userId" => String.t() | atom()
       }
 
   """
-  @type participant_token() :: %{String.t() => any()}
+  @type participant_token() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1514,26 +1514,26 @@ defmodule AWS.IVSRealTime do
       start_participant_replication_request() :: %{
         optional("attributes") => map(),
         optional("reconnectWindowSeconds") => integer(),
-        required("destinationStageArn") => String.t(),
-        required("participantId") => String.t(),
-        required("sourceStageArn") => String.t()
+        required("destinationStageArn") => String.t() | atom(),
+        required("participantId") => String.t() | atom(),
+        required("sourceStageArn") => String.t() | atom()
       }
 
   """
-  @type start_participant_replication_request() :: %{String.t() => any()}
+  @type start_participant_replication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_storage_configuration_request() :: %{
-        optional("name") => String.t(),
+        optional("name") => String.t() | atom(),
         optional("tags") => map(),
         required("s3") => s3_storage_configuration()
       }
 
   """
-  @type create_storage_configuration_request() :: %{String.t() => any()}
+  @type create_storage_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1544,55 +1544,55 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type destination_detail() :: %{String.t() => any()}
+  @type destination_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_encoder_configuration_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | atom()
       }
 
   """
-  @type get_encoder_configuration_request() :: %{String.t() => any()}
+  @type get_encoder_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       public_key_summary() :: %{
-        "arn" => String.t(),
-        "name" => String.t(),
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type public_key_summary() :: %{String.t() => any()}
+  @type public_key_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_encoder_configuration_request() :: %{
-        optional("name") => String.t(),
+        optional("name") => String.t() | atom(),
         optional("tags") => map(),
         optional("video") => video()
       }
 
   """
-  @type create_encoder_configuration_request() :: %{String.t() => any()}
+  @type create_encoder_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_storage_configuration() :: %{
-        "bucketName" => String.t()
+        "bucketName" => String.t() | atom()
       }
 
   """
-  @type s3_storage_configuration() :: %{String.t() => any()}
+  @type s3_storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1600,54 +1600,54 @@ defmodule AWS.IVSRealTime do
 
       stage_session() :: %{
         "endTime" => non_neg_integer(),
-        "sessionId" => String.t(),
+        "sessionId" => String.t() | atom(),
         "startTime" => non_neg_integer()
       }
 
   """
-  @type stage_session() :: %{String.t() => any()}
+  @type stage_session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stage_summary() :: %{
-        "activeSessionId" => String.t(),
-        "arn" => String.t(),
-        "name" => String.t(),
+        "activeSessionId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type stage_summary() :: %{String.t() => any()}
+  @type stage_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_storage_configuration_request() :: %{
-        required("arn") => String.t()
+        required("arn") => String.t() | atom()
       }
 
   """
-  @type delete_storage_configuration_request() :: %{String.t() => any()}
+  @type delete_storage_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       composition_summary() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "destinations" => list(destination_summary()),
         "endTime" => non_neg_integer(),
-        "stageArn" => String.t(),
+        "stageArn" => String.t() | atom(),
         "startTime" => non_neg_integer(),
-        "state" => String.t(),
+        "state" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type composition_summary() :: %{String.t() => any()}
+  @type composition_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1667,7 +1667,7 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type create_encoder_configuration_response() :: %{String.t() => any()}
+  @type create_encoder_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1679,26 +1679,26 @@ defmodule AWS.IVSRealTime do
       }
 
   """
-  @type layout_configuration() :: %{String.t() => any()}
+  @type layout_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pending_verification() :: %{
-        "accessControlAllowOrigin" => String.t(),
-        "accessControlExposeHeaders" => String.t(),
-        "cacheControl" => String.t(),
-        "contentSecurityPolicy" => String.t(),
-        "exceptionMessage" => String.t(),
-        "strictTransportSecurity" => String.t(),
-        "xAmznErrorType" => String.t(),
-        "xContentTypeOptions" => String.t(),
-        "xFrameOptions" => String.t()
+        "accessControlAllowOrigin" => String.t() | atom(),
+        "accessControlExposeHeaders" => String.t() | atom(),
+        "cacheControl" => String.t() | atom(),
+        "contentSecurityPolicy" => String.t() | atom(),
+        "exceptionMessage" => String.t() | atom(),
+        "strictTransportSecurity" => String.t() | atom(),
+        "xAmznErrorType" => String.t() | atom(),
+        "xContentTypeOptions" => String.t() | atom(),
+        "xFrameOptions" => String.t() | atom()
       }
 
   """
-  @type pending_verification() :: %{String.t() => any()}
+  @type pending_verification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1706,12 +1706,12 @@ defmodule AWS.IVSRealTime do
 
       destination_configuration() :: %{
         "channel" => channel_destination_configuration(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "s3" => s3_destination_configuration()
       }
 
   """
-  @type destination_configuration() :: %{String.t() => any()}
+  @type destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1719,11 +1719,11 @@ defmodule AWS.IVSRealTime do
 
       list_participant_events_response() :: %{
         "events" => list(event()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_participant_events_response() :: %{String.t() => any()}
+  @type list_participant_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2889,7 +2889,7 @@ defmodule AWS.IVSRealTime do
   @doc """
   Gets information about AWS tags for the specified ARN.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3079,7 +3079,7 @@ defmodule AWS.IVSRealTime do
   @doc """
   Adds or updates tags for the AWS resource with the specified ARN.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3108,7 +3108,7 @@ defmodule AWS.IVSRealTime do
   @doc """
   Removes tags from the resource with the specified ARN.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

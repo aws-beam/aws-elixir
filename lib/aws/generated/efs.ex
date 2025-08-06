@@ -30,7 +30,7 @@ defmodule AWS.EFS do
       }
 
   """
-  @type update_file_system_protection_request() :: %{String.t() => any()}
+  @type update_file_system_protection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -45,19 +45,19 @@ defmodule AWS.EFS do
       }
 
   """
-  @type file_system_size() :: %{String.t() => any()}
+  @type file_system_size() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_account_preferences_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ResourceIdPreference" => resource_id_preference()
       }
 
   """
-  @type describe_account_preferences_response() :: %{String.t() => any()}
+  @type describe_account_preferences_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -68,39 +68,39 @@ defmodule AWS.EFS do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_tags_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type delete_tags_request() :: %{String.t() => any()}
+  @type delete_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       mount_target_description() :: %{
-        "AvailabilityZoneId" => String.t(),
-        "AvailabilityZoneName" => String.t(),
-        "FileSystemId" => String.t(),
-        "IpAddress" => String.t(),
-        "Ipv6Address" => String.t(),
+        "AvailabilityZoneId" => String.t() | atom(),
+        "AvailabilityZoneName" => String.t() | atom(),
+        "FileSystemId" => String.t() | atom(),
+        "IpAddress" => String.t() | atom(),
+        "Ipv6Address" => String.t() | atom(),
         "LifeCycleState" => list(any()),
-        "MountTargetId" => String.t(),
-        "NetworkInterfaceId" => String.t(),
-        "OwnerId" => String.t(),
-        "SubnetId" => String.t(),
-        "VpcId" => String.t()
+        "MountTargetId" => String.t() | atom(),
+        "NetworkInterfaceId" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "SubnetId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type mount_target_description() :: %{String.t() => any()}
+  @type mount_target_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -111,7 +111,7 @@ defmodule AWS.EFS do
       }
 
   """
-  @type backup_policy_description() :: %{String.t() => any()}
+  @type backup_policy_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -119,23 +119,23 @@ defmodule AWS.EFS do
 
       describe_account_preferences_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_account_preferences_request() :: %{String.t() => any()}
+  @type describe_account_preferences_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       file_system_limit_exceeded() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type file_system_limit_exceeded() :: %{String.t() => any()}
+  @type file_system_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -143,23 +143,23 @@ defmodule AWS.EFS do
 
       root_directory() :: %{
         "CreationInfo" => creation_info(),
-        "Path" => String.t()
+        "Path" => String.t() | atom()
       }
 
   """
-  @type root_directory() :: %{String.t() => any()}
+  @type root_directory() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unsupported_availability_zone() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type unsupported_availability_zone() :: %{String.t() => any()}
+  @type unsupported_availability_zone() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -170,60 +170,60 @@ defmodule AWS.EFS do
       }
 
   """
-  @type put_backup_policy_request() :: %{String.t() => any()}
+  @type put_backup_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_replication_configurations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Replications" => list(replication_configuration_description())
       }
 
   """
-  @type describe_replication_configurations_response() :: %{String.t() => any()}
+  @type describe_replication_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       file_system_already_exists() :: %{
-        "ErrorCode" => String.t(),
-        "FileSystemId" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "FileSystemId" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type file_system_already_exists() :: %{String.t() => any()}
+  @type file_system_already_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       incorrect_file_system_life_cycle_state() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type incorrect_file_system_life_cycle_state() :: %{String.t() => any()}
+  @type incorrect_file_system_life_cycle_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_mount_target_request() :: %{
-        optional("IpAddress") => String.t(),
+        optional("IpAddress") => String.t() | atom(),
         optional("IpAddressType") => list(any()),
-        optional("Ipv6Address") => String.t(),
-        optional("SecurityGroups") => list(String.t()),
-        required("FileSystemId") => String.t(),
-        required("SubnetId") => String.t()
+        optional("Ipv6Address") => String.t() | atom(),
+        optional("SecurityGroups") => list(String.t() | atom()),
+        required("FileSystemId") => String.t() | atom(),
+        required("SubnetId") => String.t() | atom()
       }
 
   """
-  @type create_mount_target_request() :: %{String.t() => any()}
+  @type create_mount_target_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -234,18 +234,18 @@ defmodule AWS.EFS do
       }
 
   """
-  @type put_lifecycle_configuration_request() :: %{String.t() => any()}
+  @type put_lifecycle_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -256,84 +256,84 @@ defmodule AWS.EFS do
       }
 
   """
-  @type put_account_preferences_response() :: %{String.t() => any()}
+  @type put_account_preferences_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       file_system_in_use() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type file_system_in_use() :: %{String.t() => any()}
+  @type file_system_in_use() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_tags_response() :: %{
-        "Marker" => String.t(),
-        "NextMarker" => String.t(),
+        "Marker" => String.t() | atom(),
+        "NextMarker" => String.t() | atom(),
         "Tags" => list(tag())
       }
 
   """
-  @type describe_tags_response() :: %{String.t() => any()}
+  @type describe_tags_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       mount_target_conflict() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type mount_target_conflict() :: %{String.t() => any()}
+  @type mount_target_conflict() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       destination_to_create() :: %{
-        "AvailabilityZoneName" => String.t(),
-        "FileSystemId" => String.t(),
-        "KmsKeyId" => String.t(),
-        "Region" => String.t(),
-        "RoleArn" => String.t()
+        "AvailabilityZoneName" => String.t() | atom(),
+        "FileSystemId" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
       }
 
   """
-  @type destination_to_create() :: %{String.t() => any()}
+  @type destination_to_create() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       security_group_limit_exceeded() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type security_group_limit_exceeded() :: %{String.t() => any()}
+  @type security_group_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_mount_targets_response() :: %{
-        "Marker" => String.t(),
+        "Marker" => String.t() | atom(),
         "MountTargets" => list(mount_target_description()),
-        "NextMarker" => String.t()
+        "NextMarker" => String.t() | atom()
       }
 
   """
-  @type describe_mount_targets_response() :: %{String.t() => any()}
+  @type describe_mount_targets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -343,12 +343,12 @@ defmodule AWS.EFS do
         optional("PosixUser") => posix_user(),
         optional("RootDirectory") => root_directory(),
         optional("Tags") => list(tag()),
-        required("ClientToken") => String.t(),
-        required("FileSystemId") => String.t()
+        required("ClientToken") => String.t() | atom(),
+        required("FileSystemId") => String.t() | atom()
       }
 
   """
-  @type create_access_point_request() :: %{String.t() => any()}
+  @type create_access_point_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -359,19 +359,19 @@ defmodule AWS.EFS do
       }
 
   """
-  @type delete_replication_configuration_request() :: %{String.t() => any()}
+  @type delete_replication_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       file_system_policy_description() :: %{
-        optional("FileSystemId") => String.t(),
-        optional("Policy") => String.t()
+        optional("FileSystemId") => String.t() | atom(),
+        optional("Policy") => String.t() | atom()
       }
 
   """
-  @type file_system_policy_description() :: %{String.t() => any()}
+  @type file_system_policy_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -382,19 +382,19 @@ defmodule AWS.EFS do
       }
 
   """
-  @type create_tags_request() :: %{String.t() => any()}
+  @type create_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_policy_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_policy_exception() :: %{String.t() => any()}
+  @type invalid_policy_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -405,7 +405,7 @@ defmodule AWS.EFS do
       }
 
   """
-  @type put_account_preferences_request() :: %{String.t() => any()}
+  @type put_account_preferences_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -421,12 +421,12 @@ defmodule AWS.EFS do
   ## Example:
 
       conflict_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -439,19 +439,19 @@ defmodule AWS.EFS do
       }
 
   """
-  @type posix_user() :: %{String.t() => any()}
+  @type posix_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       availability_zones_mismatch() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type availability_zones_mismatch() :: %{String.t() => any()}
+  @type availability_zones_mismatch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -463,43 +463,43 @@ defmodule AWS.EFS do
       }
 
   """
-  @type update_file_system_request() :: %{String.t() => any()}
+  @type update_file_system_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       replication_already_exists() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type replication_already_exists() :: %{String.t() => any()}
+  @type replication_already_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       incorrect_mount_target_state() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type incorrect_mount_target_state() :: %{String.t() => any()}
+  @type incorrect_mount_target_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -510,68 +510,68 @@ defmodule AWS.EFS do
       }
 
   """
-  @type backup_policy() :: %{String.t() => any()}
+  @type backup_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_file_system_request() :: %{
-        optional("AvailabilityZoneName") => String.t(),
+        optional("AvailabilityZoneName") => String.t() | atom(),
         optional("Backup") => boolean(),
         optional("Encrypted") => boolean(),
-        optional("KmsKeyId") => String.t(),
+        optional("KmsKeyId") => String.t() | atom(),
         optional("PerformanceMode") => list(any()),
         optional("ProvisionedThroughputInMibps") => float(),
         optional("Tags") => list(tag()),
         optional("ThroughputMode") => list(any()),
-        required("CreationToken") => String.t()
+        required("CreationToken") => String.t() | atom()
       }
 
   """
-  @type create_file_system_request() :: %{String.t() => any()}
+  @type create_file_system_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_mount_target_security_groups_response() :: %{
-        "SecurityGroups" => list(String.t())
+        "SecurityGroups" => list(String.t() | atom())
       }
 
   """
-  @type describe_mount_target_security_groups_response() :: %{String.t() => any()}
+  @type describe_mount_target_security_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       mount_target_not_found() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type mount_target_not_found() :: %{String.t() => any()}
+  @type mount_target_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       file_system_description() :: %{
-        "AvailabilityZoneId" => String.t(),
-        "AvailabilityZoneName" => String.t(),
+        "AvailabilityZoneId" => String.t() | atom(),
+        "AvailabilityZoneName" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "CreationToken" => String.t(),
+        "CreationToken" => String.t() | atom(),
         "Encrypted" => boolean(),
-        "FileSystemArn" => String.t(),
-        "FileSystemId" => String.t(),
+        "FileSystemArn" => String.t() | atom(),
+        "FileSystemId" => String.t() | atom(),
         "FileSystemProtection" => file_system_protection_description(),
-        "KmsKeyId" => String.t(),
+        "KmsKeyId" => String.t() | atom(),
         "LifeCycleState" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "NumberOfMountTargets" => integer(),
-        "OwnerId" => String.t(),
+        "OwnerId" => String.t() | atom(),
         "PerformanceMode" => list(any()),
         "ProvisionedThroughputInMibps" => float(),
         "SizeInBytes" => file_system_size(),
@@ -580,7 +580,7 @@ defmodule AWS.EFS do
       }
 
   """
-  @type file_system_description() :: %{String.t() => any()}
+  @type file_system_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -592,7 +592,7 @@ defmodule AWS.EFS do
       }
 
   """
-  @type resource_id_preference() :: %{String.t() => any()}
+  @type resource_id_preference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -603,78 +603,78 @@ defmodule AWS.EFS do
       }
 
   """
-  @type file_system_protection_description() :: %{String.t() => any()}
+  @type file_system_protection_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Tags" => list(tag())
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       dependency_timeout() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type dependency_timeout() :: %{String.t() => any()}
+  @type dependency_timeout() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_point_limit_exceeded() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_point_limit_exceeded() :: %{String.t() => any()}
+  @type access_point_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network_interface_limit_exceeded() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type network_interface_limit_exceeded() :: %{String.t() => any()}
+  @type network_interface_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       modify_mount_target_security_groups_request() :: %{
-        optional("SecurityGroups") => list(String.t())
+        optional("SecurityGroups") => list(String.t() | atom())
       }
 
   """
-  @type modify_mount_target_security_groups_request() :: %{String.t() => any()}
+  @type modify_mount_target_security_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       file_system_not_found() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type file_system_not_found() :: %{String.t() => any()}
+  @type file_system_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -682,35 +682,35 @@ defmodule AWS.EFS do
 
       put_file_system_policy_request() :: %{
         optional("BypassPolicyLockoutSafetyCheck") => boolean(),
-        required("Policy") => String.t()
+        required("Policy") => String.t() | atom()
       }
 
   """
-  @type put_file_system_policy_request() :: %{String.t() => any()}
+  @type put_file_system_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       insufficient_throughput_capacity() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type insufficient_throughput_capacity() :: %{String.t() => any()}
+  @type insufficient_throughput_capacity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_point_not_found() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_point_not_found() :: %{String.t() => any()}
+  @type access_point_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -726,13 +726,13 @@ defmodule AWS.EFS do
   ## Example:
 
       access_point_already_exists() :: %{
-        "AccessPointId" => String.t(),
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "AccessPointId" => String.t() | atom(),
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_point_already_exists() :: %{String.t() => any()}
+  @type access_point_already_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -741,15 +741,15 @@ defmodule AWS.EFS do
       replication_configuration_description() :: %{
         "CreationTime" => non_neg_integer(),
         "Destinations" => list(destination()),
-        "OriginalSourceFileSystemArn" => String.t(),
-        "SourceFileSystemArn" => String.t(),
-        "SourceFileSystemId" => String.t(),
-        "SourceFileSystemOwnerId" => String.t(),
-        "SourceFileSystemRegion" => String.t()
+        "OriginalSourceFileSystemArn" => String.t() | atom(),
+        "SourceFileSystemArn" => String.t() | atom(),
+        "SourceFileSystemId" => String.t() | atom(),
+        "SourceFileSystemOwnerId" => String.t() | atom(),
+        "SourceFileSystemRegion" => String.t() | atom()
       }
 
   """
-  @type replication_configuration_description() :: %{String.t() => any()}
+  @type replication_configuration_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -771,19 +771,19 @@ defmodule AWS.EFS do
       }
 
   """
-  @type lifecycle_policy() :: %{String.t() => any()}
+  @type lifecycle_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       security_group_not_found() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type security_group_not_found() :: %{String.t() => any()}
+  @type security_group_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -794,60 +794,60 @@ defmodule AWS.EFS do
       }
 
   """
-  @type create_replication_configuration_request() :: %{String.t() => any()}
+  @type create_replication_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_file_systems_request() :: %{
-        optional("CreationToken") => String.t(),
-        optional("FileSystemId") => String.t(),
-        optional("Marker") => String.t(),
+        optional("CreationToken") => String.t() | atom(),
+        optional("FileSystemId") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type describe_file_systems_request() :: %{String.t() => any()}
+  @type describe_file_systems_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       bad_request() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type bad_request() :: %{String.t() => any()}
+  @type bad_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_mount_targets_request() :: %{
-        optional("AccessPointId") => String.t(),
-        optional("FileSystemId") => String.t(),
-        optional("Marker") => String.t(),
+        optional("AccessPointId") => String.t() | atom(),
+        optional("FileSystemId") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer(),
-        optional("MountTargetId") => String.t()
+        optional("MountTargetId") => String.t() | atom()
       }
 
   """
-  @type describe_mount_targets_request() :: %{String.t() => any()}
+  @type describe_mount_targets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_error() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_error() :: %{String.t() => any()}
+  @type internal_server_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -863,26 +863,26 @@ defmodule AWS.EFS do
   ## Example:
 
       describe_access_points_request() :: %{
-        optional("AccessPointId") => String.t(),
-        optional("FileSystemId") => String.t(),
+        optional("AccessPointId") => String.t() | atom(),
+        optional("FileSystemId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_access_points_request() :: %{String.t() => any()}
+  @type describe_access_points_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -899,52 +899,52 @@ defmodule AWS.EFS do
 
       list_tags_for_resource_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ip_address_in_use() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type ip_address_in_use() :: %{String.t() => any()}
+  @type ip_address_in_use() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       policy_not_found() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type policy_not_found() :: %{String.t() => any()}
+  @type policy_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       destination() :: %{
-        "FileSystemId" => String.t(),
+        "FileSystemId" => String.t() | atom(),
         "LastReplicatedTimestamp" => non_neg_integer(),
-        "OwnerId" => String.t(),
-        "Region" => String.t(),
-        "RoleArn" => String.t(),
+        "OwnerId" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type destination() :: %{String.t() => any()}
+  @type destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -952,48 +952,48 @@ defmodule AWS.EFS do
 
       describe_file_systems_response() :: %{
         "FileSystems" => list(file_system_description()),
-        "Marker" => String.t(),
-        "NextMarker" => String.t()
+        "Marker" => String.t() | atom(),
+        "NextMarker" => String.t() | atom()
       }
 
   """
-  @type describe_file_systems_response() :: %{String.t() => any()}
+  @type describe_file_systems_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       too_many_requests() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type too_many_requests() :: %{String.t() => any()}
+  @type too_many_requests() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       replication_not_found() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type replication_not_found() :: %{String.t() => any()}
+  @type replication_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1002,47 +1002,47 @@ defmodule AWS.EFS do
       creation_info() :: %{
         "OwnerGid" => float(),
         "OwnerUid" => float(),
-        "Permissions" => String.t()
+        "Permissions" => String.t() | atom()
       }
 
   """
-  @type creation_info() :: %{String.t() => any()}
+  @type creation_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throughput_limit_exceeded() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type throughput_limit_exceeded() :: %{String.t() => any()}
+  @type throughput_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_tags_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type describe_tags_request() :: %{String.t() => any()}
+  @type describe_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       no_free_addresses_in_subnet() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type no_free_addresses_in_subnet() :: %{String.t() => any()}
+  @type no_free_addresses_in_subnet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1050,11 +1050,11 @@ defmodule AWS.EFS do
 
       describe_access_points_response() :: %{
         "AccessPoints" => list(access_point_description()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type describe_access_points_response() :: %{String.t() => any()}
+  @type describe_access_points_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1070,13 +1070,13 @@ defmodule AWS.EFS do
   ## Example:
 
       describe_replication_configurations_request() :: %{
-        optional("FileSystemId") => String.t(),
+        optional("FileSystemId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_replication_configurations_request() :: %{String.t() => any()}
+  @type describe_replication_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1096,39 +1096,39 @@ defmodule AWS.EFS do
       }
 
   """
-  @type lifecycle_configuration_description() :: %{String.t() => any()}
+  @type lifecycle_configuration_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_point_description() :: %{
-        "AccessPointArn" => String.t(),
-        "AccessPointId" => String.t(),
-        "ClientToken" => String.t(),
-        "FileSystemId" => String.t(),
+        "AccessPointArn" => String.t() | atom(),
+        "AccessPointId" => String.t() | atom(),
+        "ClientToken" => String.t() | atom(),
+        "FileSystemId" => String.t() | atom(),
         "LifeCycleState" => list(any()),
-        "Name" => String.t(),
-        "OwnerId" => String.t(),
+        "Name" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
         "PosixUser" => posix_user(),
         "RootDirectory" => root_directory(),
         "Tags" => list(tag())
       }
 
   """
-  @type access_point_description() :: %{String.t() => any()}
+  @type access_point_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       subnet_not_found() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type subnet_not_found() :: %{String.t() => any()}
+  @type subnet_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1756,7 +1756,7 @@ defmodule AWS.EFS do
   """
   @spec create_replication_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           create_replication_configuration_request(),
           list()
         ) ::
@@ -1811,7 +1811,7 @@ defmodule AWS.EFS do
   This operation requires permission for the `elasticfilesystem:CreateTags`
   action.
   """
-  @spec create_tags(map(), String.t(), create_tags_request(), list()) ::
+  @spec create_tags(map(), String.t() | atom(), create_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1848,7 +1848,7 @@ defmodule AWS.EFS do
   This operation requires permissions for the
   `elasticfilesystem:DeleteAccessPoint` action.
   """
-  @spec delete_access_point(map(), String.t(), delete_access_point_request(), list()) ::
+  @spec delete_access_point(map(), String.t() | atom(), delete_access_point_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1906,7 +1906,7 @@ defmodule AWS.EFS do
   This operation requires permissions for the
   `elasticfilesystem:DeleteFileSystem` action.
   """
-  @spec delete_file_system(map(), String.t(), delete_file_system_request(), list()) ::
+  @spec delete_file_system(map(), String.t() | atom(), delete_file_system_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1943,7 +1943,12 @@ defmodule AWS.EFS do
   This operation requires permissions for the
   `elasticfilesystem:DeleteFileSystemPolicy` action.
   """
-  @spec delete_file_system_policy(map(), String.t(), delete_file_system_policy_request(), list()) ::
+  @spec delete_file_system_policy(
+          map(),
+          String.t() | atom(),
+          delete_file_system_policy_request(),
+          list()
+        ) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2006,7 +2011,7 @@ defmodule AWS.EFS do
 
   `ec2:DeleteNetworkInterface`
   """
-  @spec delete_mount_target(map(), String.t(), delete_mount_target_request(), list()) ::
+  @spec delete_mount_target(map(), String.t() | atom(), delete_mount_target_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2046,7 +2051,7 @@ defmodule AWS.EFS do
   """
   @spec delete_replication_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_replication_configuration_request(),
           list()
         ) ::
@@ -2104,7 +2109,7 @@ defmodule AWS.EFS do
   This operation requires permissions for the `elasticfilesystem:DeleteTags`
   action.
   """
-  @spec delete_tags(map(), String.t(), delete_tags_request(), list()) ::
+  @spec delete_tags(map(), String.t() | atom(), delete_tags_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2144,10 +2149,10 @@ defmodule AWS.EFS do
   """
   @spec describe_access_points(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_access_points_response(), any()}
@@ -2222,7 +2227,7 @@ defmodule AWS.EFS do
   @doc """
   Returns the backup policy for the specified EFS file system.
   """
-  @spec describe_backup_policy(map(), String.t(), list()) ::
+  @spec describe_backup_policy(map(), String.t() | atom(), list()) ::
           {:ok, backup_policy_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2244,7 +2249,7 @@ defmodule AWS.EFS do
   This operation requires permissions for the
   `elasticfilesystem:DescribeFileSystemPolicy` action.
   """
-  @spec describe_file_system_policy(map(), String.t(), list()) ::
+  @spec describe_file_system_policy(map(), String.t() | atom(), list()) ::
           {:ok, file_system_policy_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2296,10 +2301,10 @@ defmodule AWS.EFS do
   """
   @spec describe_file_systems(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_file_systems_response(), any()}
@@ -2364,7 +2369,7 @@ defmodule AWS.EFS do
   This operation requires permissions for the
   `elasticfilesystem:DescribeLifecycleConfiguration` operation.
   """
-  @spec describe_lifecycle_configuration(map(), String.t(), list()) ::
+  @spec describe_lifecycle_configuration(map(), String.t() | atom(), list()) ::
           {:ok, lifecycle_configuration_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2401,7 +2406,7 @@ defmodule AWS.EFS do
   `ec2:DescribeNetworkInterfaceAttribute` action on the mount target's
   network interface.
   """
-  @spec describe_mount_target_security_groups(map(), String.t(), list()) ::
+  @spec describe_mount_target_security_groups(map(), String.t() | atom(), list()) ::
           {:ok, describe_mount_target_security_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2432,11 +2437,11 @@ defmodule AWS.EFS do
   """
   @spec describe_mount_targets(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_mount_targets_response(), any()}
@@ -2506,9 +2511,9 @@ defmodule AWS.EFS do
   """
   @spec describe_replication_configurations(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_replication_configurations_response(), any()}
@@ -2568,7 +2573,13 @@ defmodule AWS.EFS do
   This operation requires permissions for the
   `elasticfilesystem:DescribeTags` action.
   """
-  @spec describe_tags(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec describe_tags(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, describe_tags_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2612,7 +2623,13 @@ defmodule AWS.EFS do
   This operation requires permissions for the
   `elasticfilesystem:DescribeAccessPoints` action.
   """
-  @spec list_tags_for_resource(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_tags_for_resource(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2674,7 +2691,7 @@ defmodule AWS.EFS do
   """
   @spec modify_mount_target_security_groups(
           map(),
-          String.t(),
+          String.t() | atom(),
           modify_mount_target_security_groups_request(),
           list()
         ) ::
@@ -2759,7 +2776,7 @@ defmodule AWS.EFS do
 
   Use this action to start or stop automatic backups of the file system.
   """
-  @spec put_backup_policy(map(), String.t(), put_backup_policy_request(), list()) ::
+  @spec put_backup_policy(map(), String.t() | atom(), put_backup_policy_request(), list()) ::
           {:ok, backup_policy_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2807,7 +2824,12 @@ defmodule AWS.EFS do
   This operation requires permissions for the
   `elasticfilesystem:PutFileSystemPolicy` action.
   """
-  @spec put_file_system_policy(map(), String.t(), put_file_system_policy_request(), list()) ::
+  @spec put_file_system_policy(
+          map(),
+          String.t() | atom(),
+          put_file_system_policy_request(),
+          list()
+        ) ::
           {:ok, file_system_policy_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2910,7 +2932,7 @@ defmodule AWS.EFS do
   """
   @spec put_lifecycle_configuration(
           map(),
-          String.t(),
+          String.t() | atom(),
           put_lifecycle_configuration_request(),
           list()
         ) ::
@@ -2950,7 +2972,7 @@ defmodule AWS.EFS do
   This operation requires permissions for the `elasticfilesystem:TagResource`
   action.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2985,7 +3007,7 @@ defmodule AWS.EFS do
   This operation requires permissions for the `elasticfilesystem:UntagResource`
   action.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3021,7 +3043,7 @@ defmodule AWS.EFS do
   existing file
   system.
   """
-  @spec update_file_system(map(), String.t(), update_file_system_request(), list()) ::
+  @spec update_file_system(map(), String.t() | atom(), update_file_system_request(), list()) ::
           {:ok, file_system_description(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3055,7 +3077,7 @@ defmodule AWS.EFS do
   """
   @spec update_file_system_protection(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_file_system_protection_request(),
           list()
         ) ::

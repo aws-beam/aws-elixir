@@ -29,12 +29,12 @@ defmodule AWS.OpenSearchServerless do
   ## Example:
       
       collection_filters() :: %{
-        "name" => String.t(),
-        "status" => String.t()
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
       
   """
-  @type collection_filters() :: %{String.t() => any()}
+  @type collection_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -42,11 +42,11 @@ defmodule AWS.OpenSearchServerless do
       
       list_access_policies_response() :: %{
         optional("accessPolicySummaries") => list(access_policy_summary()),
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
       
   """
-  @type list_access_policies_response() :: %{String.t() => any()}
+  @type list_access_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -57,62 +57,62 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type batch_get_lifecycle_policy_request() :: %{String.t() => any()}
+  @type batch_get_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_vpc_endpoint_detail() :: %{
-        "id" => String.t(),
-        "name" => String.t(),
-        "status" => String.t()
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
       
   """
-  @type delete_vpc_endpoint_detail() :: %{String.t() => any()}
+  @type delete_vpc_endpoint_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | atom(),
         required("tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       iam_identity_center_config_options() :: %{
-        "applicationArn" => String.t(),
-        "applicationDescription" => [String.t()],
-        "applicationName" => [String.t()],
-        "groupAttribute" => String.t(),
-        "instanceArn" => String.t(),
-        "userAttribute" => String.t()
+        "applicationArn" => String.t() | atom(),
+        "applicationDescription" => [String.t() | atom()],
+        "applicationName" => [String.t() | atom()],
+        "groupAttribute" => String.t() | atom(),
+        "instanceArn" => String.t() | atom(),
+        "userAttribute" => String.t() | atom()
       }
       
   """
-  @type iam_identity_center_config_options() :: %{String.t() => any()}
+  @type iam_identity_center_config_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       collection_error_detail() :: %{
-        "errorCode" => [String.t()],
-        "errorMessage" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t()
+        "errorCode" => [String.t() | atom()],
+        "errorMessage" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
       
   """
-  @type collection_error_detail() :: %{String.t() => any()}
+  @type collection_error_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -120,15 +120,15 @@ defmodule AWS.OpenSearchServerless do
       
       security_policy_summary() :: %{
         "createdDate" => [float()],
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastModifiedDate" => [float()],
-        "name" => String.t(),
-        "policyVersion" => String.t(),
-        "type" => String.t()
+        "name" => String.t() | atom(),
+        "policyVersion" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type security_policy_summary() :: %{String.t() => any()}
+  @type security_policy_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -145,28 +145,28 @@ defmodule AWS.OpenSearchServerless do
       
       list_security_configs_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
-        required("type") => String.t()
+        optional("nextToken") => [String.t() | atom()],
+        required("type") => String.t() | atom()
       }
       
   """
-  @type list_security_configs_request() :: %{String.t() => any()}
+  @type list_security_configs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_lifecycle_policy_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("policy") => String.t(),
-        required("name") => String.t(),
-        required("policyVersion") => String.t(),
-        required("type") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("policy") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("policyVersion") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type update_lifecycle_policy_request() :: %{String.t() => any()}
+  @type update_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -178,7 +178,7 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type batch_get_collection_response() :: %{String.t() => any()}
+  @type batch_get_collection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -199,7 +199,7 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type batch_get_lifecycle_policy_response() :: %{String.t() => any()}
+  @type batch_get_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -219,7 +219,7 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type security_config_stats() :: %{String.t() => any()}
+  @type security_config_stats() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -235,14 +235,14 @@ defmodule AWS.OpenSearchServerless do
   ## Example:
       
       collection_summary() :: %{
-        "arn" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
-        "status" => String.t()
+        "arn" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
       
   """
-  @type collection_summary() :: %{String.t() => any()}
+  @type collection_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -253,7 +253,7 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type get_account_settings_response() :: %{String.t() => any()}
+  @type get_account_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -261,12 +261,12 @@ defmodule AWS.OpenSearchServerless do
       
       list_vpc_endpoints_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         optional("vpcEndpointFilters") => vpc_endpoint_filters()
       }
       
   """
-  @type list_vpc_endpoints_request() :: %{String.t() => any()}
+  @type list_vpc_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -277,68 +277,68 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type update_lifecycle_policy_response() :: %{String.t() => any()}
+  @type update_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_endpoint_summary() :: %{
-        "id" => String.t(),
-        "name" => String.t(),
-        "status" => String.t()
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
       
   """
-  @type vpc_endpoint_summary() :: %{String.t() => any()}
+  @type vpc_endpoint_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_vpc_endpoints_response() :: %{
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         optional("vpcEndpointSummaries") => list(vpc_endpoint_summary())
       }
       
   """
-  @type list_vpc_endpoints_response() :: %{String.t() => any()}
+  @type list_vpc_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_security_policy_request() :: %{
-        required("name") => String.t(),
-        required("type") => String.t()
+        required("name") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type get_security_policy_request() :: %{String.t() => any()}
+  @type get_security_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       collection_detail() :: %{
-        "arn" => [String.t()],
-        "collectionEndpoint" => [String.t()],
+        "arn" => [String.t() | atom()],
+        "collectionEndpoint" => [String.t() | atom()],
         "createdDate" => [float()],
-        "dashboardEndpoint" => [String.t()],
-        "description" => [String.t()],
-        "failureCode" => [String.t()],
-        "failureMessage" => [String.t()],
-        "id" => String.t(),
-        "kmsKeyArn" => [String.t()],
+        "dashboardEndpoint" => [String.t() | atom()],
+        "description" => [String.t() | atom()],
+        "failureCode" => [String.t() | atom()],
+        "failureMessage" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "kmsKeyArn" => [String.t() | atom()],
         "lastModifiedDate" => [float()],
-        "name" => String.t(),
-        "standbyReplicas" => String.t(),
-        "status" => String.t(),
-        "type" => String.t()
+        "name" => String.t() | atom(),
+        "standbyReplicas" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type collection_detail() :: %{String.t() => any()}
+  @type collection_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -349,20 +349,20 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type update_account_settings_response() :: %{String.t() => any()}
+  @type update_account_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_access_policy_request() :: %{
-        optional("clientToken") => String.t(),
-        required("name") => String.t(),
-        required("type") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type delete_access_policy_request() :: %{String.t() => any()}
+  @type delete_access_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -370,13 +370,13 @@ defmodule AWS.OpenSearchServerless do
       
       list_lifecycle_policies_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
-        optional("resources") => list(String.t()),
-        required("type") => String.t()
+        optional("nextToken") => [String.t() | atom()],
+        optional("resources") => list(String.t() | atom()),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type list_lifecycle_policies_request() :: %{String.t() => any()}
+  @type list_lifecycle_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -384,13 +384,13 @@ defmodule AWS.OpenSearchServerless do
       
       list_access_policies_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
-        optional("resource") => list(String.t()),
-        required("type") => String.t()
+        optional("nextToken") => [String.t() | atom()],
+        optional("resource") => list(String.t() | atom()),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type list_access_policies_request() :: %{String.t() => any()}
+  @type list_access_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -401,7 +401,7 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type create_access_policy_response() :: %{String.t() => any()}
+  @type create_access_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -409,26 +409,26 @@ defmodule AWS.OpenSearchServerless do
       
       access_policy_summary() :: %{
         "createdDate" => [float()],
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastModifiedDate" => [float()],
-        "name" => String.t(),
-        "policyVersion" => String.t(),
-        "type" => String.t()
+        "name" => String.t() | atom(),
+        "policyVersion" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type access_policy_summary() :: %{String.t() => any()}
+  @type access_policy_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_endpoint_filters() :: %{
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
       
   """
-  @type vpc_endpoint_filters() :: %{String.t() => any()}
+  @type vpc_endpoint_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -439,30 +439,30 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type delete_vpc_endpoint_response() :: %{String.t() => any()}
+  @type delete_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_vpc_endpoint_request() :: %{
-        required("ids") => list(String.t())
+        required("ids") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_vpc_endpoint_request() :: %{String.t() => any()}
+  @type batch_get_vpc_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -470,11 +470,11 @@ defmodule AWS.OpenSearchServerless do
       
       list_collections_response() :: %{
         optional("collectionSummaries") => list(collection_summary()),
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
       
   """
-  @type list_collections_response() :: %{String.t() => any()}
+  @type list_collections_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -485,32 +485,32 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type get_security_policy_response() :: %{String.t() => any()}
+  @type get_security_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       vpc_endpoint_error_detail() :: %{
-        "errorCode" => [String.t()],
-        "errorMessage" => [String.t()],
-        "id" => String.t()
+        "errorCode" => [String.t() | atom()],
+        "errorMessage" => [String.t() | atom()],
+        "id" => String.t() | atom()
       }
       
   """
-  @type vpc_endpoint_error_detail() :: %{String.t() => any()}
+  @type vpc_endpoint_error_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       lifecycle_policy_resource_identifier() :: %{
-        "resource" => String.t(),
-        "type" => String.t()
+        "resource" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type lifecycle_policy_resource_identifier() :: %{String.t() => any()}
+  @type lifecycle_policy_resource_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -521,50 +521,50 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type update_access_policy_response() :: %{String.t() => any()}
+  @type update_access_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       iam_federation_config_options() :: %{
-        "groupAttribute" => String.t(),
-        "userAttribute" => String.t()
+        "groupAttribute" => String.t() | atom(),
+        "userAttribute" => String.t() | atom()
       }
       
   """
-  @type iam_federation_config_options() :: %{String.t() => any()}
+  @type iam_federation_config_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_security_config_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("iamFederationOptions") => iam_federation_config_options(),
         optional("iamIdentityCenterOptionsUpdates") => update_iam_identity_center_config_options(),
         optional("samlOptions") => saml_config_options(),
-        required("configVersion") => String.t(),
-        required("id") => String.t()
+        required("configVersion") => String.t() | atom(),
+        required("id") => String.t() | atom()
       }
       
   """
-  @type update_security_config_request() :: %{String.t() => any()}
+  @type update_security_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       lifecycle_policy_error_detail() :: %{
-        "errorCode" => [String.t()],
-        "errorMessage" => [String.t()],
-        "name" => String.t(),
-        "type" => String.t()
+        "errorCode" => [String.t() | atom()],
+        "errorMessage" => [String.t() | atom()],
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type lifecycle_policy_error_detail() :: %{String.t() => any()}
+  @type lifecycle_policy_error_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -581,18 +581,18 @@ defmodule AWS.OpenSearchServerless do
       
       vpc_endpoint_detail() :: %{
         "createdDate" => [float()],
-        "failureCode" => [String.t()],
-        "failureMessage" => [String.t()],
-        "id" => String.t(),
-        "name" => String.t(),
-        "securityGroupIds" => list(String.t()),
-        "status" => String.t(),
-        "subnetIds" => list(String.t()),
-        "vpcId" => String.t()
+        "failureCode" => [String.t() | atom()],
+        "failureMessage" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "securityGroupIds" => list(String.t() | atom()),
+        "status" => String.t() | atom(),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
       }
       
   """
-  @type vpc_endpoint_detail() :: %{String.t() => any()}
+  @type vpc_endpoint_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -600,16 +600,16 @@ defmodule AWS.OpenSearchServerless do
       
       security_policy_detail() :: %{
         "createdDate" => [float()],
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastModifiedDate" => [float()],
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "policy" => [any()],
-        "policyVersion" => String.t(),
-        "type" => String.t()
+        "policyVersion" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type security_policy_detail() :: %{String.t() => any()}
+  @type security_policy_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -620,7 +620,7 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type create_security_policy_response() :: %{String.t() => any()}
+  @type create_security_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -628,50 +628,50 @@ defmodule AWS.OpenSearchServerless do
       
       lifecycle_policy_detail() :: %{
         "createdDate" => [float()],
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastModifiedDate" => [float()],
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "policy" => [any()],
-        "policyVersion" => String.t(),
-        "type" => String.t()
+        "policyVersion" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type lifecycle_policy_detail() :: %{String.t() => any()}
+  @type lifecycle_policy_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_access_policy_request() :: %{
-        required("name") => String.t(),
-        required("type") => String.t()
+        required("name") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type get_access_policy_request() :: %{String.t() => any()}
+  @type get_access_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -682,7 +682,7 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type batch_get_effective_lifecycle_policy_request() :: %{String.t() => any()}
+  @type batch_get_effective_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -690,15 +690,15 @@ defmodule AWS.OpenSearchServerless do
       
       lifecycle_policy_summary() :: %{
         "createdDate" => [float()],
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastModifiedDate" => [float()],
-        "name" => String.t(),
-        "policyVersion" => String.t(),
-        "type" => String.t()
+        "name" => String.t() | atom(),
+        "policyVersion" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type lifecycle_policy_summary() :: %{String.t() => any()}
+  @type lifecycle_policy_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -707,35 +707,35 @@ defmodule AWS.OpenSearchServerless do
       list_collections_request() :: %{
         optional("collectionFilters") => collection_filters(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
       
   """
-  @type list_collections_request() :: %{String.t() => any()}
+  @type list_collections_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_collection_request() :: %{
-        optional("clientToken") => String.t(),
-        required("id") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        required("id") => String.t() | atom()
       }
       
   """
-  @type delete_collection_request() :: %{String.t() => any()}
+  @type delete_collection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -746,23 +746,23 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type get_access_policy_response() :: %{String.t() => any()}
+  @type get_access_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       security_config_summary() :: %{
-        "configVersion" => String.t(),
+        "configVersion" => String.t() | atom(),
         "createdDate" => [float()],
-        "description" => String.t(),
-        "id" => String.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "lastModifiedDate" => [float()],
-        "type" => String.t()
+        "type" => String.t() | atom()
       }
       
   """
-  @type security_config_summary() :: %{String.t() => any()}
+  @type security_config_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -773,22 +773,22 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type create_security_config_response() :: %{String.t() => any()}
+  @type create_security_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()],
-        "serviceCode" => [String.t()]
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -796,11 +796,11 @@ defmodule AWS.OpenSearchServerless do
       
       list_lifecycle_policies_response() :: %{
         "lifecyclePolicySummaries" => list(lifecycle_policy_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
       
   """
-  @type list_lifecycle_policies_response() :: %{String.t() => any()}
+  @type list_lifecycle_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -811,32 +811,32 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type get_security_config_response() :: %{String.t() => any()}
+  @type get_security_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_security_policy_request() :: %{
-        optional("clientToken") => String.t(),
-        required("name") => String.t(),
-        required("type") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type delete_security_policy_request() :: %{String.t() => any()}
+  @type delete_security_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_iam_identity_center_config_options() :: %{
-        "groupAttribute" => String.t(),
-        "userAttribute" => String.t()
+        "groupAttribute" => String.t() | atom(),
+        "userAttribute" => String.t() | atom()
       }
       
   """
-  @type update_iam_identity_center_config_options() :: %{String.t() => any()}
+  @type update_iam_identity_center_config_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -848,7 +848,7 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type security_policy_stats() :: %{String.t() => any()}
+  @type security_policy_stats() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -859,36 +859,36 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type account_settings_detail() :: %{String.t() => any()}
+  @type account_settings_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_collection_detail() :: %{
-        "id" => String.t(),
-        "name" => String.t(),
-        "status" => String.t()
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
       
   """
-  @type delete_collection_detail() :: %{String.t() => any()}
+  @type delete_collection_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_collection_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => [String.t()],
-        optional("standbyReplicas") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => [String.t() | atom()],
+        optional("standbyReplicas") => String.t() | atom(),
         optional("tags") => list(tag()),
-        optional("type") => String.t(),
-        required("name") => String.t()
+        optional("type") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
       
   """
-  @type create_collection_request() :: %{String.t() => any()}
+  @type create_collection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -899,7 +899,7 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type update_vpc_endpoint_response() :: %{String.t() => any()}
+  @type update_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -910,7 +910,7 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -921,7 +921,7 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type update_account_settings_request() :: %{String.t() => any()}
+  @type update_account_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -932,7 +932,7 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type update_collection_response() :: %{String.t() => any()}
+  @type update_collection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -943,37 +943,37 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type create_lifecycle_policy_response() :: %{String.t() => any()}
+  @type create_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       security_config_detail() :: %{
-        "configVersion" => String.t(),
+        "configVersion" => String.t() | atom(),
         "createdDate" => [float()],
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "iamFederationOptions" => iam_federation_config_options(),
         "iamIdentityCenterOptions" => iam_identity_center_config_options(),
-        "id" => String.t(),
+        "id" => String.t() | atom(),
         "lastModifiedDate" => [float()],
         "samlOptions" => saml_config_options(),
-        "type" => String.t()
+        "type" => String.t() | atom()
       }
       
   """
-  @type security_config_detail() :: %{String.t() => any()}
+  @type security_config_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -984,7 +984,7 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type create_collection_response() :: %{String.t() => any()}
+  @type create_collection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -995,47 +995,47 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type update_security_config_response() :: %{String.t() => any()}
+  @type update_security_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_get_collection_request() :: %{
-        optional("ids") => list(String.t()),
-        optional("names") => list(String.t())
+        optional("ids") => list(String.t() | atom()),
+        optional("names") => list(String.t() | atom())
       }
       
   """
-  @type batch_get_collection_request() :: %{String.t() => any()}
+  @type batch_get_collection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_vpc_endpoint_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("securityGroupIds") => list(String.t()),
-        required("name") => String.t(),
-        required("subnetIds") => list(String.t()),
-        required("vpcId") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        optional("securityGroupIds") => list(String.t() | atom()),
+        required("name") => String.t() | atom(),
+        required("subnetIds") => list(String.t() | atom()),
+        required("vpcId") => String.t() | atom()
       }
       
   """
-  @type create_vpc_endpoint_request() :: %{String.t() => any()}
+  @type create_vpc_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_lifecycle_policy_request() :: %{
-        optional("clientToken") => String.t(),
-        required("name") => String.t(),
-        required("type") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type delete_lifecycle_policy_request() :: %{String.t() => any()}
+  @type delete_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1050,19 +1050,19 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type get_policies_stats_response() :: %{String.t() => any()}
+  @type get_policies_stats_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_security_configs_response() :: %{
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         optional("securityConfigSummaries") => list(security_config_summary())
       }
       
   """
-  @type list_security_configs_response() :: %{String.t() => any()}
+  @type list_security_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1070,16 +1070,16 @@ defmodule AWS.OpenSearchServerless do
       
       access_policy_detail() :: %{
         "createdDate" => [float()],
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "lastModifiedDate" => [float()],
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "policy" => [any()],
-        "policyVersion" => String.t(),
-        "type" => String.t()
+        "policyVersion" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type access_policy_detail() :: %{String.t() => any()}
+  @type access_policy_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1087,41 +1087,41 @@ defmodule AWS.OpenSearchServerless do
       
       list_security_policies_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
-        optional("resource") => list(String.t()),
-        required("type") => String.t()
+        optional("nextToken") => [String.t() | atom()],
+        optional("resource") => list(String.t() | atom()),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type list_security_policies_request() :: %{String.t() => any()}
+  @type list_security_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_security_policies_response() :: %{
-        optional("nextToken") => [String.t()],
+        optional("nextToken") => [String.t() | atom()],
         optional("securityPolicySummaries") => list(security_policy_summary())
       }
       
   """
-  @type list_security_policies_response() :: %{String.t() => any()}
+  @type list_security_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_access_policy_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("policy") => String.t(),
-        required("name") => String.t(),
-        required("policyVersion") => String.t(),
-        required("type") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("policy") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("policyVersion") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type update_access_policy_request() :: %{String.t() => any()}
+  @type update_access_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1141,7 +1141,7 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type lifecycle_policy_stats() :: %{String.t() => any()}
+  @type lifecycle_policy_stats() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1152,56 +1152,56 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type update_security_policy_response() :: %{String.t() => any()}
+  @type update_security_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_security_config_request() :: %{
-        optional("clientToken") => String.t(),
-        required("id") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        required("id") => String.t() | atom()
       }
       
   """
-  @type delete_security_config_request() :: %{String.t() => any()}
+  @type delete_security_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_lifecycle_policy_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        required("name") => String.t(),
-        required("policy") => String.t(),
-        required("type") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("policy") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type create_lifecycle_policy_request() :: %{String.t() => any()}
+  @type create_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1213,7 +1213,7 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type capacity_limits() :: %{String.t() => any()}
+  @type capacity_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1225,48 +1225,48 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type batch_get_effective_lifecycle_policy_response() :: %{String.t() => any()}
+  @type batch_get_effective_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_vpc_endpoint_detail() :: %{
-        "id" => String.t(),
+        "id" => String.t() | atom(),
         "lastModifiedDate" => [float()],
-        "name" => String.t(),
-        "securityGroupIds" => list(String.t()),
-        "status" => String.t(),
-        "subnetIds" => list(String.t())
+        "name" => String.t() | atom(),
+        "securityGroupIds" => list(String.t() | atom()),
+        "status" => String.t() | atom(),
+        "subnetIds" => list(String.t() | atom())
       }
       
   """
-  @type update_vpc_endpoint_detail() :: %{String.t() => any()}
+  @type update_vpc_endpoint_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_vpc_endpoint_detail() :: %{
-        "id" => String.t(),
-        "name" => String.t(),
-        "status" => String.t()
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
       
   """
-  @type create_vpc_endpoint_detail() :: %{String.t() => any()}
+  @type create_vpc_endpoint_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_vpc_endpoint_request() :: %{
-        optional("clientToken") => String.t(),
-        required("id") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        required("id") => String.t() | atom()
       }
       
   """
-  @type delete_vpc_endpoint_request() :: %{String.t() => any()}
+  @type delete_vpc_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1286,31 +1286,31 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type access_policy_stats() :: %{String.t() => any()}
+  @type access_policy_stats() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ocu_limit_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type ocu_limit_exceeded_exception() :: %{String.t() => any()}
+  @type ocu_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_collection_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => [String.t()],
-        required("id") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => [String.t() | atom()],
+        required("id") => String.t() | atom()
       }
       
   """
-  @type update_collection_request() :: %{String.t() => any()}
+  @type update_collection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1321,7 +1321,7 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type create_vpc_endpoint_response() :: %{String.t() => any()}
+  @type create_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1333,112 +1333,112 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type batch_get_vpc_endpoint_response() :: %{String.t() => any()}
+  @type batch_get_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_security_policy_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("policy") => String.t(),
-        required("name") => String.t(),
-        required("policyVersion") => String.t(),
-        required("type") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("policy") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("policyVersion") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type update_security_policy_request() :: %{String.t() => any()}
+  @type update_security_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_collection_detail() :: %{
-        "arn" => [String.t()],
+        "arn" => [String.t() | atom()],
         "createdDate" => [float()],
-        "description" => [String.t()],
-        "id" => String.t(),
+        "description" => [String.t() | atom()],
+        "id" => String.t() | atom(),
         "lastModifiedDate" => [float()],
-        "name" => String.t(),
-        "status" => String.t(),
-        "type" => String.t()
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type update_collection_detail() :: %{String.t() => any()}
+  @type update_collection_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       effective_lifecycle_policy_error_detail() :: %{
-        "errorCode" => [String.t()],
-        "errorMessage" => [String.t()],
-        "resource" => String.t(),
-        "type" => String.t()
+        "errorCode" => [String.t() | atom()],
+        "errorMessage" => [String.t() | atom()],
+        "resource" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type effective_lifecycle_policy_error_detail() :: %{String.t() => any()}
+  @type effective_lifecycle_policy_error_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_vpc_endpoint_request() :: %{
-        optional("addSecurityGroupIds") => list(String.t()),
-        optional("addSubnetIds") => list(String.t()),
-        optional("clientToken") => String.t(),
-        optional("removeSecurityGroupIds") => list(String.t()),
-        optional("removeSubnetIds") => list(String.t()),
-        required("id") => String.t()
+        optional("addSecurityGroupIds") => list(String.t() | atom()),
+        optional("addSubnetIds") => list(String.t() | atom()),
+        optional("clientToken") => String.t() | atom(),
+        optional("removeSecurityGroupIds") => list(String.t() | atom()),
+        optional("removeSubnetIds") => list(String.t() | atom()),
+        required("id") => String.t() | atom()
       }
       
   """
-  @type update_vpc_endpoint_request() :: %{String.t() => any()}
+  @type update_vpc_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_iam_identity_center_config_options() :: %{
-        "groupAttribute" => String.t(),
-        "instanceArn" => String.t(),
-        "userAttribute" => String.t()
+        "groupAttribute" => String.t() | atom(),
+        "instanceArn" => String.t() | atom(),
+        "userAttribute" => String.t() | atom()
       }
       
   """
-  @type create_iam_identity_center_config_options() :: %{String.t() => any()}
+  @type create_iam_identity_center_config_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_security_config_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("iamFederationOptions") => iam_federation_config_options(),
         optional("iamIdentityCenterOptions") => create_iam_identity_center_config_options(),
         optional("samlOptions") => saml_config_options(),
-        required("name") => String.t(),
-        required("type") => String.t()
+        required("name") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type create_security_config_request() :: %{String.t() => any()}
+  @type create_security_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_security_config_request() :: %{
-        required("id") => String.t()
+        required("id") => String.t() | atom()
       }
       
   """
-  @type get_security_config_request() :: %{String.t() => any()}
+  @type get_security_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1449,22 +1449,22 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type delete_collection_response() :: %{String.t() => any()}
+  @type delete_collection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_access_policy_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        required("name") => String.t(),
-        required("policy") => String.t(),
-        required("type") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("policy") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type create_access_policy_request() :: %{String.t() => any()}
+  @type create_access_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1480,35 +1480,35 @@ defmodule AWS.OpenSearchServerless do
   ## Example:
       
       saml_config_options() :: %{
-        "groupAttribute" => String.t(),
-        "metadata" => String.t(),
-        "openSearchServerlessEntityId" => String.t(),
+        "groupAttribute" => String.t() | atom(),
+        "metadata" => String.t() | atom(),
+        "openSearchServerlessEntityId" => String.t() | atom(),
         "sessionTimeout" => [integer()],
-        "userAttribute" => String.t()
+        "userAttribute" => String.t() | atom()
       }
       
   """
-  @type saml_config_options() :: %{String.t() => any()}
+  @type saml_config_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_collection_detail() :: %{
-        "arn" => [String.t()],
+        "arn" => [String.t() | atom()],
         "createdDate" => [float()],
-        "description" => [String.t()],
-        "id" => String.t(),
-        "kmsKeyArn" => [String.t()],
+        "description" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "kmsKeyArn" => [String.t() | atom()],
         "lastModifiedDate" => [float()],
-        "name" => String.t(),
-        "standbyReplicas" => String.t(),
-        "status" => String.t(),
-        "type" => String.t()
+        "name" => String.t() | atom(),
+        "standbyReplicas" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type create_collection_detail() :: %{String.t() => any()}
+  @type create_collection_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1516,42 +1516,42 @@ defmodule AWS.OpenSearchServerless do
       
       effective_lifecycle_policy_detail() :: %{
         "noMinRetentionPeriod" => [boolean()],
-        "policyName" => String.t(),
-        "resource" => String.t(),
-        "resourceType" => String.t(),
-        "retentionPeriod" => [String.t()],
-        "type" => String.t()
+        "policyName" => String.t() | atom(),
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "retentionPeriod" => [String.t() | atom()],
+        "type" => String.t() | atom()
       }
       
   """
-  @type effective_lifecycle_policy_detail() :: %{String.t() => any()}
+  @type effective_lifecycle_policy_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       lifecycle_policy_identifier() :: %{
-        "name" => String.t(),
-        "type" => String.t()
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type lifecycle_policy_identifier() :: %{String.t() => any()}
+  @type lifecycle_policy_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_security_policy_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        required("name") => String.t(),
-        required("policy") => String.t(),
-        required("type") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("policy") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type create_security_policy_request() :: %{String.t() => any()}
+  @type create_security_policy_request() :: %{(String.t() | atom()) => any()}
 
   @type batch_get_collection_errors() :: validation_exception() | internal_server_exception()
 
@@ -1741,7 +1741,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, batch_get_collection_errors()}
   def batch_get_collection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetCollection", input, options)
   end
@@ -1763,7 +1764,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, batch_get_effective_lifecycle_policy_errors()}
   def batch_get_effective_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetEffectiveLifecyclePolicy", input, options)
   end
@@ -1780,7 +1782,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, batch_get_lifecycle_policy_errors()}
   def batch_get_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetLifecyclePolicy", input, options)
   end
@@ -1798,7 +1801,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, batch_get_vpc_endpoint_errors()}
   def batch_get_vpc_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetVpcEndpoint", input, options)
   end
@@ -1818,7 +1822,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_access_policy_errors()}
   def create_access_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAccessPolicy", input, options)
   end
@@ -1835,7 +1840,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_collection_errors()}
   def create_collection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCollection", input, options)
   end
@@ -1854,7 +1860,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_lifecycle_policy_errors()}
   def create_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLifecyclePolicy", input, options)
   end
@@ -1871,7 +1878,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_security_config_errors()}
   def create_security_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSecurityConfig", input, options)
   end
@@ -1896,7 +1904,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_security_policy_errors()}
   def create_security_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSecurityPolicy", input, options)
   end
@@ -1913,7 +1922,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_vpc_endpoint_errors()}
   def create_vpc_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpcEndpoint", input, options)
   end
@@ -1930,7 +1940,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_access_policy_errors()}
   def delete_access_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAccessPolicy", input, options)
   end
@@ -1947,7 +1958,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_collection_errors()}
   def delete_collection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCollection", input, options)
   end
@@ -1963,7 +1975,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_lifecycle_policy_errors()}
   def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLifecyclePolicy", input, options)
   end
@@ -1980,7 +1993,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_security_config_errors()}
   def delete_security_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSecurityConfig", input, options)
   end
@@ -1994,7 +2008,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_security_policy_errors()}
   def delete_security_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSecurityPolicy", input, options)
   end
@@ -2011,7 +2026,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_vpc_endpoint_errors()}
   def delete_vpc_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpcEndpoint", input, options)
   end
@@ -2028,7 +2044,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, get_access_policy_errors()}
   def get_access_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccessPolicy", input, options)
   end
@@ -2042,7 +2059,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccountSettings", input, options)
   end
@@ -2058,7 +2076,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, get_policies_stats_errors()}
   def get_policies_stats(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPoliciesStats", input, options)
   end
@@ -2076,7 +2095,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, get_security_config_errors()}
   def get_security_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSecurityConfig", input, options)
   end
@@ -2096,7 +2116,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, get_security_policy_errors()}
   def get_security_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSecurityPolicy", input, options)
   end
@@ -2110,7 +2131,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_access_policies_errors()}
   def list_access_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAccessPolicies", input, options)
   end
@@ -2131,7 +2153,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_collections_errors()}
   def list_collections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCollections", input, options)
   end
@@ -2147,7 +2170,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_lifecycle_policies_errors()}
   def list_lifecycle_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLifecyclePolicies", input, options)
   end
@@ -2166,7 +2190,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_security_configs_errors()}
   def list_security_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSecurityConfigs", input, options)
   end
@@ -2180,7 +2205,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_security_policies_errors()}
   def list_security_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSecurityPolicies", input, options)
   end
@@ -2197,7 +2223,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2216,7 +2243,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_vpc_endpoints_errors()}
   def list_vpc_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVpcEndpoints", input, options)
   end
@@ -2233,7 +2261,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2250,7 +2279,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2267,7 +2297,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_access_policy_errors()}
   def update_access_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAccessPolicy", input, options)
   end
@@ -2286,7 +2317,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_account_settings_errors()}
   def update_account_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAccountSettings", input, options)
   end
@@ -2300,7 +2332,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_collection_errors()}
   def update_collection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCollection", input, options)
   end
@@ -2316,7 +2349,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_lifecycle_policy_errors()}
   def update_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLifecyclePolicy", input, options)
   end
@@ -2333,7 +2367,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_security_config_errors()}
   def update_security_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSecurityConfig", input, options)
   end
@@ -2352,7 +2387,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_security_policy_errors()}
   def update_security_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSecurityPolicy", input, options)
   end
@@ -2369,7 +2405,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_vpc_endpoint_errors()}
   def update_vpc_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateVpcEndpoint", input, options)
   end

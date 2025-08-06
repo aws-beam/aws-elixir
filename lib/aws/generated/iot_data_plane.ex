@@ -32,22 +32,22 @@ defmodule AWS.IoTDataPlane do
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_thing_shadow_request() :: %{
-        optional("shadowName") => String.t()
+        optional("shadowName") => String.t() | atom()
       }
 
   """
-  @type delete_thing_shadow_request() :: %{String.t() => any()}
+  @type delete_thing_shadow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -58,7 +58,7 @@ defmodule AWS.IoTDataPlane do
       }
 
   """
-  @type delete_thing_shadow_response() :: %{String.t() => any()}
+  @type delete_thing_shadow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -77,23 +77,23 @@ defmodule AWS.IoTDataPlane do
         "lastModifiedTime" => float(),
         "payload" => binary(),
         "qos" => integer(),
-        "topic" => String.t(),
+        "topic" => String.t() | atom(),
         "userProperties" => binary()
       }
 
   """
-  @type get_retained_message_response() :: %{String.t() => any()}
+  @type get_retained_message_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_thing_shadow_request() :: %{
-        optional("shadowName") => String.t()
+        optional("shadowName") => String.t() | atom()
       }
 
   """
-  @type get_thing_shadow_request() :: %{String.t() => any()}
+  @type get_thing_shadow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -104,54 +104,54 @@ defmodule AWS.IoTDataPlane do
       }
 
   """
-  @type get_thing_shadow_response() :: %{String.t() => any()}
+  @type get_thing_shadow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_failure_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_failure_exception() :: %{String.t() => any()}
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_request_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_request_exception() :: %{String.t() => any()}
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_named_shadows_for_thing_request() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("pageSize") => integer()
       }
 
   """
-  @type list_named_shadows_for_thing_request() :: %{String.t() => any()}
+  @type list_named_shadows_for_thing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_named_shadows_for_thing_response() :: %{
-        "nextToken" => String.t(),
-        "results" => list(String.t()),
+        "nextToken" => String.t() | atom(),
+        "results" => list(String.t() | atom()),
         "timestamp" => float()
       }
 
   """
-  @type list_named_shadows_for_thing_response() :: %{String.t() => any()}
+  @type list_named_shadows_for_thing_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -159,75 +159,75 @@ defmodule AWS.IoTDataPlane do
 
       list_retained_messages_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_retained_messages_request() :: %{String.t() => any()}
+  @type list_retained_messages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_retained_messages_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "retainedTopics" => list(retained_message_summary())
       }
 
   """
-  @type list_retained_messages_response() :: %{String.t() => any()}
+  @type list_retained_messages_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       method_not_allowed_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type method_not_allowed_exception() :: %{String.t() => any()}
+  @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       publish_request() :: %{
-        optional("contentType") => String.t(),
-        optional("correlationData") => String.t(),
+        optional("contentType") => String.t() | atom(),
+        optional("correlationData") => String.t() | atom(),
         optional("messageExpiry") => float(),
         optional("payload") => binary(),
         optional("payloadFormatIndicator") => list(any()),
         optional("qos") => integer(),
-        optional("responseTopic") => String.t(),
+        optional("responseTopic") => String.t() | atom(),
         optional("retain") => boolean(),
-        optional("userProperties") => String.t()
+        optional("userProperties") => String.t() | atom()
       }
 
   """
-  @type publish_request() :: %{String.t() => any()}
+  @type publish_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       request_entity_too_large_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type request_entity_too_large_exception() :: %{String.t() => any()}
+  @type request_entity_too_large_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -237,67 +237,67 @@ defmodule AWS.IoTDataPlane do
         "lastModifiedTime" => float(),
         "payloadSize" => float(),
         "qos" => integer(),
-        "topic" => String.t()
+        "topic" => String.t() | atom()
       }
 
   """
-  @type retained_message_summary() :: %{String.t() => any()}
+  @type retained_message_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unsupported_document_encoding_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type unsupported_document_encoding_exception() :: %{String.t() => any()}
+  @type unsupported_document_encoding_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_thing_shadow_request() :: %{
-        optional("shadowName") => String.t(),
+        optional("shadowName") => String.t() | atom(),
         required("payload") => binary()
       }
 
   """
-  @type update_thing_shadow_request() :: %{String.t() => any()}
+  @type update_thing_shadow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -308,7 +308,7 @@ defmodule AWS.IoTDataPlane do
       }
 
   """
-  @type update_thing_shadow_response() :: %{String.t() => any()}
+  @type update_thing_shadow_response() :: %{(String.t() | atom()) => any()}
 
   @type delete_thing_shadow_errors() ::
           unsupported_document_encoding_exception()
@@ -400,7 +400,7 @@ defmodule AWS.IoTDataPlane do
   [DeleteThingShadow](http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html)
   in the IoT Developer Guide.
   """
-  @spec delete_thing_shadow(map(), String.t(), delete_thing_shadow_request(), list()) ::
+  @spec delete_thing_shadow(map(), String.t() | atom(), delete_thing_shadow_request(), list()) ::
           {:ok, delete_thing_shadow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -444,7 +444,7 @@ defmodule AWS.IoTDataPlane do
 
   For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
   """
-  @spec get_retained_message(map(), String.t(), list()) ::
+  @spec get_retained_message(map(), String.t() | atom(), list()) ::
           {:ok, get_retained_message_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -470,7 +470,7 @@ defmodule AWS.IoTDataPlane do
   in the
   IoT Developer Guide.
   """
-  @spec get_thing_shadow(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_thing_shadow(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_thing_shadow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -501,9 +501,9 @@ defmodule AWS.IoTDataPlane do
   """
   @spec list_named_shadows_for_thing(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_named_shadows_for_thing_response(), any()}
@@ -557,7 +557,12 @@ defmodule AWS.IoTDataPlane do
 
   For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
   """
-  @spec list_retained_messages(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_retained_messages(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_retained_messages_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -604,7 +609,7 @@ defmodule AWS.IoTDataPlane do
 
   For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
   """
-  @spec publish(map(), String.t(), publish_request(), list()) ::
+  @spec publish(map(), String.t() | atom(), publish_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -658,7 +663,7 @@ defmodule AWS.IoTDataPlane do
   in the
   IoT Developer Guide.
   """
-  @spec update_thing_shadow(map(), String.t(), update_thing_shadow_request(), list()) ::
+  @spec update_thing_shadow(map(), String.t() | atom(), update_thing_shadow_request(), list()) ::
           {:ok, update_thing_shadow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

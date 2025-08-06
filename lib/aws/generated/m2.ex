@@ -29,7 +29,7 @@ defmodule AWS.M2 do
       }
 
   """
-  @type record_length() :: %{String.t() => any()}
+  @type record_length() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -38,40 +38,40 @@ defmodule AWS.M2 do
       alternate_key() :: %{
         "allowDuplicates" => boolean(),
         "length" => integer(),
-        "name" => [String.t()],
+        "name" => [String.t() | atom()],
         "offset" => integer()
       }
 
   """
-  @type alternate_key() :: %{String.t() => any()}
+  @type alternate_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_batch_job_executions_request() :: %{
-        optional("executionIds") => list(String.t()),
-        optional("jobName") => String.t(),
+        optional("executionIds") => list(String.t() | atom()),
+        optional("jobName") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("startedAfter") => non_neg_integer(),
         optional("startedBefore") => non_neg_integer(),
-        optional("status") => String.t()
+        optional("status") => String.t() | atom()
       }
 
   """
-  @type list_batch_job_executions_request() :: %{String.t() => any()}
+  @type list_batch_job_executions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_environment_response() :: %{
-        required("environmentId") => String.t()
+        required("environmentId") => String.t() | atom()
       }
 
   """
-  @type update_environment_response() :: %{String.t() => any()}
+  @type update_environment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -82,7 +82,7 @@ defmodule AWS.M2 do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -90,40 +90,40 @@ defmodule AWS.M2 do
 
       list_deployments_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_deployments_request() :: %{String.t() => any()}
+  @type list_deployments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pending_maintenance() :: %{
-        "engineVersion" => [String.t()],
+        "engineVersion" => [String.t() | atom()],
         "schedule" => maintenance_schedule()
       }
 
   """
-  @type pending_maintenance() :: %{String.t() => any()}
+  @type pending_maintenance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       deployment_summary() :: %{
-        "applicationId" => String.t(),
+        "applicationId" => String.t() | atom(),
         "applicationVersion" => integer(),
         "creationTime" => non_neg_integer(),
-        "deploymentId" => String.t(),
-        "environmentId" => String.t(),
-        "status" => String.t(),
-        "statusReason" => [String.t()]
+        "deploymentId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()]
       }
 
   """
-  @type deployment_summary() :: %{String.t() => any()}
+  @type deployment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -131,23 +131,23 @@ defmodule AWS.M2 do
 
       list_data_set_export_history_response() :: %{
         "dataSetExportTasks" => list(data_set_export_task()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_data_set_export_history_response() :: %{String.t() => any()}
+  @type list_data_set_export_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       file_batch_job_identifier() :: %{
-        "fileName" => [String.t()],
-        "folderPath" => [String.t()]
+        "fileName" => [String.t() | atom()],
+        "folderPath" => [String.t() | atom()]
       }
 
   """
-  @type file_batch_job_identifier() :: %{String.t() => any()}
+  @type file_batch_job_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -155,41 +155,41 @@ defmodule AWS.M2 do
 
       list_data_sets_response() :: %{
         "dataSets" => list(data_set_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_data_sets_response() :: %{String.t() => any()}
+  @type list_data_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_step() :: %{
-        "procStepName" => [String.t()],
+        "procStepName" => [String.t() | atom()],
         "procStepNumber" => integer(),
         "stepCheckpoint" => integer(),
-        "stepCheckpointStatus" => [String.t()],
+        "stepCheckpointStatus" => [String.t() | atom()],
         "stepCheckpointTime" => non_neg_integer(),
-        "stepCondCode" => [String.t()],
-        "stepName" => [String.t()],
+        "stepCondCode" => [String.t() | atom()],
+        "stepName" => [String.t() | atom()],
         "stepNumber" => integer(),
         "stepRestartable" => boolean()
       }
 
   """
-  @type job_step() :: %{String.t() => any()}
+  @type job_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_set_import_task_response() :: %{
-        required("taskId") => String.t()
+        required("taskId") => String.t() | atom()
       }
 
   """
-  @type create_data_set_import_task_response() :: %{String.t() => any()}
+  @type create_data_set_import_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -223,31 +223,31 @@ defmodule AWS.M2 do
   ## Example:
 
       job_step_restart_marker() :: %{
-        "fromProcStep" => [String.t()],
-        "fromStep" => [String.t()],
+        "fromProcStep" => [String.t() | atom()],
+        "fromStep" => [String.t() | atom()],
         "skip" => boolean(),
         "stepCheckpoint" => integer(),
-        "toProcStep" => [String.t()],
-        "toStep" => [String.t()]
+        "toProcStep" => [String.t() | atom()],
+        "toStep" => [String.t() | atom()]
       }
 
   """
-  @type job_step_restart_marker() :: %{String.t() => any()}
+  @type job_step_restart_marker() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_set() :: %{
-        "datasetName" => [String.t()],
+        "datasetName" => [String.t() | atom()],
         "datasetOrg" => list(),
         "recordLength" => record_length(),
-        "relativePath" => [String.t()],
-        "storageType" => [String.t()]
+        "relativePath" => [String.t() | atom()],
+        "storageType" => [String.t() | atom()]
       }
 
   """
-  @type data_set() :: %{String.t() => any()}
+  @type data_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -255,11 +255,11 @@ defmodule AWS.M2 do
 
       list_deployments_response() :: %{
         "deployments" => list(deployment_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_deployments_response() :: %{String.t() => any()}
+  @type list_deployments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -267,25 +267,25 @@ defmodule AWS.M2 do
 
       list_data_set_export_history_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_data_set_export_history_request() :: %{String.t() => any()}
+  @type list_data_set_export_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_set_export_task() :: %{
-        "status" => String.t(),
-        "statusReason" => [String.t()],
+        "status" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()],
         "summary" => data_set_export_summary(),
-        "taskId" => String.t()
+        "taskId" => String.t() | atom()
       }
 
   """
-  @type data_set_export_task() :: %{String.t() => any()}
+  @type data_set_export_task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -294,13 +294,13 @@ defmodule AWS.M2 do
       vsam_attributes() :: %{
         "alternateKeys" => list(alternate_key()),
         "compressed" => boolean(),
-        "encoding" => [String.t()],
-        "format" => [String.t()],
+        "encoding" => [String.t() | atom()],
+        "format" => [String.t() | atom()],
         "primaryKey" => primary_key()
       }
 
   """
-  @type vsam_attributes() :: %{String.t() => any()}
+  @type vsam_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -308,12 +308,12 @@ defmodule AWS.M2 do
 
       deployed_version_summary() :: %{
         "applicationVersion" => integer(),
-        "status" => String.t(),
-        "statusReason" => [String.t()]
+        "status" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()]
       }
 
   """
-  @type deployed_version_summary() :: %{String.t() => any()}
+  @type deployed_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -321,18 +321,18 @@ defmodule AWS.M2 do
 
       environment_summary() :: %{
         "creationTime" => non_neg_integer(),
-        "engineType" => String.t(),
-        "engineVersion" => String.t(),
-        "environmentArn" => String.t(),
-        "environmentId" => String.t(),
-        "instanceType" => String.t(),
-        "name" => String.t(),
-        "networkType" => String.t(),
-        "status" => String.t()
+        "engineType" => String.t() | atom(),
+        "engineVersion" => String.t() | atom(),
+        "environmentArn" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "instanceType" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "networkType" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type environment_summary() :: %{String.t() => any()}
+  @type environment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -349,12 +349,12 @@ defmodule AWS.M2 do
 
       create_deployment_request() :: %{
         "applicationVersion" => integer(),
-        "clientToken" => String.t(),
-        "environmentId" => String.t()
+        "clientToken" => String.t() | atom(),
+        "environmentId" => String.t() | atom()
       }
 
   """
-  @type create_deployment_request() :: %{String.t() => any()}
+  @type create_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -364,13 +364,13 @@ defmodule AWS.M2 do
         "alternateKeys" => list(alternate_key()),
         "cacheAtStartup" => boolean(),
         "compressed" => boolean(),
-        "encoding" => String.t(),
+        "encoding" => String.t() | atom(),
         "primaryKey" => primary_key(),
-        "recordFormat" => String.t()
+        "recordFormat" => String.t() | atom()
       }
 
   """
-  @type vsam_detail_attributes() :: %{String.t() => any()}
+  @type vsam_detail_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -378,13 +378,13 @@ defmodule AWS.M2 do
 
       list_data_sets_request() :: %{
         optional("maxResults") => integer(),
-        optional("nameFilter") => String.t(),
-        optional("nextToken") => String.t(),
-        optional("prefix") => String.t()
+        optional("nameFilter") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("prefix") => String.t() | atom()
       }
 
   """
-  @type list_data_sets_request() :: %{String.t() => any()}
+  @type list_data_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -393,17 +393,17 @@ defmodule AWS.M2 do
       get_data_set_details_response() :: %{
         "blocksize" => integer(),
         "creationTime" => non_neg_integer(),
-        "dataSetName" => String.t(),
+        "dataSetName" => String.t() | atom(),
         "dataSetOrg" => list(),
         "fileSize" => [float()],
         "lastReferencedTime" => non_neg_integer(),
         "lastUpdatedTime" => non_neg_integer(),
-        "location" => String.t(),
+        "location" => String.t() | atom(),
         "recordLength" => integer()
       }
 
   """
-  @type get_data_set_details_response() :: %{String.t() => any()}
+  @type get_data_set_details_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -421,23 +421,23 @@ defmodule AWS.M2 do
       application_version_summary() :: %{
         "applicationVersion" => integer(),
         "creationTime" => non_neg_integer(),
-        "status" => String.t(),
-        "statusReason" => [String.t()]
+        "status" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()]
       }
 
   """
-  @type application_version_summary() :: %{String.t() => any()}
+  @type application_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_deployment_response() :: %{
-        required("deploymentId") => String.t()
+        required("deploymentId") => String.t() | atom()
       }
 
   """
-  @type create_deployment_response() :: %{String.t() => any()}
+  @type create_deployment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -445,43 +445,43 @@ defmodule AWS.M2 do
 
       get_environment_response() :: %{
         optional("actualCapacity") => integer(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("highAvailabilityConfig") => high_availability_config(),
-        optional("kmsKeyId") => [String.t()],
-        optional("loadBalancerArn") => [String.t()],
-        optional("networkType") => String.t(),
+        optional("kmsKeyId") => [String.t() | atom()],
+        optional("loadBalancerArn") => [String.t() | atom()],
+        optional("networkType") => String.t() | atom(),
         optional("pendingMaintenance") => pending_maintenance(),
-        optional("preferredMaintenanceWindow") => String.t(),
+        optional("preferredMaintenanceWindow") => String.t() | atom(),
         optional("publiclyAccessible") => boolean(),
-        optional("statusReason") => [String.t()],
+        optional("statusReason") => [String.t() | atom()],
         optional("storageConfigurations") => list(list()),
         optional("tags") => map(),
         required("creationTime") => non_neg_integer(),
-        required("engineType") => String.t(),
-        required("engineVersion") => String.t(),
-        required("environmentArn") => String.t(),
-        required("environmentId") => String.t(),
-        required("instanceType") => String.t(),
-        required("name") => String.t(),
-        required("securityGroupIds") => list(String.t()),
-        required("status") => String.t(),
-        required("subnetIds") => list(String.t()),
-        required("vpcId") => String.t()
+        required("engineType") => String.t() | atom(),
+        required("engineVersion") => String.t() | atom(),
+        required("environmentArn") => String.t() | atom(),
+        required("environmentId") => String.t() | atom(),
+        required("instanceType") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("securityGroupIds") => list(String.t() | atom()),
+        required("status") => String.t() | atom(),
+        required("subnetIds") => list(String.t() | atom()),
+        required("vpcId") => String.t() | atom()
       }
 
   """
-  @type get_environment_response() :: %{String.t() => any()}
+  @type get_environment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -489,69 +489,69 @@ defmodule AWS.M2 do
 
       gdg_detail_attributes() :: %{
         "limit" => integer(),
-        "rollDisposition" => String.t()
+        "rollDisposition" => String.t() | atom()
       }
 
   """
-  @type gdg_detail_attributes() :: %{String.t() => any()}
+  @type gdg_detail_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       restart_batch_job_identifier() :: %{
-        "executionId" => String.t(),
+        "executionId" => String.t() | atom(),
         "jobStepRestartMarker" => job_step_restart_marker()
       }
 
   """
-  @type restart_batch_job_identifier() :: %{String.t() => any()}
+  @type restart_batch_job_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       script_batch_job_identifier() :: %{
-        "scriptName" => [String.t()]
+        "scriptName" => [String.t() | atom()]
       }
 
   """
-  @type script_batch_job_identifier() :: %{String.t() => any()}
+  @type script_batch_job_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       engine_versions_summary() :: %{
-        "engineType" => [String.t()],
-        "engineVersion" => [String.t()]
+        "engineType" => [String.t() | atom()],
+        "engineVersion" => [String.t() | atom()]
       }
 
   """
-  @type engine_versions_summary() :: %{String.t() => any()}
+  @type engine_versions_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       ps_attributes() :: %{
-        "encoding" => [String.t()],
-        "format" => [String.t()]
+        "encoding" => [String.t() | atom()],
+        "format" => [String.t() | atom()]
       }
 
   """
-  @type ps_attributes() :: %{String.t() => any()}
+  @type ps_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       cancel_batch_job_execution_request() :: %{
-        optional("authSecretsManagerArn") => String.t()
+        optional("authSecretsManagerArn") => String.t() | atom()
       }
 
   """
-  @type cancel_batch_job_execution_request() :: %{String.t() => any()}
+  @type cancel_batch_job_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -562,55 +562,55 @@ defmodule AWS.M2 do
       }
 
   """
-  @type high_availability_config() :: %{String.t() => any()}
+  @type high_availability_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_batch_job_restart_points_request() :: %{
-        optional("authSecretsManagerArn") => String.t()
+        optional("authSecretsManagerArn") => String.t() | atom()
       }
 
   """
-  @type list_batch_job_restart_points_request() :: %{String.t() => any()}
+  @type list_batch_job_restart_points_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()]
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       script_batch_job_definition() :: %{
-        "scriptName" => [String.t()]
+        "scriptName" => [String.t() | atom()]
       }
 
   """
-  @type script_batch_job_definition() :: %{String.t() => any()}
+  @type script_batch_job_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -626,15 +626,15 @@ defmodule AWS.M2 do
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
-        "resourceId" => [String.t()],
-        "resourceType" => [String.t()],
-        "serviceCode" => [String.t()]
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -654,7 +654,7 @@ defmodule AWS.M2 do
       }
 
   """
-  @type stop_application_request() :: %{String.t() => any()}
+  @type stop_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -669,7 +669,7 @@ defmodule AWS.M2 do
       }
 
   """
-  @type data_set_export_summary() :: %{String.t() => any()}
+  @type data_set_export_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -677,28 +677,28 @@ defmodule AWS.M2 do
 
       data_set_summary() :: %{
         "creationTime" => non_neg_integer(),
-        "dataSetName" => String.t(),
-        "dataSetOrg" => String.t(),
-        "format" => String.t(),
+        "dataSetName" => String.t() | atom(),
+        "dataSetOrg" => String.t() | atom(),
+        "format" => String.t() | atom(),
         "lastReferencedTime" => non_neg_integer(),
         "lastUpdatedTime" => non_neg_integer()
       }
 
   """
-  @type data_set_summary() :: %{String.t() => any()}
+  @type data_set_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       po_attributes() :: %{
-        "encoding" => [String.t()],
-        "format" => [String.t()],
-        "memberFileExtensions" => list(String.t())
+        "encoding" => [String.t() | atom()],
+        "format" => [String.t() | atom()],
+        "memberFileExtensions" => list(String.t() | atom())
       }
 
   """
-  @type po_attributes() :: %{String.t() => any()}
+  @type po_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -709,39 +709,39 @@ defmodule AWS.M2 do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_application_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("kmsKeyId") => [String.t()],
-        optional("roleArn") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyId") => [String.t() | atom()],
+        optional("roleArn") => String.t() | atom(),
         optional("tags") => map(),
         required("definition") => list(),
-        required("engineType") => String.t(),
-        required("name") => String.t()
+        required("engineType") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_application_request() :: %{String.t() => any()}
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_environments_request() :: %{
-        optional("engineType") => String.t(),
+        optional("engineType") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("names") => list(String.t()),
-        optional("nextToken") => String.t()
+        optional("names") => list(String.t() | atom()),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_environments_request() :: %{String.t() => any()}
+  @type list_environments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -756,66 +756,66 @@ defmodule AWS.M2 do
       }
 
   """
-  @type data_set_import_summary() :: %{String.t() => any()}
+  @type data_set_import_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t()],
-        "name" => [String.t()]
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       log_group_summary() :: %{
-        "logGroupName" => String.t(),
-        "logType" => String.t()
+        "logGroupName" => String.t() | atom(),
+        "logType" => String.t() | atom()
       }
 
   """
-  @type log_group_summary() :: %{String.t() => any()}
+  @type log_group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_unavailable_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type service_unavailable_exception() :: %{String.t() => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_application_response() :: %{
-        required("applicationArn") => String.t(),
-        required("applicationId") => String.t(),
+        required("applicationArn") => String.t() | atom(),
+        required("applicationId") => String.t() | atom(),
         required("applicationVersion") => integer()
       }
 
   """
-  @type create_application_response() :: %{String.t() => any()}
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       execution_timeout_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type execution_timeout_exception() :: %{String.t() => any()}
+  @type execution_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -823,11 +823,11 @@ defmodule AWS.M2 do
 
       list_data_set_import_history_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_data_set_import_history_request() :: %{String.t() => any()}
+  @type list_data_set_import_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -843,24 +843,24 @@ defmodule AWS.M2 do
   ## Example:
 
       create_data_set_import_task_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | atom(),
         required("importConfig") => list()
       }
 
   """
-  @type create_data_set_import_task_request() :: %{String.t() => any()}
+  @type create_data_set_import_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       efs_storage_configuration() :: %{
-        "fileSystemId" => String.t(),
-        "mountPoint" => String.t()
+        "fileSystemId" => String.t() | atom(),
+        "mountPoint" => String.t() | atom()
       }
 
   """
-  @type efs_storage_configuration() :: %{String.t() => any()}
+  @type efs_storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -885,23 +885,23 @@ defmodule AWS.M2 do
   ## Example:
 
       create_environment_response() :: %{
-        required("environmentId") => String.t()
+        required("environmentId") => String.t() | atom()
       }
 
   """
-  @type create_environment_response() :: %{String.t() => any()}
+  @type create_environment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       po_detail_attributes() :: %{
-        "encoding" => [String.t()],
-        "format" => [String.t()]
+        "encoding" => [String.t() | atom()],
+        "format" => [String.t() | atom()]
       }
 
   """
-  @type po_detail_attributes() :: %{String.t() => any()}
+  @type po_detail_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -909,12 +909,12 @@ defmodule AWS.M2 do
 
       update_application_request() :: %{
         optional("definition") => list(),
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         required("currentApplicationVersion") => integer()
       }
 
   """
-  @type update_application_request() :: %{String.t() => any()}
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -925,7 +925,7 @@ defmodule AWS.M2 do
       }
 
   """
-  @type update_application_response() :: %{String.t() => any()}
+  @type update_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -936,30 +936,30 @@ defmodule AWS.M2 do
       }
 
   """
-  @type list_batch_job_restart_points_response() :: %{String.t() => any()}
+  @type list_batch_job_restart_points_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_signed_bluinsights_url_response() :: %{
-        "signedBiUrl" => [String.t()]
+        "signedBiUrl" => [String.t() | atom()]
       }
 
   """
-  @type get_signed_bluinsights_url_response() :: %{String.t() => any()}
+  @type get_signed_bluinsights_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "retryAfterSeconds" => integer()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -975,12 +975,12 @@ defmodule AWS.M2 do
   ## Example:
 
       data_set_export_item() :: %{
-        "datasetName" => String.t(),
+        "datasetName" => String.t() | atom(),
         "externalLocation" => list()
       }
 
   """
-  @type data_set_export_item() :: %{String.t() => any()}
+  @type data_set_export_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -997,56 +997,56 @@ defmodule AWS.M2 do
 
       get_application_response() :: %{
         optional("deployedVersion") => deployed_version_summary(),
-        optional("description") => String.t(),
-        optional("environmentId") => String.t(),
-        optional("kmsKeyId") => [String.t()],
+        optional("description") => String.t() | atom(),
+        optional("environmentId") => String.t() | atom(),
+        optional("kmsKeyId") => [String.t() | atom()],
         optional("lastStartTime") => non_neg_integer(),
-        optional("listenerArns") => list(String.t()),
+        optional("listenerArns") => list(String.t() | atom()),
         optional("listenerPorts") => list(integer()),
-        optional("loadBalancerDnsName") => String.t(),
+        optional("loadBalancerDnsName") => String.t() | atom(),
         optional("logGroups") => list(log_group_summary()),
-        optional("roleArn") => String.t(),
-        optional("statusReason") => [String.t()],
+        optional("roleArn") => String.t() | atom(),
+        optional("statusReason") => [String.t() | atom()],
         optional("tags") => map(),
-        optional("targetGroupArns") => list(String.t()),
-        required("applicationArn") => String.t(),
-        required("applicationId") => String.t(),
+        optional("targetGroupArns") => list(String.t() | atom()),
+        required("applicationArn") => String.t() | atom(),
+        required("applicationId") => String.t() | atom(),
         required("creationTime") => non_neg_integer(),
-        required("engineType") => String.t(),
+        required("engineType") => String.t() | atom(),
         required("latestVersion") => application_version_summary(),
-        required("name") => String.t(),
-        required("status") => String.t()
+        required("name") => String.t() | atom(),
+        required("status") => String.t() | atom()
       }
 
   """
-  @type get_application_response() :: %{String.t() => any()}
+  @type get_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_applications_request() :: %{
-        optional("environmentId") => String.t(),
+        optional("environmentId") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("names") => list(String.t()),
-        optional("nextToken") => String.t()
+        optional("names") => list(String.t() | atom()),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_applications_request() :: %{String.t() => any()}
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_batch_job_identifier() :: %{
-        "bucket" => [String.t()],
+        "bucket" => [String.t() | atom()],
         "identifier" => list(),
-        "keyPrefix" => [String.t()]
+        "keyPrefix" => [String.t() | atom()]
       }
 
   """
-  @type s3_batch_job_identifier() :: %{String.t() => any()}
+  @type s3_batch_job_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1062,36 +1062,36 @@ defmodule AWS.M2 do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       file_batch_job_definition() :: %{
-        "fileName" => [String.t()],
-        "folderPath" => [String.t()]
+        "fileName" => [String.t() | atom()],
+        "folderPath" => [String.t() | atom()]
       }
 
   """
-  @type file_batch_job_definition() :: %{String.t() => any()}
+  @type file_batch_job_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_data_set_export_task_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("kmsKeyId") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("kmsKeyId") => String.t() | atom(),
         required("exportConfig") => list()
       }
 
   """
-  @type create_data_set_export_task_request() :: %{String.t() => any()}
+  @type create_data_set_export_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1100,21 +1100,21 @@ defmodule AWS.M2 do
       get_batch_job_execution_response() :: %{
         optional("batchJobIdentifier") => list(),
         optional("endTime") => non_neg_integer(),
-        optional("jobId") => String.t(),
-        optional("jobName") => String.t(),
+        optional("jobId") => String.t() | atom(),
+        optional("jobName") => String.t() | atom(),
         optional("jobStepRestartMarker") => job_step_restart_marker(),
-        optional("jobType") => String.t(),
-        optional("jobUser") => String.t(),
-        optional("returnCode") => [String.t()],
-        optional("statusReason") => [String.t()],
-        required("applicationId") => String.t(),
-        required("executionId") => String.t(),
+        optional("jobType") => String.t() | atom(),
+        optional("jobUser") => String.t() | atom(),
+        optional("returnCode") => [String.t() | atom()],
+        optional("statusReason") => [String.t() | atom()],
+        required("applicationId") => String.t() | atom(),
+        required("executionId") => String.t() | atom(),
         required("startTime") => non_neg_integer(),
-        required("status") => String.t()
+        required("status") => String.t() | atom()
       }
 
   """
-  @type get_batch_job_execution_response() :: %{String.t() => any()}
+  @type get_batch_job_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1131,38 +1131,38 @@ defmodule AWS.M2 do
 
       list_batch_job_definitions_response() :: %{
         "batchJobDefinitions" => list(list()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_batch_job_definitions_response() :: %{String.t() => any()}
+  @type list_batch_job_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       fsx_storage_configuration() :: %{
-        "fileSystemId" => String.t(),
-        "mountPoint" => String.t()
+        "fileSystemId" => String.t() | atom(),
+        "mountPoint" => String.t() | atom()
       }
 
   """
-  @type fsx_storage_configuration() :: %{String.t() => any()}
+  @type fsx_storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_data_set_export_task_response() :: %{
-        "kmsKeyArn" => [String.t()],
-        "status" => String.t(),
-        "statusReason" => [String.t()],
+        "kmsKeyArn" => [String.t() | atom()],
+        "status" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()],
         "summary" => data_set_export_summary(),
-        "taskId" => String.t()
+        "taskId" => String.t() | atom()
       }
 
   """
-  @type get_data_set_export_task_response() :: %{String.t() => any()}
+  @type get_data_set_export_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1170,12 +1170,12 @@ defmodule AWS.M2 do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t()],
-        "reason" => String.t()
+        "message" => [String.t() | atom()],
+        "reason" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1196,7 +1196,7 @@ defmodule AWS.M2 do
       }
 
   """
-  @type data_set_import_item() :: %{String.t() => any()}
+  @type data_set_import_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1204,54 +1204,54 @@ defmodule AWS.M2 do
 
       gdg_attributes() :: %{
         "limit" => integer(),
-        "rollDisposition" => [String.t()]
+        "rollDisposition" => [String.t() | atom()]
       }
 
   """
-  @type gdg_attributes() :: %{String.t() => any()}
+  @type gdg_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_deployment_response() :: %{
-        optional("statusReason") => [String.t()],
-        required("applicationId") => String.t(),
+        optional("statusReason") => [String.t() | atom()],
+        required("applicationId") => String.t() | atom(),
         required("applicationVersion") => integer(),
         required("creationTime") => non_neg_integer(),
-        required("deploymentId") => String.t(),
-        required("environmentId") => String.t(),
-        required("status") => String.t()
+        required("deploymentId") => String.t() | atom(),
+        required("environmentId") => String.t() | atom(),
+        required("status") => String.t() | atom()
       }
 
   """
-  @type get_deployment_response() :: %{String.t() => any()}
+  @type get_deployment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
         "retryAfterSeconds" => integer(),
-        "serviceCode" => [String.t()]
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_batch_job_executions_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("batchJobExecutions") => list(batch_job_execution_summary())
       }
 
   """
-  @type list_batch_job_executions_response() :: %{String.t() => any()}
+  @type list_batch_job_executions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1259,23 +1259,23 @@ defmodule AWS.M2 do
 
       list_application_versions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_application_versions_request() :: %{String.t() => any()}
+  @type list_application_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_engine_versions_response() :: %{
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         required("engineVersions") => list(engine_versions_summary())
       }
 
   """
-  @type list_engine_versions_response() :: %{String.t() => any()}
+  @type list_engine_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1283,11 +1283,11 @@ defmodule AWS.M2 do
 
       list_environments_response() :: %{
         "environments" => list(environment_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_environments_response() :: %{String.t() => any()}
+  @type list_environments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1299,47 +1299,47 @@ defmodule AWS.M2 do
       }
 
   """
-  @type maintenance_schedule() :: %{String.t() => any()}
+  @type maintenance_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_application_version_response() :: %{
-        optional("description") => String.t(),
-        optional("statusReason") => [String.t()],
+        optional("description") => String.t() | atom(),
+        optional("statusReason") => [String.t() | atom()],
         required("applicationVersion") => integer(),
         required("creationTime") => non_neg_integer(),
-        required("definitionContent") => String.t(),
-        required("name") => String.t(),
-        required("status") => String.t()
+        required("definitionContent") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("status") => String.t() | atom()
       }
 
   """
-  @type get_application_version_response() :: %{String.t() => any()}
+  @type get_application_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       application_summary() :: %{
-        "applicationArn" => String.t(),
-        "applicationId" => String.t(),
+        "applicationArn" => String.t() | atom(),
+        "applicationId" => String.t() | atom(),
         "applicationVersion" => integer(),
         "creationTime" => non_neg_integer(),
-        "deploymentStatus" => String.t(),
-        "description" => String.t(),
-        "engineType" => String.t(),
-        "environmentId" => String.t(),
+        "deploymentStatus" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "engineType" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
         "lastStartTime" => non_neg_integer(),
-        "name" => String.t(),
-        "roleArn" => String.t(),
-        "status" => String.t(),
-        "versionStatus" => String.t()
+        "name" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "versionStatus" => String.t() | atom()
       }
 
   """
-  @type application_summary() :: %{String.t() => any()}
+  @type application_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1347,11 +1347,11 @@ defmodule AWS.M2 do
 
       list_applications_response() :: %{
         "applications" => list(application_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_applications_response() :: %{String.t() => any()}
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1359,36 +1359,36 @@ defmodule AWS.M2 do
 
       list_application_versions_response() :: %{
         "applicationVersions" => list(application_version_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_application_versions_response() :: %{String.t() => any()}
+  @type list_application_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_environment_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("engineVersion") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("engineVersion") => String.t() | atom(),
         optional("highAvailabilityConfig") => high_availability_config(),
-        optional("kmsKeyId") => [String.t()],
-        optional("networkType") => String.t(),
-        optional("preferredMaintenanceWindow") => String.t(),
+        optional("kmsKeyId") => [String.t() | atom()],
+        optional("networkType") => String.t() | atom(),
+        optional("preferredMaintenanceWindow") => String.t() | atom(),
         optional("publiclyAccessible") => boolean(),
-        optional("securityGroupIds") => list(String.t()),
+        optional("securityGroupIds") => list(String.t() | atom()),
         optional("storageConfigurations") => list(list()),
-        optional("subnetIds") => list(String.t()),
+        optional("subnetIds") => list(String.t() | atom()),
         optional("tags") => map(),
-        required("engineType") => String.t(),
-        required("instanceType") => String.t(),
-        required("name") => String.t()
+        required("engineType") => String.t() | atom(),
+        required("instanceType") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_environment_request() :: %{String.t() => any()}
+  @type create_environment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1406,25 +1406,25 @@ defmodule AWS.M2 do
       update_environment_request() :: %{
         optional("applyDuringMaintenanceWindow") => boolean(),
         optional("desiredCapacity") => integer(),
-        optional("engineVersion") => String.t(),
+        optional("engineVersion") => String.t() | atom(),
         optional("forceUpdate") => boolean(),
-        optional("instanceType") => String.t(),
-        optional("preferredMaintenanceWindow") => [String.t()]
+        optional("instanceType") => String.t() | atom(),
+        optional("preferredMaintenanceWindow") => [String.t() | atom()]
       }
 
   """
-  @type update_environment_request() :: %{String.t() => any()}
+  @type update_environment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_batch_job_response() :: %{
-        required("executionId") => String.t()
+        required("executionId") => String.t() | atom()
       }
 
   """
-  @type start_batch_job_response() :: %{String.t() => any()}
+  @type start_batch_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1432,11 +1432,11 @@ defmodule AWS.M2 do
 
       list_data_set_import_history_response() :: %{
         "dataSetImportTasks" => list(data_set_import_task()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_data_set_import_history_response() :: %{String.t() => any()}
+  @type list_data_set_import_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1452,13 +1452,13 @@ defmodule AWS.M2 do
   ## Example:
 
       start_batch_job_request() :: %{
-        optional("authSecretsManagerArn") => String.t(),
+        optional("authSecretsManagerArn") => String.t() | atom(),
         optional("jobParams") => map(),
         required("batchJobIdentifier") => list()
       }
 
   """
-  @type start_batch_job_request() :: %{String.t() => any()}
+  @type start_batch_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1474,13 +1474,13 @@ defmodule AWS.M2 do
   ## Example:
 
       list_engine_versions_request() :: %{
-        optional("engineType") => String.t(),
+        optional("engineType") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_engine_versions_request() :: %{String.t() => any()}
+  @type list_engine_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1488,12 +1488,12 @@ defmodule AWS.M2 do
 
       primary_key() :: %{
         "length" => integer(),
-        "name" => [String.t()],
+        "name" => [String.t() | atom()],
         "offset" => integer()
       }
 
   """
-  @type primary_key() :: %{String.t() => any()}
+  @type primary_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1509,12 +1509,12 @@ defmodule AWS.M2 do
   ## Example:
 
       ps_detail_attributes() :: %{
-        "encoding" => [String.t()],
-        "format" => [String.t()]
+        "encoding" => [String.t() | atom()],
+        "format" => [String.t() | atom()]
       }
 
   """
-  @type ps_detail_attributes() :: %{String.t() => any()}
+  @type ps_detail_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1522,12 +1522,12 @@ defmodule AWS.M2 do
 
       list_batch_job_definitions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        optional("prefix") => [String.t()]
+        optional("nextToken") => String.t() | atom(),
+        optional("prefix") => [String.t() | atom()]
       }
 
   """
-  @type list_batch_job_definitions_request() :: %{String.t() => any()}
+  @type list_batch_job_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1543,31 +1543,31 @@ defmodule AWS.M2 do
   ## Example:
 
       create_data_set_export_task_response() :: %{
-        "taskId" => String.t()
+        "taskId" => String.t() | atom()
       }
 
   """
-  @type create_data_set_export_task_response() :: %{String.t() => any()}
+  @type create_data_set_export_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_job_execution_summary() :: %{
-        "applicationId" => String.t(),
+        "applicationId" => String.t() | atom(),
         "batchJobIdentifier" => list(),
         "endTime" => non_neg_integer(),
-        "executionId" => String.t(),
-        "jobId" => String.t(),
-        "jobName" => String.t(),
-        "jobType" => String.t(),
-        "returnCode" => [String.t()],
+        "executionId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "jobName" => String.t() | atom(),
+        "jobType" => String.t() | atom(),
+        "returnCode" => [String.t() | atom()],
         "startTime" => non_neg_integer(),
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type batch_job_execution_summary() :: %{String.t() => any()}
+  @type batch_job_execution_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1584,26 +1584,26 @@ defmodule AWS.M2 do
 
       get_data_set_import_task_response() :: %{
         optional("summary") => data_set_import_summary(),
-        required("status") => String.t(),
-        required("taskId") => String.t()
+        required("status") => String.t() | atom(),
+        required("taskId") => String.t() | atom()
       }
 
   """
-  @type get_data_set_import_task_response() :: %{String.t() => any()}
+  @type get_data_set_import_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       data_set_import_task() :: %{
-        "status" => String.t(),
-        "statusReason" => [String.t()],
+        "status" => String.t() | atom(),
+        "statusReason" => [String.t() | atom()],
         "summary" => data_set_import_summary(),
-        "taskId" => String.t()
+        "taskId" => String.t() | atom()
       }
 
   """
-  @type data_set_import_task() :: %{String.t() => any()}
+  @type data_set_import_task() :: %{(String.t() | atom()) => any()}
 
   @type cancel_batch_job_execution_errors() ::
           throttling_exception()
@@ -1902,8 +1902,8 @@ defmodule AWS.M2 do
   """
   @spec cancel_batch_job_execution(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           cancel_batch_job_execution_request(),
           list()
         ) ::
@@ -1977,7 +1977,7 @@ defmodule AWS.M2 do
   """
   @spec create_data_set_export_task(
           map(),
-          String.t(),
+          String.t() | atom(),
           create_data_set_export_task_request(),
           list()
         ) ::
@@ -2011,7 +2011,7 @@ defmodule AWS.M2 do
   """
   @spec create_data_set_import_task(
           map(),
-          String.t(),
+          String.t() | atom(),
           create_data_set_import_task_request(),
           list()
         ) ::
@@ -2044,7 +2044,7 @@ defmodule AWS.M2 do
   Creates and starts a deployment to deploy an application into a runtime
   environment.
   """
-  @spec create_deployment(map(), String.t(), create_deployment_request(), list()) ::
+  @spec create_deployment(map(), String.t() | atom(), create_deployment_request(), list()) ::
           {:ok, create_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2104,7 +2104,7 @@ defmodule AWS.M2 do
 
   You cannot delete a running application.
   """
-  @spec delete_application(map(), String.t(), delete_application_request(), list()) ::
+  @spec delete_application(map(), String.t() | atom(), delete_application_request(), list()) ::
           {:ok, delete_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2143,8 +2143,8 @@ defmodule AWS.M2 do
   """
   @spec delete_application_from_environment(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_application_from_environment_request(),
           list()
         ) ::
@@ -2189,7 +2189,7 @@ defmodule AWS.M2 do
   the
   environment.
   """
-  @spec delete_environment(map(), String.t(), delete_environment_request(), list()) ::
+  @spec delete_environment(map(), String.t() | atom(), delete_environment_request(), list()) ::
           {:ok, delete_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2218,7 +2218,7 @@ defmodule AWS.M2 do
   @doc """
   Describes the details of a specific application.
   """
-  @spec get_application(map(), String.t(), list()) ::
+  @spec get_application(map(), String.t() | atom(), list()) ::
           {:ok, get_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2236,7 +2236,7 @@ defmodule AWS.M2 do
   @doc """
   Returns details about a specific version of a specific application.
   """
-  @spec get_application_version(map(), String.t(), String.t(), list()) ::
+  @spec get_application_version(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_application_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2261,7 +2261,7 @@ defmodule AWS.M2 do
   @doc """
   Gets the details of a specific batch job execution for a specific application.
   """
-  @spec get_batch_job_execution(map(), String.t(), String.t(), list()) ::
+  @spec get_batch_job_execution(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_batch_job_execution_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2281,7 +2281,7 @@ defmodule AWS.M2 do
   @doc """
   Gets the details of a specific data set.
   """
-  @spec get_data_set_details(map(), String.t(), String.t(), list()) ::
+  @spec get_data_set_details(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_data_set_details_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2302,7 +2302,7 @@ defmodule AWS.M2 do
   Gets the status of a data set import task initiated with the
   `CreateDataSetExportTask` operation.
   """
-  @spec get_data_set_export_task(map(), String.t(), String.t(), list()) ::
+  @spec get_data_set_export_task(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_data_set_export_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2323,7 +2323,7 @@ defmodule AWS.M2 do
   Gets the status of a data set import task initiated with the
   `CreateDataSetImportTask` operation.
   """
-  @spec get_data_set_import_task(map(), String.t(), String.t(), list()) ::
+  @spec get_data_set_import_task(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_data_set_import_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2343,7 +2343,7 @@ defmodule AWS.M2 do
   @doc """
   Gets details of a specific deployment with a given deployment identifier.
   """
-  @spec get_deployment(map(), String.t(), String.t(), list()) ::
+  @spec get_deployment(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_deployment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2363,7 +2363,7 @@ defmodule AWS.M2 do
   @doc """
   Describes a specific runtime environment.
   """
-  @spec get_environment(map(), String.t(), list()) ::
+  @spec get_environment(map(), String.t() | atom(), list()) ::
           {:ok, get_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2399,7 +2399,13 @@ defmodule AWS.M2 do
   @doc """
   Returns a list of the application versions for a specific application.
   """
-  @spec list_application_versions(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_application_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_application_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2444,10 +2450,10 @@ defmodule AWS.M2 do
   """
   @spec list_applications(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_applications_response(), any()}
@@ -2509,10 +2515,10 @@ defmodule AWS.M2 do
   """
   @spec list_batch_job_definitions(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_batch_job_definitions_response(), any()}
@@ -2563,14 +2569,14 @@ defmodule AWS.M2 do
   """
   @spec list_batch_job_executions(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_batch_job_executions_response(), any()}
@@ -2652,7 +2658,13 @@ defmodule AWS.M2 do
 
   This is only applicable for Micro Focus engine with versions 8.0.6 and above.
   """
-  @spec list_batch_job_restart_points(map(), String.t(), String.t(), String.t() | nil, list()) ::
+  @spec list_batch_job_restart_points(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_batch_job_restart_points_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2687,9 +2699,9 @@ defmodule AWS.M2 do
   """
   @spec list_data_set_export_history(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_data_set_export_history_response(), any()}
@@ -2731,9 +2743,9 @@ defmodule AWS.M2 do
   """
   @spec list_data_set_import_history(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_data_set_import_history_response(), any()}
@@ -2782,11 +2794,11 @@ defmodule AWS.M2 do
   """
   @spec list_data_sets(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_data_sets_response(), any()}
@@ -2847,7 +2859,13 @@ defmodule AWS.M2 do
   application. Each
   deployment is mapped to a particular application version.
   """
-  @spec list_deployments(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_deployments(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_deployments_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2885,7 +2903,13 @@ defmodule AWS.M2 do
   @doc """
   Lists the available engine versions.
   """
-  @spec list_engine_versions(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_engine_versions(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_engine_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2932,10 +2956,10 @@ defmodule AWS.M2 do
   """
   @spec list_environments(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_environments_response(), any()}
@@ -2990,7 +3014,7 @@ defmodule AWS.M2 do
   @doc """
   Lists the tags for the specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3008,7 +3032,7 @@ defmodule AWS.M2 do
   @doc """
   Starts an application that is currently stopped.
   """
-  @spec start_application(map(), String.t(), start_application_request(), list()) ::
+  @spec start_application(map(), String.t() | atom(), start_application_request(), list()) ::
           {:ok, start_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3040,7 +3064,7 @@ defmodule AWS.M2 do
 
   The associated application must be running in order to start the batch job.
   """
-  @spec start_batch_job(map(), String.t(), start_batch_job_request(), list()) ::
+  @spec start_batch_job(map(), String.t() | atom(), start_batch_job_request(), list()) ::
           {:ok, start_batch_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3069,7 +3093,7 @@ defmodule AWS.M2 do
   @doc """
   Stops a running application.
   """
-  @spec stop_application(map(), String.t(), stop_application_request(), list()) ::
+  @spec stop_application(map(), String.t() | atom(), stop_application_request(), list()) ::
           {:ok, stop_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3098,7 +3122,7 @@ defmodule AWS.M2 do
   @doc """
   Adds one or more tags to the specified resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3127,7 +3151,7 @@ defmodule AWS.M2 do
   @doc """
   Removes one or more tags from the specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3161,7 +3185,7 @@ defmodule AWS.M2 do
   @doc """
   Updates an application and creates a new version.
   """
-  @spec update_application(map(), String.t(), update_application_request(), list()) ::
+  @spec update_application(map(), String.t() | atom(), update_application_request(), list()) ::
           {:ok, update_application_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3190,7 +3214,7 @@ defmodule AWS.M2 do
   @doc """
   Updates the configuration details for a specific runtime environment.
   """
-  @spec update_environment(map(), String.t(), update_environment_request(), list()) ::
+  @spec update_environment(map(), String.t() | atom(), update_environment_request(), list()) ::
           {:ok, update_environment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

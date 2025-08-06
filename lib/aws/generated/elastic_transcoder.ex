@@ -34,27 +34,27 @@ defmodule AWS.ElasticTranscoder do
   ## Example:
 
       list_pipelines_response() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "Pipelines" => list(pipeline())
       }
 
   """
-  @type list_pipelines_response() :: %{String.t() => any()}
+  @type list_pipelines_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_job_playlist() :: %{
-        "Format" => String.t(),
+        "Format" => String.t() | atom(),
         "HlsContentProtection" => hls_content_protection(),
-        "Name" => String.t(),
-        "OutputKeys" => list(String.t()),
+        "Name" => String.t() | atom(),
+        "OutputKeys" => list(String.t() | atom()),
         "PlayReadyDrm" => play_ready_drm()
       }
 
   """
-  @type create_job_playlist() :: %{String.t() => any()}
+  @type create_job_playlist() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -66,7 +66,7 @@ defmodule AWS.ElasticTranscoder do
       }
 
   """
-  @type update_pipeline_response() :: %{String.t() => any()}
+  @type update_pipeline_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -77,19 +77,19 @@ defmodule AWS.ElasticTranscoder do
       }
 
   """
-  @type create_job_response() :: %{String.t() => any()}
+  @type create_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_pipelines_request() :: %{
-        optional("Ascending") => String.t(),
-        optional("PageToken") => String.t()
+        optional("Ascending") => String.t() | atom(),
+        optional("PageToken") => String.t() | atom()
       }
 
   """
-  @type list_pipelines_request() :: %{String.t() => any()}
+  @type list_pipelines_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -97,15 +97,15 @@ defmodule AWS.ElasticTranscoder do
 
       create_preset_request() :: %{
         optional("Audio") => audio_parameters(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Thumbnails") => thumbnails(),
         optional("Video") => video_parameters(),
-        required("Container") => String.t(),
-        required("Name") => String.t()
+        required("Container") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type create_preset_request() :: %{String.t() => any()}
+  @type create_preset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -114,34 +114,34 @@ defmodule AWS.ElasticTranscoder do
       captions() :: %{
         "CaptionFormats" => list(caption_format()),
         "CaptionSources" => list(caption_source()),
-        "MergePolicy" => String.t()
+        "MergePolicy" => String.t() | atom()
       }
 
   """
-  @type captions() :: %{String.t() => any()}
+  @type captions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_presets_request() :: %{
-        optional("Ascending") => String.t(),
-        optional("PageToken") => String.t()
+        optional("Ascending") => String.t() | atom(),
+        optional("PageToken") => String.t() | atom()
       }
 
   """
-  @type list_presets_request() :: %{String.t() => any()}
+  @type list_presets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -153,21 +153,21 @@ defmodule AWS.ElasticTranscoder do
       }
 
   """
-  @type create_pipeline_response() :: %{String.t() => any()}
+  @type create_pipeline_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       test_role_request() :: %{
-        required("InputBucket") => String.t(),
-        required("OutputBucket") => String.t(),
-        required("Role") => String.t(),
-        required("Topics") => list(String.t())
+        required("InputBucket") => String.t() | atom(),
+        required("OutputBucket") => String.t() | atom(),
+        required("Role") => String.t() | atom(),
+        required("Topics") => list(String.t() | atom())
       }
 
   """
-  @type test_role_request() :: %{String.t() => any()}
+  @type test_role_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -175,11 +175,11 @@ defmodule AWS.ElasticTranscoder do
 
       input_captions() :: %{
         "CaptionSources" => list(caption_source()),
-        "MergePolicy" => String.t()
+        "MergePolicy" => String.t() | atom()
       }
 
   """
-  @type input_captions() :: %{String.t() => any()}
+  @type input_captions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -191,28 +191,28 @@ defmodule AWS.ElasticTranscoder do
       }
 
   """
-  @type read_pipeline_response() :: %{String.t() => any()}
+  @type read_pipeline_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pipeline() :: %{
-        "Arn" => String.t(),
-        "AwsKmsKeyArn" => String.t(),
+        "Arn" => String.t() | atom(),
+        "AwsKmsKeyArn" => String.t() | atom(),
         "ContentConfig" => pipeline_output_config(),
-        "Id" => String.t(),
-        "InputBucket" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | atom(),
+        "InputBucket" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Notifications" => notifications(),
-        "OutputBucket" => String.t(),
-        "Role" => String.t(),
-        "Status" => String.t(),
+        "OutputBucket" => String.t() | atom(),
+        "Role" => String.t() | atom(),
+        "Status" => String.t() | atom(),
         "ThumbnailConfig" => pipeline_output_config()
       }
 
   """
-  @type pipeline() :: %{String.t() => any()}
+  @type pipeline() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -223,7 +223,7 @@ defmodule AWS.ElasticTranscoder do
       }
 
   """
-  @type read_job_response() :: %{String.t() => any()}
+  @type read_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -240,11 +240,11 @@ defmodule AWS.ElasticTranscoder do
 
       list_jobs_by_pipeline_response() :: %{
         "Jobs" => list(job()),
-        "NextPageToken" => String.t()
+        "NextPageToken" => String.t() | atom()
       }
 
   """
-  @type list_jobs_by_pipeline_response() :: %{String.t() => any()}
+  @type list_jobs_by_pipeline_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -254,26 +254,26 @@ defmodule AWS.ElasticTranscoder do
         optional("Input") => job_input(),
         optional("Inputs") => list(job_input()),
         optional("Output") => create_job_output(),
-        optional("OutputKeyPrefix") => String.t(),
+        optional("OutputKeyPrefix") => String.t() | atom(),
         optional("Outputs") => list(create_job_output()),
         optional("Playlists") => list(create_job_playlist()),
         optional("UserMetadata") => map(),
-        required("PipelineId") => String.t()
+        required("PipelineId") => String.t() | atom()
       }
 
   """
-  @type create_job_request() :: %{String.t() => any()}
+  @type create_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_service_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_service_exception() :: %{String.t() => any()}
+  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -284,7 +284,7 @@ defmodule AWS.ElasticTranscoder do
       }
 
   """
-  @type read_preset_response() :: %{String.t() => any()}
+  @type read_preset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -292,30 +292,30 @@ defmodule AWS.ElasticTranscoder do
 
       job_output() :: %{
         "AlbumArt" => job_album_art(),
-        "AppliedColorSpaceConversion" => String.t(),
+        "AppliedColorSpaceConversion" => String.t() | atom(),
         "Captions" => captions(),
         "Composition" => list(clip()),
         "Duration" => float(),
         "DurationMillis" => float(),
         "Encryption" => encryption(),
         "FileSize" => float(),
-        "FrameRate" => String.t(),
+        "FrameRate" => String.t() | atom(),
         "Height" => integer(),
-        "Id" => String.t(),
-        "Key" => String.t(),
-        "PresetId" => String.t(),
-        "Rotate" => String.t(),
-        "SegmentDuration" => String.t(),
-        "Status" => String.t(),
-        "StatusDetail" => String.t(),
+        "Id" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "PresetId" => String.t() | atom(),
+        "Rotate" => String.t() | atom(),
+        "SegmentDuration" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StatusDetail" => String.t() | atom(),
         "ThumbnailEncryption" => encryption(),
-        "ThumbnailPattern" => String.t(),
+        "ThumbnailPattern" => String.t() | atom(),
         "Watermarks" => list(job_watermark()),
         "Width" => integer()
       }
 
   """
-  @type job_output() :: %{String.t() => any()}
+  @type job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -326,7 +326,7 @@ defmodule AWS.ElasticTranscoder do
       }
 
   """
-  @type update_pipeline_notifications_response() :: %{String.t() => any()}
+  @type update_pipeline_notifications_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -337,7 +337,7 @@ defmodule AWS.ElasticTranscoder do
       }
 
   """
-  @type clip() :: %{String.t() => any()}
+  @type clip() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -346,75 +346,75 @@ defmodule AWS.ElasticTranscoder do
       detected_properties() :: %{
         "DurationMillis" => float(),
         "FileSize" => float(),
-        "FrameRate" => String.t(),
+        "FrameRate" => String.t() | atom(),
         "Height" => integer(),
         "Width" => integer()
       }
 
   """
-  @type detected_properties() :: %{String.t() => any()}
+  @type detected_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       hls_content_protection() :: %{
-        "InitializationVector" => String.t(),
-        "Key" => String.t(),
-        "KeyMd5" => String.t(),
-        "KeyStoragePolicy" => String.t(),
-        "LicenseAcquisitionUrl" => String.t(),
-        "Method" => String.t()
+        "InitializationVector" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "KeyMd5" => String.t() | atom(),
+        "KeyStoragePolicy" => String.t() | atom(),
+        "LicenseAcquisitionUrl" => String.t() | atom(),
+        "Method" => String.t() | atom()
       }
 
   """
-  @type hls_content_protection() :: %{String.t() => any()}
+  @type hls_content_protection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_pipeline_request() :: %{
-        optional("AwsKmsKeyArn") => String.t(),
+        optional("AwsKmsKeyArn") => String.t() | atom(),
         optional("ContentConfig") => pipeline_output_config(),
         optional("Notifications") => notifications(),
-        optional("OutputBucket") => String.t(),
+        optional("OutputBucket") => String.t() | atom(),
         optional("ThumbnailConfig") => pipeline_output_config(),
-        required("InputBucket") => String.t(),
-        required("Name") => String.t(),
-        required("Role") => String.t()
+        required("InputBucket") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Role") => String.t() | atom()
       }
 
   """
-  @type create_pipeline_request() :: %{String.t() => any()}
+  @type create_pipeline_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_pipeline_request() :: %{
-        optional("AwsKmsKeyArn") => String.t(),
+        optional("AwsKmsKeyArn") => String.t() | atom(),
         optional("ContentConfig") => pipeline_output_config(),
-        optional("InputBucket") => String.t(),
-        optional("Name") => String.t(),
+        optional("InputBucket") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
         optional("Notifications") => notifications(),
-        optional("Role") => String.t(),
+        optional("Role") => String.t() | atom(),
         optional("ThumbnailConfig") => pipeline_output_config()
       }
 
   """
-  @type update_pipeline_request() :: %{String.t() => any()}
+  @type update_pipeline_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -430,17 +430,17 @@ defmodule AWS.ElasticTranscoder do
   ## Example:
 
       artwork() :: %{
-        "AlbumArtFormat" => String.t(),
+        "AlbumArtFormat" => String.t() | atom(),
         "Encryption" => encryption(),
-        "InputKey" => String.t(),
-        "MaxHeight" => String.t(),
-        "MaxWidth" => String.t(),
-        "PaddingPolicy" => String.t(),
-        "SizingPolicy" => String.t()
+        "InputKey" => String.t() | atom(),
+        "MaxHeight" => String.t() | atom(),
+        "MaxWidth" => String.t() | atom(),
+        "PaddingPolicy" => String.t() | atom(),
+        "SizingPolicy" => String.t() | atom()
       }
 
   """
-  @type artwork() :: %{String.t() => any()}
+  @type artwork() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -448,134 +448,134 @@ defmodule AWS.ElasticTranscoder do
 
       list_jobs_by_status_response() :: %{
         "Jobs" => list(job()),
-        "NextPageToken" => String.t()
+        "NextPageToken" => String.t() | atom()
       }
 
   """
-  @type list_jobs_by_status_response() :: %{String.t() => any()}
+  @type list_jobs_by_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       video_parameters() :: %{
-        "AspectRatio" => String.t(),
-        "BitRate" => String.t(),
-        "Codec" => String.t(),
+        "AspectRatio" => String.t() | atom(),
+        "BitRate" => String.t() | atom(),
+        "Codec" => String.t() | atom(),
         "CodecOptions" => map(),
-        "DisplayAspectRatio" => String.t(),
-        "FixedGOP" => String.t(),
-        "FrameRate" => String.t(),
-        "KeyframesMaxDist" => String.t(),
-        "MaxFrameRate" => String.t(),
-        "MaxHeight" => String.t(),
-        "MaxWidth" => String.t(),
-        "PaddingPolicy" => String.t(),
-        "Resolution" => String.t(),
-        "SizingPolicy" => String.t(),
+        "DisplayAspectRatio" => String.t() | atom(),
+        "FixedGOP" => String.t() | atom(),
+        "FrameRate" => String.t() | atom(),
+        "KeyframesMaxDist" => String.t() | atom(),
+        "MaxFrameRate" => String.t() | atom(),
+        "MaxHeight" => String.t() | atom(),
+        "MaxWidth" => String.t() | atom(),
+        "PaddingPolicy" => String.t() | atom(),
+        "Resolution" => String.t() | atom(),
+        "SizingPolicy" => String.t() | atom(),
         "Watermarks" => list(preset_watermark())
       }
 
   """
-  @type video_parameters() :: %{String.t() => any()}
+  @type video_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_jobs_by_status_request() :: %{
-        optional("Ascending") => String.t(),
-        optional("PageToken") => String.t()
+        optional("Ascending") => String.t() | atom(),
+        optional("PageToken") => String.t() | atom()
       }
 
   """
-  @type list_jobs_by_status_request() :: %{String.t() => any()}
+  @type list_jobs_by_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       encryption() :: %{
-        "InitializationVector" => String.t(),
-        "Key" => String.t(),
-        "KeyMd5" => String.t(),
-        "Mode" => String.t()
+        "InitializationVector" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "KeyMd5" => String.t() | atom(),
+        "Mode" => String.t() | atom()
       }
 
   """
-  @type encryption() :: %{String.t() => any()}
+  @type encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       pipeline_output_config() :: %{
-        "Bucket" => String.t(),
+        "Bucket" => String.t() | atom(),
         "Permissions" => list(permission()),
-        "StorageClass" => String.t()
+        "StorageClass" => String.t() | atom()
       }
 
   """
-  @type pipeline_output_config() :: %{String.t() => any()}
+  @type pipeline_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       audio_parameters() :: %{
-        "AudioPackingMode" => String.t(),
-        "BitRate" => String.t(),
-        "Channels" => String.t(),
-        "Codec" => String.t(),
+        "AudioPackingMode" => String.t() | atom(),
+        "BitRate" => String.t() | atom(),
+        "Channels" => String.t() | atom(),
+        "Codec" => String.t() | atom(),
         "CodecOptions" => audio_codec_options(),
-        "SampleRate" => String.t()
+        "SampleRate" => String.t() | atom()
       }
 
   """
-  @type audio_parameters() :: %{String.t() => any()}
+  @type audio_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_pipeline_status_request() :: %{
-        required("Status") => String.t()
+        required("Status") => String.t() | atom()
       }
 
   """
-  @type update_pipeline_status_request() :: %{String.t() => any()}
+  @type update_pipeline_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_presets_response() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "Presets" => list(preset())
       }
 
   """
-  @type list_presets_response() :: %{String.t() => any()}
+  @type list_presets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job_input() :: %{
-        "AspectRatio" => String.t(),
-        "Container" => String.t(),
+        "AspectRatio" => String.t() | atom(),
+        "Container" => String.t() | atom(),
         "DetectedProperties" => detected_properties(),
         "Encryption" => encryption(),
-        "FrameRate" => String.t(),
+        "FrameRate" => String.t() | atom(),
         "InputCaptions" => input_captions(),
-        "Interlaced" => String.t(),
-        "Key" => String.t(),
-        "Resolution" => String.t(),
+        "Interlaced" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "Resolution" => String.t() | atom(),
         "TimeSpan" => time_span()
       }
 
   """
-  @type job_input() :: %{String.t() => any()}
+  @type job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -591,45 +591,45 @@ defmodule AWS.ElasticTranscoder do
   ## Example:
 
       preset_watermark() :: %{
-        "HorizontalAlign" => String.t(),
-        "HorizontalOffset" => String.t(),
-        "Id" => String.t(),
-        "MaxHeight" => String.t(),
-        "MaxWidth" => String.t(),
-        "Opacity" => String.t(),
-        "SizingPolicy" => String.t(),
-        "Target" => String.t(),
-        "VerticalAlign" => String.t(),
-        "VerticalOffset" => String.t()
+        "HorizontalAlign" => String.t() | atom(),
+        "HorizontalOffset" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "MaxHeight" => String.t() | atom(),
+        "MaxWidth" => String.t() | atom(),
+        "Opacity" => String.t() | atom(),
+        "SizingPolicy" => String.t() | atom(),
+        "Target" => String.t() | atom(),
+        "VerticalAlign" => String.t() | atom(),
+        "VerticalOffset" => String.t() | atom()
       }
 
   """
-  @type preset_watermark() :: %{String.t() => any()}
+  @type preset_watermark() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       incompatible_version_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type incompatible_version_exception() :: %{String.t() => any()}
+  @type incompatible_version_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       notifications() :: %{
-        "Completed" => String.t(),
-        "Error" => String.t(),
-        "Progressing" => String.t(),
-        "Warning" => String.t()
+        "Completed" => String.t() | atom(),
+        "Error" => String.t() | atom(),
+        "Progressing" => String.t() | atom(),
+        "Warning" => String.t() | atom()
       }
 
   """
-  @type notifications() :: %{String.t() => any()}
+  @type notifications() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -642,7 +642,7 @@ defmodule AWS.ElasticTranscoder do
       }
 
   """
-  @type timing() :: %{String.t() => any()}
+  @type timing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -658,23 +658,23 @@ defmodule AWS.ElasticTranscoder do
   ## Example:
 
       warning() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type warning() :: %{String.t() => any()}
+  @type warning() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -682,26 +682,26 @@ defmodule AWS.ElasticTranscoder do
 
       caption_format() :: %{
         "Encryption" => encryption(),
-        "Format" => String.t(),
-        "Pattern" => String.t()
+        "Format" => String.t() | atom(),
+        "Pattern" => String.t() | atom()
       }
 
   """
-  @type caption_format() :: %{String.t() => any()}
+  @type caption_format() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       audio_codec_options() :: %{
-        "BitDepth" => String.t(),
-        "BitOrder" => String.t(),
-        "Profile" => String.t(),
-        "Signed" => String.t()
+        "BitDepth" => String.t() | atom(),
+        "BitOrder" => String.t() | atom(),
+        "Profile" => String.t() | atom(),
+        "Signed" => String.t() | atom()
       }
 
   """
-  @type audio_codec_options() :: %{String.t() => any()}
+  @type audio_codec_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -709,11 +709,11 @@ defmodule AWS.ElasticTranscoder do
 
       job_album_art() :: %{
         "Artwork" => list(artwork()),
-        "MergePolicy" => String.t()
+        "MergePolicy" => String.t() | atom()
       }
 
   """
-  @type job_album_art() :: %{String.t() => any()}
+  @type job_album_art() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -721,45 +721,45 @@ defmodule AWS.ElasticTranscoder do
 
       job_watermark() :: %{
         "Encryption" => encryption(),
-        "InputKey" => String.t(),
-        "PresetWatermarkId" => String.t()
+        "InputKey" => String.t() | atom(),
+        "PresetWatermarkId" => String.t() | atom()
       }
 
   """
-  @type job_watermark() :: %{String.t() => any()}
+  @type job_watermark() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       job() :: %{
-        "Arn" => String.t(),
-        "Id" => String.t(),
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "Input" => job_input(),
         "Inputs" => list(job_input()),
         "Output" => job_output(),
-        "OutputKeyPrefix" => String.t(),
+        "OutputKeyPrefix" => String.t() | atom(),
         "Outputs" => list(job_output()),
-        "PipelineId" => String.t(),
+        "PipelineId" => String.t() | atom(),
         "Playlists" => list(playlist()),
-        "Status" => String.t(),
+        "Status" => String.t() | atom(),
         "Timing" => timing(),
         "UserMetadata" => map()
       }
 
   """
-  @type job() :: %{String.t() => any()}
+  @type job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -770,7 +770,7 @@ defmodule AWS.ElasticTranscoder do
       }
 
   """
-  @type update_pipeline_status_response() :: %{String.t() => any()}
+  @type update_pipeline_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -786,29 +786,29 @@ defmodule AWS.ElasticTranscoder do
   ## Example:
 
       thumbnails() :: %{
-        "AspectRatio" => String.t(),
-        "Format" => String.t(),
-        "Interval" => String.t(),
-        "MaxHeight" => String.t(),
-        "MaxWidth" => String.t(),
-        "PaddingPolicy" => String.t(),
-        "Resolution" => String.t(),
-        "SizingPolicy" => String.t()
+        "AspectRatio" => String.t() | atom(),
+        "Format" => String.t() | atom(),
+        "Interval" => String.t() | atom(),
+        "MaxHeight" => String.t() | atom(),
+        "MaxWidth" => String.t() | atom(),
+        "PaddingPolicy" => String.t() | atom(),
+        "Resolution" => String.t() | atom(),
+        "SizingPolicy" => String.t() | atom()
       }
 
   """
-  @type thumbnails() :: %{String.t() => any()}
+  @type thumbnails() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       limit_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -816,26 +816,26 @@ defmodule AWS.ElasticTranscoder do
 
       caption_source() :: %{
         "Encryption" => encryption(),
-        "Key" => String.t(),
-        "Label" => String.t(),
-        "Language" => String.t(),
-        "TimeOffset" => String.t()
+        "Key" => String.t() | atom(),
+        "Label" => String.t() | atom(),
+        "Language" => String.t() | atom(),
+        "TimeOffset" => String.t() | atom()
       }
 
   """
-  @type caption_source() :: %{String.t() => any()}
+  @type caption_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_jobs_by_pipeline_request() :: %{
-        optional("Ascending") => String.t(),
-        optional("PageToken") => String.t()
+        optional("Ascending") => String.t() | atom(),
+        optional("PageToken") => String.t() | atom()
       }
 
   """
-  @type list_jobs_by_pipeline_request() :: %{String.t() => any()}
+  @type list_jobs_by_pipeline_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -843,11 +843,11 @@ defmodule AWS.ElasticTranscoder do
 
       create_preset_response() :: %{
         "Preset" => preset(),
-        "Warning" => String.t()
+        "Warning" => String.t() | atom()
       }
 
   """
-  @type create_preset_response() :: %{String.t() => any()}
+  @type create_preset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -858,50 +858,50 @@ defmodule AWS.ElasticTranscoder do
         "Captions" => captions(),
         "Composition" => list(clip()),
         "Encryption" => encryption(),
-        "Key" => String.t(),
-        "PresetId" => String.t(),
-        "Rotate" => String.t(),
-        "SegmentDuration" => String.t(),
+        "Key" => String.t() | atom(),
+        "PresetId" => String.t() | atom(),
+        "Rotate" => String.t() | atom(),
+        "SegmentDuration" => String.t() | atom(),
         "ThumbnailEncryption" => encryption(),
-        "ThumbnailPattern" => String.t(),
+        "ThumbnailPattern" => String.t() | atom(),
         "Watermarks" => list(job_watermark())
       }
 
   """
-  @type create_job_output() :: %{String.t() => any()}
+  @type create_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       play_ready_drm() :: %{
-        "Format" => String.t(),
-        "InitializationVector" => String.t(),
-        "Key" => String.t(),
-        "KeyId" => String.t(),
-        "KeyMd5" => String.t(),
-        "LicenseAcquisitionUrl" => String.t()
+        "Format" => String.t() | atom(),
+        "InitializationVector" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "KeyId" => String.t() | atom(),
+        "KeyMd5" => String.t() | atom(),
+        "LicenseAcquisitionUrl" => String.t() | atom()
       }
 
   """
-  @type play_ready_drm() :: %{String.t() => any()}
+  @type play_ready_drm() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       playlist() :: %{
-        "Format" => String.t(),
+        "Format" => String.t() | atom(),
         "HlsContentProtection" => hls_content_protection(),
-        "Name" => String.t(),
-        "OutputKeys" => list(String.t()),
+        "Name" => String.t() | atom(),
+        "OutputKeys" => list(String.t() | atom()),
         "PlayReadyDrm" => play_ready_drm(),
-        "Status" => String.t(),
-        "StatusDetail" => String.t()
+        "Status" => String.t() | atom(),
+        "StatusDetail" => String.t() | atom()
       }
 
   """
-  @type playlist() :: %{String.t() => any()}
+  @type playlist() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -917,56 +917,56 @@ defmodule AWS.ElasticTranscoder do
   ## Example:
 
       preset() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "Audio" => audio_parameters(),
-        "Container" => String.t(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Container" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Thumbnails" => thumbnails(),
-        "Type" => String.t(),
+        "Type" => String.t() | atom(),
         "Video" => video_parameters()
       }
 
   """
-  @type preset() :: %{String.t() => any()}
+  @type preset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       test_role_response() :: %{
-        "Messages" => list(String.t()),
-        "Success" => String.t()
+        "Messages" => list(String.t() | atom()),
+        "Success" => String.t() | atom()
       }
 
   """
-  @type test_role_response() :: %{String.t() => any()}
+  @type test_role_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       time_span() :: %{
-        "Duration" => String.t(),
-        "StartTime" => String.t()
+        "Duration" => String.t() | atom(),
+        "StartTime" => String.t() | atom()
       }
 
   """
-  @type time_span() :: %{String.t() => any()}
+  @type time_span() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       permission() :: %{
-        "Access" => list(String.t()),
-        "Grantee" => String.t(),
-        "GranteeType" => String.t()
+        "Access" => list(String.t() | atom()),
+        "Grantee" => String.t() | atom(),
+        "GranteeType" => String.t() | atom()
       }
 
   """
-  @type permission() :: %{String.t() => any()}
+  @type permission() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -977,7 +977,7 @@ defmodule AWS.ElasticTranscoder do
       }
 
   """
-  @type update_pipeline_notifications_request() :: %{String.t() => any()}
+  @type update_pipeline_notifications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1136,7 +1136,7 @@ defmodule AWS.ElasticTranscoder do
   use
   `UpdatePipelineStatus` to temporarily pause the pipeline.
   """
-  @spec cancel_job(map(), String.t(), cancel_job_request(), list()) ::
+  @spec cancel_job(map(), String.t() | atom(), cancel_job_request(), list()) ::
           {:ok, cancel_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1287,7 +1287,7 @@ defmodule AWS.ElasticTranscoder do
   (doesn't contain any active jobs). If the pipeline is currently in use,
   `DeletePipeline` returns an error.
   """
-  @spec delete_pipeline(map(), String.t(), delete_pipeline_request(), list()) ::
+  @spec delete_pipeline(map(), String.t() | atom(), delete_pipeline_request(), list()) ::
           {:ok, delete_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1318,7 +1318,7 @@ defmodule AWS.ElasticTranscoder do
 
   You can't delete the default presets that are included with Elastic Transcoder.
   """
-  @spec delete_preset(map(), String.t(), delete_preset_request(), list()) ::
+  @spec delete_preset(map(), String.t() | atom(), delete_preset_request(), list()) ::
           {:ok, delete_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1352,7 +1352,13 @@ defmodule AWS.ElasticTranscoder do
   The response body contains
   one element for each job that satisfies the search criteria.
   """
-  @spec list_jobs_by_pipeline(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_jobs_by_pipeline(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_jobs_by_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1393,7 +1399,13 @@ defmodule AWS.ElasticTranscoder do
   The response
   body contains one element for each job that satisfies the search criteria.
   """
-  @spec list_jobs_by_status(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_jobs_by_status(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_jobs_by_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1432,7 +1444,7 @@ defmodule AWS.ElasticTranscoder do
   The ListPipelines operation gets a list of the pipelines associated with the
   current AWS account.
   """
-  @spec list_pipelines(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_pipelines(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_pipelines_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1466,7 +1478,7 @@ defmodule AWS.ElasticTranscoder do
   Elastic Transcoder and the presets that
   you've added in an AWS region.
   """
-  @spec list_presets(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_presets(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_presets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1498,7 +1510,7 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   The ReadJob operation returns detailed information about a job.
   """
-  @spec read_job(map(), String.t(), list()) ::
+  @spec read_job(map(), String.t() | atom(), list()) ::
           {:ok, read_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1516,7 +1528,7 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   The ReadPipeline operation gets detailed information about a pipeline.
   """
-  @spec read_pipeline(map(), String.t(), list()) ::
+  @spec read_pipeline(map(), String.t() | atom(), list()) ::
           {:ok, read_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1534,7 +1546,7 @@ defmodule AWS.ElasticTranscoder do
   @doc """
   The ReadPreset operation gets detailed information about a preset.
   """
-  @spec read_preset(map(), String.t(), list()) ::
+  @spec read_preset(map(), String.t() | atom(), list()) ::
           {:ok, read_preset_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1595,7 +1607,7 @@ defmodule AWS.ElasticTranscoder do
   to process are
   affected in addition to jobs that you submit after you change settings.
   """
-  @spec update_pipeline(map(), String.t(), update_pipeline_request(), list()) ::
+  @spec update_pipeline(map(), String.t() | atom(), update_pipeline_request(), list()) ::
           {:ok, update_pipeline_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1630,7 +1642,7 @@ defmodule AWS.ElasticTranscoder do
   """
   @spec update_pipeline_notifications(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_pipeline_notifications_request(),
           list()
         ) ::
@@ -1672,7 +1684,12 @@ defmodule AWS.ElasticTranscoder do
   you want
   to cancel, and to send a `CancelJob` request.
   """
-  @spec update_pipeline_status(map(), String.t(), update_pipeline_status_request(), list()) ::
+  @spec update_pipeline_status(
+          map(),
+          String.t() | atom(),
+          update_pipeline_status_request(),
+          list()
+        ) ::
           {:ok, update_pipeline_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

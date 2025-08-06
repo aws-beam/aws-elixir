@@ -14,22 +14,22 @@ defmodule AWS.S3Outposts do
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -37,37 +37,37 @@ defmodule AWS.S3Outposts do
 
       create_endpoint_request() :: %{
         optional("AccessType") => list(any()),
-        optional("CustomerOwnedIpv4Pool") => String.t(),
-        required("OutpostId") => String.t(),
-        required("SecurityGroupId") => String.t(),
-        required("SubnetId") => String.t()
+        optional("CustomerOwnedIpv4Pool") => String.t() | atom(),
+        required("OutpostId") => String.t() | atom(),
+        required("SecurityGroupId") => String.t() | atom(),
+        required("SubnetId") => String.t() | atom()
       }
 
   """
-  @type create_endpoint_request() :: %{String.t() => any()}
+  @type create_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_endpoint_result() :: %{
-        "EndpointArn" => String.t()
+        "EndpointArn" => String.t() | atom()
       }
 
   """
-  @type create_endpoint_result() :: %{String.t() => any()}
+  @type create_endpoint_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_endpoint_request() :: %{
-        required("EndpointId") => String.t(),
-        required("OutpostId") => String.t()
+        required("EndpointId") => String.t() | atom(),
+        required("OutpostId") => String.t() | atom()
       }
 
   """
-  @type delete_endpoint_request() :: %{String.t() => any()}
+  @type delete_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -75,44 +75,44 @@ defmodule AWS.S3Outposts do
 
       endpoint() :: %{
         "AccessType" => list(any()),
-        "CidrBlock" => String.t(),
+        "CidrBlock" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "CustomerOwnedIpv4Pool" => String.t(),
-        "EndpointArn" => String.t(),
+        "CustomerOwnedIpv4Pool" => String.t() | atom(),
+        "EndpointArn" => String.t() | atom(),
         "FailedReason" => failed_reason(),
         "NetworkInterfaces" => list(network_interface()),
-        "OutpostsId" => String.t(),
-        "SecurityGroupId" => String.t(),
+        "OutpostsId" => String.t() | atom(),
+        "SecurityGroupId" => String.t() | atom(),
         "Status" => list(any()),
-        "SubnetId" => String.t(),
-        "VpcId" => String.t()
+        "SubnetId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type endpoint() :: %{String.t() => any()}
+  @type endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       failed_reason() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type failed_reason() :: %{String.t() => any()}
+  @type failed_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -120,11 +120,11 @@ defmodule AWS.S3Outposts do
 
       list_endpoints_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_endpoints_request() :: %{String.t() => any()}
+  @type list_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -132,11 +132,11 @@ defmodule AWS.S3Outposts do
 
       list_endpoints_result() :: %{
         "Endpoints" => list(endpoint()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_endpoints_result() :: %{String.t() => any()}
+  @type list_endpoints_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -144,23 +144,23 @@ defmodule AWS.S3Outposts do
 
       list_outposts_with_s3_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_outposts_with_s3_request() :: %{String.t() => any()}
+  @type list_outposts_with_s3_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_outposts_with_s3_result() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Outposts" => list(outpost())
       }
 
   """
-  @type list_outposts_with_s3_result() :: %{String.t() => any()}
+  @type list_outposts_with_s3_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -168,12 +168,12 @@ defmodule AWS.S3Outposts do
 
       list_shared_endpoints_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("OutpostId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("OutpostId") => String.t() | atom()
       }
 
   """
-  @type list_shared_endpoints_request() :: %{String.t() => any()}
+  @type list_shared_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -181,22 +181,22 @@ defmodule AWS.S3Outposts do
 
       list_shared_endpoints_result() :: %{
         "Endpoints" => list(endpoint()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_shared_endpoints_result() :: %{String.t() => any()}
+  @type list_shared_endpoints_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network_interface() :: %{
-        "NetworkInterfaceId" => String.t()
+        "NetworkInterfaceId" => String.t() | atom()
       }
 
   """
-  @type network_interface() :: %{String.t() => any()}
+  @type network_interface() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -204,58 +204,58 @@ defmodule AWS.S3Outposts do
 
       outpost() :: %{
         "CapacityInBytes" => float(),
-        "OutpostArn" => String.t(),
-        "OutpostId" => String.t(),
-        "OwnerId" => String.t(),
-        "S3OutpostArn" => String.t()
+        "OutpostArn" => String.t() | atom(),
+        "OutpostId" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "S3OutpostArn" => String.t() | atom()
       }
 
   """
-  @type outpost() :: %{String.t() => any()}
+  @type outpost() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       outpost_offline_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type outpost_offline_exception() :: %{String.t() => any()}
+  @type outpost_offline_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type create_endpoint_errors() ::
           validation_exception()
@@ -411,7 +411,7 @@ defmodule AWS.S3Outposts do
 
   [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)
   """
-  @spec list_endpoints(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_endpoints(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_endpoints_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -448,7 +448,7 @@ defmodule AWS.S3Outposts do
   shared user
   from Resource Access Manager (RAM).
   """
-  @spec list_outposts_with_s3(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_outposts_with_s3(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_outposts_with_s3_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -496,7 +496,13 @@ defmodule AWS.S3Outposts do
 
   [DeleteEndpoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html)
   """
-  @spec list_shared_endpoints(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
+  @spec list_shared_endpoints(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, list_shared_endpoints_result(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

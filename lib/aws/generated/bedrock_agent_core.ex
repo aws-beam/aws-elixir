@@ -18,12 +18,12 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       branch() :: %{
-        "name" => String.t(),
-        "rootEventId" => String.t()
+        "name" => String.t() | atom(),
+        "rootEventId" => String.t() | atom()
       }
 
   """
-  @type branch() :: %{String.t() => any()}
+  @type branch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -35,18 +35,18 @@ defmodule AWS.BedrockAgentCore do
       }
 
   """
-  @type conversational() :: %{String.t() => any()}
+  @type conversational() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       live_view_stream() :: %{
-        "streamEndpoint" => String.t()
+        "streamEndpoint" => String.t() | atom()
       }
 
   """
-  @type live_view_stream() :: %{String.t() => any()}
+  @type live_view_stream() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -54,47 +54,47 @@ defmodule AWS.BedrockAgentCore do
 
       retrieve_memory_records_output() :: %{
         "memoryRecordSummaries" => list(memory_record_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type retrieve_memory_records_output() :: %{String.t() => any()}
+  @type retrieve_memory_records_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       automation_stream() :: %{
-        "streamEndpoint" => String.t(),
+        "streamEndpoint" => String.t() | atom(),
         "streamStatus" => list(any())
       }
 
   """
-  @type automation_stream() :: %{String.t() => any()}
+  @type automation_stream() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       session_summary() :: %{
-        "actorId" => String.t(),
+        "actorId" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "sessionId" => String.t()
+        "sessionId" => String.t() | atom()
       }
 
   """
-  @type session_summary() :: %{String.t() => any()}
+  @type session_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       unauthorized_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type unauthorized_exception() :: %{String.t() => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -102,11 +102,11 @@ defmodule AWS.BedrockAgentCore do
 
       list_actors_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_actors_input() :: %{String.t() => any()}
+  @type list_actors_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -114,12 +114,12 @@ defmodule AWS.BedrockAgentCore do
 
       invoke_code_interpreter_request() :: %{
         optional("arguments") => tool_arguments(),
-        optional("sessionId") => String.t(),
+        optional("sessionId") => String.t() | atom(),
         required("name") => list(any())
       }
 
   """
-  @type invoke_code_interpreter_request() :: %{String.t() => any()}
+  @type invoke_code_interpreter_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -127,74 +127,74 @@ defmodule AWS.BedrockAgentCore do
 
       list_browser_sessions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("status") => list(any())
       }
 
   """
-  @type list_browser_sessions_request() :: %{String.t() => any()}
+  @type list_browser_sessions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workload_access_token_for_j_w_t_response() :: %{
-        "workloadAccessToken" => String.t()
+        "workloadAccessToken" => String.t() | atom()
       }
 
   """
-  @type get_workload_access_token_for_j_w_t_response() :: %{String.t() => any()}
+  @type get_workload_access_token_for_j_w_t_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workload_access_token_request() :: %{
-        required("workloadName") => String.t()
+        required("workloadName") => String.t() | atom()
       }
 
   """
-  @type get_workload_access_token_request() :: %{String.t() => any()}
+  @type get_workload_access_token_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_api_key_request() :: %{
-        required("resourceCredentialProviderName") => String.t(),
-        required("workloadIdentityToken") => String.t()
+        required("resourceCredentialProviderName") => String.t() | atom(),
+        required("workloadIdentityToken") => String.t() | atom()
       }
 
   """
-  @type get_resource_api_key_request() :: %{String.t() => any()}
+  @type get_resource_api_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       code_interpreter_session_summary() :: %{
-        "codeInterpreterIdentifier" => [String.t()],
+        "codeInterpreterIdentifier" => [String.t() | atom()],
         "createdAt" => non_neg_integer(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "sessionId" => String.t(),
+        "name" => String.t() | atom(),
+        "sessionId" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type code_interpreter_session_summary() :: %{String.t() => any()}
+  @type code_interpreter_session_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_browser_session_request() :: %{
-        optional("clientToken") => String.t(),
-        required("sessionId") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        required("sessionId") => String.t() | atom()
       }
 
   """
-  @type stop_browser_session_request() :: %{String.t() => any()}
+  @type stop_browser_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -210,11 +210,11 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       get_workload_access_token_response() :: %{
-        "workloadAccessToken" => String.t()
+        "workloadAccessToken" => String.t() | atom()
       }
 
   """
-  @type get_workload_access_token_response() :: %{String.t() => any()}
+  @type get_workload_access_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -222,18 +222,18 @@ defmodule AWS.BedrockAgentCore do
 
       tool_arguments() :: %{
         "clearContext" => [boolean()],
-        "code" => String.t(),
-        "command" => String.t(),
+        "code" => String.t() | atom(),
+        "command" => String.t() | atom(),
         "content" => list(input_content_block()),
-        "directoryPath" => String.t(),
+        "directoryPath" => String.t() | atom(),
         "language" => list(any()),
-        "path" => String.t(),
-        "paths" => list(String.t()),
-        "taskId" => String.t()
+        "path" => String.t() | atom(),
+        "paths" => list(String.t() | atom()),
+        "taskId" => String.t() | atom()
       }
 
   """
-  @type tool_arguments() :: %{String.t() => any()}
+  @type tool_arguments() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -241,29 +241,29 @@ defmodule AWS.BedrockAgentCore do
 
       content_block() :: %{
         "data" => [binary()],
-        "description" => [String.t()],
-        "mimeType" => [String.t()],
-        "name" => [String.t()],
+        "description" => [String.t() | atom()],
+        "mimeType" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
         "resource" => resource_content(),
         "size" => [float()],
-        "text" => [String.t()],
+        "text" => [String.t() | atom()],
         "type" => list(any()),
-        "uri" => [String.t()]
+        "uri" => [String.t() | atom()]
       }
 
   """
-  @type content_block() :: %{String.t() => any()}
+  @type content_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_browser_session_request() :: %{
-        required("sessionId") => String.t()
+        required("sessionId") => String.t() | atom()
       }
 
   """
-  @type get_browser_session_request() :: %{String.t() => any()}
+  @type get_browser_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -275,7 +275,7 @@ defmodule AWS.BedrockAgentCore do
       }
 
   """
-  @type view_port() :: %{String.t() => any()}
+  @type view_port() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -283,63 +283,63 @@ defmodule AWS.BedrockAgentCore do
 
       input_content_block() :: %{
         "blob" => binary(),
-        "path" => String.t(),
-        "text" => String.t()
+        "path" => String.t() | atom(),
+        "text" => String.t() | atom()
       }
 
   """
-  @type input_content_block() :: %{String.t() => any()}
+  @type input_content_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_code_interpreter_session_request() :: %{
-        optional("clientToken") => String.t(),
-        required("sessionId") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        required("sessionId") => String.t() | atom()
       }
 
   """
-  @type stop_code_interpreter_session_request() :: %{String.t() => any()}
+  @type stop_code_interpreter_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttled_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type throttled_exception() :: %{String.t() => any()}
+  @type throttled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_browser_session_response() :: %{
-        "browserIdentifier" => [String.t()],
+        "browserIdentifier" => [String.t() | atom()],
         "createdAt" => non_neg_integer(),
-        "sessionId" => String.t(),
+        "sessionId" => String.t() | atom(),
         "streams" => browser_session_stream()
       }
 
   """
-  @type start_browser_session_response() :: %{String.t() => any()}
+  @type start_browser_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_browser_session_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("name") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
         optional("sessionTimeoutSeconds") => integer(),
         optional("viewPort") => view_port()
       }
 
   """
-  @type start_browser_session_request() :: %{String.t() => any()}
+  @type start_browser_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -347,11 +347,11 @@ defmodule AWS.BedrockAgentCore do
 
       branch_filter() :: %{
         "includeParentBranches" => [boolean()],
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type branch_filter() :: %{String.t() => any()}
+  @type branch_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -360,37 +360,37 @@ defmodule AWS.BedrockAgentCore do
       get_resource_oauth2_token_request() :: %{
         optional("customParameters") => map(),
         optional("forceAuthentication") => [boolean()],
-        optional("resourceOauth2ReturnUrl") => String.t(),
+        optional("resourceOauth2ReturnUrl") => String.t() | atom(),
         required("oauth2Flow") => list(any()),
-        required("resourceCredentialProviderName") => String.t(),
-        required("scopes") => list(String.t()),
-        required("workloadIdentityToken") => String.t()
+        required("resourceCredentialProviderName") => String.t() | atom(),
+        required("scopes") => list(String.t() | atom()),
+        required("workloadIdentityToken") => String.t() | atom()
       }
 
   """
-  @type get_resource_oauth2_token_request() :: %{String.t() => any()}
+  @type get_resource_oauth2_token_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -398,13 +398,13 @@ defmodule AWS.BedrockAgentCore do
 
       list_memory_records_input() :: %{
         optional("maxResults") => integer(),
-        optional("memoryStrategyId") => String.t(),
-        optional("nextToken") => String.t(),
-        required("namespace") => String.t()
+        optional("memoryStrategyId") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        required("namespace") => String.t() | atom()
       }
 
   """
-  @type list_memory_records_input() :: %{String.t() => any()}
+  @type list_memory_records_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -420,12 +420,12 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       get_workload_access_token_for_j_w_t_request() :: %{
-        required("userToken") => String.t(),
-        required("workloadName") => String.t()
+        required("userToken") => String.t() | atom(),
+        required("workloadName") => String.t() | atom()
       }
 
   """
-  @type get_workload_access_token_for_j_w_t_request() :: %{String.t() => any()}
+  @type get_workload_access_token_for_j_w_t_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -436,70 +436,70 @@ defmodule AWS.BedrockAgentCore do
       }
 
   """
-  @type filter_input() :: %{String.t() => any()}
+  @type filter_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_code_interpreter_session_response() :: %{
-        "codeInterpreterIdentifier" => [String.t()],
+        "codeInterpreterIdentifier" => [String.t() | atom()],
         "createdAt" => non_neg_integer(),
-        "sessionId" => String.t()
+        "sessionId" => String.t() | atom()
       }
 
   """
-  @type start_code_interpreter_session_response() :: %{String.t() => any()}
+  @type start_code_interpreter_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_oauth2_token_response() :: %{
-        "accessToken" => String.t(),
-        "authorizationUrl" => [String.t()]
+        "accessToken" => String.t() | atom(),
+        "authorizationUrl" => [String.t() | atom()]
       }
 
   """
-  @type get_resource_oauth2_token_response() :: %{String.t() => any()}
+  @type get_resource_oauth2_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_browser_stream_response() :: %{
-        "browserIdentifier" => [String.t()],
-        "sessionId" => String.t(),
+        "browserIdentifier" => [String.t() | atom()],
+        "sessionId" => String.t() | atom(),
         "streams" => browser_session_stream(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type update_browser_stream_response() :: %{String.t() => any()}
+  @type update_browser_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_code_interpreter_session_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("name") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
         optional("sessionTimeoutSeconds") => integer()
       }
 
   """
-  @type start_code_interpreter_session_request() :: %{String.t() => any()}
+  @type start_code_interpreter_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -508,14 +508,14 @@ defmodule AWS.BedrockAgentCore do
       memory_record_summary() :: %{
         "content" => list(),
         "createdAt" => [non_neg_integer()],
-        "memoryRecordId" => String.t(),
-        "memoryStrategyId" => String.t(),
-        "namespaces" => list(String.t()),
+        "memoryRecordId" => String.t() | atom(),
+        "memoryStrategyId" => String.t() | atom(),
+        "namespaces" => list(String.t() | atom()),
         "score" => [float()]
       }
 
   """
-  @type memory_record_summary() :: %{String.t() => any()}
+  @type memory_record_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -523,22 +523,22 @@ defmodule AWS.BedrockAgentCore do
 
       list_events_output() :: %{
         "events" => list(event()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_events_output() :: %{String.t() => any()}
+  @type list_events_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type service_exception() :: %{String.t() => any()}
+  @type service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -546,76 +546,76 @@ defmodule AWS.BedrockAgentCore do
 
       retrieve_memory_records_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("namespace") => String.t(),
+        optional("nextToken") => String.t() | atom(),
+        required("namespace") => String.t() | atom(),
         required("searchCriteria") => search_criteria()
       }
 
   """
-  @type retrieve_memory_records_input() :: %{String.t() => any()}
+  @type retrieve_memory_records_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_input_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_code_interpreter_session_request() :: %{
-        required("sessionId") => String.t()
+        required("sessionId") => String.t() | atom()
       }
 
   """
-  @type get_code_interpreter_session_request() :: %{String.t() => any()}
+  @type get_code_interpreter_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       browser_session_summary() :: %{
-        "browserIdentifier" => [String.t()],
+        "browserIdentifier" => [String.t() | atom()],
         "createdAt" => non_neg_integer(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "sessionId" => String.t(),
+        "name" => String.t() | atom(),
+        "sessionId" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type browser_session_summary() :: %{String.t() => any()}
+  @type browser_session_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "message" => [String.t()],
-        "name" => [String.t()]
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_browser_session_response() :: %{
-        "browserIdentifier" => [String.t()],
+        "browserIdentifier" => [String.t() | atom()],
         "lastUpdatedAt" => non_neg_integer(),
-        "sessionId" => String.t()
+        "sessionId" => String.t() | atom()
       }
 
   """
-  @type stop_browser_session_response() :: %{String.t() => any()}
+  @type stop_browser_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -624,25 +624,25 @@ defmodule AWS.BedrockAgentCore do
       tool_result_structured_content() :: %{
         "executionTime" => [float()],
         "exitCode" => [integer()],
-        "stderr" => [String.t()],
-        "stdout" => [String.t()],
-        "taskId" => [String.t()],
+        "stderr" => [String.t() | atom()],
+        "stdout" => [String.t() | atom()],
+        "taskId" => [String.t() | atom()],
         "taskStatus" => list(any())
       }
 
   """
-  @type tool_result_structured_content() :: %{String.t() => any()}
+  @type tool_result_structured_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_event_output() :: %{
-        "eventId" => String.t()
+        "eventId" => String.t() | atom()
       }
 
   """
-  @type delete_event_output() :: %{String.t() => any()}
+  @type delete_event_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -658,23 +658,23 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       get_workload_access_token_for_user_id_request() :: %{
-        required("userId") => String.t(),
-        required("workloadName") => String.t()
+        required("userId") => String.t() | atom(),
+        required("workloadName") => String.t() | atom()
       }
 
   """
-  @type get_workload_access_token_for_user_id_request() :: %{String.t() => any()}
+  @type get_workload_access_token_for_user_id_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -685,24 +685,24 @@ defmodule AWS.BedrockAgentCore do
       }
 
   """
-  @type get_memory_record_output() :: %{String.t() => any()}
+  @type get_memory_record_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       event() :: %{
-        "actorId" => String.t(),
+        "actorId" => String.t() | atom(),
         "branch" => branch(),
-        "eventId" => String.t(),
+        "eventId" => String.t() | atom(),
         "eventTimestamp" => [non_neg_integer()],
-        "memoryId" => String.t(),
+        "memoryId" => String.t() | atom(),
         "payload" => list(list()),
-        "sessionId" => String.t()
+        "sessionId" => String.t() | atom()
       }
 
   """
-  @type event() :: %{String.t() => any()}
+  @type event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -712,11 +712,11 @@ defmodule AWS.BedrockAgentCore do
         optional("filter") => filter_input(),
         optional("includePayloads") => [boolean()],
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_events_input() :: %{String.t() => any()}
+  @type list_events_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -725,13 +725,13 @@ defmodule AWS.BedrockAgentCore do
       memory_record() :: %{
         "content" => list(),
         "createdAt" => [non_neg_integer()],
-        "memoryRecordId" => String.t(),
-        "memoryStrategyId" => String.t(),
-        "namespaces" => list(String.t())
+        "memoryRecordId" => String.t() | atom(),
+        "memoryStrategyId" => String.t() | atom(),
+        "namespaces" => list(String.t() | atom())
       }
 
   """
-  @type memory_record() :: %{String.t() => any()}
+  @type memory_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -739,68 +739,68 @@ defmodule AWS.BedrockAgentCore do
 
       create_event_input() :: %{
         optional("branch") => branch(),
-        optional("clientToken") => [String.t()],
-        optional("sessionId") => String.t(),
-        required("actorId") => String.t(),
+        optional("clientToken") => [String.t() | atom()],
+        optional("sessionId") => String.t() | atom(),
+        required("actorId") => String.t() | atom(),
         required("eventTimestamp") => [non_neg_integer()],
         required("payload") => list(list())
       }
 
   """
-  @type create_event_input() :: %{String.t() => any()}
+  @type create_event_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invoke_agent_runtime_response() :: %{
-        "baggage" => [String.t()],
-        "contentType" => [String.t()],
-        "mcpProtocolVersion" => [String.t()],
-        "mcpSessionId" => String.t(),
+        "baggage" => [String.t() | atom()],
+        "contentType" => [String.t() | atom()],
+        "mcpProtocolVersion" => [String.t() | atom()],
+        "mcpSessionId" => String.t() | atom(),
         "response" => binary(),
-        "runtimeSessionId" => String.t(),
+        "runtimeSessionId" => String.t() | atom(),
         "statusCode" => integer(),
-        "traceId" => [String.t()],
-        "traceParent" => [String.t()],
-        "traceState" => [String.t()]
+        "traceId" => [String.t() | atom()],
+        "traceParent" => [String.t() | atom()],
+        "traceState" => [String.t() | atom()]
       }
 
   """
-  @type invoke_agent_runtime_response() :: %{String.t() => any()}
+  @type invoke_agent_runtime_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invoke_agent_runtime_request() :: %{
-        optional("accept") => String.t(),
-        optional("baggage") => [String.t()],
-        optional("contentType") => String.t(),
-        optional("mcpProtocolVersion") => String.t(),
-        optional("mcpSessionId") => String.t(),
-        optional("qualifier") => [String.t()],
-        optional("runtimeSessionId") => String.t(),
-        optional("runtimeUserId") => String.t(),
-        optional("traceId") => [String.t()],
-        optional("traceParent") => [String.t()],
-        optional("traceState") => [String.t()],
+        optional("accept") => String.t() | atom(),
+        optional("baggage") => [String.t() | atom()],
+        optional("contentType") => String.t() | atom(),
+        optional("mcpProtocolVersion") => String.t() | atom(),
+        optional("mcpSessionId") => String.t() | atom(),
+        optional("qualifier") => [String.t() | atom()],
+        optional("runtimeSessionId") => String.t() | atom(),
+        optional("runtimeUserId") => String.t() | atom(),
+        optional("traceId") => [String.t() | atom()],
+        optional("traceParent") => [String.t() | atom()],
+        optional("traceState") => [String.t() | atom()],
         required("payload") => binary()
       }
 
   """
-  @type invoke_agent_runtime_request() :: %{String.t() => any()}
+  @type invoke_agent_runtime_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -808,24 +808,24 @@ defmodule AWS.BedrockAgentCore do
 
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
-        "message" => [String.t()],
+        "message" => [String.t() | atom()],
         "reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_browser_session_response() :: %{
-        "browserIdentifier" => [String.t()],
+        "browserIdentifier" => [String.t() | atom()],
         "createdAt" => non_neg_integer(),
         "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t(),
-        "sessionId" => String.t(),
-        "sessionReplayArtifact" => [String.t()],
+        "name" => String.t() | atom(),
+        "sessionId" => String.t() | atom(),
+        "sessionReplayArtifact" => [String.t() | atom()],
         "sessionTimeoutSeconds" => integer(),
         "status" => list(any()),
         "streams" => browser_session_stream(),
@@ -833,7 +833,7 @@ defmodule AWS.BedrockAgentCore do
       }
 
   """
-  @type get_browser_session_response() :: %{String.t() => any()}
+  @type get_browser_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -841,25 +841,25 @@ defmodule AWS.BedrockAgentCore do
 
       resource_content() :: %{
         "blob" => [binary()],
-        "mimeType" => [String.t()],
-        "text" => [String.t()],
+        "mimeType" => [String.t() | atom()],
+        "text" => [String.t() | atom()],
         "type" => list(any()),
-        "uri" => [String.t()]
+        "uri" => [String.t() | atom()]
       }
 
   """
-  @type resource_content() :: %{String.t() => any()}
+  @type resource_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -867,24 +867,24 @@ defmodule AWS.BedrockAgentCore do
 
       list_browser_sessions_response() :: %{
         "items" => list(browser_session_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_browser_sessions_response() :: %{String.t() => any()}
+  @type list_browser_sessions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       stop_code_interpreter_session_response() :: %{
-        "codeInterpreterIdentifier" => [String.t()],
+        "codeInterpreterIdentifier" => [String.t() | atom()],
         "lastUpdatedAt" => non_neg_integer(),
-        "sessionId" => String.t()
+        "sessionId" => String.t() | atom()
       }
 
   """
-  @type stop_code_interpreter_session_response() :: %{String.t() => any()}
+  @type stop_code_interpreter_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -895,35 +895,35 @@ defmodule AWS.BedrockAgentCore do
       }
 
   """
-  @type get_event_output() :: %{String.t() => any()}
+  @type get_event_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sessions_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "sessionSummaries" => list(session_summary())
       }
 
   """
-  @type list_sessions_output() :: %{String.t() => any()}
+  @type list_sessions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_code_interpreter_session_response() :: %{
-        "codeInterpreterIdentifier" => [String.t()],
+        "codeInterpreterIdentifier" => [String.t() | atom()],
         "createdAt" => non_neg_integer(),
-        "name" => String.t(),
-        "sessionId" => String.t(),
+        "name" => String.t() | atom(),
+        "sessionId" => String.t() | atom(),
         "sessionTimeoutSeconds" => integer(),
         "status" => list(any())
       }
 
   """
-  @type get_code_interpreter_session_response() :: %{String.t() => any()}
+  @type get_code_interpreter_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -931,22 +931,22 @@ defmodule AWS.BedrockAgentCore do
 
       list_actors_output() :: %{
         "actorSummaries" => list(actor_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_actors_output() :: %{String.t() => any()}
+  @type list_actors_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workload_access_token_for_user_id_response() :: %{
-        "workloadAccessToken" => String.t()
+        "workloadAccessToken" => String.t() | atom()
       }
 
   """
-  @type get_workload_access_token_for_user_id_response() :: %{String.t() => any()}
+  @type get_workload_access_token_for_user_id_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -963,12 +963,12 @@ defmodule AWS.BedrockAgentCore do
 
       list_code_interpreter_sessions_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("status") => list(any())
       }
 
   """
-  @type list_code_interpreter_sessions_request() :: %{String.t() => any()}
+  @type list_code_interpreter_sessions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -979,7 +979,7 @@ defmodule AWS.BedrockAgentCore do
       }
 
   """
-  @type automation_stream_update() :: %{String.t() => any()}
+  @type automation_stream_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -992,30 +992,30 @@ defmodule AWS.BedrockAgentCore do
       }
 
   """
-  @type code_interpreter_result() :: %{String.t() => any()}
+  @type code_interpreter_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_api_key_response() :: %{
-        "apiKey" => String.t()
+        "apiKey" => String.t() | atom()
       }
 
   """
-  @type get_resource_api_key_response() :: %{String.t() => any()}
+  @type get_resource_api_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invoke_code_interpreter_response() :: %{
-        "sessionId" => String.t(),
+        "sessionId" => String.t() | atom(),
         "stream" => list()
       }
 
   """
-  @type invoke_code_interpreter_response() :: %{String.t() => any()}
+  @type invoke_code_interpreter_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1027,18 +1027,18 @@ defmodule AWS.BedrockAgentCore do
       }
 
   """
-  @type browser_session_stream() :: %{String.t() => any()}
+  @type browser_session_stream() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       actor_summary() :: %{
-        "actorId" => String.t()
+        "actorId" => String.t() | atom()
       }
 
   """
-  @type actor_summary() :: %{String.t() => any()}
+  @type actor_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1049,20 +1049,20 @@ defmodule AWS.BedrockAgentCore do
       }
 
   """
-  @type create_event_output() :: %{String.t() => any()}
+  @type create_event_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       search_criteria() :: %{
-        "memoryStrategyId" => String.t(),
-        "searchQuery" => String.t(),
+        "memoryStrategyId" => String.t() | atom(),
+        "searchQuery" => String.t() | atom(),
         "topK" => [integer()]
       }
 
   """
-  @type search_criteria() :: %{String.t() => any()}
+  @type search_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1070,24 +1070,24 @@ defmodule AWS.BedrockAgentCore do
 
       list_code_interpreter_sessions_response() :: %{
         "items" => list(code_interpreter_session_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_code_interpreter_sessions_response() :: %{String.t() => any()}
+  @type list_code_interpreter_sessions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_browser_stream_request() :: %{
-        optional("clientToken") => String.t(),
-        required("sessionId") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        required("sessionId") => String.t() | atom(),
         required("streamUpdate") => list()
       }
 
   """
-  @type update_browser_stream_request() :: %{String.t() => any()}
+  @type update_browser_stream_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1095,22 +1095,22 @@ defmodule AWS.BedrockAgentCore do
 
       list_memory_records_output() :: %{
         "memoryRecordSummaries" => list(memory_record_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_memory_records_output() :: %{String.t() => any()}
+  @type list_memory_records_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_memory_record_output() :: %{
-        "memoryRecordId" => [String.t()]
+        "memoryRecordId" => [String.t() | atom()]
       }
 
   """
-  @type delete_memory_record_output() :: %{String.t() => any()}
+  @type delete_memory_record_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1118,22 +1118,22 @@ defmodule AWS.BedrockAgentCore do
 
       list_sessions_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_sessions_input() :: %{String.t() => any()}
+  @type list_sessions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       runtime_client_error() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type runtime_client_error() :: %{String.t() => any()}
+  @type runtime_client_error() :: %{(String.t() | atom()) => any()}
 
   @type create_event_errors() ::
           validation_exception()
@@ -1383,7 +1383,7 @@ defmodule AWS.BedrockAgentCore do
 
   This operation is subject to request rate limiting.
   """
-  @spec create_event(map(), String.t(), create_event_input(), list()) ::
+  @spec create_event(map(), String.t() | atom(), create_event_input(), list()) ::
           {:ok, create_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1419,10 +1419,10 @@ defmodule AWS.BedrockAgentCore do
   """
   @spec delete_event(
           map(),
-          String.t(),
-          String.t(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_event_input(),
           list()
         ) ::
@@ -1469,7 +1469,13 @@ defmodule AWS.BedrockAgentCore do
   To use this operation, you must have the `bedrock-agentcore:DeleteMemoryRecord`
   permission.
   """
-  @spec delete_memory_record(map(), String.t(), String.t(), delete_memory_record_input(), list()) ::
+  @spec delete_memory_record(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_memory_record_input(),
+          list()
+        ) ::
           {:ok, delete_memory_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1517,7 +1523,7 @@ defmodule AWS.BedrockAgentCore do
     *
   [StopBrowserSession](https://docs.aws.amazon.com/API_StopBrowserSession.html)
   """
-  @spec get_browser_session(map(), String.t(), String.t(), list()) ::
+  @spec get_browser_session(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_browser_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1559,7 +1565,7 @@ defmodule AWS.BedrockAgentCore do
     *
   [StopCodeInterpreterSession](https://docs.aws.amazon.com/API_StopCodeInterpreterSession.html)
   """
-  @spec get_code_interpreter_session(map(), String.t(), String.t(), list()) ::
+  @spec get_code_interpreter_session(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_code_interpreter_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1594,7 +1600,14 @@ defmodule AWS.BedrockAgentCore do
   To use this operation, you must have the `bedrock-agentcore:GetEvent`
   permission.
   """
-  @spec get_event(map(), String.t(), String.t(), String.t(), String.t(), list()) ::
+  @spec get_event(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_event_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1617,7 +1630,7 @@ defmodule AWS.BedrockAgentCore do
   To use this operation, you must have the `bedrock-agentcore:GetMemoryRecord`
   permission.
   """
-  @spec get_memory_record(map(), String.t(), String.t(), list()) ::
+  @spec get_memory_record(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_memory_record_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1812,7 +1825,7 @@ defmodule AWS.BedrockAgentCore do
   To use this operation, you must have the `bedrock-agentcore:InvokeAgentRuntime`
   permission.
   """
-  @spec invoke_agent_runtime(map(), String.t(), invoke_agent_runtime_request(), list()) ::
+  @spec invoke_agent_runtime(map(), String.t() | atom(), invoke_agent_runtime_request(), list()) ::
           {:ok, invoke_agent_runtime_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1895,7 +1908,12 @@ defmodule AWS.BedrockAgentCore do
   [StartCodeInterpreterSession](https://docs.aws.amazon.com/API_StartCodeInterpreterSession.html)     *
   [GetCodeInterpreterSession](https://docs.aws.amazon.com/API_GetCodeInterpreterSession.html)
   """
-  @spec invoke_code_interpreter(map(), String.t(), invoke_code_interpreter_request(), list()) ::
+  @spec invoke_code_interpreter(
+          map(),
+          String.t() | atom(),
+          invoke_code_interpreter_request(),
+          list()
+        ) ::
           {:ok, invoke_code_interpreter_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1949,7 +1967,7 @@ defmodule AWS.BedrockAgentCore do
   To use this operation, you must have the `bedrock-agentcore:ListActors`
   permission.
   """
-  @spec list_actors(map(), String.t(), list_actors_input(), list()) ::
+  @spec list_actors(map(), String.t() | atom(), list_actors_input(), list()) ::
           {:ok, list_actors_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1994,7 +2012,7 @@ defmodule AWS.BedrockAgentCore do
   [StartBrowserSession](https://docs.aws.amazon.com/API_StartBrowserSession.html)     *
   [GetBrowserSession](https://docs.aws.amazon.com/API_GetBrowserSession.html)
   """
-  @spec list_browser_sessions(map(), String.t(), list_browser_sessions_request(), list()) ::
+  @spec list_browser_sessions(map(), String.t() | atom(), list_browser_sessions_request(), list()) ::
           {:ok, list_browser_sessions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2041,7 +2059,7 @@ defmodule AWS.BedrockAgentCore do
   """
   @spec list_code_interpreter_sessions(
           map(),
-          String.t(),
+          String.t() | atom(),
           list_code_interpreter_sessions_request(),
           list()
         ) ::
@@ -2086,7 +2104,14 @@ defmodule AWS.BedrockAgentCore do
   To use this operation, you must have the `bedrock-agentcore:ListEvents`
   permission.
   """
-  @spec list_events(map(), String.t(), String.t(), String.t(), list_events_input(), list()) ::
+  @spec list_events(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list_events_input(),
+          list()
+        ) ::
           {:ok, list_events_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2124,7 +2149,7 @@ defmodule AWS.BedrockAgentCore do
   To use this operation, you must have the `bedrock-agentcore:ListMemoryRecords`
   permission.
   """
-  @spec list_memory_records(map(), String.t(), list_memory_records_input(), list()) ::
+  @spec list_memory_records(map(), String.t() | atom(), list_memory_records_input(), list()) ::
           {:ok, list_memory_records_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2159,7 +2184,13 @@ defmodule AWS.BedrockAgentCore do
   To use this operation, you must have the `bedrock-agentcore:ListSessions`
   permission.
   """
-  @spec list_sessions(map(), String.t(), String.t(), list_sessions_input(), list()) ::
+  @spec list_sessions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list_sessions_input(),
+          list()
+        ) ::
           {:ok, list_sessions_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2197,7 +2228,12 @@ defmodule AWS.BedrockAgentCore do
   To use this operation, you must have the
   `bedrock-agentcore:RetrieveMemoryRecords` permission.
   """
-  @spec retrieve_memory_records(map(), String.t(), retrieve_memory_records_input(), list()) ::
+  @spec retrieve_memory_records(
+          map(),
+          String.t() | atom(),
+          retrieve_memory_records_input(),
+          list()
+        ) ::
           {:ok, retrieve_memory_records_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2244,7 +2280,7 @@ defmodule AWS.BedrockAgentCore do
     *
   [StopBrowserSession](https://docs.aws.amazon.com/API_StopBrowserSession.html)
   """
-  @spec start_browser_session(map(), String.t(), start_browser_session_request(), list()) ::
+  @spec start_browser_session(map(), String.t() | atom(), start_browser_session_request(), list()) ::
           {:ok, start_browser_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2292,7 +2328,7 @@ defmodule AWS.BedrockAgentCore do
   """
   @spec start_code_interpreter_session(
           map(),
-          String.t(),
+          String.t() | atom(),
           start_code_interpreter_session_request(),
           list()
         ) ::
@@ -2344,7 +2380,7 @@ defmodule AWS.BedrockAgentCore do
   [StartBrowserSession](https://docs.aws.amazon.com/API_StartBrowserSession.html)     *
   [GetBrowserSession](https://docs.aws.amazon.com/API_GetBrowserSession.html)
   """
-  @spec stop_browser_session(map(), String.t(), stop_browser_session_request(), list()) ::
+  @spec stop_browser_session(map(), String.t() | atom(), stop_browser_session_request(), list()) ::
           {:ok, stop_browser_session_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2393,7 +2429,7 @@ defmodule AWS.BedrockAgentCore do
   """
   @spec stop_code_interpreter_session(
           map(),
-          String.t(),
+          String.t() | atom(),
           stop_code_interpreter_session_request(),
           list()
         ) ::
@@ -2440,7 +2476,7 @@ defmodule AWS.BedrockAgentCore do
   To use this operation, you must have permissions to perform the
   bedrock:UpdateBrowserStream action.
   """
-  @spec update_browser_stream(map(), String.t(), update_browser_stream_request(), list()) ::
+  @spec update_browser_stream(map(), String.t() | atom(), update_browser_stream_request(), list()) ::
           {:ok, update_browser_stream_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

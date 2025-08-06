@@ -15,102 +15,104 @@ defmodule AWS.Route53Domains do
   ## Example:
       
       check_domain_transferability_request() :: %{
-        optional("AuthCode") => String.t(),
-        required("DomainName") => String.t()
+        optional("AuthCode") => String.t() | atom(),
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type check_domain_transferability_request() :: %{String.t() => any()}
+  @type check_domain_transferability_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_domain_detail_response() :: %{
-        "AbuseContactEmail" => String.t(),
-        "AbuseContactPhone" => String.t(),
+        "AbuseContactEmail" => String.t() | atom(),
+        "AbuseContactPhone" => String.t() | atom(),
         "AdminContact" => contact_detail(),
         "AdminPrivacy" => boolean(),
         "AutoRenew" => boolean(),
         "BillingContact" => contact_detail(),
         "BillingPrivacy" => boolean(),
         "CreationDate" => non_neg_integer(),
-        "DnsSec" => String.t(),
+        "DnsSec" => String.t() | atom(),
         "DnssecKeys" => list(dnssec_key()),
-        "DomainName" => String.t(),
+        "DomainName" => String.t() | atom(),
         "ExpirationDate" => non_neg_integer(),
         "Nameservers" => list(nameserver()),
         "RegistrantContact" => contact_detail(),
         "RegistrantPrivacy" => boolean(),
-        "RegistrarName" => String.t(),
-        "RegistrarUrl" => String.t(),
-        "RegistryDomainId" => String.t(),
-        "Reseller" => String.t(),
-        "StatusList" => list(String.t()),
+        "RegistrarName" => String.t() | atom(),
+        "RegistrarUrl" => String.t() | atom(),
+        "RegistryDomainId" => String.t() | atom(),
+        "Reseller" => String.t() | atom(),
+        "StatusList" => list(String.t() | atom()),
         "TechContact" => contact_detail(),
         "TechPrivacy" => boolean(),
         "UpdatedDate" => non_neg_integer(),
-        "WhoIsServer" => String.t()
+        "WhoIsServer" => String.t() | atom()
       }
       
   """
-  @type get_domain_detail_response() :: %{String.t() => any()}
+  @type get_domain_detail_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_domain_auto_renew_request() :: %{
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type disable_domain_auto_renew_request() :: %{String.t() => any()}
+  @type disable_domain_auto_renew_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_domain_response() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type delete_domain_response() :: %{String.t() => any()}
+  @type delete_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_operation_detail_request() :: %{
-        required("OperationId") => String.t()
+        required("OperationId") => String.t() | atom()
       }
       
   """
-  @type get_operation_detail_request() :: %{String.t() => any()}
+  @type get_operation_detail_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       check_domain_transferability_response() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "Transferability" => domain_transferability()
       }
       
   """
-  @type check_domain_transferability_response() :: %{String.t() => any()}
+  @type check_domain_transferability_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reject_domain_transfer_from_another_aws_account_response() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type reject_domain_transfer_from_another_aws_account_response() :: %{String.t() => any()}
+  @type reject_domain_transfer_from_another_aws_account_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -121,29 +123,29 @@ defmodule AWS.Route53Domains do
       }
       
   """
-  @type check_domain_availability_response() :: %{String.t() => any()}
+  @type check_domain_availability_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_domain_nameservers_response() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type update_domain_nameservers_response() :: %{String.t() => any()}
+  @type update_domain_nameservers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_domain_contact_response() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type update_domain_contact_response() :: %{String.t() => any()}
+  @type update_domain_contact_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -152,22 +154,22 @@ defmodule AWS.Route53Domains do
       filter_condition() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type filter_condition() :: %{String.t() => any()}
+  @type filter_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_input() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_input() :: %{String.t() => any()}
+  @type invalid_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -178,31 +180,31 @@ defmodule AWS.Route53Domains do
       }
       
   """
-  @type domain_transferability() :: %{String.t() => any()}
+  @type domain_transferability() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       nameserver() :: %{
-        "GlueIps" => list(String.t()),
-        "Name" => String.t()
+        "GlueIps" => list(String.t() | atom()),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type nameserver() :: %{String.t() => any()}
+  @type nameserver() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_prices_response() :: %{
-        "NextPageMarker" => String.t(),
+        "NextPageMarker" => String.t() | atom(),
         "Prices" => list(domain_price())
       }
       
   """
-  @type list_prices_response() :: %{String.t() => any()}
+  @type list_prices_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -210,14 +212,14 @@ defmodule AWS.Route53Domains do
       
       billing_record() :: %{
         "BillDate" => non_neg_integer(),
-        "DomainName" => String.t(),
-        "InvoiceId" => String.t(),
+        "DomainName" => String.t() | atom(),
+        "InvoiceId" => String.t() | atom(),
         "Operation" => list(any()),
         "Price" => float()
       }
       
   """
-  @type billing_record() :: %{String.t() => any()}
+  @type billing_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -225,28 +227,28 @@ defmodule AWS.Route53Domains do
       
       dnssec_key() :: %{
         "Algorithm" => integer(),
-        "Digest" => String.t(),
+        "Digest" => String.t() | atom(),
         "DigestType" => integer(),
         "Flags" => integer(),
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "KeyTag" => integer(),
-        "PublicKey" => String.t()
+        "PublicKey" => String.t() | atom()
       }
       
   """
-  @type dnssec_key() :: %{String.t() => any()}
+  @type dnssec_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_contact_reachability_status_response() :: %{
-        "domainName" => String.t(),
+        "domainName" => String.t() | atom(),
         "status" => list(any())
       }
       
   """
-  @type get_contact_reachability_status_response() :: %{String.t() => any()}
+  @type get_contact_reachability_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -254,48 +256,48 @@ defmodule AWS.Route53Domains do
       
       domain_summary() :: %{
         "AutoRenew" => boolean(),
-        "DomainName" => String.t(),
+        "DomainName" => String.t() | atom(),
         "Expiry" => non_neg_integer(),
         "TransferLock" => boolean()
       }
       
   """
-  @type domain_summary() :: %{String.t() => any()}
+  @type domain_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_domain_detail_request() :: %{
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type get_domain_detail_request() :: %{String.t() => any()}
+  @type get_domain_detail_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       contact_detail() :: %{
-        "AddressLine1" => String.t(),
-        "AddressLine2" => String.t(),
-        "City" => String.t(),
+        "AddressLine1" => String.t() | atom(),
+        "AddressLine2" => String.t() | atom(),
+        "City" => String.t() | atom(),
         "ContactType" => list(any()),
         "CountryCode" => list(any()),
-        "Email" => String.t(),
+        "Email" => String.t() | atom(),
         "ExtraParams" => list(extra_param()),
-        "Fax" => String.t(),
-        "FirstName" => String.t(),
-        "LastName" => String.t(),
-        "OrganizationName" => String.t(),
-        "PhoneNumber" => String.t(),
-        "State" => String.t(),
-        "ZipCode" => String.t()
+        "Fax" => String.t() | atom(),
+        "FirstName" => String.t() | atom(),
+        "LastName" => String.t() | atom(),
+        "OrganizationName" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "State" => String.t() | atom(),
+        "ZipCode" => String.t() | atom()
       }
       
   """
-  @type contact_detail() :: %{String.t() => any()}
+  @type contact_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -306,7 +308,7 @@ defmodule AWS.Route53Domains do
       }
       
   """
-  @type list_tags_for_domain_response() :: %{String.t() => any()}
+  @type list_tags_for_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -315,20 +317,20 @@ defmodule AWS.Route53Domains do
       register_domain_request() :: %{
         optional("AutoRenew") => boolean(),
         optional("BillingContact") => contact_detail(),
-        optional("IdnLangCode") => String.t(),
+        optional("IdnLangCode") => String.t() | atom(),
         optional("PrivacyProtectAdminContact") => boolean(),
         optional("PrivacyProtectBillingContact") => boolean(),
         optional("PrivacyProtectRegistrantContact") => boolean(),
         optional("PrivacyProtectTechContact") => boolean(),
         required("AdminContact") => contact_detail(),
-        required("DomainName") => String.t(),
+        required("DomainName") => String.t() | atom(),
         required("DurationInYears") => integer(),
         required("RegistrantContact") => contact_detail(),
         required("TechContact") => contact_detail()
       }
       
   """
-  @type register_domain_request() :: %{String.t() => any()}
+  @type register_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -336,11 +338,11 @@ defmodule AWS.Route53Domains do
       
       extra_param() :: %{
         "Name" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type extra_param() :: %{String.t() => any()}
+  @type extra_param() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -356,46 +358,48 @@ defmodule AWS.Route53Domains do
   ## Example:
       
       update_domain_nameservers_request() :: %{
-        optional("FIAuthKey") => String.t(),
-        required("DomainName") => String.t(),
+        optional("FIAuthKey") => String.t() | atom(),
+        required("DomainName") => String.t() | atom(),
         required("Nameservers") => list(nameserver())
       }
       
   """
-  @type update_domain_nameservers_request() :: %{String.t() => any()}
+  @type update_domain_nameservers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       accept_domain_transfer_from_another_aws_account_request() :: %{
-        required("DomainName") => String.t(),
-        required("Password") => String.t()
+        required("DomainName") => String.t() | atom(),
+        required("Password") => String.t() | atom()
       }
       
   """
-  @type accept_domain_transfer_from_another_aws_account_request() :: %{String.t() => any()}
+  @type accept_domain_transfer_from_another_aws_account_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       register_domain_response() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type register_domain_response() :: %{String.t() => any()}
+  @type register_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_summary() :: %{
-        "DomainName" => String.t(),
+        "DomainName" => String.t() | atom(),
         "LastUpdatedDate" => non_neg_integer(),
-        "Message" => String.t(),
-        "OperationId" => String.t(),
+        "Message" => String.t() | atom(),
+        "OperationId" => String.t() | atom(),
         "Status" => list(any()),
         "StatusFlag" => list(any()),
         "SubmittedDate" => non_neg_integer(),
@@ -403,52 +407,52 @@ defmodule AWS.Route53Domains do
       }
       
   """
-  @type operation_summary() :: %{String.t() => any()}
+  @type operation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       transfer_domain_to_another_aws_account_response() :: %{
-        "OperationId" => String.t(),
-        "Password" => String.t()
+        "OperationId" => String.t() | atom(),
+        "Password" => String.t() | atom()
       }
       
   """
-  @type transfer_domain_to_another_aws_account_response() :: %{String.t() => any()}
+  @type transfer_domain_to_another_aws_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       operation_limit_exceeded() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type operation_limit_exceeded() :: %{String.t() => any()}
+  @type operation_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       enable_domain_auto_renew_request() :: %{
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type enable_domain_auto_renew_request() :: %{String.t() => any()}
+  @type enable_domain_auto_renew_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_domain_transfer_lock_response() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type disable_domain_transfer_lock_response() :: %{String.t() => any()}
+  @type disable_domain_transfer_lock_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -459,7 +463,7 @@ defmodule AWS.Route53Domains do
       }
       
   """
-  @type get_domain_suggestions_response() :: %{String.t() => any()}
+  @type get_domain_suggestions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -475,35 +479,35 @@ defmodule AWS.Route53Domains do
   ## Example:
       
       transfer_domain_request() :: %{
-        optional("AuthCode") => String.t(),
+        optional("AuthCode") => String.t() | atom(),
         optional("AutoRenew") => boolean(),
         optional("BillingContact") => contact_detail(),
-        optional("IdnLangCode") => String.t(),
+        optional("IdnLangCode") => String.t() | atom(),
         optional("Nameservers") => list(nameserver()),
         optional("PrivacyProtectAdminContact") => boolean(),
         optional("PrivacyProtectBillingContact") => boolean(),
         optional("PrivacyProtectRegistrantContact") => boolean(),
         optional("PrivacyProtectTechContact") => boolean(),
         required("AdminContact") => contact_detail(),
-        required("DomainName") => String.t(),
+        required("DomainName") => String.t() | atom(),
         required("DurationInYears") => integer(),
         required("RegistrantContact") => contact_detail(),
         required("TechContact") => contact_detail()
       }
       
   """
-  @type transfer_domain_request() :: %{String.t() => any()}
+  @type transfer_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       enable_domain_transfer_lock_request() :: %{
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type enable_domain_transfer_lock_request() :: %{String.t() => any()}
+  @type enable_domain_transfer_lock_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -519,12 +523,12 @@ defmodule AWS.Route53Domains do
   ## Example:
       
       domain_suggestion() :: %{
-        "Availability" => String.t(),
-        "DomainName" => String.t()
+        "Availability" => String.t() | atom(),
+        "DomainName" => String.t() | atom()
       }
       
   """
-  @type domain_suggestion() :: %{String.t() => any()}
+  @type domain_suggestion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -532,11 +536,11 @@ defmodule AWS.Route53Domains do
       
       view_billing_response() :: %{
         "BillingRecords" => list(billing_record()),
-        "NextPageMarker" => String.t()
+        "NextPageMarker" => String.t() | atom()
       }
       
   """
-  @type view_billing_response() :: %{String.t() => any()}
+  @type view_billing_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -547,33 +551,33 @@ defmodule AWS.Route53Domains do
         optional("BillingPrivacy") => boolean(),
         optional("RegistrantPrivacy") => boolean(),
         optional("TechPrivacy") => boolean(),
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type update_domain_contact_privacy_request() :: %{String.t() => any()}
+  @type update_domain_contact_privacy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_domain_request() :: %{
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type delete_domain_request() :: %{String.t() => any()}
+  @type delete_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resend_contact_reachability_email_request() :: %{
-        optional("domainName") => String.t()
+        optional("domainName") => String.t() | atom()
       }
       
   """
-  @type resend_contact_reachability_email_request() :: %{String.t() => any()}
+  @type resend_contact_reachability_email_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -581,29 +585,31 @@ defmodule AWS.Route53Domains do
       
       update_tags_for_domain_request() :: %{
         optional("TagsToUpdate") => list(tag()),
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type update_tags_for_domain_request() :: %{String.t() => any()}
+  @type update_tags_for_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       accept_domain_transfer_from_another_aws_account_response() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type accept_domain_transfer_from_another_aws_account_response() :: %{String.t() => any()}
+  @type accept_domain_transfer_from_another_aws_account_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       list_operations_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
@@ -613,7 +619,7 @@ defmodule AWS.Route53Domains do
       }
       
   """
-  @type list_operations_request() :: %{String.t() => any()}
+  @type list_operations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -622,21 +628,21 @@ defmodule AWS.Route53Domains do
       dnssec_signing_attributes() :: %{
         "Algorithm" => integer(),
         "Flags" => integer(),
-        "PublicKey" => String.t()
+        "PublicKey" => String.t() | atom()
       }
       
   """
-  @type dnssec_signing_attributes() :: %{String.t() => any()}
+  @type dnssec_signing_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_operation_detail_response() :: %{
-        "DomainName" => String.t(),
+        "DomainName" => String.t() | atom(),
         "LastUpdatedDate" => non_neg_integer(),
-        "Message" => String.t(),
-        "OperationId" => String.t(),
+        "Message" => String.t() | atom(),
+        "OperationId" => String.t() | atom(),
         "Status" => list(any()),
         "StatusFlag" => list(any()),
         "SubmittedDate" => non_neg_integer(),
@@ -644,30 +650,30 @@ defmodule AWS.Route53Domains do
       }
       
   """
-  @type get_operation_detail_response() :: %{String.t() => any()}
+  @type get_operation_detail_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       retrieve_domain_auth_code_response() :: %{
-        "AuthCode" => String.t()
+        "AuthCode" => String.t() | atom()
       }
       
   """
-  @type retrieve_domain_auth_code_response() :: %{String.t() => any()}
+  @type retrieve_domain_auth_code_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -675,13 +681,13 @@ defmodule AWS.Route53Domains do
       
       view_billing_request() :: %{
         optional("End") => non_neg_integer(),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer(),
         optional("Start") => non_neg_integer()
       }
       
   """
-  @type view_billing_request() :: %{String.t() => any()}
+  @type view_billing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -689,22 +695,22 @@ defmodule AWS.Route53Domains do
       
       list_domains_response() :: %{
         "Domains" => list(domain_summary()),
-        "NextPageMarker" => String.t()
+        "NextPageMarker" => String.t() | atom()
       }
       
   """
-  @type list_domains_response() :: %{String.t() => any()}
+  @type list_domains_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_delegation_signer_to_domain_response() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type associate_delegation_signer_to_domain_response() :: %{String.t() => any()}
+  @type associate_delegation_signer_to_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -720,103 +726,103 @@ defmodule AWS.Route53Domains do
   ## Example:
       
       renew_domain_response() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type renew_domain_response() :: %{String.t() => any()}
+  @type renew_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_t_l_d() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type unsupported_t_l_d() :: %{String.t() => any()}
+  @type unsupported_t_l_d() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       duplicate_request() :: %{
-        "message" => String.t(),
-        "requestId" => String.t()
+        "message" => String.t() | atom(),
+        "requestId" => String.t() | atom()
       }
       
   """
-  @type duplicate_request() :: %{String.t() => any()}
+  @type duplicate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       t_l_d_rules_violation() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type t_l_d_rules_violation() :: %{String.t() => any()}
+  @type t_l_d_rules_violation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       enable_domain_transfer_lock_response() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type enable_domain_transfer_lock_response() :: %{String.t() => any()}
+  @type enable_domain_transfer_lock_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_domain_contact_privacy_response() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type update_domain_contact_privacy_response() :: %{String.t() => any()}
+  @type update_domain_contact_privacy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_delegation_signer_to_domain_request() :: %{
-        required("DomainName") => String.t(),
+        required("DomainName") => String.t() | atom(),
         required("SigningAttributes") => dnssec_signing_attributes()
       }
       
   """
-  @type associate_delegation_signer_to_domain_request() :: %{String.t() => any()}
+  @type associate_delegation_signer_to_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       retrieve_domain_auth_code_request() :: %{
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type retrieve_domain_auth_code_request() :: %{String.t() => any()}
+  @type retrieve_domain_auth_code_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resend_contact_reachability_email_response() :: %{
-        "domainName" => String.t(),
-        "emailAddress" => String.t(),
+        "domainName" => String.t() | atom(),
+        "emailAddress" => String.t() | atom(),
         "isAlreadyVerified" => boolean()
       }
       
   """
-  @type resend_contact_reachability_email_response() :: %{String.t() => any()}
+  @type resend_contact_reachability_email_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -824,58 +830,58 @@ defmodule AWS.Route53Domains do
       
       list_domains_request() :: %{
         optional("FilterConditions") => list(filter_condition()),
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer(),
         optional("SortCondition") => sort_condition()
       }
       
   """
-  @type list_domains_request() :: %{String.t() => any()}
+  @type list_domains_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       dnssec_limit_exceeded() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type dnssec_limit_exceeded() :: %{String.t() => any()}
+  @type dnssec_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resend_operation_authorization_request() :: %{
-        required("OperationId") => String.t()
+        required("OperationId") => String.t() | atom()
       }
       
   """
-  @type resend_operation_authorization_request() :: %{String.t() => any()}
+  @type resend_operation_authorization_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_delegation_signer_from_domain_response() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type disassociate_delegation_signer_from_domain_response() :: %{String.t() => any()}
+  @type disassociate_delegation_signer_from_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_operations_response() :: %{
-        "NextPageMarker" => String.t(),
+        "NextPageMarker" => String.t() | atom(),
         "Operations" => list(operation_summary())
       }
       
   """
-  @type list_operations_response() :: %{String.t() => any()}
+  @type list_operations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -887,22 +893,24 @@ defmodule AWS.Route53Domains do
         optional("Consent") => consent(),
         optional("RegistrantContact") => contact_detail(),
         optional("TechContact") => contact_detail(),
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type update_domain_contact_request() :: %{String.t() => any()}
+  @type update_domain_contact_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_domain_transfer_to_another_aws_account_request() :: %{
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type cancel_domain_transfer_to_another_aws_account_request() :: %{String.t() => any()}
+  @type cancel_domain_transfer_to_another_aws_account_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -910,7 +918,7 @@ defmodule AWS.Route53Domains do
       
       domain_price() :: %{
         "ChangeOwnershipPrice" => price_with_currency(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "RegistrationPrice" => price_with_currency(),
         "RenewalPrice" => price_with_currency(),
         "RestorationPrice" => price_with_currency(),
@@ -918,7 +926,7 @@ defmodule AWS.Route53Domains do
       }
       
   """
-  @type domain_price() :: %{String.t() => any()}
+  @type domain_price() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -927,198 +935,202 @@ defmodule AWS.Route53Domains do
       renew_domain_request() :: %{
         optional("DurationInYears") => integer(),
         required("CurrentExpiryYear") => integer(),
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type renew_domain_request() :: %{String.t() => any()}
+  @type renew_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       check_domain_availability_request() :: %{
-        optional("IdnLangCode") => String.t(),
-        required("DomainName") => String.t()
+        optional("IdnLangCode") => String.t() | atom(),
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type check_domain_availability_request() :: %{String.t() => any()}
+  @type check_domain_availability_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_tags_for_domain_request() :: %{
-        required("DomainName") => String.t(),
-        required("TagsToDelete") => list(String.t())
+        required("DomainName") => String.t() | atom(),
+        required("TagsToDelete") => list(String.t() | atom())
       }
       
   """
-  @type delete_tags_for_domain_request() :: %{String.t() => any()}
+  @type delete_tags_for_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       push_domain_request() :: %{
-        required("DomainName") => String.t(),
-        required("Target") => String.t()
+        required("DomainName") => String.t() | atom(),
+        required("Target") => String.t() | atom()
       }
       
   """
-  @type push_domain_request() :: %{String.t() => any()}
+  @type push_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_domain_request() :: %{
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_domain_request() :: %{String.t() => any()}
+  @type list_tags_for_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       domain_limit_exceeded() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type domain_limit_exceeded() :: %{String.t() => any()}
+  @type domain_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disable_domain_transfer_lock_request() :: %{
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type disable_domain_transfer_lock_request() :: %{String.t() => any()}
+  @type disable_domain_transfer_lock_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       transfer_domain_to_another_aws_account_request() :: %{
-        required("AccountId") => String.t(),
-        required("DomainName") => String.t()
+        required("AccountId") => String.t() | atom(),
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type transfer_domain_to_another_aws_account_request() :: %{String.t() => any()}
+  @type transfer_domain_to_another_aws_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_contact_reachability_status_request() :: %{
-        optional("domainName") => String.t()
+        optional("domainName") => String.t() | atom()
       }
       
   """
-  @type get_contact_reachability_status_request() :: %{String.t() => any()}
+  @type get_contact_reachability_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       price_with_currency() :: %{
-        "Currency" => String.t(),
+        "Currency" => String.t() | atom(),
         "Price" => float()
       }
       
   """
-  @type price_with_currency() :: %{String.t() => any()}
+  @type price_with_currency() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_delegation_signer_from_domain_request() :: %{
-        required("DomainName") => String.t(),
-        required("Id") => String.t()
+        required("DomainName") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type disassociate_delegation_signer_from_domain_request() :: %{String.t() => any()}
+  @type disassociate_delegation_signer_from_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       reject_domain_transfer_from_another_aws_account_request() :: %{
-        required("DomainName") => String.t()
+        required("DomainName") => String.t() | atom()
       }
       
   """
-  @type reject_domain_transfer_from_another_aws_account_request() :: %{String.t() => any()}
+  @type reject_domain_transfer_from_another_aws_account_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       consent() :: %{
-        "Currency" => String.t(),
+        "Currency" => String.t() | atom(),
         "MaxPrice" => float()
       }
       
   """
-  @type consent() :: %{String.t() => any()}
+  @type consent() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_prices_request() :: %{
-        optional("Marker") => String.t(),
+        optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer(),
-        optional("Tld") => String.t()
+        optional("Tld") => String.t() | atom()
       }
       
   """
-  @type list_prices_request() :: %{String.t() => any()}
+  @type list_prices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cancel_domain_transfer_to_another_aws_account_response() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type cancel_domain_transfer_to_another_aws_account_response() :: %{String.t() => any()}
+  @type cancel_domain_transfer_to_another_aws_account_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       transfer_domain_response() :: %{
-        "OperationId" => String.t()
+        "OperationId" => String.t() | atom()
       }
       
   """
-  @type transfer_domain_response() :: %{String.t() => any()}
+  @type transfer_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_domain_suggestions_request() :: %{
-        required("DomainName") => String.t(),
+        required("DomainName") => String.t() | atom(),
         required("OnlyAvailable") => boolean(),
         required("SuggestionCount") => integer()
       }
       
   """
-  @type get_domain_suggestions_request() :: %{String.t() => any()}
+  @type get_domain_suggestions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1130,7 +1142,7 @@ defmodule AWS.Route53Domains do
       }
       
   """
-  @type sort_condition() :: %{String.t() => any()}
+  @type sort_condition() :: %{(String.t() | atom()) => any()}
 
   @type accept_domain_transfer_from_another_aws_account_errors() ::
           domain_limit_exceeded()
@@ -1312,7 +1324,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, accept_domain_transfer_from_another_aws_account_errors()}
   def accept_domain_transfer_from_another_aws_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1347,7 +1360,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, associate_delegation_signer_to_domain_errors()}
   def associate_delegation_signer_to_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateDelegationSignerToDomain", input, options)
   end
@@ -1381,7 +1395,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, cancel_domain_transfer_to_another_aws_account_errors()}
   def cancel_domain_transfer_to_another_aws_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelDomainTransferToAnotherAwsAccount", input, options)
   end
@@ -1400,7 +1415,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, check_domain_availability_errors()}
   def check_domain_availability(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckDomainAvailability", input, options)
   end
@@ -1414,7 +1430,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, check_domain_transferability_errors()}
   def check_domain_transferability(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckDomainTransferability", input, options)
   end
@@ -1449,7 +1466,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDomain", input, options)
   end
@@ -1466,7 +1484,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, delete_tags_for_domain_errors()}
   def delete_tags_for_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTagsForDomain", input, options)
   end
@@ -1482,7 +1501,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, disable_domain_auto_renew_errors()}
   def disable_domain_auto_renew(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableDomainAutoRenew", input, options)
   end
@@ -1506,7 +1526,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, disable_domain_transfer_lock_errors()}
   def disable_domain_transfer_lock(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableDomainTransferLock", input, options)
   end
@@ -1525,7 +1546,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, disassociate_delegation_signer_from_domain_errors()}
   def disassociate_delegation_signer_from_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateDelegationSignerFromDomain", input, options)
   end
@@ -1552,7 +1574,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, enable_domain_auto_renew_errors()}
   def enable_domain_auto_renew(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableDomainAutoRenew", input, options)
   end
@@ -1573,7 +1596,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, enable_domain_transfer_lock_errors()}
   def enable_domain_transfer_lock(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableDomainTransferLock", input, options)
   end
@@ -1594,7 +1618,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, get_contact_reachability_status_errors()}
   def get_contact_reachability_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetContactReachabilityStatus", input, options)
   end
@@ -1612,7 +1637,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, get_domain_detail_errors()}
   def get_domain_detail(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDomainDetail", input, options)
   end
@@ -1626,7 +1652,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, get_domain_suggestions_errors()}
   def get_domain_suggestions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDomainSuggestions", input, options)
   end
@@ -1641,7 +1668,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, get_operation_detail_errors()}
   def get_operation_detail(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOperationDetail", input, options)
   end
@@ -1657,7 +1685,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, list_domains_errors()}
   def list_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDomains", input, options)
   end
@@ -1675,7 +1704,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, list_operations_errors()}
   def list_operations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOperations", input, options)
   end
@@ -1705,7 +1735,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, list_prices_errors()}
   def list_prices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPrices", input, options)
   end
@@ -1723,7 +1754,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, list_tags_for_domain_errors()}
   def list_tags_for_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForDomain", input, options)
   end
@@ -1743,7 +1775,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, push_domain_errors()}
   def push_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PushDomain", input, options)
   end
@@ -1793,7 +1826,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, register_domain_errors()}
   def register_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterDomain", input, options)
   end
@@ -1821,7 +1855,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, reject_domain_transfer_from_another_aws_account_errors()}
   def reject_domain_transfer_from_another_aws_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1854,7 +1889,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, renew_domain_errors()}
   def renew_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RenewDomain", input, options)
   end
@@ -1875,7 +1911,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, resend_contact_reachability_email_errors()}
   def resend_contact_reachability_email(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResendContactReachabilityEmail", input, options)
   end
@@ -1889,7 +1926,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, resend_operation_authorization_errors()}
   def resend_operation_authorization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResendOperationAuthorization", input, options)
   end
@@ -1906,7 +1944,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, retrieve_domain_auth_code_errors()}
   def retrieve_domain_auth_code(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RetrieveDomainAuthCode", input, options)
   end
@@ -1973,7 +2012,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, transfer_domain_errors()}
   def transfer_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TransferDomain", input, options)
   end
@@ -2029,7 +2069,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, transfer_domain_to_another_aws_account_errors()}
   def transfer_domain_to_another_aws_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TransferDomainToAnotherAwsAccount", input, options)
   end
@@ -2053,7 +2094,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, update_domain_contact_errors()}
   def update_domain_contact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDomainContact", input, options)
   end
@@ -2100,7 +2142,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, update_domain_contact_privacy_errors()}
   def update_domain_contact_privacy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDomainContactPrivacy", input, options)
   end
@@ -2124,7 +2167,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, update_domain_nameservers_errors()}
   def update_domain_nameservers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDomainNameservers", input, options)
   end
@@ -2141,7 +2185,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, update_tags_for_domain_errors()}
   def update_tags_for_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTagsForDomain", input, options)
   end
@@ -2156,7 +2201,8 @@ defmodule AWS.Route53Domains do
           | {:error, term()}
           | {:error, view_billing_errors()}
   def view_billing(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ViewBilling", input, options)
   end

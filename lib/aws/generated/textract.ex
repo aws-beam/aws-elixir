@@ -26,7 +26,7 @@ defmodule AWS.Textract do
       }
       
   """
-  @type analyze_document_request() :: %{String.t() => any()}
+  @type analyze_document_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -37,18 +37,18 @@ defmodule AWS.Textract do
       }
       
   """
-  @type document_location() :: %{String.t() => any()}
+  @type document_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_adapter_request() :: %{
-        required("AdapterId") => String.t()
+        required("AdapterId") => String.t() | atom()
       }
       
   """
-  @type delete_adapter_request() :: %{String.t() => any()}
+  @type delete_adapter_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -61,45 +61,45 @@ defmodule AWS.Textract do
       }
       
   """
-  @type adapter_version_evaluation_metric() :: %{String.t() => any()}
+  @type adapter_version_evaluation_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | atom(),
         required("Tags") => map()
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       adapter_overview() :: %{
-        "AdapterId" => String.t(),
-        "AdapterName" => String.t(),
+        "AdapterId" => String.t() | atom(),
+        "AdapterName" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "FeatureTypes" => list(list(any())())
       }
       
   """
-  @type adapter_overview() :: %{String.t() => any()}
+  @type adapter_overview() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_adapter_version_request() :: %{
-        required("AdapterId") => String.t(),
-        required("AdapterVersion") => String.t()
+        required("AdapterId") => String.t() | atom(),
+        required("AdapterVersion") => String.t() | atom()
       }
       
   """
-  @type delete_adapter_version_request() :: %{String.t() => any()}
+  @type delete_adapter_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -111,7 +111,7 @@ defmodule AWS.Textract do
       }
       
   """
-  @type identity_document_field() :: %{String.t() => any()}
+  @type identity_document_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -119,23 +119,23 @@ defmodule AWS.Textract do
       
       get_document_text_detection_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("JobId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_document_text_detection_request() :: %{String.t() => any()}
+  @type get_document_text_detection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_lending_analysis_response() :: %{
-        "JobId" => String.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_lending_analysis_response() :: %{String.t() => any()}
+  @type start_lending_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -148,7 +148,7 @@ defmodule AWS.Textract do
       }
       
   """
-  @type geometry() :: %{String.t() => any()}
+  @type geometry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -164,13 +164,13 @@ defmodule AWS.Textract do
   ## Example:
       
       analyze_id_response() :: %{
-        "AnalyzeIDModelVersion" => String.t(),
+        "AnalyzeIDModelVersion" => String.t() | atom(),
         "DocumentMetadata" => document_metadata(),
         "IdentityDocuments" => list(identity_document())
       }
       
   """
-  @type analyze_id_response() :: %{String.t() => any()}
+  @type analyze_id_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -178,9 +178,9 @@ defmodule AWS.Textract do
       
       start_document_analysis_request() :: %{
         optional("AdaptersConfig") => adapters_config(),
-        optional("ClientRequestToken") => String.t(),
-        optional("JobTag") => String.t(),
-        optional("KMSKeyId") => String.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobTag") => String.t() | atom(),
+        optional("KMSKeyId") => String.t() | atom(),
         optional("NotificationChannel") => notification_channel(),
         optional("OutputConfig") => output_config(),
         optional("QueriesConfig") => queries_config(),
@@ -189,19 +189,19 @@ defmodule AWS.Textract do
       }
       
   """
-  @type start_document_analysis_request() :: %{String.t() => any()}
+  @type start_document_analysis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       bad_document_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type bad_document_exception() :: %{String.t() => any()}
+  @type bad_document_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -213,30 +213,30 @@ defmodule AWS.Textract do
       }
       
   """
-  @type lending_document() :: %{String.t() => any()}
+  @type lending_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_expense_analysis_response() :: %{
-        "JobId" => String.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_expense_analysis_response() :: %{String.t() => any()}
+  @type start_expense_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unsupported_document_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type unsupported_document_exception() :: %{String.t() => any()}
+  @type unsupported_document_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -247,7 +247,7 @@ defmodule AWS.Textract do
       }
       
   """
-  @type detected_signature() :: %{String.t() => any()}
+  @type detected_signature() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -258,51 +258,51 @@ defmodule AWS.Textract do
       }
       
   """
-  @type analyze_id_request() :: %{String.t() => any()}
+  @type analyze_id_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_adapter_versions_request() :: %{
-        optional("AdapterId") => String.t(),
+        optional("AdapterId") => String.t() | atom(),
         optional("AfterCreationTime") => non_neg_integer(),
         optional("BeforeCreationTime") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_adapter_versions_request() :: %{String.t() => any()}
+  @type list_adapter_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       relationship() :: %{
-        "Ids" => list(String.t()),
+        "Ids" => list(String.t() | atom()),
         "Type" => list(any())
       }
       
   """
-  @type relationship() :: %{String.t() => any()}
+  @type relationship() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_expense_analysis_response() :: %{
-        "AnalyzeExpenseModelVersion" => String.t(),
+        "AnalyzeExpenseModelVersion" => String.t() | atom(),
         "DocumentMetadata" => document_metadata(),
         "ExpenseDocuments" => list(expense_document()),
         "JobStatus" => list(any()),
-        "NextToken" => String.t(),
-        "StatusMessage" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
         "Warnings" => list(warning())
       }
       
   """
-  @type get_expense_analysis_response() :: %{String.t() => any()}
+  @type get_expense_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -313,23 +313,23 @@ defmodule AWS.Textract do
       }
       
   """
-  @type detect_document_text_request() :: %{String.t() => any()}
+  @type detect_document_text_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_lending_analysis_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("JobTag") => String.t(),
-        optional("KMSKeyId") => String.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobTag") => String.t() | atom(),
+        optional("KMSKeyId") => String.t() | atom(),
         optional("NotificationChannel") => notification_channel(),
         optional("OutputConfig") => output_config(),
         required("DocumentLocation") => document_location()
       }
       
   """
-  @type start_lending_analysis_request() :: %{String.t() => any()}
+  @type start_lending_analysis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -340,33 +340,33 @@ defmodule AWS.Textract do
       }
       
   """
-  @type line_item_fields() :: %{String.t() => any()}
+  @type line_item_fields() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       adapter() :: %{
-        "AdapterId" => String.t(),
-        "Pages" => list(String.t()),
-        "Version" => String.t()
+        "AdapterId" => String.t() | atom(),
+        "Pages" => list(String.t() | atom()),
+        "Version" => String.t() | atom()
       }
       
   """
-  @type adapter() :: %{String.t() => any()}
+  @type adapter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_object() :: %{
-        "Bucket" => String.t(),
-        "Name" => String.t(),
-        "Version" => String.t()
+        "Bucket" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
       
   """
-  @type s3_object() :: %{String.t() => any()}
+  @type s3_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -378,7 +378,7 @@ defmodule AWS.Textract do
       }
       
   """
-  @type analyze_expense_response() :: %{String.t() => any()}
+  @type analyze_expense_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -389,7 +389,7 @@ defmodule AWS.Textract do
       }
       
   """
-  @type adapters_config() :: %{String.t() => any()}
+  @type adapters_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -401,99 +401,99 @@ defmodule AWS.Textract do
       }
       
   """
-  @type line_item_group() :: %{String.t() => any()}
+  @type line_item_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_lending_analysis_summary_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_lending_analysis_summary_request() :: %{String.t() => any()}
+  @type get_lending_analysis_summary_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       analyze_document_response() :: %{
-        "AnalyzeDocumentModelVersion" => String.t(),
+        "AnalyzeDocumentModelVersion" => String.t() | atom(),
         "Blocks" => list(block()),
         "DocumentMetadata" => document_metadata(),
         "HumanLoopActivationOutput" => human_loop_activation_output()
       }
       
   """
-  @type analyze_document_response() :: %{String.t() => any()}
+  @type analyze_document_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_document_text_detection_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("JobTag") => String.t(),
-        optional("KMSKeyId") => String.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobTag") => String.t() | atom(),
+        optional("KMSKeyId") => String.t() | atom(),
         optional("NotificationChannel") => notification_channel(),
         optional("OutputConfig") => output_config(),
         required("DocumentLocation") => document_location()
       }
       
   """
-  @type start_document_text_detection_request() :: %{String.t() => any()}
+  @type start_document_text_detection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_document_text_detection_response() :: %{
-        "JobId" => String.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_document_text_detection_response() :: %{String.t() => any()}
+  @type start_document_text_detection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       expense_group_property() :: %{
-        "Id" => String.t(),
-        "Types" => list(String.t())
+        "Id" => String.t() | atom(),
+        "Types" => list(String.t() | atom())
       }
       
   """
-  @type expense_group_property() :: %{String.t() => any()}
+  @type expense_group_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_lending_analysis_summary_response() :: %{
-        "AnalyzeLendingModelVersion" => String.t(),
+        "AnalyzeLendingModelVersion" => String.t() | atom(),
         "DocumentMetadata" => document_metadata(),
         "JobStatus" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | atom(),
         "Summary" => lending_summary(),
         "Warnings" => list(warning())
       }
       
   """
-  @type get_lending_analysis_summary_response() :: %{String.t() => any()}
+  @type get_lending_analysis_summary_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -507,19 +507,19 @@ defmodule AWS.Textract do
       }
       
   """
-  @type expense_document() :: %{String.t() => any()}
+  @type expense_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       normalized_value() :: %{
-        "Value" => String.t(),
+        "Value" => String.t() | atom(),
         "ValueType" => list(any())
       }
       
   """
-  @type normalized_value() :: %{String.t() => any()}
+  @type normalized_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -527,15 +527,15 @@ defmodule AWS.Textract do
       
       create_adapter_request() :: %{
         optional("AutoUpdate") => list(any()),
-        optional("ClientRequestToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
-        required("AdapterName") => String.t(),
+        required("AdapterName") => String.t() | atom(),
         required("FeatureTypes") => list(list(any())())
       }
       
   """
-  @type create_adapter_request() :: %{String.t() => any()}
+  @type create_adapter_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -547,7 +547,7 @@ defmodule AWS.Textract do
       }
       
   """
-  @type split_document() :: %{String.t() => any()}
+  @type split_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -560,36 +560,36 @@ defmodule AWS.Textract do
       }
       
   """
-  @type evaluation_metric() :: %{String.t() => any()}
+  @type evaluation_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_lending_analysis_response() :: %{
-        "AnalyzeLendingModelVersion" => String.t(),
+        "AnalyzeLendingModelVersion" => String.t() | atom(),
         "DocumentMetadata" => document_metadata(),
         "JobStatus" => list(any()),
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Results" => list(lending_result()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | atom(),
         "Warnings" => list(warning())
       }
       
   """
-  @type get_lending_analysis_response() :: %{String.t() => any()}
+  @type get_lending_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       notification_channel() :: %{
-        "RoleArn" => String.t(),
-        "SNSTopicArn" => String.t()
+        "RoleArn" => String.t() | atom(),
+        "SNSTopicArn" => String.t() | atom()
       }
       
   """
-  @type notification_channel() :: %{String.t() => any()}
+  @type notification_channel() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -601,72 +601,72 @@ defmodule AWS.Textract do
       }
       
   """
-  @type point() :: %{String.t() => any()}
+  @type point() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       human_loop_activation_output() :: %{
-        "HumanLoopActivationConditionsEvaluationResults" => String.t(),
-        "HumanLoopActivationReasons" => list(String.t()),
-        "HumanLoopArn" => String.t()
+        "HumanLoopActivationConditionsEvaluationResults" => String.t() | atom(),
+        "HumanLoopActivationReasons" => list(String.t() | atom()),
+        "HumanLoopArn" => String.t() | atom()
       }
       
   """
-  @type human_loop_activation_output() :: %{String.t() => any()}
+  @type human_loop_activation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioned_throughput_exceeded_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type provisioned_throughput_exceeded_exception() :: %{String.t() => any()}
+  @type provisioned_throughput_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_adapter_version_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("KMSKeyId") => String.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("KMSKeyId") => String.t() | atom(),
         optional("Tags") => map(),
-        required("AdapterId") => String.t(),
+        required("AdapterId") => String.t() | atom(),
         required("DatasetConfig") => adapter_version_dataset_config(),
         required("OutputConfig") => output_config()
       }
       
   """
-  @type create_adapter_version_request() :: %{String.t() => any()}
+  @type create_adapter_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -677,52 +677,52 @@ defmodule AWS.Textract do
       }
       
   """
-  @type adapter_version_dataset_config() :: %{String.t() => any()}
+  @type adapter_version_dataset_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       adapter_version_overview() :: %{
-        "AdapterId" => String.t(),
-        "AdapterVersion" => String.t(),
+        "AdapterId" => String.t() | atom(),
+        "AdapterVersion" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "FeatureTypes" => list(list(any())()),
         "Status" => list(any()),
-        "StatusMessage" => String.t()
+        "StatusMessage" => String.t() | atom()
       }
       
   """
-  @type adapter_version_overview() :: %{String.t() => any()}
+  @type adapter_version_overview() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_adapter_response() :: %{
-        "AdapterId" => String.t(),
-        "AdapterName" => String.t(),
+        "AdapterId" => String.t() | atom(),
+        "AdapterName" => String.t() | atom(),
         "AutoUpdate" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "FeatureTypes" => list(list(any())()),
         "Tags" => map()
       }
       
   """
-  @type get_adapter_response() :: %{String.t() => any()}
+  @type get_adapter_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -730,44 +730,44 @@ defmodule AWS.Textract do
       
       get_document_text_detection_response() :: %{
         "Blocks" => list(block()),
-        "DetectDocumentTextModelVersion" => String.t(),
+        "DetectDocumentTextModelVersion" => String.t() | atom(),
         "DocumentMetadata" => document_metadata(),
         "JobStatus" => list(any()),
-        "NextToken" => String.t(),
-        "StatusMessage" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
         "Warnings" => list(warning())
       }
       
   """
-  @type get_document_text_detection_response() :: %{String.t() => any()}
+  @type get_document_text_detection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       idempotent_parameter_mismatch_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type idempotent_parameter_mismatch_exception() :: %{String.t() => any()}
+  @type idempotent_parameter_mismatch_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_expense_analysis_request() :: %{
-        optional("ClientRequestToken") => String.t(),
-        optional("JobTag") => String.t(),
-        optional("KMSKeyId") => String.t(),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("JobTag") => String.t() | atom(),
+        optional("KMSKeyId") => String.t() | atom(),
         optional("NotificationChannel") => notification_channel(),
         optional("OutputConfig") => output_config(),
         required("DocumentLocation") => document_location()
       }
       
   """
-  @type start_expense_analysis_request() :: %{String.t() => any()}
+  @type start_expense_analysis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -775,12 +775,12 @@ defmodule AWS.Textract do
       
       lending_field() :: %{
         "KeyDetection" => lending_detection(),
-        "Type" => String.t(),
+        "Type" => String.t() | atom(),
         "ValueDetections" => list(lending_detection())
       }
       
   """
-  @type lending_field() :: %{String.t() => any()}
+  @type lending_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -791,7 +791,7 @@ defmodule AWS.Textract do
       }
       
   """
-  @type undetected_signature() :: %{String.t() => any()}
+  @type undetected_signature() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -802,18 +802,18 @@ defmodule AWS.Textract do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_adapter_request() :: %{
-        required("AdapterId") => String.t()
+        required("AdapterId") => String.t() | atom()
       }
       
   """
-  @type get_adapter_request() :: %{String.t() => any()}
+  @type get_adapter_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -824,19 +824,19 @@ defmodule AWS.Textract do
       }
       
   """
-  @type queries_config() :: %{String.t() => any()}
+  @type queries_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_adapter_version_request() :: %{
-        required("AdapterId") => String.t(),
-        required("AdapterVersion") => String.t()
+        required("AdapterId") => String.t() | atom(),
+        required("AdapterVersion") => String.t() | atom()
       }
       
   """
-  @type get_adapter_version_request() :: %{String.t() => any()}
+  @type get_adapter_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -848,7 +848,7 @@ defmodule AWS.Textract do
       }
       
   """
-  @type signature_detection() :: %{String.t() => any()}
+  @type signature_detection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -856,36 +856,36 @@ defmodule AWS.Textract do
       
       get_lending_analysis_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("JobId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_lending_analysis_request() :: %{String.t() => any()}
+  @type get_lending_analysis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_job_id_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_job_id_exception() :: %{String.t() => any()}
+  @type invalid_job_id_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_kms_key_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_kms_key_exception() :: %{String.t() => any()}
+  @type invalid_kms_key_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -894,11 +894,11 @@ defmodule AWS.Textract do
       expense_detection() :: %{
         "Confidence" => float(),
         "Geometry" => geometry(),
-        "Text" => String.t()
+        "Text" => String.t() | atom()
       }
       
   """
-  @type expense_detection() :: %{String.t() => any()}
+  @type expense_detection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -909,7 +909,7 @@ defmodule AWS.Textract do
       }
       
   """
-  @type human_loop_data_attributes() :: %{String.t() => any()}
+  @type human_loop_data_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -923,7 +923,7 @@ defmodule AWS.Textract do
       }
       
   """
-  @type bounding_box() :: %{String.t() => any()}
+  @type bounding_box() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -931,12 +931,12 @@ defmodule AWS.Textract do
       
       get_expense_analysis_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("JobId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_expense_analysis_request() :: %{String.t() => any()}
+  @type get_expense_analysis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -945,23 +945,23 @@ defmodule AWS.Textract do
       analyze_id_detections() :: %{
         "Confidence" => float(),
         "NormalizedValue" => normalized_value(),
-        "Text" => String.t()
+        "Text" => String.t() | atom()
       }
       
   """
-  @type analyze_id_detections() :: %{String.t() => any()}
+  @type analyze_id_detections() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       expense_currency() :: %{
-        "Code" => String.t(),
+        "Code" => String.t() | atom(),
         "Confidence" => float()
       }
       
   """
-  @type expense_currency() :: %{String.t() => any()}
+  @type expense_currency() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -969,11 +969,11 @@ defmodule AWS.Textract do
       
       list_adapter_versions_response() :: %{
         "AdapterVersions" => list(adapter_version_overview()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_adapter_versions_response() :: %{String.t() => any()}
+  @type list_adapter_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -981,59 +981,59 @@ defmodule AWS.Textract do
       
       expense_type() :: %{
         "Confidence" => float(),
-        "Text" => String.t()
+        "Text" => String.t() | atom()
       }
       
   """
-  @type expense_type() :: %{String.t() => any()}
+  @type expense_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       warning() :: %{
-        "ErrorCode" => String.t(),
+        "ErrorCode" => String.t() | atom(),
         "Pages" => list(integer())
       }
       
   """
-  @type warning() :: %{String.t() => any()}
+  @type warning() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_error() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type internal_server_error() :: %{String.t() => any()}
+  @type internal_server_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_exception() :: %{String.t() => any()}
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1041,12 +1041,12 @@ defmodule AWS.Textract do
       
       get_document_analysis_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("JobId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_document_analysis_request() :: %{String.t() => any()}
+  @type get_document_analysis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1062,29 +1062,29 @@ defmodule AWS.Textract do
   ## Example:
       
       output_config() :: %{
-        "S3Bucket" => String.t(),
-        "S3Prefix" => String.t()
+        "S3Bucket" => String.t() | atom(),
+        "S3Prefix" => String.t() | atom()
       }
       
   """
-  @type output_config() :: %{String.t() => any()}
+  @type output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_document_analysis_response() :: %{
-        "AnalyzeDocumentModelVersion" => String.t(),
+        "AnalyzeDocumentModelVersion" => String.t() | atom(),
         "Blocks" => list(block()),
         "DocumentMetadata" => document_metadata(),
         "JobStatus" => list(any()),
-        "NextToken" => String.t(),
-        "StatusMessage" => String.t(),
+        "NextToken" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
         "Warnings" => list(warning())
       }
       
   """
-  @type get_document_analysis_response() :: %{String.t() => any()}
+  @type get_document_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1094,46 +1094,46 @@ defmodule AWS.Textract do
         "Confidence" => float(),
         "Geometry" => geometry(),
         "SelectionStatus" => list(any()),
-        "Text" => String.t()
+        "Text" => String.t() | atom()
       }
       
   """
-  @type lending_detection() :: %{String.t() => any()}
+  @type lending_detection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t()
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_adapter_version_response() :: %{
-        "AdapterId" => String.t(),
-        "AdapterVersion" => String.t()
+        "AdapterId" => String.t() | atom(),
+        "AdapterVersion" => String.t() | atom()
       }
       
   """
-  @type create_adapter_version_response() :: %{String.t() => any()}
+  @type create_adapter_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1144,7 +1144,7 @@ defmodule AWS.Textract do
       }
       
   """
-  @type analyze_expense_request() :: %{String.t() => any()}
+  @type analyze_expense_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1155,19 +1155,19 @@ defmodule AWS.Textract do
       }
       
   """
-  @type document_metadata() :: %{String.t() => any()}
+  @type document_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1179,45 +1179,45 @@ defmodule AWS.Textract do
       }
       
   """
-  @type page_classification() :: %{String.t() => any()}
+  @type page_classification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_adapter_response() :: %{
-        "AdapterId" => String.t()
+        "AdapterId" => String.t() | atom()
       }
       
   """
-  @type create_adapter_response() :: %{String.t() => any()}
+  @type create_adapter_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       human_loop_quota_exceeded_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t(),
-        "QuotaCode" => String.t(),
-        "ResourceType" => String.t(),
-        "ServiceCode" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "QuotaCode" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
       }
       
   """
-  @type human_loop_quota_exceeded_exception() :: %{String.t() => any()}
+  @type human_loop_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1230,7 +1230,7 @@ defmodule AWS.Textract do
       }
       
   """
-  @type extraction() :: %{String.t() => any()}
+  @type extraction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1239,12 +1239,12 @@ defmodule AWS.Textract do
       document_group() :: %{
         "DetectedSignatures" => list(detected_signature()),
         "SplitDocuments" => list(split_document()),
-        "Type" => String.t(),
+        "Type" => String.t() | atom(),
         "UndetectedSignatures" => list(undetected_signature())
       }
       
   """
-  @type document_group() :: %{String.t() => any()}
+  @type document_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1260,52 +1260,52 @@ defmodule AWS.Textract do
       }
       
   """
-  @type expense_field() :: %{String.t() => any()}
+  @type expense_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       query() :: %{
-        "Alias" => String.t(),
-        "Pages" => list(String.t()),
-        "Text" => String.t()
+        "Alias" => String.t() | atom(),
+        "Pages" => list(String.t() | atom()),
+        "Text" => String.t() | atom()
       }
       
   """
-  @type query() :: %{String.t() => any()}
+  @type query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_adapter_version_response() :: %{
-        "AdapterId" => String.t(),
-        "AdapterVersion" => String.t(),
+        "AdapterId" => String.t() | atom(),
+        "AdapterVersion" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
         "DatasetConfig" => adapter_version_dataset_config(),
         "EvaluationMetrics" => list(adapter_version_evaluation_metric()),
         "FeatureTypes" => list(list(any())()),
-        "KMSKeyId" => String.t(),
+        "KMSKeyId" => String.t() | atom(),
         "OutputConfig" => output_config(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | atom(),
         "Tags" => map()
       }
       
   """
-  @type get_adapter_version_response() :: %{String.t() => any()}
+  @type get_adapter_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_document_analysis_response() :: %{
-        "JobId" => String.t()
+        "JobId" => String.t() | atom()
       }
       
   """
-  @type start_document_analysis_response() :: %{String.t() => any()}
+  @type start_document_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1313,12 +1313,12 @@ defmodule AWS.Textract do
       
       detect_document_text_response() :: %{
         "Blocks" => list(block()),
-        "DetectDocumentTextModelVersion" => String.t(),
+        "DetectDocumentTextModelVersion" => String.t() | atom(),
         "DocumentMetadata" => document_metadata()
       }
       
   """
-  @type detect_document_text_response() :: %{String.t() => any()}
+  @type detect_document_text_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1331,33 +1331,33 @@ defmodule AWS.Textract do
       }
       
   """
-  @type identity_document() :: %{String.t() => any()}
+  @type identity_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_s3_object_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_s3_object_exception() :: %{String.t() => any()}
+  @type invalid_s3_object_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_adapter_request() :: %{
-        optional("AdapterName") => String.t(),
+        optional("AdapterName") => String.t() | atom(),
         optional("AutoUpdate") => list(any()),
-        optional("Description") => String.t(),
-        required("AdapterId") => String.t()
+        optional("Description") => String.t() | atom(),
+        required("AdapterId") => String.t() | atom()
       }
       
   """
-  @type update_adapter_request() :: %{String.t() => any()}
+  @type update_adapter_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1370,19 +1370,19 @@ defmodule AWS.Textract do
         "Confidence" => float(),
         "EntityTypes" => list(list(any())()),
         "Geometry" => geometry(),
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "Page" => integer(),
         "Query" => query(),
         "Relationships" => list(relationship()),
         "RowIndex" => integer(),
         "RowSpan" => integer(),
         "SelectionStatus" => list(any()),
-        "Text" => String.t(),
+        "Text" => String.t() | atom(),
         "TextType" => list(any())
       }
       
   """
-  @type block() :: %{String.t() => any()}
+  @type block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1390,23 +1390,23 @@ defmodule AWS.Textract do
       
       list_adapters_response() :: %{
         "Adapters" => list(adapter_overview()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_adapters_response() :: %{String.t() => any()}
+  @type list_adapters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       document_too_large_exception() :: %{
-        "Code" => String.t(),
-        "Message" => String.t()
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type document_too_large_exception() :: %{String.t() => any()}
+  @type document_too_large_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1414,12 +1414,12 @@ defmodule AWS.Textract do
       
       human_loop_config() :: %{
         "DataAttributes" => human_loop_data_attributes(),
-        "FlowDefinitionArn" => String.t(),
-        "HumanLoopName" => String.t()
+        "FlowDefinitionArn" => String.t() | atom(),
+        "HumanLoopName" => String.t() | atom()
       }
       
   """
-  @type human_loop_config() :: %{String.t() => any()}
+  @type human_loop_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1436,27 +1436,27 @@ defmodule AWS.Textract do
       
       lending_summary() :: %{
         "DocumentGroups" => list(document_group()),
-        "UndetectedDocumentTypes" => list(String.t())
+        "UndetectedDocumentTypes" => list(String.t() | atom())
       }
       
   """
-  @type lending_summary() :: %{String.t() => any()}
+  @type lending_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_adapter_response() :: %{
-        "AdapterId" => String.t(),
-        "AdapterName" => String.t(),
+        "AdapterId" => String.t() | atom(),
+        "AdapterName" => String.t() | atom(),
         "AutoUpdate" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "FeatureTypes" => list(list(any())())
       }
       
   """
-  @type update_adapter_response() :: %{String.t() => any()}
+  @type update_adapter_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1464,11 +1464,11 @@ defmodule AWS.Textract do
       
       prediction() :: %{
         "Confidence" => float(),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type prediction() :: %{String.t() => any()}
+  @type prediction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1480,7 +1480,7 @@ defmodule AWS.Textract do
       }
       
   """
-  @type document() :: %{String.t() => any()}
+  @type document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1490,11 +1490,11 @@ defmodule AWS.Textract do
         optional("AfterCreationTime") => non_neg_integer(),
         optional("BeforeCreationTime") => non_neg_integer(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_adapters_request() :: %{String.t() => any()}
+  @type list_adapters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1507,7 +1507,7 @@ defmodule AWS.Textract do
       }
       
   """
-  @type lending_result() :: %{String.t() => any()}
+  @type lending_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1866,7 +1866,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, analyze_document_errors()}
   def analyze_document(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AnalyzeDocument", input, options)
   end
@@ -1897,7 +1898,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, analyze_expense_errors()}
   def analyze_expense(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AnalyzeExpense", input, options)
   end
@@ -1916,7 +1918,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, analyze_id_errors()}
   def analyze_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AnalyzeID", input, options)
   end
@@ -1938,7 +1941,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, create_adapter_errors()}
   def create_adapter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAdapter", input, options)
   end
@@ -1958,7 +1962,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, create_adapter_version_errors()}
   def create_adapter_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAdapterVersion", input, options)
   end
@@ -1974,7 +1979,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, delete_adapter_errors()}
   def delete_adapter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAdapter", input, options)
   end
@@ -1992,7 +1998,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, delete_adapter_version_errors()}
   def delete_adapter_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAdapterVersion", input, options)
   end
@@ -2024,7 +2031,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, detect_document_text_errors()}
   def detect_document_text(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectDocumentText", input, options)
   end
@@ -2040,7 +2048,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_adapter_errors()}
   def get_adapter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAdapter", input, options)
   end
@@ -2056,7 +2065,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_adapter_version_errors()}
   def get_adapter_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAdapterVersion", input, options)
   end
@@ -2137,7 +2147,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_document_analysis_errors()}
   def get_document_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDocumentAnalysis", input, options)
   end
@@ -2189,7 +2200,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_document_text_detection_errors()}
   def get_document_text_detection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDocumentTextDetection", input, options)
   end
@@ -2234,7 +2246,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_expense_analysis_errors()}
   def get_expense_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetExpenseAnalysis", input, options)
   end
@@ -2263,7 +2276,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_lending_analysis_errors()}
   def get_lending_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLendingAnalysis", input, options)
   end
@@ -2296,7 +2310,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_lending_analysis_summary_errors()}
   def get_lending_analysis_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLendingAnalysisSummary", input, options)
   end
@@ -2310,7 +2325,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, list_adapter_versions_errors()}
   def list_adapter_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAdapterVersions", input, options)
   end
@@ -2324,7 +2340,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, list_adapters_errors()}
   def list_adapters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAdapters", input, options)
   end
@@ -2338,7 +2355,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2373,7 +2391,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, start_document_analysis_errors()}
   def start_document_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDocumentAnalysis", input, options)
   end
@@ -2409,7 +2428,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, start_document_text_detection_errors()}
   def start_document_text_detection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDocumentTextDetection", input, options)
   end
@@ -2446,7 +2466,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, start_expense_analysis_errors()}
   def start_expense_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartExpenseAnalysis", input, options)
   end
@@ -2497,7 +2518,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, start_lending_analysis_errors()}
   def start_lending_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartLendingAnalysis", input, options)
   end
@@ -2511,7 +2533,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2525,7 +2548,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2542,7 +2566,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, update_adapter_errors()}
   def update_adapter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAdapter", input, options)
   end

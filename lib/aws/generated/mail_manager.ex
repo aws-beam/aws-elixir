@@ -23,11 +23,11 @@ defmodule AWS.MailManager do
   ## Example:
       
       create_addon_instance_response() :: %{
-        "AddonInstanceId" => String.t()
+        "AddonInstanceId" => String.t() | atom()
       }
       
   """
-  @type create_addon_instance_response() :: %{String.t() => any()}
+  @type create_addon_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -38,31 +38,31 @@ defmodule AWS.MailManager do
       }
       
   """
-  @type import_data_format() :: %{String.t() => any()}
+  @type import_data_format() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_traffic_policies_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("PageSize") => integer()
       }
       
   """
-  @type list_traffic_policies_request() :: %{String.t() => any()}
+  @type list_traffic_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ingress_analysis() :: %{
-        "Analyzer" => String.t(),
-        "ResultField" => String.t()
+        "Analyzer" => String.t() | atom(),
+        "ResultField" => String.t() | atom()
       }
       
   """
-  @type ingress_analysis() :: %{String.t() => any()}
+  @type ingress_analysis() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -73,7 +73,7 @@ defmodule AWS.MailManager do
       }
       
   """
-  @type get_archive_message_content_response() :: %{String.t() => any()}
+  @type get_archive_message_content_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -81,34 +81,34 @@ defmodule AWS.MailManager do
       
       ingress_point_password_configuration() :: %{
         "PreviousSmtpPasswordExpiryTimestamp" => [non_neg_integer()],
-        "PreviousSmtpPasswordVersion" => [String.t()],
-        "SmtpPasswordVersion" => [String.t()]
+        "PreviousSmtpPasswordVersion" => [String.t() | atom()],
+        "SmtpPasswordVersion" => [String.t() | atom()]
       }
       
   """
-  @type ingress_point_password_configuration() :: %{String.t() => any()}
+  @type ingress_point_password_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_address_list_import_job_response() :: %{
-        "AddressListId" => String.t(),
+        "AddressListId" => String.t() | atom(),
         "CompletedTimestamp" => [non_neg_integer()],
         "CreatedTimestamp" => [non_neg_integer()],
-        "Error" => String.t(),
+        "Error" => String.t() | atom(),
         "FailedItemsCount" => integer(),
         "ImportDataFormat" => import_data_format(),
         "ImportedItemsCount" => integer(),
-        "JobId" => String.t(),
-        "Name" => String.t(),
-        "PreSignedUrl" => String.t(),
+        "JobId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PreSignedUrl" => String.t() | atom(),
         "StartTimestamp" => [non_neg_integer()],
         "Status" => list(any())
       }
       
   """
-  @type get_address_list_import_job_response() :: %{String.t() => any()}
+  @type get_address_list_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -124,12 +124,12 @@ defmodule AWS.MailManager do
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
+        required("ResourceArn") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -137,12 +137,12 @@ defmodule AWS.MailManager do
       
       get_archive_message_response() :: %{
         "Envelope" => envelope(),
-        "MessageDownloadLink" => String.t(),
+        "MessageDownloadLink" => String.t() | atom(),
         "Metadata" => metadata()
       }
       
   """
-  @type get_archive_message_response() :: %{String.t() => any()}
+  @type get_archive_message_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -163,7 +163,7 @@ defmodule AWS.MailManager do
       }
       
   """
-  @type rule_dmarc_expression() :: %{String.t() => any()}
+  @type rule_dmarc_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -179,28 +179,28 @@ defmodule AWS.MailManager do
   ## Example:
       
       update_rule_set_request() :: %{
-        optional("RuleSetName") => String.t(),
+        optional("RuleSetName") => String.t() | atom(),
         optional("Rules") => list(rule()),
-        required("RuleSetId") => String.t()
+        required("RuleSetId") => String.t() | atom()
       }
       
   """
-  @type update_rule_set_request() :: %{String.t() => any()}
+  @type update_rule_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       addon_instance() :: %{
-        "AddonInstanceArn" => String.t(),
-        "AddonInstanceId" => String.t(),
-        "AddonName" => String.t(),
-        "AddonSubscriptionId" => String.t(),
+        "AddonInstanceArn" => String.t() | atom(),
+        "AddonInstanceId" => String.t() | atom(),
+        "AddonName" => String.t() | atom(),
+        "AddonSubscriptionId" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()]
       }
       
   """
-  @type addon_instance() :: %{String.t() => any()}
+  @type addon_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -211,7 +211,7 @@ defmodule AWS.MailManager do
       }
       
   """
-  @type get_archive_search_results_response() :: %{String.t() => any()}
+  @type get_archive_search_results_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -219,11 +219,11 @@ defmodule AWS.MailManager do
       
       list_archives_response() :: %{
         "Archives" => list(archive()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_archives_response() :: %{String.t() => any()}
+  @type list_archives_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -239,53 +239,53 @@ defmodule AWS.MailManager do
   ## Example:
       
       list_ingress_points_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("PageSize") => integer()
       }
       
   """
-  @type list_ingress_points_request() :: %{String.t() => any()}
+  @type list_ingress_points_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_traffic_policy_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("MaxMessageSizeBytes") => integer(),
         optional("Tags") => list(tag()),
         required("DefaultAction") => list(any()),
         required("PolicyStatements") => list(policy_statement()),
-        required("TrafficPolicyName") => String.t()
+        required("TrafficPolicyName") => String.t() | atom()
       }
       
   """
-  @type create_traffic_policy_request() :: %{String.t() => any()}
+  @type create_traffic_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_address_lists_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("PageSize") => integer()
       }
       
   """
-  @type list_address_lists_request() :: %{String.t() => any()}
+  @type list_address_lists_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_addon_instance_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("AddonSubscriptionId") => String.t()
+        required("AddonSubscriptionId") => String.t() | atom()
       }
       
   """
-  @type create_addon_instance_request() :: %{String.t() => any()}
+  @type create_addon_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -293,15 +293,15 @@ defmodule AWS.MailManager do
       
       update_ingress_point_request() :: %{
         optional("IngressPointConfiguration") => list(),
-        optional("IngressPointName") => String.t(),
-        optional("RuleSetId") => String.t(),
+        optional("IngressPointName") => String.t() | atom(),
+        optional("RuleSetId") => String.t() | atom(),
         optional("StatusToUpdate") => list(any()),
-        optional("TrafficPolicyId") => String.t(),
-        required("IngressPointId") => String.t()
+        optional("TrafficPolicyId") => String.t() | atom(),
+        required("IngressPointId") => String.t() | atom()
       }
       
   """
-  @type update_ingress_point_request() :: %{String.t() => any()}
+  @type update_ingress_point_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -310,24 +310,24 @@ defmodule AWS.MailManager do
       relay_action() :: %{
         "ActionFailurePolicy" => list(any()),
         "MailFrom" => list(any()),
-        "Relay" => String.t()
+        "Relay" => String.t() | atom()
       }
       
   """
-  @type relay_action() :: %{String.t() => any()}
+  @type relay_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_address_list_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("AddressListName") => String.t()
+        required("AddressListName") => String.t() | atom()
       }
       
   """
-  @type create_address_list_request() :: %{String.t() => any()}
+  @type create_address_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -340,7 +340,7 @@ defmodule AWS.MailManager do
       }
       
   """
-  @type rule_number_expression() :: %{String.t() => any()}
+  @type rule_number_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -348,13 +348,13 @@ defmodule AWS.MailManager do
       
       export_status() :: %{
         "CompletionTimestamp" => [non_neg_integer()],
-        "ErrorMessage" => String.t(),
+        "ErrorMessage" => String.t() | atom(),
         "State" => list(any()),
         "SubmissionTimestamp" => [non_neg_integer()]
       }
       
   """
-  @type export_status() :: %{String.t() => any()}
+  @type export_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -370,7 +370,7 @@ defmodule AWS.MailManager do
   ## Example:
       
       get_archive_search_response() :: %{
-        "ArchiveId" => String.t(),
+        "ArchiveId" => String.t() | atom(),
         "Filters" => archive_filters(),
         "FromTimestamp" => [non_neg_integer()],
         "MaxResults" => integer(),
@@ -379,7 +379,7 @@ defmodule AWS.MailManager do
       }
       
   """
-  @type get_archive_search_response() :: %{String.t() => any()}
+  @type get_archive_search_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -396,13 +396,13 @@ defmodule AWS.MailManager do
       
       list_members_of_address_list_request() :: %{
         optional("Filter") => address_filter(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("PageSize") => integer(),
-        required("AddressListId") => String.t()
+        required("AddressListId") => String.t() | atom()
       }
       
   """
-  @type list_members_of_address_list_request() :: %{String.t() => any()}
+  @type list_members_of_address_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -412,15 +412,15 @@ defmodule AWS.MailManager do
         "Authentication" => list(),
         "CreatedTimestamp" => [non_neg_integer()],
         "LastModifiedTimestamp" => [non_neg_integer()],
-        "RelayArn" => String.t(),
-        "RelayId" => String.t(),
-        "RelayName" => String.t(),
-        "ServerName" => String.t(),
+        "RelayArn" => String.t() | atom(),
+        "RelayId" => String.t() | atom(),
+        "RelayName" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
         "ServerPort" => integer()
       }
       
   """
-  @type get_relay_response() :: %{String.t() => any()}
+  @type get_relay_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -428,25 +428,25 @@ defmodule AWS.MailManager do
       
       s3_action() :: %{
         "ActionFailurePolicy" => list(any()),
-        "RoleArn" => String.t(),
-        "S3Bucket" => String.t(),
-        "S3Prefix" => String.t(),
-        "S3SseKmsKeyId" => String.t()
+        "RoleArn" => String.t() | atom(),
+        "S3Bucket" => String.t() | atom(),
+        "S3Prefix" => String.t() | atom(),
+        "S3SseKmsKeyId" => String.t() | atom()
       }
       
   """
-  @type s3_action() :: %{String.t() => any()}
+  @type s3_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_address_list_import_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type stop_address_list_import_job_request() :: %{String.t() => any()}
+  @type stop_address_list_import_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -454,22 +454,22 @@ defmodule AWS.MailManager do
       
       list_addon_subscriptions_response() :: %{
         "AddonSubscriptions" => list(addon_subscription()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_addon_subscriptions_response() :: %{String.t() => any()}
+  @type list_addon_subscriptions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_addon_instance_request() :: %{
-        required("AddonInstanceId") => String.t()
+        required("AddonInstanceId") => String.t() | atom()
       }
       
   """
-  @type delete_addon_instance_request() :: %{String.t() => any()}
+  @type delete_addon_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -487,11 +487,11 @@ defmodule AWS.MailManager do
       rule_ip_expression() :: %{
         "Evaluate" => list(),
         "Operator" => list(any()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type rule_ip_expression() :: %{String.t() => any()}
+  @type rule_ip_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -501,14 +501,14 @@ defmodule AWS.MailManager do
         optional("Filters") => archive_filters(),
         optional("IncludeMetadata") => [boolean()],
         optional("MaxResults") => integer(),
-        required("ArchiveId") => String.t(),
+        required("ArchiveId") => String.t() | atom(),
         required("ExportDestinationConfiguration") => list(),
         required("FromTimestamp") => [non_neg_integer()],
         required("ToTimestamp") => [non_neg_integer()]
       }
       
   """
-  @type start_archive_export_request() :: %{String.t() => any()}
+  @type start_archive_export_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -516,12 +516,12 @@ defmodule AWS.MailManager do
       
       relay() :: %{
         "LastModifiedTimestamp" => [non_neg_integer()],
-        "RelayId" => String.t(),
-        "RelayName" => String.t()
+        "RelayId" => String.t() | atom(),
+        "RelayName" => String.t() | atom()
       }
       
   """
-  @type relay() :: %{String.t() => any()}
+  @type relay() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -529,70 +529,70 @@ defmodule AWS.MailManager do
       
       list_addon_instances_response() :: %{
         "AddonInstances" => list(addon_instance()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_addon_instances_response() :: %{String.t() => any()}
+  @type list_addon_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       metadata() :: %{
-        "ConfigurationSet" => [String.t()],
-        "IngressPointId" => String.t(),
-        "RuleSetId" => String.t(),
-        "SenderHostname" => [String.t()],
-        "SenderIpAddress" => String.t(),
-        "SendingMethod" => [String.t()],
-        "SendingPool" => [String.t()],
-        "SourceArn" => [String.t()],
-        "SourceIdentity" => [String.t()],
+        "ConfigurationSet" => [String.t() | atom()],
+        "IngressPointId" => String.t() | atom(),
+        "RuleSetId" => String.t() | atom(),
+        "SenderHostname" => [String.t() | atom()],
+        "SenderIpAddress" => String.t() | atom(),
+        "SendingMethod" => [String.t() | atom()],
+        "SendingPool" => [String.t() | atom()],
+        "SourceArn" => [String.t() | atom()],
+        "SourceIdentity" => [String.t() | atom()],
         "Timestamp" => [non_neg_integer()],
-        "TlsCipherSuite" => [String.t()],
-        "TlsProtocol" => [String.t()],
-        "TrafficPolicyId" => String.t()
+        "TlsCipherSuite" => [String.t() | atom()],
+        "TlsProtocol" => [String.t() | atom()],
+        "TrafficPolicyId" => String.t() | atom()
       }
       
   """
-  @type metadata() :: %{String.t() => any()}
+  @type metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_traffic_policies_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TrafficPolicies" => list(traffic_policy())
       }
       
   """
-  @type list_traffic_policies_response() :: %{String.t() => any()}
+  @type list_traffic_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       message_body() :: %{
-        "Html" => [String.t()],
+        "Html" => [String.t() | atom()],
         "MessageMalformed" => [boolean()],
-        "Text" => [String.t()]
+        "Text" => [String.t() | atom()]
       }
       
   """
-  @type message_body() :: %{String.t() => any()}
+  @type message_body() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_address_list_import_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type get_address_list_import_job_request() :: %{String.t() => any()}
+  @type get_address_list_import_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -608,33 +608,33 @@ defmodule AWS.MailManager do
   ## Example:
       
       get_addon_subscription_request() :: %{
-        required("AddonSubscriptionId") => String.t()
+        required("AddonSubscriptionId") => String.t() | atom()
       }
       
   """
-  @type get_addon_subscription_request() :: %{String.t() => any()}
+  @type get_addon_subscription_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_archive_search_request() :: %{
-        required("SearchId") => String.t()
+        required("SearchId") => String.t() | atom()
       }
       
   """
-  @type get_archive_search_request() :: %{String.t() => any()}
+  @type get_archive_search_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_archive_export_response() :: %{
-        "ExportId" => String.t()
+        "ExportId" => String.t() | atom()
       }
       
   """
-  @type start_archive_export_response() :: %{String.t() => any()}
+  @type start_archive_export_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -646,7 +646,7 @@ defmodule AWS.MailManager do
       }
       
   """
-  @type policy_statement() :: %{String.t() => any()}
+  @type policy_statement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -654,72 +654,72 @@ defmodule AWS.MailManager do
       
       traffic_policy() :: %{
         "DefaultAction" => list(any()),
-        "TrafficPolicyId" => String.t(),
-        "TrafficPolicyName" => String.t()
+        "TrafficPolicyId" => String.t() | atom(),
+        "TrafficPolicyName" => String.t() | atom()
       }
       
   """
-  @type traffic_policy() :: %{String.t() => any()}
+  @type traffic_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_ingress_point_response() :: %{
-        "ARecord" => String.t(),
+        "ARecord" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()],
-        "IngressPointArn" => String.t(),
+        "IngressPointArn" => String.t() | atom(),
         "IngressPointAuthConfiguration" => ingress_point_auth_configuration(),
-        "IngressPointId" => String.t(),
-        "IngressPointName" => String.t(),
+        "IngressPointId" => String.t() | atom(),
+        "IngressPointName" => String.t() | atom(),
         "LastUpdatedTimestamp" => [non_neg_integer()],
         "NetworkConfiguration" => list(),
-        "RuleSetId" => String.t(),
+        "RuleSetId" => String.t() | atom(),
         "Status" => list(any()),
-        "TrafficPolicyId" => String.t(),
+        "TrafficPolicyId" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type get_ingress_point_response() :: %{String.t() => any()}
+  @type get_ingress_point_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_address_list_response() :: %{
-        "AddressListArn" => String.t(),
-        "AddressListId" => String.t(),
-        "AddressListName" => String.t(),
+        "AddressListArn" => String.t() | atom(),
+        "AddressListId" => String.t() | atom(),
+        "AddressListName" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()],
         "LastUpdatedTimestamp" => [non_neg_integer()]
       }
       
   """
-  @type get_address_list_response() :: %{String.t() => any()}
+  @type get_address_list_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_archive_message_request() :: %{
-        required("ArchivedMessageId") => String.t()
+        required("ArchivedMessageId") => String.t() | atom()
       }
       
   """
-  @type get_archive_message_request() :: %{String.t() => any()}
+  @type get_archive_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -731,18 +731,18 @@ defmodule AWS.MailManager do
       }
       
   """
-  @type rule_boolean_expression() :: %{String.t() => any()}
+  @type rule_boolean_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_address_list_import_job_request() :: %{
-        required("JobId") => String.t()
+        required("JobId") => String.t() | atom()
       }
       
   """
-  @type start_address_list_import_job_request() :: %{String.t() => any()}
+  @type start_address_list_import_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -750,11 +750,11 @@ defmodule AWS.MailManager do
       
       send_action() :: %{
         "ActionFailurePolicy" => list(any()),
-        "RoleArn" => String.t()
+        "RoleArn" => String.t() | atom()
       }
       
   """
-  @type send_action() :: %{String.t() => any()}
+  @type send_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -763,14 +763,14 @@ defmodule AWS.MailManager do
       get_rule_set_response() :: %{
         "CreatedDate" => [non_neg_integer()],
         "LastModificationDate" => [non_neg_integer()],
-        "RuleSetArn" => String.t(),
-        "RuleSetId" => String.t(),
-        "RuleSetName" => String.t(),
+        "RuleSetArn" => String.t() | atom(),
+        "RuleSetId" => String.t() | atom(),
+        "RuleSetName" => String.t() | atom(),
         "Rules" => list(rule())
       }
       
   """
-  @type get_rule_set_response() :: %{String.t() => any()}
+  @type get_rule_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -778,12 +778,12 @@ defmodule AWS.MailManager do
       
       deliver_to_mailbox_action() :: %{
         "ActionFailurePolicy" => list(any()),
-        "MailboxArn" => String.t(),
-        "RoleArn" => String.t()
+        "MailboxArn" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
       }
       
   """
-  @type deliver_to_mailbox_action() :: %{String.t() => any()}
+  @type deliver_to_mailbox_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -796,18 +796,18 @@ defmodule AWS.MailManager do
       }
       
   """
-  @type rule_verdict_expression() :: %{String.t() => any()}
+  @type rule_verdict_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_relay_request() :: %{
-        required("RelayId") => String.t()
+        required("RelayId") => String.t() | atom()
       }
       
   """
-  @type get_relay_request() :: %{String.t() => any()}
+  @type get_relay_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -832,14 +832,14 @@ defmodule AWS.MailManager do
   ## Example:
       
       get_addon_instance_response() :: %{
-        "AddonInstanceArn" => String.t(),
-        "AddonName" => String.t(),
-        "AddonSubscriptionId" => String.t(),
+        "AddonInstanceArn" => String.t() | atom(),
+        "AddonName" => String.t() | atom(),
+        "AddonSubscriptionId" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()]
       }
       
   """
-  @type get_addon_instance_response() :: %{String.t() => any()}
+  @type get_addon_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -851,74 +851,74 @@ defmodule AWS.MailManager do
       }
       
   """
-  @type ingress_boolean_expression() :: %{String.t() => any()}
+  @type ingress_boolean_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_address_list_import_job_request() :: %{
-        optional("ClientToken") => String.t(),
-        required("AddressListId") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        required("AddressListId") => String.t() | atom(),
         required("ImportDataFormat") => import_data_format(),
-        required("Name") => String.t()
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_address_list_import_job_request() :: %{String.t() => any()}
+  @type create_address_list_import_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       search_summary() :: %{
-        "SearchId" => String.t(),
+        "SearchId" => String.t() | atom(),
         "Status" => search_status()
       }
       
   """
-  @type search_summary() :: %{String.t() => any()}
+  @type search_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_archive_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("KmsKeyArn") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("KmsKeyArn") => String.t() | atom(),
         optional("Retention") => list(),
         optional("Tags") => list(tag()),
-        required("ArchiveName") => String.t()
+        required("ArchiveName") => String.t() | atom()
       }
       
   """
-  @type create_archive_request() :: %{String.t() => any()}
+  @type create_archive_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_archive_request() :: %{
-        required("ArchiveId") => String.t()
+        required("ArchiveId") => String.t() | atom()
       }
       
   """
-  @type delete_archive_request() :: %{String.t() => any()}
+  @type delete_archive_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ingress_point() :: %{
-        "ARecord" => String.t(),
-        "IngressPointId" => String.t(),
-        "IngressPointName" => String.t(),
+        "ARecord" => String.t() | atom(),
+        "IngressPointId" => String.t() | atom(),
+        "IngressPointName" => String.t() | atom(),
         "Status" => list(any()),
         "Type" => list(any())
       }
       
   """
-  @type ingress_point() :: %{String.t() => any()}
+  @type ingress_point() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -938,31 +938,31 @@ defmodule AWS.MailManager do
       }
       
   """
-  @type public_network_configuration() :: %{String.t() => any()}
+  @type public_network_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_address_list_import_job_response() :: %{
-        "JobId" => String.t(),
-        "PreSignedUrl" => String.t()
+        "JobId" => String.t() | atom(),
+        "PreSignedUrl" => String.t() | atom()
       }
       
   """
-  @type create_address_list_import_job_response() :: %{String.t() => any()}
+  @type create_address_list_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       ingress_is_in_address_list() :: %{
-        "AddressLists" => list(String.t()),
+        "AddressLists" => list(String.t() | atom()),
         "Attribute" => list(any())
       }
       
   """
-  @type ingress_is_in_address_list() :: %{String.t() => any()}
+  @type ingress_is_in_address_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -972,64 +972,64 @@ defmodule AWS.MailManager do
         "ActionFailurePolicy" => list(any()),
         "Encoding" => list(any()),
         "PayloadType" => list(any()),
-        "RoleArn" => String.t(),
-        "TopicArn" => String.t()
+        "RoleArn" => String.t() | atom(),
+        "TopicArn" => String.t() | atom()
       }
       
   """
-  @type sns_action() :: %{String.t() => any()}
+  @type sns_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_archives_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("PageSize") => integer()
       }
       
   """
-  @type list_archives_request() :: %{String.t() => any()}
+  @type list_archives_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_addon_subscription_response() :: %{
-        "AddonSubscriptionId" => String.t()
+        "AddonSubscriptionId" => String.t() | atom()
       }
       
   """
-  @type create_addon_subscription_response() :: %{String.t() => any()}
+  @type create_addon_subscription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_archive_response() :: %{
-        "ArchiveArn" => String.t(),
-        "ArchiveId" => String.t(),
-        "ArchiveName" => String.t(),
+        "ArchiveArn" => String.t() | atom(),
+        "ArchiveId" => String.t() | atom(),
+        "ArchiveName" => String.t() | atom(),
         "ArchiveState" => list(any()),
         "CreatedTimestamp" => [non_neg_integer()],
-        "KmsKeyArn" => String.t(),
+        "KmsKeyArn" => String.t() | atom(),
         "LastUpdatedTimestamp" => [non_neg_integer()],
         "Retention" => list()
       }
       
   """
-  @type get_archive_response() :: %{String.t() => any()}
+  @type get_archive_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_archive_message_content_request() :: %{
-        required("ArchivedMessageId") => String.t()
+        required("ArchivedMessageId") => String.t() | atom()
       }
       
   """
-  @type get_archive_message_content_request() :: %{String.t() => any()}
+  @type get_archive_message_content_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1038,11 +1038,11 @@ defmodule AWS.MailManager do
       archive_string_expression() :: %{
         "Evaluate" => list(),
         "Operator" => list(any()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type archive_string_expression() :: %{String.t() => any()}
+  @type archive_string_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1051,120 +1051,120 @@ defmodule AWS.MailManager do
       ingress_ipv4_expression() :: %{
         "Evaluate" => list(),
         "Operator" => list(any()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type ingress_ipv4_expression() :: %{String.t() => any()}
+  @type ingress_ipv4_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_address_list_import_jobs_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("PageSize") => integer(),
-        required("AddressListId") => String.t()
+        required("AddressListId") => String.t() | atom()
       }
       
   """
-  @type list_address_list_import_jobs_request() :: %{String.t() => any()}
+  @type list_address_list_import_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_relays_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Relays" => list(relay())
       }
       
   """
-  @type list_relays_response() :: %{String.t() => any()}
+  @type list_relays_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       private_network_configuration() :: %{
-        "VpcEndpointId" => String.t()
+        "VpcEndpointId" => String.t() | atom()
       }
       
   """
-  @type private_network_configuration() :: %{String.t() => any()}
+  @type private_network_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_rule_set_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("RuleSetName") => String.t(),
+        required("RuleSetName") => String.t() | atom(),
         required("Rules") => list(rule())
       }
       
   """
-  @type create_rule_set_request() :: %{String.t() => any()}
+  @type create_rule_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_addon_subscriptions_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("PageSize") => integer()
       }
       
   """
-  @type list_addon_subscriptions_request() :: %{String.t() => any()}
+  @type list_addon_subscriptions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       envelope() :: %{
-        "From" => [String.t()],
-        "Helo" => [String.t()],
-        "To" => list([String.t()]())
+        "From" => [String.t() | atom()],
+        "Helo" => [String.t() | atom()],
+        "To" => list([String.t() | atom()]())
       }
       
   """
-  @type envelope() :: %{String.t() => any()}
+  @type envelope() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1172,141 +1172,141 @@ defmodule AWS.MailManager do
       
       archive_action() :: %{
         "ActionFailurePolicy" => list(any()),
-        "TargetArchive" => String.t()
+        "TargetArchive" => String.t() | atom()
       }
       
   """
-  @type archive_action() :: %{String.t() => any()}
+  @type archive_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_archive_search_request() :: %{
-        required("SearchId") => String.t()
+        required("SearchId") => String.t() | atom()
       }
       
   """
-  @type stop_archive_search_request() :: %{String.t() => any()}
+  @type stop_archive_search_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       row() :: %{
-        "ArchivedMessageId" => String.t(),
-        "Cc" => [String.t()],
-        "Date" => [String.t()],
+        "ArchivedMessageId" => String.t() | atom(),
+        "Cc" => [String.t() | atom()],
+        "Date" => [String.t() | atom()],
         "Envelope" => envelope(),
-        "From" => [String.t()],
+        "From" => [String.t() | atom()],
         "HasAttachments" => [boolean()],
-        "InReplyTo" => [String.t()],
-        "IngressPointId" => String.t(),
-        "MessageId" => [String.t()],
-        "ReceivedHeaders" => list([String.t()]()),
+        "InReplyTo" => [String.t() | atom()],
+        "IngressPointId" => String.t() | atom(),
+        "MessageId" => [String.t() | atom()],
+        "ReceivedHeaders" => list([String.t() | atom()]()),
         "ReceivedTimestamp" => [non_neg_integer()],
-        "SenderHostname" => [String.t()],
-        "SenderIpAddress" => String.t(),
-        "SourceArn" => [String.t()],
-        "Subject" => [String.t()],
-        "To" => [String.t()],
-        "XMailer" => [String.t()],
-        "XOriginalMailer" => [String.t()],
-        "XPriority" => [String.t()]
+        "SenderHostname" => [String.t() | atom()],
+        "SenderIpAddress" => String.t() | atom(),
+        "SourceArn" => [String.t() | atom()],
+        "Subject" => [String.t() | atom()],
+        "To" => [String.t() | atom()],
+        "XMailer" => [String.t() | atom()],
+        "XOriginalMailer" => [String.t() | atom()],
+        "XPriority" => [String.t() | atom()]
       }
       
   """
-  @type row() :: %{String.t() => any()}
+  @type row() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_relay_response() :: %{
-        "RelayId" => String.t()
+        "RelayId" => String.t() | atom()
       }
       
   """
-  @type create_relay_response() :: %{String.t() => any()}
+  @type create_relay_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_ingress_point_request() :: %{
-        required("IngressPointId") => String.t()
+        required("IngressPointId") => String.t() | atom()
       }
       
   """
-  @type delete_ingress_point_request() :: %{String.t() => any()}
+  @type delete_ingress_point_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       saved_address() :: %{
-        "Address" => String.t(),
+        "Address" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()]
       }
       
   """
-  @type saved_address() :: %{String.t() => any()}
+  @type saved_address() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_rule_set_response() :: %{
-        "RuleSetId" => String.t()
+        "RuleSetId" => String.t() | atom()
       }
       
   """
-  @type create_rule_set_response() :: %{String.t() => any()}
+  @type create_rule_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_traffic_policy_response() :: %{
-        "TrafficPolicyId" => String.t()
+        "TrafficPolicyId" => String.t() | atom()
       }
       
   """
-  @type create_traffic_policy_response() :: %{String.t() => any()}
+  @type create_traffic_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       export_summary() :: %{
-        "ExportId" => String.t(),
+        "ExportId" => String.t() | atom(),
         "Status" => export_status()
       }
       
   """
-  @type export_summary() :: %{String.t() => any()}
+  @type export_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       address_filter() :: %{
-        "AddressPrefix" => String.t()
+        "AddressPrefix" => String.t() | atom()
       }
       
   """
-  @type address_filter() :: %{String.t() => any()}
+  @type address_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1316,12 +1316,12 @@ defmodule AWS.MailManager do
         optional("DefaultAction") => list(any()),
         optional("MaxMessageSizeBytes") => integer(),
         optional("PolicyStatements") => list(policy_statement()),
-        optional("TrafficPolicyName") => String.t(),
-        required("TrafficPolicyId") => String.t()
+        optional("TrafficPolicyName") => String.t() | atom(),
+        required("TrafficPolicyId") => String.t() | atom()
       }
       
   """
-  @type update_traffic_policy_request() :: %{String.t() => any()}
+  @type update_traffic_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1330,33 +1330,33 @@ defmodule AWS.MailManager do
       ingress_ipv6_expression() :: %{
         "Evaluate" => list(),
         "Operator" => list(any()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type ingress_ipv6_expression() :: %{String.t() => any()}
+  @type ingress_ipv6_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_address_list_request() :: %{
-        required("AddressListId") => String.t()
+        required("AddressListId") => String.t() | atom()
       }
       
   """
-  @type delete_address_list_request() :: %{String.t() => any()}
+  @type delete_address_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_address_list_request() :: %{
-        required("AddressListId") => String.t()
+        required("AddressListId") => String.t() | atom()
       }
       
   """
-  @type get_address_list_request() :: %{String.t() => any()}
+  @type get_address_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1376,19 +1376,19 @@ defmodule AWS.MailManager do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       deregister_member_from_address_list_request() :: %{
-        required("Address") => String.t(),
-        required("AddressListId") => String.t()
+        required("Address") => String.t() | atom(),
+        required("AddressListId") => String.t() | atom()
       }
       
   """
-  @type deregister_member_from_address_list_request() :: %{String.t() => any()}
+  @type deregister_member_from_address_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1404,23 +1404,23 @@ defmodule AWS.MailManager do
   ## Example:
       
       get_member_of_address_list_response() :: %{
-        "Address" => String.t(),
+        "Address" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()]
       }
       
   """
-  @type get_member_of_address_list_response() :: %{String.t() => any()}
+  @type get_member_of_address_list_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_ingress_point_response() :: %{
-        "IngressPointId" => String.t()
+        "IngressPointId" => String.t() | atom()
       }
       
   """
-  @type create_ingress_point_response() :: %{String.t() => any()}
+  @type create_ingress_point_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1428,25 +1428,25 @@ defmodule AWS.MailManager do
       
       update_relay_request() :: %{
         optional("Authentication") => list(),
-        optional("RelayName") => String.t(),
-        optional("ServerName") => String.t(),
+        optional("RelayName") => String.t() | atom(),
+        optional("ServerName") => String.t() | atom(),
         optional("ServerPort") => integer(),
-        required("RelayId") => String.t()
+        required("RelayId") => String.t() | atom()
       }
       
   """
-  @type update_relay_request() :: %{String.t() => any()}
+  @type update_relay_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_addon_instance_request() :: %{
-        required("AddonInstanceId") => String.t()
+        required("AddonInstanceId") => String.t() | atom()
       }
       
   """
-  @type get_addon_instance_request() :: %{String.t() => any()}
+  @type get_addon_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1454,12 +1454,12 @@ defmodule AWS.MailManager do
       
       rule_set() :: %{
         "LastModificationDate" => [non_neg_integer()],
-        "RuleSetId" => String.t(),
-        "RuleSetName" => String.t()
+        "RuleSetId" => String.t() | atom(),
+        "RuleSetName" => String.t() | atom()
       }
       
   """
-  @type rule_set() :: %{String.t() => any()}
+  @type rule_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1468,24 +1468,24 @@ defmodule AWS.MailManager do
       rule() :: %{
         "Actions" => list(list()),
         "Conditions" => list(list()),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Unless" => list(list())
       }
       
   """
-  @type rule() :: %{String.t() => any()}
+  @type rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_rule_sets_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "RuleSets" => list(rule_set())
       }
       
   """
-  @type list_rule_sets_response() :: %{String.t() => any()}
+  @type list_rule_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1510,70 +1510,70 @@ defmodule AWS.MailManager do
   ## Example:
       
       list_archive_searches_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("PageSize") => integer(),
-        required("ArchiveId") => String.t()
+        required("ArchiveId") => String.t() | atom()
       }
       
   """
-  @type list_archive_searches_request() :: %{String.t() => any()}
+  @type list_archive_searches_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_job() :: %{
-        "AddressListId" => String.t(),
+        "AddressListId" => String.t() | atom(),
         "CompletedTimestamp" => [non_neg_integer()],
         "CreatedTimestamp" => [non_neg_integer()],
-        "Error" => String.t(),
+        "Error" => String.t() | atom(),
         "FailedItemsCount" => integer(),
         "ImportDataFormat" => import_data_format(),
         "ImportedItemsCount" => integer(),
-        "JobId" => String.t(),
-        "Name" => String.t(),
-        "PreSignedUrl" => String.t(),
+        "JobId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PreSignedUrl" => String.t() | atom(),
         "StartTimestamp" => [non_neg_integer()],
         "Status" => list(any())
       }
       
   """
-  @type import_job() :: %{String.t() => any()}
+  @type import_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_archive_searches_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Searches" => list(search_summary())
       }
       
   """
-  @type list_archive_searches_response() :: %{String.t() => any()}
+  @type list_archive_searches_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       analysis() :: %{
-        "Analyzer" => String.t(),
-        "ResultField" => String.t()
+        "Analyzer" => String.t() | atom(),
+        "ResultField" => String.t() | atom()
       }
       
   """
-  @type analysis() :: %{String.t() => any()}
+  @type analysis() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_addon_subscription_request() :: %{
-        required("AddonSubscriptionId") => String.t()
+        required("AddonSubscriptionId") => String.t() | atom()
       }
       
   """
-  @type delete_addon_subscription_request() :: %{String.t() => any()}
+  @type delete_addon_subscription_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1585,30 +1585,30 @@ defmodule AWS.MailManager do
       }
       
   """
-  @type archive_boolean_expression() :: %{String.t() => any()}
+  @type archive_boolean_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_rule_sets_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("PageSize") => integer()
       }
       
   """
-  @type list_rule_sets_request() :: %{String.t() => any()}
+  @type list_rule_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_archive_export_request() :: %{
-        required("ExportId") => String.t()
+        required("ExportId") => String.t() | atom()
       }
       
   """
-  @type stop_archive_export_request() :: %{String.t() => any()}
+  @type stop_archive_export_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1620,13 +1620,13 @@ defmodule AWS.MailManager do
         "LastUpdatedTimestamp" => [non_neg_integer()],
         "MaxMessageSizeBytes" => integer(),
         "PolicyStatements" => list(policy_statement()),
-        "TrafficPolicyArn" => String.t(),
-        "TrafficPolicyId" => String.t(),
-        "TrafficPolicyName" => String.t()
+        "TrafficPolicyArn" => String.t() | atom(),
+        "TrafficPolicyId" => String.t() | atom(),
+        "TrafficPolicyName" => String.t() | atom()
       }
       
   """
-  @type get_traffic_policy_response() :: %{String.t() => any()}
+  @type get_traffic_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1639,7 +1639,7 @@ defmodule AWS.MailManager do
       }
       
   """
-  @type ingress_tls_protocol_expression() :: %{String.t() => any()}
+  @type ingress_tls_protocol_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1664,22 +1664,22 @@ defmodule AWS.MailManager do
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_archive_request() :: %{
-        required("ArchiveId") => String.t()
+        required("ArchiveId") => String.t() | atom()
       }
       
   """
-  @type get_archive_request() :: %{String.t() => any()}
+  @type get_archive_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1687,11 +1687,11 @@ defmodule AWS.MailManager do
       
       list_address_list_import_jobs_response() :: %{
         "ImportJobs" => list(import_job()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_address_list_import_jobs_response() :: %{String.t() => any()}
+  @type list_address_list_import_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1726,83 +1726,83 @@ defmodule AWS.MailManager do
       
       deliver_to_q_business_action() :: %{
         "ActionFailurePolicy" => list(any()),
-        "ApplicationId" => String.t(),
-        "IndexId" => String.t(),
-        "RoleArn" => String.t()
+        "ApplicationId" => String.t() | atom(),
+        "IndexId" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
       }
       
   """
-  @type deliver_to_q_business_action() :: %{String.t() => any()}
+  @type deliver_to_q_business_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       register_member_to_address_list_request() :: %{
-        required("Address") => String.t(),
-        required("AddressListId") => String.t()
+        required("Address") => String.t() | atom(),
+        required("AddressListId") => String.t() | atom()
       }
       
   """
-  @type register_member_to_address_list_request() :: %{String.t() => any()}
+  @type register_member_to_address_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       addon_subscription() :: %{
-        "AddonName" => String.t(),
-        "AddonSubscriptionArn" => String.t(),
-        "AddonSubscriptionId" => String.t(),
+        "AddonName" => String.t() | atom(),
+        "AddonSubscriptionArn" => String.t() | atom(),
+        "AddonSubscriptionId" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()]
       }
       
   """
-  @type addon_subscription() :: %{String.t() => any()}
+  @type addon_subscription() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_relay_request() :: %{
-        required("RelayId") => String.t()
+        required("RelayId") => String.t() | atom()
       }
       
   """
-  @type delete_relay_request() :: %{String.t() => any()}
+  @type delete_relay_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       replace_recipient_action() :: %{
-        "ReplaceWith" => list(String.t())
+        "ReplaceWith" => list(String.t() | atom())
       }
       
   """
-  @type replace_recipient_action() :: %{String.t() => any()}
+  @type replace_recipient_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t()
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1810,21 +1810,21 @@ defmodule AWS.MailManager do
       
       start_archive_search_request() :: %{
         optional("Filters") => archive_filters(),
-        required("ArchiveId") => String.t(),
+        required("ArchiveId") => String.t() | atom(),
         required("FromTimestamp") => [non_neg_integer()],
         required("MaxResults") => integer(),
         required("ToTimestamp") => [non_neg_integer()]
       }
       
   """
-  @type start_archive_search_request() :: %{String.t() => any()}
+  @type start_archive_search_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_archive_export_response() :: %{
-        "ArchiveId" => String.t(),
+        "ArchiveId" => String.t() | atom(),
         "ExportDestinationConfiguration" => list(),
         "Filters" => archive_filters(),
         "FromTimestamp" => [non_neg_integer()],
@@ -1834,7 +1834,7 @@ defmodule AWS.MailManager do
       }
       
   """
-  @type get_archive_export_response() :: %{String.t() => any()}
+  @type get_archive_export_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1842,75 +1842,75 @@ defmodule AWS.MailManager do
       
       list_ingress_points_response() :: %{
         "IngressPoints" => list(ingress_point()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_ingress_points_response() :: %{String.t() => any()}
+  @type list_ingress_points_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_archive_response() :: %{
-        "ArchiveId" => String.t()
+        "ArchiveId" => String.t() | atom()
       }
       
   """
-  @type create_archive_response() :: %{String.t() => any()}
+  @type create_archive_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_ingress_point_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("IngressPointConfiguration") => list(),
         optional("NetworkConfiguration") => list(),
         optional("Tags") => list(tag()),
-        required("IngressPointName") => String.t(),
-        required("RuleSetId") => String.t(),
-        required("TrafficPolicyId") => String.t(),
+        required("IngressPointName") => String.t() | atom(),
+        required("RuleSetId") => String.t() | atom(),
+        required("TrafficPolicyId") => String.t() | atom(),
         required("Type") => list(any())
       }
       
   """
-  @type create_ingress_point_request() :: %{String.t() => any()}
+  @type create_ingress_point_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_relays_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("PageSize") => [integer()]
       }
       
   """
-  @type list_relays_request() :: %{String.t() => any()}
+  @type list_relays_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rule_is_in_address_list() :: %{
-        "AddressLists" => list(String.t()),
+        "AddressLists" => list(String.t() | atom()),
         "Attribute" => list(any())
       }
       
   """
-  @type rule_is_in_address_list() :: %{String.t() => any()}
+  @type rule_is_in_address_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1919,73 +1919,73 @@ defmodule AWS.MailManager do
       ingress_string_expression() :: %{
         "Evaluate" => list(),
         "Operator" => list(any()),
-        "Values" => list([String.t()]())
+        "Values" => list([String.t() | atom()]())
       }
       
   """
-  @type ingress_string_expression() :: %{String.t() => any()}
+  @type ingress_string_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_rule_set_request() :: %{
-        required("RuleSetId") => String.t()
+        required("RuleSetId") => String.t() | atom()
       }
       
   """
-  @type get_rule_set_request() :: %{String.t() => any()}
+  @type get_rule_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_addon_subscription_response() :: %{
-        "AddonName" => String.t(),
-        "AddonSubscriptionArn" => String.t(),
+        "AddonName" => String.t() | atom(),
+        "AddonSubscriptionArn" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()]
       }
       
   """
-  @type get_addon_subscription_response() :: %{String.t() => any()}
+  @type get_addon_subscription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       archive() :: %{
-        "ArchiveId" => String.t(),
-        "ArchiveName" => String.t(),
+        "ArchiveId" => String.t() | atom(),
+        "ArchiveName" => String.t() | atom(),
         "ArchiveState" => list(any()),
         "LastUpdatedTimestamp" => [non_neg_integer()]
       }
       
   """
-  @type archive() :: %{String.t() => any()}
+  @type archive() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_archive_request() :: %{
-        optional("ArchiveName") => String.t(),
+        optional("ArchiveName") => String.t() | atom(),
         optional("Retention") => list(),
-        required("ArchiveId") => String.t()
+        required("ArchiveId") => String.t() | atom()
       }
       
   """
-  @type update_archive_request() :: %{String.t() => any()}
+  @type update_archive_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_traffic_policy_request() :: %{
-        required("TrafficPolicyId") => String.t()
+        required("TrafficPolicyId") => String.t() | atom()
       }
       
   """
-  @type delete_traffic_policy_request() :: %{String.t() => any()}
+  @type delete_traffic_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2001,35 +2001,35 @@ defmodule AWS.MailManager do
   ## Example:
       
       get_traffic_policy_request() :: %{
-        required("TrafficPolicyId") => String.t()
+        required("TrafficPolicyId") => String.t() | atom()
       }
       
   """
-  @type get_traffic_policy_request() :: %{String.t() => any()}
+  @type get_traffic_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_rule_set_request() :: %{
-        required("RuleSetId") => String.t()
+        required("RuleSetId") => String.t() | atom()
       }
       
   """
-  @type delete_rule_set_request() :: %{String.t() => any()}
+  @type delete_rule_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_addon_subscription_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("AddonName") => String.t()
+        required("AddonName") => String.t() | atom()
       }
       
   """
-  @type create_addon_subscription_request() :: %{String.t() => any()}
+  @type create_addon_subscription_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2037,26 +2037,26 @@ defmodule AWS.MailManager do
       
       list_archive_exports_response() :: %{
         "Exports" => list(export_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_archive_exports_response() :: %{String.t() => any()}
+  @type list_archive_exports_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       address_list() :: %{
-        "AddressListArn" => String.t(),
-        "AddressListId" => String.t(),
-        "AddressListName" => String.t(),
+        "AddressListArn" => String.t() | atom(),
+        "AddressListId" => String.t() | atom(),
+        "AddressListName" => String.t() | atom(),
         "CreatedTimestamp" => [non_neg_integer()],
         "LastUpdatedTimestamp" => [non_neg_integer()]
       }
       
   """
-  @type address_list() :: %{String.t() => any()}
+  @type address_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2064,46 +2064,46 @@ defmodule AWS.MailManager do
       
       list_members_of_address_list_response() :: %{
         "Addresses" => list(saved_address()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_members_of_address_list_response() :: %{String.t() => any()}
+  @type list_members_of_address_list_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_archive_exports_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("PageSize") => integer(),
-        required("ArchiveId") => String.t()
+        required("ArchiveId") => String.t() | atom()
       }
       
   """
-  @type list_archive_exports_request() :: %{String.t() => any()}
+  @type list_archive_exports_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_archive_search_results_request() :: %{
-        required("SearchId") => String.t()
+        required("SearchId") => String.t() | atom()
       }
       
   """
-  @type get_archive_search_results_request() :: %{String.t() => any()}
+  @type get_archive_search_results_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_archive_export_request() :: %{
-        required("ExportId") => String.t()
+        required("ExportId") => String.t() | atom()
       }
       
   """
-  @type get_archive_export_request() :: %{String.t() => any()}
+  @type get_archive_export_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2120,13 +2120,13 @@ defmodule AWS.MailManager do
       
       search_status() :: %{
         "CompletionTimestamp" => [non_neg_integer()],
-        "ErrorMessage" => String.t(),
+        "ErrorMessage" => String.t() | atom(),
         "State" => list(any()),
         "SubmissionTimestamp" => [non_neg_integer()]
       }
       
   """
-  @type search_status() :: %{String.t() => any()}
+  @type search_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2134,11 +2134,11 @@ defmodule AWS.MailManager do
       
       ingress_point_auth_configuration() :: %{
         "IngressPointPasswordConfiguration" => ingress_point_password_configuration(),
-        "SecretArn" => String.t()
+        "SecretArn" => String.t() | atom()
       }
       
   """
-  @type ingress_point_auth_configuration() :: %{String.t() => any()}
+  @type ingress_point_auth_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2155,56 +2155,56 @@ defmodule AWS.MailManager do
       
       list_address_lists_response() :: %{
         "AddressLists" => list(address_list()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_address_lists_response() :: %{String.t() => any()}
+  @type list_address_lists_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_archive_search_response() :: %{
-        "SearchId" => String.t()
+        "SearchId" => String.t() | atom()
       }
       
   """
-  @type start_archive_search_response() :: %{String.t() => any()}
+  @type start_archive_search_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_ingress_point_request() :: %{
-        required("IngressPointId") => String.t()
+        required("IngressPointId") => String.t() | atom()
       }
       
   """
-  @type get_ingress_point_request() :: %{String.t() => any()}
+  @type get_ingress_point_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_addon_instances_request() :: %{
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("PageSize") => integer()
       }
       
   """
-  @type list_addon_instances_request() :: %{String.t() => any()}
+  @type list_addon_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       s3_export_destination_configuration() :: %{
-        "S3Location" => String.t()
+        "S3Location" => String.t() | atom()
       }
       
   """
-  @type s3_export_destination_configuration() :: %{String.t() => any()}
+  @type s3_export_destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2213,51 +2213,51 @@ defmodule AWS.MailManager do
       rule_string_expression() :: %{
         "Evaluate" => list(),
         "Operator" => list(any()),
-        "Values" => list(String.t())
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type rule_string_expression() :: %{String.t() => any()}
+  @type rule_string_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_relay_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("Authentication") => list(),
-        required("RelayName") => String.t(),
-        required("ServerName") => String.t(),
+        required("RelayName") => String.t() | atom(),
+        required("ServerName") => String.t() | atom(),
         required("ServerPort") => integer()
       }
       
   """
-  @type create_relay_request() :: %{String.t() => any()}
+  @type create_relay_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_member_of_address_list_request() :: %{
-        required("Address") => String.t(),
-        required("AddressListId") => String.t()
+        required("Address") => String.t() | atom(),
+        required("AddressListId") => String.t() | atom()
       }
       
   """
-  @type get_member_of_address_list_request() :: %{String.t() => any()}
+  @type get_member_of_address_list_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       add_header_action() :: %{
-        "HeaderName" => String.t(),
-        "HeaderValue" => String.t()
+        "HeaderName" => String.t() | atom(),
+        "HeaderValue" => String.t() | atom()
       }
       
   """
-  @type add_header_action() :: %{String.t() => any()}
+  @type add_header_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2269,18 +2269,18 @@ defmodule AWS.MailManager do
       }
       
   """
-  @type archive_filters() :: %{String.t() => any()}
+  @type archive_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_address_list_response() :: %{
-        "AddressListId" => String.t()
+        "AddressListId" => String.t() | atom()
       }
       
   """
-  @type create_address_list_response() :: %{String.t() => any()}
+  @type create_address_list_response() :: %{(String.t() | atom()) => any()}
 
   @type create_addon_instance_errors() ::
           validation_exception()
@@ -2551,7 +2551,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_addon_instance_errors()}
   def create_addon_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAddonInstance", input, options)
   end
@@ -2569,7 +2570,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_addon_subscription_errors()}
   def create_addon_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAddonSubscription", input, options)
   end
@@ -2583,7 +2585,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_address_list_errors()}
   def create_address_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAddressList", input, options)
   end
@@ -2597,7 +2600,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_address_list_import_job_errors()}
   def create_address_list_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAddressListImportJob", input, options)
   end
@@ -2611,7 +2615,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_archive_errors()}
   def create_archive(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateArchive", input, options)
   end
@@ -2625,7 +2630,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_ingress_point_errors()}
   def create_ingress_point(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIngressPoint", input, options)
   end
@@ -2640,7 +2646,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_relay_errors()}
   def create_relay(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRelay", input, options)
   end
@@ -2654,7 +2661,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_rule_set_errors()}
   def create_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRuleSet", input, options)
   end
@@ -2668,7 +2676,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, create_traffic_policy_errors()}
   def create_traffic_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrafficPolicy", input, options)
   end
@@ -2682,7 +2691,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, delete_addon_instance_errors()}
   def delete_addon_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAddonInstance", input, options)
   end
@@ -2696,7 +2706,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, delete_addon_subscription_errors()}
   def delete_addon_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAddonSubscription", input, options)
   end
@@ -2710,7 +2721,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, delete_address_list_errors()}
   def delete_address_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAddressList", input, options)
   end
@@ -2730,7 +2742,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, delete_archive_errors()}
   def delete_archive(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteArchive", input, options)
   end
@@ -2744,7 +2757,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, delete_ingress_point_errors()}
   def delete_ingress_point(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIngressPoint", input, options)
   end
@@ -2758,7 +2772,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, delete_relay_errors()}
   def delete_relay(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRelay", input, options)
   end
@@ -2772,7 +2787,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, delete_rule_set_errors()}
   def delete_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRuleSet", input, options)
   end
@@ -2786,7 +2802,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, delete_traffic_policy_errors()}
   def delete_traffic_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrafficPolicy", input, options)
   end
@@ -2804,7 +2821,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, deregister_member_from_address_list_errors()}
   def deregister_member_from_address_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterMemberFromAddressList", input, options)
   end
@@ -2818,7 +2836,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_addon_instance_errors()}
   def get_addon_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAddonInstance", input, options)
   end
@@ -2832,7 +2851,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_addon_subscription_errors()}
   def get_addon_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAddonSubscription", input, options)
   end
@@ -2846,7 +2866,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_address_list_errors()}
   def get_address_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAddressList", input, options)
   end
@@ -2860,7 +2881,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_address_list_import_job_errors()}
   def get_address_list_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAddressListImportJob", input, options)
   end
@@ -2874,7 +2896,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_archive_errors()}
   def get_archive(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetArchive", input, options)
   end
@@ -2888,7 +2911,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_archive_export_errors()}
   def get_archive_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetArchiveExport", input, options)
   end
@@ -2903,7 +2927,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_archive_message_errors()}
   def get_archive_message(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetArchiveMessage", input, options)
   end
@@ -2919,7 +2944,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_archive_message_content_errors()}
   def get_archive_message_content(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetArchiveMessageContent", input, options)
   end
@@ -2933,7 +2959,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_archive_search_errors()}
   def get_archive_search(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetArchiveSearch", input, options)
   end
@@ -2947,7 +2974,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_archive_search_results_errors()}
   def get_archive_search_results(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetArchiveSearchResults", input, options)
   end
@@ -2961,7 +2989,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_ingress_point_errors()}
   def get_ingress_point(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIngressPoint", input, options)
   end
@@ -2975,7 +3004,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_member_of_address_list_errors()}
   def get_member_of_address_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMemberOfAddressList", input, options)
   end
@@ -2989,7 +3019,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_relay_errors()}
   def get_relay(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRelay", input, options)
   end
@@ -3003,7 +3034,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_rule_set_errors()}
   def get_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRuleSet", input, options)
   end
@@ -3017,7 +3049,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, get_traffic_policy_errors()}
   def get_traffic_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTrafficPolicy", input, options)
   end
@@ -3031,7 +3064,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_addon_instances_errors()}
   def list_addon_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAddonInstances", input, options)
   end
@@ -3045,7 +3079,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_addon_subscriptions_errors()}
   def list_addon_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAddonSubscriptions", input, options)
   end
@@ -3059,7 +3094,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_address_list_import_jobs_errors()}
   def list_address_list_import_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAddressListImportJobs", input, options)
   end
@@ -3073,7 +3109,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_address_lists_errors()}
   def list_address_lists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAddressLists", input, options)
   end
@@ -3087,7 +3124,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_archive_exports_errors()}
   def list_archive_exports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListArchiveExports", input, options)
   end
@@ -3101,7 +3139,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_archive_searches_errors()}
   def list_archive_searches(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListArchiveSearches", input, options)
   end
@@ -3115,7 +3154,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_archives_errors()}
   def list_archives(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListArchives", input, options)
   end
@@ -3129,7 +3169,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_ingress_points_errors()}
   def list_ingress_points(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIngressPoints", input, options)
   end
@@ -3143,7 +3184,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_members_of_address_list_errors()}
   def list_members_of_address_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMembersOfAddressList", input, options)
   end
@@ -3157,7 +3199,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_relays_errors()}
   def list_relays(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRelays", input, options)
   end
@@ -3171,7 +3214,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_rule_sets_errors()}
   def list_rule_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRuleSets", input, options)
   end
@@ -3185,7 +3229,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3199,7 +3244,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, list_traffic_policies_errors()}
   def list_traffic_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTrafficPolicies", input, options)
   end
@@ -3213,7 +3259,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, register_member_to_address_list_errors()}
   def register_member_to_address_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterMemberToAddressList", input, options)
   end
@@ -3227,7 +3274,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, start_address_list_import_job_errors()}
   def start_address_list_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartAddressListImportJob", input, options)
   end
@@ -3241,7 +3289,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, start_archive_export_errors()}
   def start_archive_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartArchiveExport", input, options)
   end
@@ -3255,7 +3304,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, start_archive_search_errors()}
   def start_archive_search(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartArchiveSearch", input, options)
   end
@@ -3269,7 +3319,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, stop_address_list_import_job_errors()}
   def stop_address_list_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopAddressListImportJob", input, options)
   end
@@ -3283,7 +3334,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, stop_archive_export_errors()}
   def stop_archive_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopArchiveExport", input, options)
   end
@@ -3297,7 +3349,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, stop_archive_search_errors()}
   def stop_archive_search(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopArchiveSearch", input, options)
   end
@@ -3311,7 +3364,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3325,7 +3379,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3339,7 +3394,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, update_archive_errors()}
   def update_archive(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateArchive", input, options)
   end
@@ -3353,7 +3409,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, update_ingress_point_errors()}
   def update_ingress_point(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIngressPoint", input, options)
   end
@@ -3367,7 +3424,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, update_relay_errors()}
   def update_relay(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRelay", input, options)
   end
@@ -3381,7 +3439,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, update_rule_set_errors()}
   def update_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRuleSet", input, options)
   end
@@ -3395,7 +3454,8 @@ defmodule AWS.MailManager do
           | {:error, term()}
           | {:error, update_traffic_policy_errors()}
   def update_traffic_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTrafficPolicy", input, options)
   end

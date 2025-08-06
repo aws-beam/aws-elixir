@@ -32,12 +32,12 @@ defmodule AWS.NetworkFlowMonitor do
   ## Example:
 
       monitor_local_resource() :: %{
-        "identifier" => [String.t()],
+        "identifier" => [String.t() | atom()],
         "type" => list(any())
       }
 
   """
-  @type monitor_local_resource() :: %{String.t() => any()}
+  @type monitor_local_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -46,11 +46,11 @@ defmodule AWS.NetworkFlowMonitor do
       list_monitors_input() :: %{
         optional("maxResults") => integer(),
         optional("monitorStatus") => list(any()),
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_monitors_input() :: %{String.t() => any()}
+  @type list_monitors_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -58,22 +58,24 @@ defmodule AWS.NetworkFlowMonitor do
 
       list_scopes_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_scopes_input() :: %{String.t() => any()}
+  @type list_scopes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_query_workload_insights_top_contributors_data_output() :: %{
-        "queryId" => [String.t()]
+        "queryId" => [String.t() | atom()]
       }
 
   """
-  @type start_query_workload_insights_top_contributors_data_output() :: %{String.t() => any()}
+  @type start_query_workload_insights_top_contributors_data_output() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -101,15 +103,15 @@ defmodule AWS.NetworkFlowMonitor do
         "createdAt" => non_neg_integer(),
         "localResources" => list(monitor_local_resource()),
         "modifiedAt" => non_neg_integer(),
-        "monitorArn" => String.t(),
-        "monitorName" => String.t(),
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
         "monitorStatus" => list(any()),
         "remoteResources" => list(monitor_remote_resource()),
         "tags" => map()
       }
 
   """
-  @type get_monitor_output() :: %{String.t() => any()}
+  @type get_monitor_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -117,11 +119,11 @@ defmodule AWS.NetworkFlowMonitor do
 
       list_monitors_output() :: %{
         "monitors" => list(monitor_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_monitors_output() :: %{String.t() => any()}
+  @type list_monitors_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -129,11 +131,13 @@ defmodule AWS.NetworkFlowMonitor do
 
       get_query_results_workload_insights_top_contributors_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type get_query_results_workload_insights_top_contributors_input() :: %{String.t() => any()}
+  @type get_query_results_workload_insights_top_contributors_input() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -148,38 +152,40 @@ defmodule AWS.NetworkFlowMonitor do
       }
 
   """
-  @type start_query_workload_insights_top_contributors_input() :: %{String.t() => any()}
+  @type start_query_workload_insights_top_contributors_input() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       workload_insights_top_contributors_row() :: %{
-        "accountId" => String.t(),
-        "localAz" => String.t(),
-        "localRegion" => String.t(),
-        "localSubnetArn" => String.t(),
-        "localSubnetId" => String.t(),
-        "localVpcArn" => String.t(),
-        "localVpcId" => String.t(),
-        "remoteIdentifier" => [String.t()],
+        "accountId" => String.t() | atom(),
+        "localAz" => String.t() | atom(),
+        "localRegion" => String.t() | atom(),
+        "localSubnetArn" => String.t() | atom(),
+        "localSubnetId" => String.t() | atom(),
+        "localVpcArn" => String.t() | atom(),
+        "localVpcId" => String.t() | atom(),
+        "remoteIdentifier" => [String.t() | atom()],
         "value" => [float()]
       }
 
   """
-  @type workload_insights_top_contributors_row() :: %{String.t() => any()}
+  @type workload_insights_top_contributors_row() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       monitor_remote_resource() :: %{
-        "identifier" => [String.t()],
+        "identifier" => [String.t() | atom()],
         "type" => list(any())
       }
 
   """
-  @type monitor_remote_resource() :: %{String.t() => any()}
+  @type monitor_remote_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -196,13 +202,13 @@ defmodule AWS.NetworkFlowMonitor do
 
       get_query_results_workload_insights_top_contributors_data_output() :: %{
         "datapoints" => list(workload_insights_top_contributors_data_point()),
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | atom()],
         "unit" => list(any())
       }
 
   """
   @type get_query_results_workload_insights_top_contributors_data_output() :: %{
-          String.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -219,11 +225,11 @@ defmodule AWS.NetworkFlowMonitor do
   ## Example:
 
       start_query_monitor_top_contributors_output() :: %{
-        "queryId" => [String.t()]
+        "queryId" => [String.t() | atom()]
       }
 
   """
-  @type start_query_monitor_top_contributors_output() :: %{String.t() => any()}
+  @type start_query_monitor_top_contributors_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -234,7 +240,7 @@ defmodule AWS.NetworkFlowMonitor do
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -246,19 +252,19 @@ defmodule AWS.NetworkFlowMonitor do
       }
 
   """
-  @type target_identifier() :: %{String.t() => any()}
+  @type target_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       target_resource() :: %{
-        "region" => String.t(),
+        "region" => String.t() | atom(),
         "targetIdentifier" => target_identifier()
       }
 
   """
-  @type target_resource() :: %{String.t() => any()}
+  @type target_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -266,12 +272,12 @@ defmodule AWS.NetworkFlowMonitor do
 
       get_query_results_workload_insights_top_contributors_data_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
   @type get_query_results_workload_insights_top_contributors_data_input() :: %{
-          String.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -279,13 +285,13 @@ defmodule AWS.NetworkFlowMonitor do
   ## Example:
 
       workload_insights_top_contributors_data_point() :: %{
-        "label" => [String.t()],
+        "label" => [String.t() | atom()],
         "timestamps" => list([non_neg_integer()]()),
         "values" => list([float()]())
       }
 
   """
-  @type workload_insights_top_contributors_data_point() :: %{String.t() => any()}
+  @type workload_insights_top_contributors_data_point() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -301,33 +307,33 @@ defmodule AWS.NetworkFlowMonitor do
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -348,35 +354,35 @@ defmodule AWS.NetworkFlowMonitor do
       }
 
   """
-  @type update_scope_input() :: %{String.t() => any()}
+  @type update_scope_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_scope_output() :: %{
-        "scopeArn" => String.t(),
-        "scopeId" => String.t(),
+        "scopeArn" => String.t() | atom(),
+        "scopeId" => String.t() | atom(),
         "status" => list(any()),
         "tags" => map()
       }
 
   """
-  @type create_scope_output() :: %{String.t() => any()}
+  @type create_scope_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       traversed_component() :: %{
-        "componentArn" => String.t(),
-        "componentId" => String.t(),
-        "componentType" => String.t(),
-        "serviceName" => [String.t()]
+        "componentArn" => String.t() | atom(),
+        "componentId" => String.t() | atom(),
+        "componentType" => String.t() | atom(),
+        "serviceName" => [String.t() | atom()]
       }
 
   """
-  @type traversed_component() :: %{String.t() => any()}
+  @type traversed_component() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -401,11 +407,13 @@ defmodule AWS.NetworkFlowMonitor do
   ## Example:
 
       start_query_workload_insights_top_contributors_output() :: %{
-        "queryId" => [String.t()]
+        "queryId" => [String.t() | atom()]
       }
 
   """
-  @type start_query_workload_insights_top_contributors_output() :: %{String.t() => any()}
+  @type start_query_workload_insights_top_contributors_output() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -416,7 +424,7 @@ defmodule AWS.NetworkFlowMonitor do
       }
 
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -436,18 +444,18 @@ defmodule AWS.NetworkFlowMonitor do
       }
 
   """
-  @type get_query_status_monitor_top_contributors_output() :: %{String.t() => any()}
+  @type get_query_status_monitor_top_contributors_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -467,7 +475,9 @@ defmodule AWS.NetworkFlowMonitor do
       }
 
   """
-  @type get_query_status_workload_insights_top_contributors_output() :: %{String.t() => any()}
+  @type get_query_status_workload_insights_top_contributors_output() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -479,7 +489,7 @@ defmodule AWS.NetworkFlowMonitor do
 
   """
   @type get_query_status_workload_insights_top_contributors_data_output() :: %{
-          String.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -487,54 +497,56 @@ defmodule AWS.NetworkFlowMonitor do
   ## Example:
 
       get_query_results_workload_insights_top_contributors_output() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | atom()],
         "topContributors" => list(workload_insights_top_contributors_row())
       }
 
   """
-  @type get_query_results_workload_insights_top_contributors_output() :: %{String.t() => any()}
+  @type get_query_results_workload_insights_top_contributors_output() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_query_results_monitor_top_contributors_output() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | atom()],
         "topContributors" => list(monitor_top_contributors_row()),
         "unit" => list(any())
       }
 
   """
-  @type get_query_results_monitor_top_contributors_output() :: %{String.t() => any()}
+  @type get_query_results_monitor_top_contributors_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_monitor_input() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("localResourcesToAdd") => list(monitor_local_resource()),
         optional("localResourcesToRemove") => list(monitor_local_resource()),
         optional("remoteResourcesToAdd") => list(monitor_remote_resource()),
@@ -542,7 +554,7 @@ defmodule AWS.NetworkFlowMonitor do
       }
 
   """
-  @type update_monitor_input() :: %{String.t() => any()}
+  @type update_monitor_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -557,46 +569,46 @@ defmodule AWS.NetworkFlowMonitor do
       }
 
   """
-  @type start_query_monitor_top_contributors_input() :: %{String.t() => any()}
+  @type start_query_monitor_top_contributors_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_scope_input() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("tags") => map(),
         required("targets") => list(target_resource())
       }
 
   """
-  @type create_scope_input() :: %{String.t() => any()}
+  @type create_scope_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_scope_output() :: %{
-        "scopeArn" => String.t(),
-        "scopeId" => String.t(),
+        "scopeArn" => String.t() | atom(),
+        "scopeId" => String.t() | atom(),
         "status" => list(any()),
         "tags" => map(),
         "targets" => list(target_resource())
       }
 
   """
-  @type get_scope_output() :: %{String.t() => any()}
+  @type get_scope_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -621,11 +633,11 @@ defmodule AWS.NetworkFlowMonitor do
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -650,16 +662,16 @@ defmodule AWS.NetworkFlowMonitor do
   ## Example:
 
       kubernetes_metadata() :: %{
-        "localPodName" => [String.t()],
-        "localPodNamespace" => [String.t()],
-        "localServiceName" => [String.t()],
-        "remotePodName" => [String.t()],
-        "remotePodNamespace" => [String.t()],
-        "remoteServiceName" => [String.t()]
+        "localPodName" => [String.t() | atom()],
+        "localPodNamespace" => [String.t() | atom()],
+        "localServiceName" => [String.t() | atom()],
+        "remotePodName" => [String.t() | atom()],
+        "remotePodNamespace" => [String.t() | atom()],
+        "remoteServiceName" => [String.t() | atom()]
       }
 
   """
-  @type kubernetes_metadata() :: %{String.t() => any()}
+  @type kubernetes_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -673,21 +685,23 @@ defmodule AWS.NetworkFlowMonitor do
       }
 
   """
-  @type start_query_workload_insights_top_contributors_data_input() :: %{String.t() => any()}
+  @type start_query_workload_insights_top_contributors_data_input() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       update_scope_output() :: %{
-        "scopeArn" => String.t(),
-        "scopeId" => String.t(),
+        "scopeArn" => String.t() | atom(),
+        "scopeId" => String.t() | atom(),
         "status" => list(any()),
         "tags" => map()
       }
 
   """
-  @type update_scope_output() :: %{String.t() => any()}
+  @type update_scope_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -697,15 +711,15 @@ defmodule AWS.NetworkFlowMonitor do
         "createdAt" => non_neg_integer(),
         "localResources" => list(monitor_local_resource()),
         "modifiedAt" => non_neg_integer(),
-        "monitorArn" => String.t(),
-        "monitorName" => String.t(),
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
         "monitorStatus" => list(any()),
         "remoteResources" => list(monitor_remote_resource()),
         "tags" => map()
       }
 
   """
-  @type create_monitor_output() :: %{String.t() => any()}
+  @type create_monitor_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -713,11 +727,11 @@ defmodule AWS.NetworkFlowMonitor do
 
       get_query_results_monitor_top_contributors_input() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type get_query_results_monitor_top_contributors_input() :: %{String.t() => any()}
+  @type get_query_results_monitor_top_contributors_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -733,12 +747,12 @@ defmodule AWS.NetworkFlowMonitor do
   ## Example:
 
       list_scopes_output() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | atom()],
         "scopes" => list(scope_summary())
       }
 
   """
-  @type list_scopes_output() :: %{String.t() => any()}
+  @type list_scopes_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -755,60 +769,60 @@ defmodule AWS.NetworkFlowMonitor do
 
       monitor_top_contributors_row() :: %{
         "destinationCategory" => list(any()),
-        "dnatIp" => [String.t()],
+        "dnatIp" => [String.t() | atom()],
         "kubernetesMetadata" => kubernetes_metadata(),
-        "localAz" => String.t(),
-        "localInstanceArn" => String.t(),
-        "localInstanceId" => String.t(),
-        "localIp" => [String.t()],
-        "localRegion" => String.t(),
-        "localSubnetArn" => String.t(),
-        "localSubnetId" => String.t(),
-        "localVpcArn" => String.t(),
-        "localVpcId" => String.t(),
-        "remoteAz" => String.t(),
-        "remoteInstanceArn" => String.t(),
-        "remoteInstanceId" => String.t(),
-        "remoteIp" => [String.t()],
-        "remoteRegion" => String.t(),
-        "remoteSubnetArn" => String.t(),
-        "remoteSubnetId" => String.t(),
-        "remoteVpcArn" => String.t(),
-        "remoteVpcId" => String.t(),
-        "snatIp" => [String.t()],
+        "localAz" => String.t() | atom(),
+        "localInstanceArn" => String.t() | atom(),
+        "localInstanceId" => String.t() | atom(),
+        "localIp" => [String.t() | atom()],
+        "localRegion" => String.t() | atom(),
+        "localSubnetArn" => String.t() | atom(),
+        "localSubnetId" => String.t() | atom(),
+        "localVpcArn" => String.t() | atom(),
+        "localVpcId" => String.t() | atom(),
+        "remoteAz" => String.t() | atom(),
+        "remoteInstanceArn" => String.t() | atom(),
+        "remoteInstanceId" => String.t() | atom(),
+        "remoteIp" => [String.t() | atom()],
+        "remoteRegion" => String.t() | atom(),
+        "remoteSubnetArn" => String.t() | atom(),
+        "remoteSubnetId" => String.t() | atom(),
+        "remoteVpcArn" => String.t() | atom(),
+        "remoteVpcId" => String.t() | atom(),
+        "snatIp" => [String.t() | atom()],
         "targetPort" => [integer()],
         "traversedConstructs" => list(traversed_component()),
         "value" => [float()]
       }
 
   """
-  @type monitor_top_contributors_row() :: %{String.t() => any()}
+  @type monitor_top_contributors_row() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       scope_summary() :: %{
-        "scopeArn" => String.t(),
-        "scopeId" => String.t(),
+        "scopeArn" => String.t() | atom(),
+        "scopeId" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type scope_summary() :: %{String.t() => any()}
+  @type scope_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       monitor_summary() :: %{
-        "monitorArn" => String.t(),
-        "monitorName" => String.t(),
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
         "monitorStatus" => list(any())
       }
 
   """
-  @type monitor_summary() :: %{String.t() => any()}
+  @type monitor_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -827,31 +841,31 @@ defmodule AWS.NetworkFlowMonitor do
         "createdAt" => non_neg_integer(),
         "localResources" => list(monitor_local_resource()),
         "modifiedAt" => non_neg_integer(),
-        "monitorArn" => String.t(),
-        "monitorName" => String.t(),
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
         "monitorStatus" => list(any()),
         "remoteResources" => list(monitor_remote_resource()),
         "tags" => map()
       }
 
   """
-  @type update_monitor_output() :: %{String.t() => any()}
+  @type update_monitor_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_monitor_input() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | atom(),
         optional("remoteResources") => list(monitor_remote_resource()),
         optional("tags") => map(),
         required("localResources") => list(monitor_local_resource()),
-        required("monitorName") => String.t(),
-        required("scopeArn") => String.t()
+        required("monitorName") => String.t() | atom(),
+        required("scopeArn") => String.t() | atom()
       }
 
   """
-  @type create_monitor_input() :: %{String.t() => any()}
+  @type create_monitor_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1141,7 +1155,7 @@ defmodule AWS.NetworkFlowMonitor do
   @doc """
   Deletes a monitor in Network Flow Monitor.
   """
-  @spec delete_monitor(map(), String.t(), delete_monitor_input(), list()) ::
+  @spec delete_monitor(map(), String.t() | atom(), delete_monitor_input(), list()) ::
           {:ok, delete_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1170,7 +1184,7 @@ defmodule AWS.NetworkFlowMonitor do
   @doc """
   Deletes a scope that has been defined.
   """
-  @spec delete_scope(map(), String.t(), delete_scope_input(), list()) ::
+  @spec delete_scope(map(), String.t() | atom(), delete_scope_input(), list()) ::
           {:ok, delete_scope_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1203,7 +1217,7 @@ defmodule AWS.NetworkFlowMonitor do
   The information returned includes the Amazon Resource Name (ARN), create time,
   modified time, resources included in the monitor, and status information.
   """
-  @spec get_monitor(map(), String.t(), list()) ::
+  @spec get_monitor(map(), String.t() | atom(), list()) ::
           {:ok, get_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1236,10 +1250,10 @@ defmodule AWS.NetworkFlowMonitor do
   """
   @spec get_query_results_monitor_top_contributors(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_query_results_monitor_top_contributors_output(), any()}
@@ -1301,10 +1315,10 @@ defmodule AWS.NetworkFlowMonitor do
   """
   @spec get_query_results_workload_insights_top_contributors(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_query_results_workload_insights_top_contributors_output(), any()}
@@ -1369,10 +1383,10 @@ defmodule AWS.NetworkFlowMonitor do
   """
   @spec get_query_results_workload_insights_top_contributors_data(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_query_results_workload_insights_top_contributors_data_output(), any()}
@@ -1426,7 +1440,12 @@ defmodule AWS.NetworkFlowMonitor do
   When you run a query, use this call to check the status of the query to make
   sure that the query has `SUCCEEDED` before you review the results.
   """
-  @spec get_query_status_monitor_top_contributors(map(), String.t(), String.t(), list()) ::
+  @spec get_query_status_monitor_top_contributors(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_query_status_monitor_top_contributors_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1465,7 +1484,12 @@ defmodule AWS.NetworkFlowMonitor do
   insights, for a given scope, or for a specific monitor. Use the applicable call
   for the top contributors that you want to be returned.
   """
-  @spec get_query_status_workload_insights_top_contributors(map(), String.t(), String.t(), list()) ::
+  @spec get_query_status_workload_insights_top_contributors(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_query_status_workload_insights_top_contributors_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1509,8 +1533,8 @@ defmodule AWS.NetworkFlowMonitor do
   """
   @spec get_query_status_workload_insights_top_contributors_data(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list()
         ) ::
           {:ok, get_query_status_workload_insights_top_contributors_data_output(), any()}
@@ -1540,7 +1564,7 @@ defmodule AWS.NetworkFlowMonitor do
 
   The scope in Network Flow Monitor is an account.
   """
-  @spec get_scope(map(), String.t(), list()) ::
+  @spec get_scope(map(), String.t() | atom(), list()) ::
           {:ok, get_scope_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1561,7 +1585,13 @@ defmodule AWS.NetworkFlowMonitor do
   Optionally, you can list only monitors that have a specific status, by using the
   `STATUS` parameter.
   """
-  @spec list_monitors(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_monitors(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_monitors_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1606,7 +1636,7 @@ defmodule AWS.NetworkFlowMonitor do
   @doc """
   List all the scopes for an account.
   """
-  @spec list_scopes(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_scopes(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_scopes_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1638,7 +1668,7 @@ defmodule AWS.NetworkFlowMonitor do
   @doc """
   Returns all the tags for a resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1670,7 +1700,7 @@ defmodule AWS.NetworkFlowMonitor do
   """
   @spec start_query_monitor_top_contributors(
           map(),
-          String.t(),
+          String.t() | atom(),
           start_query_monitor_top_contributors_input(),
           list()
         ) ::
@@ -1717,7 +1747,7 @@ defmodule AWS.NetworkFlowMonitor do
   """
   @spec start_query_workload_insights_top_contributors(
           map(),
-          String.t(),
+          String.t() | atom(),
           start_query_workload_insights_top_contributors_input(),
           list()
         ) ::
@@ -1769,7 +1799,7 @@ defmodule AWS.NetworkFlowMonitor do
   """
   @spec start_query_workload_insights_top_contributors_data(
           map(),
-          String.t(),
+          String.t() | atom(),
           start_query_workload_insights_top_contributors_data_input(),
           list()
         ) ::
@@ -1816,8 +1846,8 @@ defmodule AWS.NetworkFlowMonitor do
   """
   @spec stop_query_monitor_top_contributors(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           stop_query_monitor_top_contributors_input(),
           list()
         ) ::
@@ -1866,8 +1896,8 @@ defmodule AWS.NetworkFlowMonitor do
   """
   @spec stop_query_workload_insights_top_contributors(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           stop_query_workload_insights_top_contributors_input(),
           list()
         ) ::
@@ -1916,8 +1946,8 @@ defmodule AWS.NetworkFlowMonitor do
   """
   @spec stop_query_workload_insights_top_contributors_data(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           stop_query_workload_insights_top_contributors_data_input(),
           list()
         ) ::
@@ -1957,7 +1987,7 @@ defmodule AWS.NetworkFlowMonitor do
   @doc """
   Adds a tag to a resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1986,7 +2016,7 @@ defmodule AWS.NetworkFlowMonitor do
   @doc """
   Removes a tag from a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2020,7 +2050,7 @@ defmodule AWS.NetworkFlowMonitor do
   @doc """
   Update a monitor to add or remove local or remote resources.
   """
-  @spec update_monitor(map(), String.t(), update_monitor_input(), list()) ::
+  @spec update_monitor(map(), String.t() | atom(), update_monitor_input(), list()) ::
           {:ok, update_monitor_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2051,7 +2081,7 @@ defmodule AWS.NetworkFlowMonitor do
   Network Flow Monitor to generate metrics for, when you have active agents on
   those resources sending metrics reports to the Network Flow Monitor backend.
   """
-  @spec update_scope(map(), String.t(), update_scope_input(), list()) ::
+  @spec update_scope(map(), String.t() | atom(), update_scope_input(), list()) ::
           {:ok, update_scope_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

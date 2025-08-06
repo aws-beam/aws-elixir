@@ -35,13 +35,13 @@ defmodule AWS.ControlCatalog do
   ## Example:
 
       control_mapping() :: %{
-        "ControlArn" => String.t(),
+        "ControlArn" => String.t() | atom(),
         "Mapping" => list(),
         "MappingType" => list(any())
       }
 
   """
-  @type control_mapping() :: %{String.t() => any()}
+  @type control_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -52,7 +52,7 @@ defmodule AWS.ControlCatalog do
       }
 
   """
-  @type common_control_filter() :: %{String.t() => any()}
+  @type common_control_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -60,78 +60,78 @@ defmodule AWS.ControlCatalog do
 
       list_control_mappings_response() :: %{
         "ControlMappings" => list(control_mapping()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_control_mappings_response() :: %{String.t() => any()}
+  @type list_control_mappings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreateTime" => [non_neg_integer()],
-        "Description" => [String.t()],
+        "Description" => [String.t() | atom()],
         "LastUpdateTime" => [non_neg_integer()],
-        "Name" => [String.t()]
+        "Name" => [String.t() | atom()]
       }
 
   """
-  @type domain_summary() :: %{String.t() => any()}
+  @type domain_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_objectives_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Objectives" => list(objective_summary())
       }
 
   """
-  @type list_objectives_response() :: %{String.t() => any()}
+  @type list_objectives_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_control_request() :: %{
-        required("ControlArn") => String.t()
+        required("ControlArn") => String.t() | atom()
       }
 
   """
-  @type get_control_request() :: %{String.t() => any()}
+  @type get_control_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       objective_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreateTime" => [non_neg_integer()],
-        "Description" => [String.t()],
+        "Description" => [String.t() | atom()],
         "Domain" => associated_domain_summary(),
         "LastUpdateTime" => [non_neg_integer()],
-        "Name" => [String.t()]
+        "Name" => [String.t() | atom()]
       }
 
   """
-  @type objective_summary() :: %{String.t() => any()}
+  @type objective_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       control_mapping_filter() :: %{
-        "CommonControlArns" => list(String.t()),
-        "ControlArns" => list(String.t()),
+        "CommonControlArns" => list(String.t() | atom()),
+        "ControlArns" => list(String.t() | atom()),
         "MappingTypes" => list(list(any())())
       }
 
   """
-  @type control_mapping_filter() :: %{String.t() => any()}
+  @type control_mapping_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -139,22 +139,22 @@ defmodule AWS.ControlCatalog do
 
       list_controls_response() :: %{
         "Controls" => list(control_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_controls_response() :: %{String.t() => any()}
+  @type list_controls_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -163,11 +163,11 @@ defmodule AWS.ControlCatalog do
       list_control_mappings_request() :: %{
         optional("Filter") => control_mapping_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_control_mappings_request() :: %{String.t() => any()}
+  @type list_control_mappings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -175,22 +175,22 @@ defmodule AWS.ControlCatalog do
 
       list_domains_response() :: %{
         "Domains" => list(domain_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_domains_response() :: %{String.t() => any()}
+  @type list_domains_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       objective_resource_filter() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | atom()
       }
 
   """
-  @type objective_resource_filter() :: %{String.t() => any()}
+  @type objective_resource_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -199,42 +199,42 @@ defmodule AWS.ControlCatalog do
       list_controls_request() :: %{
         optional("Filter") => control_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_controls_request() :: %{String.t() => any()}
+  @type list_controls_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       control_summary() :: %{
-        "Aliases" => list(String.t()),
-        "Arn" => String.t(),
+        "Aliases" => list(String.t() | atom()),
+        "Arn" => String.t() | atom(),
         "Behavior" => list(any()),
         "CreateTime" => [non_neg_integer()],
-        "Description" => [String.t()],
-        "GovernedResources" => list(String.t()),
+        "Description" => [String.t() | atom()],
+        "GovernedResources" => list(String.t() | atom()),
         "Implementation" => implementation_summary(),
-        "Name" => [String.t()],
+        "Name" => [String.t() | atom()],
         "Severity" => list(any())
       }
 
   """
-  @type control_summary() :: %{String.t() => any()}
+  @type control_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       implementation_details() :: %{
-        "Identifier" => String.t(),
-        "Type" => String.t()
+        "Identifier" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type implementation_details() :: %{String.t() => any()}
+  @type implementation_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -242,11 +242,11 @@ defmodule AWS.ControlCatalog do
 
       list_common_controls_response() :: %{
         "CommonControls" => list(common_control_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_common_controls_response() :: %{String.t() => any()}
+  @type list_common_controls_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -254,57 +254,57 @@ defmodule AWS.ControlCatalog do
 
       list_domains_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_domains_request() :: %{String.t() => any()}
+  @type list_domains_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       region_configuration() :: %{
-        "DeployableRegions" => list(String.t()),
+        "DeployableRegions" => list(String.t() | atom()),
         "Scope" => list(any())
       }
 
   """
-  @type region_configuration() :: %{String.t() => any()}
+  @type region_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associated_domain_summary() :: %{
-        "Arn" => String.t(),
-        "Name" => [String.t()]
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()]
       }
 
   """
-  @type associated_domain_summary() :: %{String.t() => any()}
+  @type associated_domain_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -312,12 +312,12 @@ defmodule AWS.ControlCatalog do
 
       list_objectives_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("ObjectiveFilter") => objective_filter()
       }
 
   """
-  @type list_objectives_request() :: %{String.t() => any()}
+  @type list_objectives_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -328,65 +328,65 @@ defmodule AWS.ControlCatalog do
       }
 
   """
-  @type objective_filter() :: %{String.t() => any()}
+  @type objective_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       framework_mapping_details() :: %{
-        "Item" => String.t(),
-        "Name" => String.t()
+        "Item" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type framework_mapping_details() :: %{String.t() => any()}
+  @type framework_mapping_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => [String.t()]
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associated_objective_summary() :: %{
-        "Arn" => String.t(),
-        "Name" => [String.t()]
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()]
       }
 
   """
-  @type associated_objective_summary() :: %{String.t() => any()}
+  @type associated_objective_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       implementation_filter() :: %{
-        "Identifiers" => list(String.t()),
-        "Types" => list(String.t())
+        "Identifiers" => list(String.t() | atom()),
+        "Types" => list(String.t() | atom())
       }
 
   """
-  @type implementation_filter() :: %{String.t() => any()}
+  @type implementation_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -397,90 +397,90 @@ defmodule AWS.ControlCatalog do
       }
 
   """
-  @type control_filter() :: %{String.t() => any()}
+  @type control_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_control_response() :: %{
-        "Aliases" => list(String.t()),
-        "Arn" => String.t(),
+        "Aliases" => list(String.t() | atom()),
+        "Arn" => String.t() | atom(),
         "Behavior" => list(any()),
         "CreateTime" => [non_neg_integer()],
-        "Description" => [String.t()],
-        "GovernedResources" => list(String.t()),
+        "Description" => [String.t() | atom()],
+        "GovernedResources" => list(String.t() | atom()),
         "Implementation" => implementation_details(),
-        "Name" => [String.t()],
+        "Name" => [String.t() | atom()],
         "Parameters" => list(control_parameter()),
         "RegionConfiguration" => region_configuration(),
         "Severity" => list(any())
       }
 
   """
-  @type get_control_response() :: %{String.t() => any()}
+  @type get_control_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       common_control_mapping_details() :: %{
-        "CommonControlArn" => String.t()
+        "CommonControlArn" => String.t() | atom()
       }
 
   """
-  @type common_control_mapping_details() :: %{String.t() => any()}
+  @type common_control_mapping_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       implementation_summary() :: %{
-        "Identifier" => String.t(),
-        "Type" => String.t()
+        "Identifier" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type implementation_summary() :: %{String.t() => any()}
+  @type implementation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       control_parameter() :: %{
-        "Name" => [String.t()]
+        "Name" => [String.t() | atom()]
       }
 
   """
-  @type control_parameter() :: %{String.t() => any()}
+  @type control_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       common_control_summary() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreateTime" => [non_neg_integer()],
-        "Description" => [String.t()],
+        "Description" => [String.t() | atom()],
         "Domain" => associated_domain_summary(),
         "LastUpdateTime" => [non_neg_integer()],
-        "Name" => [String.t()],
+        "Name" => [String.t() | atom()],
         "Objective" => associated_objective_summary()
       }
 
   """
-  @type common_control_summary() :: %{String.t() => any()}
+  @type common_control_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       domain_resource_filter() :: %{
-        "Arn" => String.t()
+        "Arn" => String.t() | atom()
       }
 
   """
-  @type domain_resource_filter() :: %{String.t() => any()}
+  @type domain_resource_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -489,11 +489,11 @@ defmodule AWS.ControlCatalog do
       list_common_controls_request() :: %{
         optional("CommonControlFilter") => common_control_filter(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_common_controls_request() :: %{String.t() => any()}
+  @type list_common_controls_request() :: %{(String.t() | atom()) => any()}
 
   @type get_control_errors() ::
           throttling_exception()

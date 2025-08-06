@@ -25,11 +25,11 @@ defmodule AWS.ServiceCatalog do
       list_tag_options_input() :: %{
         optional("Filters") => list_tag_options_filters(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t()
+        optional("PageToken") => String.t() | atom()
       }
       
   """
-  @type list_tag_options_input() :: %{String.t() => any()}
+  @type list_tag_options_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -42,33 +42,33 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type create_provisioning_artifact_output() :: %{String.t() => any()}
+  @type create_provisioning_artifact_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       copy_product_output() :: %{
-        "CopyProductToken" => String.t()
+        "CopyProductToken" => String.t() | atom()
       }
       
   """
-  @type copy_product_output() :: %{String.t() => any()}
+  @type copy_product_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_provisioned_product_plans_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("AccessLevelFilter") => access_level_filter(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        optional("ProvisionProductId") => String.t()
+        optional("PageToken") => String.t() | atom(),
+        optional("ProvisionProductId") => String.t() | atom()
       }
       
   """
-  @type list_provisioned_product_plans_input() :: %{String.t() => any()}
+  @type list_provisioned_product_plans_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -93,17 +93,17 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       copy_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("CopyOptions") => list(list(any())()),
         optional("SourceProvisioningArtifactIdentifiers") => list(map()),
-        optional("TargetProductId") => String.t(),
-        optional("TargetProductName") => String.t(),
-        required("IdempotencyToken") => String.t(),
-        required("SourceProductArn") => String.t()
+        optional("TargetProductId") => String.t() | atom(),
+        optional("TargetProductName") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("SourceProductArn") => String.t() | atom()
       }
       
   """
-  @type copy_product_input() :: %{String.t() => any()}
+  @type copy_product_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -119,25 +119,25 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       delete_constraint_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type delete_constraint_input() :: %{String.t() => any()}
+  @type delete_constraint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       accept_portfolio_share_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("PortfolioShareType") => list(any()),
-        required("PortfolioId") => String.t()
+        required("PortfolioId") => String.t() | atom()
       }
       
   """
-  @type accept_portfolio_share_input() :: %{String.t() => any()}
+  @type accept_portfolio_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -153,42 +153,44 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_provisioning_artifacts_for_service_action_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "ProvisioningArtifactViews" => list(provisioning_artifact_view())
       }
       
   """
-  @type list_provisioning_artifacts_for_service_action_output() :: %{String.t() => any()}
+  @type list_provisioning_artifacts_for_service_action_output() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       list_accepted_portfolio_shares_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
+        optional("PageToken") => String.t() | atom(),
         optional("PortfolioShareType") => list(any())
       }
       
   """
-  @type list_accepted_portfolio_shares_input() :: %{String.t() => any()}
+  @type list_accepted_portfolio_shares_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_portfolio_share_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("AccountId") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("AccountId") => String.t() | atom(),
         optional("OrganizationNode") => organization_node(),
         optional("SharePrincipals") => boolean(),
         optional("ShareTagOptions") => boolean(),
-        required("PortfolioId") => String.t()
+        required("PortfolioId") => String.t() | atom()
       }
       
   """
-  @type update_portfolio_share_input() :: %{String.t() => any()}
+  @type update_portfolio_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -204,30 +206,32 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_constraints_for_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        optional("ProductId") => String.t(),
-        required("PortfolioId") => String.t()
+        optional("PageToken") => String.t() | atom(),
+        optional("ProductId") => String.t() | atom(),
+        required("PortfolioId") => String.t() | atom()
       }
       
   """
-  @type list_constraints_for_portfolio_input() :: %{String.t() => any()}
+  @type list_constraints_for_portfolio_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_service_action_with_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("IdempotencyToken") => String.t(),
-        required("ProductId") => String.t(),
-        required("ProvisioningArtifactId") => String.t(),
-        required("ServiceActionId") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("IdempotencyToken") => String.t() | atom(),
+        required("ProductId") => String.t() | atom(),
+        required("ProvisioningArtifactId") => String.t() | atom(),
+        required("ServiceActionId") => String.t() | atom()
       }
       
   """
-  @type associate_service_action_with_provisioning_artifact_input() :: %{String.t() => any()}
+  @type associate_service_action_with_provisioning_artifact_input() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -235,84 +239,84 @@ defmodule AWS.ServiceCatalog do
       
       describe_constraint_output() :: %{
         "ConstraintDetail" => constraint_detail(),
-        "ConstraintParameters" => String.t(),
+        "ConstraintParameters" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type describe_constraint_output() :: %{String.t() => any()}
+  @type describe_constraint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_portfolio_share_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("AccountId") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("AccountId") => String.t() | atom(),
         optional("OrganizationNode") => organization_node(),
-        required("PortfolioId") => String.t()
+        required("PortfolioId") => String.t() | atom()
       }
       
   """
-  @type delete_portfolio_share_input() :: %{String.t() => any()}
+  @type delete_portfolio_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       parameter_constraints() :: %{
-        "AllowedPattern" => String.t(),
-        "AllowedValues" => list(String.t()),
-        "ConstraintDescription" => String.t(),
-        "MaxLength" => String.t(),
-        "MaxValue" => String.t(),
-        "MinLength" => String.t(),
-        "MinValue" => String.t()
+        "AllowedPattern" => String.t() | atom(),
+        "AllowedValues" => list(String.t() | atom()),
+        "ConstraintDescription" => String.t() | atom(),
+        "MaxLength" => String.t() | atom(),
+        "MaxValue" => String.t() | atom(),
+        "MinLength" => String.t() | atom(),
+        "MinValue" => String.t() | atom()
       }
       
   """
-  @type parameter_constraints() :: %{String.t() => any()}
+  @type parameter_constraints() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_provisioning_parameters_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("PathId") => String.t(),
-        optional("PathName") => String.t(),
-        optional("ProductId") => String.t(),
-        optional("ProductName") => String.t(),
-        optional("ProvisioningArtifactId") => String.t(),
-        optional("ProvisioningArtifactName") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PathId") => String.t() | atom(),
+        optional("PathName") => String.t() | atom(),
+        optional("ProductId") => String.t() | atom(),
+        optional("ProductName") => String.t() | atom(),
+        optional("ProvisioningArtifactId") => String.t() | atom(),
+        optional("ProvisioningArtifactName") => String.t() | atom()
       }
       
   """
-  @type describe_provisioning_parameters_input() :: %{String.t() => any()}
+  @type describe_provisioning_parameters_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioned_product_detail() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Id" => String.t(),
-        "IdempotencyToken" => String.t(),
-        "LastProvisioningRecordId" => String.t(),
-        "LastRecordId" => String.t(),
-        "LastSuccessfulProvisioningRecordId" => String.t(),
-        "LaunchRoleArn" => String.t(),
-        "Name" => String.t(),
-        "ProductId" => String.t(),
-        "ProvisioningArtifactId" => String.t(),
+        "Id" => String.t() | atom(),
+        "IdempotencyToken" => String.t() | atom(),
+        "LastProvisioningRecordId" => String.t() | atom(),
+        "LastRecordId" => String.t() | atom(),
+        "LastSuccessfulProvisioningRecordId" => String.t() | atom(),
+        "LaunchRoleArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ProductId" => String.t() | atom(),
+        "ProvisioningArtifactId" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
-        "Type" => String.t()
+        "StatusMessage" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type provisioned_product_detail() :: %{String.t() => any()}
+  @type provisioned_product_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -326,34 +330,34 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_product_output() :: %{String.t() => any()}
+  @type describe_product_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_provisioned_product_outputs_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "Outputs" => list(record_output())
       }
       
   """
-  @type get_provisioned_product_outputs_output() :: %{String.t() => any()}
+  @type get_provisioned_product_outputs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioning_artifact_properties() :: %{
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "DisableTemplateValidation" => boolean(),
         "Info" => map(),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type provisioning_artifact_properties() :: %{String.t() => any()}
+  @type provisioning_artifact_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -364,18 +368,18 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type engine_workflow_resource_identifier() :: %{String.t() => any()}
+  @type engine_workflow_resource_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_in_use_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -392,7 +396,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_provisioning_parameters_output() :: %{String.t() => any()}
+  @type describe_provisioning_parameters_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -403,7 +407,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type get_aws_organizations_access_status_output() :: %{String.t() => any()}
+  @type get_aws_organizations_access_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -424,21 +428,21 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_product_view_output() :: %{String.t() => any()}
+  @type describe_product_view_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_principals_for_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("PortfolioId") => String.t()
+        optional("PageToken") => String.t() | atom(),
+        required("PortfolioId") => String.t() | atom()
       }
       
   """
-  @type list_principals_for_portfolio_input() :: %{String.t() => any()}
+  @type list_principals_for_portfolio_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -449,22 +453,22 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type execute_provisioned_product_service_action_output() :: %{String.t() => any()}
+  @type execute_provisioned_product_service_action_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_portfolio_access_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("OrganizationParentId") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("OrganizationParentId") => String.t() | atom(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("PortfolioId") => String.t()
+        optional("PageToken") => String.t() | atom(),
+        required("PortfolioId") => String.t() | atom()
       }
       
   """
-  @type list_portfolio_access_input() :: %{String.t() => any()}
+  @type list_portfolio_access_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -475,7 +479,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type execute_provisioned_product_plan_output() :: %{String.t() => any()}
+  @type execute_provisioned_product_plan_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -492,26 +496,26 @@ defmodule AWS.ServiceCatalog do
       
       create_constraint_output() :: %{
         "ConstraintDetail" => constraint_detail(),
-        "ConstraintParameters" => String.t(),
+        "ConstraintParameters" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type create_constraint_output() :: %{String.t() => any()}
+  @type create_constraint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_product_with_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("SourcePortfolioId") => String.t(),
-        required("PortfolioId") => String.t(),
-        required("ProductId") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("SourcePortfolioId") => String.t() | atom(),
+        required("PortfolioId") => String.t() | atom(),
+        required("ProductId") => String.t() | atom()
       }
       
   """
-  @type associate_product_with_portfolio_input() :: %{String.t() => any()}
+  @type associate_product_with_portfolio_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -519,11 +523,11 @@ defmodule AWS.ServiceCatalog do
       
       share_details() :: %{
         "ShareErrors" => list(share_error()),
-        "SuccessfulShares" => list(String.t())
+        "SuccessfulShares" => list(String.t() | atom())
       }
       
   """
-  @type share_details() :: %{String.t() => any()}
+  @type share_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -531,26 +535,28 @@ defmodule AWS.ServiceCatalog do
       
       resource_target_definition() :: %{
         "Attribute" => list(any()),
-        "Name" => String.t(),
+        "Name" => String.t() | atom(),
         "RequiresRecreation" => list(any())
       }
       
   """
-  @type resource_target_definition() :: %{String.t() => any()}
+  @type resource_target_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_provisioning_artifacts_for_service_action_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("ServiceActionId") => String.t()
+        optional("PageToken") => String.t() | atom(),
+        required("ServiceActionId") => String.t() | atom()
       }
       
   """
-  @type list_provisioning_artifacts_for_service_action_input() :: %{String.t() => any()}
+  @type list_provisioning_artifacts_for_service_action_input() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -558,40 +564,40 @@ defmodule AWS.ServiceCatalog do
       
       service_action_summary() :: %{
         "DefinitionType" => list(any()),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type service_action_summary() :: %{String.t() => any()}
+  @type service_action_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_tag_option_input() :: %{
-        required("Id") => String.t()
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type describe_tag_option_input() :: %{String.t() => any()}
+  @type describe_tag_option_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       terminate_provisioned_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("IgnoreErrors") => boolean(),
-        optional("ProvisionedProductId") => String.t(),
-        optional("ProvisionedProductName") => String.t(),
+        optional("ProvisionedProductId") => String.t() | atom(),
+        optional("ProvisionedProductName") => String.t() | atom(),
         optional("RetainPhysicalResources") => boolean(),
-        required("TerminateToken") => String.t()
+        required("TerminateToken") => String.t() | atom()
       }
       
   """
-  @type terminate_provisioned_product_input() :: %{String.t() => any()}
+  @type terminate_provisioned_product_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -605,31 +611,31 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_portfolio_output() :: %{String.t() => any()}
+  @type describe_portfolio_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_organization_portfolio_access_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "OrganizationNodes" => list(organization_node())
       }
       
   """
-  @type list_organization_portfolio_access_output() :: %{String.t() => any()}
+  @type list_organization_portfolio_access_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       search_products_as_admin_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "ProductViewDetails" => list(product_view_detail())
       }
       
   """
-  @type search_products_as_admin_output() :: %{String.t() => any()}
+  @type search_products_as_admin_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -642,31 +648,31 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type source_connection_detail() :: %{String.t() => any()}
+  @type source_connection_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_record_history_search_filter() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type list_record_history_search_filter() :: %{String.t() => any()}
+  @type list_record_history_search_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       principal() :: %{
-        "PrincipalARN" => String.t(),
+        "PrincipalARN" => String.t() | atom(),
         "PrincipalType" => list(any())
       }
       
   """
-  @type principal() :: %{String.t() => any()}
+  @type principal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -683,48 +689,48 @@ defmodule AWS.ServiceCatalog do
       
       product_view_aggregation_value() :: %{
         "ApproximateCount" => integer(),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type product_view_aggregation_value() :: %{String.t() => any()}
+  @type product_view_aggregation_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_state_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_state_exception() :: %{String.t() => any()}
+  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_service_action_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("IdempotencyToken") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("IdempotencyToken") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type delete_service_action_input() :: %{String.t() => any()}
+  @type delete_service_action_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_disassociate_service_action_from_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         required("ServiceActionAssociations") => list(service_action_association())
       }
       
   """
   @type batch_disassociate_service_action_from_provisioning_artifact_input() :: %{
-          String.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -732,24 +738,24 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       usage_instruction() :: %{
-        "Type" => String.t(),
-        "Value" => String.t()
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type usage_instruction() :: %{String.t() => any()}
+  @type usage_instruction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_service_action_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type describe_service_action_input() :: %{String.t() => any()}
+  @type describe_service_action_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -765,25 +771,25 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       stack_instance() :: %{
-        "Account" => String.t(),
-        "Region" => String.t(),
+        "Account" => String.t() | atom(),
+        "Region" => String.t() | atom(),
         "StackInstanceStatus" => list(any())
       }
       
   """
-  @type stack_instance() :: %{String.t() => any()}
+  @type stack_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type delete_portfolio_input() :: %{String.t() => any()}
+  @type delete_portfolio_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -795,18 +801,18 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type update_portfolio_output() :: %{String.t() => any()}
+  @type update_portfolio_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       budget_detail() :: %{
-        "BudgetName" => String.t()
+        "BudgetName" => String.t() | atom()
       }
       
   """
-  @type budget_detail() :: %{String.t() => any()}
+  @type budget_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -820,19 +826,19 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_provisioning_artifact_output() :: %{String.t() => any()}
+  @type describe_provisioning_artifact_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       unique_tag_resource_identifier() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type unique_tag_resource_identifier() :: %{String.t() => any()}
+  @type unique_tag_resource_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -840,14 +846,14 @@ defmodule AWS.ServiceCatalog do
       
       provisioning_artifact_summary() :: %{
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "ProvisioningArtifactMetadata" => map()
       }
       
   """
-  @type provisioning_artifact_summary() :: %{String.t() => any()}
+  @type provisioning_artifact_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -863,12 +869,12 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_principals_for_portfolio_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "Principals" => list(principal())
       }
       
   """
-  @type list_principals_for_portfolio_output() :: %{String.t() => any()}
+  @type list_principals_for_portfolio_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -879,32 +885,32 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type create_tag_option_output() :: %{String.t() => any()}
+  @type create_tag_option_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_product_view_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type describe_product_view_input() :: %{String.t() => any()}
+  @type describe_product_view_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       batch_associate_service_action_with_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         required("ServiceActionAssociations") => list(service_action_association())
       }
       
   """
   @type batch_associate_service_action_with_provisioning_artifact_input() :: %{
-          String.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -912,12 +918,12 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       constraint_summary() :: %{
-        "Description" => String.t(),
-        "Type" => String.t()
+        "Description" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type constraint_summary() :: %{String.t() => any()}
+  @type constraint_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -929,7 +935,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type source_connection() :: %{String.t() => any()}
+  @type source_connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -940,7 +946,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_tag_option_output() :: %{String.t() => any()}
+  @type describe_tag_option_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -960,7 +966,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type import_as_provisioned_product_output() :: %{String.t() => any()}
+  @type import_as_provisioned_product_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -972,19 +978,19 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type update_product_output() :: %{String.t() => any()}
+  @type update_product_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type describe_portfolio_input() :: %{String.t() => any()}
+  @type describe_portfolio_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1000,16 +1006,16 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       provisioned_product_plan_summary() :: %{
-        "PlanId" => String.t(),
-        "PlanName" => String.t(),
+        "PlanId" => String.t() | atom(),
+        "PlanName" => String.t() | atom(),
         "PlanType" => list(any()),
-        "ProvisionProductId" => String.t(),
-        "ProvisionProductName" => String.t(),
-        "ProvisioningArtifactId" => String.t()
+        "ProvisionProductId" => String.t() | atom(),
+        "ProvisionProductName" => String.t() | atom(),
+        "ProvisioningArtifactId" => String.t() | atom()
       }
       
   """
-  @type provisioned_product_plan_summary() :: %{String.t() => any()}
+  @type provisioned_product_plan_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1017,26 +1023,26 @@ defmodule AWS.ServiceCatalog do
       
       list_tag_options_filters() :: %{
         "Active" => boolean(),
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type list_tag_options_filters() :: %{String.t() => any()}
+  @type list_tag_options_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       code_star_parameters() :: %{
-        "ArtifactPath" => String.t(),
-        "Branch" => String.t(),
-        "ConnectionArn" => String.t(),
-        "Repository" => String.t()
+        "ArtifactPath" => String.t() | atom(),
+        "Branch" => String.t() | atom(),
+        "ConnectionArn" => String.t() | atom(),
+        "Repository" => String.t() | atom()
       }
       
   """
-  @type code_star_parameters() :: %{String.t() => any()}
+  @type code_star_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1052,78 +1058,78 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       service_action_association() :: %{
-        "ProductId" => String.t(),
-        "ProvisioningArtifactId" => String.t(),
-        "ServiceActionId" => String.t()
+        "ProductId" => String.t() | atom(),
+        "ProvisioningArtifactId" => String.t() | atom(),
+        "ServiceActionId" => String.t() | atom()
       }
       
   """
-  @type service_action_association() :: %{String.t() => any()}
+  @type service_action_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       search_provisioned_products_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("AccessLevelFilter") => access_level_filter(),
         optional("Filters") => map(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        optional("SortBy") => String.t(),
+        optional("PageToken") => String.t() | atom(),
+        optional("SortBy") => String.t() | atom(),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type search_provisioned_products_input() :: %{String.t() => any()}
+  @type search_provisioned_products_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_provisioned_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("PathId") => String.t(),
-        optional("PathName") => String.t(),
-        optional("ProductId") => String.t(),
-        optional("ProductName") => String.t(),
-        optional("ProvisionedProductId") => String.t(),
-        optional("ProvisionedProductName") => String.t(),
-        optional("ProvisioningArtifactId") => String.t(),
-        optional("ProvisioningArtifactName") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("PathId") => String.t() | atom(),
+        optional("PathName") => String.t() | atom(),
+        optional("ProductId") => String.t() | atom(),
+        optional("ProductName") => String.t() | atom(),
+        optional("ProvisionedProductId") => String.t() | atom(),
+        optional("ProvisionedProductName") => String.t() | atom(),
+        optional("ProvisioningArtifactId") => String.t() | atom(),
+        optional("ProvisioningArtifactName") => String.t() | atom(),
         optional("ProvisioningParameters") => list(update_provisioning_parameter()),
         optional("ProvisioningPreferences") => update_provisioning_preferences(),
         optional("Tags") => list(tag()),
-        required("UpdateToken") => String.t()
+        required("UpdateToken") => String.t() | atom()
       }
       
   """
-  @type update_provisioned_product_input() :: %{String.t() => any()}
+  @type update_provisioned_product_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_portfolio_share_output() :: %{
-        "PortfolioShareToken" => String.t()
+        "PortfolioShareToken" => String.t() | atom()
       }
       
   """
-  @type create_portfolio_share_output() :: %{String.t() => any()}
+  @type create_portfolio_share_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       scan_provisioned_products_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("AccessLevelFilter") => access_level_filter(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t()
+        optional("PageToken") => String.t() | atom()
       }
       
   """
-  @type scan_provisioned_products_input() :: %{String.t() => any()}
+  @type scan_provisioned_products_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1131,26 +1137,26 @@ defmodule AWS.ServiceCatalog do
       
       product_view_detail() :: %{
         "CreatedTime" => non_neg_integer(),
-        "ProductARN" => String.t(),
+        "ProductARN" => String.t() | atom(),
         "ProductViewSummary" => product_view_summary(),
         "SourceConnection" => source_connection_detail(),
         "Status" => list(any())
       }
       
   """
-  @type product_view_detail() :: %{String.t() => any()}
+  @type product_view_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_accepted_portfolio_shares_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "PortfolioDetails" => list(portfolio_detail())
       }
       
   """
-  @type list_accepted_portfolio_shares_output() :: %{String.t() => any()}
+  @type list_accepted_portfolio_shares_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1159,27 +1165,27 @@ defmodule AWS.ServiceCatalog do
       provisioning_artifact_detail() :: %{
         "Active" => boolean(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "Guidance" => list(any()),
-        "Id" => String.t(),
-        "Name" => String.t(),
-        "SourceRevision" => String.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "SourceRevision" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type provisioning_artifact_detail() :: %{String.t() => any()}
+  @type provisioning_artifact_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1187,11 +1193,11 @@ defmodule AWS.ServiceCatalog do
       
       list_budgets_for_resource_output() :: %{
         "Budgets" => list(budget_detail()),
-        "NextPageToken" => String.t()
+        "NextPageToken" => String.t() | atom()
       }
       
   """
-  @type list_budgets_for_resource_output() :: %{String.t() => any()}
+  @type list_budgets_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1207,13 +1213,13 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       execute_provisioned_product_plan_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("IdempotencyToken") => String.t(),
-        required("PlanId") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("PlanId") => String.t() | atom()
       }
       
   """
-  @type execute_provisioned_product_plan_input() :: %{String.t() => any()}
+  @type execute_provisioned_product_plan_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1221,57 +1227,57 @@ defmodule AWS.ServiceCatalog do
       
       describe_portfolio_shares_input() :: %{
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("PortfolioId") => String.t(),
+        optional("PageToken") => String.t() | atom(),
+        required("PortfolioId") => String.t() | atom(),
         required("Type") => list(any())
       }
       
   """
-  @type describe_portfolio_shares_input() :: %{String.t() => any()}
+  @type describe_portfolio_shares_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       constraint_detail() :: %{
-        "ConstraintId" => String.t(),
-        "Description" => String.t(),
-        "Owner" => String.t(),
-        "PortfolioId" => String.t(),
-        "ProductId" => String.t(),
-        "Type" => String.t()
+        "ConstraintId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "PortfolioId" => String.t() | atom(),
+        "ProductId" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type constraint_detail() :: %{String.t() => any()}
+  @type constraint_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       notify_terminate_provisioned_product_engine_workflow_result_input() :: %{
-        optional("FailureReason") => String.t(),
-        required("IdempotencyToken") => String.t(),
-        required("RecordId") => String.t(),
+        optional("FailureReason") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("RecordId") => String.t() | atom(),
         required("Status") => list(any()),
-        required("WorkflowToken") => String.t()
+        required("WorkflowToken") => String.t() | atom()
       }
       
   """
   @type notify_terminate_provisioned_product_engine_workflow_result_input() :: %{
-          String.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1279,72 +1285,72 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       record_tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type record_tag() :: %{String.t() => any()}
+  @type record_tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_principal_from_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("PrincipalType") => list(any()),
-        required("PortfolioId") => String.t(),
-        required("PrincipalARN") => String.t()
+        required("PortfolioId") => String.t() | atom(),
+        required("PrincipalARN") => String.t() | atom()
       }
       
   """
-  @type disassociate_principal_from_portfolio_input() :: %{String.t() => any()}
+  @type disassociate_principal_from_portfolio_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioned_product_attribute() :: %{
-        "Arn" => String.t(),
+        "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Id" => String.t(),
-        "IdempotencyToken" => String.t(),
-        "LastProvisioningRecordId" => String.t(),
-        "LastRecordId" => String.t(),
-        "LastSuccessfulProvisioningRecordId" => String.t(),
-        "Name" => String.t(),
-        "PhysicalId" => String.t(),
-        "ProductId" => String.t(),
-        "ProductName" => String.t(),
-        "ProvisioningArtifactId" => String.t(),
-        "ProvisioningArtifactName" => String.t(),
+        "Id" => String.t() | atom(),
+        "IdempotencyToken" => String.t() | atom(),
+        "LastProvisioningRecordId" => String.t() | atom(),
+        "LastRecordId" => String.t() | atom(),
+        "LastSuccessfulProvisioningRecordId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PhysicalId" => String.t() | atom(),
+        "ProductId" => String.t() | atom(),
+        "ProductName" => String.t() | atom(),
+        "ProvisioningArtifactId" => String.t() | atom(),
+        "ProvisioningArtifactName" => String.t() | atom(),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | atom(),
         "Tags" => list(tag()),
-        "Type" => String.t(),
-        "UserArn" => String.t(),
-        "UserArnSession" => String.t()
+        "Type" => String.t() | atom(),
+        "UserArn" => String.t() | atom(),
+        "UserArnSession" => String.t() | atom()
       }
       
   """
-  @type provisioned_product_attribute() :: %{String.t() => any()}
+  @type provisioned_product_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_constraint_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("Description") => String.t(),
-        required("IdempotencyToken") => String.t(),
-        required("Parameters") => String.t(),
-        required("PortfolioId") => String.t(),
-        required("ProductId") => String.t(),
-        required("Type") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("Parameters") => String.t() | atom(),
+        required("PortfolioId") => String.t() | atom(),
+        required("ProductId") => String.t() | atom(),
+        required("Type") => String.t() | atom()
       }
       
   """
-  @type create_constraint_input() :: %{String.t() => any()}
+  @type create_constraint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1356,7 +1362,7 @@ defmodule AWS.ServiceCatalog do
       
   """
   @type batch_associate_service_action_with_provisioning_artifact_output() :: %{
-          String.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1369,7 +1375,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type create_portfolio_output() :: %{String.t() => any()}
+  @type create_portfolio_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1377,87 +1383,87 @@ defmodule AWS.ServiceCatalog do
       
       describe_copy_product_status_output() :: %{
         "CopyProductStatus" => list(any()),
-        "StatusDetail" => String.t(),
-        "TargetProductId" => String.t()
+        "StatusDetail" => String.t() | atom(),
+        "TargetProductId" => String.t() | atom()
       }
       
   """
-  @type describe_copy_product_status_output() :: %{String.t() => any()}
+  @type describe_copy_product_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_tag_option_from_resource_input() :: %{
-        required("ResourceId") => String.t(),
-        required("TagOptionId") => String.t()
+        required("ResourceId") => String.t() | atom(),
+        required("TagOptionId") => String.t() | atom()
       }
       
   """
-  @type disassociate_tag_option_from_resource_input() :: %{String.t() => any()}
+  @type disassociate_tag_option_from_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_provisioned_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("Id") => String.t(),
-        optional("Name") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("Id") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
       }
       
   """
-  @type describe_provisioned_product_input() :: %{String.t() => any()}
+  @type describe_provisioned_product_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_portfolios_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t()
+        optional("PageToken") => String.t() | atom()
       }
       
   """
-  @type list_portfolios_input() :: %{String.t() => any()}
+  @type list_portfolios_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       record_error() :: %{
-        "Code" => String.t(),
-        "Description" => String.t()
+        "Code" => String.t() | atom(),
+        "Description" => String.t() | atom()
       }
       
   """
-  @type record_error() :: %{String.t() => any()}
+  @type record_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_portfolios_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "PortfolioDetails" => list(portfolio_detail())
       }
       
   """
-  @type list_portfolios_output() :: %{String.t() => any()}
+  @type list_portfolios_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_record_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "RecordDetail" => record_detail(),
         "RecordOutputs" => list(record_output())
       }
       
   """
-  @type describe_record_output() :: %{String.t() => any()}
+  @type describe_record_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1469,7 +1475,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type provisioning_artifact_view() :: %{String.t() => any()}
+  @type provisioning_artifact_view() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1481,79 +1487,79 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_provisioned_product_output() :: %{String.t() => any()}
+  @type describe_provisioned_product_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("Description") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("DisplayName") => String.t(),
-        required("IdempotencyToken") => String.t(),
-        required("ProviderName") => String.t()
+        required("DisplayName") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("ProviderName") => String.t() | atom()
       }
       
   """
-  @type create_portfolio_input() :: %{String.t() => any()}
+  @type create_portfolio_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_portfolio_share_output() :: %{
-        "PortfolioShareToken" => String.t()
+        "PortfolioShareToken" => String.t() | atom()
       }
       
   """
-  @type delete_portfolio_share_output() :: %{String.t() => any()}
+  @type delete_portfolio_share_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_provisioned_product_plan_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("NotificationArns") => list(String.t()),
-        optional("PathId") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("NotificationArns") => list(String.t() | atom()),
+        optional("PathId") => String.t() | atom(),
         optional("ProvisioningParameters") => list(update_provisioning_parameter()),
         optional("Tags") => list(tag()),
-        required("IdempotencyToken") => String.t(),
-        required("PlanName") => String.t(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("PlanName") => String.t() | atom(),
         required("PlanType") => list(any()),
-        required("ProductId") => String.t(),
-        required("ProvisionedProductName") => String.t(),
-        required("ProvisioningArtifactId") => String.t()
+        required("ProductId") => String.t() | atom(),
+        required("ProvisionedProductName") => String.t() | atom(),
+        required("ProvisioningArtifactId") => String.t() | atom()
       }
       
   """
-  @type create_provisioned_product_plan_input() :: %{String.t() => any()}
+  @type create_provisioned_product_plan_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_tag_option_input() :: %{
-        required("Key") => String.t(),
-        required("Value") => String.t()
+        required("Key") => String.t() | atom(),
+        required("Value") => String.t() | atom()
       }
       
   """
-  @type create_tag_option_input() :: %{String.t() => any()}
+  @type create_tag_option_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_provisioned_product_plans_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "ProvisionedProductPlans" => list(provisioned_product_plan_summary())
       }
       
   """
-  @type list_provisioned_product_plans_output() :: %{String.t() => any()}
+  @type list_provisioned_product_plans_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1561,28 +1567,28 @@ defmodule AWS.ServiceCatalog do
       
       update_tag_option_input() :: %{
         optional("Active") => boolean(),
-        optional("Value") => String.t(),
-        required("Id") => String.t()
+        optional("Value") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type update_tag_option_input() :: %{String.t() => any()}
+  @type update_tag_option_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       portfolio_detail() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "DisplayName" => String.t(),
-        "Id" => String.t(),
-        "ProviderName" => String.t()
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ProviderName" => String.t() | atom()
       }
       
   """
-  @type portfolio_detail() :: %{String.t() => any()}
+  @type portfolio_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1598,12 +1604,14 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_service_actions_for_provisioning_artifact_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "ServiceActionSummaries" => list(service_action_summary())
       }
       
   """
-  @type list_service_actions_for_provisioning_artifact_output() :: %{String.t() => any()}
+  @type list_service_actions_for_provisioning_artifact_output() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1611,27 +1619,27 @@ defmodule AWS.ServiceCatalog do
       
       tag_option_detail() :: %{
         "Active" => boolean(),
-        "Id" => String.t(),
-        "Key" => String.t(),
-        "Owner" => String.t(),
-        "Value" => String.t()
+        "Id" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag_option_detail() :: %{String.t() => any()}
+  @type tag_option_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       share_error() :: %{
-        "Accounts" => list(String.t()),
-        "Error" => String.t(),
-        "Message" => String.t()
+        "Accounts" => list(String.t() | atom()),
+        "Error" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
       
   """
-  @type share_error() :: %{String.t() => any()}
+  @type share_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1639,11 +1647,11 @@ defmodule AWS.ServiceCatalog do
       
       organization_node() :: %{
         "Type" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type organization_node() :: %{String.t() => any()}
+  @type organization_node() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1659,84 +1667,84 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_budgets_for_resource_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("ResourceId") => String.t()
+        optional("PageToken") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom()
       }
       
   """
-  @type list_budgets_for_resource_input() :: %{String.t() => any()}
+  @type list_budgets_for_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_portfolio_shares_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "PortfolioShareDetails" => list(portfolio_share_detail())
       }
       
   """
-  @type describe_portfolio_shares_output() :: %{String.t() => any()}
+  @type describe_portfolio_shares_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       launch_path() :: %{
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type launch_path() :: %{String.t() => any()}
+  @type launch_path() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_parameters_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameters_exception() :: %{String.t() => any()}
+  @type invalid_parameters_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_tag_option_with_resource_input() :: %{
-        required("ResourceId") => String.t(),
-        required("TagOptionId") => String.t()
+        required("ResourceId") => String.t() | atom(),
+        required("TagOptionId") => String.t() | atom()
       }
       
   """
-  @type associate_tag_option_with_resource_input() :: %{String.t() => any()}
+  @type associate_tag_option_with_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       provision_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("NotificationArns") => list(String.t()),
-        optional("PathId") => String.t(),
-        optional("PathName") => String.t(),
-        optional("ProductId") => String.t(),
-        optional("ProductName") => String.t(),
-        optional("ProvisioningArtifactId") => String.t(),
-        optional("ProvisioningArtifactName") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("NotificationArns") => list(String.t() | atom()),
+        optional("PathId") => String.t() | atom(),
+        optional("PathName") => String.t() | atom(),
+        optional("ProductId") => String.t() | atom(),
+        optional("ProductName") => String.t() | atom(),
+        optional("ProvisioningArtifactId") => String.t() | atom(),
+        optional("ProvisioningArtifactName") => String.t() | atom(),
         optional("ProvisioningParameters") => list(provisioning_parameter()),
         optional("ProvisioningPreferences") => provisioning_preferences(),
         optional("Tags") => list(tag()),
-        required("ProvisionToken") => String.t(),
-        required("ProvisionedProductName") => String.t()
+        required("ProvisionToken") => String.t() | atom(),
+        required("ProvisionedProductName") => String.t() | atom()
       }
       
   """
-  @type provision_product_input() :: %{String.t() => any()}
+  @type provision_product_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1744,73 +1752,73 @@ defmodule AWS.ServiceCatalog do
       
       list_launch_paths_output() :: %{
         "LaunchPathSummaries" => list(launch_path_summary()),
-        "NextPageToken" => String.t()
+        "NextPageToken" => String.t() | atom()
       }
       
   """
-  @type list_launch_paths_output() :: %{String.t() => any()}
+  @type list_launch_paths_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_provisioned_product_plan_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "ProvisionedProductPlanDetails" => provisioned_product_plan_details(),
         "ResourceChanges" => list(resource_change())
       }
       
   """
-  @type describe_provisioned_product_plan_output() :: %{String.t() => any()}
+  @type describe_provisioned_product_plan_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_portfolio_share_status_input() :: %{
-        required("PortfolioShareToken") => String.t()
+        required("PortfolioShareToken") => String.t() | atom()
       }
       
   """
-  @type describe_portfolio_share_status_input() :: %{String.t() => any()}
+  @type describe_portfolio_share_status_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_resources_for_tag_option_output() :: %{
-        "PageToken" => String.t(),
+        "PageToken" => String.t() | atom(),
         "ResourceDetails" => list(resource_detail())
       }
       
   """
-  @type list_resources_for_tag_option_output() :: %{String.t() => any()}
+  @type list_resources_for_tag_option_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_product_from_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("PortfolioId") => String.t(),
-        required("ProductId") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("PortfolioId") => String.t() | atom(),
+        required("ProductId") => String.t() | atom()
       }
       
   """
-  @type disassociate_product_from_portfolio_input() :: %{String.t() => any()}
+  @type disassociate_product_from_portfolio_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_provisioned_product_plan_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("IgnoreErrors") => boolean(),
-        required("PlanId") => String.t()
+        required("PlanId") => String.t() | atom()
       }
       
   """
-  @type delete_provisioned_product_plan_input() :: %{String.t() => any()}
+  @type delete_provisioned_product_plan_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1823,22 +1831,22 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type create_product_output() :: %{String.t() => any()}
+  @type create_product_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_service_action_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("Definition") => map(),
-        optional("Description") => String.t(),
-        optional("Name") => String.t(),
-        required("Id") => String.t()
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type update_service_action_input() :: %{String.t() => any()}
+  @type update_service_action_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1850,7 +1858,7 @@ defmodule AWS.ServiceCatalog do
       
   """
   @type batch_disassociate_service_action_from_provisioning_artifact_output() :: %{
-          String.t() => any()
+          (String.t() | atom()) => any()
         }
 
   @typedoc """
@@ -1858,91 +1866,91 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       create_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("Description") => String.t(),
-        optional("Distributor") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Distributor") => String.t() | atom(),
         optional("ProvisioningArtifactParameters") => provisioning_artifact_properties(),
         optional("SourceConnection") => source_connection(),
-        optional("SupportDescription") => String.t(),
-        optional("SupportEmail") => String.t(),
-        optional("SupportUrl") => String.t(),
+        optional("SupportDescription") => String.t() | atom(),
+        optional("SupportEmail") => String.t() | atom(),
+        optional("SupportUrl") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("IdempotencyToken") => String.t(),
-        required("Name") => String.t(),
-        required("Owner") => String.t(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Owner") => String.t() | atom(),
         required("ProductType") => list(any())
       }
       
   """
-  @type create_product_input() :: %{String.t() => any()}
+  @type create_product_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_actions_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t()
+        optional("PageToken") => String.t() | atom()
       }
       
   """
-  @type list_service_actions_input() :: %{String.t() => any()}
+  @type list_service_actions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       import_as_provisioned_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("IdempotencyToken") => String.t(),
-        required("PhysicalId") => String.t(),
-        required("ProductId") => String.t(),
-        required("ProvisionedProductName") => String.t(),
-        required("ProvisioningArtifactId") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("PhysicalId") => String.t() | atom(),
+        required("ProductId") => String.t() | atom(),
+        required("ProvisionedProductName") => String.t() | atom(),
+        required("ProvisioningArtifactId") => String.t() | atom()
       }
       
   """
-  @type import_as_provisioned_product_input() :: %{String.t() => any()}
+  @type import_as_provisioned_product_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_constraint_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type describe_constraint_input() :: %{String.t() => any()}
+  @type describe_constraint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execute_provisioned_product_service_action_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("Parameters") => map(),
-        required("ExecuteToken") => String.t(),
-        required("ProvisionedProductId") => String.t(),
-        required("ServiceActionId") => String.t()
+        required("ExecuteToken") => String.t() | atom(),
+        required("ProvisionedProductId") => String.t() | atom(),
+        required("ServiceActionId") => String.t() | atom()
       }
       
   """
-  @type execute_provisioned_product_service_action_input() :: %{String.t() => any()}
+  @type execute_provisioned_product_service_action_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioning_parameter() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type provisioning_parameter() :: %{String.t() => any()}
+  @type provisioning_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1959,14 +1967,14 @@ defmodule AWS.ServiceCatalog do
       
       failed_service_action_association() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t(),
-        "ProductId" => String.t(),
-        "ProvisioningArtifactId" => String.t(),
-        "ServiceActionId" => String.t()
+        "ErrorMessage" => String.t() | atom(),
+        "ProductId" => String.t() | atom(),
+        "ProvisioningArtifactId" => String.t() | atom(),
+        "ServiceActionId" => String.t() | atom()
       }
       
   """
-  @type failed_service_action_association() :: %{String.t() => any()}
+  @type failed_service_action_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1974,52 +1982,52 @@ defmodule AWS.ServiceCatalog do
       
       portfolio_share_detail() :: %{
         "Accepted" => boolean(),
-        "PrincipalId" => String.t(),
+        "PrincipalId" => String.t() | atom(),
         "SharePrincipals" => boolean(),
         "ShareTagOptions" => boolean(),
         "Type" => list(any())
       }
       
   """
-  @type portfolio_share_detail() :: %{String.t() => any()}
+  @type portfolio_share_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_provisioning_artifacts_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "ProvisioningArtifactDetails" => list(provisioning_artifact_detail())
       }
       
   """
-  @type list_provisioning_artifacts_output() :: %{String.t() => any()}
+  @type list_provisioning_artifacts_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execution_parameter() :: %{
-        "DefaultValues" => list(String.t()),
-        "Name" => String.t(),
-        "Type" => String.t()
+        "DefaultValues" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type execution_parameter() :: %{String.t() => any()}
+  @type execution_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("ProductId") => String.t(),
-        required("ProvisioningArtifactId") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("ProductId") => String.t() | atom(),
+        required("ProvisioningArtifactId") => String.t() | atom()
       }
       
   """
-  @type delete_provisioning_artifact_input() :: %{String.t() => any()}
+  @type delete_provisioning_artifact_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2039,114 +2047,114 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type update_provisioned_product_output() :: %{String.t() => any()}
+  @type update_provisioned_product_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       record_output() :: %{
-        "Description" => String.t(),
-        "OutputKey" => String.t(),
-        "OutputValue" => String.t()
+        "Description" => String.t() | atom(),
+        "OutputKey" => String.t() | atom(),
+        "OutputValue" => String.t() | atom()
       }
       
   """
-  @type record_output() :: %{String.t() => any()}
+  @type record_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_provisioning_preferences() :: %{
-        "StackSetAccounts" => list(String.t()),
+        "StackSetAccounts" => list(String.t() | atom()),
         "StackSetFailureToleranceCount" => integer(),
         "StackSetFailureTolerancePercentage" => integer(),
         "StackSetMaxConcurrencyCount" => integer(),
         "StackSetMaxConcurrencyPercentage" => integer(),
         "StackSetOperationType" => list(any()),
-        "StackSetRegions" => list(String.t())
+        "StackSetRegions" => list(String.t() | atom())
       }
       
   """
-  @type update_provisioning_preferences() :: %{String.t() => any()}
+  @type update_provisioning_preferences() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       product_view_summary() :: %{
-        "Distributor" => String.t(),
+        "Distributor" => String.t() | atom(),
         "HasDefaultPath" => boolean(),
-        "Id" => String.t(),
-        "Name" => String.t(),
-        "Owner" => String.t(),
-        "ProductId" => String.t(),
-        "ShortDescription" => String.t(),
-        "SupportDescription" => String.t(),
-        "SupportEmail" => String.t(),
-        "SupportUrl" => String.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "ProductId" => String.t() | atom(),
+        "ShortDescription" => String.t() | atom(),
+        "SupportDescription" => String.t() | atom(),
+        "SupportEmail" => String.t() | atom(),
+        "SupportUrl" => String.t() | atom(),
         "Type" => list(any())
       }
       
   """
-  @type product_view_summary() :: %{String.t() => any()}
+  @type product_view_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tag_options_output() :: %{
-        "PageToken" => String.t(),
+        "PageToken" => String.t() | atom(),
         "TagOptionDetails" => list(tag_option_detail())
       }
       
   """
-  @type list_tag_options_output() :: %{String.t() => any()}
+  @type list_tag_options_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_provisioned_product_plan_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("PlanId") => String.t()
+        optional("PageToken") => String.t() | atom(),
+        required("PlanId") => String.t() | atom()
       }
       
   """
-  @type describe_provisioned_product_plan_input() :: %{String.t() => any()}
+  @type describe_provisioned_product_plan_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("IdempotencyToken") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
         required("Parameters") => provisioning_artifact_properties(),
-        required("ProductId") => String.t()
+        required("ProductId") => String.t() | atom()
       }
       
   """
-  @type create_provisioning_artifact_input() :: %{String.t() => any()}
+  @type create_provisioning_artifact_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioning_artifact_parameter() :: %{
-        "DefaultValue" => String.t(),
-        "Description" => String.t(),
+        "DefaultValue" => String.t() | atom(),
+        "Description" => String.t() | atom(),
         "IsNoEcho" => boolean(),
         "ParameterConstraints" => parameter_constraints(),
-        "ParameterKey" => String.t(),
-        "ParameterType" => String.t()
+        "ParameterKey" => String.t() | atom(),
+        "ParameterType" => String.t() | atom()
       }
       
   """
-  @type provisioning_artifact_parameter() :: %{String.t() => any()}
+  @type provisioning_artifact_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2162,32 +2170,32 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_launch_paths_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("ProductId") => String.t()
+        optional("PageToken") => String.t() | atom(),
+        required("ProductId") => String.t() | atom()
       }
       
   """
-  @type list_launch_paths_input() :: %{String.t() => any()}
+  @type list_launch_paths_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       search_products_as_admin_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("Filters") => map(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        optional("PortfolioId") => String.t(),
+        optional("PageToken") => String.t() | atom(),
+        optional("PortfolioId") => String.t() | atom(),
         optional("ProductSource") => list(any()),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type search_products_as_admin_input() :: %{String.t() => any()}
+  @type search_products_as_admin_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2200,7 +2208,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type update_provisioning_artifact_output() :: %{String.t() => any()}
+  @type update_provisioning_artifact_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2216,43 +2224,45 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       notify_update_provisioned_product_engine_workflow_result_input() :: %{
-        optional("FailureReason") => String.t(),
+        optional("FailureReason") => String.t() | atom(),
         optional("Outputs") => list(record_output()),
-        required("IdempotencyToken") => String.t(),
-        required("RecordId") => String.t(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("RecordId") => String.t() | atom(),
         required("Status") => list(any()),
-        required("WorkflowToken") => String.t()
+        required("WorkflowToken") => String.t() | atom()
       }
       
   """
-  @type notify_update_provisioned_product_engine_workflow_result_input() :: %{String.t() => any()}
+  @type notify_update_provisioned_product_engine_workflow_result_input() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       list_portfolio_access_output() :: %{
-        "AccountIds" => list(String.t()),
-        "NextPageToken" => String.t()
+        "AccountIds" => list(String.t() | atom()),
+        "NextPageToken" => String.t() | atom()
       }
       
   """
-  @type list_portfolio_access_output() :: %{String.t() => any()}
+  @type list_portfolio_access_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_provisioned_product_plan_output() :: %{
-        "PlanId" => String.t(),
-        "PlanName" => String.t(),
-        "ProvisionProductId" => String.t(),
-        "ProvisionedProductName" => String.t(),
-        "ProvisioningArtifactId" => String.t()
+        "PlanId" => String.t() | atom(),
+        "PlanName" => String.t() | atom(),
+        "ProvisionProductId" => String.t() | atom(),
+        "ProvisionedProductName" => String.t() | atom(),
+        "ProvisioningArtifactId" => String.t() | atom()
       }
       
   """
-  @type create_provisioned_product_plan_output() :: %{String.t() => any()}
+  @type create_provisioned_product_plan_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2263,7 +2273,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type update_tag_option_output() :: %{String.t() => any()}
+  @type update_tag_option_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2279,26 +2289,26 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       associate_principal_with_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("PortfolioId") => String.t(),
-        required("PrincipalARN") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("PortfolioId") => String.t() | atom(),
+        required("PrincipalARN") => String.t() | atom(),
         required("PrincipalType") => list(any())
       }
       
   """
-  @type associate_principal_with_portfolio_input() :: %{String.t() => any()}
+  @type associate_principal_with_portfolio_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_actions_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "ServiceActionSummaries" => list(service_action_summary())
       }
       
   """
-  @type list_service_actions_output() :: %{String.t() => any()}
+  @type list_service_actions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2314,82 +2324,82 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_portfolios_for_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("ProductId") => String.t()
+        optional("PageToken") => String.t() | atom(),
+        required("ProductId") => String.t() | atom()
       }
       
   """
-  @type list_portfolios_for_product_input() :: %{String.t() => any()}
+  @type list_portfolios_for_product_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_portfolios_for_product_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "PortfolioDetails" => list(portfolio_detail())
       }
       
   """
-  @type list_portfolios_for_product_output() :: %{String.t() => any()}
+  @type list_portfolios_for_product_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_portfolio_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("AddTags") => list(tag()),
-        optional("Description") => String.t(),
-        optional("DisplayName") => String.t(),
-        optional("ProviderName") => String.t(),
-        optional("RemoveTags") => list(String.t()),
-        required("Id") => String.t()
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        optional("ProviderName") => String.t() | atom(),
+        optional("RemoveTags") => list(String.t() | atom()),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type update_portfolio_input() :: %{String.t() => any()}
+  @type update_portfolio_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("Id") => String.t(),
-        optional("Name") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("Id") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
       }
       
   """
-  @type describe_product_input() :: %{String.t() => any()}
+  @type describe_product_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_provisioned_product_properties_output() :: %{
-        "ProvisionedProductId" => String.t(),
+        "ProvisionedProductId" => String.t() | atom(),
         "ProvisionedProductProperties" => map(),
-        "RecordId" => String.t(),
+        "RecordId" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type update_provisioned_product_properties_output() :: %{String.t() => any()}
+  @type update_provisioned_product_properties_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_option_summary() :: %{
-        "Key" => String.t(),
-        "Values" => list(String.t())
+        "Key" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type tag_option_summary() :: %{String.t() => any()}
+  @type tag_option_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2397,11 +2407,11 @@ defmodule AWS.ServiceCatalog do
       
       list_constraints_for_portfolio_output() :: %{
         "ConstraintDetails" => list(constraint_detail()),
-        "NextPageToken" => String.t()
+        "NextPageToken" => String.t() | atom()
       }
       
   """
-  @type list_constraints_for_portfolio_output() :: %{String.t() => any()}
+  @type list_constraints_for_portfolio_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2409,31 +2419,31 @@ defmodule AWS.ServiceCatalog do
       
       provisioning_artifact() :: %{
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "Guidance" => list(any()),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type provisioning_artifact() :: %{String.t() => any()}
+  @type provisioning_artifact() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("IncludeProvisioningArtifactParameters") => boolean(),
-        optional("ProductId") => String.t(),
-        optional("ProductName") => String.t(),
-        optional("ProvisioningArtifactId") => String.t(),
-        optional("ProvisioningArtifactName") => String.t(),
+        optional("ProductId") => String.t() | atom(),
+        optional("ProductName") => String.t() | atom(),
+        optional("ProvisioningArtifactId") => String.t() | atom(),
+        optional("ProvisioningArtifactName") => String.t() | atom(),
         optional("Verbose") => boolean()
       }
       
   """
-  @type describe_provisioning_artifact_input() :: %{String.t() => any()}
+  @type describe_provisioning_artifact_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2449,27 +2459,27 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       search_products_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("Filters") => map(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
+        optional("PageToken") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
       
   """
-  @type search_products_input() :: %{String.t() => any()}
+  @type search_products_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_watch_dashboard() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
       
   """
-  @type cloud_watch_dashboard() :: %{String.t() => any()}
+  @type cloud_watch_dashboard() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2485,28 +2495,28 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       describe_portfolio_share_status_output() :: %{
-        "OrganizationNodeValue" => String.t(),
-        "PortfolioId" => String.t(),
-        "PortfolioShareToken" => String.t(),
+        "OrganizationNodeValue" => String.t() | atom(),
+        "PortfolioId" => String.t() | atom(),
+        "PortfolioShareToken" => String.t() | atom(),
         "ShareDetails" => share_details(),
         "Status" => list(any())
       }
       
   """
-  @type describe_portfolio_share_status_output() :: %{String.t() => any()}
+  @type describe_portfolio_share_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_change_detail() :: %{
-        "CausingEntity" => String.t(),
+        "CausingEntity" => String.t() | atom(),
         "Evaluation" => list(any()),
         "Target" => resource_target_definition()
       }
       
   """
-  @type resource_change_detail() :: %{String.t() => any()}
+  @type resource_change_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2517,7 +2527,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_service_action_output() :: %{String.t() => any()}
+  @type describe_service_action_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2525,43 +2535,43 @@ defmodule AWS.ServiceCatalog do
       
       list_resources_for_tag_option_input() :: %{
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        optional("ResourceType") => String.t(),
-        required("TagOptionId") => String.t()
+        optional("PageToken") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom(),
+        required("TagOptionId") => String.t() | atom()
       }
       
   """
-  @type list_resources_for_tag_option_input() :: %{String.t() => any()}
+  @type list_resources_for_tag_option_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_provisioning_parameter() :: %{
-        "Key" => String.t(),
+        "Key" => String.t() | atom(),
         "UsePreviousValue" => boolean(),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type update_provisioning_parameter() :: %{String.t() => any()}
+  @type update_provisioning_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("Active") => boolean(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Guidance") => list(any()),
-        optional("Name") => String.t(),
-        required("ProductId") => String.t(),
-        required("ProvisioningArtifactId") => String.t()
+        optional("Name") => String.t() | atom(),
+        required("ProductId") => String.t() | atom(),
+        required("ProvisioningArtifactId") => String.t() | atom()
       }
       
   """
-  @type update_provisioning_artifact_input() :: %{String.t() => any()}
+  @type update_provisioning_artifact_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2572,88 +2582,88 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type source_connection_parameters() :: %{String.t() => any()}
+  @type source_connection_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       last_sync() :: %{
-        "LastSuccessfulSyncProvisioningArtifactId" => String.t(),
+        "LastSuccessfulSyncProvisioningArtifactId" => String.t() | atom(),
         "LastSuccessfulSyncTime" => non_neg_integer(),
         "LastSyncStatus" => list(any()),
-        "LastSyncStatusMessage" => String.t(),
+        "LastSyncStatusMessage" => String.t() | atom(),
         "LastSyncTime" => non_neg_integer()
       }
       
   """
-  @type last_sync() :: %{String.t() => any()}
+  @type last_sync() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_tag_option_input() :: %{
-        required("Id") => String.t()
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type delete_tag_option_input() :: %{String.t() => any()}
+  @type delete_tag_option_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_service_action_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("Description") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         required("Definition") => map(),
         required("DefinitionType") => list(any()),
-        required("IdempotencyToken") => String.t(),
-        required("Name") => String.t()
+        required("IdempotencyToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type create_service_action_input() :: %{String.t() => any()}
+  @type create_service_action_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_stack_instances_for_provisioned_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("ProvisionedProductId") => String.t()
+        optional("PageToken") => String.t() | atom(),
+        required("ProvisionedProductId") => String.t() | atom()
       }
       
   """
-  @type list_stack_instances_for_provisioned_product_input() :: %{String.t() => any()}
+  @type list_stack_instances_for_provisioned_product_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       search_products_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "ProductViewAggregations" => map(),
         "ProductViewSummaries" => list(product_view_summary())
       }
       
   """
-  @type search_products_output() :: %{String.t() => any()}
+  @type search_products_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioning_artifact_preferences() :: %{
-        "StackSetAccounts" => list(String.t()),
-        "StackSetRegions" => list(String.t())
+        "StackSetAccounts" => list(String.t() | atom()),
+        "StackSetRegions" => list(String.t() | atom())
       }
       
   """
-  @type provisioning_artifact_preferences() :: %{String.t() => any()}
+  @type provisioning_artifact_preferences() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2664,7 +2674,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type create_service_action_output() :: %{String.t() => any()}
+  @type create_service_action_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2672,22 +2682,22 @@ defmodule AWS.ServiceCatalog do
       
       access_level_filter() :: %{
         "Key" => list(any()),
-        "Value" => String.t()
+        "Value" => String.t() | atom()
       }
       
   """
-  @type access_level_filter() :: %{String.t() => any()}
+  @type access_level_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_option_not_migrated_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type tag_option_not_migrated_exception() :: %{String.t() => any()}
+  @type tag_option_not_migrated_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2695,52 +2705,54 @@ defmodule AWS.ServiceCatalog do
       
       update_constraint_output() :: %{
         "ConstraintDetail" => constraint_detail(),
-        "ConstraintParameters" => String.t(),
+        "ConstraintParameters" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type update_constraint_output() :: %{String.t() => any()}
+  @type update_constraint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_record_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("Id") => String.t()
+        optional("PageToken") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type describe_record_input() :: %{String.t() => any()}
+  @type describe_record_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_service_action_from_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("IdempotencyToken") => String.t(),
-        required("ProductId") => String.t(),
-        required("ProvisioningArtifactId") => String.t(),
-        required("ServiceActionId") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("IdempotencyToken") => String.t() | atom(),
+        required("ProductId") => String.t() | atom(),
+        required("ProvisioningArtifactId") => String.t() | atom(),
+        required("ServiceActionId") => String.t() | atom()
       }
       
   """
-  @type disassociate_service_action_from_provisioning_artifact_input() :: %{String.t() => any()}
+  @type disassociate_service_action_from_provisioning_artifact_input() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       limit_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{String.t() => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2751,104 +2763,106 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_service_action_execution_parameters_output() :: %{String.t() => any()}
+  @type describe_service_action_execution_parameters_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_provisioned_product_outputs_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("OutputKeys") => list(String.t()),
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("OutputKeys") => list(String.t() | atom()),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        optional("ProvisionedProductId") => String.t(),
-        optional("ProvisionedProductName") => String.t()
+        optional("PageToken") => String.t() | atom(),
+        optional("ProvisionedProductId") => String.t() | atom(),
+        optional("ProvisionedProductName") => String.t() | atom()
       }
       
   """
-  @type get_provisioned_product_outputs_input() :: %{String.t() => any()}
+  @type get_provisioned_product_outputs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_constraint_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("Description") => String.t(),
-        optional("Parameters") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Parameters") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type update_constraint_input() :: %{String.t() => any()}
+  @type update_constraint_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       search_provisioned_products_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "ProvisionedProducts" => list(provisioned_product_attribute()),
         "TotalResultsCount" => integer()
       }
       
   """
-  @type search_provisioned_products_output() :: %{String.t() => any()}
+  @type search_provisioned_products_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_copy_product_status_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("CopyProductToken") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("CopyProductToken") => String.t() | atom()
       }
       
   """
-  @type describe_copy_product_status_input() :: %{String.t() => any()}
+  @type describe_copy_product_status_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioning_artifact_output() :: %{
-        "Description" => String.t(),
-        "Key" => String.t()
+        "Description" => String.t() | atom(),
+        "Key" => String.t() | atom()
       }
       
   """
-  @type provisioning_artifact_output() :: %{String.t() => any()}
+  @type provisioning_artifact_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       notify_provision_product_engine_workflow_result_input() :: %{
-        optional("FailureReason") => String.t(),
+        optional("FailureReason") => String.t() | atom(),
         optional("Outputs") => list(record_output()),
         optional("ResourceIdentifier") => engine_workflow_resource_identifier(),
-        required("IdempotencyToken") => String.t(),
-        required("RecordId") => String.t(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("RecordId") => String.t() | atom(),
         required("Status") => list(any()),
-        required("WorkflowToken") => String.t()
+        required("WorkflowToken") => String.t() | atom()
       }
       
   """
-  @type notify_provision_product_engine_workflow_result_input() :: %{String.t() => any()}
+  @type notify_provision_product_engine_workflow_result_input() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       reject_portfolio_share_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("PortfolioShareType") => list(any()),
-        required("PortfolioId") => String.t()
+        required("PortfolioId") => String.t() | atom()
       }
       
   """
-  @type reject_portfolio_share_input() :: %{String.t() => any()}
+  @type reject_portfolio_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2856,23 +2870,23 @@ defmodule AWS.ServiceCatalog do
       
       record_detail() :: %{
         "CreatedTime" => non_neg_integer(),
-        "LaunchRoleArn" => String.t(),
-        "PathId" => String.t(),
-        "ProductId" => String.t(),
-        "ProvisionedProductId" => String.t(),
-        "ProvisionedProductName" => String.t(),
-        "ProvisionedProductType" => String.t(),
-        "ProvisioningArtifactId" => String.t(),
+        "LaunchRoleArn" => String.t() | atom(),
+        "PathId" => String.t() | atom(),
+        "ProductId" => String.t() | atom(),
+        "ProvisionedProductId" => String.t() | atom(),
+        "ProvisionedProductName" => String.t() | atom(),
+        "ProvisionedProductType" => String.t() | atom(),
+        "ProvisioningArtifactId" => String.t() | atom(),
         "RecordErrors" => list(record_error()),
-        "RecordId" => String.t(),
+        "RecordId" => String.t() | atom(),
         "RecordTags" => list(record_tag()),
-        "RecordType" => String.t(),
+        "RecordType" => String.t() | atom(),
         "Status" => list(any()),
         "UpdatedTime" => non_neg_integer()
       }
       
   """
-  @type record_detail() :: %{String.t() => any()}
+  @type record_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2884,58 +2898,58 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type service_action_detail() :: %{String.t() => any()}
+  @type service_action_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       associate_budget_with_resource_input() :: %{
-        required("BudgetName") => String.t(),
-        required("ResourceId") => String.t()
+        required("BudgetName") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom()
       }
       
   """
-  @type associate_budget_with_resource_input() :: %{String.t() => any()}
+  @type associate_budget_with_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_provisioned_product_properties_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("IdempotencyToken") => String.t(),
-        required("ProvisionedProductId") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("ProvisionedProductId") => String.t() | atom(),
         required("ProvisionedProductProperties") => map()
       }
       
   """
-  @type update_provisioned_product_properties_input() :: %{String.t() => any()}
+  @type update_provisioned_product_properties_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_service_action_execution_parameters_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("ProvisionedProductId") => String.t(),
-        required("ServiceActionId") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("ProvisionedProductId") => String.t() | atom(),
+        required("ServiceActionId") => String.t() | atom()
       }
       
   """
-  @type describe_service_action_execution_parameters_input() :: %{String.t() => any()}
+  @type describe_service_action_execution_parameters_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_provisioning_artifacts_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("ProductId") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("ProductId") => String.t() | atom()
       }
       
   """
-  @type list_provisioning_artifacts_input() :: %{String.t() => any()}
+  @type list_provisioning_artifacts_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2951,50 +2965,52 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_stack_instances_for_provisioned_product_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "StackInstances" => list(stack_instance())
       }
       
   """
-  @type list_stack_instances_for_provisioned_product_output() :: %{String.t() => any()}
+  @type list_stack_instances_for_provisioned_product_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_actions_for_provisioning_artifact_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
-        required("ProductId") => String.t(),
-        required("ProvisioningArtifactId") => String.t()
+        optional("PageToken") => String.t() | atom(),
+        required("ProductId") => String.t() | atom(),
+        required("ProvisioningArtifactId") => String.t() | atom()
       }
       
   """
-  @type list_service_actions_for_provisioning_artifact_input() :: %{String.t() => any()}
+  @type list_service_actions_for_provisioning_artifact_input() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       operation_not_supported_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type operation_not_supported_exception() :: %{String.t() => any()}
+  @type operation_not_supported_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       scan_provisioned_products_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "ProvisionedProducts" => list(provisioned_product_detail())
       }
       
   """
-  @type scan_provisioned_products_output() :: %{String.t() => any()}
+  @type scan_provisioned_products_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3005,7 +3021,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type terminate_provisioned_product_output() :: %{String.t() => any()}
+  @type terminate_provisioned_product_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3016,35 +3032,35 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type update_service_action_output() :: %{String.t() => any()}
+  @type update_service_action_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        required("Id") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type delete_product_input() :: %{String.t() => any()}
+  @type delete_product_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_portfolio_share_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("AccountId") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("AccountId") => String.t() | atom(),
         optional("OrganizationNode") => organization_node(),
         optional("SharePrincipals") => boolean(),
         optional("ShareTagOptions") => boolean(),
-        required("PortfolioId") => String.t()
+        required("PortfolioId") => String.t() | atom()
       }
       
   """
-  @type create_portfolio_share_input() :: %{String.t() => any()}
+  @type create_portfolio_share_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3060,12 +3076,12 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_record_history_output() :: %{
-        "NextPageToken" => String.t(),
+        "NextPageToken" => String.t() | atom(),
         "RecordDetails" => list(record_detail())
       }
       
   """
-  @type list_record_history_output() :: %{String.t() => any()}
+  @type list_record_history_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3074,27 +3090,27 @@ defmodule AWS.ServiceCatalog do
       resource_change() :: %{
         "Action" => list(any()),
         "Details" => list(resource_change_detail()),
-        "LogicalResourceId" => String.t(),
-        "PhysicalResourceId" => String.t(),
+        "LogicalResourceId" => String.t() | atom(),
+        "PhysicalResourceId" => String.t() | atom(),
         "Replacement" => list(any()),
-        "ResourceType" => String.t(),
+        "ResourceType" => String.t() | atom(),
         "Scope" => list(list(any())())
       }
       
   """
-  @type resource_change() :: %{String.t() => any()}
+  @type resource_change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_portfolio_share_output() :: %{
-        "PortfolioShareToken" => String.t(),
+        "PortfolioShareToken" => String.t() | atom(),
         "Status" => list(any())
       }
       
   """
-  @type update_portfolio_share_output() :: %{String.t() => any()}
+  @type update_portfolio_share_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3102,50 +3118,50 @@ defmodule AWS.ServiceCatalog do
       
       launch_path_summary() :: %{
         "ConstraintSummaries" => list(constraint_summary()),
-        "Id" => String.t(),
-        "Name" => String.t(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
   """
-  @type launch_path_summary() :: %{String.t() => any()}
+  @type launch_path_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       disassociate_budget_from_resource_input() :: %{
-        required("BudgetName") => String.t(),
-        required("ResourceId") => String.t()
+        required("BudgetName") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom()
       }
       
   """
-  @type disassociate_budget_from_resource_input() :: %{String.t() => any()}
+  @type disassociate_budget_from_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       duplicate_resource_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type duplicate_resource_exception() :: %{String.t() => any()}
+  @type duplicate_resource_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_product_as_admin_input() :: %{
-        optional("AcceptLanguage") => String.t(),
-        optional("Id") => String.t(),
-        optional("Name") => String.t(),
-        optional("SourcePortfolioId") => String.t()
+        optional("AcceptLanguage") => String.t() | atom(),
+        optional("Id") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("SourcePortfolioId") => String.t() | atom()
       }
       
   """
-  @type describe_product_as_admin_input() :: %{String.t() => any()}
+  @type describe_product_as_admin_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3160,44 +3176,44 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type describe_product_as_admin_output() :: %{String.t() => any()}
+  @type describe_product_as_admin_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_product_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("AddTags") => list(tag()),
-        optional("Description") => String.t(),
-        optional("Distributor") => String.t(),
-        optional("Name") => String.t(),
-        optional("Owner") => String.t(),
-        optional("RemoveTags") => list(String.t()),
+        optional("Description") => String.t() | atom(),
+        optional("Distributor") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Owner") => String.t() | atom(),
+        optional("RemoveTags") => list(String.t() | atom()),
         optional("SourceConnection") => source_connection(),
-        optional("SupportDescription") => String.t(),
-        optional("SupportEmail") => String.t(),
-        optional("SupportUrl") => String.t(),
-        required("Id") => String.t()
+        optional("SupportDescription") => String.t() | atom(),
+        optional("SupportEmail") => String.t() | atom(),
+        optional("SupportUrl") => String.t() | atom(),
+        required("Id") => String.t() | atom()
       }
       
   """
-  @type update_product_input() :: %{String.t() => any()}
+  @type update_product_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_record_history_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("AccessLevelFilter") => access_level_filter(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
+        optional("PageToken") => String.t() | atom(),
         optional("SearchFilter") => list_record_history_search_filter()
       }
       
   """
-  @type list_record_history_input() :: %{String.t() => any()}
+  @type list_record_history_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3205,55 +3221,55 @@ defmodule AWS.ServiceCatalog do
       
       provisioned_product_plan_details() :: %{
         "CreatedTime" => non_neg_integer(),
-        "NotificationArns" => list(String.t()),
-        "PathId" => String.t(),
-        "PlanId" => String.t(),
-        "PlanName" => String.t(),
+        "NotificationArns" => list(String.t() | atom()),
+        "PathId" => String.t() | atom(),
+        "PlanId" => String.t() | atom(),
+        "PlanName" => String.t() | atom(),
         "PlanType" => list(any()),
-        "ProductId" => String.t(),
-        "ProvisionProductId" => String.t(),
-        "ProvisionProductName" => String.t(),
-        "ProvisioningArtifactId" => String.t(),
+        "ProductId" => String.t() | atom(),
+        "ProvisionProductId" => String.t() | atom(),
+        "ProvisionProductName" => String.t() | atom(),
+        "ProvisioningArtifactId" => String.t() | atom(),
         "ProvisioningParameters" => list(update_provisioning_parameter()),
         "Status" => list(any()),
-        "StatusMessage" => String.t(),
+        "StatusMessage" => String.t() | atom(),
         "Tags" => list(tag()),
         "UpdatedTime" => non_neg_integer()
       }
       
   """
-  @type provisioned_product_plan_details() :: %{String.t() => any()}
+  @type provisioned_product_plan_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_organization_portfolio_access_input() :: %{
-        optional("AcceptLanguage") => String.t(),
+        optional("AcceptLanguage") => String.t() | atom(),
         optional("PageSize") => integer(),
-        optional("PageToken") => String.t(),
+        optional("PageToken") => String.t() | atom(),
         required("OrganizationNodeType") => list(any()),
-        required("PortfolioId") => String.t()
+        required("PortfolioId") => String.t() | atom()
       }
       
   """
-  @type list_organization_portfolio_access_input() :: %{String.t() => any()}
+  @type list_organization_portfolio_access_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       provisioning_preferences() :: %{
-        "StackSetAccounts" => list(String.t()),
+        "StackSetAccounts" => list(String.t() | atom()),
         "StackSetFailureToleranceCount" => integer(),
         "StackSetFailureTolerancePercentage" => integer(),
         "StackSetMaxConcurrencyCount" => integer(),
         "StackSetMaxConcurrencyPercentage" => integer(),
-        "StackSetRegions" => list(String.t())
+        "StackSetRegions" => list(String.t() | atom())
       }
       
   """
-  @type provisioning_preferences() :: %{String.t() => any()}
+  @type provisioning_preferences() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3269,15 +3285,15 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       resource_detail() :: %{
-        "ARN" => String.t(),
+        "ARN" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
-        "Description" => String.t(),
-        "Id" => String.t(),
-        "Name" => String.t()
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type resource_detail() :: %{String.t() => any()}
+  @type resource_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3288,7 +3304,7 @@ defmodule AWS.ServiceCatalog do
       }
       
   """
-  @type provision_product_output() :: %{String.t() => any()}
+  @type provision_product_output() :: %{(String.t() | atom()) => any()}
 
   @type accept_portfolio_share_errors() ::
           limit_exceeded_exception()
@@ -3653,7 +3669,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, accept_portfolio_share_errors()}
   def accept_portfolio_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptPortfolioShare", input, options)
   end
@@ -3667,7 +3684,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, associate_budget_with_resource_errors()}
   def associate_budget_with_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateBudgetWithResource", input, options)
   end
@@ -3710,7 +3728,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, associate_principal_with_portfolio_errors()}
   def associate_principal_with_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociatePrincipalWithPortfolio", input, options)
   end
@@ -3726,7 +3745,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, associate_product_with_portfolio_errors()}
   def associate_product_with_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateProductWithPortfolio", input, options)
   end
@@ -3748,7 +3768,8 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3772,7 +3793,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, associate_tag_option_with_resource_errors()}
   def associate_tag_option_with_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateTagOptionWithResource", input, options)
   end
@@ -3794,7 +3816,8 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3823,7 +3846,8 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3853,7 +3877,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, copy_product_errors()}
   def copy_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyProduct", input, options)
   end
@@ -3869,7 +3894,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_constraint_errors()}
   def create_constraint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConstraint", input, options)
   end
@@ -3885,7 +3911,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_portfolio_errors()}
   def create_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePortfolio", input, options)
   end
@@ -3934,7 +3961,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_portfolio_share_errors()}
   def create_portfolio_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePortfolioShare", input, options)
   end
@@ -3955,7 +3983,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_product_errors()}
   def create_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProduct", input, options)
   end
@@ -3983,7 +4012,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_provisioned_product_plan_errors()}
   def create_provisioned_product_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProvisionedProductPlan", input, options)
   end
@@ -4006,7 +4036,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_provisioning_artifact_errors()}
   def create_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProvisioningArtifact", input, options)
   end
@@ -4020,7 +4051,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_service_action_errors()}
   def create_service_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateServiceAction", input, options)
   end
@@ -4034,7 +4066,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_tag_option_errors()}
   def create_tag_option(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTagOption", input, options)
   end
@@ -4050,7 +4083,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_constraint_errors()}
   def delete_constraint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConstraint", input, options)
   end
@@ -4069,7 +4103,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_portfolio_errors()}
   def delete_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePortfolio", input, options)
   end
@@ -4091,7 +4126,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_portfolio_share_errors()}
   def delete_portfolio_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePortfolioShare", input, options)
   end
@@ -4110,7 +4146,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_product_errors()}
   def delete_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProduct", input, options)
   end
@@ -4124,7 +4161,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_provisioned_product_plan_errors()}
   def delete_provisioned_product_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProvisionedProductPlan", input, options)
   end
@@ -4145,7 +4183,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_provisioning_artifact_errors()}
   def delete_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProvisioningArtifact", input, options)
   end
@@ -4159,7 +4198,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_service_action_errors()}
   def delete_service_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteServiceAction", input, options)
   end
@@ -4175,7 +4215,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_tag_option_errors()}
   def delete_tag_option(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTagOption", input, options)
   end
@@ -4189,7 +4230,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_constraint_errors()}
   def describe_constraint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConstraint", input, options)
   end
@@ -4203,7 +4245,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_copy_product_status_errors()}
   def describe_copy_product_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCopyProductStatus", input, options)
   end
@@ -4219,7 +4262,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_portfolio_errors()}
   def describe_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePortfolio", input, options)
   end
@@ -4236,7 +4280,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_portfolio_share_status_errors()}
   def describe_portfolio_share_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePortfolioShareStatus", input, options)
   end
@@ -4258,7 +4303,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_portfolio_shares_errors()}
   def describe_portfolio_shares(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePortfolioShares", input, options)
   end
@@ -4278,7 +4324,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_product_errors()}
   def describe_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProduct", input, options)
   end
@@ -4294,7 +4341,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_product_as_admin_errors()}
   def describe_product_as_admin(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProductAsAdmin", input, options)
   end
@@ -4308,7 +4356,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_product_view_errors()}
   def describe_product_view(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProductView", input, options)
   end
@@ -4322,7 +4371,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_provisioned_product_errors()}
   def describe_provisioned_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProvisionedProduct", input, options)
   end
@@ -4340,7 +4390,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_provisioned_product_plan_errors()}
   def describe_provisioned_product_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProvisionedProductPlan", input, options)
   end
@@ -4355,7 +4406,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_provisioning_artifact_errors()}
   def describe_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProvisioningArtifact", input, options)
   end
@@ -4380,7 +4432,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_provisioning_parameters_errors()}
   def describe_provisioning_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProvisioningParameters", input, options)
   end
@@ -4404,7 +4457,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_record_errors()}
   def describe_record(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRecord", input, options)
   end
@@ -4418,7 +4472,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_service_action_errors()}
   def describe_service_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceAction", input, options)
   end
@@ -4437,7 +4492,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_service_action_execution_parameters_errors()}
   def describe_service_action_execution_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceActionExecutionParameters", input, options)
   end
@@ -4451,7 +4507,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_tag_option_errors()}
   def describe_tag_option(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTagOption", input, options)
   end
@@ -4487,7 +4544,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, disable_aws_organizations_access_errors()}
   def disable_aws_organizations_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableAWSOrganizationsAccess", input, options)
   end
@@ -4505,7 +4563,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, disassociate_budget_from_resource_errors()}
   def disassociate_budget_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateBudgetFromResource", input, options)
   end
@@ -4550,7 +4609,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, disassociate_principal_from_portfolio_errors()}
   def disassociate_principal_from_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociatePrincipalFromPortfolio", input, options)
   end
@@ -4570,7 +4630,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, disassociate_product_from_portfolio_errors()}
   def disassociate_product_from_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateProductFromPortfolio", input, options)
   end
@@ -4593,7 +4654,8 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -4617,7 +4679,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, disassociate_tag_option_from_resource_errors()}
   def disassociate_tag_option_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateTagOptionFromResource", input, options)
   end
@@ -4657,7 +4720,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, enable_aws_organizations_access_errors()}
   def enable_aws_organizations_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableAWSOrganizationsAccess", input, options)
   end
@@ -4672,7 +4736,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, execute_provisioned_product_plan_errors()}
   def execute_provisioned_product_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExecuteProvisionedProductPlan", input, options)
   end
@@ -4690,7 +4755,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, execute_provisioned_product_service_action_errors()}
   def execute_provisioned_product_service_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExecuteProvisionedProductServiceAction", input, options)
   end
@@ -4711,7 +4777,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, get_aws_organizations_access_status_errors()}
   def get_aws_organizations_access_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAWSOrganizationsAccessStatus", input, options)
   end
@@ -4727,7 +4794,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, get_provisioned_product_outputs_errors()}
   def get_provisioned_product_outputs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetProvisionedProductOutputs", input, options)
   end
@@ -4773,7 +4841,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, import_as_provisioned_product_errors()}
   def import_as_provisioned_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportAsProvisionedProduct", input, options)
   end
@@ -4792,7 +4861,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_accepted_portfolio_shares_errors()}
   def list_accepted_portfolio_shares(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAcceptedPortfolioShares", input, options)
   end
@@ -4806,7 +4876,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_budgets_for_resource_errors()}
   def list_budgets_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBudgetsForResource", input, options)
   end
@@ -4820,7 +4891,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_constraints_for_portfolio_errors()}
   def list_constraints_for_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConstraintsForPortfolio", input, options)
   end
@@ -4856,7 +4928,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_launch_paths_errors()}
   def list_launch_paths(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLaunchPaths", input, options)
   end
@@ -4881,7 +4954,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_organization_portfolio_access_errors()}
   def list_organization_portfolio_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOrganizationPortfolioAccess", input, options)
   end
@@ -4899,7 +4973,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_portfolio_access_errors()}
   def list_portfolio_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPortfolioAccess", input, options)
   end
@@ -4913,7 +4988,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_portfolios_errors()}
   def list_portfolios(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPortfolios", input, options)
   end
@@ -4927,7 +5003,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_portfolios_for_product_errors()}
   def list_portfolios_for_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPortfoliosForProduct", input, options)
   end
@@ -4942,7 +5019,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_principals_for_portfolio_errors()}
   def list_principals_for_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPrincipalsForPortfolio", input, options)
   end
@@ -4957,7 +5035,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_provisioned_product_plans_errors()}
   def list_provisioned_product_plans(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProvisionedProductPlans", input, options)
   end
@@ -4972,7 +5051,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_provisioning_artifacts_errors()}
   def list_provisioning_artifacts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProvisioningArtifacts", input, options)
   end
@@ -4991,7 +5071,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_provisioning_artifacts_for_service_action_errors()}
   def list_provisioning_artifacts_for_service_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5011,7 +5092,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_record_history_errors()}
   def list_record_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRecordHistory", input, options)
   end
@@ -5025,7 +5107,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_resources_for_tag_option_errors()}
   def list_resources_for_tag_option(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourcesForTagOption", input, options)
   end
@@ -5039,7 +5122,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_service_actions_errors()}
   def list_service_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServiceActions", input, options)
   end
@@ -5058,7 +5142,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_service_actions_for_provisioning_artifact_errors()}
   def list_service_actions_for_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5086,7 +5171,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_stack_instances_for_provisioned_product_errors()}
   def list_stack_instances_for_provisioned_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStackInstancesForProvisionedProduct", input, options)
   end
@@ -5100,7 +5186,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_tag_options_errors()}
   def list_tag_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagOptions", input, options)
   end
@@ -5120,7 +5207,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, notify_provision_product_engine_workflow_result_errors()}
   def notify_provision_product_engine_workflow_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5150,7 +5238,8 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5180,7 +5269,8 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5232,7 +5322,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, provision_product_errors()}
   def provision_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ProvisionProduct", input, options)
   end
@@ -5246,7 +5337,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, reject_portfolio_share_errors()}
   def reject_portfolio_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectPortfolioShare", input, options)
   end
@@ -5262,7 +5354,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, scan_provisioned_products_errors()}
   def scan_provisioned_products(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ScanProvisionedProducts", input, options)
   end
@@ -5276,7 +5369,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, search_products_errors()}
   def search_products(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchProducts", input, options)
   end
@@ -5290,7 +5384,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, search_products_as_admin_errors()}
   def search_products_as_admin(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchProductsAsAdmin", input, options)
   end
@@ -5305,7 +5400,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, search_provisioned_products_errors()}
   def search_provisioned_products(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchProvisionedProducts", input, options)
   end
@@ -5324,7 +5420,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, terminate_provisioned_product_errors()}
   def terminate_provisioned_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateProvisionedProduct", input, options)
   end
@@ -5338,7 +5435,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_constraint_errors()}
   def update_constraint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConstraint", input, options)
   end
@@ -5354,7 +5452,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_portfolio_errors()}
   def update_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePortfolio", input, options)
   end
@@ -5400,7 +5499,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_portfolio_share_errors()}
   def update_portfolio_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePortfolioShare", input, options)
   end
@@ -5414,7 +5514,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_product_errors()}
   def update_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProduct", input, options)
   end
@@ -5435,7 +5536,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_provisioned_product_errors()}
   def update_provisioned_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProvisionedProduct", input, options)
   end
@@ -5453,7 +5555,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_provisioned_product_properties_errors()}
   def update_provisioned_product_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProvisionedProductProperties", input, options)
   end
@@ -5471,7 +5574,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_provisioning_artifact_errors()}
   def update_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProvisioningArtifact", input, options)
   end
@@ -5485,7 +5589,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_service_action_errors()}
   def update_service_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateServiceAction", input, options)
   end
@@ -5499,7 +5604,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_tag_option_errors()}
   def update_tag_option(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTagOption", input, options)
   end

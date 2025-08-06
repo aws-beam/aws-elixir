@@ -243,58 +243,58 @@ defmodule AWS.ControlTower do
 
       list_enabled_controls_output() :: %{
         "enabledControls" => list(enabled_control_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_enabled_controls_output() :: %{String.t() => any()}
+  @type list_enabled_controls_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disable_control_input() :: %{
-        required("controlIdentifier") => String.t(),
-        required("targetIdentifier") => String.t()
+        required("controlIdentifier") => String.t() | atom(),
+        required("targetIdentifier") => String.t() | atom()
       }
 
   """
-  @type disable_control_input() :: %{String.t() => any()}
+  @type disable_control_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disable_control_output() :: %{
-        "operationIdentifier" => String.t()
+        "operationIdentifier" => String.t() | atom()
       }
 
   """
-  @type disable_control_output() :: %{String.t() => any()}
+  @type disable_control_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enablement_status_summary() :: %{
-        "lastOperationIdentifier" => String.t(),
+        "lastOperationIdentifier" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type enablement_status_summary() :: %{String.t() => any()}
+  @type enablement_status_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enabled_control_parameter() :: %{
-        "key" => [String.t()],
+        "key" => [String.t() | atom()],
         "value" => [any()]
       }
 
   """
-  @type enabled_control_parameter() :: %{String.t() => any()}
+  @type enabled_control_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -304,37 +304,37 @@ defmodule AWS.ControlTower do
         optional("filter") => enabled_baseline_filter(),
         optional("includeChildren") => [boolean()],
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_enabled_baselines_input() :: %{String.t() => any()}
+  @type list_enabled_baselines_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enabled_control_filter() :: %{
-        "controlIdentifiers" => list(String.t()),
+        "controlIdentifiers" => list(String.t() | atom()),
         "driftStatuses" => list(list(any())()),
         "statuses" => list(list(any())())
       }
 
   """
-  @type enabled_control_filter() :: %{String.t() => any()}
+  @type enabled_control_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       landing_zone_operation_summary() :: %{
-        "operationIdentifier" => String.t(),
+        "operationIdentifier" => String.t() | atom(),
         "operationType" => list(any()),
         "status" => list(any())
       }
 
   """
-  @type landing_zone_operation_summary() :: %{String.t() => any()}
+  @type landing_zone_operation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -345,7 +345,7 @@ defmodule AWS.ControlTower do
       }
 
   """
-  @type enabled_baseline_drift_status_summary() :: %{String.t() => any()}
+  @type enabled_baseline_drift_status_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -354,23 +354,23 @@ defmodule AWS.ControlTower do
       enable_control_input() :: %{
         optional("parameters") => list(enabled_control_parameter()),
         optional("tags") => map(),
-        required("controlIdentifier") => String.t(),
-        required("targetIdentifier") => String.t()
+        required("controlIdentifier") => String.t() | atom(),
+        required("targetIdentifier") => String.t() | atom()
       }
 
   """
-  @type enable_control_input() :: %{String.t() => any()}
+  @type enable_control_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_landing_zone_output() :: %{
-        "operationIdentifier" => String.t()
+        "operationIdentifier" => String.t() | atom()
       }
 
   """
-  @type update_landing_zone_output() :: %{String.t() => any()}
+  @type update_landing_zone_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -381,7 +381,7 @@ defmodule AWS.ControlTower do
       }
 
   """
-  @type get_enabled_control_output() :: %{String.t() => any()}
+  @type get_enabled_control_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -390,23 +390,23 @@ defmodule AWS.ControlTower do
       list_enabled_controls_input() :: %{
         optional("filter") => enabled_control_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t()],
-        optional("targetIdentifier") => String.t()
+        optional("nextToken") => [String.t() | atom()],
+        optional("targetIdentifier") => String.t() | atom()
       }
 
   """
-  @type list_enabled_controls_input() :: %{String.t() => any()}
+  @type list_enabled_controls_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reset_enabled_control_input() :: %{
-        required("enabledControlIdentifier") => String.t()
+        required("enabledControlIdentifier") => String.t() | atom()
       }
 
   """
-  @type reset_enabled_control_input() :: %{String.t() => any()}
+  @type reset_enabled_control_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -414,11 +414,11 @@ defmodule AWS.ControlTower do
 
       list_landing_zones_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_landing_zones_input() :: %{String.t() => any()}
+  @type list_landing_zones_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -426,22 +426,22 @@ defmodule AWS.ControlTower do
 
       list_control_operations_output() :: %{
         "controlOperations" => list(control_operation_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_control_operations_output() :: %{String.t() => any()}
+  @type list_control_operations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reset_enabled_baseline_input() :: %{
-        required("enabledBaselineIdentifier") => String.t()
+        required("enabledBaselineIdentifier") => String.t() | atom()
       }
 
   """
-  @type reset_enabled_baseline_input() :: %{String.t() => any()}
+  @type reset_enabled_baseline_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -452,35 +452,35 @@ defmodule AWS.ControlTower do
       }
 
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enabled_baseline_summary() :: %{
-        "arn" => String.t(),
-        "baselineIdentifier" => [String.t()],
-        "baselineVersion" => [String.t()],
+        "arn" => String.t() | atom(),
+        "baselineIdentifier" => [String.t() | atom()],
+        "baselineVersion" => [String.t() | atom()],
         "driftStatusSummary" => enabled_baseline_drift_status_summary(),
-        "parentIdentifier" => String.t(),
+        "parentIdentifier" => String.t() | atom(),
         "statusSummary" => enablement_status_summary(),
-        "targetIdentifier" => [String.t()]
+        "targetIdentifier" => [String.t() | atom()]
       }
 
   """
-  @type enabled_baseline_summary() :: %{String.t() => any()}
+  @type enabled_baseline_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_baseline_operation_input() :: %{
-        required("operationIdentifier") => String.t()
+        required("operationIdentifier") => String.t() | atom()
       }
 
   """
-  @type get_baseline_operation_input() :: %{String.t() => any()}
+  @type get_baseline_operation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -492,7 +492,7 @@ defmodule AWS.ControlTower do
       }
 
   """
-  @type landing_zone_operation_filter() :: %{String.t() => any()}
+  @type landing_zone_operation_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -500,11 +500,11 @@ defmodule AWS.ControlTower do
 
       list_baselines_output() :: %{
         "baselines" => list(baseline_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_baselines_output() :: %{String.t() => any()}
+  @type list_baselines_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -512,48 +512,48 @@ defmodule AWS.ControlTower do
 
       list_enabled_baselines_output() :: %{
         "enabledBaselines" => list(enabled_baseline_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_enabled_baselines_output() :: %{String.t() => any()}
+  @type list_enabled_baselines_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enabled_control_summary() :: %{
-        "arn" => String.t(),
-        "controlIdentifier" => String.t(),
+        "arn" => String.t() | atom(),
+        "controlIdentifier" => String.t() | atom(),
         "driftStatusSummary" => drift_status_summary(),
         "statusSummary" => enablement_status_summary(),
-        "targetIdentifier" => String.t()
+        "targetIdentifier" => String.t() | atom()
       }
 
   """
-  @type enabled_control_summary() :: %{String.t() => any()}
+  @type enabled_control_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       region() :: %{
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type region() :: %{String.t() => any()}
+  @type region() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disable_baseline_input() :: %{
-        required("enabledBaselineIdentifier") => String.t()
+        required("enabledBaselineIdentifier") => String.t() | atom()
       }
 
   """
-  @type disable_baseline_input() :: %{String.t() => any()}
+  @type disable_baseline_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -564,41 +564,41 @@ defmodule AWS.ControlTower do
       }
 
   """
-  @type get_enabled_baseline_output() :: %{String.t() => any()}
+  @type get_enabled_baseline_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enabled_baseline_parameter() :: %{
-        "key" => [String.t()],
+        "key" => [String.t() | atom()],
         "value" => any()
       }
 
   """
-  @type enabled_baseline_parameter() :: %{String.t() => any()}
+  @type enabled_baseline_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -607,62 +607,62 @@ defmodule AWS.ControlTower do
       create_landing_zone_input() :: %{
         optional("tags") => map(),
         required("manifest") => any(),
-        required("version") => String.t()
+        required("version") => String.t() | atom()
       }
 
   """
-  @type create_landing_zone_input() :: %{String.t() => any()}
+  @type create_landing_zone_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_enabled_control_input() :: %{
-        required("enabledControlIdentifier") => String.t()
+        required("enabledControlIdentifier") => String.t() | atom()
       }
 
   """
-  @type get_enabled_control_input() :: %{String.t() => any()}
+  @type get_enabled_control_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       landing_zone_detail() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "driftStatus" => landing_zone_drift_status_summary(),
-        "latestAvailableVersion" => String.t(),
+        "latestAvailableVersion" => String.t() | atom(),
         "manifest" => any(),
         "status" => list(any()),
-        "version" => String.t()
+        "version" => String.t() | atom()
       }
 
   """
-  @type landing_zone_detail() :: %{String.t() => any()}
+  @type landing_zone_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_landing_zone_input() :: %{
-        required("landingZoneIdentifier") => [String.t()],
+        required("landingZoneIdentifier") => [String.t() | atom()],
         required("manifest") => any(),
-        required("version") => String.t()
+        required("version") => String.t() | atom()
       }
 
   """
-  @type update_landing_zone_input() :: %{String.t() => any()}
+  @type update_landing_zone_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -670,11 +670,11 @@ defmodule AWS.ControlTower do
 
       list_landing_zones_output() :: %{
         "landingZones" => list(landing_zone_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_landing_zones_output() :: %{String.t() => any()}
+  @type list_landing_zones_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -685,75 +685,75 @@ defmodule AWS.ControlTower do
       }
 
   """
-  @type get_landing_zone_output() :: %{String.t() => any()}
+  @type get_landing_zone_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_landing_zone_operation_input() :: %{
-        required("operationIdentifier") => String.t()
+        required("operationIdentifier") => String.t() | atom()
       }
 
   """
-  @type get_landing_zone_operation_input() :: %{String.t() => any()}
+  @type get_landing_zone_operation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enabled_control_parameter_summary() :: %{
-        "key" => [String.t()],
+        "key" => [String.t() | atom()],
         "value" => [any()]
       }
 
   """
-  @type enabled_control_parameter_summary() :: %{String.t() => any()}
+  @type enabled_control_parameter_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enable_baseline_output() :: %{
-        "arn" => String.t(),
-        "operationIdentifier" => String.t()
+        "arn" => String.t() | atom(),
+        "operationIdentifier" => String.t() | atom()
       }
 
   """
-  @type enable_baseline_output() :: %{String.t() => any()}
+  @type enable_baseline_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_control_operation_input() :: %{
-        required("operationIdentifier") => String.t()
+        required("operationIdentifier") => String.t() | atom()
       }
 
   """
-  @type get_control_operation_input() :: %{String.t() => any()}
+  @type get_control_operation_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_landing_zone_input() :: %{
-        required("landingZoneIdentifier") => [String.t()]
+        required("landingZoneIdentifier") => [String.t() | atom()]
       }
 
   """
-  @type delete_landing_zone_input() :: %{String.t() => any()}
+  @type delete_landing_zone_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_landing_zone_output() :: %{
-        "operationIdentifier" => String.t()
+        "operationIdentifier" => String.t() | atom()
       }
 
   """
-  @type delete_landing_zone_output() :: %{String.t() => any()}
+  @type delete_landing_zone_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -764,7 +764,7 @@ defmodule AWS.ControlTower do
       }
 
   """
-  @type get_landing_zone_operation_output() :: %{String.t() => any()}
+  @type get_landing_zone_operation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -775,30 +775,30 @@ defmodule AWS.ControlTower do
       }
 
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enable_control_output() :: %{
-        "arn" => String.t(),
-        "operationIdentifier" => String.t()
+        "arn" => String.t() | atom(),
+        "operationIdentifier" => String.t() | atom()
       }
 
   """
-  @type enable_control_output() :: %{String.t() => any()}
+  @type enable_control_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       landing_zone_summary() :: %{
-        "arn" => String.t()
+        "arn" => String.t() | atom()
       }
 
   """
-  @type landing_zone_summary() :: %{String.t() => any()}
+  @type landing_zone_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -807,11 +807,11 @@ defmodule AWS.ControlTower do
       list_landing_zone_operations_input() :: %{
         optional("filter") => landing_zone_operation_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_landing_zone_operations_input() :: %{String.t() => any()}
+  @type list_landing_zone_operations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -827,11 +827,11 @@ defmodule AWS.ControlTower do
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -842,7 +842,7 @@ defmodule AWS.ControlTower do
       }
 
   """
-  @type get_baseline_operation_output() :: %{String.t() => any()}
+  @type get_baseline_operation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -850,52 +850,52 @@ defmodule AWS.ControlTower do
 
       baseline_operation() :: %{
         "endTime" => non_neg_integer(),
-        "operationIdentifier" => String.t(),
+        "operationIdentifier" => String.t() | atom(),
         "operationType" => list(any()),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
-        "statusMessage" => [String.t()]
+        "statusMessage" => [String.t() | atom()]
       }
 
   """
-  @type baseline_operation() :: %{String.t() => any()}
+  @type baseline_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enabled_baseline_filter() :: %{
-        "baselineIdentifiers" => list(String.t()),
+        "baselineIdentifiers" => list(String.t() | atom()),
         "inheritanceDriftStatuses" => list(list(any())()),
-        "parentIdentifiers" => list(String.t()),
+        "parentIdentifiers" => list(String.t() | atom()),
         "statuses" => list(list(any())()),
-        "targetIdentifiers" => list(String.t())
+        "targetIdentifiers" => list(String.t() | atom())
       }
 
   """
-  @type enabled_baseline_filter() :: %{String.t() => any()}
+  @type enabled_baseline_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -904,43 +904,43 @@ defmodule AWS.ControlTower do
       enable_baseline_input() :: %{
         optional("parameters") => list(enabled_baseline_parameter()),
         optional("tags") => map(),
-        required("baselineIdentifier") => String.t(),
-        required("baselineVersion") => String.t(),
-        required("targetIdentifier") => String.t()
+        required("baselineIdentifier") => String.t() | atom(),
+        required("baselineVersion") => String.t() | atom(),
+        required("targetIdentifier") => String.t() | atom()
       }
 
   """
-  @type enable_baseline_input() :: %{String.t() => any()}
+  @type enable_baseline_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       control_operation() :: %{
-        "controlIdentifier" => String.t(),
-        "enabledControlIdentifier" => String.t(),
+        "controlIdentifier" => String.t() | atom(),
+        "enabledControlIdentifier" => String.t() | atom(),
         "endTime" => non_neg_integer(),
-        "operationIdentifier" => String.t(),
+        "operationIdentifier" => String.t() | atom(),
         "operationType" => list(any()),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
-        "statusMessage" => [String.t()],
-        "targetIdentifier" => String.t()
+        "statusMessage" => [String.t() | atom()],
+        "targetIdentifier" => String.t() | atom()
       }
 
   """
-  @type control_operation() :: %{String.t() => any()}
+  @type control_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -969,7 +969,7 @@ defmodule AWS.ControlTower do
       }
 
   """
-  @type enabled_baseline_drift_types() :: %{String.t() => any()}
+  @type enabled_baseline_drift_types() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -978,25 +978,25 @@ defmodule AWS.ControlTower do
       list_control_operations_input() :: %{
         optional("filter") => control_operation_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_control_operations_input() :: %{String.t() => any()}
+  @type list_control_operations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()],
-        "quotaCode" => [String.t()],
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
         "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t()]
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1004,56 +1004,56 @@ defmodule AWS.ControlTower do
 
       update_enabled_baseline_input() :: %{
         optional("parameters") => list(enabled_baseline_parameter()),
-        required("baselineVersion") => String.t(),
-        required("enabledBaselineIdentifier") => String.t()
+        required("baselineVersion") => String.t() | atom(),
+        required("enabledBaselineIdentifier") => String.t() | atom()
       }
 
   """
-  @type update_enabled_baseline_input() :: %{String.t() => any()}
+  @type update_enabled_baseline_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       control_operation_filter() :: %{
-        "controlIdentifiers" => list(String.t()),
+        "controlIdentifiers" => list(String.t() | atom()),
         "controlOperationTypes" => list(list(any())()),
-        "enabledControlIdentifiers" => list(String.t()),
+        "enabledControlIdentifiers" => list(String.t() | atom()),
         "statuses" => list(list(any())()),
-        "targetIdentifiers" => list(String.t())
+        "targetIdentifiers" => list(String.t() | atom())
       }
 
   """
-  @type control_operation_filter() :: %{String.t() => any()}
+  @type control_operation_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_enabled_baseline_input() :: %{
-        required("enabledBaselineIdentifier") => String.t()
+        required("enabledBaselineIdentifier") => String.t() | atom()
       }
 
   """
-  @type get_enabled_baseline_input() :: %{String.t() => any()}
+  @type get_enabled_baseline_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enabled_baseline_details() :: %{
-        "arn" => String.t(),
-        "baselineIdentifier" => [String.t()],
-        "baselineVersion" => [String.t()],
+        "arn" => String.t() | atom(),
+        "baselineIdentifier" => [String.t() | atom()],
+        "baselineVersion" => [String.t() | atom()],
         "driftStatusSummary" => enabled_baseline_drift_status_summary(),
         "parameters" => list(enabled_baseline_parameter_summary()),
-        "parentIdentifier" => String.t(),
+        "parentIdentifier" => String.t() | atom(),
         "statusSummary" => enablement_status_summary(),
-        "targetIdentifier" => [String.t()]
+        "targetIdentifier" => [String.t() | atom()]
       }
 
   """
-  @type enabled_baseline_details() :: %{String.t() => any()}
+  @type enabled_baseline_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1064,60 +1064,60 @@ defmodule AWS.ControlTower do
       }
 
   """
-  @type landing_zone_drift_status_summary() :: %{String.t() => any()}
+  @type landing_zone_drift_status_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_enabled_control_input() :: %{
-        required("enabledControlIdentifier") => String.t(),
+        required("enabledControlIdentifier") => String.t() | atom(),
         required("parameters") => list(enabled_control_parameter())
       }
 
   """
-  @type update_enabled_control_input() :: %{String.t() => any()}
+  @type update_enabled_control_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       baseline_summary() :: %{
-        "arn" => [String.t()],
-        "description" => [String.t()],
-        "name" => [String.t()]
+        "arn" => [String.t() | atom()],
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type baseline_summary() :: %{String.t() => any()}
+  @type baseline_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reset_landing_zone_input() :: %{
-        required("landingZoneIdentifier") => [String.t()]
+        required("landingZoneIdentifier") => [String.t() | atom()]
       }
 
   """
-  @type reset_landing_zone_input() :: %{String.t() => any()}
+  @type reset_landing_zone_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enabled_control_details() :: %{
-        "arn" => String.t(),
-        "controlIdentifier" => String.t(),
+        "arn" => String.t() | atom(),
+        "controlIdentifier" => String.t() | atom(),
         "driftStatusSummary" => drift_status_summary(),
         "parameters" => list(enabled_control_parameter_summary()),
         "statusSummary" => enablement_status_summary(),
-        "targetIdentifier" => String.t(),
+        "targetIdentifier" => String.t() | atom(),
         "targetRegions" => list(region())
       }
 
   """
-  @type enabled_control_details() :: %{String.t() => any()}
+  @type enabled_control_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1128,43 +1128,43 @@ defmodule AWS.ControlTower do
       }
 
   """
-  @type get_control_operation_output() :: %{String.t() => any()}
+  @type get_control_operation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_enabled_baseline_output() :: %{
-        "operationIdentifier" => String.t()
+        "operationIdentifier" => String.t() | atom()
       }
 
   """
-  @type update_enabled_baseline_output() :: %{String.t() => any()}
+  @type update_enabled_baseline_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_landing_zone_output() :: %{
-        "arn" => String.t(),
-        "operationIdentifier" => String.t()
+        "arn" => String.t() | atom(),
+        "operationIdentifier" => String.t() | atom()
       }
 
   """
-  @type create_landing_zone_output() :: %{String.t() => any()}
+  @type create_landing_zone_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_baseline_output() :: %{
-        "arn" => String.t(),
-        "description" => [String.t()],
-        "name" => [String.t()]
+        "arn" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type get_baseline_output() :: %{String.t() => any()}
+  @type get_baseline_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1175,18 +1175,18 @@ defmodule AWS.ControlTower do
       }
 
   """
-  @type enabled_baseline_inheritance_drift() :: %{String.t() => any()}
+  @type enabled_baseline_inheritance_drift() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reset_landing_zone_output() :: %{
-        "operationIdentifier" => String.t()
+        "operationIdentifier" => String.t() | atom()
       }
 
   """
-  @type reset_landing_zone_output() :: %{String.t() => any()}
+  @type reset_landing_zone_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1194,23 +1194,23 @@ defmodule AWS.ControlTower do
 
       list_landing_zone_operations_output() :: %{
         "landingZoneOperations" => list(landing_zone_operation_summary()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_landing_zone_operations_output() :: %{String.t() => any()}
+  @type list_landing_zone_operations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       enabled_baseline_parameter_summary() :: %{
-        "key" => [String.t()],
+        "key" => [String.t() | atom()],
         "value" => any()
       }
 
   """
-  @type enabled_baseline_parameter_summary() :: %{String.t() => any()}
+  @type enabled_baseline_parameter_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1218,33 +1218,33 @@ defmodule AWS.ControlTower do
 
       list_baselines_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_baselines_input() :: %{String.t() => any()}
+  @type list_baselines_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reset_enabled_baseline_output() :: %{
-        "operationIdentifier" => String.t()
+        "operationIdentifier" => String.t() | atom()
       }
 
   """
-  @type reset_enabled_baseline_output() :: %{String.t() => any()}
+  @type reset_enabled_baseline_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_landing_zone_input() :: %{
-        required("landingZoneIdentifier") => [String.t()]
+        required("landingZoneIdentifier") => [String.t() | atom()]
       }
 
   """
-  @type get_landing_zone_input() :: %{String.t() => any()}
+  @type get_landing_zone_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1255,7 +1255,7 @@ defmodule AWS.ControlTower do
       }
 
   """
-  @type drift_status_summary() :: %{String.t() => any()}
+  @type drift_status_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1263,78 +1263,78 @@ defmodule AWS.ControlTower do
 
       landing_zone_operation_detail() :: %{
         "endTime" => non_neg_integer(),
-        "operationIdentifier" => String.t(),
+        "operationIdentifier" => String.t() | atom(),
         "operationType" => list(any()),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
-        "statusMessage" => [String.t()]
+        "statusMessage" => [String.t() | atom()]
       }
 
   """
-  @type landing_zone_operation_detail() :: %{String.t() => any()}
+  @type landing_zone_operation_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_enabled_control_output() :: %{
-        "operationIdentifier" => String.t()
+        "operationIdentifier" => String.t() | atom()
       }
 
   """
-  @type update_enabled_control_output() :: %{String.t() => any()}
+  @type update_enabled_control_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disable_baseline_output() :: %{
-        "operationIdentifier" => String.t()
+        "operationIdentifier" => String.t() | atom()
       }
 
   """
-  @type disable_baseline_output() :: %{String.t() => any()}
+  @type disable_baseline_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reset_enabled_control_output() :: %{
-        "operationIdentifier" => String.t()
+        "operationIdentifier" => String.t() | atom()
       }
 
   """
-  @type reset_enabled_control_output() :: %{String.t() => any()}
+  @type reset_enabled_control_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       control_operation_summary() :: %{
-        "controlIdentifier" => String.t(),
-        "enabledControlIdentifier" => String.t(),
+        "controlIdentifier" => String.t() | atom(),
+        "enabledControlIdentifier" => String.t() | atom(),
         "endTime" => non_neg_integer(),
-        "operationIdentifier" => String.t(),
+        "operationIdentifier" => String.t() | atom(),
         "operationType" => list(any()),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
-        "statusMessage" => [String.t()],
-        "targetIdentifier" => String.t()
+        "statusMessage" => [String.t() | atom()],
+        "targetIdentifier" => String.t() | atom()
       }
 
   """
-  @type control_operation_summary() :: %{String.t() => any()}
+  @type control_operation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_baseline_input() :: %{
-        required("baselineIdentifier") => String.t()
+        required("baselineIdentifier") => String.t() | atom()
       }
 
   """
-  @type get_baseline_input() :: %{String.t() => any()}
+  @type get_baseline_input() :: %{(String.t() | atom()) => any()}
 
   @type create_landing_zone_errors() ::
           throttling_exception()
@@ -2178,7 +2178,7 @@ defmodule AWS.ControlTower do
   For usage examples, see the [ *Controls Reference Guide*
   ](https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html).
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2297,7 +2297,7 @@ defmodule AWS.ControlTower do
   For usage examples, see the [ *Controls Reference Guide*
   ](https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html).
   """
-  @spec tag_resource(map(), String.t(), tag_resource_input(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_input(), list()) ::
           {:ok, tag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -2329,7 +2329,7 @@ defmodule AWS.ControlTower do
   For usage examples, see the [ *Controls Reference Guide*
   ](https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html).
   """
-  @spec untag_resource(map(), String.t(), untag_resource_input(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_input(), list()) ::
           {:ok, untag_resource_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

@@ -19,84 +19,84 @@ defmodule AWS.PersonalizeEvents do
   ## Example:
 
       action() :: %{
-        "actionId" => String.t(),
-        "properties" => String.t()
+        "actionId" => String.t() | atom(),
+        "properties" => String.t() | atom()
       }
 
   """
-  @type action() :: %{String.t() => any()}
+  @type action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       action_interaction() :: %{
-        "actionId" => String.t(),
-        "eventId" => String.t(),
-        "eventType" => String.t(),
-        "impression" => list(String.t()),
-        "properties" => String.t(),
-        "recommendationId" => String.t(),
-        "sessionId" => String.t(),
+        "actionId" => String.t() | atom(),
+        "eventId" => String.t() | atom(),
+        "eventType" => String.t() | atom(),
+        "impression" => list(String.t() | atom()),
+        "properties" => String.t() | atom(),
+        "recommendationId" => String.t() | atom(),
+        "sessionId" => String.t() | atom(),
         "timestamp" => non_neg_integer(),
-        "userId" => String.t()
+        "userId" => String.t() | atom()
       }
 
   """
-  @type action_interaction() :: %{String.t() => any()}
+  @type action_interaction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       event() :: %{
-        "eventId" => String.t(),
-        "eventType" => String.t(),
+        "eventId" => String.t() | atom(),
+        "eventType" => String.t() | atom(),
         "eventValue" => float(),
-        "impression" => list(String.t()),
-        "itemId" => String.t(),
+        "impression" => list(String.t() | atom()),
+        "itemId" => String.t() | atom(),
         "metricAttribution" => metric_attribution(),
-        "properties" => String.t(),
-        "recommendationId" => String.t(),
+        "properties" => String.t() | atom(),
+        "recommendationId" => String.t() | atom(),
         "sentAt" => non_neg_integer()
       }
 
   """
-  @type event() :: %{String.t() => any()}
+  @type event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_input_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type invalid_input_exception() :: %{String.t() => any()}
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       item() :: %{
-        "itemId" => String.t(),
-        "properties" => String.t()
+        "itemId" => String.t() | atom(),
+        "properties" => String.t() | atom()
       }
 
   """
-  @type item() :: %{String.t() => any()}
+  @type item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       metric_attribution() :: %{
-        "eventAttributionSource" => String.t()
+        "eventAttributionSource" => String.t() | atom()
       }
 
   """
-  @type metric_attribution() :: %{String.t() => any()}
+  @type metric_attribution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -104,11 +104,11 @@ defmodule AWS.PersonalizeEvents do
 
       put_action_interactions_request() :: %{
         required("actionInteractions") => list(action_interaction()),
-        required("trackingId") => String.t()
+        required("trackingId") => String.t() | atom()
       }
 
   """
-  @type put_action_interactions_request() :: %{String.t() => any()}
+  @type put_action_interactions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -116,83 +116,83 @@ defmodule AWS.PersonalizeEvents do
 
       put_actions_request() :: %{
         required("actions") => list(action()),
-        required("datasetArn") => String.t()
+        required("datasetArn") => String.t() | atom()
       }
 
   """
-  @type put_actions_request() :: %{String.t() => any()}
+  @type put_actions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_events_request() :: %{
-        optional("userId") => String.t(),
+        optional("userId") => String.t() | atom(),
         required("eventList") => list(event()),
-        required("sessionId") => String.t(),
-        required("trackingId") => String.t()
+        required("sessionId") => String.t() | atom(),
+        required("trackingId") => String.t() | atom()
       }
 
   """
-  @type put_events_request() :: %{String.t() => any()}
+  @type put_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_items_request() :: %{
-        required("datasetArn") => String.t(),
+        required("datasetArn") => String.t() | atom(),
         required("items") => list(item())
       }
 
   """
-  @type put_items_request() :: %{String.t() => any()}
+  @type put_items_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_users_request() :: %{
-        required("datasetArn") => String.t(),
+        required("datasetArn") => String.t() | atom(),
         required("users") => list(user())
       }
 
   """
-  @type put_users_request() :: %{String.t() => any()}
+  @type put_users_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_in_use_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_in_use_exception() :: %{String.t() => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       user() :: %{
-        "properties" => String.t(),
-        "userId" => String.t()
+        "properties" => String.t() | atom(),
+        "userId" => String.t() | atom()
       }
 
   """
-  @type user() :: %{String.t() => any()}
+  @type user() :: %{(String.t() | atom()) => any()}
 
   @type put_action_interactions_errors() ::
           resource_not_found_exception() | resource_in_use_exception() | invalid_input_exception()

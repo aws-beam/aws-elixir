@@ -14,67 +14,67 @@ defmodule AWS.KinesisVideoWebRTCStorage do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       client_limit_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type client_limit_exceeded_exception() :: %{String.t() => any()}
+  @type client_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       invalid_argument_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type invalid_argument_exception() :: %{String.t() => any()}
+  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       join_storage_session_as_viewer_input() :: %{
-        required("channelArn") => String.t(),
-        required("clientId") => String.t()
+        required("channelArn") => String.t() | atom(),
+        required("clientId") => String.t() | atom()
       }
 
   """
-  @type join_storage_session_as_viewer_input() :: %{String.t() => any()}
+  @type join_storage_session_as_viewer_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       join_storage_session_input() :: %{
-        required("channelArn") => String.t()
+        required("channelArn") => String.t() | atom()
       }
 
   """
-  @type join_storage_session_input() :: %{String.t() => any()}
+  @type join_storage_session_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @type join_storage_session_errors() ::
           resource_not_found_exception()

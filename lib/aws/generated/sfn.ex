@@ -36,11 +36,11 @@ defmodule AWS.SFN do
       
       state_machine_version_list_item() :: %{
         "creationDate" => non_neg_integer(),
-        "stateMachineVersionArn" => String.t()
+        "stateMachineVersionArn" => String.t() | atom()
       }
       
   """
-  @type state_machine_version_list_item() :: %{String.t() => any()}
+  @type state_machine_version_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -48,11 +48,11 @@ defmodule AWS.SFN do
       
       describe_state_machine_for_execution_input() :: %{
         optional("includedData") => list(any()),
-        required("executionArn") => String.t()
+        required("executionArn") => String.t() | atom()
       }
       
   """
-  @type describe_state_machine_for_execution_input() :: %{String.t() => any()}
+  @type describe_state_machine_for_execution_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -60,12 +60,12 @@ defmodule AWS.SFN do
       
       encryption_configuration() :: %{
         "kmsDataKeyReusePeriodSeconds" => integer(),
-        "kmsKeyId" => String.t(),
+        "kmsKeyId" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type encryption_configuration() :: %{String.t() => any()}
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -73,45 +73,45 @@ defmodule AWS.SFN do
       
       list_executions_output() :: %{
         "executions" => list(execution_list_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_executions_output() :: %{String.t() => any()}
+  @type list_executions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found() :: %{
-        "message" => String.t(),
-        "resourceName" => String.t()
+        "message" => String.t() | atom(),
+        "resourceName" => String.t() | atom()
       }
       
   """
-  @type resource_not_found() :: %{String.t() => any()}
+  @type resource_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       state_machine_type_not_supported() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type state_machine_type_not_supported() :: %{String.t() => any()}
+  @type state_machine_type_not_supported() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execution_does_not_exist() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type execution_does_not_exist() :: %{String.t() => any()}
+  @type execution_does_not_exist() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -119,35 +119,35 @@ defmodule AWS.SFN do
       
       list_state_machine_aliases_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("stateMachineArn") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("stateMachineArn") => String.t() | atom()
       }
       
   """
-  @type list_state_machine_aliases_input() :: %{String.t() => any()}
+  @type list_state_machine_aliases_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execution_succeeded_event_details() :: %{
-        "output" => String.t(),
+        "output" => String.t() | atom(),
         "outputDetails" => history_event_execution_data_details()
       }
       
   """
-  @type execution_succeeded_event_details() :: %{String.t() => any()}
+  @type execution_succeeded_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       missing_required_parameter() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type missing_required_parameter() :: %{String.t() => any()}
+  @type missing_required_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -155,11 +155,11 @@ defmodule AWS.SFN do
       
       state_machine_alias_list_item() :: %{
         "creationDate" => non_neg_integer(),
-        "stateMachineAliasArn" => String.t()
+        "stateMachineAliasArn" => String.t() | atom()
       }
       
   """
-  @type state_machine_alias_list_item() :: %{String.t() => any()}
+  @type state_machine_alias_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -170,7 +170,7 @@ defmodule AWS.SFN do
       }
       
   """
-  @type cloud_watch_events_execution_data_details() :: %{String.t() => any()}
+  @type cloud_watch_events_execution_data_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -178,41 +178,41 @@ defmodule AWS.SFN do
       
       describe_execution_input() :: %{
         optional("includedData") => list(any()),
-        required("executionArn") => String.t()
+        required("executionArn") => String.t() | atom()
       }
       
   """
-  @type describe_execution_input() :: %{String.t() => any()}
+  @type describe_execution_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_execution_output() :: %{
-        "cause" => String.t(),
-        "error" => String.t(),
-        "executionArn" => String.t(),
-        "input" => String.t(),
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom(),
+        "executionArn" => String.t() | atom(),
+        "input" => String.t() | atom(),
         "inputDetails" => cloud_watch_events_execution_data_details(),
-        "mapRunArn" => String.t(),
-        "name" => String.t(),
-        "output" => String.t(),
+        "mapRunArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "output" => String.t() | atom(),
         "outputDetails" => cloud_watch_events_execution_data_details(),
         "redriveCount" => integer(),
         "redriveDate" => non_neg_integer(),
         "redriveStatus" => list(any()),
-        "redriveStatusReason" => String.t(),
+        "redriveStatusReason" => String.t() | atom(),
         "startDate" => non_neg_integer(),
-        "stateMachineAliasArn" => String.t(),
-        "stateMachineArn" => String.t(),
-        "stateMachineVersionArn" => String.t(),
+        "stateMachineAliasArn" => String.t() | atom(),
+        "stateMachineArn" => String.t() | atom(),
+        "stateMachineVersionArn" => String.t() | atom(),
         "status" => list(any()),
         "stopDate" => non_neg_integer(),
-        "traceHeader" => String.t()
+        "traceHeader" => String.t() | atom()
       }
       
   """
-  @type describe_execution_output() :: %{String.t() => any()}
+  @type describe_execution_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -223,7 +223,7 @@ defmodule AWS.SFN do
       }
       
   """
-  @type update_state_machine_alias_output() :: %{String.t() => any()}
+  @type update_state_machine_alias_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -252,7 +252,7 @@ defmodule AWS.SFN do
       }
       
   """
-  @type map_run_item_counts() :: %{String.t() => any()}
+  @type map_run_item_counts() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -268,37 +268,37 @@ defmodule AWS.SFN do
   ## Example:
       
       kms_throttling_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type kms_throttling_exception() :: %{String.t() => any()}
+  @type kms_throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_state_machine_aliases_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "stateMachineAliases" => list(state_machine_alias_list_item())
       }
       
   """
-  @type list_state_machine_aliases_output() :: %{String.t() => any()}
+  @type list_state_machine_aliases_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       task_failed_event_details() :: %{
-        "cause" => String.t(),
-        "error" => String.t(),
-        "resource" => String.t(),
-        "resourceType" => String.t()
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom(),
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
       
   """
-  @type task_failed_event_details() :: %{String.t() => any()}
+  @type task_failed_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -306,104 +306,104 @@ defmodule AWS.SFN do
       
       describe_state_machine_input() :: %{
         optional("includedData") => list(any()),
-        required("stateMachineArn") => String.t()
+        required("stateMachineArn") => String.t() | atom()
       }
       
   """
-  @type describe_state_machine_input() :: %{String.t() => any()}
+  @type describe_state_machine_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_state_machine_alias_input() :: %{
-        required("stateMachineAliasArn") => String.t()
+        required("stateMachineAliasArn") => String.t() | atom()
       }
       
   """
-  @type describe_state_machine_alias_input() :: %{String.t() => any()}
+  @type describe_state_machine_alias_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_execution_output() :: %{
-        "executionArn" => String.t(),
+        "executionArn" => String.t() | atom(),
         "startDate" => non_neg_integer()
       }
       
   """
-  @type start_execution_output() :: %{String.t() => any()}
+  @type start_execution_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       map_run_started_event_details() :: %{
-        "mapRunArn" => String.t()
+        "mapRunArn" => String.t() | atom()
       }
       
   """
-  @type map_run_started_event_details() :: %{String.t() => any()}
+  @type map_run_started_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_tracing_configuration() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_tracing_configuration() :: %{String.t() => any()}
+  @type invalid_tracing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_state_machines_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "stateMachines" => list(state_machine_list_item())
       }
       
   """
-  @type list_state_machines_output() :: %{String.t() => any()}
+  @type list_state_machines_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_state_machine_alias_input() :: %{
-        optional("description") => String.t(),
-        required("name") => String.t(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
         required("routingConfiguration") => list(routing_configuration_list_item())
       }
       
   """
-  @type create_state_machine_alias_input() :: %{String.t() => any()}
+  @type create_state_machine_alias_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_output() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_output() :: %{String.t() => any()}
+  @type invalid_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       map_run_failed_event_details() :: %{
-        "cause" => String.t(),
-        "error" => String.t()
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
       }
       
   """
-  @type map_run_failed_event_details() :: %{String.t() => any()}
+  @type map_run_failed_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -419,58 +419,58 @@ defmodule AWS.SFN do
   ## Example:
       
       activity_schedule_failed_event_details() :: %{
-        "cause" => String.t(),
-        "error" => String.t()
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
       }
       
   """
-  @type activity_schedule_failed_event_details() :: %{String.t() => any()}
+  @type activity_schedule_failed_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       state_entered_event_details() :: %{
-        "input" => String.t(),
+        "input" => String.t() | atom(),
         "inputDetails" => history_event_execution_data_details(),
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type state_entered_event_details() :: %{String.t() => any()}
+  @type state_entered_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_token() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_token() :: %{String.t() => any()}
+  @type invalid_token() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_activity_input() :: %{
-        required("activityArn") => String.t()
+        required("activityArn") => String.t() | atom()
       }
       
   """
-  @type delete_activity_input() :: %{String.t() => any()}
+  @type delete_activity_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_state_machine_alias_input() :: %{
-        required("stateMachineAliasArn") => String.t()
+        required("stateMachineAliasArn") => String.t() | atom()
       }
       
   """
-  @type delete_state_machine_alias_input() :: %{String.t() => any()}
+  @type delete_state_machine_alias_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -478,13 +478,13 @@ defmodule AWS.SFN do
       
       state_machine_list_item() :: %{
         "creationDate" => non_neg_integer(),
-        "name" => String.t(),
-        "stateMachineArn" => String.t(),
+        "name" => String.t() | atom(),
+        "stateMachineArn" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type state_machine_list_item() :: %{String.t() => any()}
+  @type state_machine_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -492,24 +492,24 @@ defmodule AWS.SFN do
       
       create_state_machine_output() :: %{
         "creationDate" => non_neg_integer(),
-        "stateMachineArn" => String.t(),
-        "stateMachineVersionArn" => String.t()
+        "stateMachineArn" => String.t() | atom(),
+        "stateMachineVersionArn" => String.t() | atom()
       }
       
   """
-  @type create_state_machine_output() :: %{String.t() => any()}
+  @type create_state_machine_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execution_aborted_event_details() :: %{
-        "cause" => String.t(),
-        "error" => String.t()
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
       }
       
   """
-  @type execution_aborted_event_details() :: %{String.t() => any()}
+  @type execution_aborted_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -520,31 +520,31 @@ defmodule AWS.SFN do
       }
       
   """
-  @type execution_redriven_event_details() :: %{String.t() => any()}
+  @type execution_redriven_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       lambda_function_start_failed_event_details() :: %{
-        "cause" => String.t(),
-        "error" => String.t()
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
       }
       
   """
-  @type lambda_function_start_failed_event_details() :: %{String.t() => any()}
+  @type lambda_function_start_failed_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       lambda_function_failed_event_details() :: %{
-        "cause" => String.t(),
-        "error" => String.t()
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
       }
       
   """
-  @type lambda_function_failed_event_details() :: %{String.t() => any()}
+  @type lambda_function_failed_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -552,15 +552,15 @@ defmodule AWS.SFN do
       
       describe_state_machine_alias_output() :: %{
         "creationDate" => non_neg_integer(),
-        "description" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "routingConfiguration" => list(routing_configuration_list_item()),
-        "stateMachineAliasArn" => String.t(),
+        "stateMachineAliasArn" => String.t() | atom(),
         "updateDate" => non_neg_integer()
       }
       
   """
-  @type describe_state_machine_alias_output() :: %{String.t() => any()}
+  @type describe_state_machine_alias_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -571,7 +571,7 @@ defmodule AWS.SFN do
       }
       
   """
-  @type redrive_execution_output() :: %{String.t() => any()}
+  @type redrive_execution_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -582,7 +582,7 @@ defmodule AWS.SFN do
       }
       
   """
-  @type list_tags_for_resource_output() :: %{String.t() => any()}
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -590,36 +590,36 @@ defmodule AWS.SFN do
       
       start_sync_execution_output() :: %{
         "billingDetails" => billing_details(),
-        "cause" => String.t(),
-        "error" => String.t(),
-        "executionArn" => String.t(),
-        "input" => String.t(),
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom(),
+        "executionArn" => String.t() | atom(),
+        "input" => String.t() | atom(),
         "inputDetails" => cloud_watch_events_execution_data_details(),
-        "name" => String.t(),
-        "output" => String.t(),
+        "name" => String.t() | atom(),
+        "output" => String.t() | atom(),
         "outputDetails" => cloud_watch_events_execution_data_details(),
         "startDate" => non_neg_integer(),
-        "stateMachineArn" => String.t(),
+        "stateMachineArn" => String.t() | atom(),
         "status" => list(any()),
         "stopDate" => non_neg_integer(),
-        "traceHeader" => String.t()
+        "traceHeader" => String.t() | atom()
       }
       
   """
-  @type start_sync_execution_output() :: %{String.t() => any()}
+  @type start_sync_execution_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_task_failure_input() :: %{
-        optional("cause") => String.t(),
-        optional("error") => String.t(),
-        required("taskToken") => String.t()
+        optional("cause") => String.t() | atom(),
+        optional("error") => String.t() | atom(),
+        required("taskToken") => String.t() | atom()
       }
       
   """
-  @type send_task_failure_input() :: %{String.t() => any()}
+  @type send_task_failure_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -632,47 +632,47 @@ defmodule AWS.SFN do
       }
       
   """
-  @type logging_configuration() :: %{String.t() => any()}
+  @type logging_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_activity_task_output() :: %{
-        "input" => String.t(),
-        "taskToken" => String.t()
+        "input" => String.t() | atom(),
+        "taskToken" => String.t() | atom()
       }
       
   """
-  @type get_activity_task_output() :: %{String.t() => any()}
+  @type get_activity_task_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_activity_output() :: %{
-        "activityArn" => String.t(),
+        "activityArn" => String.t() | atom(),
         "creationDate" => non_neg_integer(),
         "encryptionConfiguration" => encryption_configuration(),
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type describe_activity_output() :: %{String.t() => any()}
+  @type describe_activity_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       task_timed_out_event_details() :: %{
-        "cause" => String.t(),
-        "error" => String.t(),
-        "resource" => String.t(),
-        "resourceType" => String.t()
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom(),
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
       
   """
-  @type task_timed_out_event_details() :: %{String.t() => any()}
+  @type task_timed_out_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -683,7 +683,7 @@ defmodule AWS.SFN do
       }
       
   """
-  @type history_event_execution_data_details() :: %{String.t() => any()}
+  @type history_event_execution_data_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -699,12 +699,12 @@ defmodule AWS.SFN do
   ## Example:
       
       task_started_event_details() :: %{
-        "resource" => String.t(),
-        "resourceType" => String.t()
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
       
   """
-  @type task_started_event_details() :: %{String.t() => any()}
+  @type task_started_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -720,12 +720,12 @@ defmodule AWS.SFN do
   ## Example:
       
       redrive_execution_input() :: %{
-        optional("clientToken") => String.t(),
-        required("executionArn") => String.t()
+        optional("clientToken") => String.t() | atom(),
+        required("executionArn") => String.t() | atom()
       }
       
   """
-  @type redrive_execution_input() :: %{String.t() => any()}
+  @type redrive_execution_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -734,35 +734,35 @@ defmodule AWS.SFN do
       get_execution_history_input() :: %{
         optional("includeExecutionData") => boolean(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("reverseOrder") => boolean(),
-        required("executionArn") => String.t()
+        required("executionArn") => String.t() | atom()
       }
       
   """
-  @type get_execution_history_input() :: %{String.t() => any()}
+  @type get_execution_history_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_state_machine_for_execution_output() :: %{
-        "definition" => String.t(),
+        "definition" => String.t() | atom(),
         "encryptionConfiguration" => encryption_configuration(),
-        "label" => String.t(),
+        "label" => String.t() | atom(),
         "loggingConfiguration" => logging_configuration(),
-        "mapRunArn" => String.t(),
-        "name" => String.t(),
-        "revisionId" => String.t(),
-        "roleArn" => String.t(),
-        "stateMachineArn" => String.t(),
+        "mapRunArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "revisionId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "stateMachineArn" => String.t() | atom(),
         "tracingConfiguration" => tracing_configuration(),
         "updateDate" => non_neg_integer(),
         "variableReferences" => map()
       }
       
   """
-  @type describe_state_machine_for_execution_output() :: %{String.t() => any()}
+  @type describe_state_machine_for_execution_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -770,11 +770,11 @@ defmodule AWS.SFN do
       
       get_execution_history_output() :: %{
         "events" => list(history_event()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type get_execution_history_output() :: %{String.t() => any()}
+  @type get_execution_history_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -782,59 +782,59 @@ defmodule AWS.SFN do
       
       list_state_machines_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_state_machines_input() :: %{String.t() => any()}
+  @type list_state_machines_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       inspection_data_request() :: %{
-        "body" => String.t(),
-        "headers" => String.t(),
-        "method" => String.t(),
-        "protocol" => String.t(),
-        "url" => String.t()
+        "body" => String.t() | atom(),
+        "headers" => String.t() | atom(),
+        "method" => String.t() | atom(),
+        "protocol" => String.t() | atom(),
+        "url" => String.t() | atom()
       }
       
   """
-  @type inspection_data_request() :: %{String.t() => any()}
+  @type inspection_data_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       state_machine_already_exists() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type state_machine_already_exists() :: %{String.t() => any()}
+  @type state_machine_already_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execution_not_redrivable() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type execution_not_redrivable() :: %{String.t() => any()}
+  @type execution_not_redrivable() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       conflict_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -850,116 +850,116 @@ defmodule AWS.SFN do
   ## Example:
       
       activity_succeeded_event_details() :: %{
-        "output" => String.t(),
+        "output" => String.t() | atom(),
         "outputDetails" => history_event_execution_data_details()
       }
       
   """
-  @type activity_succeeded_event_details() :: %{String.t() => any()}
+  @type activity_succeeded_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       task_timed_out() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type task_timed_out() :: %{String.t() => any()}
+  @type task_timed_out() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_task_heartbeat_input() :: %{
-        required("taskToken") => String.t()
+        required("taskToken") => String.t() | atom()
       }
       
   """
-  @type send_task_heartbeat_input() :: %{String.t() => any()}
+  @type send_task_heartbeat_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag() :: %{
-        "key" => String.t(),
-        "value" => String.t()
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       task_succeeded_event_details() :: %{
-        "output" => String.t(),
+        "output" => String.t() | atom(),
         "outputDetails" => history_event_execution_data_details(),
-        "resource" => String.t(),
-        "resourceType" => String.t()
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
       
   """
-  @type task_succeeded_event_details() :: %{String.t() => any()}
+  @type task_succeeded_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       inspection_data() :: %{
-        "afterArguments" => String.t(),
-        "afterInputPath" => String.t(),
-        "afterParameters" => String.t(),
-        "afterResultPath" => String.t(),
-        "afterResultSelector" => String.t(),
-        "input" => String.t(),
+        "afterArguments" => String.t() | atom(),
+        "afterInputPath" => String.t() | atom(),
+        "afterParameters" => String.t() | atom(),
+        "afterResultPath" => String.t() | atom(),
+        "afterResultSelector" => String.t() | atom(),
+        "input" => String.t() | atom(),
         "request" => inspection_data_request(),
         "response" => inspection_data_response(),
-        "result" => String.t(),
-        "variables" => String.t()
+        "result" => String.t() | atom(),
+        "variables" => String.t() | atom()
       }
       
   """
-  @type inspection_data() :: %{String.t() => any()}
+  @type inspection_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       publish_state_machine_version_input() :: %{
-        optional("description") => String.t(),
-        optional("revisionId") => String.t(),
-        required("stateMachineArn") => String.t()
+        optional("description") => String.t() | atom(),
+        optional("revisionId") => String.t() | atom(),
+        required("stateMachineArn") => String.t() | atom()
       }
       
   """
-  @type publish_state_machine_version_input() :: %{String.t() => any()}
+  @type publish_state_machine_version_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_exceeded_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       lambda_function_schedule_failed_event_details() :: %{
-        "cause" => String.t(),
-        "error" => String.t()
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
       }
       
   """
-  @type lambda_function_schedule_failed_event_details() :: %{String.t() => any()}
+  @type lambda_function_schedule_failed_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -970,30 +970,30 @@ defmodule AWS.SFN do
       }
       
   """
-  @type log_destination() :: %{String.t() => any()}
+  @type log_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execution_limit_exceeded() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type execution_limit_exceeded() :: %{String.t() => any()}
+  @type execution_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_activity_task_input() :: %{
-        optional("workerName") => String.t(),
-        required("activityArn") => String.t()
+        optional("workerName") => String.t() | atom(),
+        required("activityArn") => String.t() | atom()
       }
       
   """
-  @type get_activity_task_input() :: %{String.t() => any()}
+  @type get_activity_task_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1002,13 +1002,13 @@ defmodule AWS.SFN do
       state_exited_event_details() :: %{
         "assignedVariables" => map(),
         "assignedVariablesDetails" => assigned_variables_details(),
-        "name" => String.t(),
-        "output" => String.t(),
+        "name" => String.t() | atom(),
+        "output" => String.t() | atom(),
         "outputDetails" => history_event_execution_data_details()
       }
       
   """
-  @type state_exited_event_details() :: %{String.t() => any()}
+  @type state_exited_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1021,36 +1021,36 @@ defmodule AWS.SFN do
         optional("tags") => list(tag()),
         optional("tracingConfiguration") => tracing_configuration(),
         optional("type") => list(any()),
-        optional("versionDescription") => String.t(),
-        required("definition") => String.t(),
-        required("name") => String.t(),
-        required("roleArn") => String.t()
+        optional("versionDescription") => String.t() | atom(),
+        required("definition") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
       }
       
   """
-  @type create_state_machine_input() :: %{String.t() => any()}
+  @type create_state_machine_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_encryption_configuration() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_encryption_configuration() :: %{String.t() => any()}
+  @type invalid_encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       cloud_watch_logs_log_group() :: %{
-        "logGroupArn" => String.t()
+        "logGroupArn" => String.t() | atom()
       }
       
   """
-  @type cloud_watch_logs_log_group() :: %{String.t() => any()}
+  @type cloud_watch_logs_log_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1066,12 +1066,12 @@ defmodule AWS.SFN do
   ## Example:
       
       activity_failed_event_details() :: %{
-        "cause" => String.t(),
-        "error" => String.t()
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
       }
       
   """
-  @type activity_failed_event_details() :: %{String.t() => any()}
+  @type activity_failed_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1080,112 +1080,112 @@ defmodule AWS.SFN do
       create_activity_input() :: %{
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("tags") => list(tag()),
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
       
   """
-  @type create_activity_input() :: %{String.t() => any()}
+  @type create_activity_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       lambda_function_succeeded_event_details() :: %{
-        "output" => String.t(),
+        "output" => String.t() | atom(),
         "outputDetails" => history_event_execution_data_details()
       }
       
   """
-  @type lambda_function_succeeded_event_details() :: %{String.t() => any()}
+  @type lambda_function_succeeded_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execution_failed_event_details() :: %{
-        "cause" => String.t(),
-        "error" => String.t()
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
       }
       
   """
-  @type execution_failed_event_details() :: %{String.t() => any()}
+  @type execution_failed_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       lambda_function_timed_out_event_details() :: %{
-        "cause" => String.t(),
-        "error" => String.t()
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
       }
       
   """
-  @type lambda_function_timed_out_event_details() :: %{String.t() => any()}
+  @type lambda_function_timed_out_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       lambda_function_scheduled_event_details() :: %{
-        "input" => String.t(),
+        "input" => String.t() | atom(),
         "inputDetails" => history_event_execution_data_details(),
-        "resource" => String.t(),
+        "resource" => String.t() | atom(),
         "taskCredentials" => task_credentials(),
         "timeoutInSeconds" => float()
       }
       
   """
-  @type lambda_function_scheduled_event_details() :: %{String.t() => any()}
+  @type lambda_function_scheduled_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       task_submit_failed_event_details() :: %{
-        "cause" => String.t(),
-        "error" => String.t(),
-        "resource" => String.t(),
-        "resourceType" => String.t()
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom(),
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
       
   """
-  @type task_submit_failed_event_details() :: %{String.t() => any()}
+  @type task_submit_failed_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_input() :: %{
-        required("resourceArn") => String.t(),
+        required("resourceArn") => String.t() | atom(),
         required("tags") => list(tag())
       }
       
   """
-  @type tag_resource_input() :: %{String.t() => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_state_machine_output() :: %{
-        "revisionId" => String.t(),
-        "stateMachineVersionArn" => String.t(),
+        "revisionId" => String.t() | atom(),
+        "stateMachineVersionArn" => String.t() | atom(),
         "updateDate" => non_neg_integer()
       }
       
   """
-  @type update_state_machine_output() :: %{String.t() => any()}
+  @type update_state_machine_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_activity_input() :: %{
-        required("activityArn") => String.t()
+        required("activityArn") => String.t() | atom()
       }
       
   """
-  @type describe_activity_input() :: %{String.t() => any()}
+  @type describe_activity_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1196,7 +1196,7 @@ defmodule AWS.SFN do
       }
       
   """
-  @type tracing_configuration() :: %{String.t() => any()}
+  @type tracing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1207,30 +1207,30 @@ defmodule AWS.SFN do
       }
       
   """
-  @type stop_execution_output() :: %{String.t() => any()}
+  @type stop_execution_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       activity_worker_limit_exceeded() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type activity_worker_limit_exceeded() :: %{String.t() => any()}
+  @type activity_worker_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execution_timed_out_event_details() :: %{
-        "cause" => String.t(),
-        "error" => String.t()
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
       }
       
   """
-  @type execution_timed_out_event_details() :: %{String.t() => any()}
+  @type execution_timed_out_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1242,22 +1242,22 @@ defmodule AWS.SFN do
       }
       
   """
-  @type billing_details() :: %{String.t() => any()}
+  @type billing_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execution_started_event_details() :: %{
-        "input" => String.t(),
+        "input" => String.t() | atom(),
         "inputDetails" => history_event_execution_data_details(),
-        "roleArn" => String.t(),
-        "stateMachineAliasArn" => String.t(),
-        "stateMachineVersionArn" => String.t()
+        "roleArn" => String.t() | atom(),
+        "stateMachineAliasArn" => String.t() | atom(),
+        "stateMachineVersionArn" => String.t() | atom()
       }
       
   """
-  @type execution_started_event_details() :: %{String.t() => any()}
+  @type execution_started_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1317,18 +1317,18 @@ defmodule AWS.SFN do
       }
       
   """
-  @type history_event() :: %{String.t() => any()}
+  @type history_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       state_machine_limit_exceeded() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type state_machine_limit_exceeded() :: %{String.t() => any()}
+  @type state_machine_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1336,49 +1336,49 @@ defmodule AWS.SFN do
       
       map_iteration_event_details() :: %{
         "index" => integer(),
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type map_iteration_event_details() :: %{String.t() => any()}
+  @type map_iteration_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       kms_access_denied_exception() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type kms_access_denied_exception() :: %{String.t() => any()}
+  @type kms_access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_state_machine_alias_input() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("routingConfiguration") => list(routing_configuration_list_item()),
-        required("stateMachineAliasArn") => String.t()
+        required("stateMachineAliasArn") => String.t() | atom()
       }
       
   """
-  @type update_state_machine_alias_input() :: %{String.t() => any()}
+  @type update_state_machine_alias_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       task_start_failed_event_details() :: %{
-        "cause" => String.t(),
-        "error" => String.t(),
-        "resource" => String.t(),
-        "resourceType" => String.t()
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom(),
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
       
   """
-  @type task_start_failed_event_details() :: %{String.t() => any()}
+  @type task_start_failed_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1398,7 +1398,7 @@ defmodule AWS.SFN do
       }
       
   """
-  @type map_run_execution_counts() :: %{String.t() => any()}
+  @type map_run_execution_counts() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1411,61 +1411,61 @@ defmodule AWS.SFN do
       }
       
   """
-  @type validate_state_machine_definition_output() :: %{String.t() => any()}
+  @type validate_state_machine_definition_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       activity_already_exists() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type activity_already_exists() :: %{String.t() => any()}
+  @type activity_already_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       update_state_machine_input() :: %{
-        optional("definition") => String.t(),
+        optional("definition") => String.t() | atom(),
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("loggingConfiguration") => logging_configuration(),
         optional("publish") => boolean(),
-        optional("roleArn") => String.t(),
+        optional("roleArn") => String.t() | atom(),
         optional("tracingConfiguration") => tracing_configuration(),
-        optional("versionDescription") => String.t(),
-        required("stateMachineArn") => String.t()
+        optional("versionDescription") => String.t() | atom(),
+        required("stateMachineArn") => String.t() | atom()
       }
       
   """
-  @type update_state_machine_input() :: %{String.t() => any()}
+  @type update_state_machine_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       evaluation_failed_event_details() :: %{
-        "cause" => String.t(),
-        "error" => String.t(),
-        "location" => String.t(),
-        "state" => String.t()
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom(),
+        "location" => String.t() | atom(),
+        "state" => String.t() | atom()
       }
       
   """
-  @type evaluation_failed_event_details() :: %{String.t() => any()}
+  @type evaluation_failed_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       state_machine_does_not_exist() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type state_machine_does_not_exist() :: %{String.t() => any()}
+  @type state_machine_does_not_exist() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1476,69 +1476,69 @@ defmodule AWS.SFN do
       }
       
   """
-  @type map_state_started_event_details() :: %{String.t() => any()}
+  @type map_state_started_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       map_run_list_item() :: %{
-        "executionArn" => String.t(),
-        "mapRunArn" => String.t(),
+        "executionArn" => String.t() | atom(),
+        "mapRunArn" => String.t() | atom(),
         "startDate" => non_neg_integer(),
-        "stateMachineArn" => String.t(),
+        "stateMachineArn" => String.t() | atom(),
         "stopDate" => non_neg_integer()
       }
       
   """
-  @type map_run_list_item() :: %{String.t() => any()}
+  @type map_run_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       activity_list_item() :: %{
-        "activityArn" => String.t(),
+        "activityArn" => String.t() | atom(),
         "creationDate" => non_neg_integer(),
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
       
   """
-  @type activity_list_item() :: %{String.t() => any()}
+  @type activity_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_input() :: %{
-        required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t())
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_input() :: %{String.t() => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_definition() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_definition() :: %{String.t() => any()}
+  @type invalid_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_state_machine_input() :: %{
-        required("stateMachineArn") => String.t()
+        required("stateMachineArn") => String.t() | atom()
       }
       
   """
-  @type delete_state_machine_input() :: %{String.t() => any()}
+  @type delete_state_machine_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1546,46 +1546,46 @@ defmodule AWS.SFN do
       
       list_map_runs_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("executionArn") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("executionArn") => String.t() | atom()
       }
       
   """
-  @type list_map_runs_input() :: %{String.t() => any()}
+  @type list_map_runs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       task_does_not_exist() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type task_does_not_exist() :: %{String.t() => any()}
+  @type task_does_not_exist() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execution_already_exists() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type execution_already_exists() :: %{String.t() => any()}
+  @type execution_already_exists() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_activity_output() :: %{
-        "activityArn" => String.t(),
+        "activityArn" => String.t() | atom(),
         "creationDate" => non_neg_integer()
       }
       
   """
-  @type create_activity_output() :: %{String.t() => any()}
+  @type create_activity_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1596,66 +1596,66 @@ defmodule AWS.SFN do
       }
       
   """
-  @type assigned_variables_details() :: %{String.t() => any()}
+  @type assigned_variables_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       activity_limit_exceeded() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type activity_limit_exceeded() :: %{String.t() => any()}
+  @type activity_limit_exceeded() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_name() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_name() :: %{String.t() => any()}
+  @type invalid_name() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception() :: %{
-        "message" => String.t(),
+        "message" => String.t() | atom(),
         "reason" => list(any())
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_input() :: %{
-        required("resourceArn") => String.t()
+        required("resourceArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_input() :: %{String.t() => any()}
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       task_submitted_event_details() :: %{
-        "output" => String.t(),
+        "output" => String.t() | atom(),
         "outputDetails" => history_event_execution_data_details(),
-        "resource" => String.t(),
-        "resourceType" => String.t()
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
       
   """
-  @type task_submitted_event_details() :: %{String.t() => any()}
+  @type task_submitted_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1671,28 +1671,28 @@ defmodule AWS.SFN do
   ## Example:
       
       map_run_redriven_event_details() :: %{
-        "mapRunArn" => String.t(),
+        "mapRunArn" => String.t() | atom(),
         "redriveCount" => integer()
       }
       
   """
-  @type map_run_redriven_event_details() :: %{String.t() => any()}
+  @type map_run_redriven_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       test_state_output() :: %{
-        "cause" => String.t(),
-        "error" => String.t(),
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom(),
         "inspectionData" => inspection_data(),
-        "nextState" => String.t(),
-        "output" => String.t(),
+        "nextState" => String.t() | atom(),
+        "output" => String.t() | atom(),
         "status" => list(any())
       }
       
   """
-  @type test_state_output() :: %{String.t() => any()}
+  @type test_state_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1702,11 +1702,11 @@ defmodule AWS.SFN do
         optional("maxConcurrency") => integer(),
         optional("toleratedFailureCount") => float(),
         optional("toleratedFailurePercentage") => float(),
-        required("mapRunArn") => String.t()
+        required("mapRunArn") => String.t() | atom()
       }
       
   """
-  @type update_map_run_input() :: %{String.t() => any()}
+  @type update_map_run_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1714,14 +1714,14 @@ defmodule AWS.SFN do
       
       start_sync_execution_input() :: %{
         optional("includedData") => list(any()),
-        optional("input") => String.t(),
-        optional("name") => String.t(),
-        optional("traceHeader") => String.t(),
-        required("stateMachineArn") => String.t()
+        optional("input") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("traceHeader") => String.t() | atom(),
+        required("stateMachineArn") => String.t() | atom()
       }
       
   """
-  @type start_sync_execution_input() :: %{String.t() => any()}
+  @type start_sync_execution_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1731,57 +1731,57 @@ defmodule AWS.SFN do
         optional("maxResults") => integer(),
         optional("severity") => list(any()),
         optional("type") => list(any()),
-        required("definition") => String.t()
+        required("definition") => String.t() | atom()
       }
       
   """
-  @type validate_state_machine_definition_input() :: %{String.t() => any()}
+  @type validate_state_machine_definition_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       send_task_success_input() :: %{
-        required("output") => String.t(),
-        required("taskToken") => String.t()
+        required("output") => String.t() | atom(),
+        required("taskToken") => String.t() | atom()
       }
       
   """
-  @type send_task_success_input() :: %{String.t() => any()}
+  @type send_task_success_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       routing_configuration_list_item() :: %{
-        "stateMachineVersionArn" => String.t(),
+        "stateMachineVersionArn" => String.t() | atom(),
         "weight" => integer()
       }
       
   """
-  @type routing_configuration_list_item() :: %{String.t() => any()}
+  @type routing_configuration_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       execution_list_item() :: %{
-        "executionArn" => String.t(),
+        "executionArn" => String.t() | atom(),
         "itemCount" => integer(),
-        "mapRunArn" => String.t(),
-        "name" => String.t(),
+        "mapRunArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "redriveCount" => integer(),
         "redriveDate" => non_neg_integer(),
         "startDate" => non_neg_integer(),
-        "stateMachineAliasArn" => String.t(),
-        "stateMachineArn" => String.t(),
-        "stateMachineVersionArn" => String.t(),
+        "stateMachineAliasArn" => String.t() | atom(),
+        "stateMachineArn" => String.t() | atom(),
+        "stateMachineVersionArn" => String.t() | atom(),
         "status" => list(any()),
         "stopDate" => non_neg_integer()
       }
       
   """
-  @type execution_list_item() :: %{String.t() => any()}
+  @type execution_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1789,37 +1789,37 @@ defmodule AWS.SFN do
       
       activity_scheduled_event_details() :: %{
         "heartbeatInSeconds" => float(),
-        "input" => String.t(),
+        "input" => String.t() | atom(),
         "inputDetails" => history_event_execution_data_details(),
-        "resource" => String.t(),
+        "resource" => String.t() | atom(),
         "timeoutInSeconds" => float()
       }
       
   """
-  @type activity_scheduled_event_details() :: %{String.t() => any()}
+  @type activity_scheduled_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       activity_timed_out_event_details() :: %{
-        "cause" => String.t(),
-        "error" => String.t()
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
       }
       
   """
-  @type activity_timed_out_event_details() :: %{String.t() => any()}
+  @type activity_timed_out_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       task_credentials() :: %{
-        "roleArn" => String.t()
+        "roleArn" => String.t() | atom()
       }
       
   """
-  @type task_credentials() :: %{String.t() => any()}
+  @type task_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1836,21 +1836,21 @@ defmodule AWS.SFN do
       
       create_state_machine_alias_output() :: %{
         "creationDate" => non_neg_integer(),
-        "stateMachineAliasArn" => String.t()
+        "stateMachineAliasArn" => String.t() | atom()
       }
       
   """
-  @type create_state_machine_alias_output() :: %{String.t() => any()}
+  @type create_state_machine_alias_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_map_run_output() :: %{
-        "executionArn" => String.t(),
+        "executionArn" => String.t() | atom(),
         "executionCounts" => map_run_execution_counts(),
         "itemCounts" => map_run_item_counts(),
-        "mapRunArn" => String.t(),
+        "mapRunArn" => String.t() | atom(),
         "maxConcurrency" => integer(),
         "redriveCount" => integer(),
         "redriveDate" => non_neg_integer(),
@@ -1862,34 +1862,34 @@ defmodule AWS.SFN do
       }
       
   """
-  @type describe_map_run_output() :: %{String.t() => any()}
+  @type describe_map_run_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       test_state_input() :: %{
-        optional("input") => String.t(),
+        optional("input") => String.t() | atom(),
         optional("inspectionLevel") => list(any()),
         optional("revealSecrets") => boolean(),
-        optional("roleArn") => String.t(),
-        optional("variables") => String.t(),
-        required("definition") => String.t()
+        optional("roleArn") => String.t() | atom(),
+        optional("variables") => String.t() | atom(),
+        required("definition") => String.t() | atom()
       }
       
   """
-  @type test_state_input() :: %{String.t() => any()}
+  @type test_state_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_logging_configuration() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_logging_configuration() :: %{String.t() => any()}
+  @type invalid_logging_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1897,23 +1897,23 @@ defmodule AWS.SFN do
       
       list_state_machine_versions_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("stateMachineArn") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("stateMachineArn") => String.t() | atom()
       }
       
   """
-  @type list_state_machine_versions_input() :: %{String.t() => any()}
+  @type list_state_machine_versions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       state_machine_deleting() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type state_machine_deleting() :: %{String.t() => any()}
+  @type state_machine_deleting() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1921,45 +1921,45 @@ defmodule AWS.SFN do
       
       list_activities_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type list_activities_input() :: %{String.t() => any()}
+  @type list_activities_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_state_machine_versions_output() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "stateMachineVersions" => list(state_machine_version_list_item())
       }
       
   """
-  @type list_state_machine_versions_output() :: %{String.t() => any()}
+  @type list_state_machine_versions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       activity_does_not_exist() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type activity_does_not_exist() :: %{String.t() => any()}
+  @type activity_does_not_exist() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_state_machine_version_input() :: %{
-        required("stateMachineVersionArn") => String.t()
+        required("stateMachineVersionArn") => String.t() | atom()
       }
       
   """
-  @type delete_state_machine_version_input() :: %{String.t() => any()}
+  @type delete_state_machine_version_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1967,25 +1967,25 @@ defmodule AWS.SFN do
       
       kms_invalid_state_exception() :: %{
         "kmsKeyState" => list(any()),
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type kms_invalid_state_exception() :: %{String.t() => any()}
+  @type kms_invalid_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validate_state_machine_definition_diagnostic() :: %{
-        "code" => String.t(),
-        "location" => String.t(),
-        "message" => String.t(),
+        "code" => String.t() | atom(),
+        "location" => String.t() | atom(),
+        "message" => String.t() | atom(),
         "severity" => list(any())
       }
       
   """
-  @type validate_state_machine_definition_diagnostic() :: %{String.t() => any()}
+  @type validate_state_machine_definition_diagnostic() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1993,34 +1993,34 @@ defmodule AWS.SFN do
       
       list_activities_output() :: %{
         "activities" => list(activity_list_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_activities_output() :: %{String.t() => any()}
+  @type list_activities_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_tags() :: %{
-        "message" => String.t(),
-        "resourceName" => String.t()
+        "message" => String.t() | atom(),
+        "resourceName" => String.t() | atom()
       }
       
   """
-  @type too_many_tags() :: %{String.t() => any()}
+  @type too_many_tags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       activity_started_event_details() :: %{
-        "workerName" => String.t()
+        "workerName" => String.t() | atom()
       }
       
   """
-  @type activity_started_event_details() :: %{String.t() => any()}
+  @type activity_started_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2028,53 +2028,53 @@ defmodule AWS.SFN do
       
       list_map_runs_output() :: %{
         "mapRuns" => list(map_run_list_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_map_runs_output() :: %{String.t() => any()}
+  @type list_map_runs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_executions_input() :: %{
-        optional("mapRunArn") => String.t(),
+        optional("mapRunArn") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("redriveFilter") => list(any()),
-        optional("stateMachineArn") => String.t(),
+        optional("stateMachineArn") => String.t() | atom(),
         optional("statusFilter") => list(any())
       }
       
   """
-  @type list_executions_input() :: %{String.t() => any()}
+  @type list_executions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       inspection_data_response() :: %{
-        "body" => String.t(),
-        "headers" => String.t(),
-        "protocol" => String.t(),
-        "statusCode" => String.t(),
-        "statusMessage" => String.t()
+        "body" => String.t() | atom(),
+        "headers" => String.t() | atom(),
+        "protocol" => String.t() | atom(),
+        "statusCode" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
       }
       
   """
-  @type inspection_data_response() :: %{String.t() => any()}
+  @type inspection_data_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_execution_input() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_execution_input() :: %{String.t() => any()}
+  @type invalid_execution_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2082,16 +2082,16 @@ defmodule AWS.SFN do
       
       task_scheduled_event_details() :: %{
         "heartbeatInSeconds" => float(),
-        "parameters" => String.t(),
-        "region" => String.t(),
-        "resource" => String.t(),
-        "resourceType" => String.t(),
+        "parameters" => String.t() | atom(),
+        "region" => String.t() | atom(),
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
         "taskCredentials" => task_credentials(),
         "timeoutInSeconds" => float()
       }
       
   """
-  @type task_scheduled_event_details() :: %{String.t() => any()}
+  @type task_scheduled_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2099,60 +2099,60 @@ defmodule AWS.SFN do
       
       publish_state_machine_version_output() :: %{
         "creationDate" => non_neg_integer(),
-        "stateMachineVersionArn" => String.t()
+        "stateMachineVersionArn" => String.t() | atom()
       }
       
   """
-  @type publish_state_machine_version_output() :: %{String.t() => any()}
+  @type publish_state_machine_version_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       start_execution_input() :: %{
-        optional("input") => String.t(),
-        optional("name") => String.t(),
-        optional("traceHeader") => String.t(),
-        required("stateMachineArn") => String.t()
+        optional("input") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("traceHeader") => String.t() | atom(),
+        required("stateMachineArn") => String.t() | atom()
       }
       
   """
-  @type start_execution_input() :: %{String.t() => any()}
+  @type start_execution_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_map_run_input() :: %{
-        required("mapRunArn") => String.t()
+        required("mapRunArn") => String.t() | atom()
       }
       
   """
-  @type describe_map_run_input() :: %{String.t() => any()}
+  @type describe_map_run_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_arn() :: %{
-        "message" => String.t()
+        "message" => String.t() | atom()
       }
       
   """
-  @type invalid_arn() :: %{String.t() => any()}
+  @type invalid_arn() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       stop_execution_input() :: %{
-        optional("cause") => String.t(),
-        optional("error") => String.t(),
-        required("executionArn") => String.t()
+        optional("cause") => String.t() | atom(),
+        optional("error") => String.t() | atom(),
+        required("executionArn") => String.t() | atom()
       }
       
   """
-  @type stop_execution_input() :: %{String.t() => any()}
+  @type stop_execution_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2160,15 +2160,15 @@ defmodule AWS.SFN do
       
       describe_state_machine_output() :: %{
         "creationDate" => non_neg_integer(),
-        "definition" => String.t(),
-        "description" => String.t(),
+        "definition" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "encryptionConfiguration" => encryption_configuration(),
-        "label" => String.t(),
+        "label" => String.t() | atom(),
         "loggingConfiguration" => logging_configuration(),
-        "name" => String.t(),
-        "revisionId" => String.t(),
-        "roleArn" => String.t(),
-        "stateMachineArn" => String.t(),
+        "name" => String.t() | atom(),
+        "revisionId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "stateMachineArn" => String.t() | atom(),
         "status" => list(any()),
         "tracingConfiguration" => tracing_configuration(),
         "type" => list(any()),
@@ -2176,7 +2176,7 @@ defmodule AWS.SFN do
       }
       
   """
-  @type describe_state_machine_output() :: %{String.t() => any()}
+  @type describe_state_machine_output() :: %{(String.t() | atom()) => any()}
 
   @type create_activity_errors() ::
           too_many_tags()
@@ -2438,7 +2438,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, create_activity_errors()}
   def create_activity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateActivity", input, options)
   end
@@ -2483,7 +2484,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, create_state_machine_errors()}
   def create_state_machine(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStateMachine", input, options)
   end
@@ -2544,7 +2546,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, create_state_machine_alias_errors()}
   def create_state_machine_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStateMachineAlias", input, options)
   end
@@ -2558,7 +2561,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, delete_activity_errors()}
   def delete_activity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteActivity", input, options)
   end
@@ -2606,7 +2610,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, delete_state_machine_errors()}
   def delete_state_machine(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStateMachine", input, options)
   end
@@ -2645,7 +2650,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, delete_state_machine_alias_errors()}
   def delete_state_machine_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStateMachineAlias", input, options)
   end
@@ -2679,7 +2685,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, delete_state_machine_version_errors()}
   def delete_state_machine_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStateMachineVersion", input, options)
   end
@@ -2696,7 +2703,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_activity_errors()}
   def describe_activity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeActivity", input, options)
   end
@@ -2728,7 +2736,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_execution_errors()}
   def describe_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExecution", input, options)
   end
@@ -2748,7 +2757,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_map_run_errors()}
   def describe_map_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMapRun", input, options)
   end
@@ -2797,7 +2807,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_state_machine_errors()}
   def describe_state_machine(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStateMachine", input, options)
   end
@@ -2830,7 +2841,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_state_machine_alias_errors()}
   def describe_state_machine_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStateMachineAlias", input, options)
   end
@@ -2860,7 +2872,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_state_machine_for_execution_errors()}
   def describe_state_machine_for_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStateMachineForExecution", input, options)
   end
@@ -2896,7 +2909,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, get_activity_task_errors()}
   def get_activity_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetActivityTask", input, options)
   end
@@ -2923,7 +2937,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, get_execution_history_errors()}
   def get_execution_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetExecutionHistory", input, options)
   end
@@ -2946,7 +2961,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_activities_errors()}
   def list_activities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListActivities", input, options)
   end
@@ -2985,7 +3001,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_executions_errors()}
   def list_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExecutions", input, options)
   end
@@ -3002,7 +3019,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_map_runs_errors()}
   def list_map_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMapRuns", input, options)
   end
@@ -3047,7 +3065,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_state_machine_aliases_errors()}
   def list_state_machine_aliases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStateMachineAliases", input, options)
   end
@@ -3081,7 +3100,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_state_machine_versions_errors()}
   def list_state_machine_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStateMachineVersions", input, options)
   end
@@ -3104,7 +3124,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_state_machines_errors()}
   def list_state_machines(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStateMachines", input, options)
   end
@@ -3121,7 +3142,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3165,7 +3187,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, publish_state_machine_version_errors()}
   def publish_state_machine_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PublishStateMachineVersion", input, options)
   end
@@ -3230,7 +3253,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, redrive_execution_errors()}
   def redrive_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RedriveExecution", input, options)
   end
@@ -3254,7 +3278,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, send_task_failure_errors()}
   def send_task_failure(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendTaskFailure", input, options)
   end
@@ -3291,7 +3316,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, send_task_heartbeat_errors()}
   def send_task_heartbeat(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendTaskHeartbeat", input, options)
   end
@@ -3309,7 +3335,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, send_task_success_errors()}
   def send_task_success(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendTaskSuccess", input, options)
   end
@@ -3370,7 +3397,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, start_execution_errors()}
   def start_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartExecution", input, options)
   end
@@ -3397,7 +3425,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, start_sync_execution_errors()}
   def start_sync_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "sync-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "sync-")
 
     Request.request_post(client, meta, "StartSyncExecution", input, options)
   end
@@ -3420,7 +3449,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, stop_execution_errors()}
   def stop_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopExecution", input, options)
   end
@@ -3442,7 +3472,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3514,7 +3545,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, test_state_errors()}
   def test_state(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "sync-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "sync-")
 
     Request.request_post(client, meta, "TestState", input, options)
   end
@@ -3528,7 +3560,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3543,7 +3576,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, update_map_run_errors()}
   def update_map_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMapRun", input, options)
   end
@@ -3611,7 +3645,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, update_state_machine_errors()}
   def update_state_machine(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateStateMachine", input, options)
   end
@@ -3659,7 +3694,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, update_state_machine_alias_errors()}
   def update_state_machine_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateStateMachineAlias", input, options)
   end
@@ -3717,7 +3753,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, validate_state_machine_definition_errors()}
   def validate_state_machine_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ValidateStateMachineDefinition", input, options)
   end

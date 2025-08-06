@@ -21,7 +21,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type get_core_network_policy_request() :: %{String.t() => any()}
+  @type get_core_network_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -30,32 +30,32 @@ defmodule AWS.NetworkManager do
       core_network_policy_version() :: %{
         "Alias" => list(any()),
         "ChangeSetState" => list(any()),
-        "CoreNetworkId" => String.t(),
+        "CoreNetworkId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "PolicyVersionId" => integer()
       }
 
   """
-  @type core_network_policy_version() :: %{String.t() => any()}
+  @type core_network_policy_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_network_telemetry_request() :: %{
-        optional("AccountId") => String.t(),
-        optional("AwsRegion") => String.t(),
-        optional("CoreNetworkId") => String.t(),
+        optional("AccountId") => String.t() | atom(),
+        optional("AwsRegion") => String.t() | atom(),
+        optional("CoreNetworkId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("RegisteredGatewayArn") => String.t(),
-        optional("ResourceArn") => String.t(),
-        optional("ResourceType") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("RegisteredGatewayArn") => String.t() | atom(),
+        optional("ResourceArn") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom()
       }
 
   """
-  @type get_network_telemetry_request() :: %{String.t() => any()}
+  @type get_network_telemetry_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -66,7 +66,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type deregister_transit_gateway_response() :: %{String.t() => any()}
+  @type deregister_transit_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -77,20 +77,20 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type delete_link_response() :: %{String.t() => any()}
+  @type delete_link_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_connection_request() :: %{
-        optional("ConnectedLinkId") => String.t(),
-        optional("Description") => String.t(),
-        optional("LinkId") => String.t()
+        optional("ConnectedLinkId") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("LinkId") => String.t() | atom()
       }
 
   """
-  @type update_connection_request() :: %{String.t() => any()}
+  @type update_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -107,12 +107,12 @@ defmodule AWS.NetworkManager do
 
       get_network_resource_counts_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ResourceType") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom()
       }
 
   """
-  @type get_network_resource_counts_request() :: %{String.t() => any()}
+  @type get_network_resource_counts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -123,7 +123,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type associate_customer_gateway_response() :: %{String.t() => any()}
+  @type associate_customer_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -131,12 +131,12 @@ defmodule AWS.NetworkManager do
 
       transit_gateway_peering() :: %{
         "Peering" => peering(),
-        "TransitGatewayArn" => String.t(),
-        "TransitGatewayPeeringAttachmentId" => String.t()
+        "TransitGatewayArn" => String.t() | atom(),
+        "TransitGatewayPeeringAttachmentId" => String.t() | atom()
       }
 
   """
-  @type transit_gateway_peering() :: %{String.t() => any()}
+  @type transit_gateway_peering() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -147,7 +147,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -158,19 +158,19 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type create_transit_gateway_peering_response() :: %{String.t() => any()}
+  @type create_transit_gateway_peering_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       edge_override() :: %{
-        "EdgeSets" => list(list(String.t())()),
-        "UseEdge" => String.t()
+        "EdgeSets" => list(list(String.t() | atom())()),
+        "UseEdge" => String.t() | atom()
       }
 
   """
-  @type edge_override() :: %{String.t() => any()}
+  @type edge_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -181,21 +181,21 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type update_device_response() :: %{String.t() => any()}
+  @type update_device_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_devices_request() :: %{
-        optional("DeviceIds") => list(String.t()),
+        optional("DeviceIds") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SiteId") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("SiteId") => String.t() | atom()
       }
 
   """
-  @type get_devices_request() :: %{String.t() => any()}
+  @type get_devices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -212,23 +212,25 @@ defmodule AWS.NetworkManager do
 
       list_core_network_policy_versions_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_core_network_policy_versions_request() :: %{String.t() => any()}
+  @type list_core_network_policy_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_transit_gateway_connect_peer_associations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TransitGatewayConnectPeerAssociations" => list(transit_gateway_connect_peer_association())
       }
 
   """
-  @type get_transit_gateway_connect_peer_associations_response() :: %{String.t() => any()}
+  @type get_transit_gateway_connect_peer_associations_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -236,12 +238,14 @@ defmodule AWS.NetworkManager do
 
       get_transit_gateway_connect_peer_associations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("TransitGatewayConnectPeerArns") => list(String.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("TransitGatewayConnectPeerArns") => list(String.t() | atom())
       }
 
   """
-  @type get_transit_gateway_connect_peer_associations_request() :: %{String.t() => any()}
+  @type get_transit_gateway_connect_peer_associations_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -252,20 +256,20 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type get_core_network_policy_response() :: %{String.t() => any()}
+  @type get_core_network_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       path_component() :: %{
-        "DestinationCidrBlock" => String.t(),
+        "DestinationCidrBlock" => String.t() | atom(),
         "Resource" => network_resource_summary(),
         "Sequence" => integer()
       }
 
   """
-  @type path_component() :: %{String.t() => any()}
+  @type path_component() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -273,23 +277,23 @@ defmodule AWS.NetworkManager do
 
       get_network_resource_counts_response() :: %{
         "NetworkResourceCounts" => list(network_resource_count()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_network_resource_counts_response() :: %{String.t() => any()}
+  @type get_network_resource_counts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_link_request() :: %{
-        required("DeviceId") => String.t(),
-        required("LinkId") => String.t()
+        required("DeviceId") => String.t() | atom(),
+        required("LinkId") => String.t() | atom()
       }
 
   """
-  @type associate_link_request() :: %{String.t() => any()}
+  @type associate_link_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -305,12 +309,12 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       service_insertion_segments() :: %{
-        "SendTo" => list(String.t()),
-        "SendVia" => list(String.t())
+        "SendTo" => list(String.t() | atom()),
+        "SendVia" => list(String.t() | atom())
       }
 
   """
-  @type service_insertion_segments() :: %{String.t() => any()}
+  @type service_insertion_segments() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -321,7 +325,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type delete_core_network_response() :: %{String.t() => any()}
+  @type delete_core_network_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -332,7 +336,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type connect_attachment_options() :: %{String.t() => any()}
+  @type connect_attachment_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -343,7 +347,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type create_device_response() :: %{String.t() => any()}
+  @type create_device_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -361,11 +365,11 @@ defmodule AWS.NetworkManager do
       route_analysis() :: %{
         "Destination" => route_analysis_endpoint_options(),
         "ForwardPath" => route_analysis_path(),
-        "GlobalNetworkId" => String.t(),
+        "GlobalNetworkId" => String.t() | atom(),
         "IncludeReturnPath" => boolean(),
-        "OwnerAccountId" => String.t(),
+        "OwnerAccountId" => String.t() | atom(),
         "ReturnPath" => route_analysis_path(),
-        "RouteAnalysisId" => String.t(),
+        "RouteAnalysisId" => String.t() | atom(),
         "Source" => route_analysis_endpoint_options(),
         "StartTimestamp" => non_neg_integer(),
         "Status" => list(any()),
@@ -373,7 +377,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type route_analysis() :: %{String.t() => any()}
+  @type route_analysis() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -381,47 +385,47 @@ defmodule AWS.NetworkManager do
 
       get_network_resources_response() :: %{
         "NetworkResources" => list(network_resource()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_network_resources_response() :: %{String.t() => any()}
+  @type get_network_resources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_global_network_request() :: %{
-        optional("Description") => String.t()
+        optional("Description") => String.t() | atom()
       }
 
   """
-  @type update_global_network_request() :: %{String.t() => any()}
+  @type update_global_network_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_connect_peer_associations_request() :: %{
-        optional("ConnectPeerIds") => list(String.t()),
+        optional("ConnectPeerIds") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_connect_peer_associations_request() :: %{String.t() => any()}
+  @type get_connect_peer_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_global_network_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag())
       }
 
   """
-  @type create_global_network_request() :: %{String.t() => any()}
+  @type create_global_network_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -432,7 +436,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type create_site_to_site_vpn_attachment_response() :: %{String.t() => any()}
+  @type create_site_to_site_vpn_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -441,11 +445,11 @@ defmodule AWS.NetworkManager do
       vpc_attachment() :: %{
         "Attachment" => attachment(),
         "Options" => vpc_options(),
-        "SubnetArns" => list(String.t())
+        "SubnetArns" => list(String.t() | atom())
       }
 
   """
-  @type vpc_attachment() :: %{String.t() => any()}
+  @type vpc_attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -462,17 +466,17 @@ defmodule AWS.NetworkManager do
 
       update_device_request() :: %{
         optional("AWSLocation") => aws_location(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Location") => location(),
-        optional("Model") => String.t(),
-        optional("SerialNumber") => String.t(),
-        optional("SiteId") => String.t(),
-        optional("Type") => String.t(),
-        optional("Vendor") => String.t()
+        optional("Model") => String.t() | atom(),
+        optional("SerialNumber") => String.t() | atom(),
+        optional("SiteId") => String.t() | atom(),
+        optional("Type") => String.t() | atom(),
+        optional("Vendor") => String.t() | atom()
       }
 
   """
-  @type update_device_request() :: %{String.t() => any()}
+  @type update_device_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -480,11 +484,11 @@ defmodule AWS.NetworkManager do
 
       get_core_network_change_events_response() :: %{
         "CoreNetworkChangeEvents" => list(core_network_change_event()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_core_network_change_events_response() :: %{String.t() => any()}
+  @type get_core_network_change_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -492,23 +496,23 @@ defmodule AWS.NetworkManager do
 
       get_core_network_change_set_response() :: %{
         "CoreNetworkChanges" => list(core_network_change()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_core_network_change_set_response() :: %{String.t() => any()}
+  @type get_core_network_change_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_network_resource_relationships_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Relationships" => list(relationship())
       }
 
   """
-  @type get_network_resource_relationships_response() :: %{String.t() => any()}
+  @type get_network_resource_relationships_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -516,11 +520,11 @@ defmodule AWS.NetworkManager do
 
       site_to_site_vpn_attachment() :: %{
         "Attachment" => attachment(),
-        "VpnConnectionArn" => String.t()
+        "VpnConnectionArn" => String.t() | atom()
       }
 
   """
-  @type site_to_site_vpn_attachment() :: %{String.t() => any()}
+  @type site_to_site_vpn_attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -536,12 +540,12 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       relationship() :: %{
-        "From" => String.t(),
-        "To" => String.t()
+        "From" => String.t() | atom(),
+        "To" => String.t() | atom()
       }
 
   """
-  @type relationship() :: %{String.t() => any()}
+  @type relationship() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -549,11 +553,11 @@ defmodule AWS.NetworkManager do
 
       describe_global_networks_response() :: %{
         "GlobalNetworks" => list(global_network()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type describe_global_networks_response() :: %{String.t() => any()}
+  @type describe_global_networks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -561,26 +565,26 @@ defmodule AWS.NetworkManager do
 
       get_network_telemetry_response() :: %{
         "NetworkTelemetry" => list(network_telemetry()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_network_telemetry_response() :: %{String.t() => any()}
+  @type get_network_telemetry_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       transit_gateway_connect_peer_association() :: %{
-        "DeviceId" => String.t(),
-        "GlobalNetworkId" => String.t(),
-        "LinkId" => String.t(),
+        "DeviceId" => String.t() | atom(),
+        "GlobalNetworkId" => String.t() | atom(),
+        "LinkId" => String.t() | atom(),
         "State" => list(any()),
-        "TransitGatewayConnectPeerArn" => String.t()
+        "TransitGatewayConnectPeerArn" => String.t() | atom()
       }
 
   """
-  @type transit_gateway_connect_peer_association() :: %{String.t() => any()}
+  @type transit_gateway_connect_peer_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -588,42 +592,44 @@ defmodule AWS.NetworkManager do
 
       connect_peer_configuration() :: %{
         "BgpConfigurations" => list(connect_peer_bgp_configuration()),
-        "CoreNetworkAddress" => String.t(),
-        "InsideCidrBlocks" => list(String.t()),
-        "PeerAddress" => String.t(),
+        "CoreNetworkAddress" => String.t() | atom(),
+        "InsideCidrBlocks" => list(String.t() | atom()),
+        "PeerAddress" => String.t() | atom(),
         "Protocol" => list(any())
       }
 
   """
-  @type connect_peer_configuration() :: %{String.t() => any()}
+  @type connect_peer_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_transit_gateway_route_table_attachment_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("PeeringId") => String.t(),
-        required("TransitGatewayRouteTableArn") => String.t()
+        required("PeeringId") => String.t() | atom(),
+        required("TransitGatewayRouteTableArn") => String.t() | atom()
       }
 
   """
-  @type create_transit_gateway_route_table_attachment_request() :: %{String.t() => any()}
+  @type create_transit_gateway_route_table_attachment_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
       get_connections_request() :: %{
-        optional("ConnectionIds") => list(String.t()),
-        optional("DeviceId") => String.t(),
+        optional("ConnectionIds") => list(String.t() | atom()),
+        optional("DeviceId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_connections_request() :: %{String.t() => any()}
+  @type get_connections_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -634,7 +640,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type get_site_to_site_vpn_attachment_response() :: %{String.t() => any()}
+  @type get_site_to_site_vpn_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -648,36 +654,36 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type service_insertion_action() :: %{String.t() => any()}
+  @type service_insertion_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_site_to_site_vpn_attachment_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("CoreNetworkId") => String.t(),
-        required("VpnConnectionArn") => String.t()
+        required("CoreNetworkId") => String.t() | atom(),
+        required("VpnConnectionArn") => String.t() | atom()
       }
 
   """
-  @type create_site_to_site_vpn_attachment_request() :: %{String.t() => any()}
+  @type create_site_to_site_vpn_attachment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_core_network_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
-        optional("PolicyDocument") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("PolicyDocument") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("GlobalNetworkId") => String.t()
+        required("GlobalNetworkId") => String.t() | atom()
       }
 
   """
-  @type create_core_network_request() :: %{String.t() => any()}
+  @type create_core_network_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -685,12 +691,12 @@ defmodule AWS.NetworkManager do
 
       proposed_network_function_group_change() :: %{
         "AttachmentPolicyRuleNumber" => integer(),
-        "NetworkFunctionGroupName" => String.t(),
+        "NetworkFunctionGroupName" => String.t() | atom(),
         "Tags" => list(tag())
       }
 
   """
-  @type proposed_network_function_group_change() :: %{String.t() => any()}
+  @type proposed_network_function_group_change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -698,42 +704,42 @@ defmodule AWS.NetworkManager do
 
       peering_error() :: %{
         "Code" => list(any()),
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "MissingPermissionsContext" => permissions_error_context(),
-        "RequestId" => String.t(),
-        "ResourceArn" => String.t()
+        "RequestId" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
       }
 
   """
-  @type peering_error() :: %{String.t() => any()}
+  @type peering_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       attachment() :: %{
-        "AttachmentId" => String.t(),
+        "AttachmentId" => String.t() | atom(),
         "AttachmentPolicyRuleNumber" => integer(),
         "AttachmentType" => list(any()),
-        "CoreNetworkArn" => String.t(),
-        "CoreNetworkId" => String.t(),
+        "CoreNetworkArn" => String.t() | atom(),
+        "CoreNetworkId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "EdgeLocation" => String.t(),
-        "EdgeLocations" => list(String.t()),
+        "EdgeLocation" => String.t() | atom(),
+        "EdgeLocations" => list(String.t() | atom()),
         "LastModificationErrors" => list(attachment_error()),
-        "NetworkFunctionGroupName" => String.t(),
-        "OwnerAccountId" => String.t(),
+        "NetworkFunctionGroupName" => String.t() | atom(),
+        "OwnerAccountId" => String.t() | atom(),
         "ProposedNetworkFunctionGroupChange" => proposed_network_function_group_change(),
         "ProposedSegmentChange" => proposed_segment_change(),
-        "ResourceArn" => String.t(),
-        "SegmentName" => String.t(),
+        "ResourceArn" => String.t() | atom(),
+        "SegmentName" => String.t() | atom(),
         "State" => list(any()),
         "Tags" => list(tag()),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type attachment() :: %{String.t() => any()}
+  @type attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -744,7 +750,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type delete_site_response() :: %{String.t() => any()}
+  @type delete_site_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -760,24 +766,24 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       core_network_network_function_group_identifier() :: %{
-        "CoreNetworkId" => String.t(),
-        "EdgeLocation" => String.t(),
-        "NetworkFunctionGroupName" => String.t()
+        "CoreNetworkId" => String.t() | atom(),
+        "EdgeLocation" => String.t() | atom(),
+        "NetworkFunctionGroupName" => String.t() | atom()
       }
 
   """
-  @type core_network_network_function_group_identifier() :: %{String.t() => any()}
+  @type core_network_network_function_group_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_resource_policy_response() :: %{
-        "PolicyDocument" => String.t()
+        "PolicyDocument" => String.t() | atom()
       }
 
   """
-  @type get_resource_policy_response() :: %{String.t() => any()}
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -786,19 +792,19 @@ defmodule AWS.NetworkManager do
       link() :: %{
         "Bandwidth" => bandwidth(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "GlobalNetworkId" => String.t(),
-        "LinkArn" => String.t(),
-        "LinkId" => String.t(),
-        "Provider" => String.t(),
-        "SiteId" => String.t(),
+        "Description" => String.t() | atom(),
+        "GlobalNetworkId" => String.t() | atom(),
+        "LinkArn" => String.t() | atom(),
+        "LinkId" => String.t() | atom(),
+        "Provider" => String.t() | atom(),
+        "SiteId" => String.t() | atom(),
         "State" => list(any()),
         "Tags" => list(tag()),
-        "Type" => String.t()
+        "Type" => String.t() | atom()
       }
 
   """
-  @type link() :: %{String.t() => any()}
+  @type link() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -814,31 +820,31 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       put_core_network_policy_request() :: %{
-        optional("ClientToken") => String.t(),
-        optional("Description") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("LatestVersionId") => integer(),
-        required("PolicyDocument") => String.t()
+        required("PolicyDocument") => String.t() | atom()
       }
 
   """
-  @type put_core_network_policy_request() :: %{String.t() => any()}
+  @type put_core_network_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network_route_destination() :: %{
-        "CoreNetworkAttachmentId" => String.t(),
-        "EdgeLocation" => String.t(),
-        "NetworkFunctionGroupName" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t(),
-        "SegmentName" => String.t(),
-        "TransitGatewayAttachmentId" => String.t()
+        "CoreNetworkAttachmentId" => String.t() | atom(),
+        "EdgeLocation" => String.t() | atom(),
+        "NetworkFunctionGroupName" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "SegmentName" => String.t() | atom(),
+        "TransitGatewayAttachmentId" => String.t() | atom()
       }
 
   """
-  @type network_route_destination() :: %{String.t() => any()}
+  @type network_route_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -863,13 +869,13 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       update_vpc_attachment_request() :: %{
-        optional("AddSubnetArns") => list(String.t()),
+        optional("AddSubnetArns") => list(String.t() | atom()),
         optional("Options") => vpc_options(),
-        optional("RemoveSubnetArns") => list(String.t())
+        optional("RemoveSubnetArns") => list(String.t() | atom())
       }
 
   """
-  @type update_vpc_attachment_request() :: %{String.t() => any()}
+  @type update_vpc_attachment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -880,20 +886,20 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type delete_connect_peer_response() :: %{String.t() => any()}
+  @type delete_connect_peer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       describe_global_networks_request() :: %{
-        optional("GlobalNetworkIds") => list(String.t()),
+        optional("GlobalNetworkIds") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type describe_global_networks_request() :: %{String.t() => any()}
+  @type describe_global_networks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -905,7 +911,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type route_analysis_path() :: %{String.t() => any()}
+  @type route_analysis_path() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -913,11 +919,11 @@ defmodule AWS.NetworkManager do
 
       get_connections_response() :: %{
         "Connections" => list(connection()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_connections_response() :: %{String.t() => any()}
+  @type get_connections_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -925,18 +931,18 @@ defmodule AWS.NetworkManager do
 
       get_network_routes_request() :: %{
         optional("DestinationFilters") => map(),
-        optional("ExactCidrMatches") => list(String.t()),
-        optional("LongestPrefixMatches") => list(String.t()),
-        optional("PrefixListIds") => list(String.t()),
+        optional("ExactCidrMatches") => list(String.t() | atom()),
+        optional("LongestPrefixMatches") => list(String.t() | atom()),
+        optional("PrefixListIds") => list(String.t() | atom()),
         optional("States") => list(list(any())()),
-        optional("SubnetOfMatches") => list(String.t()),
-        optional("SupernetOfMatches") => list(String.t()),
+        optional("SubnetOfMatches") => list(String.t() | atom()),
+        optional("SupernetOfMatches") => list(String.t() | atom()),
         optional("Types") => list(list(any())()),
         required("RouteTableIdentifier") => route_table_identifier()
       }
 
   """
-  @type get_network_routes_request() :: %{String.t() => any()}
+  @type get_network_routes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -947,29 +953,29 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type create_link_response() :: %{String.t() => any()}
+  @type create_link_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t())
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       permissions_error_context() :: %{
-        "MissingPermission" => String.t()
+        "MissingPermission" => String.t() | atom()
       }
 
   """
-  @type permissions_error_context() :: %{String.t() => any()}
+  @type permissions_error_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -978,13 +984,13 @@ defmodule AWS.NetworkManager do
       get_network_routes_response() :: %{
         "CoreNetworkSegmentEdge" => core_network_segment_edge_identifier(),
         "NetworkRoutes" => list(network_route()),
-        "RouteTableArn" => String.t(),
+        "RouteTableArn" => String.t() | atom(),
         "RouteTableTimestamp" => non_neg_integer(),
         "RouteTableType" => list(any())
       }
 
   """
-  @type get_network_routes_response() :: %{String.t() => any()}
+  @type get_network_routes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1000,12 +1006,12 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       account_status() :: %{
-        "AccountId" => String.t(),
-        "SLRDeploymentStatus" => String.t()
+        "AccountId" => String.t() | atom(),
+        "SLRDeploymentStatus" => String.t() | atom()
       }
 
   """
-  @type account_status() :: %{String.t() => any()}
+  @type account_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1016,7 +1022,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type register_transit_gateway_response() :: %{String.t() => any()}
+  @type register_transit_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1032,13 +1038,13 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       create_site_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Location") => location(),
         optional("Tags") => list(tag())
       }
 
   """
-  @type create_site_request() :: %{String.t() => any()}
+  @type create_site_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1049,7 +1055,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type get_direct_connect_gateway_attachment_response() :: %{String.t() => any()}
+  @type get_direct_connect_gateway_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1060,22 +1066,22 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type start_route_analysis_response() :: %{String.t() => any()}
+  @type start_route_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_direct_connect_gateway_attachment_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("CoreNetworkId") => String.t(),
-        required("DirectConnectGatewayArn") => String.t(),
-        required("EdgeLocations") => list(String.t())
+        required("CoreNetworkId") => String.t() | atom(),
+        required("DirectConnectGatewayArn") => String.t() | atom(),
+        required("EdgeLocations") => list(String.t() | atom())
       }
 
   """
-  @type create_direct_connect_gateway_attachment_request() :: %{String.t() => any()}
+  @type create_direct_connect_gateway_attachment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1086,7 +1092,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type start_organization_service_access_update_response() :: %{String.t() => any()}
+  @type start_organization_service_access_update_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1094,38 +1100,38 @@ defmodule AWS.NetworkManager do
 
       get_transit_gateway_registrations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("TransitGatewayArns") => list(String.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("TransitGatewayArns") => list(String.t() | atom())
       }
 
   """
-  @type get_transit_gateway_registrations_request() :: %{String.t() => any()}
+  @type get_transit_gateway_registrations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_organization_service_access_update_request() :: %{
-        required("Action") => String.t()
+        required("Action") => String.t() | atom()
       }
 
   """
-  @type start_organization_service_access_update_request() :: %{String.t() => any()}
+  @type start_organization_service_access_update_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connect_peer_association() :: %{
-        "ConnectPeerId" => String.t(),
-        "DeviceId" => String.t(),
-        "GlobalNetworkId" => String.t(),
-        "LinkId" => String.t(),
+        "ConnectPeerId" => String.t() | atom(),
+        "DeviceId" => String.t() | atom(),
+        "GlobalNetworkId" => String.t() | atom(),
+        "LinkId" => String.t() | atom(),
         "State" => list(any())
       }
 
   """
-  @type connect_peer_association() :: %{String.t() => any()}
+  @type connect_peer_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1142,12 +1148,12 @@ defmodule AWS.NetworkManager do
 
       core_network_edge() :: %{
         "Asn" => float(),
-        "EdgeLocation" => String.t(),
-        "InsideCidrBlocks" => list(String.t())
+        "EdgeLocation" => String.t() | atom(),
+        "InsideCidrBlocks" => list(String.t() | atom())
       }
 
   """
-  @type core_network_edge() :: %{String.t() => any()}
+  @type core_network_edge() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1163,27 +1169,27 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       link_association() :: %{
-        "DeviceId" => String.t(),
-        "GlobalNetworkId" => String.t(),
+        "DeviceId" => String.t() | atom(),
+        "GlobalNetworkId" => String.t() | atom(),
         "LinkAssociationState" => list(any()),
-        "LinkId" => String.t()
+        "LinkId" => String.t() | atom()
       }
 
   """
-  @type link_association() :: %{String.t() => any()}
+  @type link_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_analysis_endpoint_options() :: %{
-        "IpAddress" => String.t(),
-        "TransitGatewayArn" => String.t(),
-        "TransitGatewayAttachmentArn" => String.t()
+        "IpAddress" => String.t() | atom(),
+        "TransitGatewayArn" => String.t() | atom(),
+        "TransitGatewayAttachmentArn" => String.t() | atom()
       }
 
   """
-  @type route_analysis_endpoint_options() :: %{String.t() => any()}
+  @type route_analysis_endpoint_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1194,7 +1200,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type create_connect_peer_response() :: %{String.t() => any()}
+  @type create_connect_peer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1210,16 +1216,16 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       create_connect_attachment_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("CoreNetworkId") => String.t(),
-        required("EdgeLocation") => String.t(),
+        required("CoreNetworkId") => String.t() | atom(),
+        required("EdgeLocation") => String.t() | atom(),
         required("Options") => connect_attachment_options(),
-        required("TransportAttachmentId") => String.t()
+        required("TransportAttachmentId") => String.t() | atom()
       }
 
   """
-  @type create_connect_attachment_request() :: %{String.t() => any()}
+  @type create_connect_attachment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1227,13 +1233,13 @@ defmodule AWS.NetworkManager do
 
       connect_peer_error() :: %{
         "Code" => list(any()),
-        "Message" => String.t(),
-        "RequestId" => String.t(),
-        "ResourceArn" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
       }
 
   """
-  @type connect_peer_error() :: %{String.t() => any()}
+  @type connect_peer_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1249,28 +1255,28 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       list_peerings_request() :: %{
-        optional("CoreNetworkId") => String.t(),
-        optional("EdgeLocation") => String.t(),
+        optional("CoreNetworkId") => String.t() | atom(),
+        optional("EdgeLocation") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("PeeringType") => list(any()),
         optional("State") => list(any())
       }
 
   """
-  @type list_peerings_request() :: %{String.t() => any()}
+  @type list_peerings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       disassociate_link_request() :: %{
-        required("DeviceId") => String.t(),
-        required("LinkId") => String.t()
+        required("DeviceId") => String.t() | atom(),
+        required("LinkId") => String.t() | atom()
       }
 
   """
-  @type disassociate_link_request() :: %{String.t() => any()}
+  @type disassociate_link_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1281,45 +1287,45 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type update_site_response() :: %{String.t() => any()}
+  @type update_site_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       when_sent_to() :: %{
-        "WhenSentToSegmentsList" => list(String.t())
+        "WhenSentToSegmentsList" => list(String.t() | atom())
       }
 
   """
-  @type when_sent_to() :: %{String.t() => any()}
+  @type when_sent_to() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_transit_gateway_peering_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("CoreNetworkId") => String.t(),
-        required("TransitGatewayArn") => String.t()
+        required("CoreNetworkId") => String.t() | atom(),
+        required("TransitGatewayArn") => String.t() | atom()
       }
 
   """
-  @type create_transit_gateway_peering_request() :: %{String.t() => any()}
+  @type create_transit_gateway_peering_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_customer_gateway_request() :: %{
-        optional("LinkId") => String.t(),
-        required("CustomerGatewayArn") => String.t(),
-        required("DeviceId") => String.t()
+        optional("LinkId") => String.t() | atom(),
+        required("CustomerGatewayArn") => String.t() | atom(),
+        required("DeviceId") => String.t() | atom()
       }
 
   """
-  @type associate_customer_gateway_request() :: %{String.t() => any()}
+  @type associate_customer_gateway_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1330,7 +1336,9 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type create_transit_gateway_route_table_attachment_response() :: %{String.t() => any()}
+  @type create_transit_gateway_route_table_attachment_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1338,21 +1346,21 @@ defmodule AWS.NetworkManager do
 
       core_network_change_values() :: %{
         "Asn" => float(),
-        "Cidr" => String.t(),
-        "DestinationIdentifier" => String.t(),
+        "Cidr" => String.t() | atom(),
+        "DestinationIdentifier" => String.t() | atom(),
         "DnsSupport" => boolean(),
-        "EdgeLocations" => list(String.t()),
-        "InsideCidrBlocks" => list(String.t()),
-        "NetworkFunctionGroupName" => String.t(),
+        "EdgeLocations" => list(String.t() | atom()),
+        "InsideCidrBlocks" => list(String.t() | atom()),
+        "NetworkFunctionGroupName" => String.t() | atom(),
         "SecurityGroupReferencingSupport" => boolean(),
-        "SegmentName" => String.t(),
+        "SegmentName" => String.t() | atom(),
         "ServiceInsertionActions" => list(service_insertion_action()),
-        "SharedSegments" => list(String.t()),
+        "SharedSegments" => list(String.t() | atom()),
         "VpnEcmpSupport" => boolean()
       }
 
   """
-  @type core_network_change_values() :: %{String.t() => any()}
+  @type core_network_change_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1363,39 +1371,39 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type disassociate_connect_peer_response() :: %{String.t() => any()}
+  @type disassociate_connect_peer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_network_resources_request() :: %{
-        optional("AccountId") => String.t(),
-        optional("AwsRegion") => String.t(),
-        optional("CoreNetworkId") => String.t(),
+        optional("AccountId") => String.t() | atom(),
+        optional("AwsRegion") => String.t() | atom(),
+        optional("CoreNetworkId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("RegisteredGatewayArn") => String.t(),
-        optional("ResourceArn") => String.t(),
-        optional("ResourceType") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("RegisteredGatewayArn") => String.t() | atom(),
+        optional("ResourceArn") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom()
       }
 
   """
-  @type get_network_resources_request() :: %{String.t() => any()}
+  @type get_network_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_link_associations_request() :: %{
-        optional("DeviceId") => String.t(),
-        optional("LinkId") => String.t(),
+        optional("DeviceId") => String.t() | atom(),
+        optional("LinkId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_link_associations_request() :: %{String.t() => any()}
+  @type get_link_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1406,7 +1414,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type create_core_network_response() :: %{String.t() => any()}
+  @type create_core_network_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1417,23 +1425,23 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type put_core_network_policy_response() :: %{String.t() => any()}
+  @type put_core_network_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_link_request() :: %{
-        optional("Description") => String.t(),
-        optional("Provider") => String.t(),
+        optional("Description") => String.t() | atom(),
+        optional("Provider") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("Type") => String.t(),
+        optional("Type") => String.t() | atom(),
         required("Bandwidth") => bandwidth(),
-        required("SiteId") => String.t()
+        required("SiteId") => String.t() | atom()
       }
 
   """
-  @type create_link_request() :: %{String.t() => any()}
+  @type create_link_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1444,22 +1452,22 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type associate_connect_peer_response() :: %{String.t() => any()}
+  @type associate_connect_peer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network_route() :: %{
-        "DestinationCidrBlock" => String.t(),
+        "DestinationCidrBlock" => String.t() | atom(),
         "Destinations" => list(network_route_destination()),
-        "PrefixListId" => String.t(),
+        "PrefixListId" => String.t() | atom(),
         "State" => list(any()),
         "Type" => list(any())
       }
 
   """
-  @type network_route() :: %{String.t() => any()}
+  @type network_route() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1475,13 +1483,13 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       conflict_exception() :: %{
-        "Message" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1489,13 +1497,13 @@ defmodule AWS.NetworkManager do
 
       resource_not_found_exception() :: %{
         "Context" => map(),
-        "Message" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t()
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1506,7 +1514,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type bgp_options() :: %{String.t() => any()}
+  @type bgp_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1517,7 +1525,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type reject_attachment_response() :: %{String.t() => any()}
+  @type reject_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1530,40 +1538,40 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type route_analysis_completion() :: %{String.t() => any()}
+  @type route_analysis_completion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connection() :: %{
-        "ConnectedDeviceId" => String.t(),
-        "ConnectedLinkId" => String.t(),
-        "ConnectionArn" => String.t(),
-        "ConnectionId" => String.t(),
+        "ConnectedDeviceId" => String.t() | atom(),
+        "ConnectedLinkId" => String.t() | atom(),
+        "ConnectionArn" => String.t() | atom(),
+        "ConnectionId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "DeviceId" => String.t(),
-        "GlobalNetworkId" => String.t(),
-        "LinkId" => String.t(),
+        "Description" => String.t() | atom(),
+        "DeviceId" => String.t() | atom(),
+        "GlobalNetworkId" => String.t() | atom(),
+        "LinkId" => String.t() | atom(),
         "State" => list(any()),
         "Tags" => list(tag())
       }
 
   """
-  @type connection() :: %{String.t() => any()}
+  @type connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1574,7 +1582,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type update_network_resource_metadata_request() :: %{String.t() => any()}
+  @type update_network_resource_metadata_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1585,7 +1593,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type restore_core_network_policy_version_response() :: %{String.t() => any()}
+  @type restore_core_network_policy_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1601,15 +1609,15 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "LimitCode" => String.t(),
-        "Message" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t(),
-        "ServiceCode" => String.t()
+        "LimitCode" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1617,12 +1625,12 @@ defmodule AWS.NetworkManager do
 
       get_sites_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("SiteIds") => list(String.t())
+        optional("NextToken") => String.t() | atom(),
+        optional("SiteIds") => list(String.t() | atom())
       }
 
   """
-  @type get_sites_request() :: %{String.t() => any()}
+  @type get_sites_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1633,21 +1641,21 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type get_connect_attachment_response() :: %{String.t() => any()}
+  @type get_connect_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connect_peer_bgp_configuration() :: %{
-        "CoreNetworkAddress" => String.t(),
+        "CoreNetworkAddress" => String.t() | atom(),
         "CoreNetworkAsn" => float(),
-        "PeerAddress" => String.t(),
+        "PeerAddress" => String.t() | atom(),
         "PeerAsn" => float()
       }
 
   """
-  @type connect_peer_bgp_configuration() :: %{String.t() => any()}
+  @type connect_peer_bgp_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1655,44 +1663,44 @@ defmodule AWS.NetworkManager do
 
       get_connect_peer_associations_response() :: %{
         "ConnectPeerAssociations" => list(connect_peer_association()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_connect_peer_associations_response() :: %{String.t() => any()}
+  @type get_connect_peer_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       peering() :: %{
-        "CoreNetworkArn" => String.t(),
-        "CoreNetworkId" => String.t(),
+        "CoreNetworkArn" => String.t() | atom(),
+        "CoreNetworkId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "EdgeLocation" => String.t(),
+        "EdgeLocation" => String.t() | atom(),
         "LastModificationErrors" => list(peering_error()),
-        "OwnerAccountId" => String.t(),
-        "PeeringId" => String.t(),
+        "OwnerAccountId" => String.t() | atom(),
+        "PeeringId" => String.t() | atom(),
         "PeeringType" => list(any()),
-        "ResourceArn" => String.t(),
+        "ResourceArn" => String.t() | atom(),
         "State" => list(any()),
         "Tags" => list(tag())
       }
 
   """
-  @type peering() :: %{String.t() => any()}
+  @type peering() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_organization_service_access_status_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "OrganizationStatus" => organization_status()
       }
 
   """
-  @type list_organization_service_access_status_response() :: %{String.t() => any()}
+  @type list_organization_service_access_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1703,22 +1711,22 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type update_vpc_attachment_response() :: %{String.t() => any()}
+  @type update_vpc_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       customer_gateway_association() :: %{
-        "CustomerGatewayArn" => String.t(),
-        "DeviceId" => String.t(),
-        "GlobalNetworkId" => String.t(),
-        "LinkId" => String.t(),
+        "CustomerGatewayArn" => String.t() | atom(),
+        "DeviceId" => String.t() | atom(),
+        "GlobalNetworkId" => String.t() | atom(),
+        "LinkId" => String.t() | atom(),
         "State" => list(any())
       }
 
   """
-  @type customer_gateway_association() :: %{String.t() => any()}
+  @type customer_gateway_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1726,13 +1734,13 @@ defmodule AWS.NetworkManager do
 
       attachment_error() :: %{
         "Code" => list(any()),
-        "Message" => String.t(),
-        "RequestId" => String.t(),
-        "ResourceArn" => String.t()
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
       }
 
   """
-  @type attachment_error() :: %{String.t() => any()}
+  @type attachment_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1749,29 +1757,29 @@ defmodule AWS.NetworkManager do
 
       site() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "GlobalNetworkId" => String.t(),
+        "Description" => String.t() | atom(),
+        "GlobalNetworkId" => String.t() | atom(),
         "Location" => location(),
-        "SiteArn" => String.t(),
-        "SiteId" => String.t(),
+        "SiteArn" => String.t() | atom(),
+        "SiteId" => String.t() | atom(),
         "State" => list(any()),
         "Tags" => list(tag())
       }
 
   """
-  @type site() :: %{String.t() => any()}
+  @type site() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       core_network() :: %{
-        "CoreNetworkArn" => String.t(),
-        "CoreNetworkId" => String.t(),
+        "CoreNetworkArn" => String.t() | atom(),
+        "CoreNetworkId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "Edges" => list(core_network_edge()),
-        "GlobalNetworkId" => String.t(),
+        "GlobalNetworkId" => String.t() | atom(),
         "NetworkFunctionGroups" => list(core_network_network_function_group()),
         "Segments" => list(core_network_segment()),
         "State" => list(any()),
@@ -1779,36 +1787,36 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type core_network() :: %{String.t() => any()}
+  @type core_network() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network_resource_summary() :: %{
-        "Definition" => String.t(),
+        "Definition" => String.t() | atom(),
         "IsMiddlebox" => boolean(),
-        "NameTag" => String.t(),
-        "RegisteredGatewayArn" => String.t(),
-        "ResourceArn" => String.t(),
-        "ResourceType" => String.t()
+        "NameTag" => String.t() | atom(),
+        "RegisteredGatewayArn" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type network_resource_summary() :: %{String.t() => any()}
+  @type network_resource_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       transit_gateway_registration() :: %{
-        "GlobalNetworkId" => String.t(),
+        "GlobalNetworkId" => String.t() | atom(),
         "State" => transit_gateway_registration_state_reason(),
-        "TransitGatewayArn" => String.t()
+        "TransitGatewayArn" => String.t() | atom()
       }
 
   """
-  @type transit_gateway_registration() :: %{String.t() => any()}
+  @type transit_gateway_registration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1819,21 +1827,21 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_connect_peers_request() :: %{
-        optional("ConnectAttachmentId") => String.t(),
-        optional("CoreNetworkId") => String.t(),
+        optional("ConnectAttachmentId") => String.t() | atom(),
+        optional("CoreNetworkId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_connect_peers_request() :: %{String.t() => any()}
+  @type list_connect_peers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1844,7 +1852,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type delete_core_network_policy_version_response() :: %{String.t() => any()}
+  @type delete_core_network_policy_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1855,7 +1863,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type update_connection_response() :: %{String.t() => any()}
+  @type update_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1863,15 +1871,15 @@ defmodule AWS.NetworkManager do
 
       core_network_change() :: %{
         "Action" => list(any()),
-        "Identifier" => String.t(),
-        "IdentifierPath" => String.t(),
+        "Identifier" => String.t() | atom(),
+        "IdentifierPath" => String.t() | atom(),
         "NewValues" => core_network_change_values(),
         "PreviousValues" => core_network_change_values(),
         "Type" => list(any())
       }
 
   """
-  @type core_network_change() :: %{String.t() => any()}
+  @type core_network_change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1891,19 +1899,19 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type update_direct_connect_gateway_attachment_response() :: %{String.t() => any()}
+  @type update_direct_connect_gateway_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception_field() :: %{
-        "Message" => String.t(),
-        "Name" => String.t()
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1914,20 +1922,20 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type update_link_response() :: %{String.t() => any()}
+  @type update_link_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       location() :: %{
-        "Address" => String.t(),
-        "Latitude" => String.t(),
-        "Longitude" => String.t()
+        "Address" => String.t() | atom(),
+        "Latitude" => String.t() | atom(),
+        "Longitude" => String.t() | atom()
       }
 
   """
-  @type location() :: %{String.t() => any()}
+  @type location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1938,7 +1946,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type get_connect_peer_response() :: %{String.t() => any()}
+  @type get_connect_peer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1946,29 +1954,29 @@ defmodule AWS.NetworkManager do
 
       list_core_networks_response() :: %{
         "CoreNetworks" => list(core_network_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_core_networks_response() :: %{String.t() => any()}
+  @type list_core_networks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       connect_peer_summary() :: %{
-        "ConnectAttachmentId" => String.t(),
-        "ConnectPeerId" => String.t(),
+        "ConnectAttachmentId" => String.t() | atom(),
+        "ConnectPeerId" => String.t() | atom(),
         "ConnectPeerState" => list(any()),
-        "CoreNetworkId" => String.t(),
+        "CoreNetworkId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "EdgeLocation" => String.t(),
-        "SubnetArn" => String.t(),
+        "EdgeLocation" => String.t() | atom(),
+        "SubnetArn" => String.t() | atom(),
         "Tags" => list(tag())
       }
 
   """
-  @type connect_peer_summary() :: %{String.t() => any()}
+  @type connect_peer_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1988,7 +1996,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type delete_global_network_response() :: %{String.t() => any()}
+  @type delete_global_network_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1996,15 +2004,15 @@ defmodule AWS.NetworkManager do
 
       list_attachments_request() :: %{
         optional("AttachmentType") => list(any()),
-        optional("CoreNetworkId") => String.t(),
-        optional("EdgeLocation") => String.t(),
+        optional("CoreNetworkId") => String.t() | atom(),
+        optional("EdgeLocation") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("State") => list(any())
       }
 
   """
-  @type list_attachments_request() :: %{String.t() => any()}
+  @type list_attachments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2012,11 +2020,11 @@ defmodule AWS.NetworkManager do
 
       core_network_policy_exception() :: %{
         "Errors" => list(core_network_policy_error()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type core_network_policy_exception() :: %{String.t() => any()}
+  @type core_network_policy_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2033,15 +2041,15 @@ defmodule AWS.NetworkManager do
 
       global_network() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "GlobalNetworkArn" => String.t(),
-        "GlobalNetworkId" => String.t(),
+        "Description" => String.t() | atom(),
+        "GlobalNetworkArn" => String.t() | atom(),
+        "GlobalNetworkId" => String.t() | atom(),
         "State" => list(any()),
         "Tags" => list(tag())
       }
 
   """
-  @type global_network() :: %{String.t() => any()}
+  @type global_network() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2052,7 +2060,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type delete_device_response() :: %{String.t() => any()}
+  @type delete_device_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2060,23 +2068,23 @@ defmodule AWS.NetworkManager do
 
       get_links_response() :: %{
         "Links" => list(link()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_links_response() :: %{String.t() => any()}
+  @type get_links_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "RetryAfterSeconds" => integer()
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2087,34 +2095,34 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type create_direct_connect_gateway_attachment_response() :: %{String.t() => any()}
+  @type create_direct_connect_gateway_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_vpc_attachment_request() :: %{
-        optional("ClientToken") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
         optional("Options") => vpc_options(),
         optional("Tags") => list(tag()),
-        required("CoreNetworkId") => String.t(),
-        required("SubnetArns") => list(String.t()),
-        required("VpcArn") => String.t()
+        required("CoreNetworkId") => String.t() | atom(),
+        required("SubnetArns") => list(String.t() | atom()),
+        required("VpcArn") => String.t() | atom()
       }
 
   """
-  @type create_vpc_attachment_request() :: %{String.t() => any()}
+  @type create_vpc_attachment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network_function_group() :: %{
-        "Name" => String.t()
+        "Name" => String.t() | atom()
       }
 
   """
-  @type network_function_group() :: %{String.t() => any()}
+  @type network_function_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2123,52 +2131,52 @@ defmodule AWS.NetworkManager do
       core_network_policy() :: %{
         "Alias" => list(any()),
         "ChangeSetState" => list(any()),
-        "CoreNetworkId" => String.t(),
+        "CoreNetworkId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "PolicyDocument" => String.t(),
+        "Description" => String.t() | atom(),
+        "PolicyDocument" => String.t() | atom(),
         "PolicyErrors" => list(core_network_policy_error()),
         "PolicyVersionId" => integer()
       }
 
   """
-  @type core_network_policy() :: %{String.t() => any()}
+  @type core_network_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       register_transit_gateway_request() :: %{
-        required("TransitGatewayArn") => String.t()
+        required("TransitGatewayArn") => String.t() | atom()
       }
 
   """
-  @type register_transit_gateway_request() :: %{String.t() => any()}
+  @type register_transit_gateway_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_site_request() :: %{
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Location") => location()
       }
 
   """
-  @type update_site_request() :: %{String.t() => any()}
+  @type update_site_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_connect_peer_request() :: %{
-        optional("LinkId") => String.t(),
-        required("ConnectPeerId") => String.t(),
-        required("DeviceId") => String.t()
+        optional("LinkId") => String.t() | atom(),
+        required("ConnectPeerId") => String.t() | atom(),
+        required("DeviceId") => String.t() | atom()
       }
 
   """
-  @type associate_connect_peer_request() :: %{String.t() => any()}
+  @type associate_connect_peer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2185,11 +2193,11 @@ defmodule AWS.NetworkManager do
 
       get_link_associations_response() :: %{
         "LinkAssociations" => list(link_association()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_link_associations_response() :: %{String.t() => any()}
+  @type get_link_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2197,12 +2205,12 @@ defmodule AWS.NetworkManager do
 
       transit_gateway_route_table_attachment() :: %{
         "Attachment" => attachment(),
-        "PeeringId" => String.t(),
-        "TransitGatewayRouteTableArn" => String.t()
+        "PeeringId" => String.t() | atom(),
+        "TransitGatewayRouteTableArn" => String.t() | atom()
       }
 
   """
-  @type transit_gateway_route_table_attachment() :: %{String.t() => any()}
+  @type transit_gateway_route_table_attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2210,18 +2218,18 @@ defmodule AWS.NetworkManager do
 
       create_device_request() :: %{
         optional("AWSLocation") => aws_location(),
-        optional("Description") => String.t(),
+        optional("Description") => String.t() | atom(),
         optional("Location") => location(),
-        optional("Model") => String.t(),
-        optional("SerialNumber") => String.t(),
-        optional("SiteId") => String.t(),
+        optional("Model") => String.t() | atom(),
+        optional("SerialNumber") => String.t() | atom(),
+        optional("SiteId") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        optional("Type") => String.t(),
-        optional("Vendor") => String.t()
+        optional("Type") => String.t() | atom(),
+        optional("Vendor") => String.t() | atom()
       }
 
   """
-  @type create_device_request() :: %{String.t() => any()}
+  @type create_device_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2232,18 +2240,18 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type disassociate_customer_gateway_response() :: %{String.t() => any()}
+  @type disassociate_customer_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_direct_connect_gateway_attachment_request() :: %{
-        optional("EdgeLocations") => list(String.t())
+        optional("EdgeLocations") => list(String.t() | atom())
       }
 
   """
-  @type update_direct_connect_gateway_attachment_request() :: %{String.t() => any()}
+  @type update_direct_connect_gateway_attachment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2254,7 +2262,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type delete_peering_response() :: %{String.t() => any()}
+  @type delete_peering_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2265,18 +2273,18 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type create_vpc_attachment_response() :: %{String.t() => any()}
+  @type create_vpc_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_resource_policy_request() :: %{
-        required("PolicyDocument") => String.t()
+        required("PolicyDocument") => String.t() | atom()
       }
 
   """
-  @type put_resource_policy_request() :: %{String.t() => any()}
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2284,11 +2292,11 @@ defmodule AWS.NetworkManager do
 
       direct_connect_gateway_attachment() :: %{
         "Attachment" => attachment(),
-        "DirectConnectGatewayArn" => String.t()
+        "DirectConnectGatewayArn" => String.t() | atom()
       }
 
   """
-  @type direct_connect_gateway_attachment() :: %{String.t() => any()}
+  @type direct_connect_gateway_attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2299,22 +2307,22 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type get_transit_gateway_peering_response() :: %{String.t() => any()}
+  @type get_transit_gateway_peering_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       core_network_change_event_values() :: %{
-        "AttachmentId" => String.t(),
-        "Cidr" => String.t(),
-        "EdgeLocation" => String.t(),
-        "NetworkFunctionGroupName" => String.t(),
-        "SegmentName" => String.t()
+        "AttachmentId" => String.t() | atom(),
+        "Cidr" => String.t() | atom(),
+        "EdgeLocation" => String.t() | atom(),
+        "NetworkFunctionGroupName" => String.t() | atom(),
+        "SegmentName" => String.t() | atom()
       }
 
   """
-  @type core_network_change_event_values() :: %{String.t() => any()}
+  @type core_network_change_event_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2330,11 +2338,11 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2360,11 +2368,11 @@ defmodule AWS.NetworkManager do
 
       list_core_networks_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_core_networks_request() :: %{String.t() => any()}
+  @type list_core_networks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2372,11 +2380,11 @@ defmodule AWS.NetworkManager do
 
       get_devices_response() :: %{
         "Devices" => list(device()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_devices_response() :: %{String.t() => any()}
+  @type get_devices_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2384,11 +2392,11 @@ defmodule AWS.NetworkManager do
 
       network_resource_count() :: %{
         "Count" => integer(),
-        "ResourceType" => String.t()
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type network_resource_count() :: %{String.t() => any()}
+  @type network_resource_count() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2399,7 +2407,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type create_global_network_response() :: %{String.t() => any()}
+  @type create_global_network_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2410,7 +2418,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type disassociate_link_response() :: %{String.t() => any()}
+  @type disassociate_link_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2422,7 +2430,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type bandwidth() :: %{String.t() => any()}
+  @type bandwidth() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2442,7 +2450,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type create_connect_attachment_response() :: %{String.t() => any()}
+  @type create_connect_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2453,7 +2461,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type associate_transit_gateway_connect_peer_response() :: %{String.t() => any()}
+  @type associate_transit_gateway_connect_peer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2462,11 +2470,11 @@ defmodule AWS.NetworkManager do
       connect_attachment() :: %{
         "Attachment" => attachment(),
         "Options" => connect_attachment_options(),
-        "TransportAttachmentId" => String.t()
+        "TransportAttachmentId" => String.t() | atom()
       }
 
   """
-  @type connect_attachment() :: %{String.t() => any()}
+  @type connect_attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2477,7 +2485,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type disassociate_transit_gateway_connect_peer_response() :: %{String.t() => any()}
+  @type disassociate_transit_gateway_connect_peer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2488,20 +2496,20 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type accept_attachment_response() :: %{String.t() => any()}
+  @type accept_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       core_network_policy_error() :: %{
-        "ErrorCode" => String.t(),
-        "Message" => String.t(),
-        "Path" => String.t()
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Path" => String.t() | atom()
       }
 
   """
-  @type core_network_policy_error() :: %{String.t() => any()}
+  @type core_network_policy_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2512,7 +2520,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type delete_connection_response() :: %{String.t() => any()}
+  @type delete_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2520,12 +2528,12 @@ defmodule AWS.NetworkManager do
 
       validation_exception() :: %{
         "Fields" => list(validation_exception_field()),
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "Reason" => list(any())
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2545,20 +2553,20 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type get_transit_gateway_route_table_attachment_response() :: %{String.t() => any()}
+  @type get_transit_gateway_route_table_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       core_network_segment() :: %{
-        "EdgeLocations" => list(String.t()),
-        "Name" => String.t(),
-        "SharedSegments" => list(String.t())
+        "EdgeLocations" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "SharedSegments" => list(String.t() | atom())
       }
 
   """
-  @type core_network_segment() :: %{String.t() => any()}
+  @type core_network_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2566,11 +2574,11 @@ defmodule AWS.NetworkManager do
 
       get_core_network_change_events_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_core_network_change_events_request() :: %{String.t() => any()}
+  @type get_core_network_change_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2578,12 +2586,12 @@ defmodule AWS.NetworkManager do
 
       proposed_segment_change() :: %{
         "AttachmentPolicyRuleNumber" => integer(),
-        "SegmentName" => String.t(),
+        "SegmentName" => String.t() | atom(),
         "Tags" => list(tag())
       }
 
   """
-  @type proposed_segment_change() :: %{String.t() => any()}
+  @type proposed_segment_change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2600,49 +2608,49 @@ defmodule AWS.NetworkManager do
 
       transit_gateway_registration_state_reason() :: %{
         "Code" => list(any()),
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
 
   """
-  @type transit_gateway_registration_state_reason() :: %{String.t() => any()}
+  @type transit_gateway_registration_state_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "Message" => String.t(),
+        "Message" => String.t() | atom(),
         "RetryAfterSeconds" => integer()
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       core_network_network_function_group() :: %{
-        "EdgeLocations" => list(String.t()),
-        "Name" => String.t(),
+        "EdgeLocations" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
         "Segments" => service_insertion_segments()
       }
 
   """
-  @type core_network_network_function_group() :: %{String.t() => any()}
+  @type core_network_network_function_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_customer_gateway_associations_request() :: %{
-        optional("CustomerGatewayArns") => list(String.t()),
+        optional("CustomerGatewayArns") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_customer_gateway_associations_request() :: %{String.t() => any()}
+  @type get_customer_gateway_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2653,7 +2661,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type update_global_network_response() :: %{String.t() => any()}
+  @type update_global_network_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2661,11 +2669,11 @@ defmodule AWS.NetworkManager do
 
       get_customer_gateway_associations_response() :: %{
         "CustomerGatewayAssociations" => list(customer_gateway_association()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_customer_gateway_associations_response() :: %{String.t() => any()}
+  @type get_customer_gateway_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2679,28 +2687,28 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type vpc_options() :: %{String.t() => any()}
+  @type vpc_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network_resource() :: %{
-        "AccountId" => String.t(),
-        "AwsRegion" => String.t(),
-        "CoreNetworkId" => String.t(),
-        "Definition" => String.t(),
+        "AccountId" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom(),
+        "CoreNetworkId" => String.t() | atom(),
+        "Definition" => String.t() | atom(),
         "DefinitionTimestamp" => non_neg_integer(),
         "Metadata" => map(),
-        "RegisteredGatewayArn" => String.t(),
-        "ResourceArn" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t(),
+        "RegisteredGatewayArn" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
         "Tags" => list(tag())
       }
 
   """
-  @type network_resource() :: %{String.t() => any()}
+  @type network_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2718,30 +2726,30 @@ defmodule AWS.NetworkManager do
       route_table_identifier() :: %{
         "CoreNetworkNetworkFunctionGroup" => core_network_network_function_group_identifier(),
         "CoreNetworkSegmentEdge" => core_network_segment_edge_identifier(),
-        "TransitGatewayRouteTableArn" => String.t()
+        "TransitGatewayRouteTableArn" => String.t() | atom()
       }
 
   """
-  @type route_table_identifier() :: %{String.t() => any()}
+  @type route_table_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       network_telemetry() :: %{
-        "AccountId" => String.t(),
-        "Address" => String.t(),
-        "AwsRegion" => String.t(),
-        "CoreNetworkId" => String.t(),
+        "AccountId" => String.t() | atom(),
+        "Address" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom(),
+        "CoreNetworkId" => String.t() | atom(),
         "Health" => connection_health(),
-        "RegisteredGatewayArn" => String.t(),
-        "ResourceArn" => String.t(),
-        "ResourceId" => String.t(),
-        "ResourceType" => String.t()
+        "RegisteredGatewayArn" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type network_telemetry() :: %{String.t() => any()}
+  @type network_telemetry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2755,7 +2763,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type start_route_analysis_request() :: %{String.t() => any()}
+  @type start_route_analysis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2766,33 +2774,33 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type create_connection_response() :: %{String.t() => any()}
+  @type create_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       associate_transit_gateway_connect_peer_request() :: %{
-        optional("LinkId") => String.t(),
-        required("DeviceId") => String.t(),
-        required("TransitGatewayConnectPeerArn") => String.t()
+        optional("LinkId") => String.t() | atom(),
+        required("DeviceId") => String.t() | atom(),
+        required("TransitGatewayConnectPeerArn") => String.t() | atom()
       }
 
   """
-  @type associate_transit_gateway_connect_peer_request() :: %{String.t() => any()}
+  @type associate_transit_gateway_connect_peer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       core_network_segment_edge_identifier() :: %{
-        "CoreNetworkId" => String.t(),
-        "EdgeLocation" => String.t(),
-        "SegmentName" => String.t()
+        "CoreNetworkId" => String.t() | atom(),
+        "EdgeLocation" => String.t() | atom(),
+        "SegmentName" => String.t() | atom()
       }
 
   """
-  @type core_network_segment_edge_identifier() :: %{String.t() => any()}
+  @type core_network_segment_edge_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2809,11 +2817,11 @@ defmodule AWS.NetworkManager do
 
       get_core_network_change_set_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_core_network_change_set_request() :: %{String.t() => any()}
+  @type get_core_network_change_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2821,19 +2829,19 @@ defmodule AWS.NetworkManager do
 
       connect_peer() :: %{
         "Configuration" => connect_peer_configuration(),
-        "ConnectAttachmentId" => String.t(),
-        "ConnectPeerId" => String.t(),
-        "CoreNetworkId" => String.t(),
+        "ConnectAttachmentId" => String.t() | atom(),
+        "ConnectPeerId" => String.t() | atom(),
+        "CoreNetworkId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "EdgeLocation" => String.t(),
+        "EdgeLocation" => String.t() | atom(),
         "LastModificationErrors" => list(connect_peer_error()),
         "State" => list(any()),
-        "SubnetArn" => String.t(),
+        "SubnetArn" => String.t() | atom(),
         "Tags" => list(tag())
       }
 
   """
-  @type connect_peer() :: %{String.t() => any()}
+  @type connect_peer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2846,23 +2854,23 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type connection_health() :: %{String.t() => any()}
+  @type connection_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_links_request() :: %{
-        optional("LinkIds") => list(String.t()),
+        optional("LinkIds") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("Provider") => String.t(),
-        optional("SiteId") => String.t(),
-        optional("Type") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("Provider") => String.t() | atom(),
+        optional("SiteId") => String.t() | atom(),
+        optional("Type") => String.t() | atom()
       }
 
   """
-  @type get_links_request() :: %{String.t() => any()}
+  @type get_links_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2870,23 +2878,23 @@ defmodule AWS.NetworkManager do
 
       update_network_resource_metadata_response() :: %{
         "Metadata" => map(),
-        "ResourceArn" => String.t()
+        "ResourceArn" => String.t() | atom()
       }
 
   """
-  @type update_network_resource_metadata_response() :: %{String.t() => any()}
+  @type update_network_resource_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       aws_location() :: %{
-        "SubnetArn" => String.t(),
-        "Zone" => String.t()
+        "SubnetArn" => String.t() | atom(),
+        "Zone" => String.t() | atom()
       }
 
   """
-  @type aws_location() :: %{String.t() => any()}
+  @type aws_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2894,11 +2902,11 @@ defmodule AWS.NetworkManager do
 
       list_organization_service_access_status_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_organization_service_access_status_request() :: %{String.t() => any()}
+  @type list_organization_service_access_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2907,22 +2915,22 @@ defmodule AWS.NetworkManager do
       device() :: %{
         "AWSLocation" => aws_location(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t(),
-        "DeviceArn" => String.t(),
-        "DeviceId" => String.t(),
-        "GlobalNetworkId" => String.t(),
+        "Description" => String.t() | atom(),
+        "DeviceArn" => String.t() | atom(),
+        "DeviceId" => String.t() | atom(),
+        "GlobalNetworkId" => String.t() | atom(),
         "Location" => location(),
-        "Model" => String.t(),
-        "SerialNumber" => String.t(),
-        "SiteId" => String.t(),
+        "Model" => String.t() | atom(),
+        "SerialNumber" => String.t() | atom(),
+        "SiteId" => String.t() | atom(),
         "State" => list(any()),
         "Tags" => list(tag()),
-        "Type" => String.t(),
-        "Vendor" => String.t()
+        "Type" => String.t() | atom(),
+        "Vendor" => String.t() | atom()
       }
 
   """
-  @type device() :: %{String.t() => any()}
+  @type device() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2931,14 +2939,14 @@ defmodule AWS.NetworkManager do
       core_network_change_event() :: %{
         "Action" => list(any()),
         "EventTime" => non_neg_integer(),
-        "IdentifierPath" => String.t(),
+        "IdentifierPath" => String.t() | atom(),
         "Status" => list(any()),
         "Type" => list(any()),
         "Values" => core_network_change_event_values()
       }
 
   """
-  @type core_network_change_event() :: %{String.t() => any()}
+  @type core_network_change_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2958,7 +2966,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type get_core_network_response() :: %{String.t() => any()}
+  @type get_core_network_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2969,24 +2977,24 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type create_site_response() :: %{String.t() => any()}
+  @type create_site_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       core_network_summary() :: %{
-        "CoreNetworkArn" => String.t(),
-        "CoreNetworkId" => String.t(),
-        "Description" => String.t(),
-        "GlobalNetworkId" => String.t(),
-        "OwnerAccountId" => String.t(),
+        "CoreNetworkArn" => String.t() | atom(),
+        "CoreNetworkId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "GlobalNetworkId" => String.t() | atom(),
+        "OwnerAccountId" => String.t() | atom(),
         "State" => list(any()),
         "Tags" => list(tag())
       }
 
   """
-  @type core_network_summary() :: %{String.t() => any()}
+  @type core_network_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3003,11 +3011,11 @@ defmodule AWS.NetworkManager do
 
       list_core_network_policy_versions_response() :: %{
         "CoreNetworkPolicyVersions" => list(core_network_policy_version()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_core_network_policy_versions_response() :: %{String.t() => any()}
+  @type list_core_network_policy_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3015,41 +3023,41 @@ defmodule AWS.NetworkManager do
 
       list_connect_peers_response() :: %{
         "ConnectPeers" => list(connect_peer_summary()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_connect_peers_response() :: %{String.t() => any()}
+  @type list_connect_peers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_peerings_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Peerings" => list(peering())
       }
 
   """
-  @type list_peerings_response() :: %{String.t() => any()}
+  @type list_peerings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_network_resource_relationships_request() :: %{
-        optional("AccountId") => String.t(),
-        optional("AwsRegion") => String.t(),
-        optional("CoreNetworkId") => String.t(),
+        optional("AccountId") => String.t() | atom(),
+        optional("AwsRegion") => String.t() | atom(),
+        optional("CoreNetworkId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("RegisteredGatewayArn") => String.t(),
-        optional("ResourceArn") => String.t(),
-        optional("ResourceType") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("RegisteredGatewayArn") => String.t() | atom(),
+        optional("ResourceArn") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom()
       }
 
   """
-  @type get_network_resource_relationships_request() :: %{String.t() => any()}
+  @type get_network_resource_relationships_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3060,7 +3068,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type get_route_analysis_response() :: %{String.t() => any()}
+  @type get_route_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3071,19 +3079,19 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type update_core_network_response() :: %{String.t() => any()}
+  @type update_core_network_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sites_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Sites" => list(site())
       }
 
   """
-  @type get_sites_response() :: %{String.t() => any()}
+  @type get_sites_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3099,23 +3107,23 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       update_core_network_request() :: %{
-        optional("Description") => String.t()
+        optional("Description") => String.t() | atom()
       }
 
   """
-  @type update_core_network_request() :: %{String.t() => any()}
+  @type update_core_network_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_transit_gateway_registrations_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "TransitGatewayRegistrations" => list(transit_gateway_registration())
       }
 
   """
-  @type get_transit_gateway_registrations_response() :: %{String.t() => any()}
+  @type get_transit_gateway_registrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3126,7 +3134,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type delete_attachment_response() :: %{String.t() => any()}
+  @type delete_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3137,23 +3145,23 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type associate_link_response() :: %{String.t() => any()}
+  @type associate_link_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_connection_request() :: %{
-        optional("ConnectedLinkId") => String.t(),
-        optional("Description") => String.t(),
-        optional("LinkId") => String.t(),
+        optional("ConnectedLinkId") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("LinkId") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("ConnectedDeviceId") => String.t(),
-        required("DeviceId") => String.t()
+        required("ConnectedDeviceId") => String.t() | atom(),
+        required("DeviceId") => String.t() | atom()
       }
 
   """
-  @type create_connection_request() :: %{String.t() => any()}
+  @type create_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3161,23 +3169,23 @@ defmodule AWS.NetworkManager do
 
       list_attachments_response() :: %{
         "Attachments" => list(attachment()),
-        "NextToken" => String.t()
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_attachments_response() :: %{String.t() => any()}
+  @type list_attachments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       route_analysis_endpoint_options_specification() :: %{
-        "IpAddress" => String.t(),
-        "TransitGatewayAttachmentArn" => String.t()
+        "IpAddress" => String.t() | atom(),
+        "TransitGatewayAttachmentArn" => String.t() | atom()
       }
 
   """
-  @type route_analysis_endpoint_options_specification() :: %{String.t() => any()}
+  @type route_analysis_endpoint_options_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3188,7 +3196,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type get_vpc_attachment_response() :: %{String.t() => any()}
+  @type get_vpc_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3196,13 +3204,13 @@ defmodule AWS.NetworkManager do
 
       update_link_request() :: %{
         optional("Bandwidth") => bandwidth(),
-        optional("Description") => String.t(),
-        optional("Provider") => String.t(),
-        optional("Type") => String.t()
+        optional("Description") => String.t() | atom(),
+        optional("Provider") => String.t() | atom(),
+        optional("Type") => String.t() | atom()
       }
 
   """
-  @type update_link_request() :: %{String.t() => any()}
+  @type update_link_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3210,13 +3218,13 @@ defmodule AWS.NetworkManager do
 
       organization_status() :: %{
         "AccountStatusList" => list(account_status()),
-        "OrganizationAwsServiceAccessStatus" => String.t(),
-        "OrganizationId" => String.t(),
-        "SLRDeploymentStatus" => String.t()
+        "OrganizationAwsServiceAccessStatus" => String.t() | atom(),
+        "OrganizationId" => String.t() | atom(),
+        "SLRDeploymentStatus" => String.t() | atom()
       }
 
   """
-  @type organization_status() :: %{String.t() => any()}
+  @type organization_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3228,7 +3236,7 @@ defmodule AWS.NetworkManager do
       }
 
   """
-  @type via() :: %{String.t() => any()}
+  @type via() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3236,17 +3244,17 @@ defmodule AWS.NetworkManager do
 
       create_connect_peer_request() :: %{
         optional("BgpOptions") => bgp_options(),
-        optional("ClientToken") => String.t(),
-        optional("CoreNetworkAddress") => String.t(),
-        optional("InsideCidrBlocks") => list(String.t()),
-        optional("SubnetArn") => String.t(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("CoreNetworkAddress") => String.t() | atom(),
+        optional("InsideCidrBlocks") => list(String.t() | atom()),
+        optional("SubnetArn") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("ConnectAttachmentId") => String.t(),
-        required("PeerAddress") => String.t()
+        required("ConnectAttachmentId") => String.t() | atom(),
+        required("PeerAddress") => String.t() | atom()
       }
 
   """
-  @type create_connect_peer_request() :: %{String.t() => any()}
+  @type create_connect_peer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3949,7 +3957,7 @@ defmodule AWS.NetworkManager do
   is
   created and connected to a core network.
   """
-  @spec accept_attachment(map(), String.t(), accept_attachment_request(), list()) ::
+  @spec accept_attachment(map(), String.t() | atom(), accept_attachment_request(), list()) ::
           {:ok, accept_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -3985,7 +3993,12 @@ defmodule AWS.NetworkManager do
   Connect
   attachment on a core network.
   """
-  @spec associate_connect_peer(map(), String.t(), associate_connect_peer_request(), list()) ::
+  @spec associate_connect_peer(
+          map(),
+          String.t() | atom(),
+          associate_connect_peer_request(),
+          list()
+        ) ::
           {:ok, associate_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4036,7 +4049,7 @@ defmodule AWS.NetworkManager do
   """
   @spec associate_customer_gateway(
           map(),
-          String.t(),
+          String.t() | atom(),
           associate_customer_gateway_request(),
           list()
         ) ::
@@ -4074,7 +4087,7 @@ defmodule AWS.NetworkManager do
   multiple devices. The device and link must be in the same global network and the
   same site.
   """
-  @spec associate_link(map(), String.t(), associate_link_request(), list()) ::
+  @spec associate_link(map(), String.t() | atom(), associate_link_request(), list()) ::
           {:ok, associate_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4115,7 +4128,7 @@ defmodule AWS.NetworkManager do
   """
   @spec associate_transit_gateway_connect_peer(
           map(),
-          String.t(),
+          String.t() | atom(),
           associate_transit_gateway_connect_peer_request(),
           list()
         ) ::
@@ -4228,7 +4241,7 @@ defmodule AWS.NetworkManager do
   third-party appliance in a VPC, or a physical appliance that connects to another
   physical appliance in an on-premises network.
   """
-  @spec create_connection(map(), String.t(), create_connection_request(), list()) ::
+  @spec create_connection(map(), String.t() | atom(), create_connection_request(), list()) ::
           {:ok, create_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4291,7 +4304,7 @@ defmodule AWS.NetworkManager do
   location, the location of the site is used for visualization in the Network
   Manager console.
   """
-  @spec create_device(map(), String.t(), create_device_request(), list()) ::
+  @spec create_device(map(), String.t() | atom(), create_device_request(), list()) ::
           {:ok, create_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4382,7 +4395,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Creates a new link for a specified site.
   """
-  @spec create_link(map(), String.t(), create_link_request(), list()) ::
+  @spec create_link(map(), String.t() | atom(), create_link_request(), list()) ::
           {:ok, create_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4411,7 +4424,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Creates a new site in a global network.
   """
-  @spec create_site(map(), String.t(), create_site_request(), list()) ::
+  @spec create_site(map(), String.t() | atom(), create_site_request(), list()) ::
           {:ok, create_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4567,7 +4580,7 @@ defmodule AWS.NetworkManager do
 
   Supports all attachment types.
   """
-  @spec delete_attachment(map(), String.t(), delete_attachment_request(), list()) ::
+  @spec delete_attachment(map(), String.t() | atom(), delete_attachment_request(), list()) ::
           {:ok, delete_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4596,7 +4609,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Deletes a Connect peer.
   """
-  @spec delete_connect_peer(map(), String.t(), delete_connect_peer_request(), list()) ::
+  @spec delete_connect_peer(map(), String.t() | atom(), delete_connect_peer_request(), list()) ::
           {:ok, delete_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4625,7 +4638,13 @@ defmodule AWS.NetworkManager do
   @doc """
   Deletes the specified connection in your global network.
   """
-  @spec delete_connection(map(), String.t(), String.t(), delete_connection_request(), list()) ::
+  @spec delete_connection(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_connection_request(),
+          list()
+        ) ::
           {:ok, delete_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4664,7 +4683,7 @@ defmodule AWS.NetworkManager do
 
   This can only be done if there are no attachments on a core network.
   """
-  @spec delete_core_network(map(), String.t(), delete_core_network_request(), list()) ::
+  @spec delete_core_network(map(), String.t() | atom(), delete_core_network_request(), list()) ::
           {:ok, delete_core_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4697,8 +4716,8 @@ defmodule AWS.NetworkManager do
   """
   @spec delete_core_network_policy_version(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_core_network_policy_version_request(),
           list()
         ) ::
@@ -4741,7 +4760,13 @@ defmodule AWS.NetworkManager do
   You must first disassociate the device from any links and
   customer gateways.
   """
-  @spec delete_device(map(), String.t(), String.t(), delete_device_request(), list()) ::
+  @spec delete_device(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_device_request(),
+          list()
+        ) ::
           {:ok, delete_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4776,7 +4801,7 @@ defmodule AWS.NetworkManager do
   (devices, links, and sites), deregister all transit gateways, and delete any
   core networks.
   """
-  @spec delete_global_network(map(), String.t(), delete_global_network_request(), list()) ::
+  @spec delete_global_network(map(), String.t() | atom(), delete_global_network_request(), list()) ::
           {:ok, delete_global_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4808,7 +4833,13 @@ defmodule AWS.NetworkManager do
   You must first disassociate the link from any devices and
   customer gateways.
   """
-  @spec delete_link(map(), String.t(), String.t(), delete_link_request(), list()) ::
+  @spec delete_link(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_link_request(),
+          list()
+        ) ::
           {:ok, delete_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4839,7 +4870,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Deletes an existing peering connection.
   """
-  @spec delete_peering(map(), String.t(), delete_peering_request(), list()) ::
+  @spec delete_peering(map(), String.t() | atom(), delete_peering_request(), list()) ::
           {:ok, delete_peering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4870,7 +4901,12 @@ defmodule AWS.NetworkManager do
 
   This revokes the access of the principals specified in the resource policy.
   """
-  @spec delete_resource_policy(map(), String.t(), delete_resource_policy_request(), list()) ::
+  @spec delete_resource_policy(
+          map(),
+          String.t() | atom(),
+          delete_resource_policy_request(),
+          list()
+        ) ::
           {:ok, delete_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4901,7 +4937,13 @@ defmodule AWS.NetworkManager do
 
   The site cannot be associated with any device or link.
   """
-  @spec delete_site(map(), String.t(), String.t(), delete_site_request(), list()) ::
+  @spec delete_site(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_site_request(),
+          list()
+        ) ::
           {:ok, delete_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4938,8 +4980,8 @@ defmodule AWS.NetworkManager do
   """
   @spec deregister_transit_gateway(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           deregister_transit_gateway_request(),
           list()
         ) ::
@@ -4987,9 +5029,9 @@ defmodule AWS.NetworkManager do
   """
   @spec describe_global_networks(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, describe_global_networks_response(), any()}
@@ -5038,8 +5080,8 @@ defmodule AWS.NetworkManager do
   """
   @spec disassociate_connect_peer(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           disassociate_connect_peer_request(),
           list()
         ) ::
@@ -5081,8 +5123,8 @@ defmodule AWS.NetworkManager do
   """
   @spec disassociate_customer_gateway(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           disassociate_customer_gateway_request(),
           list()
         ) ::
@@ -5125,7 +5167,7 @@ defmodule AWS.NetworkManager do
   You must first disassociate any customer
   gateways that are associated with the link.
   """
-  @spec disassociate_link(map(), String.t(), disassociate_link_request(), list()) ::
+  @spec disassociate_link(map(), String.t() | atom(), disassociate_link_request(), list()) ::
           {:ok, disassociate_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5162,8 +5204,8 @@ defmodule AWS.NetworkManager do
   """
   @spec disassociate_transit_gateway_connect_peer(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           disassociate_transit_gateway_connect_peer_request(),
           list()
         ) ::
@@ -5207,8 +5249,8 @@ defmodule AWS.NetworkManager do
   """
   @spec execute_core_network_change_set(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           execute_core_network_change_set_request(),
           list()
         ) ::
@@ -5248,7 +5290,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about a core network Connect attachment.
   """
-  @spec get_connect_attachment(map(), String.t(), list()) ::
+  @spec get_connect_attachment(map(), String.t() | atom(), list()) ::
           {:ok, get_connect_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5266,7 +5308,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about a core network Connect peer.
   """
-  @spec get_connect_peer(map(), String.t(), list()) ::
+  @spec get_connect_peer(map(), String.t() | atom(), list()) ::
           {:ok, get_connect_peer_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5286,10 +5328,10 @@ defmodule AWS.NetworkManager do
   """
   @spec get_connect_peer_associations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_connect_peer_associations_response(), any()}
@@ -5341,11 +5383,11 @@ defmodule AWS.NetworkManager do
   """
   @spec get_connections(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_connections_response(), any()}
@@ -5401,7 +5443,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about the LIVE policy for a core network.
   """
-  @spec get_core_network(map(), String.t(), list()) ::
+  @spec get_core_network(map(), String.t() | atom(), list()) ::
           {:ok, get_core_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5421,10 +5463,10 @@ defmodule AWS.NetworkManager do
   """
   @spec get_core_network_change_events(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_core_network_change_events_response(), any()}
@@ -5470,10 +5512,10 @@ defmodule AWS.NetworkManager do
   """
   @spec get_core_network_change_set(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_core_network_change_set_response(), any()}
@@ -5519,7 +5561,13 @@ defmodule AWS.NetworkManager do
   You can get details about your current live policy or any previous policy
   version.
   """
-  @spec get_core_network_policy(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
+  @spec get_core_network_policy(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_core_network_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5560,10 +5608,10 @@ defmodule AWS.NetworkManager do
   """
   @spec get_customer_gateway_associations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_customer_gateway_associations_response(), any()}
@@ -5615,11 +5663,11 @@ defmodule AWS.NetworkManager do
   """
   @spec get_devices(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_devices_response(), any()}
@@ -5676,7 +5724,7 @@ defmodule AWS.NetworkManager do
   Returns information about a specific Amazon Web Services Direct Connect gateway
   attachment.
   """
-  @spec get_direct_connect_gateway_attachment(map(), String.t(), list()) ::
+  @spec get_direct_connect_gateway_attachment(map(), String.t() | atom(), list()) ::
           {:ok, get_direct_connect_gateway_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5699,11 +5747,11 @@ defmodule AWS.NetworkManager do
   """
   @spec get_link_associations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_link_associations_response(), any()}
@@ -5764,13 +5812,13 @@ defmodule AWS.NetworkManager do
   """
   @spec get_links(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_links_response(), any()}
@@ -5845,10 +5893,10 @@ defmodule AWS.NetworkManager do
   """
   @spec get_network_resource_counts(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_network_resource_counts_response(), any()}
@@ -5898,15 +5946,15 @@ defmodule AWS.NetworkManager do
   """
   @spec get_network_resource_relationships(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_network_resource_relationships_response(), any()}
@@ -6001,15 +6049,15 @@ defmodule AWS.NetworkManager do
   """
   @spec get_network_resources(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_network_resources_response(), any()}
@@ -6097,7 +6145,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Gets the network routes of the specified global network.
   """
-  @spec get_network_routes(map(), String.t(), get_network_routes_request(), list()) ::
+  @spec get_network_routes(map(), String.t() | atom(), get_network_routes_request(), list()) ::
           {:ok, get_network_routes_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6128,15 +6176,15 @@ defmodule AWS.NetworkManager do
   """
   @spec get_network_telemetry(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_network_telemetry_response(), any()}
@@ -6224,7 +6272,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about a resource policy.
   """
-  @spec get_resource_policy(map(), String.t(), list()) ::
+  @spec get_resource_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6242,7 +6290,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Gets information about the specified route analysis.
   """
-  @spec get_route_analysis(map(), String.t(), String.t(), list()) ::
+  @spec get_route_analysis(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_route_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6262,7 +6310,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about a site-to-site VPN attachment.
   """
-  @spec get_site_to_site_vpn_attachment(map(), String.t(), list()) ::
+  @spec get_site_to_site_vpn_attachment(map(), String.t() | atom(), list()) ::
           {:ok, get_site_to_site_vpn_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6280,7 +6328,14 @@ defmodule AWS.NetworkManager do
   @doc """
   Gets information about one or more of your sites in a global network.
   """
-  @spec get_sites(map(), String.t(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec get_sites(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_sites_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6329,10 +6384,10 @@ defmodule AWS.NetworkManager do
   """
   @spec get_transit_gateway_connect_peer_associations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_transit_gateway_connect_peer_associations_response(), any()}
@@ -6382,7 +6437,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about a transit gateway peer.
   """
-  @spec get_transit_gateway_peering(map(), String.t(), list()) ::
+  @spec get_transit_gateway_peering(map(), String.t() | atom(), list()) ::
           {:ok, get_transit_gateway_peering_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6403,10 +6458,10 @@ defmodule AWS.NetworkManager do
   """
   @spec get_transit_gateway_registrations(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_transit_gateway_registrations_response(), any()}
@@ -6456,7 +6511,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about a transit gateway route table attachment.
   """
-  @spec get_transit_gateway_route_table_attachment(map(), String.t(), list()) ::
+  @spec get_transit_gateway_route_table_attachment(map(), String.t() | atom(), list()) ::
           {:ok, get_transit_gateway_route_table_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6474,7 +6529,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns information about a VPC attachment.
   """
-  @spec get_vpc_attachment(map(), String.t(), list()) ::
+  @spec get_vpc_attachment(map(), String.t() | atom(), list()) ::
           {:ok, get_vpc_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6494,12 +6549,12 @@ defmodule AWS.NetworkManager do
   """
   @spec list_attachments(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_attachments_response(), any()}
@@ -6572,10 +6627,10 @@ defmodule AWS.NetworkManager do
   """
   @spec list_connect_peers(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_connect_peers_response(), any()}
@@ -6632,9 +6687,9 @@ defmodule AWS.NetworkManager do
   """
   @spec list_core_network_policy_versions(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_core_network_policy_versions_response(), any()}
@@ -6676,7 +6731,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Returns a list of owned and shared core networks.
   """
-  @spec list_core_networks(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_core_networks(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_core_networks_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6709,7 +6764,12 @@ defmodule AWS.NetworkManager do
   Gets the status of the Service Linked Role (SLR) deployment for the accounts in
   a given Amazon Web Services Organization.
   """
-  @spec list_organization_service_access_status(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_organization_service_access_status(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_organization_service_access_status_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6747,12 +6807,12 @@ defmodule AWS.NetworkManager do
   """
   @spec list_peerings(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_peerings_response(), any()}
@@ -6823,7 +6883,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Lists the tags for a specified resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6844,7 +6904,12 @@ defmodule AWS.NetworkManager do
   A subsequent change set is created showing the differences between the LIVE
   policy and the submitted policy.
   """
-  @spec put_core_network_policy(map(), String.t(), put_core_network_policy_request(), list()) ::
+  @spec put_core_network_policy(
+          map(),
+          String.t() | atom(),
+          put_core_network_policy_request(),
+          list()
+        ) ::
           {:ok, put_core_network_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6873,7 +6938,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Creates or updates a resource policy.
   """
-  @spec put_resource_policy(map(), String.t(), put_resource_policy_request(), list()) ::
+  @spec put_resource_policy(map(), String.t() | atom(), put_resource_policy_request(), list()) ::
           {:ok, put_resource_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6910,7 +6975,12 @@ defmodule AWS.NetworkManager do
   Services account that owns the global
   network. You cannot register a transit gateway in more than one global network.
   """
-  @spec register_transit_gateway(map(), String.t(), register_transit_gateway_request(), list()) ::
+  @spec register_transit_gateway(
+          map(),
+          String.t() | atom(),
+          register_transit_gateway_request(),
+          list()
+        ) ::
           {:ok, register_transit_gateway_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6941,7 +7011,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Rejects a core network attachment request.
   """
-  @spec reject_attachment(map(), String.t(), reject_attachment_request(), list()) ::
+  @spec reject_attachment(map(), String.t() | atom(), reject_attachment_request(), list()) ::
           {:ok, reject_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6976,8 +7046,8 @@ defmodule AWS.NetworkManager do
   """
   @spec restore_core_network_policy_version(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           restore_core_network_policy_version_request(),
           list()
         ) ::
@@ -7055,7 +7125,7 @@ defmodule AWS.NetworkManager do
   For more information,
   see [Route Analyzer](https://docs.aws.amazon.com/vpc/latest/tgw/route-analyzer.html).
   """
-  @spec start_route_analysis(map(), String.t(), start_route_analysis_request(), list()) ::
+  @spec start_route_analysis(map(), String.t() | atom(), start_route_analysis_request(), list()) ::
           {:ok, start_route_analysis_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7084,7 +7154,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Tags a specified resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7113,7 +7183,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Removes tags from a specified resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7150,7 +7220,13 @@ defmodule AWS.NetworkManager do
   To remove information for any of the parameters,
   specify an empty string.
   """
-  @spec update_connection(map(), String.t(), String.t(), update_connection_request(), list()) ::
+  @spec update_connection(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_connection_request(),
+          list()
+        ) ::
           {:ok, update_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7187,7 +7263,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Updates the description of a core network.
   """
-  @spec update_core_network(map(), String.t(), update_core_network_request(), list()) ::
+  @spec update_core_network(map(), String.t() | atom(), update_core_network_request(), list()) ::
           {:ok, update_core_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7219,7 +7295,13 @@ defmodule AWS.NetworkManager do
   To remove information for any of the
   parameters, specify an empty string.
   """
-  @spec update_device(map(), String.t(), String.t(), update_device_request(), list()) ::
+  @spec update_device(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_device_request(),
+          list()
+        ) ::
           {:ok, update_device_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7253,7 +7335,7 @@ defmodule AWS.NetworkManager do
   """
   @spec update_direct_connect_gateway_attachment(
           map(),
-          String.t(),
+          String.t() | atom(),
           update_direct_connect_gateway_attachment_request(),
           list()
         ) ::
@@ -7293,7 +7375,7 @@ defmodule AWS.NetworkManager do
   To remove information for any of the parameters,
   specify an empty string.
   """
-  @spec update_global_network(map(), String.t(), update_global_network_request(), list()) ::
+  @spec update_global_network(map(), String.t() | atom(), update_global_network_request(), list()) ::
           {:ok, update_global_network_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7325,7 +7407,13 @@ defmodule AWS.NetworkManager do
   To remove information for any of the
   parameters, specify an empty string.
   """
-  @spec update_link(map(), String.t(), String.t(), update_link_request(), list()) ::
+  @spec update_link(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_link_request(),
+          list()
+        ) ::
           {:ok, update_link_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7358,8 +7446,8 @@ defmodule AWS.NetworkManager do
   """
   @spec update_network_resource_metadata(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_network_resource_metadata_request(),
           list()
         ) ::
@@ -7402,7 +7490,13 @@ defmodule AWS.NetworkManager do
   To remove information for any of the
   parameters, specify an empty string.
   """
-  @spec update_site(map(), String.t(), String.t(), update_site_request(), list()) ::
+  @spec update_site(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_site_request(),
+          list()
+        ) ::
           {:ok, update_site_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7433,7 +7527,7 @@ defmodule AWS.NetworkManager do
   @doc """
   Updates a VPC attachment.
   """
-  @spec update_vpc_attachment(map(), String.t(), update_vpc_attachment_request(), list()) ::
+  @spec update_vpc_attachment(map(), String.t() | atom(), update_vpc_attachment_request(), list()) ::
           {:ok, update_vpc_attachment_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}

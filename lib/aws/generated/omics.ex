@@ -22,12 +22,12 @@ defmodule AWS.Omics do
   ## Example:
 
       run_log_location() :: %{
-        "engineLogStream" => String.t(),
-        "runLogStream" => String.t()
+        "engineLogStream" => String.t() | atom(),
+        "runLogStream" => String.t() | atom()
       }
 
   """
-  @type run_log_location() :: %{String.t() => any()}
+  @type run_log_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -35,11 +35,11 @@ defmodule AWS.Omics do
 
       list_multipart_read_set_uploads_request() :: %{
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_multipart_read_set_uploads_request() :: %{String.t() => any()}
+  @type list_multipart_read_set_uploads_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -56,49 +56,49 @@ defmodule AWS.Omics do
 
       annotation_store_item() :: %{
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => [String.t()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
         "reference" => list(),
         "sseConfig" => sse_config(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
-        "storeArn" => String.t(),
-        "storeFormat" => String.t(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "storeArn" => String.t() | atom(),
+        "storeFormat" => String.t() | atom(),
         "storeSizeBytes" => [float()],
         "updateTime" => non_neg_integer()
       }
 
   """
-  @type annotation_store_item() :: %{String.t() => any()}
+  @type annotation_store_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workflow_request() :: %{
-        optional("accelerators") => String.t(),
+        optional("accelerators") => String.t() | atom(),
         optional("definitionRepository") => definition_repository(),
-        optional("definitionUri") => String.t(),
+        optional("definitionUri") => String.t() | atom(),
         optional("definitionZip") => [binary()],
-        optional("description") => String.t(),
-        optional("engine") => String.t(),
-        optional("main") => String.t(),
-        optional("name") => String.t(),
+        optional("description") => String.t() | atom(),
+        optional("engine") => String.t() | atom(),
+        optional("main") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
         optional("parameterTemplate") => map(),
-        optional("parameterTemplatePath") => String.t(),
-        optional("readmeMarkdown") => String.t(),
-        optional("readmePath") => String.t(),
-        optional("readmeUri") => String.t(),
+        optional("parameterTemplatePath") => String.t() | atom(),
+        optional("readmeMarkdown") => String.t() | atom(),
+        optional("readmePath") => String.t() | atom(),
+        optional("readmeUri") => String.t() | atom(),
         optional("storageCapacity") => [integer()],
-        optional("storageType") => String.t(),
+        optional("storageType") => String.t() | atom(),
         optional("tags") => map(),
-        optional("workflowBucketOwnerId") => String.t(),
-        required("requestId") => String.t()
+        optional("workflowBucketOwnerId") => String.t() | atom(),
+        required("requestId") => String.t() | atom()
       }
 
   """
-  @type create_workflow_request() :: %{String.t() => any()}
+  @type create_workflow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -114,14 +114,14 @@ defmodule AWS.Omics do
   ## Example:
 
       create_run_cache_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
-        "status" => String.t(),
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type create_run_cache_response() :: %{String.t() => any()}
+  @type create_run_cache_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -129,31 +129,31 @@ defmodule AWS.Omics do
 
       update_variant_store_response() :: %{
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => [String.t()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
         "reference" => list(),
-        "status" => String.t(),
+        "status" => String.t() | atom(),
         "updateTime" => non_neg_integer()
       }
 
   """
-  @type update_variant_store_response() :: %{String.t() => any()}
+  @type update_variant_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       definition_repository_details() :: %{
-        "connectionArn" => String.t(),
-        "fullRepositoryId" => String.t(),
-        "providerEndpoint" => [String.t()],
-        "providerType" => [String.t()],
+        "connectionArn" => String.t() | atom(),
+        "fullRepositoryId" => String.t() | atom(),
+        "providerEndpoint" => [String.t() | atom()],
+        "providerType" => [String.t() | atom()],
         "sourceReference" => source_reference()
       }
 
   """
-  @type definition_repository_details() :: %{String.t() => any()}
+  @type definition_repository_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -162,14 +162,14 @@ defmodule AWS.Omics do
       import_read_set_job_item() :: %{
         "completionTime" => [non_neg_integer()],
         "creationTime" => [non_neg_integer()],
-        "id" => String.t(),
-        "roleArn" => String.t(),
-        "sequenceStoreId" => String.t(),
-        "status" => String.t()
+        "id" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type import_read_set_job_item() :: %{String.t() => any()}
+  @type import_read_set_job_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -178,11 +178,11 @@ defmodule AWS.Omics do
       activate_read_set_filter() :: %{
         "createdAfter" => [non_neg_integer()],
         "createdBefore" => [non_neg_integer()],
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type activate_read_set_filter() :: %{String.t() => any()}
+  @type activate_read_set_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -193,77 +193,77 @@ defmodule AWS.Omics do
       }
 
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       run_cache_list_item() :: %{
-        "arn" => String.t(),
-        "cacheBehavior" => String.t(),
-        "cacheS3Uri" => String.t(),
+        "arn" => String.t() | atom(),
+        "cacheBehavior" => String.t() | atom(),
+        "cacheS3Uri" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "status" => String.t()
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type run_cache_list_item() :: %{String.t() => any()}
+  @type run_cache_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_variant_store_request() :: %{
-        optional("description") => String.t()
+        optional("description") => String.t() | atom()
       }
 
   """
-  @type update_variant_store_request() :: %{String.t() => any()}
+  @type update_variant_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       workflow_version_list_item() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
-        "digest" => String.t(),
+        "description" => String.t() | atom(),
+        "digest" => String.t() | atom(),
         "metadata" => map(),
-        "status" => String.t(),
-        "type" => String.t(),
-        "versionName" => String.t(),
-        "workflowId" => String.t()
+        "status" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "versionName" => String.t() | atom(),
+        "workflowId" => String.t() | atom()
       }
 
   """
-  @type workflow_version_list_item() :: %{String.t() => any()}
+  @type workflow_version_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_sequence_store_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => [non_neg_integer()],
-        "description" => String.t(),
-        "eTagAlgorithmFamily" => String.t(),
-        "fallbackLocation" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "propagatedSetLevelTags" => list(String.t()),
+        "description" => String.t() | atom(),
+        "eTagAlgorithmFamily" => String.t() | atom(),
+        "fallbackLocation" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "propagatedSetLevelTags" => list(String.t() | atom()),
         "s3Access" => sequence_store_s3_access(),
         "sseConfig" => sse_config(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type update_sequence_store_response() :: %{String.t() => any()}
+  @type update_sequence_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -271,17 +271,17 @@ defmodule AWS.Omics do
 
       update_annotation_store_version_response() :: %{
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "status" => String.t(),
-        "storeId" => String.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "storeId" => String.t() | atom(),
         "updateTime" => non_neg_integer(),
-        "versionName" => String.t()
+        "versionName" => String.t() | atom()
       }
 
   """
-  @type update_annotation_store_version_response() :: %{String.t() => any()}
+  @type update_annotation_store_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -290,46 +290,46 @@ defmodule AWS.Omics do
       list_shares_request() :: %{
         optional("filter") => filter(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()],
-        required("resourceOwner") => String.t()
+        optional("nextToken") => [String.t() | atom()],
+        required("resourceOwner") => String.t() | atom()
       }
 
   """
-  @type list_shares_request() :: %{String.t() => any()}
+  @type list_shares_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_annotation_store_request() :: %{
-        optional("description") => String.t()
+        optional("description") => String.t() | atom()
       }
 
   """
-  @type update_annotation_store_request() :: %{String.t() => any()}
+  @type update_annotation_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_run_request() :: %{
-        optional("export") => list(String.t())
+        optional("export") => list(String.t() | atom())
       }
 
   """
-  @type get_run_request() :: %{String.t() => any()}
+  @type get_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_reference_stores_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "referenceStores" => list(reference_store_detail())
       }
 
   """
-  @type list_reference_stores_response() :: %{String.t() => any()}
+  @type list_reference_stores_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -341,20 +341,20 @@ defmodule AWS.Omics do
       }
 
   """
-  @type read_set_upload_part_list_filter() :: %{String.t() => any()}
+  @type read_set_upload_part_list_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_run_cache_request() :: %{
-        optional("cacheBehavior") => String.t(),
-        optional("description") => String.t(),
-        optional("name") => String.t()
+        optional("cacheBehavior") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom()
       }
 
   """
-  @type update_run_cache_request() :: %{String.t() => any()}
+  @type update_run_cache_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -363,11 +363,11 @@ defmodule AWS.Omics do
       list_read_set_export_jobs_request() :: %{
         optional("filter") => export_read_set_filter(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_read_set_export_jobs_request() :: %{String.t() => any()}
+  @type list_read_set_export_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -375,11 +375,11 @@ defmodule AWS.Omics do
 
       list_runs_response() :: %{
         "items" => list(run_list_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_runs_response() :: %{String.t() => any()}
+  @type list_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -388,51 +388,51 @@ defmodule AWS.Omics do
       import_read_set_filter() :: %{
         "createdAfter" => [non_neg_integer()],
         "createdBefore" => [non_neg_integer()],
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type import_read_set_filter() :: %{String.t() => any()}
+  @type import_read_set_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_reference_metadata_response() :: %{
-        "arn" => String.t(),
-        "creationJobId" => String.t(),
+        "arn" => String.t() | atom(),
+        "creationJobId" => String.t() | atom(),
         "creationTime" => [non_neg_integer()],
-        "creationType" => String.t(),
-        "description" => String.t(),
+        "creationType" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "files" => reference_files(),
-        "id" => String.t(),
-        "md5" => String.t(),
-        "name" => String.t(),
-        "referenceStoreId" => String.t(),
-        "status" => String.t(),
+        "id" => String.t() | atom(),
+        "md5" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "referenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type get_reference_metadata_response() :: %{String.t() => any()}
+  @type get_reference_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_annotation_store_request() :: %{
-        optional("description") => String.t(),
-        optional("name") => String.t(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
         optional("reference") => list(),
         optional("sseConfig") => sse_config(),
         optional("storeOptions") => list(),
         optional("tags") => map(),
-        optional("versionName") => String.t(),
-        required("storeFormat") => String.t()
+        optional("versionName") => String.t() | atom(),
+        required("storeFormat") => String.t() | atom()
       }
 
   """
-  @type create_annotation_store_request() :: %{String.t() => any()}
+  @type create_annotation_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -440,12 +440,12 @@ defmodule AWS.Omics do
 
       upload_read_set_part_request() :: %{
         required("partNumber") => [integer()],
-        required("partSource") => String.t(),
+        required("partSource") => String.t() | atom(),
         required("payload") => binary()
       }
 
   """
-  @type upload_read_set_part_request() :: %{String.t() => any()}
+  @type upload_read_set_part_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -453,35 +453,35 @@ defmodule AWS.Omics do
 
       list_read_set_activation_jobs_response() :: %{
         "activationJobs" => list(activate_read_set_job_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_read_set_activation_jobs_response() :: %{String.t() => any()}
+  @type list_read_set_activation_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_variant_store_response() :: %{
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type delete_variant_store_response() :: %{String.t() => any()}
+  @type delete_variant_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_read_set_import_job_request() :: %{
-        optional("clientToken") => String.t(),
-        required("roleArn") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
         required("sources") => list(start_read_set_import_job_source_item())
       }
 
   """
-  @type start_read_set_import_job_request() :: %{String.t() => any()}
+  @type start_read_set_import_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -491,16 +491,16 @@ defmodule AWS.Omics do
         "annotationFields" => map(),
         "completionTime" => non_neg_integer(),
         "creationTime" => non_neg_integer(),
-        "destinationName" => [String.t()],
-        "id" => [String.t()],
-        "roleArn" => String.t(),
+        "destinationName" => [String.t() | atom()],
+        "id" => [String.t() | atom()],
+        "roleArn" => String.t() | atom(),
         "runLeftNormalization" => boolean(),
-        "status" => String.t(),
+        "status" => String.t() | atom(),
         "updateTime" => non_neg_integer()
       }
 
   """
-  @type variant_import_job_item() :: %{String.t() => any()}
+  @type variant_import_job_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -509,14 +509,14 @@ defmodule AWS.Omics do
       import_reference_job_item() :: %{
         "completionTime" => [non_neg_integer()],
         "creationTime" => [non_neg_integer()],
-        "id" => String.t(),
-        "referenceStoreId" => String.t(),
-        "roleArn" => String.t(),
-        "status" => String.t()
+        "id" => String.t() | atom(),
+        "referenceStoreId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type import_reference_job_item() :: %{String.t() => any()}
+  @type import_reference_job_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -560,14 +560,14 @@ defmodule AWS.Omics do
 
       start_reference_import_job_response() :: %{
         "creationTime" => [non_neg_integer()],
-        "id" => String.t(),
-        "referenceStoreId" => String.t(),
-        "roleArn" => String.t(),
-        "status" => String.t()
+        "id" => String.t() | atom(),
+        "referenceStoreId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type start_reference_import_job_response() :: %{String.t() => any()}
+  @type start_reference_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -584,24 +584,24 @@ defmodule AWS.Omics do
 
       list_annotation_stores_request() :: %{
         optional("filter") => list_annotation_stores_filter(),
-        optional("ids") => list(String.t()),
+        optional("ids") => list(String.t() | atom()),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_annotation_stores_request() :: %{String.t() => any()}
+  @type list_annotation_stores_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       delete_annotation_store_response() :: %{
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type delete_annotation_store_response() :: %{String.t() => any()}
+  @type delete_annotation_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -609,18 +609,18 @@ defmodule AWS.Omics do
 
       update_annotation_store_response() :: %{
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => [String.t()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
         "reference" => list(),
-        "status" => String.t(),
-        "storeFormat" => String.t(),
+        "status" => String.t() | atom(),
+        "storeFormat" => String.t() | atom(),
         "storeOptions" => list(),
         "updateTime" => non_neg_integer()
       }
 
   """
-  @type update_annotation_store_response() :: %{String.t() => any()}
+  @type update_annotation_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -629,17 +629,17 @@ defmodule AWS.Omics do
       read_set_filter() :: %{
         "createdAfter" => [non_neg_integer()],
         "createdBefore" => [non_neg_integer()],
-        "creationType" => String.t(),
-        "generatedFrom" => String.t(),
-        "name" => String.t(),
-        "referenceArn" => String.t(),
-        "sampleId" => String.t(),
-        "status" => String.t(),
-        "subjectId" => String.t()
+        "creationType" => String.t() | atom(),
+        "generatedFrom" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "referenceArn" => String.t() | atom(),
+        "sampleId" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "subjectId" => String.t() | atom()
       }
 
   """
-  @type read_set_filter() :: %{String.t() => any()}
+  @type read_set_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -650,7 +650,7 @@ defmodule AWS.Omics do
       }
 
   """
-  @type batch_delete_read_set_response() :: %{String.t() => any()}
+  @type batch_delete_read_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -659,11 +659,11 @@ defmodule AWS.Omics do
       list_read_set_activation_jobs_request() :: %{
         optional("filter") => activate_read_set_filter(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_read_set_activation_jobs_request() :: %{String.t() => any()}
+  @type list_read_set_activation_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -679,85 +679,85 @@ defmodule AWS.Omics do
   ## Example:
 
       get_workflow_version_response() :: %{
-        "accelerators" => String.t(),
-        "arn" => String.t(),
+        "accelerators" => String.t() | atom(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "definition" => String.t(),
+        "definition" => String.t() | atom(),
         "definitionRepositoryDetails" => definition_repository_details(),
-        "description" => String.t(),
-        "digest" => String.t(),
-        "engine" => String.t(),
-        "main" => String.t(),
+        "description" => String.t() | atom(),
+        "digest" => String.t() | atom(),
+        "engine" => String.t() | atom(),
+        "main" => String.t() | atom(),
         "metadata" => map(),
         "parameterTemplate" => map(),
-        "readme" => String.t(),
-        "readmePath" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
+        "readme" => String.t() | atom(),
+        "readmePath" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
         "storageCapacity" => [integer()],
-        "storageType" => String.t(),
+        "storageType" => String.t() | atom(),
         "tags" => map(),
-        "type" => String.t(),
-        "uuid" => String.t(),
-        "versionName" => String.t(),
-        "workflowBucketOwnerId" => String.t(),
-        "workflowId" => String.t()
+        "type" => String.t() | atom(),
+        "uuid" => String.t() | atom(),
+        "versionName" => String.t() | atom(),
+        "workflowBucketOwnerId" => String.t() | atom(),
+        "workflowId" => String.t() | atom()
       }
 
   """
-  @type get_workflow_version_response() :: %{String.t() => any()}
+  @type get_workflow_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_variant_import_jobs_response() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | atom()],
         "variantImportJobs" => list(variant_import_job_item())
       }
 
   """
-  @type list_variant_import_jobs_response() :: %{String.t() => any()}
+  @type list_variant_import_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_s3_access_policy_request() :: %{
-        required("s3AccessPolicy") => String.t()
+        required("s3AccessPolicy") => String.t() | atom()
       }
 
   """
-  @type put_s3_access_policy_request() :: %{String.t() => any()}
+  @type put_s3_access_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       s3_access_config() :: %{
-        "accessLogLocation" => String.t()
+        "accessLogLocation" => String.t() | atom()
       }
 
   """
-  @type s3_access_config() :: %{String.t() => any()}
+  @type s3_access_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       workflow_list_item() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "digest" => String.t(),
-        "id" => String.t(),
+        "digest" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "metadata" => map(),
-        "name" => String.t(),
-        "status" => String.t(),
-        "type" => String.t()
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type workflow_list_item() :: %{String.t() => any()}
+  @type workflow_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -766,14 +766,14 @@ defmodule AWS.Omics do
       export_read_set_job_detail() :: %{
         "completionTime" => [non_neg_integer()],
         "creationTime" => [non_neg_integer()],
-        "destination" => String.t(),
-        "id" => String.t(),
-        "sequenceStoreId" => String.t(),
-        "status" => String.t()
+        "destination" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type export_read_set_job_detail() :: %{String.t() => any()}
+  @type export_read_set_job_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -784,18 +784,18 @@ defmodule AWS.Omics do
       }
 
   """
-  @type delete_annotation_store_versions_response() :: %{String.t() => any()}
+  @type delete_annotation_store_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       upload_read_set_part_response() :: %{
-        "checksum" => [String.t()]
+        "checksum" => [String.t() | atom()]
       }
 
   """
-  @type upload_read_set_part_response() :: %{String.t() => any()}
+  @type upload_read_set_part_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -821,11 +821,11 @@ defmodule AWS.Omics do
 
       list_run_caches_response() :: %{
         "items" => list(run_cache_list_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_run_caches_response() :: %{String.t() => any()}
+  @type list_run_caches_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -833,19 +833,19 @@ defmodule AWS.Omics do
 
       share_details() :: %{
         "creationTime" => non_neg_integer(),
-        "ownerId" => [String.t()],
-        "principalSubscriber" => [String.t()],
-        "resourceArn" => [String.t()],
-        "resourceId" => [String.t()],
-        "shareId" => [String.t()],
-        "shareName" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
+        "ownerId" => [String.t() | atom()],
+        "principalSubscriber" => [String.t() | atom()],
+        "resourceArn" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "shareId" => [String.t() | atom()],
+        "shareName" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
         "updateTime" => non_neg_integer()
       }
 
   """
-  @type share_details() :: %{String.t() => any()}
+  @type share_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -862,20 +862,20 @@ defmodule AWS.Omics do
 
       annotation_store_version_item() :: %{
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
-        "storeId" => String.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "storeId" => String.t() | atom(),
         "updateTime" => non_neg_integer(),
-        "versionArn" => String.t(),
-        "versionName" => String.t(),
+        "versionArn" => String.t() | atom(),
+        "versionName" => String.t() | atom(),
         "versionSizeBytes" => [float()]
       }
 
   """
-  @type annotation_store_version_item() :: %{String.t() => any()}
+  @type annotation_store_version_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -884,13 +884,13 @@ defmodule AWS.Omics do
       activate_read_set_job_item() :: %{
         "completionTime" => [non_neg_integer()],
         "creationTime" => [non_neg_integer()],
-        "id" => String.t(),
-        "sequenceStoreId" => String.t(),
-        "status" => String.t()
+        "id" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type activate_read_set_job_item() :: %{String.t() => any()}
+  @type activate_read_set_job_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -910,7 +910,7 @@ defmodule AWS.Omics do
       }
 
   """
-  @type get_reference_response() :: %{String.t() => any()}
+  @type get_reference_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -918,11 +918,11 @@ defmodule AWS.Omics do
 
       list_annotation_stores_response() :: %{
         "annotationStores" => list(annotation_store_item()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_annotation_stores_response() :: %{String.t() => any()}
+  @type list_annotation_stores_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -930,20 +930,20 @@ defmodule AWS.Omics do
 
       create_multipart_read_set_upload_response() :: %{
         "creationTime" => [non_neg_integer()],
-        "description" => String.t(),
-        "generatedFrom" => String.t(),
-        "name" => String.t(),
-        "referenceArn" => String.t(),
-        "sampleId" => String.t(),
-        "sequenceStoreId" => String.t(),
-        "sourceFileType" => String.t(),
-        "subjectId" => String.t(),
+        "description" => String.t() | atom(),
+        "generatedFrom" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "referenceArn" => String.t() | atom(),
+        "sampleId" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
+        "sourceFileType" => String.t() | atom(),
+        "subjectId" => String.t() | atom(),
         "tags" => map(),
-        "uploadId" => String.t()
+        "uploadId" => String.t() | atom()
       }
 
   """
-  @type create_multipart_read_set_upload_response() :: %{String.t() => any()}
+  @type create_multipart_read_set_upload_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -977,11 +977,11 @@ defmodule AWS.Omics do
   ## Example:
 
       request_timeout_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type request_timeout_exception() :: %{String.t() => any()}
+  @type request_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -989,56 +989,56 @@ defmodule AWS.Omics do
 
       list_annotation_store_versions_response() :: %{
         "annotationStoreVersions" => list(annotation_store_version_item()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_annotation_store_versions_response() :: %{String.t() => any()}
+  @type list_annotation_store_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       complete_multipart_read_set_upload_response() :: %{
-        "readSetId" => String.t()
+        "readSetId" => String.t() | atom()
       }
 
   """
-  @type complete_multipart_read_set_upload_response() :: %{String.t() => any()}
+  @type complete_multipart_read_set_upload_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_workflow_request() :: %{
-        optional("description") => String.t(),
-        optional("name") => String.t(),
-        optional("readmeMarkdown") => String.t(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("readmeMarkdown") => String.t() | atom(),
         optional("storageCapacity") => [integer()],
-        optional("storageType") => String.t()
+        optional("storageType") => String.t() | atom()
       }
 
   """
-  @type update_workflow_request() :: %{String.t() => any()}
+  @type update_workflow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reference_list_item() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => [non_neg_integer()],
-        "description" => String.t(),
-        "id" => String.t(),
-        "md5" => String.t(),
-        "name" => String.t(),
-        "referenceStoreId" => String.t(),
-        "status" => String.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "md5" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "referenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type reference_list_item() :: %{String.t() => any()}
+  @type reference_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1049,43 +1049,43 @@ defmodule AWS.Omics do
       }
 
   """
-  @type tsv_options() :: %{String.t() => any()}
+  @type tsv_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       run_list_item() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "priority" => [integer()],
         "startTime" => non_neg_integer(),
-        "status" => String.t(),
+        "status" => String.t() | atom(),
         "stopTime" => non_neg_integer(),
         "storageCapacity" => [integer()],
-        "storageType" => String.t(),
-        "workflowId" => String.t(),
-        "workflowVersionName" => String.t()
+        "storageType" => String.t() | atom(),
+        "workflowId" => String.t() | atom(),
+        "workflowVersionName" => String.t() | atom()
       }
 
   """
-  @type run_list_item() :: %{String.t() => any()}
+  @type run_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_reference_import_job_source_item() :: %{
-        "description" => String.t(),
-        "name" => String.t(),
-        "sourceFile" => String.t(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "sourceFile" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type start_reference_import_job_source_item() :: %{String.t() => any()}
+  @type start_reference_import_job_source_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1111,24 +1111,24 @@ defmodule AWS.Omics do
 
       list_variant_import_jobs_request() :: %{
         optional("filter") => list_variant_import_jobs_filter(),
-        optional("ids") => list(String.t()),
+        optional("ids") => list(String.t() | atom()),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_variant_import_jobs_request() :: %{String.t() => any()}
+  @type list_variant_import_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t())
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1136,17 +1136,17 @@ defmodule AWS.Omics do
 
       create_annotation_store_response() :: %{
         "creationTime" => non_neg_integer(),
-        "id" => String.t(),
-        "name" => [String.t()],
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
         "reference" => list(),
-        "status" => String.t(),
-        "storeFormat" => String.t(),
+        "status" => String.t() | atom(),
+        "storeFormat" => String.t() | atom(),
         "storeOptions" => list(),
-        "versionName" => String.t()
+        "versionName" => String.t() | atom()
       }
 
   """
-  @type create_annotation_store_response() :: %{String.t() => any()}
+  @type create_annotation_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1162,13 +1162,13 @@ defmodule AWS.Omics do
   ## Example:
 
       create_share_request() :: %{
-        optional("shareName") => String.t(),
-        required("principalSubscriber") => [String.t()],
-        required("resourceArn") => [String.t()]
+        optional("shareName") => String.t() | atom(),
+        required("principalSubscriber") => [String.t() | atom()],
+        required("resourceArn") => [String.t() | atom()]
       }
 
   """
-  @type create_share_request() :: %{String.t() => any()}
+  @type create_share_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1176,23 +1176,23 @@ defmodule AWS.Omics do
 
       list_read_set_import_jobs_response() :: %{
         "importJobs" => list(import_read_set_job_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_read_set_import_jobs_response() :: %{String.t() => any()}
+  @type list_read_set_import_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_read_set_activation_job_request() :: %{
-        optional("clientToken") => String.t(),
+        optional("clientToken") => String.t() | atom(),
         required("sources") => list(start_read_set_activation_job_source_item())
       }
 
   """
-  @type start_read_set_activation_job_request() :: %{String.t() => any()}
+  @type start_read_set_activation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1200,46 +1200,46 @@ defmodule AWS.Omics do
 
       get_annotation_store_version_response() :: %{
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
-        "storeId" => String.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "storeId" => String.t() | atom(),
         "tags" => map(),
         "updateTime" => non_neg_integer(),
-        "versionArn" => String.t(),
-        "versionName" => String.t(),
+        "versionArn" => String.t() | atom(),
+        "versionName" => String.t() | atom(),
         "versionOptions" => list(),
         "versionSizeBytes" => [float()]
       }
 
   """
-  @type get_annotation_store_version_response() :: %{String.t() => any()}
+  @type get_annotation_store_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       source_reference() :: %{
-        "type" => String.t(),
-        "value" => String.t()
+        "type" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type source_reference() :: %{String.t() => any()}
+  @type source_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_read_set_request() :: %{
-        optional("file") => String.t(),
+        optional("file") => String.t() | atom(),
         required("partNumber") => [integer()]
       }
 
   """
-  @type get_read_set_request() :: %{String.t() => any()}
+  @type get_read_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1247,20 +1247,20 @@ defmodule AWS.Omics do
 
       variant_store_item() :: %{
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => [String.t()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
         "reference" => list(),
         "sseConfig" => sse_config(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
-        "storeArn" => String.t(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "storeArn" => String.t() | atom(),
         "storeSizeBytes" => [float()],
         "updateTime" => non_neg_integer()
       }
 
   """
-  @type variant_store_item() :: %{String.t() => any()}
+  @type variant_store_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1268,46 +1268,46 @@ defmodule AWS.Omics do
 
       task_list_item() :: %{
         "cacheHit" => [boolean()],
-        "cacheS3Uri" => String.t(),
+        "cacheS3Uri" => String.t() | atom(),
         "cpus" => [integer()],
         "creationTime" => non_neg_integer(),
         "gpus" => [integer()],
-        "instanceType" => String.t(),
+        "instanceType" => String.t() | atom(),
         "memory" => [integer()],
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "startTime" => non_neg_integer(),
-        "status" => String.t(),
+        "status" => String.t() | atom(),
         "stopTime" => non_neg_integer(),
-        "taskId" => String.t()
+        "taskId" => String.t() | atom()
       }
 
   """
-  @type task_list_item() :: %{String.t() => any()}
+  @type task_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workflow_request() :: %{
-        optional("export") => list(String.t()),
-        optional("type") => String.t(),
-        optional("workflowOwnerId") => String.t()
+        optional("export") => list(String.t() | atom()),
+        optional("type") => String.t() | atom(),
+        optional("workflowOwnerId") => String.t() | atom()
       }
 
   """
-  @type get_workflow_request() :: %{String.t() => any()}
+  @type get_workflow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_references_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "references" => list(reference_list_item())
       }
 
   """
-  @type list_references_response() :: %{String.t() => any()}
+  @type list_references_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1315,70 +1315,70 @@ defmodule AWS.Omics do
 
       list_variant_stores_request() :: %{
         optional("filter") => list_variant_stores_filter(),
-        optional("ids") => list(String.t()),
+        optional("ids") => list(String.t() | atom()),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_variant_stores_request() :: %{String.t() => any()}
+  @type list_variant_stores_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_read_set_metadata_response() :: %{
-        "arn" => String.t(),
-        "creationJobId" => String.t(),
+        "arn" => String.t() | atom(),
+        "creationJobId" => String.t() | atom(),
         "creationTime" => [non_neg_integer()],
-        "creationType" => String.t(),
-        "description" => String.t(),
+        "creationType" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "etag" => e_tag(),
-        "fileType" => String.t(),
+        "fileType" => String.t() | atom(),
         "files" => read_set_files(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "referenceArn" => String.t(),
-        "sampleId" => String.t(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "referenceArn" => String.t() | atom(),
+        "sampleId" => String.t() | atom(),
         "sequenceInformation" => sequence_information(),
-        "sequenceStoreId" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
-        "subjectId" => String.t()
+        "sequenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "subjectId" => String.t() | atom()
       }
 
   """
-  @type get_read_set_metadata_response() :: %{String.t() => any()}
+  @type get_read_set_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_sequence_store_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("eTagAlgorithmFamily") => String.t(),
-        optional("fallbackLocation") => String.t(),
-        optional("propagatedSetLevelTags") => list(String.t()),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("eTagAlgorithmFamily") => String.t() | atom(),
+        optional("fallbackLocation") => String.t() | atom(),
+        optional("propagatedSetLevelTags") => list(String.t() | atom()),
         optional("s3AccessConfig") => s3_access_config(),
         optional("sseConfig") => sse_config(),
         optional("tags") => map(),
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_sequence_store_request() :: %{String.t() => any()}
+  @type create_sequence_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       accept_share_response() :: %{
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type accept_share_response() :: %{String.t() => any()}
+  @type accept_share_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1386,16 +1386,16 @@ defmodule AWS.Omics do
 
       get_annotation_store_response() :: %{
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => [String.t()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
         "numVersions" => [integer()],
         "reference" => list(),
         "sseConfig" => sse_config(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
-        "storeArn" => String.t(),
-        "storeFormat" => String.t(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "storeArn" => String.t() | atom(),
+        "storeFormat" => String.t() | atom(),
         "storeOptions" => list(),
         "storeSizeBytes" => [float()],
         "tags" => map(),
@@ -1403,62 +1403,62 @@ defmodule AWS.Omics do
       }
 
   """
-  @type get_annotation_store_response() :: %{String.t() => any()}
+  @type get_annotation_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       definition_repository() :: %{
-        "connectionArn" => String.t(),
-        "excludeFilePatterns" => list([String.t()]()),
-        "fullRepositoryId" => String.t(),
+        "connectionArn" => String.t() | atom(),
+        "excludeFilePatterns" => list([String.t() | atom()]()),
+        "fullRepositoryId" => String.t() | atom(),
         "sourceReference" => source_reference()
       }
 
   """
-  @type definition_repository() :: %{String.t() => any()}
+  @type definition_repository() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       workflow_parameter() :: %{
-        "description" => String.t(),
+        "description" => String.t() | atom(),
         "optional" => [boolean()]
       }
 
   """
-  @type workflow_parameter() :: %{String.t() => any()}
+  @type workflow_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_shares_response() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | atom()],
         "shares" => list(share_details())
       }
 
   """
-  @type list_shares_response() :: %{String.t() => any()}
+  @type list_shares_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_run_cache_request() :: %{
-        optional("cacheBehavior") => String.t(),
-        optional("cacheBucketOwnerId") => String.t(),
-        optional("description") => String.t(),
-        optional("name") => String.t(),
+        optional("cacheBehavior") => String.t() | atom(),
+        optional("cacheBucketOwnerId") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
         optional("tags") => map(),
-        required("cacheS3Location") => String.t(),
-        required("requestId") => String.t()
+        required("cacheS3Location") => String.t() | atom(),
+        required("requestId") => String.t() | atom()
       }
 
   """
-  @type create_run_cache_request() :: %{String.t() => any()}
+  @type create_run_cache_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1470,7 +1470,7 @@ defmodule AWS.Omics do
       }
 
   """
-  @type vcf_options() :: %{String.t() => any()}
+  @type vcf_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1479,86 +1479,86 @@ defmodule AWS.Omics do
       get_read_set_activation_job_response() :: %{
         "completionTime" => [non_neg_integer()],
         "creationTime" => [non_neg_integer()],
-        "id" => String.t(),
-        "sequenceStoreId" => String.t(),
+        "id" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
         "sources" => list(activate_read_set_source_item()),
-        "status" => String.t(),
-        "statusMessage" => String.t()
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
       }
 
   """
-  @type get_read_set_activation_job_response() :: %{String.t() => any()}
+  @type get_read_set_activation_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       complete_read_set_upload_part_list_item() :: %{
-        "checksum" => [String.t()],
+        "checksum" => [String.t() | atom()],
         "partNumber" => [integer()],
-        "partSource" => String.t()
+        "partSource" => String.t() | atom()
       }
 
   """
-  @type complete_read_set_upload_part_list_item() :: %{String.t() => any()}
+  @type complete_read_set_upload_part_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_run_group_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "id" => String.t(),
+        "id" => String.t() | atom(),
         "maxCpus" => [integer()],
         "maxDuration" => [integer()],
         "maxGpus" => [integer()],
         "maxRuns" => [integer()],
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type get_run_group_response() :: %{String.t() => any()}
+  @type get_run_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       variant_import_item_source() :: %{
-        "source" => String.t()
+        "source" => String.t() | atom()
       }
 
   """
-  @type variant_import_item_source() :: %{String.t() => any()}
+  @type variant_import_item_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       reference_store_detail() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => [non_neg_integer()],
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "sseConfig" => sse_config()
       }
 
   """
-  @type reference_store_detail() :: %{String.t() => any()}
+  @type reference_store_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       version_delete_error() :: %{
-        "message" => [String.t()],
-        "versionName" => String.t()
+        "message" => [String.t() | atom()],
+        "versionName" => String.t() | atom()
       }
 
   """
-  @type version_delete_error() :: %{String.t() => any()}
+  @type version_delete_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1574,23 +1574,23 @@ defmodule AWS.Omics do
   ## Example:
 
       not_supported_operation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type not_supported_operation_exception() :: %{String.t() => any()}
+  @type not_supported_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_sequence_stores_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "sequenceStores" => list(sequence_store_detail())
       }
 
   """
-  @type list_sequence_stores_response() :: %{String.t() => any()}
+  @type list_sequence_stores_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1599,49 +1599,49 @@ defmodule AWS.Omics do
       sequence_store_filter() :: %{
         "createdAfter" => [non_neg_integer()],
         "createdBefore" => [non_neg_integer()],
-        "name" => String.t(),
-        "status" => String.t(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "updatedAfter" => [non_neg_integer()],
         "updatedBefore" => [non_neg_integer()]
       }
 
   """
-  @type sequence_store_filter() :: %{String.t() => any()}
+  @type sequence_store_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{String.t() => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       resource_not_found_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_reference_request() :: %{
-        optional("file") => String.t(),
-        optional("range") => String.t(),
+        optional("file") => String.t() | atom(),
+        optional("range") => String.t() | atom(),
         required("partNumber") => [integer()]
       }
 
   """
-  @type get_reference_request() :: %{String.t() => any()}
+  @type get_reference_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1651,58 +1651,58 @@ defmodule AWS.Omics do
         "annotationFields" => map(),
         "completionTime" => non_neg_integer(),
         "creationTime" => non_neg_integer(),
-        "destinationName" => [String.t()],
-        "id" => [String.t()],
-        "roleArn" => String.t(),
+        "destinationName" => [String.t() | atom()],
+        "id" => [String.t() | atom()],
+        "roleArn" => String.t() | atom(),
         "runLeftNormalization" => boolean(),
-        "status" => String.t(),
+        "status" => String.t() | atom(),
         "updateTime" => non_neg_integer(),
-        "versionName" => String.t()
+        "versionName" => String.t() | atom()
       }
 
   """
-  @type annotation_import_job_item() :: %{String.t() => any()}
+  @type annotation_import_job_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_sequence_store_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => [non_neg_integer()],
-        "description" => String.t(),
-        "eTagAlgorithmFamily" => String.t(),
-        "fallbackLocation" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "propagatedSetLevelTags" => list(String.t()),
+        "description" => String.t() | atom(),
+        "eTagAlgorithmFamily" => String.t() | atom(),
+        "fallbackLocation" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "propagatedSetLevelTags" => list(String.t() | atom()),
         "s3Access" => sequence_store_s3_access(),
         "sseConfig" => sse_config(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type get_sequence_store_response() :: %{String.t() => any()}
+  @type get_sequence_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       run_group_list_item() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "id" => String.t(),
+        "id" => String.t() | atom(),
         "maxCpus" => [integer()],
         "maxDuration" => [integer()],
         "maxGpus" => [integer()],
         "maxRuns" => [integer()],
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type run_group_list_item() :: %{String.t() => any()}
+  @type run_group_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1710,29 +1710,29 @@ defmodule AWS.Omics do
 
       create_annotation_store_version_response() :: %{
         "creationTime" => non_neg_integer(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "status" => String.t(),
-        "storeId" => String.t(),
-        "versionName" => String.t(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "storeId" => String.t() | atom(),
+        "versionName" => String.t() | atom(),
         "versionOptions" => list()
       }
 
   """
-  @type create_annotation_store_version_response() :: %{String.t() => any()}
+  @type create_annotation_store_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_reference_import_job_request() :: %{
-        optional("clientToken") => String.t(),
-        required("roleArn") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
         required("sources") => list(start_reference_import_job_source_item())
       }
 
   """
-  @type start_reference_import_job_request() :: %{String.t() => any()}
+  @type start_reference_import_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1740,74 +1740,74 @@ defmodule AWS.Omics do
 
       list_run_tasks_response() :: %{
         "items" => list(task_list_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_run_tasks_response() :: %{String.t() => any()}
+  @type list_run_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_share_response() :: %{
-        "shareId" => [String.t()],
-        "shareName" => String.t(),
-        "status" => String.t()
+        "shareId" => [String.t() | atom()],
+        "shareName" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type create_share_response() :: %{String.t() => any()}
+  @type create_share_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workflow_version_request() :: %{
-        optional("accelerators") => String.t(),
+        optional("accelerators") => String.t() | atom(),
         optional("definitionRepository") => definition_repository(),
-        optional("definitionUri") => String.t(),
+        optional("definitionUri") => String.t() | atom(),
         optional("definitionZip") => [binary()],
-        optional("description") => String.t(),
-        optional("engine") => String.t(),
-        optional("main") => String.t(),
+        optional("description") => String.t() | atom(),
+        optional("engine") => String.t() | atom(),
+        optional("main") => String.t() | atom(),
         optional("parameterTemplate") => map(),
-        optional("parameterTemplatePath") => String.t(),
-        optional("readmeMarkdown") => String.t(),
-        optional("readmePath") => String.t(),
-        optional("readmeUri") => String.t(),
+        optional("parameterTemplatePath") => String.t() | atom(),
+        optional("readmeMarkdown") => String.t() | atom(),
+        optional("readmePath") => String.t() | atom(),
+        optional("readmeUri") => String.t() | atom(),
         optional("storageCapacity") => [integer()],
-        optional("storageType") => String.t(),
+        optional("storageType") => String.t() | atom(),
         optional("tags") => map(),
-        optional("workflowBucketOwnerId") => String.t(),
-        required("requestId") => String.t(),
-        required("versionName") => String.t()
+        optional("workflowBucketOwnerId") => String.t() | atom(),
+        required("requestId") => String.t() | atom(),
+        required("versionName") => String.t() | atom()
       }
 
   """
-  @type create_workflow_version_request() :: %{String.t() => any()}
+  @type create_workflow_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       import_read_set_source_item() :: %{
-        "description" => String.t(),
-        "generatedFrom" => String.t(),
-        "name" => String.t(),
-        "readSetId" => String.t(),
-        "referenceArn" => String.t(),
-        "sampleId" => String.t(),
-        "sourceFileType" => String.t(),
+        "description" => String.t() | atom(),
+        "generatedFrom" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "readSetId" => String.t() | atom(),
+        "referenceArn" => String.t() | atom(),
+        "sampleId" => String.t() | atom(),
+        "sourceFileType" => String.t() | atom(),
         "sourceFiles" => source_files(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
-        "subjectId" => String.t(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "subjectId" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type import_read_set_source_item() :: %{String.t() => any()}
+  @type import_read_set_source_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1818,58 +1818,58 @@ defmodule AWS.Omics do
       }
 
   """
-  @type delete_variant_store_request() :: %{String.t() => any()}
+  @type delete_variant_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       service_quota_exceeded_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{String.t() => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_reference_store_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
         optional("sseConfig") => sse_config(),
         optional("tags") => map(),
-        required("name") => String.t()
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_reference_store_request() :: %{String.t() => any()}
+  @type create_reference_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       annotation_import_item_detail() :: %{
-        "jobStatus" => String.t(),
-        "source" => String.t()
+        "jobStatus" => String.t() | atom(),
+        "source" => String.t() | atom()
       }
 
   """
-  @type annotation_import_item_detail() :: %{String.t() => any()}
+  @type annotation_import_item_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       e_tag() :: %{
-        "algorithm" => String.t(),
-        "source1" => [String.t()],
-        "source2" => [String.t()]
+        "algorithm" => String.t() | atom(),
+        "source1" => [String.t() | atom()],
+        "source2" => [String.t() | atom()]
       }
 
   """
-  @type e_tag() :: %{String.t() => any()}
+  @type e_tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1878,11 +1878,11 @@ defmodule AWS.Omics do
       list_read_set_import_jobs_request() :: %{
         optional("filter") => import_read_set_filter(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_read_set_import_jobs_request() :: %{String.t() => any()}
+  @type list_read_set_import_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1900,34 +1900,34 @@ defmodule AWS.Omics do
       reference_store_filter() :: %{
         "createdAfter" => [non_neg_integer()],
         "createdBefore" => [non_neg_integer()],
-        "name" => String.t()
+        "name" => String.t() | atom()
       }
 
   """
-  @type reference_store_filter() :: %{String.t() => any()}
+  @type reference_store_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_variant_stores_filter() :: %{
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type list_variant_stores_filter() :: %{String.t() => any()}
+  @type list_variant_stores_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_read_sets_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "readSets" => list(read_set_list_item())
       }
 
   """
-  @type list_read_sets_response() :: %{String.t() => any()}
+  @type list_read_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1938,7 +1938,7 @@ defmodule AWS.Omics do
       }
 
   """
-  @type delete_annotation_store_request() :: %{String.t() => any()}
+  @type delete_annotation_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1946,48 +1946,48 @@ defmodule AWS.Omics do
 
       list_workflows_request() :: %{
         optional("maxResults") => [integer()],
-        optional("name") => String.t(),
-        optional("startingToken") => String.t(),
-        optional("type") => String.t()
+        optional("name") => String.t() | atom(),
+        optional("startingToken") => String.t() | atom(),
+        optional("type") => String.t() | atom()
       }
 
   """
-  @type list_workflows_request() :: %{String.t() => any()}
+  @type list_workflows_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_multipart_read_set_upload_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("generatedFrom") => String.t(),
-        optional("referenceArn") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("generatedFrom") => String.t() | atom(),
+        optional("referenceArn") => String.t() | atom(),
         optional("tags") => map(),
-        required("name") => String.t(),
-        required("sampleId") => String.t(),
-        required("sourceFileType") => String.t(),
-        required("subjectId") => String.t()
+        required("name") => String.t() | atom(),
+        required("sampleId") => String.t() | atom(),
+        required("sourceFileType") => String.t() | atom(),
+        required("subjectId") => String.t() | atom()
       }
 
   """
-  @type create_multipart_read_set_upload_request() :: %{String.t() => any()}
+  @type create_multipart_read_set_upload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_sequence_store_request() :: %{
-        optional("clientToken") => String.t(),
-        optional("description") => String.t(),
-        optional("fallbackLocation") => String.t(),
-        optional("name") => String.t(),
-        optional("propagatedSetLevelTags") => list(String.t()),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("fallbackLocation") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("propagatedSetLevelTags") => list(String.t() | atom()),
         optional("s3AccessConfig") => s3_access_config()
       }
 
   """
-  @type update_sequence_store_request() :: %{String.t() => any()}
+  @type update_sequence_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1995,75 +1995,75 @@ defmodule AWS.Omics do
 
       start_read_set_import_job_response() :: %{
         "creationTime" => [non_neg_integer()],
-        "id" => String.t(),
-        "roleArn" => String.t(),
-        "sequenceStoreId" => String.t(),
-        "status" => String.t()
+        "id" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type start_read_set_import_job_response() :: %{String.t() => any()}
+  @type start_read_set_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_reference_store_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => [non_neg_integer()],
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "sseConfig" => sse_config()
       }
 
   """
-  @type get_reference_store_response() :: %{String.t() => any()}
+  @type get_reference_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       read_set_upload_part_list_item() :: %{
-        "checksum" => [String.t()],
+        "checksum" => [String.t() | atom()],
         "creationTime" => [non_neg_integer()],
         "lastUpdatedTime" => [non_neg_integer()],
         "partNumber" => [integer()],
         "partSize" => [float()],
-        "partSource" => String.t()
+        "partSource" => String.t() | atom()
       }
 
   """
-  @type read_set_upload_part_list_item() :: %{String.t() => any()}
+  @type read_set_upload_part_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       put_s3_access_policy_response() :: %{
-        "s3AccessPointArn" => String.t(),
-        "storeId" => String.t(),
+        "s3AccessPointArn" => String.t() | atom(),
+        "storeId" => String.t() | atom(),
         "storeType" => list(any())
       }
 
   """
-  @type put_s3_access_policy_response() :: %{String.t() => any()}
+  @type put_s3_access_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workflow_version_response() :: %{
-        "arn" => String.t(),
-        "status" => String.t(),
+        "arn" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "tags" => map(),
-        "uuid" => String.t(),
-        "versionName" => String.t(),
-        "workflowId" => String.t()
+        "uuid" => String.t() | atom(),
+        "versionName" => String.t() | atom(),
+        "workflowId" => String.t() | atom()
       }
 
   """
-  @type create_workflow_version_response() :: %{String.t() => any()}
+  @type create_workflow_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2076,7 +2076,7 @@ defmodule AWS.Omics do
       }
 
   """
-  @type read_set_files() :: %{String.t() => any()}
+  @type read_set_files() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2087,39 +2087,39 @@ defmodule AWS.Omics do
       }
 
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_read_set_import_job_source_item() :: %{
-        "description" => String.t(),
-        "generatedFrom" => String.t(),
-        "name" => String.t(),
-        "referenceArn" => String.t(),
-        "sampleId" => String.t(),
-        "sourceFileType" => String.t(),
+        "description" => String.t() | atom(),
+        "generatedFrom" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "referenceArn" => String.t() | atom(),
+        "sampleId" => String.t() | atom(),
+        "sourceFileType" => String.t() | atom(),
         "sourceFiles" => source_files(),
-        "subjectId" => String.t(),
+        "subjectId" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type start_read_set_import_job_source_item() :: %{String.t() => any()}
+  @type start_read_set_import_job_source_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       activate_read_set_source_item() :: %{
-        "readSetId" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t()
+        "readSetId" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
       }
 
   """
-  @type activate_read_set_source_item() :: %{String.t() => any()}
+  @type activate_read_set_source_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2127,11 +2127,11 @@ defmodule AWS.Omics do
 
       list_annotation_import_jobs_response() :: %{
         "annotationImportJobs" => list(annotation_import_job_item()),
-        "nextToken" => [String.t()]
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_annotation_import_jobs_response() :: %{String.t() => any()}
+  @type list_annotation_import_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2143,7 +2143,7 @@ defmodule AWS.Omics do
       }
 
   """
-  @type reference_files() :: %{String.t() => any()}
+  @type reference_files() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2153,25 +2153,25 @@ defmodule AWS.Omics do
         optional("annotationFields") => map(),
         optional("formatOptions") => list(),
         optional("runLeftNormalization") => boolean(),
-        optional("versionName") => String.t(),
-        required("destinationName") => String.t(),
+        optional("versionName") => String.t() | atom(),
+        required("destinationName") => String.t() | atom(),
         required("items") => list(annotation_import_item_source()),
-        required("roleArn") => String.t()
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type start_annotation_import_request() :: %{String.t() => any()}
+  @type start_annotation_import_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       batch_delete_read_set_request() :: %{
-        required("ids") => list(String.t())
+        required("ids") => list(String.t() | atom())
       }
 
   """
-  @type batch_delete_read_set_request() :: %{String.t() => any()}
+  @type batch_delete_read_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2179,27 +2179,27 @@ defmodule AWS.Omics do
 
       create_variant_store_response() :: %{
         "creationTime" => non_neg_integer(),
-        "id" => String.t(),
-        "name" => [String.t()],
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
         "reference" => list(),
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type create_variant_store_response() :: %{String.t() => any()}
+  @type create_variant_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workflow_version_request() :: %{
-        optional("export") => list(String.t()),
-        optional("type") => String.t(),
-        optional("workflowOwnerId") => String.t()
+        optional("export") => list(String.t() | atom()),
+        optional("type") => String.t() | atom(),
+        optional("workflowOwnerId") => String.t() | atom()
       }
 
   """
-  @type get_workflow_version_request() :: %{String.t() => any()}
+  @type get_workflow_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2217,11 +2217,11 @@ defmodule AWS.Omics do
       list_read_sets_request() :: %{
         optional("filter") => read_set_filter(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_read_sets_request() :: %{String.t() => any()}
+  @type list_read_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2229,11 +2229,11 @@ defmodule AWS.Omics do
 
       list_run_groups_response() :: %{
         "items" => list(run_group_list_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_run_groups_response() :: %{String.t() => any()}
+  @type list_run_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2241,59 +2241,59 @@ defmodule AWS.Omics do
 
       list_workflow_versions_request() :: %{
         optional("maxResults") => [integer()],
-        optional("startingToken") => String.t(),
-        optional("type") => String.t(),
-        optional("workflowOwnerId") => String.t()
+        optional("startingToken") => String.t() | atom(),
+        optional("type") => String.t() | atom(),
+        optional("workflowOwnerId") => String.t() | atom()
       }
 
   """
-  @type list_workflow_versions_request() :: %{String.t() => any()}
+  @type list_workflow_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       annotation_import_item_source() :: %{
-        "source" => String.t()
+        "source" => String.t() | atom()
       }
 
   """
-  @type annotation_import_item_source() :: %{String.t() => any()}
+  @type annotation_import_item_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       filter() :: %{
-        "resourceArns" => list([String.t()]()),
-        "status" => list(String.t()),
-        "type" => list(String.t())
+        "resourceArns" => list([String.t() | atom()]()),
+        "status" => list(String.t() | atom()),
+        "type" => list(String.t() | atom())
       }
 
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_sequence_store_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => [non_neg_integer()],
-        "description" => String.t(),
-        "eTagAlgorithmFamily" => String.t(),
-        "fallbackLocation" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "propagatedSetLevelTags" => list(String.t()),
+        "description" => String.t() | atom(),
+        "eTagAlgorithmFamily" => String.t() | atom(),
+        "fallbackLocation" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "propagatedSetLevelTags" => list(String.t() | atom()),
         "s3Access" => sequence_store_s3_access(),
         "sseConfig" => sse_config(),
-        "status" => String.t(),
-        "statusMessage" => String.t()
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
       }
 
   """
-  @type create_sequence_store_response() :: %{String.t() => any()}
+  @type create_sequence_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2318,13 +2318,13 @@ defmodule AWS.Omics do
   ## Example:
 
       create_run_group_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type create_run_group_response() :: %{String.t() => any()}
+  @type create_run_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2341,14 +2341,14 @@ defmodule AWS.Omics do
 
       start_read_set_export_job_response() :: %{
         "creationTime" => [non_neg_integer()],
-        "destination" => String.t(),
-        "id" => String.t(),
-        "sequenceStoreId" => String.t(),
-        "status" => String.t()
+        "destination" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type start_read_set_export_job_response() :: %{String.t() => any()}
+  @type start_read_set_export_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2356,11 +2356,11 @@ defmodule AWS.Omics do
 
       list_workflow_versions_response() :: %{
         "items" => list(workflow_version_list_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_workflow_versions_response() :: %{String.t() => any()}
+  @type list_workflow_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2376,11 +2376,11 @@ defmodule AWS.Omics do
   ## Example:
 
       update_annotation_store_version_request() :: %{
-        optional("description") => String.t()
+        optional("description") => String.t() | atom()
       }
 
   """
-  @type update_annotation_store_version_request() :: %{String.t() => any()}
+  @type update_annotation_store_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2389,12 +2389,12 @@ defmodule AWS.Omics do
       reference_filter() :: %{
         "createdAfter" => [non_neg_integer()],
         "createdBefore" => [non_neg_integer()],
-        "md5" => String.t(),
-        "name" => String.t()
+        "md5" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type reference_filter() :: %{String.t() => any()}
+  @type reference_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2405,18 +2405,18 @@ defmodule AWS.Omics do
       }
 
   """
-  @type get_read_set_response() :: %{String.t() => any()}
+  @type get_read_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       internal_server_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2424,12 +2424,12 @@ defmodule AWS.Omics do
 
       list_run_tasks_request() :: %{
         optional("maxResults") => [integer()],
-        optional("startingToken") => String.t(),
-        optional("status") => String.t()
+        optional("startingToken") => String.t() | atom(),
+        optional("status") => String.t() | atom()
       }
 
   """
-  @type list_run_tasks_request() :: %{String.t() => any()}
+  @type list_run_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2437,39 +2437,39 @@ defmodule AWS.Omics do
 
       list_read_set_export_jobs_response() :: %{
         "exportJobs" => list(export_read_set_job_detail()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_read_set_export_jobs_response() :: %{String.t() => any()}
+  @type list_read_set_export_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sequence_store_s3_access() :: %{
-        "accessLogLocation" => String.t(),
-        "s3AccessPointArn" => String.t(),
-        "s3Uri" => String.t()
+        "accessLogLocation" => String.t() | atom(),
+        "s3AccessPointArn" => String.t() | atom(),
+        "s3Uri" => String.t() | atom()
       }
 
   """
-  @type sequence_store_s3_access() :: %{String.t() => any()}
+  @type sequence_store_s3_access() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_variant_store_request() :: %{
-        optional("description") => String.t(),
-        optional("name") => String.t(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
         optional("sseConfig") => sse_config(),
         optional("tags") => map(),
         required("reference") => list()
       }
 
   """
-  @type create_variant_store_request() :: %{String.t() => any()}
+  @type create_variant_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2478,16 +2478,16 @@ defmodule AWS.Omics do
       get_read_set_export_job_response() :: %{
         "completionTime" => [non_neg_integer()],
         "creationTime" => [non_neg_integer()],
-        "destination" => String.t(),
-        "id" => String.t(),
+        "destination" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "readSets" => list(export_read_set_detail()),
-        "sequenceStoreId" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t()
+        "sequenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
       }
 
   """
-  @type get_read_set_export_job_response() :: %{String.t() => any()}
+  @type get_read_set_export_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2496,78 +2496,78 @@ defmodule AWS.Omics do
       list_sequence_stores_request() :: %{
         optional("filter") => sequence_store_filter(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_sequence_stores_request() :: %{String.t() => any()}
+  @type list_sequence_stores_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_read_set_detail() :: %{
-        "id" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t()
+        "id" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
       }
 
   """
-  @type export_read_set_detail() :: %{String.t() => any()}
+  @type export_read_set_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_annotation_store_versions_filter() :: %{
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type list_annotation_store_versions_filter() :: %{String.t() => any()}
+  @type list_annotation_store_versions_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_multipart_read_set_uploads_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "uploads" => list(multipart_read_set_upload_list_item())
       }
 
   """
-  @type list_multipart_read_set_uploads_response() :: %{String.t() => any()}
+  @type list_multipart_read_set_uploads_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       read_options() :: %{
-        "comment" => String.t(),
-        "encoding" => String.t(),
-        "escape" => String.t(),
+        "comment" => String.t() | atom(),
+        "encoding" => String.t() | atom(),
+        "escape" => String.t() | atom(),
         "escapeQuotes" => boolean(),
         "header" => boolean(),
-        "lineSep" => String.t(),
-        "quote" => String.t(),
+        "lineSep" => String.t() | atom(),
+        "quote" => String.t() | atom(),
         "quoteAll" => boolean(),
-        "sep" => String.t()
+        "sep" => String.t() | atom()
       }
 
   """
-  @type read_options() :: %{String.t() => any()}
+  @type read_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sse_config() :: %{
-        "keyArn" => [String.t()],
-        "type" => String.t()
+        "keyArn" => [String.t() | atom()],
+        "type" => String.t() | atom()
       }
 
   """
-  @type sse_config() :: %{String.t() => any()}
+  @type sse_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2577,18 +2577,18 @@ defmodule AWS.Omics do
         "annotationFields" => map(),
         "completionTime" => non_neg_integer(),
         "creationTime" => non_neg_integer(),
-        "destinationName" => String.t(),
-        "id" => String.t(),
+        "destinationName" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "items" => list(variant_import_item_detail()),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | atom(),
         "runLeftNormalization" => boolean(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
         "updateTime" => non_neg_integer()
       }
 
   """
-  @type get_variant_import_response() :: %{String.t() => any()}
+  @type get_variant_import_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2599,26 +2599,26 @@ defmodule AWS.Omics do
         optional("maxDuration") => [integer()],
         optional("maxGpus") => [integer()],
         optional("maxRuns") => [integer()],
-        optional("name") => String.t()
+        optional("name") => String.t() | atom()
       }
 
   """
-  @type update_run_group_request() :: %{String.t() => any()}
+  @type update_run_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_workflow_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
-        "status" => String.t(),
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "tags" => map(),
-        "uuid" => String.t()
+        "uuid" => String.t() | atom()
       }
 
   """
-  @type create_workflow_response() :: %{String.t() => any()}
+  @type create_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2634,11 +2634,11 @@ defmodule AWS.Omics do
   ## Example:
 
       access_denied_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2663,14 +2663,14 @@ defmodule AWS.Omics do
   ## Example:
 
       sequence_information() :: %{
-        "alignment" => [String.t()],
-        "generatedFrom" => String.t(),
+        "alignment" => [String.t() | atom()],
+        "generatedFrom" => String.t() | atom(),
         "totalBaseCount" => [float()],
         "totalReadCount" => [float()]
       }
 
   """
-  @type sequence_information() :: %{String.t() => any()}
+  @type sequence_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2679,11 +2679,11 @@ defmodule AWS.Omics do
       list_reference_stores_request() :: %{
         optional("filter") => reference_store_filter(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_reference_stores_request() :: %{String.t() => any()}
+  @type list_reference_stores_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2701,11 +2701,11 @@ defmodule AWS.Omics do
       list_reference_import_jobs_request() :: %{
         optional("filter") => import_reference_filter(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_reference_import_jobs_request() :: %{String.t() => any()}
+  @type list_reference_import_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2723,16 +2723,16 @@ defmodule AWS.Omics do
       get_reference_import_job_response() :: %{
         "completionTime" => [non_neg_integer()],
         "creationTime" => [non_neg_integer()],
-        "id" => String.t(),
-        "referenceStoreId" => String.t(),
-        "roleArn" => String.t(),
+        "id" => String.t() | atom(),
+        "referenceStoreId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
         "sources" => list(import_reference_source_item()),
-        "status" => String.t(),
-        "statusMessage" => String.t()
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
       }
 
   """
-  @type get_reference_import_job_response() :: %{String.t() => any()}
+  @type get_reference_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2741,16 +2741,16 @@ defmodule AWS.Omics do
       get_read_set_import_job_response() :: %{
         "completionTime" => [non_neg_integer()],
         "creationTime" => [non_neg_integer()],
-        "id" => String.t(),
-        "roleArn" => String.t(),
-        "sequenceStoreId" => String.t(),
+        "id" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
         "sources" => list(import_read_set_source_item()),
-        "status" => String.t(),
-        "statusMessage" => String.t()
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
       }
 
   """
-  @type get_read_set_import_job_response() :: %{String.t() => any()}
+  @type get_read_set_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2758,55 +2758,55 @@ defmodule AWS.Omics do
 
       list_run_caches_request() :: %{
         optional("maxResults") => [integer()],
-        optional("startingToken") => String.t()
+        optional("startingToken") => String.t() | atom()
       }
 
   """
-  @type list_run_caches_request() :: %{String.t() => any()}
+  @type list_run_caches_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_run_cache_response() :: %{
-        "arn" => String.t(),
-        "cacheBehavior" => String.t(),
-        "cacheBucketOwnerId" => String.t(),
-        "cacheS3Uri" => String.t(),
+        "arn" => String.t() | atom(),
+        "cacheBehavior" => String.t() | atom(),
+        "cacheBucketOwnerId" => String.t() | atom(),
+        "cacheS3Uri" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "status" => String.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type get_run_cache_response() :: %{String.t() => any()}
+  @type get_run_cache_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tsv_version_options() :: %{
-        "annotationType" => String.t(),
+        "annotationType" => String.t() | atom(),
         "formatToHeader" => map(),
         "schema" => list(map())
       }
 
   """
-  @type tsv_version_options() :: %{String.t() => any()}
+  @type tsv_version_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       validation_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2824,11 +2824,11 @@ defmodule AWS.Omics do
       import_reference_filter() :: %{
         "createdAfter" => [non_neg_integer()],
         "createdBefore" => [non_neg_integer()],
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type import_reference_filter() :: %{String.t() => any()}
+  @type import_reference_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2836,47 +2836,47 @@ defmodule AWS.Omics do
 
       list_annotation_import_jobs_request() :: %{
         optional("filter") => list_annotation_import_jobs_filter(),
-        optional("ids") => list(String.t()),
+        optional("ids") => list(String.t() | atom()),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_annotation_import_jobs_request() :: %{String.t() => any()}
+  @type list_annotation_import_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_variant_stores_response() :: %{
-        "nextToken" => [String.t()],
+        "nextToken" => [String.t() | atom()],
         "variantStores" => list(variant_store_item())
       }
 
   """
-  @type list_variant_stores_response() :: %{String.t() => any()}
+  @type list_variant_stores_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_annotation_import_response() :: %{
-        "jobId" => String.t()
+        "jobId" => String.t() | atom()
       }
 
   """
-  @type start_annotation_import_response() :: %{String.t() => any()}
+  @type start_annotation_import_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       throttling_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2911,33 +2911,33 @@ defmodule AWS.Omics do
 
       multipart_read_set_upload_list_item() :: %{
         "creationTime" => [non_neg_integer()],
-        "description" => String.t(),
-        "generatedFrom" => String.t(),
-        "name" => String.t(),
-        "referenceArn" => String.t(),
-        "sampleId" => String.t(),
-        "sequenceStoreId" => String.t(),
-        "sourceFileType" => String.t(),
-        "subjectId" => String.t(),
+        "description" => String.t() | atom(),
+        "generatedFrom" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "referenceArn" => String.t() | atom(),
+        "sampleId" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
+        "sourceFileType" => String.t() | atom(),
+        "subjectId" => String.t() | atom(),
         "tags" => map(),
-        "uploadId" => String.t()
+        "uploadId" => String.t() | atom()
       }
 
   """
-  @type multipart_read_set_upload_list_item() :: %{String.t() => any()}
+  @type multipart_read_set_upload_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       variant_import_item_detail() :: %{
-        "jobStatus" => String.t(),
-        "source" => String.t(),
-        "statusMessage" => String.t()
+        "jobStatus" => String.t() | atom(),
+        "source" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
       }
 
   """
-  @type variant_import_item_detail() :: %{String.t() => any()}
+  @type variant_import_item_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2954,57 +2954,57 @@ defmodule AWS.Omics do
 
       get_run_task_response() :: %{
         "cacheHit" => [boolean()],
-        "cacheS3Uri" => String.t(),
+        "cacheS3Uri" => String.t() | atom(),
         "cpus" => [integer()],
         "creationTime" => non_neg_integer(),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | atom(),
         "gpus" => [integer()],
-        "instanceType" => String.t(),
-        "logStream" => String.t(),
+        "instanceType" => String.t() | atom(),
+        "logStream" => String.t() | atom(),
         "memory" => [integer()],
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "startTime" => non_neg_integer(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
         "stopTime" => non_neg_integer(),
-        "taskId" => String.t()
+        "taskId" => String.t() | atom()
       }
 
   """
-  @type get_run_task_response() :: %{String.t() => any()}
+  @type get_run_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_reference_store_response() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => [non_neg_integer()],
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "sseConfig" => sse_config()
       }
 
   """
-  @type create_reference_store_response() :: %{String.t() => any()}
+  @type create_reference_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       import_reference_source_item() :: %{
-        "description" => String.t(),
-        "name" => String.t(),
-        "referenceId" => String.t(),
-        "sourceFile" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "referenceId" => String.t() | atom(),
+        "sourceFile" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type import_reference_source_item() :: %{String.t() => any()}
+  @type import_reference_source_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3013,12 +3013,12 @@ defmodule AWS.Omics do
       list_read_set_upload_parts_request() :: %{
         optional("filter") => read_set_upload_part_list_filter(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t(),
-        required("partSource") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("partSource") => String.t() | atom()
       }
 
   """
-  @type list_read_set_upload_parts_request() :: %{String.t() => any()}
+  @type list_read_set_upload_parts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3027,36 +3027,36 @@ defmodule AWS.Omics do
       list_references_request() :: %{
         optional("filter") => reference_filter(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_references_request() :: %{String.t() => any()}
+  @type list_references_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       read_set_list_item() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => [non_neg_integer()],
-        "creationType" => String.t(),
-        "description" => String.t(),
+        "creationType" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "etag" => e_tag(),
-        "fileType" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
-        "referenceArn" => String.t(),
-        "sampleId" => String.t(),
+        "fileType" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "referenceArn" => String.t() | atom(),
+        "sampleId" => String.t() | atom(),
         "sequenceInformation" => sequence_information(),
-        "sequenceStoreId" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
-        "subjectId" => String.t()
+        "sequenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "subjectId" => String.t() | atom()
       }
 
   """
-  @type read_set_list_item() :: %{String.t() => any()}
+  @type read_set_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3072,15 +3072,15 @@ defmodule AWS.Omics do
   ## Example:
 
       get_s3_access_policy_response() :: %{
-        "s3AccessPointArn" => String.t(),
-        "s3AccessPolicy" => String.t(),
-        "storeId" => String.t(),
+        "s3AccessPointArn" => String.t() | atom(),
+        "s3AccessPolicy" => String.t() | atom(),
+        "storeId" => String.t() | atom(),
         "storeType" => list(any()),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type get_s3_access_policy_response() :: %{String.t() => any()}
+  @type get_s3_access_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3096,29 +3096,29 @@ defmodule AWS.Omics do
   ## Example:
 
       start_run_request() :: %{
-        optional("cacheBehavior") => String.t(),
-        optional("cacheId") => String.t(),
-        optional("logLevel") => String.t(),
-        optional("name") => String.t(),
-        optional("outputUri") => String.t(),
+        optional("cacheBehavior") => String.t() | atom(),
+        optional("cacheId") => String.t() | atom(),
+        optional("logLevel") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("outputUri") => String.t() | atom(),
         optional("parameters") => any(),
         optional("priority") => [integer()],
-        optional("retentionMode") => String.t(),
-        optional("runGroupId") => String.t(),
-        optional("runId") => String.t(),
+        optional("retentionMode") => String.t() | atom(),
+        optional("runGroupId") => String.t() | atom(),
+        optional("runId") => String.t() | atom(),
         optional("storageCapacity") => [integer()],
-        optional("storageType") => String.t(),
+        optional("storageType") => String.t() | atom(),
         optional("tags") => map(),
-        optional("workflowId") => String.t(),
-        optional("workflowOwnerId") => String.t(),
-        optional("workflowType") => String.t(),
-        optional("workflowVersionName") => String.t(),
-        required("requestId") => String.t(),
-        required("roleArn") => String.t()
+        optional("workflowId") => String.t() | atom(),
+        optional("workflowOwnerId") => String.t() | atom(),
+        optional("workflowType") => String.t() | atom(),
+        optional("workflowVersionName") => String.t() | atom(),
+        required("requestId") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type start_run_request() :: %{String.t() => any()}
+  @type start_run_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3126,25 +3126,25 @@ defmodule AWS.Omics do
 
       delete_annotation_store_versions_request() :: %{
         optional("force") => [boolean()],
-        required("versions") => list(String.t())
+        required("versions") => list(String.t() | atom())
       }
 
   """
-  @type delete_annotation_store_versions_request() :: %{String.t() => any()}
+  @type delete_annotation_store_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       update_workflow_version_request() :: %{
-        optional("description") => String.t(),
-        optional("readmeMarkdown") => String.t(),
+        optional("description") => String.t() | atom(),
+        optional("readmeMarkdown") => String.t() | atom(),
         optional("storageCapacity") => [integer()],
-        optional("storageType") => String.t()
+        optional("storageType") => String.t() | atom()
       }
 
   """
-  @type update_workflow_version_request() :: %{String.t() => any()}
+  @type update_workflow_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3161,27 +3161,27 @@ defmodule AWS.Omics do
 
       start_read_set_activation_job_response() :: %{
         "creationTime" => [non_neg_integer()],
-        "id" => String.t(),
-        "sequenceStoreId" => String.t(),
-        "status" => String.t()
+        "id" => String.t() | atom(),
+        "sequenceStoreId" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type start_read_set_activation_job_response() :: %{String.t() => any()}
+  @type start_read_set_activation_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       create_annotation_store_version_request() :: %{
-        optional("description") => String.t(),
+        optional("description") => String.t() | atom(),
         optional("tags") => map(),
         optional("versionOptions") => list(),
-        required("versionName") => String.t()
+        required("versionName") => String.t() | atom()
       }
 
   """
-  @type create_annotation_store_version_request() :: %{String.t() => any()}
+  @type create_annotation_store_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3192,7 +3192,7 @@ defmodule AWS.Omics do
       }
 
   """
-  @type get_share_response() :: %{String.t() => any()}
+  @type get_share_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3208,12 +3208,12 @@ defmodule AWS.Omics do
   ## Example:
 
       list_read_set_upload_parts_response() :: %{
-        "nextToken" => String.t(),
+        "nextToken" => String.t() | atom(),
         "parts" => list(read_set_upload_part_list_item())
       }
 
   """
-  @type list_read_set_upload_parts_response() :: %{String.t() => any()}
+  @type list_read_set_upload_parts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3229,22 +3229,22 @@ defmodule AWS.Omics do
   ## Example:
 
       delete_share_response() :: %{
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type delete_share_response() :: %{String.t() => any()}
+  @type delete_share_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_read_set_activation_job_source_item() :: %{
-        "readSetId" => String.t()
+        "readSetId" => String.t() | atom()
       }
 
   """
-  @type start_read_set_activation_job_source_item() :: %{String.t() => any()}
+  @type start_read_set_activation_job_source_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3253,25 +3253,25 @@ defmodule AWS.Omics do
       start_variant_import_request() :: %{
         optional("annotationFields") => map(),
         optional("runLeftNormalization") => boolean(),
-        required("destinationName") => String.t(),
+        required("destinationName") => String.t() | atom(),
         required("items") => list(variant_import_item_source()),
-        required("roleArn") => String.t()
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type start_variant_import_request() :: %{String.t() => any()}
+  @type start_variant_import_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       source_files() :: %{
-        "source1" => String.t(),
-        "source2" => String.t()
+        "source1" => String.t() | atom(),
+        "source2" => String.t() | atom()
       }
 
   """
-  @type source_files() :: %{String.t() => any()}
+  @type source_files() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3294,45 +3294,45 @@ defmodule AWS.Omics do
       }
 
   """
-  @type file_information() :: %{String.t() => any()}
+  @type file_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_read_set_export_job_request() :: %{
-        optional("clientToken") => String.t(),
-        required("destination") => String.t(),
-        required("roleArn") => String.t(),
+        optional("clientToken") => String.t() | atom(),
+        required("destination") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
         required("sources") => list(export_read_set())
       }
 
   """
-  @type start_read_set_export_job_request() :: %{String.t() => any()}
+  @type start_read_set_export_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_variant_import_response() :: %{
-        "jobId" => String.t()
+        "jobId" => String.t() | atom()
       }
 
   """
-  @type start_variant_import_response() :: %{String.t() => any()}
+  @type start_variant_import_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       tsv_store_options() :: %{
-        "annotationType" => String.t(),
+        "annotationType" => String.t() | atom(),
         "formatToHeader" => map(),
         "schema" => list(map())
       }
 
   """
-  @type tsv_store_options() :: %{String.t() => any()}
+  @type tsv_store_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3341,11 +3341,11 @@ defmodule AWS.Omics do
       list_annotation_store_versions_request() :: %{
         optional("filter") => list_annotation_store_versions_filter(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t()]
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_annotation_store_versions_request() :: %{String.t() => any()}
+  @type list_annotation_store_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3353,45 +3353,45 @@ defmodule AWS.Omics do
 
       get_run_response() :: %{
         "priority" => [integer()],
-        "id" => String.t(),
-        "accelerators" => String.t(),
-        "workflowVersionName" => String.t(),
+        "id" => String.t() | atom(),
+        "accelerators" => String.t() | atom(),
+        "workflowVersionName" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "runGroupId" => String.t(),
-        "name" => String.t(),
-        "logLevel" => String.t(),
-        "workflowType" => String.t(),
-        "startedBy" => String.t(),
-        "roleArn" => String.t(),
-        "digest" => String.t(),
-        "runOutputUri" => String.t(),
-        "retentionMode" => String.t(),
-        "uuid" => String.t(),
+        "runGroupId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "logLevel" => String.t() | atom(),
+        "workflowType" => String.t() | atom(),
+        "startedBy" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "digest" => String.t() | atom(),
+        "runOutputUri" => String.t() | atom(),
+        "retentionMode" => String.t() | atom(),
+        "uuid" => String.t() | atom(),
         "storageCapacity" => [integer()],
-        "workflowId" => String.t(),
-        "statusMessage" => String.t(),
-        "workflowUuid" => String.t(),
+        "workflowId" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "workflowUuid" => String.t() | atom(),
         "startTime" => non_neg_integer(),
-        "runId" => String.t(),
-        "engineVersion" => String.t(),
-        "cacheId" => String.t(),
+        "runId" => String.t() | atom(),
+        "engineVersion" => String.t() | atom(),
+        "cacheId" => String.t() | atom(),
         "tags" => map(),
-        "failureReason" => String.t(),
+        "failureReason" => String.t() | atom(),
         "logLocation" => run_log_location(),
-        "outputUri" => String.t(),
-        "definition" => String.t(),
-        "arn" => String.t(),
+        "outputUri" => String.t() | atom(),
+        "definition" => String.t() | atom(),
+        "arn" => String.t() | atom(),
         "parameters" => any(),
-        "cacheBehavior" => String.t(),
-        "storageType" => String.t(),
-        "status" => String.t(),
+        "cacheBehavior" => String.t() | atom(),
+        "storageType" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "stopTime" => non_neg_integer(),
         "resourceDigests" => map(),
-        "workflowOwnerId" => String.t()
+        "workflowOwnerId" => String.t() | atom()
       }
 
   """
-  @type get_run_response() :: %{String.t() => any()}
+  @type get_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3399,12 +3399,12 @@ defmodule AWS.Omics do
 
       list_run_groups_request() :: %{
         optional("maxResults") => [integer()],
-        optional("name") => String.t(),
-        optional("startingToken") => String.t()
+        optional("name") => String.t() | atom(),
+        optional("startingToken") => String.t() | atom()
       }
 
   """
-  @type list_run_groups_request() :: %{String.t() => any()}
+  @type list_run_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3412,33 +3412,33 @@ defmodule AWS.Omics do
 
       list_workflows_response() :: %{
         "items" => list(workflow_list_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_workflows_response() :: %{String.t() => any()}
+  @type list_workflows_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_annotation_stores_filter() :: %{
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type list_annotation_stores_filter() :: %{String.t() => any()}
+  @type list_annotation_stores_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       range_not_satisfiable_exception() :: %{
-        "message" => [String.t()]
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type range_not_satisfiable_exception() :: %{String.t() => any()}
+  @type range_not_satisfiable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3449,36 +3449,36 @@ defmodule AWS.Omics do
       }
 
   """
-  @type complete_multipart_read_set_upload_request() :: %{String.t() => any()}
+  @type complete_multipart_read_set_upload_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       read_set_batch_error() :: %{
-        "code" => [String.t()],
-        "id" => String.t(),
-        "message" => [String.t()]
+        "code" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type read_set_batch_error() :: %{String.t() => any()}
+  @type read_set_batch_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       start_run_response() :: %{
-        "arn" => String.t(),
-        "id" => String.t(),
-        "runOutputUri" => String.t(),
-        "status" => String.t(),
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "runOutputUri" => String.t() | atom(),
+        "status" => String.t() | atom(),
         "tags" => map(),
-        "uuid" => String.t()
+        "uuid" => String.t() | atom()
       }
 
   """
-  @type start_run_response() :: %{String.t() => any()}
+  @type start_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3486,14 +3486,14 @@ defmodule AWS.Omics do
 
       list_runs_request() :: %{
         optional("maxResults") => [integer()],
-        optional("name") => String.t(),
-        optional("runGroupId") => String.t(),
-        optional("startingToken") => String.t(),
-        optional("status") => String.t()
+        optional("name") => String.t() | atom(),
+        optional("runGroupId") => String.t() | atom(),
+        optional("startingToken") => String.t() | atom(),
+        optional("status") => String.t() | atom()
       }
 
   """
-  @type list_runs_request() :: %{String.t() => any()}
+  @type list_runs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3501,21 +3501,21 @@ defmodule AWS.Omics do
 
       get_variant_store_response() :: %{
         "creationTime" => non_neg_integer(),
-        "description" => String.t(),
-        "id" => String.t(),
-        "name" => [String.t()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
         "reference" => list(),
         "sseConfig" => sse_config(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
-        "storeArn" => String.t(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "storeArn" => String.t() | atom(),
         "storeSizeBytes" => [float()],
         "tags" => map(),
         "updateTime" => non_neg_integer()
       }
 
   """
-  @type get_variant_store_response() :: %{String.t() => any()}
+  @type get_variant_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3531,12 +3531,12 @@ defmodule AWS.Omics do
   ## Example:
 
       list_annotation_import_jobs_filter() :: %{
-        "status" => String.t(),
-        "storeName" => [String.t()]
+        "status" => String.t() | atom(),
+        "storeName" => [String.t() | atom()]
       }
 
   """
-  @type list_annotation_import_jobs_filter() :: %{String.t() => any()}
+  @type list_annotation_import_jobs_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3544,11 +3544,11 @@ defmodule AWS.Omics do
 
       list_reference_import_jobs_response() :: %{
         "importJobs" => list(import_reference_job_item()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_reference_import_jobs_response() :: %{String.t() => any()}
+  @type list_reference_import_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3558,31 +3558,31 @@ defmodule AWS.Omics do
         "annotationFields" => map(),
         "completionTime" => non_neg_integer(),
         "creationTime" => non_neg_integer(),
-        "destinationName" => String.t(),
+        "destinationName" => String.t() | atom(),
         "formatOptions" => list(),
-        "id" => String.t(),
+        "id" => String.t() | atom(),
         "items" => list(annotation_import_item_detail()),
-        "roleArn" => String.t(),
+        "roleArn" => String.t() | atom(),
         "runLeftNormalization" => boolean(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
         "updateTime" => non_neg_integer(),
-        "versionName" => String.t()
+        "versionName" => String.t() | atom()
       }
 
   """
-  @type get_annotation_import_response() :: %{String.t() => any()}
+  @type get_annotation_import_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       read_set_s3_access() :: %{
-        "s3Uri" => String.t()
+        "s3Uri" => String.t() | atom()
       }
 
   """
-  @type read_set_s3_access() :: %{String.t() => any()}
+  @type read_set_s3_access() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3593,13 +3593,13 @@ defmodule AWS.Omics do
         optional("maxDuration") => [integer()],
         optional("maxGpus") => [integer()],
         optional("maxRuns") => [integer()],
-        optional("name") => String.t(),
+        optional("name") => String.t() | atom(),
         optional("tags") => map(),
-        required("requestId") => String.t()
+        required("requestId") => String.t() | atom()
       }
 
   """
-  @type create_run_group_request() :: %{String.t() => any()}
+  @type create_run_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3615,12 +3615,12 @@ defmodule AWS.Omics do
   ## Example:
 
       list_variant_import_jobs_filter() :: %{
-        "status" => String.t(),
-        "storeName" => [String.t()]
+        "status" => String.t() | atom(),
+        "storeName" => [String.t() | atom()]
       }
 
   """
-  @type list_variant_import_jobs_filter() :: %{String.t() => any()}
+  @type list_variant_import_jobs_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3629,75 +3629,75 @@ defmodule AWS.Omics do
       export_read_set_filter() :: %{
         "createdAfter" => [non_neg_integer()],
         "createdBefore" => [non_neg_integer()],
-        "status" => String.t()
+        "status" => String.t() | atom()
       }
 
   """
-  @type export_read_set_filter() :: %{String.t() => any()}
+  @type export_read_set_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       sequence_store_detail() :: %{
-        "arn" => String.t(),
+        "arn" => String.t() | atom(),
         "creationTime" => [non_neg_integer()],
-        "description" => String.t(),
-        "eTagAlgorithmFamily" => String.t(),
-        "fallbackLocation" => String.t(),
-        "id" => String.t(),
-        "name" => String.t(),
+        "description" => String.t() | atom(),
+        "eTagAlgorithmFamily" => String.t() | atom(),
+        "fallbackLocation" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "sseConfig" => sse_config(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type sequence_store_detail() :: %{String.t() => any()}
+  @type sequence_store_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       get_workflow_response() :: %{
-        "accelerators" => String.t(),
-        "arn" => String.t(),
+        "accelerators" => String.t() | atom(),
+        "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "definition" => String.t(),
+        "definition" => String.t() | atom(),
         "definitionRepositoryDetails" => definition_repository_details(),
-        "description" => String.t(),
-        "digest" => String.t(),
-        "engine" => String.t(),
-        "id" => String.t(),
-        "main" => String.t(),
+        "description" => String.t() | atom(),
+        "digest" => String.t() | atom(),
+        "engine" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "main" => String.t() | atom(),
         "metadata" => map(),
-        "name" => String.t(),
+        "name" => String.t() | atom(),
         "parameterTemplate" => map(),
-        "readme" => String.t(),
-        "readmePath" => String.t(),
-        "status" => String.t(),
-        "statusMessage" => String.t(),
+        "readme" => String.t() | atom(),
+        "readmePath" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
         "storageCapacity" => [integer()],
-        "storageType" => String.t(),
+        "storageType" => String.t() | atom(),
         "tags" => map(),
-        "type" => String.t(),
-        "uuid" => String.t()
+        "type" => String.t() | atom(),
+        "uuid" => String.t() | atom()
       }
 
   """
-  @type get_workflow_response() :: %{String.t() => any()}
+  @type get_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       export_read_set() :: %{
-        "readSetId" => String.t()
+        "readSetId" => String.t() | atom()
       }
 
   """
-  @type export_read_set() :: %{String.t() => any()}
+  @type export_read_set() :: %{(String.t() | atom()) => any()}
 
   @type abort_multipart_read_set_upload_errors() ::
           throttling_exception()
@@ -4566,8 +4566,8 @@ defmodule AWS.Omics do
   """
   @spec abort_multipart_read_set_upload(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           abort_multipart_read_set_upload_request(),
           list()
         ) ::
@@ -4607,7 +4607,7 @@ defmodule AWS.Omics do
   @doc """
   Accept a resource share request.
   """
-  @spec accept_share(map(), String.t(), accept_share_request(), list()) ::
+  @spec accept_share(map(), String.t() | atom(), accept_share_request(), list()) ::
           {:ok, accept_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4636,7 +4636,7 @@ defmodule AWS.Omics do
   @doc """
   Deletes one or more read sets.
   """
-  @spec batch_delete_read_set(map(), String.t(), batch_delete_read_set_request(), list()) ::
+  @spec batch_delete_read_set(map(), String.t() | atom(), batch_delete_read_set_request(), list()) ::
           {:ok, batch_delete_read_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4667,7 +4667,7 @@ defmodule AWS.Omics do
   """
   @spec cancel_annotation_import_job(
           map(),
-          String.t(),
+          String.t() | atom(),
           cancel_annotation_import_request(),
           list()
         ) ::
@@ -4703,7 +4703,7 @@ defmodule AWS.Omics do
   To confirm that the run has been cancelled, use the `ListRuns` API operation to
   check that it is no longer listed.
   """
-  @spec cancel_run(map(), String.t(), cancel_run_request(), list()) ::
+  @spec cancel_run(map(), String.t() | atom(), cancel_run_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4732,7 +4732,12 @@ defmodule AWS.Omics do
   @doc """
   Cancels a variant import job.
   """
-  @spec cancel_variant_import_job(map(), String.t(), cancel_variant_import_request(), list()) ::
+  @spec cancel_variant_import_job(
+          map(),
+          String.t() | atom(),
+          cancel_variant_import_request(),
+          list()
+        ) ::
           {:ok, cancel_variant_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -4763,8 +4768,8 @@ defmodule AWS.Omics do
   """
   @spec complete_multipart_read_set_upload(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           complete_multipart_read_set_upload_request(),
           list()
         ) ::
@@ -4835,7 +4840,7 @@ defmodule AWS.Omics do
   """
   @spec create_annotation_store_version(
           map(),
-          String.t(),
+          String.t() | atom(),
           create_annotation_store_version_request(),
           list()
         ) ::
@@ -4869,7 +4874,7 @@ defmodule AWS.Omics do
   """
   @spec create_multipart_read_set_upload(
           map(),
-          String.t(),
+          String.t() | atom(),
           create_multipart_read_set_upload_request(),
           list()
         ) ::
@@ -5171,7 +5176,12 @@ defmodule AWS.Omics do
   For more information, see [Workflow versioning in Amazon Web Services HealthOmics](https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html)
   in the *Amazon Web Services HealthOmics User Guide*.
   """
-  @spec create_workflow_version(map(), String.t(), create_workflow_version_request(), list()) ::
+  @spec create_workflow_version(
+          map(),
+          String.t() | atom(),
+          create_workflow_version_request(),
+          list()
+        ) ::
           {:ok, create_workflow_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5200,7 +5210,12 @@ defmodule AWS.Omics do
   @doc """
   Deletes an annotation store.
   """
-  @spec delete_annotation_store(map(), String.t(), delete_annotation_store_request(), list()) ::
+  @spec delete_annotation_store(
+          map(),
+          String.t() | atom(),
+          delete_annotation_store_request(),
+          list()
+        ) ::
           {:ok, delete_annotation_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5236,7 +5251,7 @@ defmodule AWS.Omics do
   """
   @spec delete_annotation_store_versions(
           map(),
-          String.t(),
+          String.t() | atom(),
           delete_annotation_store_versions_request(),
           list()
         ) ::
@@ -5273,7 +5288,13 @@ defmodule AWS.Omics do
   @doc """
   Deletes a genome reference.
   """
-  @spec delete_reference(map(), String.t(), String.t(), delete_reference_request(), list()) ::
+  @spec delete_reference(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_reference_request(),
+          list()
+        ) ::
           {:ok, delete_reference_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5304,7 +5325,12 @@ defmodule AWS.Omics do
   @doc """
   Deletes a genome reference store.
   """
-  @spec delete_reference_store(map(), String.t(), delete_reference_store_request(), list()) ::
+  @spec delete_reference_store(
+          map(),
+          String.t() | atom(),
+          delete_reference_store_request(),
+          list()
+        ) ::
           {:ok, delete_reference_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5347,7 +5373,7 @@ defmodule AWS.Omics do
 
     * Use `GetRun` to verify the workflow cannot be found.
   """
-  @spec delete_run(map(), String.t(), delete_run_request(), list()) ::
+  @spec delete_run(map(), String.t() | atom(), delete_run_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5385,7 +5411,7 @@ defmodule AWS.Omics do
   For more information, see [Deleting a run cache](https://docs.aws.amazon.com/omics/latest/dev/workflow-cache-delete.html)
   in the *Amazon Web Services HealthOmics User Guide*.
   """
-  @spec delete_run_cache(map(), String.t(), delete_run_cache_request(), list()) ::
+  @spec delete_run_cache(map(), String.t() | atom(), delete_run_cache_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5422,7 +5448,7 @@ defmodule AWS.Omics do
 
     * Use `GetRunGroup` to verify the workflow cannot be found.
   """
-  @spec delete_run_group(map(), String.t(), delete_run_group_request(), list()) ::
+  @spec delete_run_group(map(), String.t() | atom(), delete_run_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5451,7 +5477,12 @@ defmodule AWS.Omics do
   @doc """
   Deletes an access policy for the specified store.
   """
-  @spec delete_s3_access_policy(map(), String.t(), delete_s3_access_policy_request(), list()) ::
+  @spec delete_s3_access_policy(
+          map(),
+          String.t() | atom(),
+          delete_s3_access_policy_request(),
+          list()
+        ) ::
           {:ok, delete_s3_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5480,7 +5511,7 @@ defmodule AWS.Omics do
   @doc """
   Deletes a sequence store.
   """
-  @spec delete_sequence_store(map(), String.t(), delete_sequence_store_request(), list()) ::
+  @spec delete_sequence_store(map(), String.t() | atom(), delete_sequence_store_request(), list()) ::
           {:ok, delete_sequence_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5513,7 +5544,7 @@ defmodule AWS.Omics do
   shared resource. If you are the subscriber, this operation deletes your access
   to the share.
   """
-  @spec delete_share(map(), String.t(), delete_share_request(), list()) ::
+  @spec delete_share(map(), String.t() | atom(), delete_share_request(), list()) ::
           {:ok, delete_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5542,7 +5573,7 @@ defmodule AWS.Omics do
   @doc """
   Deletes a variant store.
   """
-  @spec delete_variant_store(map(), String.t(), delete_variant_store_request(), list()) ::
+  @spec delete_variant_store(map(), String.t() | atom(), delete_variant_store_request(), list()) ::
           {:ok, delete_variant_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5585,7 +5616,7 @@ defmodule AWS.Omics do
 
     * Use `GetWorkflow` to verify the workflow cannot be found.
   """
-  @spec delete_workflow(map(), String.t(), delete_workflow_request(), list()) ::
+  @spec delete_workflow(map(), String.t() | atom(), delete_workflow_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5622,8 +5653,8 @@ defmodule AWS.Omics do
   """
   @spec delete_workflow_version(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           delete_workflow_version_request(),
           list()
         ) ::
@@ -5657,7 +5688,7 @@ defmodule AWS.Omics do
   @doc """
   Gets information about an annotation import job.
   """
-  @spec get_annotation_import_job(map(), String.t(), list()) ::
+  @spec get_annotation_import_job(map(), String.t() | atom(), list()) ::
           {:ok, get_annotation_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5675,7 +5706,7 @@ defmodule AWS.Omics do
   @doc """
   Gets information about an annotation store.
   """
-  @spec get_annotation_store(map(), String.t(), list()) ::
+  @spec get_annotation_store(map(), String.t() | atom(), list()) ::
           {:ok, get_annotation_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5693,7 +5724,7 @@ defmodule AWS.Omics do
   @doc """
   Retrieves the metadata for an annotation store version.
   """
-  @spec get_annotation_store_version(map(), String.t(), String.t(), list()) ::
+  @spec get_annotation_store_version(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_annotation_store_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5713,7 +5744,14 @@ defmodule AWS.Omics do
   @doc """
   Gets a file from a read set.
   """
-  @spec get_read_set(map(), String.t(), String.t(), String.t() | nil, String.t(), list()) ::
+  @spec get_read_set(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          list()
+        ) ::
           {:ok, get_read_set_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5754,7 +5792,7 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a read set activation job.
   """
-  @spec get_read_set_activation_job(map(), String.t(), String.t(), list()) ::
+  @spec get_read_set_activation_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_read_set_activation_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5774,7 +5812,7 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a read set export job.
   """
-  @spec get_read_set_export_job(map(), String.t(), String.t(), list()) ::
+  @spec get_read_set_export_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_read_set_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5794,7 +5832,7 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a read set import job.
   """
-  @spec get_read_set_import_job(map(), String.t(), String.t(), list()) ::
+  @spec get_read_set_import_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_read_set_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5814,7 +5852,7 @@ defmodule AWS.Omics do
   @doc """
   Gets details about a read set.
   """
-  @spec get_read_set_metadata(map(), String.t(), String.t(), list()) ::
+  @spec get_read_set_metadata(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_read_set_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5836,11 +5874,11 @@ defmodule AWS.Omics do
   """
   @spec get_reference(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t(),
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_reference_response(), any()}
@@ -5892,7 +5930,7 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a reference import job.
   """
-  @spec get_reference_import_job(map(), String.t(), String.t(), list()) ::
+  @spec get_reference_import_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_reference_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5912,7 +5950,7 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a genome reference's metadata.
   """
-  @spec get_reference_metadata(map(), String.t(), String.t(), list()) ::
+  @spec get_reference_metadata(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_reference_metadata_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5932,7 +5970,7 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a reference store.
   """
-  @spec get_reference_store(map(), String.t(), list()) ::
+  @spec get_reference_store(map(), String.t() | atom(), list()) ::
           {:ok, get_reference_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5957,7 +5995,7 @@ defmodule AWS.Omics do
   [CloudWatch logs](https://docs.aws.amazon.com/omics/latest/dev/monitoring-cloudwatch-logs.html)
   in the *Amazon Web Services HealthOmics User Guide*.
   """
-  @spec get_run(map(), String.t(), String.t() | nil, list()) ::
+  @spec get_run(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_run_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -5985,7 +6023,7 @@ defmodule AWS.Omics do
   For more information, see [Call caching for Amazon Web Services HealthOmics runs](https://docs.aws.amazon.com/omics/latest/dev/workflows-call-caching.html)
   in the *Amazon Web Services HealthOmics User Guide*.
   """
-  @spec get_run_cache(map(), String.t(), list()) ::
+  @spec get_run_cache(map(), String.t() | atom(), list()) ::
           {:ok, get_run_cache_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6003,7 +6041,7 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a run group and returns its metadata.
   """
-  @spec get_run_group(map(), String.t(), list()) ::
+  @spec get_run_group(map(), String.t() | atom(), list()) ::
           {:ok, get_run_group_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6021,7 +6059,7 @@ defmodule AWS.Omics do
   @doc """
   Gets detailed information about a run task using its ID.
   """
-  @spec get_run_task(map(), String.t(), String.t(), list()) ::
+  @spec get_run_task(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_run_task_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6039,7 +6077,7 @@ defmodule AWS.Omics do
   @doc """
   Retrieves details about an access policy on a given store.
   """
-  @spec get_s3_access_policy(map(), String.t(), list()) ::
+  @spec get_s3_access_policy(map(), String.t() | atom(), list()) ::
           {:ok, get_s3_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6057,7 +6095,7 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a sequence store.
   """
-  @spec get_sequence_store(map(), String.t(), list()) ::
+  @spec get_sequence_store(map(), String.t() | atom(), list()) ::
           {:ok, get_sequence_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6075,7 +6113,7 @@ defmodule AWS.Omics do
   @doc """
   Retrieves the metadata for the specified resource share.
   """
-  @spec get_share(map(), String.t(), list()) ::
+  @spec get_share(map(), String.t() | atom(), list()) ::
           {:ok, get_share_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6093,7 +6131,7 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a variant import job.
   """
-  @spec get_variant_import_job(map(), String.t(), list()) ::
+  @spec get_variant_import_job(map(), String.t() | atom(), list()) ::
           {:ok, get_variant_import_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6111,7 +6149,7 @@ defmodule AWS.Omics do
   @doc """
   Gets information about a variant store.
   """
-  @spec get_variant_store(map(), String.t(), list()) ::
+  @spec get_variant_store(map(), String.t() | atom(), list()) ::
           {:ok, get_variant_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6136,10 +6174,10 @@ defmodule AWS.Omics do
   """
   @spec get_workflow(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_workflow_response(), any()}
@@ -6192,11 +6230,11 @@ defmodule AWS.Omics do
   """
   @spec get_workflow_version(
           map(),
-          String.t(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, get_workflow_version_response(), any()}
@@ -6284,7 +6322,7 @@ defmodule AWS.Omics do
   """
   @spec list_annotation_store_versions(
           map(),
-          String.t(),
+          String.t() | atom(),
           list_annotation_store_versions_request(),
           list()
         ) ::
@@ -6362,7 +6400,7 @@ defmodule AWS.Omics do
   """
   @spec list_multipart_read_set_uploads(
           map(),
-          String.t(),
+          String.t() | atom(),
           list_multipart_read_set_uploads_request(),
           list()
         ) ::
@@ -6402,7 +6440,7 @@ defmodule AWS.Omics do
   """
   @spec list_read_set_activation_jobs(
           map(),
-          String.t(),
+          String.t() | atom(),
           list_read_set_activation_jobs_request(),
           list()
         ) ::
@@ -6440,7 +6478,12 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of read set export jobs.
   """
-  @spec list_read_set_export_jobs(map(), String.t(), list_read_set_export_jobs_request(), list()) ::
+  @spec list_read_set_export_jobs(
+          map(),
+          String.t() | atom(),
+          list_read_set_export_jobs_request(),
+          list()
+        ) ::
           {:ok, list_read_set_export_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6475,7 +6518,12 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of read set import jobs.
   """
-  @spec list_read_set_import_jobs(map(), String.t(), list_read_set_import_jobs_request(), list()) ::
+  @spec list_read_set_import_jobs(
+          map(),
+          String.t() | atom(),
+          list_read_set_import_jobs_request(),
+          list()
+        ) ::
           {:ok, list_read_set_import_jobs_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6513,8 +6561,8 @@ defmodule AWS.Omics do
   """
   @spec list_read_set_upload_parts(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           list_read_set_upload_parts_request(),
           list()
         ) ::
@@ -6560,7 +6608,7 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of read sets.
   """
-  @spec list_read_sets(map(), String.t(), list_read_sets_request(), list()) ::
+  @spec list_read_sets(map(), String.t() | atom(), list_read_sets_request(), list()) ::
           {:ok, list_read_sets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6597,7 +6645,7 @@ defmodule AWS.Omics do
   """
   @spec list_reference_import_jobs(
           map(),
-          String.t(),
+          String.t() | atom(),
           list_reference_import_jobs_request(),
           list()
         ) ::
@@ -6670,7 +6718,7 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of references.
   """
-  @spec list_references(map(), String.t(), list_references_request(), list()) ::
+  @spec list_references(map(), String.t() | atom(), list_references_request(), list()) ::
           {:ok, list_references_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6705,7 +6753,7 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of your run caches and the metadata for each cache.
   """
-  @spec list_run_caches(map(), String.t() | nil, String.t() | nil, list()) ::
+  @spec list_run_caches(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_run_caches_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6742,7 +6790,13 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of all run groups and returns the metadata for each run group.
   """
-  @spec list_run_groups(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_run_groups(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, list_run_groups_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -6792,10 +6846,10 @@ defmodule AWS.Omics do
   """
   @spec list_run_tasks(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_run_tasks_response(), any()}
@@ -6852,11 +6906,11 @@ defmodule AWS.Omics do
   """
   @spec list_runs(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_runs_response(), any()}
@@ -6991,7 +7045,7 @@ defmodule AWS.Omics do
   @doc """
   Retrieves a list of tags for a resource.
   """
-  @spec list_tags_for_resource(map(), String.t(), list()) ::
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
           {:ok, list_tags_for_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7084,11 +7138,11 @@ defmodule AWS.Omics do
   """
   @spec list_workflow_versions(
           map(),
-          String.t(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_workflow_versions_response(), any()}
@@ -7151,10 +7205,10 @@ defmodule AWS.Omics do
   """
   @spec list_workflows(
           map(),
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
-          String.t() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_workflows_response(), any()}
@@ -7209,7 +7263,7 @@ defmodule AWS.Omics do
   @doc """
   Adds an access policy to the specified store.
   """
-  @spec put_s3_access_policy(map(), String.t(), put_s3_access_policy_request(), list()) ::
+  @spec put_s3_access_policy(map(), String.t() | atom(), put_s3_access_policy_request(), list()) ::
           {:ok, put_s3_access_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7271,7 +7325,7 @@ defmodule AWS.Omics do
   """
   @spec start_read_set_activation_job(
           map(),
-          String.t(),
+          String.t() | atom(),
           start_read_set_activation_job_request(),
           list()
         ) ::
@@ -7303,7 +7357,12 @@ defmodule AWS.Omics do
   @doc """
   Exports a read set to Amazon S3.
   """
-  @spec start_read_set_export_job(map(), String.t(), start_read_set_export_job_request(), list()) ::
+  @spec start_read_set_export_job(
+          map(),
+          String.t() | atom(),
+          start_read_set_export_job_request(),
+          list()
+        ) ::
           {:ok, start_read_set_export_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7332,7 +7391,12 @@ defmodule AWS.Omics do
   @doc """
   Starts a read set import job.
   """
-  @spec start_read_set_import_job(map(), String.t(), start_read_set_import_job_request(), list()) ::
+  @spec start_read_set_import_job(
+          map(),
+          String.t() | atom(),
+          start_read_set_import_job_request(),
+          list()
+        ) ::
           {:ok, start_read_set_import_job_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7363,7 +7427,7 @@ defmodule AWS.Omics do
   """
   @spec start_reference_import_job(
           map(),
-          String.t(),
+          String.t() | atom(),
           start_reference_import_job_request(),
           list()
         ) ::
@@ -7506,7 +7570,7 @@ defmodule AWS.Omics do
   @doc """
   Tags a resource.
   """
-  @spec tag_resource(map(), String.t(), tag_resource_request(), list()) ::
+  @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
           {:ok, tag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7535,7 +7599,7 @@ defmodule AWS.Omics do
   @doc """
   Removes tags from a resource.
   """
-  @spec untag_resource(map(), String.t(), untag_resource_request(), list()) ::
+  @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
           {:ok, untag_resource_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7569,7 +7633,12 @@ defmodule AWS.Omics do
   @doc """
   Updates an annotation store.
   """
-  @spec update_annotation_store(map(), String.t(), update_annotation_store_request(), list()) ::
+  @spec update_annotation_store(
+          map(),
+          String.t() | atom(),
+          update_annotation_store_request(),
+          list()
+        ) ::
           {:ok, update_annotation_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7600,8 +7669,8 @@ defmodule AWS.Omics do
   """
   @spec update_annotation_store_version(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_annotation_store_version_request(),
           list()
         ) ::
@@ -7649,7 +7718,7 @@ defmodule AWS.Omics do
   For more information, see [How call caching works](https://docs.aws.amazon.com/omics/latest/dev/how-run-cache.html) in the
   *Amazon Web Services HealthOmics User Guide*.
   """
-  @spec update_run_cache(map(), String.t(), update_run_cache_request(), list()) ::
+  @spec update_run_cache(map(), String.t() | atom(), update_run_cache_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7695,7 +7764,7 @@ defmodule AWS.Omics do
   `ListRunGroups` or `GetRunGroup` API operations to verify that the desired
   changes have been made.
   """
-  @spec update_run_group(map(), String.t(), update_run_group_request(), list()) ::
+  @spec update_run_group(map(), String.t() | atom(), update_run_group_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7724,7 +7793,7 @@ defmodule AWS.Omics do
   @doc """
   Update one or more parameters for the sequence store.
   """
-  @spec update_sequence_store(map(), String.t(), update_sequence_store_request(), list()) ::
+  @spec update_sequence_store(map(), String.t() | atom(), update_sequence_store_request(), list()) ::
           {:ok, update_sequence_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7753,7 +7822,7 @@ defmodule AWS.Omics do
   @doc """
   Updates a variant store.
   """
-  @spec update_variant_store(map(), String.t(), update_variant_store_request(), list()) ::
+  @spec update_variant_store(map(), String.t() | atom(), update_variant_store_request(), list()) ::
           {:ok, update_variant_store_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7798,7 +7867,7 @@ defmodule AWS.Omics do
   For more information, see [Update a private workflow](https://docs.aws.amazon.com/omics/latest/dev/update-private-workflow.html)
   in the *Amazon Web Services HealthOmics User Guide*.
   """
-  @spec update_workflow(map(), String.t(), update_workflow_request(), list()) ::
+  @spec update_workflow(map(), String.t() | atom(), update_workflow_request(), list()) ::
           {:ok, nil, any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7832,8 +7901,8 @@ defmodule AWS.Omics do
   """
   @spec update_workflow_version(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           update_workflow_version_request(),
           list()
         ) ::
@@ -7872,8 +7941,8 @@ defmodule AWS.Omics do
   """
   @spec upload_read_set_part(
           map(),
-          String.t(),
-          String.t(),
+          String.t() | atom(),
+          String.t() | atom(),
           upload_read_set_part_request(),
           list()
         ) ::

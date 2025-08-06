@@ -45,7 +45,7 @@ defmodule AWS.MarketplaceAgreement do
       }
       
   """
-  @type renewal_term_configuration() :: %{String.t() => any()}
+  @type renewal_term_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -53,23 +53,23 @@ defmodule AWS.MarketplaceAgreement do
       
       get_agreement_terms_output() :: %{
         "acceptedTerms" => list(list()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type get_agreement_terms_output() :: %{String.t() => any()}
+  @type get_agreement_terms_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       estimated_charges() :: %{
-        "agreementValue" => String.t(),
-        "currencyCode" => String.t()
+        "agreementValue" => String.t() | atom(),
+        "currencyCode" => String.t() | atom()
       }
       
   """
-  @type estimated_charges() :: %{String.t() => any()}
+  @type estimated_charges() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -77,35 +77,35 @@ defmodule AWS.MarketplaceAgreement do
       
       configurable_upfront_pricing_term_configuration() :: %{
         "dimensions" => list(dimension()),
-        "selectorValue" => String.t()
+        "selectorValue" => String.t() | atom()
       }
       
   """
-  @type configurable_upfront_pricing_term_configuration() :: %{String.t() => any()}
+  @type configurable_upfront_pricing_term_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       selector() :: %{
-        "type" => String.t(),
-        "value" => String.t()
+        "type" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
       
   """
-  @type selector() :: %{String.t() => any()}
+  @type selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       support_term() :: %{
-        "refundPolicy" => String.t(),
-        "type" => String.t()
+        "refundPolicy" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type support_term() :: %{String.t() => any()}
+  @type support_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -113,35 +113,35 @@ defmodule AWS.MarketplaceAgreement do
       
       renewal_term() :: %{
         "configuration" => renewal_term_configuration(),
-        "type" => String.t()
+        "type" => String.t() | atom()
       }
       
   """
-  @type renewal_term() :: %{String.t() => any()}
+  @type renewal_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       acceptor() :: %{
-        "accountId" => String.t()
+        "accountId" => String.t() | atom()
       }
       
   """
-  @type acceptor() :: %{String.t() => any()}
+  @type acceptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       document_item() :: %{
-        "type" => String.t(),
-        "url" => String.t(),
-        "version" => String.t()
+        "type" => String.t() | atom(),
+        "url" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
       
   """
-  @type document_item() :: %{String.t() => any()}
+  @type document_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -150,8 +150,8 @@ defmodule AWS.MarketplaceAgreement do
       agreement_view_summary() :: %{
         "acceptanceTime" => non_neg_integer(),
         "acceptor" => acceptor(),
-        "agreementId" => String.t(),
-        "agreementType" => String.t(),
+        "agreementId" => String.t() | atom(),
+        "agreementType" => String.t() | atom(),
         "endTime" => non_neg_integer(),
         "proposalSummary" => proposal_summary(),
         "proposer" => proposer(),
@@ -160,21 +160,21 @@ defmodule AWS.MarketplaceAgreement do
       }
       
   """
-  @type agreement_view_summary() :: %{String.t() => any()}
+  @type agreement_view_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource_not_found_exception() :: %{
-        "message" => String.t(),
-        "requestId" => String.t(),
-        "resourceId" => String.t(),
+        "message" => String.t() | atom(),
+        "requestId" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
         "resourceType" => list(any())
       }
       
   """
-  @type resource_not_found_exception() :: %{String.t() => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -183,8 +183,8 @@ defmodule AWS.MarketplaceAgreement do
       describe_agreement_output() :: %{
         "acceptanceTime" => non_neg_integer(),
         "acceptor" => acceptor(),
-        "agreementId" => String.t(),
-        "agreementType" => String.t(),
+        "agreementId" => String.t() | atom(),
+        "agreementType" => String.t() | atom(),
         "endTime" => non_neg_integer(),
         "estimatedCharges" => estimated_charges(),
         "proposalSummary" => proposal_summary(),
@@ -194,68 +194,68 @@ defmodule AWS.MarketplaceAgreement do
       }
       
   """
-  @type describe_agreement_output() :: %{String.t() => any()}
+  @type describe_agreement_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       usage_based_pricing_term() :: %{
-        "currencyCode" => String.t(),
+        "currencyCode" => String.t() | atom(),
         "rateCards" => list(usage_based_rate_card_item()),
-        "type" => String.t()
+        "type" => String.t() | atom()
       }
       
   """
-  @type usage_based_pricing_term() :: %{String.t() => any()}
+  @type usage_based_pricing_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       byol_pricing_term() :: %{
-        "type" => String.t()
+        "type" => String.t() | atom()
       }
       
   """
-  @type byol_pricing_term() :: %{String.t() => any()}
+  @type byol_pricing_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       recurring_payment_term() :: %{
-        "billingPeriod" => String.t(),
-        "currencyCode" => String.t(),
-        "price" => String.t(),
-        "type" => String.t()
+        "billingPeriod" => String.t() | atom(),
+        "currencyCode" => String.t() | atom(),
+        "price" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type recurring_payment_term() :: %{String.t() => any()}
+  @type recurring_payment_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       proposer() :: %{
-        "accountId" => String.t()
+        "accountId" => String.t() | atom()
       }
       
   """
-  @type proposer() :: %{String.t() => any()}
+  @type proposer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       grant_item() :: %{
-        "dimensionKey" => String.t(),
+        "dimensionKey" => String.t() | atom(),
         "maxQuantity" => integer()
       }
       
   """
-  @type grant_item() :: %{String.t() => any()}
+  @type grant_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -263,36 +263,36 @@ defmodule AWS.MarketplaceAgreement do
       
       legal_term() :: %{
         "documents" => list(document_item()),
-        "type" => String.t()
+        "type" => String.t() | atom()
       }
       
   """
-  @type legal_term() :: %{String.t() => any()}
+  @type legal_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validation_exception_field() :: %{
-        "message" => String.t(),
-        "name" => String.t()
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
       
   """
-  @type validation_exception_field() :: %{String.t() => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       payment_schedule_term() :: %{
-        "currencyCode" => String.t(),
+        "currencyCode" => String.t() | atom(),
         "schedule" => list(schedule_item()),
-        "type" => String.t()
+        "type" => String.t() | atom()
       }
       
   """
-  @type payment_schedule_term() :: %{String.t() => any()}
+  @type payment_schedule_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -303,7 +303,7 @@ defmodule AWS.MarketplaceAgreement do
       }
       
   """
-  @type usage_based_rate_card_item() :: %{String.t() => any()}
+  @type usage_based_rate_card_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -311,47 +311,47 @@ defmodule AWS.MarketplaceAgreement do
       
       get_agreement_terms_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
-        required("agreementId") => String.t()
+        optional("nextToken") => String.t() | atom(),
+        required("agreementId") => String.t() | atom()
       }
       
   """
-  @type get_agreement_terms_input() :: %{String.t() => any()}
+  @type get_agreement_terms_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       filter() :: %{
-        "name" => String.t(),
-        "values" => list(String.t())
+        "name" => String.t() | atom(),
+        "values" => list(String.t() | atom())
       }
       
   """
-  @type filter() :: %{String.t() => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       sort() :: %{
-        "sortBy" => String.t(),
+        "sortBy" => String.t() | atom(),
         "sortOrder" => list(any())
       }
       
   """
-  @type sort() :: %{String.t() => any()}
+  @type sort() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       describe_agreement_input() :: %{
-        required("agreementId") => String.t()
+        required("agreementId") => String.t() | atom()
       }
       
   """
-  @type describe_agreement_input() :: %{String.t() => any()}
+  @type describe_agreement_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -359,77 +359,77 @@ defmodule AWS.MarketplaceAgreement do
       
       search_agreements_output() :: %{
         "agreementViewSummaries" => list(agreement_view_summary()),
-        "nextToken" => String.t()
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type search_agreements_output() :: %{String.t() => any()}
+  @type search_agreements_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       internal_server_exception() :: %{
-        "message" => String.t(),
-        "requestId" => String.t()
+        "message" => String.t() | atom(),
+        "requestId" => String.t() | atom()
       }
       
   """
-  @type internal_server_exception() :: %{String.t() => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       fixed_upfront_pricing_term() :: %{
-        "currencyCode" => String.t(),
-        "duration" => String.t(),
+        "currencyCode" => String.t() | atom(),
+        "duration" => String.t() | atom(),
         "grants" => list(grant_item()),
-        "price" => String.t(),
-        "type" => String.t()
+        "price" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type fixed_upfront_pricing_term() :: %{String.t() => any()}
+  @type fixed_upfront_pricing_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       search_agreements_input() :: %{
-        optional("catalog") => String.t(),
+        optional("catalog") => String.t() | atom(),
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t(),
+        optional("nextToken") => String.t() | atom(),
         optional("sort") => sort()
       }
       
   """
-  @type search_agreements_input() :: %{String.t() => any()}
+  @type search_agreements_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       constraints() :: %{
-        "multipleDimensionSelection" => String.t(),
-        "quantityConfiguration" => String.t()
+        "multipleDimensionSelection" => String.t() | atom(),
+        "quantityConfiguration" => String.t() | atom()
       }
       
   """
-  @type constraints() :: %{String.t() => any()}
+  @type constraints() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "message" => String.t(),
-        "requestId" => String.t()
+        "message" => String.t() | atom(),
+        "requestId" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -442,19 +442,19 @@ defmodule AWS.MarketplaceAgreement do
       }
       
   """
-  @type configurable_upfront_rate_card_item() :: %{String.t() => any()}
+  @type configurable_upfront_rate_card_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       schedule_item() :: %{
-        "chargeAmount" => String.t(),
+        "chargeAmount" => String.t() | atom(),
         "chargeDate" => non_neg_integer()
       }
       
   """
-  @type schedule_item() :: %{String.t() => any()}
+  @type schedule_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -462,88 +462,88 @@ defmodule AWS.MarketplaceAgreement do
       
       validation_exception() :: %{
         "fields" => list(validation_exception_field()),
-        "message" => String.t(),
+        "message" => String.t() | atom(),
         "reason" => list(any()),
-        "requestId" => String.t()
+        "requestId" => String.t() | atom()
       }
       
   """
-  @type validation_exception() :: %{String.t() => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       proposal_summary() :: %{
-        "offerId" => String.t(),
+        "offerId" => String.t() | atom(),
         "resources" => list(resource())
       }
       
   """
-  @type proposal_summary() :: %{String.t() => any()}
+  @type proposal_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       throttling_exception() :: %{
-        "message" => String.t(),
-        "requestId" => String.t()
+        "message" => String.t() | atom(),
+        "requestId" => String.t() | atom()
       }
       
   """
-  @type throttling_exception() :: %{String.t() => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       free_trial_pricing_term() :: %{
-        "duration" => String.t(),
+        "duration" => String.t() | atom(),
         "grants" => list(grant_item()),
-        "type" => String.t()
+        "type" => String.t() | atom()
       }
       
   """
-  @type free_trial_pricing_term() :: %{String.t() => any()}
+  @type free_trial_pricing_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       dimension() :: %{
-        "dimensionKey" => String.t(),
+        "dimensionKey" => String.t() | atom(),
         "dimensionValue" => integer()
       }
       
   """
-  @type dimension() :: %{String.t() => any()}
+  @type dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       validity_term() :: %{
-        "agreementDuration" => String.t(),
+        "agreementDuration" => String.t() | atom(),
         "agreementEndDate" => non_neg_integer(),
         "agreementStartDate" => non_neg_integer(),
-        "type" => String.t()
+        "type" => String.t() | atom()
       }
       
   """
-  @type validity_term() :: %{String.t() => any()}
+  @type validity_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       rate_card_item() :: %{
-        "dimensionKey" => String.t(),
-        "price" => String.t()
+        "dimensionKey" => String.t() | atom(),
+        "price" => String.t() | atom()
       }
       
   """
-  @type rate_card_item() :: %{String.t() => any()}
+  @type rate_card_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -551,25 +551,25 @@ defmodule AWS.MarketplaceAgreement do
       
       configurable_upfront_pricing_term() :: %{
         "configuration" => configurable_upfront_pricing_term_configuration(),
-        "currencyCode" => String.t(),
+        "currencyCode" => String.t() | atom(),
         "rateCards" => list(configurable_upfront_rate_card_item()),
-        "type" => String.t()
+        "type" => String.t() | atom()
       }
       
   """
-  @type configurable_upfront_pricing_term() :: %{String.t() => any()}
+  @type configurable_upfront_pricing_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       resource() :: %{
-        "id" => String.t(),
-        "type" => String.t()
+        "id" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type resource() :: %{String.t() => any()}
+  @type resource() :: %{(String.t() | atom()) => any()}
 
   @type describe_agreement_errors() ::
           throttling_exception()
@@ -617,7 +617,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, describe_agreement_errors()}
   def describe_agreement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAgreement", input, options)
   end
@@ -659,7 +660,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, get_agreement_terms_errors()}
   def get_agreement_terms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAgreementTerms", input, options)
   end
@@ -750,7 +752,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, search_agreements_errors()}
   def search_agreements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchAgreements", input, options)
   end

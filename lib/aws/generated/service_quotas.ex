@@ -34,61 +34,61 @@ defmodule AWS.ServiceQuotas do
       }
       
   """
-  @type request_service_quota_increase_response() :: %{String.t() => any()}
+  @type request_service_quota_increase_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
+        required("ResourceARN") => String.t() | atom(),
         required("Tags") => list(tag())
       }
       
   """
-  @type tag_resource_request() :: %{String.t() => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_aws_default_service_quota_request() :: %{
-        required("QuotaCode") => String.t(),
-        required("ServiceCode") => String.t()
+        required("QuotaCode") => String.t() | atom(),
+        required("ServiceCode") => String.t() | atom()
       }
       
   """
-  @type get_aws_default_service_quota_request() :: %{String.t() => any()}
+  @type get_aws_default_service_quota_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_quotas_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Quotas" => list(service_quota())
       }
       
   """
-  @type list_service_quotas_response() :: %{String.t() => any()}
+  @type list_service_quotas_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_increase_request_in_template() :: %{
-        "AwsRegion" => String.t(),
+        "AwsRegion" => String.t() | atom(),
         "DesiredValue" => float(),
         "GlobalQuota" => boolean(),
-        "QuotaCode" => String.t(),
-        "QuotaName" => String.t(),
-        "ServiceCode" => String.t(),
-        "ServiceName" => String.t(),
-        "Unit" => String.t()
+        "QuotaCode" => String.t() | atom(),
+        "QuotaName" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom(),
+        "ServiceName" => String.t() | atom(),
+        "Unit" => String.t() | atom()
       }
       
   """
-  @type service_quota_increase_request_in_template() :: %{String.t() => any()}
+  @type service_quota_increase_request_in_template() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -96,12 +96,12 @@ defmodule AWS.ServiceQuotas do
       
       list_aws_default_service_quotas_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        required("ServiceCode") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        required("ServiceCode") => String.t() | atom()
       }
       
   """
-  @type list_aws_default_service_quotas_request() :: %{String.t() => any()}
+  @type list_aws_default_service_quotas_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -121,7 +121,7 @@ defmodule AWS.ServiceQuotas do
       }
       
   """
-  @type get_requested_service_quota_change_response() :: %{String.t() => any()}
+  @type get_requested_service_quota_change_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -137,36 +137,38 @@ defmodule AWS.ServiceQuotas do
   ## Example:
       
       dependency_access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type dependency_access_denied_exception() :: %{String.t() => any()}
+  @type dependency_access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       put_service_quota_increase_request_into_template_request() :: %{
-        required("AwsRegion") => String.t(),
+        required("AwsRegion") => String.t() | atom(),
         required("DesiredValue") => float(),
-        required("QuotaCode") => String.t(),
-        required("ServiceCode") => String.t()
+        required("QuotaCode") => String.t() | atom(),
+        required("ServiceCode") => String.t() | atom()
       }
       
   """
-  @type put_service_quota_increase_request_into_template_request() :: %{String.t() => any()}
+  @type put_service_quota_increase_request_into_template_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       quota_exceeded_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type quota_exceeded_exception() :: %{String.t() => any()}
+  @type quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -177,7 +179,7 @@ defmodule AWS.ServiceQuotas do
       }
       
   """
-  @type get_aws_default_service_quota_response() :: %{String.t() => any()}
+  @type get_aws_default_service_quota_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -188,68 +190,74 @@ defmodule AWS.ServiceQuotas do
       }
       
   """
-  @type get_service_quota_increase_request_from_template_response() :: %{String.t() => any()}
+  @type get_service_quota_increase_request_from_template_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       list_service_quota_increase_requests_in_template_request() :: %{
-        optional("AwsRegion") => String.t(),
+        optional("AwsRegion") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
-        optional("ServiceCode") => String.t()
+        optional("NextToken") => String.t() | atom(),
+        optional("ServiceCode") => String.t() | atom()
       }
       
   """
-  @type list_service_quota_increase_requests_in_template_request() :: %{String.t() => any()}
+  @type list_service_quota_increase_requests_in_template_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       illegal_argument_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type illegal_argument_exception() :: %{String.t() => any()}
+  @type illegal_argument_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       untag_resource_request() :: %{
-        required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t())
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type untag_resource_request() :: %{String.t() => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       too_many_requests_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type too_many_requests_exception() :: %{String.t() => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       delete_service_quota_increase_request_from_template_request() :: %{
-        required("AwsRegion") => String.t(),
-        required("QuotaCode") => String.t(),
-        required("ServiceCode") => String.t()
+        required("AwsRegion") => String.t() | atom(),
+        required("QuotaCode") => String.t() | atom(),
+        required("ServiceCode") => String.t() | atom()
       }
       
   """
-  @type delete_service_quota_increase_request_from_template_request() :: %{String.t() => any()}
+  @type delete_service_quota_increase_request_from_template_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -265,12 +273,14 @@ defmodule AWS.ServiceQuotas do
   ## Example:
       
       list_requested_service_quota_change_history_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "RequestedQuotas" => list(requested_service_quota_change())
       }
       
   """
-  @type list_requested_service_quota_change_history_response() :: %{String.t() => any()}
+  @type list_requested_service_quota_change_history_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -278,11 +288,11 @@ defmodule AWS.ServiceQuotas do
       
       list_services_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_services_request() :: %{String.t() => any()}
+  @type list_services_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -293,7 +303,9 @@ defmodule AWS.ServiceQuotas do
       }
       
   """
-  @type put_service_quota_increase_request_into_template_response() :: %{String.t() => any()}
+  @type put_service_quota_increase_request_into_template_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -301,13 +313,13 @@ defmodule AWS.ServiceQuotas do
       
       metric_info() :: %{
         "MetricDimensions" => map(),
-        "MetricName" => String.t(),
-        "MetricNamespace" => String.t(),
-        "MetricStatisticRecommendation" => String.t()
+        "MetricName" => String.t() | atom(),
+        "MetricNamespace" => String.t() | atom(),
+        "MetricStatisticRecommendation" => String.t() | atom()
       }
       
   """
-  @type metric_info() :: %{String.t() => any()}
+  @type metric_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -323,26 +335,26 @@ defmodule AWS.ServiceQuotas do
   ## Example:
       
       requested_service_quota_change() :: %{
-        "CaseId" => String.t(),
+        "CaseId" => String.t() | atom(),
         "Created" => non_neg_integer(),
         "DesiredValue" => float(),
         "GlobalQuota" => boolean(),
-        "Id" => String.t(),
+        "Id" => String.t() | atom(),
         "LastUpdated" => non_neg_integer(),
-        "QuotaArn" => String.t(),
-        "QuotaCode" => String.t(),
+        "QuotaArn" => String.t() | atom(),
+        "QuotaCode" => String.t() | atom(),
         "QuotaContext" => quota_context_info(),
-        "QuotaName" => String.t(),
+        "QuotaName" => String.t() | atom(),
         "QuotaRequestedAtLevel" => list(any()),
-        "Requester" => String.t(),
-        "ServiceCode" => String.t(),
-        "ServiceName" => String.t(),
+        "Requester" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom(),
+        "ServiceName" => String.t() | atom(),
         "Status" => list(any()),
-        "Unit" => String.t()
+        "Unit" => String.t() | atom()
       }
       
   """
-  @type requested_service_quota_change() :: %{String.t() => any()}
+  @type requested_service_quota_change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -358,23 +370,23 @@ defmodule AWS.ServiceQuotas do
   ## Example:
       
       list_aws_default_service_quotas_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Quotas" => list(service_quota())
       }
       
   """
-  @type list_aws_default_service_quotas_response() :: %{String.t() => any()}
+  @type list_aws_default_service_quotas_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       organization_not_in_all_features_mode_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type organization_not_in_all_features_mode_exception() :: %{String.t() => any()}
+  @type organization_not_in_all_features_mode_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -390,49 +402,51 @@ defmodule AWS.ServiceQuotas do
   ## Example:
       
       tag() :: %{
-        "Key" => String.t(),
-        "Value" => String.t()
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{String.t() => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_requested_service_quota_change_history_by_quota_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "RequestedQuotas" => list(requested_service_quota_change())
       }
       
   """
-  @type list_requested_service_quota_change_history_by_quota_response() :: %{String.t() => any()}
+  @type list_requested_service_quota_change_history_by_quota_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       list_services_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "Services" => list(service_info())
       }
       
   """
-  @type list_services_response() :: %{String.t() => any()}
+  @type list_services_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       quota_context_info() :: %{
-        "ContextId" => String.t(),
+        "ContextId" => String.t() | atom(),
         "ContextScope" => list(any()),
-        "ContextScopeType" => String.t()
+        "ContextScopeType" => String.t() | atom()
       }
       
   """
-  @type quota_context_info() :: %{String.t() => any()}
+  @type quota_context_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -443,44 +457,44 @@ defmodule AWS.ServiceQuotas do
       }
       
   """
-  @type get_service_quota_response() :: %{String.t() => any()}
+  @type get_service_quota_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       request_service_quota_increase_request() :: %{
-        optional("ContextId") => String.t(),
+        optional("ContextId") => String.t() | atom(),
         optional("SupportCaseAllowed") => boolean(),
         required("DesiredValue") => float(),
-        required("QuotaCode") => String.t(),
-        required("ServiceCode") => String.t()
+        required("QuotaCode") => String.t() | atom(),
+        required("ServiceCode") => String.t() | atom()
       }
       
   """
-  @type request_service_quota_increase_request() :: %{String.t() => any()}
+  @type request_service_quota_increase_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type service_exception() :: %{String.t() => any()}
+  @type service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       create_support_case_request() :: %{
-        required("RequestId") => String.t()
+        required("RequestId") => String.t() | atom()
       }
       
   """
-  @type create_support_case_request() :: %{String.t() => any()}
+  @type create_support_case_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -491,7 +505,7 @@ defmodule AWS.ServiceQuotas do
       }
       
   """
-  @type list_tags_for_resource_response() :: %{String.t() => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -511,40 +525,40 @@ defmodule AWS.ServiceQuotas do
       }
       
   """
-  @type get_association_for_service_quota_template_response() :: %{String.t() => any()}
+  @type get_association_for_service_quota_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       invalid_resource_state_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_resource_state_exception() :: %{String.t() => any()}
+  @type invalid_resource_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_such_resource_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type no_such_resource_exception() :: %{String.t() => any()}
+  @type no_such_resource_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       access_denied_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{String.t() => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -552,25 +566,25 @@ defmodule AWS.ServiceQuotas do
       
       list_service_quotas_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("QuotaAppliedAtLevel") => list(any()),
-        optional("QuotaCode") => String.t(),
-        required("ServiceCode") => String.t()
+        optional("QuotaCode") => String.t() | atom(),
+        required("ServiceCode") => String.t() | atom()
       }
       
   """
-  @type list_service_quotas_request() :: %{String.t() => any()}
+  @type list_service_quotas_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_requested_service_quota_change_request() :: %{
-        required("RequestId") => String.t()
+        required("RequestId") => String.t() | atom()
       }
       
   """
-  @type get_requested_service_quota_change_request() :: %{String.t() => any()}
+  @type get_requested_service_quota_change_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -587,24 +601,24 @@ defmodule AWS.ServiceQuotas do
       
       service_quota() :: %{
         "Adjustable" => boolean(),
-        "Description" => String.t(),
+        "Description" => String.t() | atom(),
         "ErrorReason" => error_reason(),
         "GlobalQuota" => boolean(),
         "Period" => quota_period(),
         "QuotaAppliedAtLevel" => list(any()),
-        "QuotaArn" => String.t(),
-        "QuotaCode" => String.t(),
+        "QuotaArn" => String.t() | atom(),
+        "QuotaCode" => String.t() | atom(),
         "QuotaContext" => quota_context_info(),
-        "QuotaName" => String.t(),
-        "ServiceCode" => String.t(),
-        "ServiceName" => String.t(),
-        "Unit" => String.t(),
+        "QuotaName" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom(),
+        "ServiceName" => String.t() | atom(),
+        "Unit" => String.t() | atom(),
         "UsageMetric" => metric_info(),
         "Value" => float()
       }
       
   """
-  @type service_quota() :: %{String.t() => any()}
+  @type service_quota() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -612,36 +626,36 @@ defmodule AWS.ServiceQuotas do
       
       list_requested_service_quota_change_history_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("QuotaRequestedAtLevel") => list(any()),
-        optional("ServiceCode") => String.t(),
+        optional("ServiceCode") => String.t() | atom(),
         optional("Status") => list(any())
       }
       
   """
-  @type list_requested_service_quota_change_history_request() :: %{String.t() => any()}
+  @type list_requested_service_quota_change_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t()
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{String.t() => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       no_available_organization_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type no_available_organization_exception() :: %{String.t() => any()}
+  @type no_available_organization_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -649,22 +663,22 @@ defmodule AWS.ServiceQuotas do
       
       error_reason() :: %{
         "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t()
+        "ErrorMessage" => String.t() | atom()
       }
       
   """
-  @type error_reason() :: %{String.t() => any()}
+  @type error_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_quota_template_not_in_use_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type service_quota_template_not_in_use_exception() :: %{String.t() => any()}
+  @type service_quota_template_not_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -680,60 +694,62 @@ defmodule AWS.ServiceQuotas do
   ## Example:
       
       get_service_quota_request() :: %{
-        optional("ContextId") => String.t(),
-        required("QuotaCode") => String.t(),
-        required("ServiceCode") => String.t()
+        optional("ContextId") => String.t() | atom(),
+        required("QuotaCode") => String.t() | atom(),
+        required("ServiceCode") => String.t() | atom()
       }
       
   """
-  @type get_service_quota_request() :: %{String.t() => any()}
+  @type get_service_quota_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       templates_not_available_in_region_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type templates_not_available_in_region_exception() :: %{String.t() => any()}
+  @type templates_not_available_in_region_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       get_service_quota_increase_request_from_template_request() :: %{
-        required("AwsRegion") => String.t(),
-        required("QuotaCode") => String.t(),
-        required("ServiceCode") => String.t()
+        required("AwsRegion") => String.t() | atom(),
+        required("QuotaCode") => String.t() | atom(),
+        required("ServiceCode") => String.t() | atom()
       }
       
   """
-  @type get_service_quota_increase_request_from_template_request() :: %{String.t() => any()}
+  @type get_service_quota_increase_request_from_template_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       resource_already_exists_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type resource_already_exists_exception() :: %{String.t() => any()}
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       service_info() :: %{
-        "ServiceCode" => String.t(),
-        "ServiceName" => String.t()
+        "ServiceCode" => String.t() | atom(),
+        "ServiceName" => String.t() | atom()
       }
       
   """
-  @type service_info() :: %{String.t() => any()}
+  @type service_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -745,18 +761,18 @@ defmodule AWS.ServiceQuotas do
       }
       
   """
-  @type quota_period() :: %{String.t() => any()}
+  @type quota_period() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       aws_service_access_not_enabled_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type aws_service_access_not_enabled_exception() :: %{String.t() => any()}
+  @type aws_service_access_not_enabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -764,60 +780,64 @@ defmodule AWS.ServiceQuotas do
       
       list_requested_service_quota_change_history_by_quota_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t(),
+        optional("NextToken") => String.t() | atom(),
         optional("QuotaRequestedAtLevel") => list(any()),
         optional("Status") => list(any()),
-        required("QuotaCode") => String.t(),
-        required("ServiceCode") => String.t()
+        required("QuotaCode") => String.t() | atom(),
+        required("ServiceCode") => String.t() | atom()
       }
       
   """
-  @type list_requested_service_quota_change_history_by_quota_request() :: %{String.t() => any()}
+  @type list_requested_service_quota_change_history_by_quota_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       too_many_tags_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type too_many_tags_exception() :: %{String.t() => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       tag_policy_violation_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type tag_policy_violation_exception() :: %{String.t() => any()}
+  @type tag_policy_violation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
       list_service_quota_increase_requests_in_template_response() :: %{
-        "NextToken" => String.t(),
+        "NextToken" => String.t() | atom(),
         "ServiceQuotaIncreaseRequestInTemplateList" => list(service_quota_increase_request_in_template())
       }
       
   """
-  @type list_service_quota_increase_requests_in_template_response() :: %{String.t() => any()}
+  @type list_service_quota_increase_requests_in_template_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
       invalid_pagination_token_exception() :: %{
-        "Message" => String.t()
+        "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_pagination_token_exception() :: %{String.t() => any()}
+  @type invalid_pagination_token_exception() :: %{(String.t() | atom()) => any()}
 
   @type associate_service_quota_template_errors() ::
           aws_service_access_not_enabled_exception()
@@ -1033,7 +1053,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, associate_service_quota_template_errors()}
   def associate_service_quota_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateServiceQuotaTemplate", input, options)
   end
@@ -1050,7 +1071,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, create_support_case_errors()}
   def create_support_case(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSupportCase", input, options)
   end
@@ -1074,7 +1096,8 @@ defmodule AWS.ServiceQuotas do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1103,7 +1126,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, disassociate_service_quota_template_errors()}
   def disassociate_service_quota_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateServiceQuotaTemplate", input, options)
   end
@@ -1121,7 +1145,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, get_association_for_service_quota_template_errors()}
   def get_association_for_service_quota_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAssociationForServiceQuotaTemplate", input, options)
   end
@@ -1138,7 +1163,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, get_aws_default_service_quota_errors()}
   def get_aws_default_service_quota(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAWSDefaultServiceQuota", input, options)
   end
@@ -1156,7 +1182,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, get_requested_service_quota_change_errors()}
   def get_requested_service_quota_change(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRequestedServiceQuotaChange", input, options)
   end
@@ -1176,7 +1203,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, get_service_quota_errors()}
   def get_service_quota(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetServiceQuota", input, options)
   end
@@ -1196,7 +1224,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, get_service_quota_increase_request_from_template_errors()}
   def get_service_quota_increase_request_from_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1220,7 +1249,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, list_aws_default_service_quotas_errors()}
   def list_aws_default_service_quotas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAWSDefaultServiceQuotas", input, options)
   end
@@ -1243,7 +1273,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, list_requested_service_quota_change_history_errors()}
   def list_requested_service_quota_change_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRequestedServiceQuotaChangeHistory", input, options)
   end
@@ -1268,7 +1299,8 @@ defmodule AWS.ServiceQuotas do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1292,7 +1324,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, list_service_quota_increase_requests_in_template_errors()}
   def list_service_quota_increase_requests_in_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1319,7 +1352,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, list_service_quotas_errors()}
   def list_service_quotas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServiceQuotas", input, options)
   end
@@ -1334,7 +1368,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, list_services_errors()}
   def list_services(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServices", input, options)
   end
@@ -1348,7 +1383,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1366,7 +1402,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, put_service_quota_increase_request_into_template_errors()}
   def put_service_quota_increase_request_into_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1387,7 +1424,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, request_service_quota_increase_errors()}
   def request_service_quota_increase(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RequestServiceQuotaIncrease", input, options)
   end
@@ -1404,7 +1442,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1421,7 +1460,8 @@ defmodule AWS.ServiceQuotas do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
